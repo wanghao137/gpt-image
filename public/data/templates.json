@@ -1,0 +1,310 @@
+[
+  {
+    "id": "ui-screenshot-system",
+    "title": "UI 截图系统",
+    "category": "UI 与界面",
+    "tags": [
+      "UI",
+      "Dashboard",
+      "Screenshot"
+    ],
+    "description": "生成 App、网页、仪表盘、社媒截图等高保真界面。",
+    "cover": "https://gpt-image2.canghe.ai/images/case17.jpg",
+    "prompt": "模板：UI 截图系统\n用途：用于 App 截图、仪表盘、社媒截图和直播界面。\n视觉方向：UI / Dashboard / Screenshot / Tech / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 锁定平台、比例、层级和画面文字。\n- 明确状态栏、Tab、操作区、评论层等 UI 元素。\n\n防坑指南：\n- 避免平台描述过泛。\n- 约束文字可读性和平台特征。",
+    "useWhen": "用于 App 截图、仪表盘、社媒截图和直播界面。"
+  },
+  {
+    "id": "infographic-engine",
+    "title": "信息图引擎",
+    "category": "图表与信息图",
+    "tags": [
+      "Infographic",
+      "Chart",
+      "Education"
+    ],
+    "description": "生成结构化图解、时间线、知识图谱和技术解释图。",
+    "cover": "https://gpt-image2.canghe.ai/images/case334.png",
+    "prompt": "模板：信息图引擎\n用途：用于解释图、技术图解、时间线和知识卡片。\n视觉方向：Infographic / Chart / Education / Charts / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义 3-5 个模块、信息流、层级和短标签。\n- 用色块、箭头、图标和留白控制复杂度。\n\n防坑指南：\n- 避免把长段正文塞进画面。\n- 先限制模块数量，再补视觉细节。",
+    "useWhen": "用于解释图、技术图解、时间线和知识卡片。"
+  },
+  {
+    "id": "scientific-scale-diagram",
+    "title": "科学尺度缩放图",
+    "category": "图表与信息图",
+    "tags": [
+      "Infographic",
+      "Chart",
+      "Education"
+    ],
+    "description": "生成多尺度科学信息图，强调层级、标签和可读性。",
+    "cover": "https://gpt-image2.canghe.ai/images/case341.jpg",
+    "prompt": "模板：科学尺度缩放图\n用途：用于需要从微观到宏观展示尺度变化的科普主题。\n视觉方向：Infographic / Chart / Education / Charts / Realistic / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用 6-8 个尺度框，每个标签保持短句。\n- 展示单位、倍率和不同尺度的细节。\n\n防坑指南：\n- 避免所有尺度框长得一样。\n- 避免通用放大镜式布局。",
+    "useWhen": "用于需要从微观到宏观展示尺度变化的科普主题。"
+  },
+  {
+    "id": "poster-layout-system",
+    "title": "海报排版系统",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Typography",
+      "Campaign"
+    ],
+    "description": "生成活动、产品、电影和社媒传播海报。",
+    "cover": "https://gpt-image2.canghe.ai/images/case345.jpg",
+    "prompt": "模板：海报排版系统\n用途：用于活动海报、电影海报、封面和社媒传播视觉。\n视觉方向：Poster / Typography / Campaign / Commerce / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 锁定主体、标题、版式、配色和比例。\n- 突出标题层级和主视觉。\n\n防坑指南：\n- 需要成品海报时，避免生成拼贴展示板。\n- 约束多余文字和装饰符号。",
+    "useWhen": "用于活动海报、电影海报、封面和社媒传播视觉。"
+  },
+  {
+    "id": "sports-campaign-poster",
+    "title": "运动商业 Campaign",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Campaign",
+      "Typography"
+    ],
+    "description": "生成运动员、道具、品牌色统一的商业运动海报。",
+    "cover": "https://gpt-image2.canghe.ai/images/case350.jpg",
+    "prompt": "模板：运动商业 Campaign\n用途：用于运动品牌 Campaign、运动员海报和运动产品视觉。\n视觉方向：Poster / Campaign / Typography / Realistic / Commerce / Fashion\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义运动项目、姿态、核心道具、标题和品牌色。\n- 使用强光影、干净构图和可读数据层。\n\n防坑指南：\n- 避免错误运动器材和杂乱拼贴。\n- 让运动员和核心道具占据主导。",
+    "useWhen": "用于运动品牌 Campaign、运动员海报和运动产品视觉。"
+  },
+  {
+    "id": "conceptual-typography-poster",
+    "title": "概念字体海报",
+    "category": "海报与排版",
+    "tags": [
+      "Typography",
+      "Poster",
+      "Style"
+    ],
+    "description": "生成以标题文字为主视觉的高级字体海报。",
+    "cover": "https://gpt-image2.canghe.ai/images/case355.jpg",
+    "prompt": "模板：概念字体海报\n用途：用于标题文字需要成为主视觉结构的海报。\n视觉方向：Typography / Poster / Style / Creative / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 让字体成为画面主角，并保证标题拼写准确。\n- 人物、物体或风景需要服务标题含义。\n\n防坑指南：\n- 避免默认字效、无关图标和标题错字。\n- 控制配色数量，保持克制。",
+    "useWhen": "用于标题文字需要成为主视觉结构的海报。"
+  },
+  {
+    "id": "ink-double-exposure-poster",
+    "title": "水墨双重曝光海报",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Classical",
+      "Style"
+    ],
+    "description": "生成水墨、人像与层叠氛围结合的视觉海报。",
+    "cover": "https://gpt-image2.canghe.ai/images/case359.jpg",
+    "prompt": "模板：水墨双重曝光海报\n用途：用于诗意人像海报、水墨氛围和文化主题视觉。\n视觉方向：Poster / Classical / Style / Illustration / Story / History\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 融合人像剪影、水墨质感、氛围和留白。\n- 保持构图克制、高级、可读。\n\n防坑指南：\n- 避免廉价奇幻拼贴和景物堆叠。\n- 非必要时减少文字。",
+    "useWhen": "用于诗意人像海报、水墨氛围和文化主题视觉。"
+  },
+  {
+    "id": "nature-science-poster",
+    "title": "自然科普海报",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Education",
+      "Style"
+    ],
+    "description": "生成极简产品感自然科普海报。",
+    "cover": "https://gpt-image2.canghe.ai/images/case339.jpg",
+    "prompt": "模板：自然科普海报\n用途：用于自然主题的高级、干净科普海报。\n视觉方向：Poster / Education / Style / Infographic\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用清晰主体、少量文案、柔和阴影和充足留白。\n- 让科普标签短而清楚。\n\n防坑指南：\n- 避免广告感太重。\n- 避免密集百科正文。",
+    "useWhen": "用于自然主题的高级、干净科普海报。"
+  },
+  {
+    "id": "product-commerce-visual",
+    "title": "商品商业视觉",
+    "category": "产品与电商",
+    "tags": [
+      "Product",
+      "Commerce",
+      "Packaging"
+    ],
+    "description": "生成商品图、包装、详情页和卖点排版。",
+    "cover": "https://gpt-image2.canghe.ai/images/case373.jpg",
+    "prompt": "模板：商品商业视觉\n用途：用于商品主图、包装视觉、详情页和销售卖点排版。\n视觉方向：Product / Commerce / Packaging / Realistic / Food\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义商品、卖点、材质、场景、光线和版块。\n- 区分主商品、卖点标签和辅助道具。\n\n防坑指南：\n- 避免无关道具削弱商品识别。\n- 约束包装文字和卖点表达。",
+    "useWhen": "用于商品主图、包装视觉、详情页和销售卖点排版。"
+  },
+  {
+    "id": "personalized-beauty-report",
+    "title": "个性化美妆报告",
+    "category": "产品与电商",
+    "tags": [
+      "Product",
+      "Layout",
+      "Style"
+    ],
+    "description": "生成美妆与生活方式产品的推荐报告版式。",
+    "cover": "https://gpt-image2.canghe.ai/images/case353.jpg",
+    "prompt": "模板：个性化美妆报告\n用途：用于美妆推荐、肤质报告、导购助手和生活方式商品卡片。\n视觉方向：Product / Layout / Style / UI / Commerce / Fashion\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用诊断、推荐和商品卡片的报告层级。\n- 对齐商品图、标签和评分。\n\n防坑指南：\n- 避免医疗化结论和难读小字。\n- 保持推荐逻辑清楚。",
+    "useWhen": "用于美妆推荐、肤质报告、导购助手和生活方式商品卡片。"
+  },
+  {
+    "id": "brand-identity-package",
+    "title": "品牌身份包",
+    "category": "品牌与标志",
+    "tags": [
+      "Brand",
+      "Logo",
+      "Identity"
+    ],
+    "description": "生成 Logo、配色、字体、应用触点与品牌系统。",
+    "cover": "https://gpt-image2.canghe.ai/images/case354.jpg",
+    "prompt": "模板：品牌身份包\n用途：用于 Logo 系统、品牌板、VI 套件和应用样机。\n视觉方向：Brand / Logo / Identity / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义品牌名、定位、配色、字体、Logo 用法和触点。\n- 要求视觉板中的应用统一对齐。\n\n防坑指南：\n- 避免无关 Logo 变体和混乱配色。\n- 保持品牌文字准确。",
+    "useWhen": "用于 Logo 系统、品牌板、VI 套件和应用样机。"
+  },
+  {
+    "id": "brand-touchpoint-board",
+    "title": "品牌触点视觉板",
+    "category": "品牌与标志",
+    "tags": [
+      "Brand",
+      "Identity",
+      "Campaign"
+    ],
+    "description": "生成包装、社媒、网页和展示场景里的品牌触点板。",
+    "cover": "https://gpt-image2.canghe.ai/images/case362.jpg",
+    "prompt": "模板：品牌触点视觉板\n用途：用于多触点 Campaign 展示和品牌落地预览。\n视觉方向：Brand / Identity / Campaign / Product / Commerce / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定触点清单、统一视觉规则和样机排列。\n- 让所有面板共享配色和字体逻辑。\n\n防坑指南：\n- 避免混入多个无关 Campaign 风格。\n- 可读性下降时减少触点数量。",
+    "useWhen": "用于多触点 Campaign 展示和品牌落地预览。"
+  },
+  {
+    "id": "architecture-space",
+    "title": "建筑与空间",
+    "category": "建筑与空间",
+    "tags": [
+      "Architecture",
+      "Interior",
+      "Map"
+    ],
+    "description": "生成室内、建筑、城市地图和空间概念视觉。",
+    "cover": "https://gpt-image2.canghe.ai/images/case331.png",
+    "prompt": "模板：建筑与空间\n用途：用于室内、建筑表现、城市地图、空间规划和环境概念图。\n视觉方向：Architecture / Interior / Map / Travel / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义视角、尺度、材质、光线和空间功能。\n- 地图需要指定地标、标签、边框装饰和准确度。\n\n防坑指南：\n- 概念图之外要避免不合理透视。\n- 锁定地图标签语言和相对位置。",
+    "useWhen": "用于室内、建筑表现、城市地图、空间规划和环境概念图。"
+  },
+  {
+    "id": "realistic-photography",
+    "title": "写实摄影",
+    "category": "摄影与写实",
+    "tags": [
+      "Photography",
+      "Realistic",
+      "Lens"
+    ],
+    "description": "控制镜头、光线、胶片质感和纪实摄影效果。",
+    "cover": "https://gpt-image2.canghe.ai/images/case377.jpg",
+    "prompt": "模板：写实摄影\n用途：用于人像、街拍、商品摄影和电影感写实。\n视觉方向：Photography / Realistic / Lens / Fashion / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定机位、镜头、光源、质感、背景和动作。\n- 加入可信的小瑕疵增强纪实感。\n\n防坑指南：\n- 商业美妆之外，避免过度磨皮。\n- 需要时加入手部、文字、结构类负面约束。",
+    "useWhen": "用于人像、街拍、商品摄影和电影感写实。"
+  },
+  {
+    "id": "street-accident-moment",
+    "title": "街头意外瞬间摄影",
+    "category": "摄影与写实",
+    "tags": [
+      "Photography",
+      "Realistic",
+      "Scene"
+    ],
+    "description": "生成手机纪实风街头瞬间，并加入负面约束。",
+    "cover": "https://gpt-image2.canghe.ai/images/case376.jpg",
+    "prompt": "模板：街头意外瞬间摄影\n用途：用于街头抓拍、意外泼洒、手机纪实和快速动作。\n视觉方向：Photography / Realistic / Scene / Travel / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 描述具体瞬间、机位高度、运动模糊和街景。\n- 加入避免摆拍和广告棚拍感的限制。\n\n防坑指南：\n- 避免画面过于干净。\n- 让事件看起来可信。",
+    "useWhen": "用于街头抓拍、意外泼洒、手机纪实和快速动作。"
+  },
+  {
+    "id": "illustration-art-style",
+    "title": "插画与艺术风格",
+    "category": "插画与艺术",
+    "tags": [
+      "Illustration",
+      "Art",
+      "Style"
+    ],
+    "description": "生成动漫、水彩、水墨、材质实验和艺术风格图。",
+    "cover": "https://gpt-image2.canghe.ai/images/case346.jpg",
+    "prompt": "模板：插画与艺术风格\n用途：用于动漫、水彩、水墨、装饰画和风格实验。\n视觉方向：Illustration / Art / Style / Story / Creative\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义构图、主体、配色、笔触材质、情绪和完成度。\n- 参考图任务需要说明保留哪些特征。\n\n防坑指南：\n- 避免只写风格，不写构图。\n- 使用参考图时锁定角色识别。",
+    "useWhen": "用于动漫、水彩、水墨、装饰画和风格实验。"
+  },
+  {
+    "id": "character-design-sheet",
+    "title": "角色设定表",
+    "category": "角色与人物",
+    "tags": [
+      "Character",
+      "Pose",
+      "Style"
+    ],
+    "description": "生成角色设定、动作分解和一致性参考。",
+    "cover": "https://gpt-image2.canghe.ai/images/case347.jpg",
+    "prompt": "模板：角色设定表\n用途：用于角色设定表、动作网格、动作拆解和一致性参考。\n视觉方向：Character / Pose / Style / Illustration / Story\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义身份锚点、服装、比例、动作数量和版式。\n- 保持脸、发型和服装细节一致。\n\n防坑指南：\n- 避免不同动作里服装细节变化。\n- 画面拥挤时减少动作数量。",
+    "useWhen": "用于角色设定表、动作网格、动作拆解和一致性参考。"
+  },
+  {
+    "id": "3d-collectible-toy",
+    "title": "3D 收藏玩具",
+    "category": "角色与人物",
+    "tags": [
+      "Character",
+      "3D",
+      "Style"
+    ],
+    "description": "把参考图转换成高级 3D 收藏玩具效果。",
+    "cover": "https://gpt-image2.canghe.ai/images/case378.jpg",
+    "prompt": "模板：3D 收藏玩具\n用途：用于高级收藏玩具、头像公仔、潮玩角色和 3D 展示图。\n视觉方向：Character / 3D / Style / Commerce / Creative\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 保留参考图中的脸和服装锚点。\n- 指定材质、包装、底座、光线和收藏比例。\n\n防坑指南：\n- 避免没有身份细节的通用玩具。\n- 包装文字保持少量且准确。",
+    "useWhen": "用于高级收藏玩具、头像公仔、潮玩角色和 3D 展示图。"
+  },
+  {
+    "id": "scene-storytelling",
+    "title": "场景叙事",
+    "category": "场景与叙事",
+    "tags": [
+      "Scene",
+      "Story",
+      "Storyboard"
+    ],
+    "description": "生成分镜、世界观、故事场景和情绪节奏。",
+    "cover": "https://gpt-image2.canghe.ai/images/case330.png",
+    "prompt": "模板：场景叙事\n用途：用于分镜、世界观、直播场景和情绪叙事画面。\n视觉方向：Scene / Story / Storyboard / Scenes / Illustration / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义人物、地点、时间、冲突、情绪和机位。\n- 让场景细节服务故事。\n\n防坑指南：\n- 避免通用幻想背景。\n- 让故事线索在画面里可见。",
+    "useWhen": "用于分镜、世界观、直播场景和情绪叙事画面。"
+  },
+  {
+    "id": "history-classical-themes",
+    "title": "历史与古风题材",
+    "category": "历史与古典",
+    "tags": [
+      "History",
+      "Classical",
+      "Scroll"
+    ],
+    "description": "生成朝代服饰、长卷叙事、诗词和传统题材。",
+    "cover": "https://gpt-image2.canghe.ai/images/case375.jpg",
+    "prompt": "模板：历史与古风题材\n用途：用于古风题材、长卷、朝代服饰、诗词视觉和历史场景。\n视觉方向：History / Classical / Scroll / Illustration / Story\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定朝代、服饰制度、器物参考、版式和文化气质。\n- 明确长卷、册页或海报形式。\n\n防坑指南：\n- 需要历史准确时，避免朝代混搭。\n- 约束随机现代物件。",
+    "useWhen": "用于古风题材、长卷、朝代服饰、诗词视觉和历史场景。"
+  },
+  {
+    "id": "document-publishing",
+    "title": "文档与出版物",
+    "category": "文档与出版",
+    "tags": [
+      "Document",
+      "Publishing",
+      "Layout"
+    ],
+    "description": "生成白皮书、手册、百科图鉴和页面系统。",
+    "cover": "https://gpt-image2.canghe.ai/images/case360.jpg",
+    "prompt": "模板：文档与出版物\n用途：用于白皮书、手册、百科图鉴、报告页面和出版系统。\n视觉方向：Document / Publishing / Layout / Documents / Infographic / Education / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义页面尺寸、分栏、目录、图表系统和字体层级。\n- 使用可读标题、表格、标签和页面节奏。\n\n防坑指南：\n- 避免密集小字。\n- 让图表和说明对齐页面网格。",
+    "useWhen": "用于白皮书、手册、百科图鉴、报告页面和出版系统。"
+  },
+  {
+    "id": "concept-product-breakdown",
+    "title": "概念产品研发拆解",
+    "category": "其他用例",
+    "tags": [
+      "Creative",
+      "R&D",
+      "Special"
+    ],
+    "description": "生成研发板、拆解图、混合任务和特殊输出。",
+    "cover": "https://gpt-image2.canghe.ai/images/case370.jpg",
+    "prompt": "模板：概念产品研发拆解\n用途：用于实验型任务、研发视觉板、拆解图和特殊视觉系统。\n视觉方向：Creative / R&D / Special / Other Use Cases / Product / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义产物类型、组件、标签、材质逻辑和展示格式。\n- 使用清晰标注和受控技术风格。\n\n防坑指南：\n- 避免任务边界过泛。\n- 标签要短，组件关系要清楚。",
+    "useWhen": "用于实验型任务、研发视觉板、拆解图和特殊视觉系统。"
+  }
+]
