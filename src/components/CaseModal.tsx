@@ -13,8 +13,8 @@ const FALLBACK =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 400'>
-       <rect width='320' height='400' fill='#0f172a'/>
-       <text x='50%' y='50%' fill='#67e8f9' font-family='sans-serif' font-size='14'
+       <rect width='320' height='400' fill='#1a1715'/>
+       <text x='50%' y='50%' fill='#7a746c' font-family='sans-serif' font-size='12'
              text-anchor='middle' dy='.3em'>image unavailable</text>
      </svg>`,
   );
@@ -23,12 +23,12 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
   const { state, copy } = useCopy();
   const [imgErr, setImgErr] = useState(false);
   const [prompt, setPrompt] = useState("");
-  const [message, setMessage] = useState("");
+  const [edited, setEdited] = useState(false);
 
   useEffect(() => {
     setImgErr(false);
     setPrompt(data?.prompt || "");
-    setMessage("");
+    setEdited(false);
   }, [data?.id, data?.prompt]);
 
   useEffect(() => {
@@ -47,100 +47,210 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
 
   if (!data) return null;
 
-  const copyText = state === "copied" ? "已复制" : state === "error" ? "复制失败" : "复制 Prompt";
-  const tags = [...new Set([...data.styles, ...data.scenes, ...data.tags])].slice(0, 8);
+  const tags = Array.from(new Set([...data.styles, ...data.scenes, ...data.tags])).slice(0, 8);
+  const charCount = prompt.length;
+  const wordCount = prompt.trim().split(/\s+/).filter(Boolean).length;
 
   return (
     <div
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-3 backdrop-blur-xl sm:p-5"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink-950/80 p-3 backdrop-blur-md sm:p-6 animate-fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-label={data.title}
     >
-      <div className="grid max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-3xl border border-white/12 bg-[#070c1a] shadow-2xl shadow-cyan-950/30 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
-        <div className="relative min-h-0 bg-slate-950">
+      <div className="grid max-h-[94vh] w-full max-w-6xl overflow-hidden rounded-3xl border border-white/[0.08] bg-ink-900 shadow-soft lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        {/* Image side */}
+        <div className="relative min-h-0 bg-ink-950">
           <img
             src={imgErr ? FALLBACK : data.imageUrl}
             alt={data.imageAlt || data.title}
             onError={() => setImgErr(true)}
             className="h-72 w-full object-cover lg:h-full"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-4">
-            <div className="inline-flex rounded-full border border-white/15 bg-slate-950/70 px-3 py-1 text-xs font-black text-cyan-100 backdrop-blur">
-              原图 · 案例 {data.id}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent p-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-ink-950/70 px-3 py-1 text-[11px] font-medium tracking-wider text-ink-100 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
+              CASE #{data.id}
             </div>
           </div>
         </div>
 
+        {/* Info side */}
         <div className="flex min-h-0 flex-col">
-          <div className="border-b border-white/10 p-5">
-            <div className="flex items-start justify-between gap-4">
-              <div className="min-w-0">
-                <span className="rounded-full bg-cyan-300/10 px-2.5 py-1 text-[11px] font-black text-cyan-100">{data.category}</span>
-                <h2 className="mt-3 text-2xl font-black leading-tight text-white">{data.title}</h2>
-                {data.source && <p className="mt-2 text-sm font-semibold text-slate-400">来源：{data.source}</p>}
-              </div>
-              <button type="button" onClick={onClose} aria-label="关闭" className="rounded-xl border border-white/10 bg-white/[0.06] p-2 text-slate-300 transition hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
-                  <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-                </svg>
-              </button>
+          <div className="flex items-start justify-between gap-4 border-b border-white/[0.06] p-6">
+            <div className="min-w-0 flex-1">
+              <div className="eyebrow">{data.category}</div>
+              <h2 className="serif-display mt-2 text-3xl leading-[1.1] text-ink-50">
+                {data.title}
+              </h2>
+              {data.source && (
+                <p className="mt-2 text-[13px] text-ink-400">
+                  来源 ·{" "}
+                  <span className="font-medium text-ink-200">{data.source}</span>
+                </p>
+              )}
+              {tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {tags.map((tag) => (
+                    <span key={`${data.id}-${tag}`} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span key={`${data.id}-${tag}`} className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs font-bold text-slate-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="关闭"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-300 transition hover:border-white/25 hover:text-ink-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-4 w-4"
+              >
+                <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+              </svg>
+            </button>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-auto p-5">
+          <div className="min-h-0 flex-1 overflow-auto p-6 scrollbar-thin">
             <div className="mb-3 flex items-center justify-between gap-3">
-              <h3 className="text-sm font-black uppercase tracking-[0.16em] text-cyan-100/80">可编辑 Prompt</h3>
-              <button type="button" onClick={() => setPrompt(data.prompt)} className="text-xs font-black text-slate-400 transition hover:text-white">
-                重置 Prompt
-              </button>
+              <div className="flex items-center gap-3">
+                <h3 className="eyebrow">Prompt</h3>
+                {edited && (
+                  <span className="rounded-full border border-ember-500/30 bg-ember-500/10 px-2 py-0.5 text-[10px] font-medium text-ember-200">
+                    已编辑
+                  </span>
+                )}
+              </div>
+              {edited && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPrompt(data.prompt);
+                    setEdited(false);
+                  }}
+                  className="text-[12px] font-medium text-ink-400 transition hover:text-ink-50"
+                >
+                  恢复原版
+                </button>
+              )}
             </div>
             <textarea
               value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
+              onChange={(e) => {
+                setPrompt(e.target.value);
+                setEdited(e.target.value !== data.prompt);
+              }}
               maxLength={6000}
-              className="min-h-64 w-full resize-none rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-sm leading-relaxed text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-200/70 focus:ring-4 focus:ring-cyan-300/10"
+              spellCheck={false}
+              className="min-h-[16rem] w-full resize-none rounded-2xl border border-white/[0.08] bg-ink-950/60 p-4 font-mono text-[13px] leading-relaxed text-ink-100 outline-none transition placeholder:text-ink-500 focus:border-ember-500/50 focus:ring-2 focus:ring-ember-500/15"
             />
-            <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.05] p-4">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-sm font-black text-white">生成测试</p>
-                  <p className="mt-1 text-xs text-slate-400">当前版本为静态前端，对齐入口和编辑体验，尚未接入真实生图服务。</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setMessage("生成服务还没有完成配置，后续可接入 /api/generate-image。")}
-                  className="rounded-xl border border-emerald-300/30 bg-emerald-300/10 px-4 py-2 text-sm font-black text-emerald-100 transition hover:bg-emerald-300/20"
-                >
-                  生成图片
-                </button>
-              </div>
-              {message && <p className="mt-3 text-xs font-bold text-amber-200">{message}</p>}
+            <div className="mt-2 flex items-center justify-between text-[11px] tabular-nums text-ink-500">
+              <span>{charCount} 字符 · {wordCount} 词</span>
+              <span>最多 6000 字符</span>
             </div>
+
+            {data.githubUrl && (
+              <a
+                href={data.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-ink-300 transition hover:text-ember-200"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.13-4.55-5.04 0-1.11.39-2.02 1.03-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05A9.42 9.42 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.74 0 3.92-2.34 4.78-4.57 5.03.36.32.68.94.68 1.9v2.81c0 .27.18.6.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                在 GitHub 上查看原始 Prompt
+                <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3" aria-hidden="true">
+                  <path d="M11 3a1 1 0 1 0 0 2h2.59l-6.3 6.29a1 1 0 0 0 1.42 1.42L15 6.41V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5Z" />
+                  <path d="M5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5Z" />
+                </svg>
+              </a>
+            )}
           </div>
 
-          <div className="flex flex-col gap-2 border-t border-white/10 p-4 sm:flex-row sm:justify-end">
+          <div className="flex flex-col-reverse gap-2 border-t border-white/[0.06] p-4 sm:flex-row sm:justify-end">
             <button
               type="button"
               onClick={() => onToggleFavorite(data.id)}
               className={
-                "rounded-xl border px-4 py-2 text-sm font-black transition " +
+                "inline-flex items-center justify-center gap-2 rounded-full border px-4 py-2 text-[13px] font-medium transition " +
                 (favorited
-                  ? "border-pink-300/50 bg-pink-300/15 text-pink-100"
-                  : "border-white/10 bg-white/[0.06] text-slate-300 hover:border-pink-300/50 hover:text-pink-100")
+                  ? "border-ember-500/50 bg-ember-500/15 text-ember-100"
+                  : "border-white/10 bg-white/[0.04] text-ink-200 hover:border-ember-500/40 hover:text-ember-100")
               }
             >
-              {favorited ? "已保存到本浏览器" : "收藏案例"}
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill={favorited ? "currentColor" : "none"}
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
+              </svg>
+              {favorited ? "已收藏" : "收藏案例"}
             </button>
-            <button type="button" onClick={() => copy(prompt)} className="rounded-xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/20">
-              {copyText}
+            <button
+              type="button"
+              onClick={() => copy(prompt)}
+              className={
+                "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition " +
+                (state === "copied"
+                  ? "bg-emerald-400 text-ink-950"
+                  : state === "error"
+                    ? "bg-rose-400 text-ink-950"
+                    : "bg-ember-500 text-ink-950 hover:bg-ember-400")
+              }
+            >
+              {state === "copied" ? (
+                <>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m5 12 5 5 9-11" />
+                  </svg>
+                  已复制
+                </>
+              ) : state === "error" ? (
+                "复制失败"
+              ) : (
+                <>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  复制 Prompt
+                </>
+              )}
             </button>
           </div>
         </div>

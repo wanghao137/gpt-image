@@ -4,13 +4,15 @@ import { Header } from "./components/Header";
 import { FilterBar } from "./components/FilterBar";
 import { CaseGrid } from "./components/CaseGrid";
 import { CaseModal } from "./components/CaseModal";
+import { TemplateCard } from "./components/TemplateCard";
+import { BackToTop } from "./components/BackToTop";
 import { useCopy } from "./hooks/useCopy";
 
 const ALL = "全部";
 const FAVORITES_KEY = "gpt-image-gallery:favorites:v1";
 
 function uniqueOptions(items: string[][]) {
-  return [ALL, ...Array.from(new Set(items.flat())).sort((a, b) => a.localeCompare(b))];
+  return [ALL, ...Array.from(new Set(items.flat())).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"))];
 }
 
 function readFavorites() {
@@ -30,6 +32,10 @@ async function fetchData<T>(path: string): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+const SKILL_CMD =
+  "npx skills add freestylefly/awesome-gpt-image-2 --skill gpt-image-2-style-library --agent claude-code codex --global --yes --copy";
+const SKILL_REQUEST = "Use gpt-image-2-style-library to create a city life system map.";
+
 export default function App() {
   const [cases, setCases] = useState<PromptCase[]>([]);
   const [templates, setTemplates] = useState<PromptTemplate[]>([]);
@@ -37,12 +43,14 @@ export default function App() {
   const [loadError, setLoadError] = useState("");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState(ALL);
-  const [style, setStyle] = useState(ALL);
+  const [styleFilter, setStyleFilter] = useState(ALL);
   const [scene, setScene] = useState(ALL);
   const [active, setActive] = useState<PromptCase | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(readFavorites);
-  const [copiedTemplateId, setCopiedTemplateId] = useState<string | null>(null);
-  const { state: templateCopyState, copy: copyTemplate } = useCopy();
+  const [showFavorites, setShowFavorites] = useState(false);
+
+  const cmdCopy = useCopy(1800);
+  const reqCopy = useCopy(1800);
 
   useEffect(() => {
     let cancelled = false;
@@ -72,25 +80,49 @@ export default function App() {
   }, [favoriteIds]);
 
   const categories = useMemo(() => uniqueOptions(cases.map((item) => [item.category])), [cases]);
-  const styles = useMemo(() => uniqueOptions(cases.map((item) => item.styles)), [cases]);
+  const styleOptions = useMemo(() => uniqueOptions(cases.map((item) => item.styles)), [cases]);
   const scenes = useMemo(() => uniqueOptions(cases.map((item) => item.scenes)), [cases]);
+
+  const baseList = useMemo(() => {
+    if (showFavorites) return cases.filter((item) => favoriteIds.has(item.id));
+    return cases;
+  }, [cases, favoriteIds, showFavorites]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return cases.filter((item) => {
-      const text = [item.id, item.title, item.category, item.prompt, item.promptPreview, item.source, ...item.tags, ...item.styles, ...item.scenes]
+    return baseList.filter((item) => {
+      const inCategory = category === ALL || item.category === category;
+      const inStyle = styleFilter === ALL || item.styles.includes(styleFilter);
+      const inScene = scene === ALL || item.scenes.includes(scene);
+      if (!inCategory || !inStyle || !inScene) return false;
+      if (!q) return true;
+      const text = [
+        item.id,
+        item.title,
+        item.category,
+        item.prompt,
+        item.promptPreview,
+        item.source,
+        ...item.tags,
+        ...item.styles,
+        ...item.scenes,
+      ]
         .filter(Boolean)
         .join(" ")
         .toLowerCase();
-      const inCategory = category === ALL || item.category === category;
-      const inStyle = style === ALL || item.styles.includes(style);
-      const inScene = scene === ALL || item.scenes.includes(scene);
-      const inQuery = !q || text.includes(q);
-      return inCategory && inStyle && inScene && inQuery;
+      return text.includes(q);
     });
-  }, [cases, category, query, scene, style]);
+  }, [baseList, category, query, scene, styleFilter]);
 
-  const favoriteCases = useMemo(() => cases.filter((item) => favoriteIds.has(item.id)), [cases, favoriteIds]);
+  const hasActiveFilter =
+    query.trim().length > 0 || category !== ALL || styleFilter !== ALL || scene !== ALL;
+
+  const resetFilters = useCallback(() => {
+    setQuery("");
+    setCategory(ALL);
+    setStyleFilter(ALL);
+    setScene(ALL);
+  }, []);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavoriteIds((prev) => {
@@ -101,184 +133,380 @@ export default function App() {
     });
   }, []);
 
-  const openGenerate = useCallback((item: PromptCase) => {
-    setActive(item);
-  }, []);
-
-  async function handleCopyTemplate(template: PromptTemplate) {
-    await copyTemplate(template.prompt);
-    setCopiedTemplateId(template.id);
-    window.setTimeout(() => setCopiedTemplateId(null), 1600);
-  }
-
   const heroCases = cases.slice(0, 5);
+  const favoriteCount = favoriteIds.size;
 
   return (
-    <div id="top" className="min-h-full overflow-x-hidden bg-[#060914] text-slate-100">
+    <div id="top" className="min-h-full overflow-x-hidden font-sans text-ink-100">
       <Header caseCount={cases.length} templateCount={templates.length} />
 
       <main>
-        <section className="relative isolate mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-12 sm:px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:px-8 lg:pb-16 lg:pt-16">
-          <div className="heroGlow heroGlowA" />
-          <div className="heroGlow heroGlowB" />
-          <div className="scanGrid" />
+        {/* HERO */}
+        <section className="relative isolate">
+          <div className="container-narrow grid gap-12 pb-16 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.95fr)] lg:gap-16 lg:pb-24 lg:pt-24">
+            <div className="relative z-10 flex flex-col justify-center animate-fade-up">
+              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-300">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
+                </span>
+                Live · GPT-Image 2 Prompt Gallery
+              </div>
 
-          <div className="relative z-10 flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-200/10 px-3 py-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
-              实时更新的 GPT-Image2 提示词画廊
-            </div>
-            <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl">
-              从爆款图片，到可复用 Prompt。
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              一个面向 GPT-Image2 创作的可视化工作台：浏览真实案例、复制 Prompt、查看工业级模板，并保留后续接入在线测试生图的入口。
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#gallery" className="rounded-2xl bg-cyan-200 px-5 py-3 text-sm font-black text-slate-950 shadow-xl shadow-cyan-300/25 transition hover:bg-white">
-                浏览案例
-              </a>
-              <a href="#templates" className="rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-black text-white transition hover:border-cyan-200/50 hover:bg-cyan-300/10">
-                查看模板
-              </a>
-            </div>
-            <div className="mt-8 grid max-w-2xl grid-cols-3 gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                <strong className="block text-2xl font-black text-white">{cases.length}</strong>
-                <span className="text-xs font-bold text-slate-400">个案例</span>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                <strong className="block text-2xl font-black text-white">{Math.max(categories.length - 1, 0)}</strong>
-                <span className="text-xs font-bold text-slate-400">个分类</span>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                <strong className="block text-2xl font-black text-white">{templates.length}</strong>
-                <span className="text-xs font-bold text-slate-400">套模板</span>
-              </div>
-            </div>
-            {loading && <p className="mt-4 text-sm font-bold text-cyan-100">正在加载本地同步数据...</p>}
-            {loadError && <p className="mt-4 text-sm font-bold text-rose-200">数据加载失败：{loadError}</p>}
-          </div>
+              <h1 className="serif-display text-[2.6rem] leading-[1.05] text-ink-50 sm:text-6xl lg:text-[4.2rem]">
+                从爆款图片，
+                <br />
+                到可复用 <em className="not-italic text-ember-400">Prompt</em>。
+              </h1>
 
-          <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4">
-            {heroCases.map((item, index) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setActive(item)}
-                className={
-                  "heroCard group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] text-left shadow-2xl shadow-slate-950/30 transition hover:-translate-y-1 hover:border-cyan-200/40 " +
-                  (index === 0 ? "col-span-2" : "")
-                }
-              >
-                <img src={item.imageUrl} alt={item.imageAlt || item.title} className="h-48 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100 sm:h-56" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-4">
-                  <span className="text-xs font-black text-cyan-100">案例 {item.id}</span>
-                  <strong className="mt-1 block text-sm font-black text-white sm:text-base">{item.title}</strong>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-300 sm:text-[17px]">
+                一个面向 GPT-Image 2 创作者的可视化工作台。浏览真实案例、复制 Prompt、查看工业级模板，
+                把灵感到出图的距离压到最短。
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#gallery" className="btn-primary">
+                  浏览案例
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </a>
+                <a href="#templates" className="btn-ghost">
+                  查看模板
+                </a>
+              </div>
+
+              <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-white/[0.06] pt-8">
+                <div>
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">案例</dt>
+                  <dd className="serif-display mt-1 text-3xl text-ink-50">
+                    {cases.length || "—"}
+                  </dd>
                 </div>
-              </button>
-            ))}
+                <div>
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">分类</dt>
+                  <dd className="serif-display mt-1 text-3xl text-ink-50">
+                    {Math.max(categories.length - 1, 0) || "—"}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">模板</dt>
+                  <dd className="serif-display mt-1 text-3xl text-ink-50">
+                    {templates.length || "—"}
+                  </dd>
+                </div>
+              </dl>
+
+              {loadError && (
+                <p className="mt-6 rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-[13px] font-medium text-rose-200">
+                  数据加载失败：{loadError}
+                </p>
+              )}
+            </div>
+
+            {/* Hero collage */}
+            <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4">
+              {heroCases.length === 0
+                ? Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className={
+                        "aspect-[4/5] animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800 " +
+                        (i === 0 ? "col-span-2 aspect-[16/10]" : "")
+                      }
+                    />
+                  ))
+                : heroCases.map((item, index) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setActive(item)}
+                      className={
+                        "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
+                        (index === 0 ? "col-span-2" : "")
+                      }
+                      style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
+                    >
+                      <img
+                        src={item.imageUrl}
+                        alt={item.imageAlt || item.title}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        className={
+                          "w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100 " +
+                          (index === 0 ? "aspect-[16/10]" : "aspect-[4/5]")
+                        }
+                      />
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-3">
+                        <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
+                          CASE #{item.id}
+                        </span>
+                        <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
+                          {item.title}
+                        </strong>
+                      </div>
+                    </button>
+                  ))}
+            </div>
           </div>
         </section>
 
-        <section id="gallery" className="scroll-mt-24">
-          <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        {/* GALLERY */}
+        <section id="gallery" className="scroll-mt-20">
+          <div className="container-narrow pt-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-100/70">复制、筛选、复用</p>
-                <h2 className="mt-2 text-3xl font-black text-white">爆款案例和 Prompt，一键可取。</h2>
+                <p className="eyebrow">Copy · Filter · Remix</p>
+                <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl">
+                  爆款案例和 Prompt，一键可取。
+                </h2>
               </div>
-              <a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noreferrer" className="text-sm font-black text-cyan-100 transition hover:text-white">
-                打开 GitHub 项目
-              </a>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowFavorites((v) => !v)}
+                  disabled={favoriteCount === 0}
+                  className={
+                    "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
+                    (showFavorites
+                      ? "border-ember-500/50 bg-ember-500/15 text-ember-100"
+                      : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")
+                  }
+                  aria-pressed={showFavorites}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill={showFavorites ? "currentColor" : "none"}
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z" />
+                  </svg>
+                  我的收藏
+                  {favoriteCount > 0 && (
+                    <span className="rounded-full bg-ink-950/40 px-1.5 py-0.5 text-[10.5px] tabular-nums">
+                      {favoriteCount}
+                    </span>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
+
           <FilterBar
             query={query}
             onQueryChange={setQuery}
             categories={categories}
             activeCategory={category}
             onCategoryChange={setCategory}
-            styles={styles}
-            activeStyle={style}
-            onStyleChange={setStyle}
+            styles={styleOptions}
+            activeStyle={styleFilter}
+            onStyleChange={setStyleFilter}
             scenes={scenes}
             activeScene={scene}
             onSceneChange={setScene}
-            total={cases.length}
+            total={baseList.length}
             matched={filtered.length}
+            hasActiveFilter={hasActiveFilter}
+            onReset={resetFilters}
           />
-          <CaseGrid cases={filtered} favoriteIds={favoriteIds} onSelect={setActive} onToggleFavorite={toggleFavorite} onGenerate={openGenerate} />
+
+          <CaseGrid
+            cases={filtered}
+            favoriteIds={favoriteIds}
+            onSelect={setActive}
+            onToggleFavorite={toggleFavorite}
+            loading={loading}
+            onResetFilters={resetFilters}
+          />
         </section>
 
-        {favoriteCases.length > 0 && (
-          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-            <div className="rounded-3xl border border-pink-300/20 bg-pink-300/[0.06] p-5">
-              <h2 className="text-lg font-black text-white">我的收藏</h2>
-              <p className="mt-1 text-sm text-slate-400">已保存到本浏览器，可随时取消收藏。</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {favoriteCases.map((item) => (
-                  <button key={item.id} type="button" onClick={() => setActive(item)} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-xs font-black text-slate-200 transition hover:border-pink-200/60 hover:text-white">
-                    #{item.id} {item.title}
-                  </button>
+        {/* TEMPLATES */}
+        <section id="templates" className="scroll-mt-20">
+          <div className="container-narrow pb-20">
+            <div className="mb-10 max-w-2xl">
+              <p className="eyebrow">Industrial Templates</p>
+              <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl">
+                先用成熟模板起稿，再用案例库 remix。
+              </h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-400">
+                每套模板都从真实案例中提炼，包含结构、约束与防坑指南，适合直接复制后替换主体、场景、品牌和限制条件。
+              </p>
+            </div>
+
+            {loading && templates.length === 0 ? (
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40"
+                  >
+                    <div className="aspect-[16/10] animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
+                    <div className="space-y-3 p-5">
+                      <div className="h-3 w-1/3 animate-pulse rounded bg-ink-800" />
+                      <div className="h-4 w-3/4 animate-pulse rounded bg-ink-800" />
+                      <div className="h-3 w-full animate-pulse rounded bg-ink-800" />
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-          </section>
-        )}
-
-        <section id="templates" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-16 sm:px-6 lg:px-8">
-          <div className="mb-6 max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-100/70">工业级提示词模板</p>
-            <h2 className="mt-2 text-3xl font-black text-white">先用成熟模板起稿，再从案例库里继续 remix。</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-400">每套模板都提炼为结构化 Prompt，适合直接复制后替换主体、场景、品牌和限制条件。</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {templates.map((template) => {
-              const copied = copiedTemplateId === template.id;
-              const label = copied && templateCopyState === "copied" ? "已复制" : copied && templateCopyState === "error" ? "复制失败" : "复制模板";
-              return (
-                <article key={template.id} className="overflow-hidden rounded-3xl border border-white/10 bg-[#090f20]/85 shadow-2xl shadow-slate-950/30">
-                  <img src={template.cover} alt={template.title} loading="lazy" className="h-40 w-full object-cover opacity-90" />
-                  <div className="space-y-3 p-4">
-                    <span className="rounded-full bg-cyan-300/10 px-2.5 py-1 text-[11px] font-black text-cyan-100">{template.category}</span>
-                    <h3 className="text-lg font-black text-white">{template.title}</h3>
-                    <p className="text-sm leading-6 text-slate-400">{template.description}</p>
-                    <p className="text-xs font-bold text-slate-500">适用场景：{template.useWhen}</p>
-                    <button type="button" onClick={() => void handleCopyTemplate(template)} className="w-full rounded-xl border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/20">
-                      {label}
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
+            ) : (
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                {templates.map((template) => (
+                  <TemplateCard key={template.id} data={template} />
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
-        <section id="agent-skill" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-20 sm:px-6 lg:px-8">
-          <div className="grid gap-5 rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-slate-950/30 lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-100/70">Agent Skill</p>
-              <h2 className="mt-2 text-3xl font-black text-white">把 GPT-Image2 风格库装进 Claude Code 和 Codex。</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-400">静态版先保留技能入口和示例请求，后续可接入同源模板库与自动同步。</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-950/70 p-4">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">安装到本地 Agent</p>
-              <code className="mt-3 block overflow-x-auto rounded-xl bg-black/50 p-4 text-xs font-bold leading-6 text-cyan-100">
-                npx skills add freestylefly/awesome-gpt-image-2 --skill gpt-image-2-style-library --agent claude-code codex --global --yes --copy
-              </code>
-              <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">试试这个请求</p>
-              <code className="mt-3 block rounded-xl bg-black/50 p-4 text-xs font-bold leading-6 text-emerald-100">
-                用 gpt-image-2-style-library 技能生成城市生命系统图谱
-              </code>
+        {/* AGENT SKILL */}
+        <section id="agent-skill" className="scroll-mt-20">
+          <div className="container-narrow pb-24">
+            <div className="surface relative overflow-hidden p-6 sm:p-10">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-ember-500/10 blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-ember-700/10 blur-3xl"
+              />
+
+              <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+                <div>
+                  <p className="eyebrow">Agent Skill</p>
+                  <h2 className="serif-display mt-2 text-3xl leading-[1.1] text-ink-50 sm:text-4xl">
+                    把 GPT-Image 2 风格库装进 Claude Code 与 Codex。
+                  </h2>
+                  <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink-400">
+                    一条命令完成安装，让你的本地 Agent 直接调用与本站同源的模板、风格、场景与防坑指南。
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    <span className="chip chip-idle">Claude Code ready</span>
+                    <span className="chip chip-idle">Codex ready</span>
+                    <span className="chip chip-idle">{templates.length}+ 模板</span>
+                  </div>
+                  <a
+                    href="https://github.com/freestylefly/awesome-gpt-image-2/tree/main/agents/skills/gpt-image-2-style-library"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-8 inline-flex items-center gap-1.5 text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
+                  >
+                    查看技能源码
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="h-3.5 w-3.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M11 3a1 1 0 1 0 0 2h2.59l-6.3 6.29a1 1 0 0 0 1.42 1.42L15 6.41V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5Z" />
+                      <path d="M5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5Z" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-950/70">
+                    <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-2.5">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-ink-700" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-ink-700" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-ink-700" />
+                        <span className="ml-2 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
+                          install · terminal
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => cmdCopy.copy(SKILL_CMD)}
+                        className="text-[11px] font-medium text-ink-400 transition hover:text-ink-50"
+                      >
+                        {cmdCopy.state === "copied" ? "已复制" : "复制"}
+                      </button>
+                    </div>
+                    <pre className="overflow-x-auto p-4 font-mono text-[12.5px] leading-relaxed text-ember-100 scrollbar-thin">
+                      <code>
+                        <span className="text-ink-500">$ </span>
+                        {SKILL_CMD}
+                      </code>
+                    </pre>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4">
+                    <div className="flex items-center justify-between">
+                      <p className="eyebrow">Try this request</p>
+                      <button
+                        type="button"
+                        onClick={() => reqCopy.copy(SKILL_REQUEST)}
+                        className="text-[11px] font-medium text-ink-400 transition hover:text-ink-50"
+                      >
+                        {reqCopy.state === "copied" ? "已复制" : "复制"}
+                      </button>
+                    </div>
+                    <p className="mt-2 font-mono text-[13px] leading-relaxed text-ink-100">
+                      {SKILL_REQUEST}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <CaseModal data={active} favorited={active ? favoriteIds.has(active.id) : false} onClose={() => setActive(null)} onToggleFavorite={toggleFavorite} />
+      <CaseModal
+        data={active}
+        favorited={active ? favoriteIds.has(active.id) : false}
+        onClose={() => setActive(null)}
+        onToggleFavorite={toggleFavorite}
+      />
 
-      <footer className="border-t border-white/10 px-4 py-8 text-center text-xs font-bold text-slate-500">
-        GPT-Image2 Prompt Gallery · 静态前端对标版 · 数据由 npm run sync 同步生成
+      <BackToTop />
+
+      <footer className="border-t border-white/[0.06]">
+        <div className="container-narrow flex flex-col items-center justify-between gap-3 py-8 text-[12px] text-ink-500 sm:flex-row">
+          <p>
+            GPT-Image 2 Prompt Gallery · 数据由{" "}
+            <code className="rounded bg-white/[0.05] px-1.5 py-0.5 font-mono text-ink-300">
+              npm run sync
+            </code>{" "}
+            生成
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/freestylefly/awesome-gpt-image-2"
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-ink-100"
+            >
+              数据源
+            </a>
+            <span className="text-ink-700">·</span>
+            <a
+              href="https://gpt-image2.canghe.ai"
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-ink-100"
+            >
+              对标站
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
