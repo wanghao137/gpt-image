@@ -12,6 +12,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -23,17 +24,20 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
+  /* Layered ambient background — softer, more cinematic */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
     background:
-      radial-gradient(ellipse 90% 60% at 18% -10%, rgba(217, 119, 87, 0.18), transparent 60%),
-      radial-gradient(ellipse 80% 60% at 100% 8%, rgba(217, 119, 87, 0.08), transparent 55%),
-      linear-gradient(180deg, #0c0a09 0%, #0c0a09 60%, #100d0c 100%);
+      radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.22), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(99, 60, 145, 0.08), transparent 65%),
+      linear-gradient(180deg, #0c0a09 0%, #0a0807 60%, #0e0b0a 100%);
   }
 
   body::after {
@@ -43,9 +47,9 @@
     z-index: -1;
     pointer-events: none;
     background-image:
-      radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 3px 3px;
-    opacity: 0.5;
+    opacity: 0.45;
     mix-blend-mode: overlay;
   }
 
@@ -54,7 +58,7 @@
   }
 
   ::selection {
-    background: rgba(217, 119, 87, 0.4);
+    background: rgba(217, 119, 87, 0.42);
     color: #fff;
   }
 
@@ -71,6 +75,22 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(122, 116, 108, 0.5);
+  }
+
+  /* Reduce motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  img {
+    content-visibility: auto;
   }
 }
 
@@ -93,11 +113,16 @@
 
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-full bg-ember-500 px-5 py-2.5 text-sm font-medium text-ink-950 transition;
-    box-shadow: 0 14px 36px -16px rgba(217, 119, 87, 0.6);
+    box-shadow:
+      0 14px 36px -16px rgba(217, 119, 87, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
   .btn-primary:hover {
     background: #e69378;
     transform: translateY(-1px);
+    box-shadow:
+      0 20px 50px -18px rgba(217, 119, 87, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.24);
   }
 
   .btn-ghost {
@@ -121,14 +146,90 @@
   .serif-display {
     font-family: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
     font-feature-settings: "liga", "dlig";
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
+  }
+
+  /* Magazine-grade hero numerals */
+  .stat-num {
+    font-family: "Instrument Serif", Palatino, Georgia, serif;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* Premium card with spotlight gradient on hover (uses CSS vars updated in JS) */
+  .card-spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .card-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background:
+      radial-gradient(
+        320px circle at var(--x, 50%) var(--y, 0%),
+        rgba(217, 119, 87, 0.15),
+        transparent 55%
+      );
+    z-index: 1;
+  }
+  .card-spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Marquee row for category showcase */
+  .marquee {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  .marquee-reverse {
+    animation-direction: reverse;
+  }
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translate3d(0, 12px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Section divider — subtle ember line */
+  .divider-ember {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(217, 119, 87, 0.4),
+      transparent
+    );
   }
 }
 
 @layer utilities {
   .mask-fade-r {
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent);
-            mask-image: linear-gradient(to right, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent);
+            mask-image: linear-gradient(to right, black 80%, transparent);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 
   .grain {
@@ -147,5 +248,23 @@
   .scrollbar-thin::-webkit-scrollbar {
     width: 6px;
     height: 6px;
+  }
+
+  /* Performance-friendly fade-in on intersection */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* GPU hint for hover-rich elements */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }

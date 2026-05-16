@@ -1,12 +1,18 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
 import type { PromptCase, PromptTemplate } from "./types";
 import { Header } from "./components/Header";
 import { FilterBar } from "./components/FilterBar";
 import { CaseGrid } from "./components/CaseGrid";
-import { CaseModal } from "./components/CaseModal";
 import { TemplateCard } from "./components/TemplateCard";
 import { BackToTop } from "./components/BackToTop";
+import { CategoryShowcase } from "./components/CategoryShowcase";
 import { useCopy } from "./hooks/useCopy";
+import { useCountUp } from "./hooks/useCountUp";
+import { useReveal } from "./hooks/useReveal";
+
+const CaseModal = lazy(() =>
+  import("./components/CaseModal").then((m) => ({ default: m.CaseModal })),
+);
 
 const ALL = "全部";
 const FAVORITES_KEY = "gpt-image-gallery:favorites:v1";
@@ -51,6 +57,10 @@ export default function App() {
 
   const cmdCopy = useCopy(1800);
   const reqCopy = useCopy(1800);
+
+  // Animated stats (count-up effect)
+  const animCases = useCountUp(cases.length, 1100);
+  const animTemplates = useCountUp(templates.length, 900);
 
   useEffect(() => {
     let cancelled = false;
@@ -133,8 +143,15 @@ export default function App() {
     });
   }, []);
 
-  const heroCases = cases.slice(0, 5);
+  // Hero: pick a curated mix of cases (latest + a few diverse covers)
+  const heroCases = useMemo(() => cases.slice(0, 7), [cases]);
+  // Marquee row of recent cases for cinematic showcase
+  const tickerCases = useMemo(() => cases.slice(0, 18), [cases]);
+
   const favoriteCount = favoriteIds.size;
+
+  // Trigger reveal animations whenever visible content changes
+  useReveal([cases.length, templates.length, filtered.length, showFavorites]);
 
   return (
     <div id="top" className="min-h-full overflow-x-hidden font-sans text-ink-100">
@@ -143,9 +160,19 @@ export default function App() {
       <main>
         {/* HERO */}
         <section className="relative isolate">
-          <div className="container-narrow grid gap-12 pb-16 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.95fr)] lg:gap-16 lg:pb-24 lg:pt-24">
-            <div className="relative z-10 flex flex-col justify-center animate-fade-up">
-              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-300">
+          {/* Decorative ambient blobs */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-ember-500/10 blur-[120px]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-40 h-72 w-72 rounded-full bg-ember-700/10 blur-[100px]"
+          />
+
+          <div className="container-narrow grid gap-12 pb-16 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
+            <div className="relative z-10 flex flex-col justify-center">
+              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-300 backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
@@ -153,10 +180,16 @@ export default function App() {
                 Live · GPT-Image 2 Prompt Gallery
               </div>
 
-              <h1 className="serif-display text-[2.6rem] leading-[1.05] text-ink-50 sm:text-6xl lg:text-[4.2rem]">
+              <h1 className="serif-display text-[2.6rem] leading-[1.02] text-ink-50 sm:text-6xl lg:text-[4.4rem]">
                 从爆款图片，
                 <br />
-                到可复用 <em className="not-italic text-ember-400">Prompt</em>。
+                到可复用{" "}
+                <em className="not-italic">
+                  <span className="bg-gradient-to-br from-ember-200 via-ember-400 to-ember-600 bg-clip-text text-transparent">
+                    Prompt
+                  </span>
+                  <span className="ml-0.5 text-ember-400">.</span>
+                </em>
               </h1>
 
               <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-300 sm:text-[17px]">
@@ -183,25 +216,37 @@ export default function App() {
                 <a href="#templates" className="btn-ghost">
                   查看模板
                 </a>
+                <a
+                  href="#agent-skill"
+                  className="text-[13px] font-medium text-ink-300 transition hover:text-ember-200"
+                >
+                  · Agent 技能
+                </a>
               </div>
 
               <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-white/[0.06] pt-8">
                 <div>
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">案例</dt>
-                  <dd className="serif-display mt-1 text-3xl text-ink-50">
-                    {cases.length || "—"}
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
+                    案例
+                  </dt>
+                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
+                    {animCases || "—"}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">分类</dt>
-                  <dd className="serif-display mt-1 text-3xl text-ink-50">
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
+                    分类
+                  </dt>
+                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
                     {Math.max(categories.length - 1, 0) || "—"}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">模板</dt>
-                  <dd className="serif-display mt-1 text-3xl text-ink-50">
-                    {templates.length || "—"}
+                  <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
+                    模板
+                  </dt>
+                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
+                    {animTemplates || "—"}
                   </dd>
                 </div>
               </dl>
@@ -213,61 +258,125 @@ export default function App() {
               )}
             </div>
 
-            {/* Hero collage */}
-            <div className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4">
+            {/* Hero collage — magazine grid */}
+            <div className="relative z-10 grid grid-cols-3 grid-rows-3 gap-2.5 sm:gap-3">
               {heroCases.length === 0
                 ? Array.from({ length: 5 }).map((_, i) => (
                     <div
                       key={i}
                       className={
-                        "aspect-[4/5] animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800 " +
-                        (i === 0 ? "col-span-2 aspect-[16/10]" : "")
+                        "animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800 " +
+                        (i === 0
+                          ? "col-span-2 row-span-2 aspect-square"
+                          : "aspect-[4/5]")
                       }
                     />
                   ))
-                : heroCases.map((item, index) => (
+                : heroCases.slice(0, 5).map((item, index) => {
+                    const layout =
+                      index === 0
+                        ? "col-span-2 row-span-2"
+                        : index === 1
+                          ? "col-start-3 row-start-1 row-span-1"
+                          : index === 2
+                            ? "col-start-3 row-start-2 row-span-1"
+                            : index === 3
+                              ? "col-start-1 row-start-3"
+                              : "col-start-2 row-start-3 col-span-2";
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setActive(item)}
+                        className={
+                          "group card-spotlight relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
+                          layout
+                        }
+                        onMouseMove={(e) => {
+                          const rect = e.currentTarget.getBoundingClientRect();
+                          e.currentTarget.style.setProperty(
+                            "--x",
+                            `${e.clientX - rect.left}px`,
+                          );
+                          e.currentTarget.style.setProperty(
+                            "--y",
+                            `${e.clientY - rect.top}px`,
+                          );
+                        }}
+                        style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
+                      >
+                        <img
+                          src={item.imageUrl}
+                          alt={item.imageAlt || item.title}
+                          loading={index === 0 ? "eager" : "lazy"}
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
+                        />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-3">
+                          <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
+                            CASE #{item.id}
+                          </span>
+                          <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
+                            {item.title}
+                          </strong>
+                        </div>
+                      </button>
+                    );
+                  })}
+            </div>
+          </div>
+
+          {/* Cinematic ticker — scrolling row of recent cases */}
+          {tickerCases.length > 6 && (
+            <div className="relative overflow-hidden border-y border-white/[0.05] bg-white/[0.015] py-6">
+              <div className="mask-fade-x">
+                <div className="marquee">
+                  {[...tickerCases, ...tickerCases].map((item, idx) => (
                     <button
-                      key={item.id}
+                      key={`${item.id}-${idx}`}
                       type="button"
                       onClick={() => setActive(item)}
-                      className={
-                        "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-500 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
-                        (index === 0 ? "col-span-2" : "")
-                      }
-                      style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
+                      className="group relative h-32 w-48 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] bg-ink-900/40 text-left transition hover:border-white/[0.18]"
+                      aria-label={item.title}
                     >
                       <img
                         src={item.imageUrl}
-                        alt={item.imageAlt || item.title}
-                        loading={index === 0 ? "eager" : "lazy"}
+                        alt=""
+                        loading="lazy"
                         decoding="async"
-                        className={
-                          "w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100 " +
-                          (index === 0 ? "aspect-[16/10]" : "aspect-[4/5]")
-                        }
+                        className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                       />
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-3">
-                        <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
-                          CASE #{item.id}
-                        </span>
-                        <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
-                          {item.title}
-                        </strong>
-                      </div>
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />
+                      <span className="absolute bottom-2 left-2 right-2 line-clamp-1 text-[11px] font-medium text-ink-100">
+                        #{item.id} · {item.title}
+                      </span>
                     </button>
                   ))}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </section>
+
+        {/* CATEGORY SHOWCASE */}
+        {cases.length > 0 && (
+          <div className="reveal">
+            <CategoryShowcase
+              cases={cases}
+              activeCategory={category}
+              onCategoryChange={setCategory}
+            />
+          </div>
+        )}
 
         {/* GALLERY */}
         <section id="gallery" className="scroll-mt-20">
           <div className="container-narrow pt-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="reveal flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="eyebrow">Copy · Filter · Remix</p>
-                <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl">
+                <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl lg:text-[44px]">
                   爆款案例和 Prompt，一键可取。
                 </h2>
               </div>
@@ -338,9 +447,9 @@ export default function App() {
         {/* TEMPLATES */}
         <section id="templates" className="scroll-mt-20">
           <div className="container-narrow pb-20">
-            <div className="mb-10 max-w-2xl">
+            <div className="reveal mb-10 max-w-2xl">
               <p className="eyebrow">Industrial Templates</p>
-              <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl">
+              <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl lg:text-[44px]">
                 先用成熟模板起稿，再用案例库 remix。
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-400">
@@ -365,7 +474,7 @@ export default function App() {
                 ))}
               </div>
             ) : (
-              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="reveal grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
                 {templates.map((template) => (
                   <TemplateCard key={template.id} data={template} />
                 ))}
@@ -377,7 +486,7 @@ export default function App() {
         {/* AGENT SKILL */}
         <section id="agent-skill" className="scroll-mt-20">
           <div className="container-narrow pb-24">
-            <div className="surface relative overflow-hidden p-6 sm:p-10">
+            <div className="reveal surface relative overflow-hidden p-6 sm:p-10">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-ember-500/10 blur-3xl"
@@ -469,12 +578,16 @@ export default function App() {
         </section>
       </main>
 
-      <CaseModal
-        data={active}
-        favorited={active ? favoriteIds.has(active.id) : false}
-        onClose={() => setActive(null)}
-        onToggleFavorite={toggleFavorite}
-      />
+      {active && (
+        <Suspense fallback={null}>
+          <CaseModal
+            data={active}
+            favorited={favoriteIds.has(active.id)}
+            onClose={() => setActive(null)}
+            onToggleFavorite={toggleFavorite}
+          />
+        </Suspense>
+      )}
 
       <BackToTop />
 

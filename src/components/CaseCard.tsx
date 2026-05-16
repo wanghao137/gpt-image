@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 
@@ -81,11 +81,17 @@ function CheckIcon() {
   );
 }
 
-export function CaseCard({ data, favorited, onSelect, onToggleFavorite }: CaseCardProps) {
+function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardProps) {
   const { state, copy } = useCopy();
   const [imgErr, setImgErr] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const tags = tagsOf(data);
+
+  const handleSpotlight = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  }, []);
 
   const copyLabel =
     state === "copied" ? (
@@ -101,7 +107,10 @@ export function CaseCard({ data, favorited, onSelect, onToggleFavorite }: CaseCa
     );
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/60 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-white/[0.14] hover:shadow-soft">
+    <article
+      onMouseMove={handleSpotlight}
+      className="card-spotlight group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/60 backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-soft"
+    >
       <button
         type="button"
         onClick={() => onSelect(data)}
@@ -120,11 +129,15 @@ export function CaseCard({ data, favorited, onSelect, onToggleFavorite }: CaseCa
             onError={() => setImgErr(true)}
             onLoad={() => setImgLoaded(true)}
             className={
-              "h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04] " +
+              "h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06] " +
               (imgLoaded ? "opacity-100" : "opacity-0")
             }
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/95 via-ink-950/40 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+          {/* Bottom shadow for legibility */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950/95 via-ink-950/30 to-transparent opacity-60 transition duration-500 group-hover:opacity-90" />
+          {/* Top fade */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-ink-950/50 to-transparent" />
+
           <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[11px] font-medium tracking-wider text-ink-100 backdrop-blur">
             #{data.id}
           </span>
@@ -144,20 +157,24 @@ export function CaseCard({ data, favorited, onSelect, onToggleFavorite }: CaseCa
           >
             <HeartIcon filled={favorited} />
           </button>
-          <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full border border-white/15 bg-ink-950/75 px-2.5 py-1 text-[11px] font-medium text-ink-100 opacity-0 backdrop-blur transition group-hover:opacity-100">
-            查看详情
-            <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3" aria-hidden="true">
-              <path
-                fillRule="evenodd"
-                d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </span>
+
+          {/* Hover overlay with title preview directly on image */}
+          <div className="absolute inset-x-0 bottom-0 translate-y-1.5 p-3 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-ink-50 backdrop-blur">
+              查看详情
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3" aria-hidden="true">
+                <path
+                  fillRule="evenodd"
+                  d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
       </button>
 
-      <div className="flex flex-col gap-3 p-4">
+      <div className="relative z-[2] flex flex-col gap-3 p-4">
         <div className="flex items-center justify-between gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-400">
           <span className="truncate">{data.category}</span>
           {data.source && (
@@ -229,3 +246,5 @@ export function CaseCard({ data, favorited, onSelect, onToggleFavorite }: CaseCa
     </article>
   );
 }
+
+export const CaseCard = memo(CaseCardImpl);

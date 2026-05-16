@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import type { PromptTemplate } from "../types";
 import { useCopy } from "../hooks/useCopy";
 
@@ -6,13 +6,22 @@ interface TemplateCardProps {
   data: PromptTemplate;
 }
 
-export function TemplateCard({ data }: TemplateCardProps) {
+function TemplateCardImpl({ data }: TemplateCardProps) {
   const { state, copy } = useCopy();
   const [imgLoaded, setImgLoaded] = useState(false);
   const tags = data.tags.slice(0, 3);
 
+  const handleSpotlight = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  }, []);
+
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/60 transition duration-300 hover:-translate-y-0.5 hover:border-white/[0.14] hover:shadow-soft">
+    <article
+      onMouseMove={handleSpotlight}
+      className="card-spotlight group flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/60 transition duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-soft"
+    >
       <div className="relative aspect-[16/10] overflow-hidden bg-ink-850">
         {!imgLoaded && (
           <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
@@ -24,19 +33,21 @@ export function TemplateCard({ data }: TemplateCardProps) {
           decoding="async"
           onLoad={() => setImgLoaded(true)}
           className={
-            "h-full w-full object-cover transition duration-700 group-hover:scale-[1.04] " +
+            "h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +
             (imgLoaded ? "opacity-95" : "opacity-0")
           }
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
         <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
           TEMPLATE
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="relative z-[2] flex flex-1 flex-col gap-3 p-5">
         <div className="eyebrow">{data.category}</div>
-        <h3 className="text-[16px] font-semibold leading-snug text-ink-50">{data.title}</h3>
+        <h3 className="text-[16px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200">
+          {data.title}
+        </h3>
         <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
 
         {tags.length > 0 && (
@@ -100,3 +111,5 @@ export function TemplateCard({ data }: TemplateCardProps) {
     </article>
   );
 }
+
+export const TemplateCard = memo(TemplateCardImpl);

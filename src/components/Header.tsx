@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 interface HeaderProps {
   caseCount: number;
@@ -11,7 +11,7 @@ const NAV = [
   { id: "agent-skill", label: "技能" },
 ];
 
-export function Header({ caseCount, templateCount }: HeaderProps) {
+function HeaderImpl({ caseCount, templateCount }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>("gallery");
 
@@ -42,9 +42,9 @@ export function Header({ caseCount, templateCount }: HeaderProps) {
   return (
     <header
       className={
-        "sticky top-0 z-40 transition-all duration-300 " +
+        "sticky top-0 z-40 transition-all duration-500 " +
         (scrolled
-          ? "border-b border-white/[0.06] bg-ink-950/75 backdrop-blur-xl"
+          ? "border-b border-white/[0.06] bg-ink-950/72 backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent bg-transparent")
       }
     >
@@ -54,23 +54,24 @@ export function Header({ caseCount, templateCount }: HeaderProps) {
           className="group inline-flex items-center gap-2.5"
           aria-label="GPT-Image 2 Prompt Gallery"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-ember-400 to-ember-700 text-sm font-semibold text-ink-950 shadow-ember">
-            G
+          <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-ember-300 via-ember-500 to-ember-700 text-[15px] font-bold text-ink-950 shadow-ember transition group-hover:scale-105">
+            <span className="serif-display leading-none">G</span>
+            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-ember-200 ring-2 ring-ink-950" />
           </span>
           <span className="hidden text-[15px] font-semibold tracking-tight text-ink-50 sm:block">
             <span className="text-ink-300">GPT-Image 2</span>
             <span className="mx-1.5 text-ink-500">·</span>
-            <span>Prompt Gallery</span>
+            <span>Gallery</span>
           </span>
         </a>
 
-        <nav className="hidden items-center gap-0.5 rounded-full border border-white/[0.06] bg-white/[0.03] p-1 text-sm md:flex">
+        <nav className="hidden items-center gap-0.5 rounded-full border border-white/[0.06] bg-white/[0.03] p-1 text-sm shadow-inner backdrop-blur md:flex">
           {NAV.map((n) => (
             <a
               key={n.id}
               href={`#${n.id}`}
               className={
-                "rounded-full px-3.5 py-1.5 text-[13px] font-medium transition " +
+                "relative rounded-full px-3.5 py-1.5 text-[13px] font-medium transition " +
                 (active === n.id
                   ? "bg-white/10 text-ink-50"
                   : "text-ink-300 hover:text-ink-50")
@@ -83,10 +84,10 @@ export function Header({ caseCount, templateCount }: HeaderProps) {
 
         <div className="flex items-center gap-2">
           <span className="hidden rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-[12px] font-medium text-ink-300 sm:inline-flex">
-            <span className="text-ink-50">{caseCount}</span>
+            <span className="text-ink-50 tabular-nums">{caseCount}</span>
             <span className="mx-1 text-ink-500">案例</span>
             <span className="mx-1 text-ink-600">·</span>
-            <span className="text-ink-50">{templateCount}</span>
+            <span className="text-ink-50 tabular-nums">{templateCount}</span>
             <span className="ml-1 text-ink-500">模板</span>
           </span>
           <a
@@ -115,3 +116,5 @@ export function Header({ caseCount, templateCount }: HeaderProps) {
     </header>
   );
 }
+
+export const Header = memo(HeaderImpl);
