@@ -18,7 +18,10 @@ const ALL = "全部";
 const FAVORITES_KEY = "gpt-image-gallery:favorites:v1";
 
 function uniqueOptions(items: string[][]) {
-  return [ALL, ...Array.from(new Set(items.flat())).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"))];
+  return [
+    ALL,
+    ...Array.from(new Set(items.flat())).sort((a, b) => a.localeCompare(b, "zh-Hans-CN")),
+  ];
 }
 
 function readFavorites() {
@@ -42,6 +45,20 @@ const SKILL_CMD =
   "npx skills add freestylefly/awesome-gpt-image-2 --skill gpt-image-2-style-library --agent claude-code codex --global --yes --copy";
 const SKILL_REQUEST = "Use gpt-image-2-style-library to create a city life system map.";
 
+/** Detect whether the user is on a narrow viewport without re-rendering on resize. */
+function isNarrowViewport(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
+/** Detect Save-Data / slow connection — used to dial down heavy effects. */
+function shouldRespectSaveData(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } })
+    .connection;
+  return Boolean(c?.saveData) || c?.effectiveType === "slow-2g" || c?.effectiveType === "2g";
+}
+
 export default function App() {
   const [cases, setCases] = useState<PromptCase[]>([]);
   const [templates, setTemplates] = useState<PromptTemplate[]>([]);
@@ -54,11 +71,12 @@ export default function App() {
   const [active, setActive] = useState<PromptCase | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(readFavorites);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [narrow] = useState<boolean>(isNarrowViewport);
+  const [saveData] = useState<boolean>(shouldRespectSaveData);
 
   const cmdCopy = useCopy(1800);
   const reqCopy = useCopy(1800);
 
-  // Animated stats (count-up effect)
   const animCases = useCountUp(cases.length, 1100);
   const animTemplates = useCountUp(templates.length, 900);
 
@@ -110,7 +128,6 @@ export default function App() {
         item.id,
         item.title,
         item.category,
-        item.prompt,
         item.promptPreview,
         item.source,
         ...item.tags,
@@ -143,14 +160,26 @@ export default function App() {
     });
   }, []);
 
-  // Hero: pick a curated mix of cases (latest + a few diverse covers)
   const heroCases = useMemo(() => cases.slice(0, 7), [cases]);
-  // Marquee row of recent cases for cinematic showcase
   const tickerCases = useMemo(() => cases.slice(0, 18), [cases]);
+  const showTicker = !narrow && !saveData && tickerCases.length > 6;
 
   const favoriteCount = favoriteIds.size;
 
-  // Trigger reveal animations whenever visible content changes
+  // Once the first hero image URL is known, ask the browser to preload it as the LCP candidate.
+  useEffect(() => {
+    if (!cases[0]?.imageUrl) return;
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = cases[0].imageUrl;
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+    return () => {
+      link.remove();
+    };
+  }, [cases]);
+
   useReveal([cases.length, templates.length, filtered.length, showFavorites]);
 
   return (
@@ -160,7 +189,6 @@ export default function App() {
       <main>
         {/* HERO */}
         <section className="relative isolate">
-          {/* Decorative ambient blobs */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-ember-500/10 blur-[120px]"
@@ -170,9 +198,9 @@ export default function App() {
             className="pointer-events-none absolute right-0 top-40 h-72 w-72 rounded-full bg-ember-700/10 blur-[100px]"
           />
 
-          <div className="container-narrow grid gap-12 pb-16 pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
+          <div className="container-narrow grid gap-10 pb-12 pt-10 sm:gap-12 sm:pb-16 sm:pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
             <div className="relative z-10 flex flex-col justify-center">
-              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-300 backdrop-blur">
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10.5px] font-medium uppercase tracking-[0.18em] text-ink-300 backdrop-blur">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
@@ -180,7 +208,7 @@ export default function App() {
                 Live · GPT-Image 2 Prompt Gallery
               </div>
 
-              <h1 className="serif-display text-[2.6rem] leading-[1.02] text-ink-50 sm:text-6xl lg:text-[4.4rem]">
+              <h1 className="serif-display text-[2.2rem] leading-[1.05] text-ink-50 sm:text-5xl lg:text-[4.4rem] lg:leading-[1.02]">
                 从爆款图片，
                 <br />
                 到可复用{" "}
@@ -192,12 +220,12 @@ export default function App() {
                 </em>
               </h1>
 
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-300 sm:text-[17px]">
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
                 一个面向 GPT-Image 2 创作者的可视化工作台。浏览真实案例、复制 Prompt、查看工业级模板，
                 把灵感到出图的距离压到最短。
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
                 <a href="#gallery" className="btn-primary">
                   浏览案例
                   <svg
@@ -216,20 +244,14 @@ export default function App() {
                 <a href="#templates" className="btn-ghost">
                   查看模板
                 </a>
-                <a
-                  href="#agent-skill"
-                  className="text-[13px] font-medium text-ink-300 transition hover:text-ember-200"
-                >
-                  · Agent 技能
-                </a>
               </div>
 
-              <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-white/[0.06] pt-8">
+              <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-white/[0.06] pt-7 sm:mt-12 sm:pt-8">
                 <div>
                   <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
                     案例
                   </dt>
-                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
+                  <dd className="stat-num mt-1 text-[28px] leading-none text-ink-50 sm:text-4xl">
                     {animCases || "—"}
                   </dd>
                 </div>
@@ -237,7 +259,7 @@ export default function App() {
                   <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
                     分类
                   </dt>
-                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
+                  <dd className="stat-num mt-1 text-[28px] leading-none text-ink-50 sm:text-4xl">
                     {Math.max(categories.length - 1, 0) || "—"}
                   </dd>
                 </div>
@@ -245,7 +267,7 @@ export default function App() {
                   <dt className="text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
                     模板
                   </dt>
-                  <dd className="stat-num mt-1 text-[34px] leading-none text-ink-50 sm:text-4xl">
+                  <dd className="stat-num mt-1 text-[28px] leading-none text-ink-50 sm:text-4xl">
                     {animTemplates || "—"}
                   </dd>
                 </div>
@@ -258,78 +280,141 @@ export default function App() {
               )}
             </div>
 
-            {/* Hero collage — magazine grid */}
-            <div className="relative z-10 grid grid-cols-3 grid-rows-3 gap-2.5 sm:gap-3">
-              {heroCases.length === 0
-                ? Array.from({ length: 5 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={
-                        "animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800 " +
-                        (i === 0
-                          ? "col-span-2 row-span-2 aspect-square"
-                          : "aspect-[4/5]")
-                      }
-                    />
-                  ))
-                : heroCases.slice(0, 5).map((item, index) => {
-                    const layout =
-                      index === 0
-                        ? "col-span-2 row-span-2"
-                        : index === 1
-                          ? "col-start-3 row-start-1 row-span-1"
-                          : index === 2
-                            ? "col-start-3 row-start-2 row-span-1"
-                            : index === 3
-                              ? "col-start-1 row-start-3"
-                              : "col-start-2 row-start-3 col-span-2";
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => setActive(item)}
-                        className={
-                          "group card-spotlight relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
-                          layout
-                        }
-                        onMouseMove={(e) => {
-                          const rect = e.currentTarget.getBoundingClientRect();
-                          e.currentTarget.style.setProperty(
-                            "--x",
-                            `${e.clientX - rect.left}px`,
-                          );
-                          e.currentTarget.style.setProperty(
-                            "--y",
-                            `${e.clientY - rect.top}px`,
-                          );
-                        }}
-                        style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
-                      >
-                        <img
-                          src={item.imageUrl}
-                          alt={item.imageAlt || item.title}
-                          loading={index === 0 ? "eager" : "lazy"}
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
-                        />
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                        <div className="absolute inset-x-0 bottom-0 p-3">
-                          <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
-                            CASE #{item.id}
-                          </span>
-                          <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
-                            {item.title}
-                          </strong>
-                        </div>
-                      </button>
-                    );
-                  })}
+            {/* Hero collage —
+                MOBILE: single LCP card.
+                DESKTOP: 3x3 magazine grid. */}
+            <div className="relative z-10">
+              {heroCases.length === 0 ? (
+                <div className="aspect-[4/5] animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800 sm:aspect-[16/10] lg:aspect-square" />
+              ) : (
+                <>
+                  {/* Mobile: single hero image */}
+                  <button
+                    type="button"
+                    onClick={() => setActive(heroCases[0])}
+                    className="group relative block w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left lg:hidden"
+                    aria-label={heroCases[0].title}
+                  >
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <img
+                        src={heroCases[0].imageUrl}
+                        alt={heroCases[0].imageAlt || heroCases[0].title}
+                        width={800}
+                        height={1000}
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
+                          CASE #{heroCases[0].id}
+                        </span>
+                        <strong className="mt-1 line-clamp-1 block text-[15px] font-semibold text-ink-50">
+                          {heroCases[0].title}
+                        </strong>
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Mobile: 2-up thumbnails (only render if we have data) */}
+                  {heroCases.length > 1 && (
+                    <div className="mt-2.5 grid grid-cols-2 gap-2.5 lg:hidden">
+                      {heroCases.slice(1, 3).map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setActive(item)}
+                          className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-ink-900/40 text-left"
+                          aria-label={item.title}
+                        >
+                          <div className="relative aspect-[4/5] overflow-hidden">
+                            <img
+                              src={item.imageUrl}
+                              alt=""
+                              width={400}
+                              height={500}
+                              loading="lazy"
+                              decoding="async"
+                              className="absolute inset-0 h-full w-full object-cover opacity-90"
+                            />
+                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />
+                            <span className="absolute bottom-2 left-2 right-2 line-clamp-1 text-[11px] font-medium text-ink-100">
+                              #{item.id} · {item.title}
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Desktop: 3x3 magazine grid */}
+                  <div className="hidden grid-cols-3 grid-rows-3 gap-3 lg:grid">
+                    {heroCases.slice(0, 5).map((item, index) => {
+                      const layout =
+                        index === 0
+                          ? "col-span-2 row-span-2"
+                          : index === 1
+                            ? "col-start-3 row-start-1"
+                            : index === 2
+                              ? "col-start-3 row-start-2"
+                              : index === 3
+                                ? "col-start-1 row-start-3"
+                                : "col-start-2 row-start-3 col-span-2";
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setActive(item)}
+                          className={
+                            "group card-spotlight relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
+                            layout
+                          }
+                          onMouseMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            e.currentTarget.style.setProperty(
+                              "--x",
+                              `${e.clientX - rect.left}px`,
+                            );
+                            e.currentTarget.style.setProperty(
+                              "--y",
+                              `${e.clientY - rect.top}px`,
+                            );
+                          }}
+                          style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
+                        >
+                          <img
+                            src={item.imageUrl}
+                            alt={item.imageAlt || item.title}
+                            width={index === 0 ? 1000 : 500}
+                            height={index === 0 ? 1000 : 500}
+                            loading={index === 0 ? "eager" : "lazy"}
+                            fetchPriority={index === 0 ? "high" : "auto"}
+                            decoding="async"
+                            className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
+                          />
+                          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                          <div className="absolute inset-x-0 bottom-0 p-3">
+                            <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
+                              CASE #{item.id}
+                            </span>
+                            <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
+                              {item.title}
+                            </strong>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
-          {/* Cinematic ticker — scrolling row of recent cases */}
-          {tickerCases.length > 6 && (
-            <div className="relative overflow-hidden border-y border-white/[0.05] bg-white/[0.015] py-6">
+          {/* Cinematic ticker — desktop only, paused while offscreen */}
+          {showTicker && (
+            <div className="ticker-wrap relative overflow-hidden border-y border-white/[0.05] bg-white/[0.015] py-6">
               <div className="mask-fade-x">
                 <div className="marquee">
                   {[...tickerCases, ...tickerCases].map((item, idx) => (
@@ -343,9 +428,11 @@ export default function App() {
                       <img
                         src={item.imageUrl}
                         alt=""
+                        width={384}
+                        height={256}
                         loading="lazy"
                         decoding="async"
-                        className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
+                        className="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />
                       <span className="absolute bottom-2 left-2 right-2 line-clamp-1 text-[11px] font-medium text-ink-100">
@@ -376,7 +463,7 @@ export default function App() {
             <div className="reveal flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="eyebrow">Copy · Filter · Remix</p>
-                <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl lg:text-[44px]">
+                <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[44px]">
                   爆款案例和 Prompt，一键可取。
                 </h2>
               </div>
@@ -447,12 +534,12 @@ export default function App() {
         {/* TEMPLATES */}
         <section id="templates" className="scroll-mt-20">
           <div className="container-narrow pb-20">
-            <div className="reveal mb-10 max-w-2xl">
+            <div className="reveal mb-8 max-w-2xl sm:mb-10">
               <p className="eyebrow">Industrial Templates</p>
-              <h2 className="serif-display mt-2 text-3xl text-ink-50 sm:text-4xl lg:text-[44px]">
+              <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[44px]">
                 先用成熟模板起稿，再用案例库 remix。
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-400">
+              <p className="mt-3 text-[14px] leading-relaxed text-ink-400 sm:text-[15px]">
                 每套模板都从真实案例中提炼，包含结构、约束与防坑指南，适合直接复制后替换主体、场景、品牌和限制条件。
               </p>
             </div>
@@ -486,7 +573,7 @@ export default function App() {
         {/* AGENT SKILL */}
         <section id="agent-skill" className="scroll-mt-20">
           <div className="container-narrow pb-24">
-            <div className="reveal surface relative overflow-hidden p-6 sm:p-10">
+            <div className="reveal surface relative overflow-hidden p-5 sm:p-10">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-ember-500/10 blur-3xl"
@@ -496,16 +583,16 @@ export default function App() {
                 className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-ember-700/10 blur-3xl"
               />
 
-              <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
                 <div>
                   <p className="eyebrow">Agent Skill</p>
-                  <h2 className="serif-display mt-2 text-3xl leading-[1.1] text-ink-50 sm:text-4xl">
+                  <h2 className="serif-display mt-2 text-[26px] leading-[1.1] text-ink-50 sm:text-4xl">
                     把 GPT-Image 2 风格库装进 Claude Code 与 Codex。
                   </h2>
-                  <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink-400">
+                  <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-ink-400 sm:text-[15px]">
                     一条命令完成安装，让你的本地 Agent 直接调用与本站同源的模板、风格、场景与防坑指南。
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-5 flex flex-wrap gap-2 sm:mt-6">
                     <span className="chip chip-idle">Claude Code ready</span>
                     <span className="chip chip-idle">Codex ready</span>
                     <span className="chip chip-idle">{templates.length}+ 模板</span>
@@ -514,7 +601,7 @@ export default function App() {
                     href="https://github.com/freestylefly/awesome-gpt-image-2/tree/main/agents/skills/gpt-image-2-style-library"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-8 inline-flex items-center gap-1.5 text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
+                    className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-ember-300 transition hover:text-ember-200 sm:mt-8"
                   >
                     查看技能源码
                     <svg
@@ -567,7 +654,7 @@ export default function App() {
                         {reqCopy.state === "copied" ? "已复制" : "复制"}
                       </button>
                     </div>
-                    <p className="mt-2 font-mono text-[13px] leading-relaxed text-ink-100">
+                    <p className="mt-2 break-all font-mono text-[13px] leading-relaxed text-ink-100">
                       {SKILL_REQUEST}
                     </p>
                   </div>
@@ -592,7 +679,10 @@ export default function App() {
       <BackToTop />
 
       <footer className="border-t border-white/[0.06]">
-        <div className="container-narrow flex flex-col items-center justify-between gap-3 py-8 text-[12px] text-ink-500 sm:flex-row">
+        <div
+          className="container-narrow flex flex-col items-center justify-between gap-3 py-8 text-[12px] text-ink-500 sm:flex-row"
+          style={{ paddingBottom: "max(2rem, env(safe-area-inset-bottom))" }}
+        >
           <p>
             GPT-Image 2 Prompt Gallery · 数据由{" "}
             <code className="rounded bg-white/[0.05] px-1.5 py-0.5 font-mono text-ink-300">

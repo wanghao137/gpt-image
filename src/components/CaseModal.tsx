@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
+import { usePrompt } from "../hooks/usePrompt";
 
 interface CaseModalProps {
   data: PromptCase | null;
@@ -25,11 +26,17 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
   const [prompt, setPrompt] = useState("");
   const [edited, setEdited] = useState(false);
 
+  const fetched = usePrompt(data?.id ?? null);
+
+  // Reset local prompt state when the active case changes / when fetched updates.
   useEffect(() => {
     setImgErr(false);
-    setPrompt(data?.prompt || "");
     setEdited(false);
-  }, [data?.id, data?.prompt]);
+  }, [data?.id]);
+
+  useEffect(() => {
+    if (!edited) setPrompt(fetched.prompt);
+  }, [fetched.prompt, edited]);
 
   useEffect(() => {
     if (!data) return;
@@ -56,19 +63,21 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink-950/80 p-3 backdrop-blur-md sm:p-6 animate-fade-in"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-ink-950/80 p-0 backdrop-blur-md sm:items-center sm:p-6 animate-fade-in"
       role="dialog"
       aria-modal="true"
       aria-label={data.title}
     >
-      <div className="grid max-h-[94vh] w-full max-w-6xl overflow-hidden rounded-3xl border border-white/[0.08] bg-ink-900 shadow-soft lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div className="grid max-h-[94vh] w-full max-w-6xl overflow-hidden rounded-t-3xl border border-white/[0.08] bg-ink-900 shadow-soft sm:rounded-3xl lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         {/* Image side */}
         <div className="relative min-h-0 bg-ink-950">
           <img
             src={imgErr ? FALLBACK : data.imageUrl}
             alt={data.imageAlt || data.title}
+            width={1200}
+            height={1500}
             onError={() => setImgErr(true)}
-            className="h-72 w-full object-cover lg:h-full"
+            className="h-56 w-full object-cover sm:h-72 lg:h-full"
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent p-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-ink-950/70 px-3 py-1 text-[11px] font-medium tracking-wider text-ink-100 backdrop-blur">
@@ -80,10 +89,10 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
 
         {/* Info side */}
         <div className="flex min-h-0 flex-col">
-          <div className="flex items-start justify-between gap-4 border-b border-white/[0.06] p-6">
+          <div className="flex items-start justify-between gap-4 border-b border-white/[0.06] p-5 sm:p-6">
             <div className="min-w-0 flex-1">
               <div className="eyebrow">{data.category}</div>
-              <h2 className="serif-display mt-2 text-3xl leading-[1.1] text-ink-50">
+              <h2 className="serif-display mt-2 text-2xl leading-[1.1] text-ink-50 sm:text-3xl">
                 {data.title}
               </h2>
               {data.source && (
@@ -119,10 +128,16 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
             </button>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-auto p-6 scrollbar-thin">
+          <div className="min-h-0 flex-1 overflow-auto p-5 sm:p-6 scrollbar-thin">
             <div className="mb-3 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <h3 className="eyebrow">Prompt</h3>
+                {fetched.loading && (
+                  <span className="text-[11px] text-ink-500">加载中…</span>
+                )}
+                {fetched.error && (
+                  <span className="text-[11px] text-rose-300">加载失败</span>
+                )}
                 {edited && (
                   <span className="rounded-full border border-ember-500/30 bg-ember-500/10 px-2 py-0.5 text-[10px] font-medium text-ember-200">
                     已编辑
@@ -133,7 +148,7 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
                 <button
                   type="button"
                   onClick={() => {
-                    setPrompt(data.prompt);
+                    setPrompt(fetched.prompt);
                     setEdited(false);
                   }}
                   className="text-[12px] font-medium text-ink-400 transition hover:text-ink-50"
@@ -146,14 +161,17 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
               value={prompt}
               onChange={(e) => {
                 setPrompt(e.target.value);
-                setEdited(e.target.value !== data.prompt);
+                setEdited(e.target.value !== fetched.prompt);
               }}
               maxLength={6000}
               spellCheck={false}
-              className="min-h-[16rem] w-full resize-none rounded-2xl border border-white/[0.08] bg-ink-950/60 p-4 font-mono text-[13px] leading-relaxed text-ink-100 outline-none transition placeholder:text-ink-500 focus:border-ember-500/50 focus:ring-2 focus:ring-ember-500/15"
+              placeholder={fetched.loading ? "正在加载完整 Prompt…" : data.promptPreview || ""}
+              className="min-h-[14rem] w-full resize-none rounded-2xl border border-white/[0.08] bg-ink-950/60 p-4 font-mono text-[13px] leading-relaxed text-ink-100 outline-none transition placeholder:text-ink-500 focus:border-ember-500/50 focus:ring-2 focus:ring-ember-500/15 sm:min-h-[16rem]"
             />
             <div className="mt-2 flex items-center justify-between text-[11px] tabular-nums text-ink-500">
-              <span>{charCount} 字符 · {wordCount} 词</span>
+              <span>
+                {charCount} 字符 · {wordCount} 词
+              </span>
               <span>最多 6000 字符</span>
             </div>
 
@@ -180,7 +198,10 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
             )}
           </div>
 
-          <div className="flex flex-col-reverse gap-2 border-t border-white/[0.06] p-4 sm:flex-row sm:justify-end">
+          <div
+            className="flex flex-col-reverse gap-2 border-t border-white/[0.06] p-4 sm:flex-row sm:justify-end"
+            style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+          >
             <button
               type="button"
               onClick={() => onToggleFavorite(data.id)}
@@ -207,9 +228,10 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
             </button>
             <button
               type="button"
-              onClick={() => copy(prompt)}
+              disabled={fetched.loading || (!fetched.prompt && !prompt)}
+              onClick={() => copy(prompt || fetched.prompt)}
               className={
-                "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition " +
+                "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition disabled:opacity-50 " +
                 (state === "copied"
                   ? "bg-emerald-400 text-ink-950"
                   : state === "error"
@@ -248,7 +270,7 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
                     <rect x="9" y="9" width="13" height="13" rx="2" />
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                   </svg>
-                  复制 Prompt
+                  {fetched.loading ? "加载中" : "复制 Prompt"}
                 </>
               )}
             </button>

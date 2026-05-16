@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -63,7 +63,7 @@ function normalizeCase(item) {
     imageUrl: absolutize(item.image),
     imageAlt: item.imageAlt || item.title || `案例 ${item.id}`,
     prompt: item.prompt || item.promptPreview || "",
-    promptPreview: item.promptPreview || item.prompt || "",
+    promptPreview: item.promptPreview || (item.prompt || "").slice(0, 220),
     source: item.sourceLabel || undefined,
     githubUrl: item.githubUrl || undefined,
   };
@@ -73,9 +73,19 @@ function buildTemplatePrompt(template) {
   const title = localize(template.title);
   const description = localize(template.description);
   const useWhen = localize(template.useWhen) || description;
-  const direction = [...new Set([...(template.tags || []), ...(template.styles || []), ...(template.scenes || [])])].join(" / ");
-  const guidance = (template.guidance?.zh || template.guidance?.en || []).map((line) => `- ${line}`).join("\n");
-  const pitfalls = (template.pitfalls?.zh || template.pitfalls?.en || []).map((line) => `- ${line}`).join("\n");
+  const direction = [
+    ...new Set([
+      ...(template.tags || []),
+      ...(template.styles || []),
+      ...(template.scenes || []),
+    ]),
+  ].join(" / ");
+  const guidance = (template.guidance?.zh || template.guidance?.en || [])
+    .map((line) => `- ${line}`)
+    .join("\n");
+  const pitfalls = (template.pitfalls?.zh || template.pitfalls?.en || [])
+    .map((line) => `- ${line}`)
+    .join("\n");
 
   return [
     `模板：${title}`,
@@ -108,29 +118,63 @@ function normalizeTemplate(template) {
   };
 }
 
-function writeJson(relativePath, data) {
+function writeJson(relativePath, data, opts = {}) {
   const output = resolve(ROOT, relativePath);
   mkdirSync(dirname(output), { recursive: true });
-  writeFileSync(output, `${JSON.stringify(data, null, 2)}\n`, "utf8");
-  console.log(`✓ wrote ${Array.isArray(data) ? data.length : 1} records -> ${relativePath}`);
+  // Compact (no pretty printing) for prod payload — keeps gzip output smaller too.
+  const text = opts.pretty
+    ? JSON.stringify(data, null, 2) + "\n"
+    : JSON.stringify(data);
+  writeFileSync(output, text, "utf8");
 }
 
 async function main() {
   console.log(`fetching ${CASES_URL} ...`);
   const casesPayload = await fetchJson(CASES_URL);
-  const cases = (casesPayload.cases || [])
+  const fullCases = (casesPayload.cases || [])
     .map(normalizeCase)
     .filter((item) => item.imageUrl && item.prompt)
     .sort((a, b) => Number(b.id) - Number(a.id));
 
   console.log(`fetching ${STYLE_LIBRARY_URL} ...`);
   const stylePayload = await fetchJson(STYLE_LIBRARY_URL);
-  const templates = (stylePayload.templates || []).map(normalizeTemplate).filter((item) => item.id && item.prompt);
+  const templates = (stylePayload.templates || [])
+    .map(normalizeTemplate)
+    .filter((item) => item.id && item.prompt);
 
-  writeJson("public/data/cases.json", cases);
-  writeJson("public/data/templates.json", templates);
+  // Lite cases — strip the heavy `prompt` field. Card/grid only need `promptPreview`.
+  const lite = fullCases.map((c) => ({
+    id: c.id,
+    title: c.title,
+    category: c.category,
+    tags: c.tags,
+    styles: c.styles,
+    scenes: c.scenes,
+    imageUrl: c.imageUrl,
+    imageAlt: c.imageAlt,
+    promptPreview: c.promptPreview,
+    source: c.source,
+    githubUrl: c.githubUrl,
+  }));
 
-  console.log(`synced ${cases.length} cases and ${templates.length} templates from GPT-Image2 public JSON.`);
+  writeJson("public/data/cases.json", lite);
+  console.log(`✓ wrote ${lite.length} lite records -> public/data/cases.json`);
+
+  writeJson("public/data/templates.json", templates, { pretty: true });
+  console.log(`✓ wrote ${templates.length} templates -> public/data/templates.json`);
+
+  // Per-case prompts — fetched on demand when a user opens a case modal or copies.
+  const promptsDir = resolve(ROOT, "public/data/prompts");
+  if (existsSync(promptsDir)) rmSync(promptsDir, { recursive: true, force: true });
+  mkdirSync(promptsDir, { recursive: true });
+  for (const c of fullCases) {
+    writeJson(`public/data/prompts/${c.id}.json`, { id: c.id, prompt: c.prompt });
+  }
+  console.log(`✓ wrote ${fullCases.length} per-case prompt files -> public/data/prompts/`);
+
+  console.log(
+    `synced ${fullCases.length} cases and ${templates.length} templates from GPT-Image2 public JSON.`,
+  );
 }
 
 main().catch((error) => {

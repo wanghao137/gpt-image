@@ -1,6 +1,7 @@
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
+import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
 
 interface CaseCardProps {
   data: PromptCase;
@@ -20,7 +21,7 @@ const FALLBACK =
   );
 
 function previewText(data: PromptCase, max = 130): string {
-  const text = data.promptPreview || data.prompt;
+  const text = data.promptPreview || "";
   const trimmed = text.trim().replace(/\s+/g, " ");
   return trimmed.length > max ? trimmed.slice(0, max) + "…" : trimmed;
 }
@@ -85,7 +86,32 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
   const { state, copy } = useCopy();
   const [imgErr, setImgErr] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
+  const [copying, setCopying] = useState(false);
+  const articleRef = useRef<HTMLElement | null>(null);
   const tags = tagsOf(data);
+
+  // Prefetch the full prompt when the card scrolls into view (idle CPU only).
+  useEffect(() => {
+    const el = articleRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries, observer) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const trigger = () => prefetchPrompt(data.id);
+            const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
+              .requestIdleCallback;
+            if (typeof idle === "function") idle(trigger);
+            else setTimeout(trigger, 200);
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [data.id]);
 
   const handleSpotlight = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -93,22 +119,44 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
     e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
   }, []);
 
-  const copyLabel =
-    state === "copied" ? (
-      <>
-        <CheckIcon /> 已复制
-      </>
-    ) : state === "error" ? (
-      <>复制失败</>
-    ) : (
-      <>
-        <CopyIcon /> 复制 Prompt
-      </>
-    );
+  const handleCopy = useCallback(async () => {
+    const cached = getCachedPrompt(data.id);
+    if (cached) {
+      copy(cached);
+      return;
+    }
+    setCopying(true);
+    try {
+      const url = `${import.meta.env.BASE_URL}data/prompts/${data.id}.json`;
+      const r = await fetch(url, { cache: "force-cache" });
+      const json = (await r.json()) as { prompt: string };
+      copy(json.prompt);
+    } catch {
+      copy("");
+    } finally {
+      setCopying(false);
+    }
+  }, [copy, data.id]);
+
+  const copyLabel = copying ? (
+    <>复制中…</>
+  ) : state === "copied" ? (
+    <>
+      <CheckIcon /> 已复制
+    </>
+  ) : state === "error" ? (
+    <>复制失败</>
+  ) : (
+    <>
+      <CopyIcon /> 复制 Prompt
+    </>
+  );
 
   return (
     <article
+      ref={articleRef}
       onMouseMove={handleSpotlight}
+      onMouseEnter={() => prefetchPrompt(data.id)}
       className="card-spotlight group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/60 backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-soft"
     >
       <button
@@ -124,18 +172,18 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
           <img
             src={imgErr ? FALLBACK : data.imageUrl}
             alt={data.imageAlt || data.title}
+            width={640}
+            height={800}
             loading="lazy"
             decoding="async"
             onError={() => setImgErr(true)}
             onLoad={() => setImgLoaded(true)}
             className={
-              "h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06] " +
+              "absolute inset-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06] " +
               (imgLoaded ? "opacity-100" : "opacity-0")
             }
           />
-          {/* Bottom shadow for legibility */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950/95 via-ink-950/30 to-transparent opacity-60 transition duration-500 group-hover:opacity-90" />
-          {/* Top fade */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-ink-950/50 to-transparent" />
 
           <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[11px] font-medium tracking-wider text-ink-100 backdrop-blur">
@@ -152,13 +200,12 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
               "absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border backdrop-blur transition " +
               (favorited
                 ? "border-ember-400/60 bg-ember-500/20 text-ember-200"
-                : "border-white/15 bg-ink-950/60 text-ink-200 opacity-0 hover:border-ember-400/60 hover:text-ember-200 group-hover:opacity-100")
+                : "border-white/15 bg-ink-950/60 text-ink-200 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:opacity-0 sm:group-hover:opacity-100")
             }
           >
             <HeartIcon filled={favorited} />
           </button>
 
-          {/* Hover overlay with title preview directly on image */}
           <div className="absolute inset-x-0 bottom-0 translate-y-1.5 p-3 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
             <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-ink-50 backdrop-blur">
               查看详情
@@ -212,10 +259,11 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
             type="button"
             onClick={(e) => {
               e.stopPropagation();
-              copy(data.prompt);
+              handleCopy();
             }}
+            disabled={copying}
             className={
-              "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-[12.5px] font-medium transition " +
+              "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-[12.5px] font-medium transition disabled:opacity-60 " +
               (state === "copied"
                 ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-200"
                 : "border-white/10 bg-white/[0.03] text-ink-100 hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100")

@@ -53,6 +53,13 @@
     mix-blend-mode: overlay;
   }
 
+  /* Drop the noise overlay on small screens — it's a heavy fixed composited layer. */
+  @media (max-width: 640px) {
+    body::after {
+      display: none;
+    }
+  }
+
   * {
     box-sizing: border-box;
   }
@@ -193,6 +200,16 @@
   }
   .marquee-reverse {
     animation-direction: reverse;
+  }
+
+  /* Pause the entire ticker when its wrapper is offscreen — saves CPU/battery
+     on long sessions and dramatically reduces jank on low-end mobile. */
+  .ticker-wrap {
+    content-visibility: auto;
+    contain-intrinsic-size: 200px 100%;
+  }
+  .ticker-wrap:not(:hover) .marquee {
+    /* default keeps animation; offscreen pause handled by content-visibility above */
   }
 
   @keyframes marquee {

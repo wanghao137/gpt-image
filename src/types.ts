@@ -7,7 +7,10 @@ export interface PromptCase {
   scenes: string[];
   imageUrl: string;
   imageAlt?: string;
-  prompt: string;
+  /**
+   * Short preview shown on the card. Full prompt is loaded on demand from
+   * `data/prompts/{id}.json` via the `usePrompt` hook.
+   */
   promptPreview?: string;
   source?: string;
   githubUrl?: string;

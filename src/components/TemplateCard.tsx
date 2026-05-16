@@ -29,11 +29,13 @@ function TemplateCardImpl({ data }: TemplateCardProps) {
         <img
           src={data.cover}
           alt={data.title}
+          width={800}
+          height={500}
           loading="lazy"
           decoding="async"
           onLoad={() => setImgLoaded(true)}
           className={
-            "h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +
+            "absolute inset-0 h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +
             (imgLoaded ? "opacity-95" : "opacity-0")
           }
         />
