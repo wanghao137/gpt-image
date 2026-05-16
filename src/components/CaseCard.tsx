@@ -2,6 +2,7 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
+import { SmartImg } from "./SmartImg";
 
 interface CaseCardProps {
   data: PromptCase;
@@ -169,20 +170,31 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
           {!imgLoaded && !imgErr && (
             <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
           )}
-          <img
-            src={imgErr ? FALLBACK : data.imageUrl}
-            alt={data.imageAlt || data.title}
-            width={640}
-            height={800}
-            loading="lazy"
-            decoding="async"
-            onError={() => setImgErr(true)}
-            onLoad={() => setImgLoaded(true)}
-            className={
-              "absolute inset-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06] " +
-              (imgLoaded ? "opacity-100" : "opacity-0")
-            }
-          />
+          {imgErr ? (
+            <img
+              src={FALLBACK}
+              alt={data.imageAlt || data.title}
+              width={640}
+              height={800}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <SmartImg
+              src={data.imageUrl}
+              alt={data.imageAlt || data.title}
+              width={640}
+              height={800}
+              widths={[360, 540, 720]}
+              baseWidth={540}
+              sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+              onError={() => setImgErr(true)}
+              onLoad={() => setImgLoaded(true)}
+              className={
+                "absolute inset-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.06] " +
+                (imgLoaded ? "opacity-100" : "opacity-0")
+              }
+            />
+          )}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950/95 via-ink-950/30 to-transparent opacity-60 transition duration-500 group-hover:opacity-90" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-ink-950/50 to-transparent" />
 

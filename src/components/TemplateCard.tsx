@@ -1,6 +1,7 @@
 import { memo, useCallback, useState } from "react";
 import type { PromptTemplate } from "../types";
 import { useCopy } from "../hooks/useCopy";
+import { SmartImg } from "./SmartImg";
 
 interface TemplateCardProps {
   data: PromptTemplate;
@@ -26,13 +27,14 @@ function TemplateCardImpl({ data }: TemplateCardProps) {
         {!imgLoaded && (
           <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
         )}
-        <img
+        <SmartImg
           src={data.cover}
           alt={data.title}
           width={800}
           height={500}
-          loading="lazy"
-          decoding="async"
+          widths={[420, 640, 800]}
+          baseWidth={640}
+          sizes="(min-width:1280px) 25vw, (min-width:640px) 50vw, 100vw"
           onLoad={() => setImgLoaded(true)}
           className={
             "absolute inset-0 h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +

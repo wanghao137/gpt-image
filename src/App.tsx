@@ -6,6 +6,8 @@ import { CaseGrid } from "./components/CaseGrid";
 import { TemplateCard } from "./components/TemplateCard";
 import { BackToTop } from "./components/BackToTop";
 import { CategoryShowcase } from "./components/CategoryShowcase";
+import { SmartImg } from "./components/SmartImg";
+import { optimizeImage } from "./lib/img";
 import { useCopy } from "./hooks/useCopy";
 import { useCountUp } from "./hooks/useCountUp";
 import { useReveal } from "./hooks/useReveal";
@@ -167,18 +169,19 @@ export default function App() {
   const favoriteCount = favoriteIds.size;
 
   // Once the first hero image URL is known, ask the browser to preload it as the LCP candidate.
+  // Mobile asks for ~800px, desktop ~1200px (matches the resized URLs the <img> tags request).
   useEffect(() => {
     if (!cases[0]?.imageUrl) return;
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
-    link.href = cases[0].imageUrl;
+    link.href = optimizeImage(cases[0].imageUrl, { width: narrow ? 800 : 1200 });
     link.fetchPriority = "high";
     document.head.appendChild(link);
     return () => {
       link.remove();
     };
-  }, [cases]);
+  }, [cases, narrow]);
 
   useReveal([cases.length, templates.length, filtered.length, showFavorites]);
 
@@ -296,14 +299,16 @@ export default function App() {
                     aria-label={heroCases[0].title}
                   >
                     <div className="relative aspect-[4/5] overflow-hidden">
-                      <img
+                      <SmartImg
                         src={heroCases[0].imageUrl}
                         alt={heroCases[0].imageAlt || heroCases[0].title}
                         width={800}
                         height={1000}
+                        widths={[480, 720, 960]}
+                        baseWidth={720}
+                        sizes="100vw"
                         loading="eager"
                         fetchPriority="high"
-                        decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
@@ -330,13 +335,14 @@ export default function App() {
                           aria-label={item.title}
                         >
                           <div className="relative aspect-[4/5] overflow-hidden">
-                            <img
+                            <SmartImg
                               src={item.imageUrl}
                               alt=""
                               width={400}
                               height={500}
-                              loading="lazy"
-                              decoding="async"
+                              widths={[280, 420]}
+                              baseWidth={420}
+                              sizes="50vw"
                               className="absolute inset-0 h-full w-full object-cover opacity-90"
                             />
                             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />
@@ -349,8 +355,12 @@ export default function App() {
                     </div>
                   )}
 
-                  {/* Desktop: 3x3 magazine grid */}
-                  <div className="hidden grid-cols-3 grid-rows-3 gap-3 lg:grid">
+                  {/* Desktop: 3x3 magazine grid.
+                      The grid container needs an explicit height — the inner buttons
+                      use absolute-positioned <img>, so without a fixed aspect ratio
+                      every row collapses to ~0px. `aspect-square` keeps it visually
+                      square and uses `auto-rows-fr` so the 3 rows divide evenly. */}
+                  <div className="hidden aspect-square grid-cols-3 auto-rows-fr gap-3 lg:grid">
                     {heroCases.slice(0, 5).map((item, index) => {
                       const layout =
                         index === 0
@@ -384,14 +394,16 @@ export default function App() {
                           }}
                           style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
                         >
-                          <img
+                          <SmartImg
                             src={item.imageUrl}
                             alt={item.imageAlt || item.title}
                             width={index === 0 ? 1000 : 500}
                             height={index === 0 ? 1000 : 500}
+                            widths={index === 0 ? [800, 1100] : [360, 540]}
+                            baseWidth={index === 0 ? 1100 : 540}
+                            sizes={index === 0 ? "(min-width:1024px) 360px, 100vw" : "(min-width:1024px) 180px, 50vw"}
                             loading={index === 0 ? "eager" : "lazy"}
                             fetchPriority={index === 0 ? "high" : "auto"}
-                            decoding="async"
                             className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
                           />
                           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
@@ -425,13 +437,14 @@ export default function App() {
                       className="group relative h-32 w-48 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] bg-ink-900/40 text-left transition hover:border-white/[0.18]"
                       aria-label={item.title}
                     >
-                      <img
+                      <SmartImg
                         src={item.imageUrl}
                         alt=""
                         width={384}
                         height={256}
-                        loading="lazy"
-                        decoding="async"
+                        widths={[280, 420]}
+                        baseWidth={420}
+                        sizes="192px"
                         className="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />

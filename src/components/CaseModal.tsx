@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { usePrompt } from "../hooks/usePrompt";
+import { SmartImg } from "./SmartImg";
 
 interface CaseModalProps {
   data: PromptCase | null;
@@ -71,14 +72,30 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
       <div className="grid max-h-[94vh] w-full max-w-6xl overflow-hidden rounded-t-3xl border border-white/[0.08] bg-ink-900 shadow-soft sm:rounded-3xl lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         {/* Image side */}
         <div className="relative min-h-0 bg-ink-950">
-          <img
-            src={imgErr ? FALLBACK : data.imageUrl}
-            alt={data.imageAlt || data.title}
-            width={1200}
-            height={1500}
-            onError={() => setImgErr(true)}
-            className="h-56 w-full object-cover sm:h-72 lg:h-full"
-          />
+          {imgErr ? (
+            <img
+              src={FALLBACK}
+              alt={data.imageAlt || data.title}
+              width={1200}
+              height={1500}
+              className="h-56 w-full object-cover sm:h-72 lg:h-full"
+            />
+          ) : (
+            <SmartImg
+              src={data.imageUrl}
+              alt={data.imageAlt || data.title}
+              width={1200}
+              height={1500}
+              widths={[720, 1080, 1440]}
+              baseWidth={1080}
+              sizes="(min-width:1024px) 50vw, 100vw"
+              loading="eager"
+              fetchPriority="high"
+              quality={82}
+              onError={() => setImgErr(true)}
+              className="h-56 w-full object-cover sm:h-72 lg:h-full"
+            />
+          )}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent p-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-ink-950/70 px-3 py-1 text-[11px] font-medium tracking-wider text-ink-100 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />

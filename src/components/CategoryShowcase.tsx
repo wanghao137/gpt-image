@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import type { PromptCase } from "../types";
+import { optimizeImage } from "../lib/img";
 
 interface CategoryShowcaseProps {
   cases: PromptCase[];
@@ -95,7 +96,7 @@ export function CategoryShowcase({
                   <div
                     className="absolute inset-0 opacity-30 transition duration-500 group-hover:opacity-50 group-hover:scale-105"
                     style={{
-                      backgroundImage: `url(${cat.cover})`,
+                      backgroundImage: `url(${optimizeImage(cat.cover, { width: 320 })})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
