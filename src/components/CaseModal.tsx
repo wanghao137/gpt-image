@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { usePrompt } from "../hooks/usePrompt";
+import { tagLabel } from "../lib/labels";
 import { SmartImg } from "./SmartImg";
 
 interface CaseModalProps {
@@ -69,7 +70,7 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
       aria-modal="true"
       aria-label={data.title}
     >
-      <div className="grid max-h-[94vh] w-full max-w-6xl overflow-hidden rounded-t-3xl border border-white/[0.08] bg-ink-900 shadow-soft sm:rounded-3xl lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div className="grid max-h-[94vh] w-full max-w-6xl grid-rows-[auto_minmax(0,1fr)] overflow-hidden rounded-t-3xl border border-white/[0.08] bg-ink-900 shadow-soft sm:rounded-3xl lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:grid-rows-1">
         {/* Image side */}
         <div className="relative min-h-0 bg-ink-950">
           {imgErr ? (
@@ -122,7 +123,7 @@ export function CaseModal({ data, favorited, onClose, onToggleFavorite }: CaseMo
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {tags.map((tag) => (
                     <span key={`${data.id}-${tag}`} className="tag">
-                      {tag}
+                      {tagLabel(tag)}
                     </span>
                   ))}
                 </div>

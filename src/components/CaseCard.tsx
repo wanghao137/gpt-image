@@ -2,6 +2,7 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
+import { tagLabel } from "../lib/labels";
 import { SmartImg } from "./SmartImg";
 
 interface CaseCardProps {
@@ -260,7 +261,7 @@ function CaseCardImpl({ data, favorited, onSelect, onToggleFavorite }: CaseCardP
           <div className="flex flex-wrap gap-1.5">
             {tags.map((tag) => (
               <span key={`${data.id}-${tag}`} className="tag">
-                {tag}
+                {tagLabel(tag)}
               </span>
             ))}
           </div>

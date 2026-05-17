@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { sceneLabel, styleLabel } from "../lib/labels";
 
 interface FilterBarProps {
   query: string;
@@ -22,12 +23,14 @@ interface SelectProps {
   label: string;
   value: string;
   options: string[];
+  /** Optional translator for option display. Underlying values are unchanged. */
+  format?: (raw: string) => string;
   onChange: (v: string) => void;
 }
 
 const ALL = "全部";
 
-function Select({ label, value, options, onChange }: SelectProps) {
+function Select({ label, value, options, onChange, format }: SelectProps) {
   return (
     <label className="group relative flex flex-col gap-1.5">
       <span className="eyebrow">{label}</span>
@@ -39,7 +42,7 @@ function Select({ label, value, options, onChange }: SelectProps) {
         >
           {options.map((option) => (
             <option key={option} value={option} className="bg-ink-900 text-ink-100">
-              {option}
+              {format ? format(option) : option}
             </option>
           ))}
         </select>
@@ -229,8 +232,20 @@ export function FilterBar({
             options={categories}
             onChange={onCategoryChange}
           />
-          <Select label="风格" value={activeStyle} options={styles} onChange={onStyleChange} />
-          <Select label="场景" value={activeScene} options={scenes} onChange={onSceneChange} />
+          <Select
+            label="风格"
+            value={activeStyle}
+            options={styles}
+            format={styleLabel}
+            onChange={onStyleChange}
+          />
+          <Select
+            label="场景"
+            value={activeScene}
+            options={scenes}
+            format={sceneLabel}
+            onChange={onSceneChange}
+          />
 
           <div className="flex items-center gap-2 lg:justify-end">
             <span className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-[13px] font-medium tabular-nums text-ink-200">
@@ -291,12 +306,14 @@ export function FilterBar({
                 label="风格"
                 value={activeStyle}
                 options={styles}
+                format={styleLabel}
                 onChange={onStyleChange}
               />
               <Select
                 label="场景"
                 value={activeScene}
                 options={scenes}
+                format={sceneLabel}
                 onChange={onSceneChange}
               />
             </div>

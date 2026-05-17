@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { ManualCase } from "../types";
 import { CATEGORIES, COMMON_SCENES, COMMON_STYLES } from "../config";
 import { collides, makeEmptyCase, suggestNextCaseId, summarize } from "../utils";
+import { sceneLabel, styleLabel } from "../../lib/labels";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
 import { ImageDrop } from "./ImageDrop";
@@ -334,6 +335,7 @@ function CaseForm({
                 value={data.styles}
                 onChange={(styles) => onChange({ styles })}
                 suggestions={COMMON_STYLES}
+                format={styleLabel}
                 placeholder="回车或逗号分隔，可点击下方常用标签"
               />
             </Field>
@@ -343,6 +345,7 @@ function CaseForm({
                 value={data.scenes}
                 onChange={(scenes) => onChange({ scenes })}
                 suggestions={COMMON_SCENES}
+                format={sceneLabel}
                 placeholder="回车或逗号分隔"
               />
             </Field>
