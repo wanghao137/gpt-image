@@ -15,6 +15,7 @@ import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
 import { WeChatCTA } from "../components/WeChatCTA";
 import { RatioBadge } from "../components/RatioBadge";
+import { StickyMobileActions } from "../components/StickyMobileActions";
 import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
@@ -357,6 +358,11 @@ export default function CaseDetailPage() {
       )}
 
       <WeChatCTA />
+
+      <StickyMobileActions
+        onCopy={() => copy(renderText || c.promptPreview || "")}
+        copyState={copyState}
+      />
     </>
   );
 }

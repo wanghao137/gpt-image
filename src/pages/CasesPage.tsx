@@ -1,87 +1,128 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ALL_CASES } from "../lib/data";
 import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
 import { SEO } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
-import { userCategoryLabel, USER_CATEGORIES } from "../lib/userCategories";
 
-const ALL = "全部";
+function uniqueValues(items: string[][]): string[] {
+  return Array.from(new Set(items.flat())).sort((a, b) =>
+    a.localeCompare(b, "zh-Hans-CN"),
+  );
+}
 
-function uniqueOptions(items: string[][]) {
-  return [
-    ALL,
-    ...Array.from(new Set(items.flat())).sort((a, b) => a.localeCompare(b, "zh-Hans-CN")),
-  ];
+function readSet(sp: URLSearchParams, key: string): Set<string> {
+  const raw = sp.get(key);
+  if (!raw) return new Set();
+  return new Set(raw.split(",").filter(Boolean));
+}
+
+function writeSet(sp: URLSearchParams, key: string, set: Set<string>) {
+  if (set.size === 0) sp.delete(key);
+  else sp.set(key, Array.from(set).join(","));
 }
 
 /**
- * Full case library page. Same filter/search/grid as the original homepage,
- * but standalone so the home page can stay conversion-focused while this page
- * carries the long-tail browsing/SEO weight.
+ * Full case library. Filter / search / favorite state is mirrored to the URL
+ * so links to "/cases?cat=portrait,xhs-cover&platform=xiaohongshu" are
+ * shareable and survive refresh — important for SEO long tail and for
+ * "send this filtered view to a client" kind of flows.
  */
 export default function CasesPage() {
+  const [sp, setSp] = useSearchParams();
   const cases = ALL_CASES;
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState(ALL);
-  const [styleFilter, setStyleFilter] = useState(ALL);
-  const [scene, setScene] = useState(ALL);
-  const [showFavorites, setShowFavorites] = useState(false);
-  const { ids: favoriteIds, toggle, has: _has } = useFavorites();
-  void _has;
+  const { ids: favoriteIds, toggle } = useFavorites();
 
-  const userCategoryOptions = useMemo(
-    () => [
-      ALL,
-      ...USER_CATEGORIES.filter((c) => cases.some((x) => x.userCategory === c.key)).map(
-        (c) => c.label,
-      ),
-    ],
-    [cases],
+  const [query, setQuery] = useState(sp.get("q") ?? "");
+  const [activeCategories, setActiveCategories] = useState<Set<string>>(() =>
+    readSet(sp, "cat"),
   );
+  const [activeStyles, setActiveStyles] = useState<Set<string>>(() => readSet(sp, "style"));
+  const [activeScenes, setActiveScenes] = useState<Set<string>>(() => readSet(sp, "scene"));
+  const [activePlatforms, setActivePlatforms] = useState<Set<string>>(() =>
+    readSet(sp, "platform"),
+  );
+  const [showFavorites, setShowFavorites] = useState(false);
 
-  const styleOptions = useMemo(() => uniqueOptions(cases.map((item) => item.styles)), [cases]);
-  const scenes = useMemo(() => uniqueOptions(cases.map((item) => item.scenes)), [cases]);
+  // ── URL sync (one-way: state → URL) ──
+  useEffect(() => {
+    const next = new URLSearchParams(sp);
+    if (query) next.set("q", query);
+    else next.delete("q");
+    writeSet(next, "cat", activeCategories);
+    writeSet(next, "style", activeStyles);
+    writeSet(next, "scene", activeScenes);
+    writeSet(next, "platform", activePlatforms);
+    if (next.toString() !== sp.toString()) {
+      setSp(next, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, activeCategories, activeStyles, activeScenes, activePlatforms]);
+
+  // ── derived filter option lists ──
+  const styleOptions = useMemo(() => uniqueValues(cases.map((c) => c.styles)), [cases]);
+  const sceneOptions = useMemo(() => uniqueValues(cases.map((c) => c.scenes)), [cases]);
 
   const baseList = useMemo(() => {
-    if (showFavorites) return cases.filter((item) => favoriteIds.has(item.id));
+    if (showFavorites) return cases.filter((c) => favoriteIds.has(c.id));
     return cases;
   }, [cases, favoriteIds, showFavorites]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return baseList.filter((item) => {
-      const inCategory =
-        category === ALL || userCategoryLabel(item.userCategory) === category;
-      const inStyle = styleFilter === ALL || item.styles.includes(styleFilter);
-      const inScene = scene === ALL || item.scenes.includes(scene);
-      if (!inCategory || !inStyle || !inScene) return false;
+    return baseList.filter((c) => {
+      if (activeCategories.size > 0) {
+        const all = new Set([c.userCategory, ...(c.userCategories ?? [])]);
+        let any = false;
+        for (const k of activeCategories) {
+          if (all.has(k as never)) {
+            any = true;
+            break;
+          }
+        }
+        if (!any) return false;
+      }
+      if (activeStyles.size > 0) {
+        if (!c.styles.some((s) => activeStyles.has(s))) return false;
+      }
+      if (activeScenes.size > 0) {
+        if (!c.scenes.some((s) => activeScenes.has(s))) return false;
+      }
+      if (activePlatforms.size > 0) {
+        if (!(c.platforms ?? []).some((p) => activePlatforms.has(p))) return false;
+      }
       if (!q) return true;
       const text = [
-        item.id,
-        item.title,
-        item.category,
-        item.promptPreview,
-        item.source,
-        ...item.tags,
-        ...item.styles,
-        ...item.scenes,
+        c.id,
+        c.title,
+        c.category,
+        c.promptPreview,
+        c.source,
+        ...c.tags,
+        ...c.styles,
+        ...c.scenes,
       ]
         .filter(Boolean)
         .join(" ")
         .toLowerCase();
       return text.includes(q);
     });
-  }, [baseList, category, query, scene, styleFilter]);
+  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query]);
 
   const hasActiveFilter =
-    query.trim().length > 0 || category !== ALL || styleFilter !== ALL || scene !== ALL;
+    query.trim().length > 0 ||
+    activeCategories.size > 0 ||
+    activeStyles.size > 0 ||
+    activeScenes.size > 0 ||
+    activePlatforms.size > 0;
 
   const resetFilters = useCallback(() => {
     setQuery("");
-    setCategory(ALL);
-    setStyleFilter(ALL);
-    setScene(ALL);
+    setActiveCategories(new Set());
+    setActiveStyles(new Set());
+    setActiveScenes(new Set());
+    setActivePlatforms(new Set());
   }, []);
 
   const favoriteCount = favoriteIds.size;
@@ -89,8 +130,8 @@ export default function CasesPage() {
   return (
     <>
       <SEO
-        title="全部案例 · 435+ GPT-Image 2 真实案例"
-        description="按用例、风格、场景筛选 GPT-Image 2 中文案例库的全部案例。一键复制 Prompt，免费用作灵感来源。"
+        title={`全部案例 · ${cases.length}+ GPT-Image 2 真实案例`}
+        description="按用例、风格、场景、平台筛选 GPT-Image 2 中文案例库的全部案例。一键复制 Prompt，免费用作灵感来源。"
         path="/cases"
       />
 
@@ -136,15 +177,16 @@ export default function CasesPage() {
       <FilterBar
         query={query}
         onQueryChange={setQuery}
-        categories={userCategoryOptions}
-        activeCategory={category}
-        onCategoryChange={setCategory}
+        activeCategories={activeCategories}
+        onCategoriesChange={setActiveCategories}
         styles={styleOptions}
-        activeStyle={styleFilter}
-        onStyleChange={setStyleFilter}
-        scenes={scenes}
-        activeScene={scene}
-        onSceneChange={setScene}
+        activeStyles={activeStyles}
+        onStylesChange={setActiveStyles}
+        scenes={sceneOptions}
+        activeScenes={activeScenes}
+        onScenesChange={setActiveScenes}
+        activePlatforms={activePlatforms}
+        onPlatformsChange={setActivePlatforms}
         total={baseList.length}
         matched={filtered.length}
         hasActiveFilter={hasActiveFilter}

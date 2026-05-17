@@ -26,9 +26,11 @@ export function getCaseById(id: string): PromptCase | undefined {
   return BY_ID.get(id);
 }
 
-/** Cases grouped by user-intent bucket. */
+/** Cases grouped by user-intent bucket. Includes secondary buckets via `userCategories[]`. */
 export function casesByUserCategory(key: string): PromptCase[] {
-  return ALL_CASES.filter((c) => c.userCategory === key);
+  return ALL_CASES.filter(
+    (c) => c.userCategory === key || (c.userCategories ?? []).includes(key as never),
+  );
 }
 
 /** "Related" picks: same userCategory first, then by overlapping tags. */

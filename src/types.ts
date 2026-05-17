@@ -52,6 +52,8 @@ export interface PromptCase {
   scenes: string[];
   /** v2 user-intent bucket — drives `/category/:slug` pages and homepage tiles. */
   userCategory: UserCategoryKey;
+  /** v2.1 secondary buckets so one case can surface in multiple categories. */
+  userCategories?: UserCategoryKey[];
   /** v2 distribution channels this case is well-suited for. */
   platforms: Platform[];
 

@@ -14,7 +14,10 @@ interface SEOProps {
 
 const SITE_URL = "https://gpt-image-6hu.pages.dev";
 const SITE_NAME = "GPT-Image 2 中文案例库";
-const DEFAULT_OG = `${SITE_URL}/og.png`;
+// Default OG card. The SVG ships under /public/og.svg as a 1200x630 baked-in
+// card. Most platforms (WeChat, Twitter, LinkedIn) rasterise SVG fine; if a
+// PNG is later dropped at /og.png it'll override automatically.
+const DEFAULT_OG = `${SITE_URL}/og.svg`;
 
 /**
  * Per-page <head> manager + JSON-LD emitter.

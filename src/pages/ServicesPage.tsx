@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SEO } from "../components/SEO";
+import { SEO, SITE } from "../components/SEO";
 
 const PRICING = [
   {
@@ -50,13 +50,70 @@ const SCENARIOS = [
   { title: "自媒体 / 公众号", desc: "封面图、信息图、长图配图" },
 ];
 
+const FAQ: { q: string; a: string }[] = [
+  {
+    q: "出图周期一般多久？修改怎么算？",
+    a: "单图 48 小时内交付，包月套餐当周排期。每张包含 3 次免费修改，超出后按 ¥ 20/次 计算或合并到下一档。",
+  },
+  {
+    q: "能保证 100% 还原我的需求吗？",
+    a: "我会先用 1–2 张草图确认大方向。方向确认后，最终交付通常需要 2–3 轮微调。AI 出图存在不可控因素，但可以通过反复迭代逼近期望，绝对一致需要更多轮次或换工种。",
+  },
+  {
+    q: "可以商用 / 印刷吗？",
+    a: "可以。出图全部使用合规商用 API。涉及人物形象、品牌标识、商标元素时建议先沟通，避免版权风险。客户拿到的是可商用的成品图。",
+  },
+  {
+    q: "能不能换风格？",
+    a: "案例库里看得到的所有风格都能做：胶片人像、3D IP 形象、信息图、品牌 KV、儿童写真、节日海报等。看到喜欢的案例直接发我对应链接即可。",
+  },
+  {
+    q: "支持开发票吗？怎么付款？",
+    a: "支持。微信、支付宝、对公转账均可。¥ 599 以上提供电子发票（增值税普通发票）。¥ 3000 以上可签合同。",
+  },
+  {
+    q: "需要我提供什么资料？",
+    a: "通用情况下：参考风格 / 文字内容 / 比例平台 / 颜色品牌色。涉及人像可提供 1–3 张身份参考图。资料越完整出图越准。",
+  },
+];
+
 export default function ServicesPage() {
+  // schema.org Service + FAQPage — helps Google show rich results.
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "GPT-Image 2 中文定制出图服务",
+    provider: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    areaServed: { "@type": "Country", name: "China" },
+    description:
+      "按需定制 GPT-Image 2 中文出图：小红书封面、商家海报、人像写真、电商主图。48 小时交付，免费修改 3 次。",
+    serviceType: "AI 图像生成 / 视觉定制",
+    offers: PRICING.map((p) => ({
+      "@type": "Offer",
+      name: p.tier,
+      price: p.price.replace(/[^0-9]/g, "") || "0",
+      priceCurrency: "CNY",
+      description: p.cta,
+    })),
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <SEO
         title="代做 / 定制 · 小红书封面 · 商家海报 · 人像写真"
         description="按需定制 GPT-Image 2 出图服务。48 小时交付，免费修改 3 次，4K 高清，已为 60+ 客户合作。单图 / 包月 / 长期合作三档可选。"
         path="/services"
+        jsonLd={[serviceLd, faqLd]}
       />
 
       <section className="container-narrow pt-10 sm:pt-14">
@@ -76,6 +133,7 @@ export default function ServicesPage() {
             <span
               key={s.title}
               className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 font-medium text-ink-200"
+              title={s.desc}
             >
               {s.title}
             </span>
@@ -166,16 +224,38 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="container-narrow scroll-mt-20 pb-16">
+        <h2 className="serif-display text-[24px] text-ink-50 sm:text-3xl">常见问题</h2>
+        <p className="mt-2 text-[14px] text-ink-400">没找到答案？直接微信问也行。</p>
+        <div className="mt-6 grid gap-3">
+          {FAQ.map((f) => (
+            <details
+              key={f.q}
+              className="surface group p-5 transition open:bg-white/[0.04]"
+            >
+              <summary className="flex cursor-pointer items-center justify-between gap-3 text-[15px] font-semibold text-ink-50 marker:hidden">
+                {f.q}
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-300 transition group-open:rotate-45 group-open:bg-ember-500/15 group-open:text-ember-200">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-[14px] leading-relaxed text-ink-300">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* CASES TEASER */}
       <section id="cases" className="container-narrow scroll-mt-20 pb-20">
         <h2 className="serif-display text-[22px] text-ink-50 sm:text-3xl">先看作品风格</h2>
         <p className="mt-2 text-[14px] text-ink-400">案例库里所有图都是真实出图。</p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link to="/category/xhs-cover" className="chip chip-idle">小红书封面</Link>
-          <Link to="/category/merchant-poster" className="chip chip-idle">商家海报</Link>
           <Link to="/category/portrait" className="chip chip-idle">人像写真</Link>
-          <Link to="/category/3d-ip" className="chip chip-idle">3D · IP 形象</Link>
+          <Link to="/category/poster-general" className="chip chip-idle">海报与排版</Link>
+          <Link to="/category/merchant-poster" className="chip chip-idle">商家海报</Link>
           <Link to="/category/ecommerce" className="chip chip-idle">电商产品图</Link>
+          <Link to="/category/3d-ip" className="chip chip-idle">3D · IP 形象</Link>
           <Link to="/cases" className="chip chip-active">全部案例 →</Link>
         </div>
       </section>
