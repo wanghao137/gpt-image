@@ -237,6 +237,39 @@
       transparent
     );
   }
+
+  /*
+   * Masonry layout for the case grid.
+   *
+   * Uses native CSS multi-column rather than display: grid because the cases
+   * render at their real aspect ratios (16:9 / 9:16 / 4:5 mixed). In a CSS
+   * grid that produces ugly tall gaps under short cards. Columns pack from
+   * top-down naturally and need no JS.
+   *
+   * `break-inside: avoid` on each card keeps it from getting split across
+   * columns. We also force a `transform: translateZ(0)` to pin the card into
+   * its own stacking context so hover scale doesn't bleed into siblings.
+   */
+  .masonry {
+    column-gap: 1.25rem;
+    column-count: 1;
+  }
+  @media (min-width: 640px) {
+    .masonry { column-count: 2; }
+  }
+  @media (min-width: 1024px) {
+    .masonry { column-count: 3; }
+  }
+  @media (min-width: 1280px) {
+    .masonry { column-count: 4; }
+  }
+  .masonry > * {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+    /* Each child must be its own stacking context so hover transforms,
+       backdrop-filter, and absolute children don't escape the column track. */
+    transform: translateZ(0);
+  }
 }
 
 @layer utilities {

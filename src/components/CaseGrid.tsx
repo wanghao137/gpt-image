@@ -8,7 +8,7 @@ interface CaseGridProps {
   onToggleFavorite: (id: string) => void;
   loading?: boolean;
   onResetFilters?: () => void;
-  /** Disable infinite scroll and render all at once. Useful on category pages. */
+  /** Disable infinite scroll and render all at once. */
   paginate?: boolean;
 }
 
@@ -16,18 +16,32 @@ const PAGE_SIZE = 24;
 
 function SkeletonCard() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40">
+    <div className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40">
       <div className="aspect-[4/5] animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
       <div className="space-y-3 p-4">
         <div className="h-3 w-1/3 animate-pulse rounded bg-ink-800" />
         <div className="h-4 w-3/4 animate-pulse rounded bg-ink-800" />
-        <div className="h-3 w-full animate-pulse rounded bg-ink-800" />
         <div className="h-9 w-full animate-pulse rounded-xl bg-ink-800" />
       </div>
     </div>
   );
 }
 
+/**
+ * Masonry-style case grid using CSS multi-column layout.
+ *
+ * Why columns instead of `display: grid`:
+ *   - cases render at their *real* aspect ratio (16:9 / 9:16 / 4:5 mixed)
+ *   - in a CSS grid this produces large vertical gaps below shorter cards,
+ *     which looks like "missing images" — see screenshot bug.
+ *   - CSS columns + `break-inside: avoid` packs cards top-down with no JS,
+ *     keeping the build SSG-friendly and zero-runtime-cost.
+ *
+ * Trade-off: visual order goes column-by-column rather than row-by-row.
+ * For a curated feed where freshness > strict ordering this reads naturally;
+ * if strict left-to-right reading order is ever required we'll switch to a
+ * JS layout (e.g. react-masonry-css) but pay the hydration cost.
+ */
 export function CaseGrid({
   cases,
   favoriteIds,
@@ -39,7 +53,6 @@ export function CaseGrid({
   const [visibleCount, setVisibleCount] = useState(paginate ? PAGE_SIZE : cases.length);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
-  // reset pagination when result set changes
   useEffect(() => {
     setVisibleCount(paginate ? PAGE_SIZE : cases.length);
   }, [cases, paginate]);
@@ -66,7 +79,7 @@ export function CaseGrid({
   if (loading) {
     return (
       <div className="container-narrow pb-24">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="masonry">
           {Array.from({ length: 8 }).map((_, i) => (
             <SkeletonCard key={i} />
           ))}
@@ -108,7 +121,7 @@ export function CaseGrid({
 
   return (
     <div className="container-narrow pb-20">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="masonry">
         {visible.map((item) => (
           <CaseCard
             key={item.id}
