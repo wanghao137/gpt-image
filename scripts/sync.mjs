@@ -4,9 +4,25 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const ORIGIN = "https://gpt-image2.canghe.ai";
-const CASES_URL = `${ORIGIN}/cases.json`;
-const STYLE_LIBRARY_URL = `${ORIGIN}/style-library.json`;
+// Upstream data lives at https://github.com/freestylefly/awesome-gpt-image-2
+// under `data/`. We try a list of CDN/raw mirrors in order and keep the first
+// one that responds, so a CDN outage doesn't break builds.
+//
+// Each entry must point at the *directory* containing cases.json + images/,
+// not the bare host — paths inside cases.json are like "/images/case408.jpg".
+//
+// Override via env: `DATA_ORIGINS=base1,base2,...` (comma-separated, in order),
+// or `DATA_ORIGIN=base` for a single source. Trailing slashes optional.
+const DEFAULT_ORIGINS = [
+  "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data",
+  "https://raw.githubusercontent.com/freestylefly/awesome-gpt-image-2/main/data",
+];
+const ORIGINS = (process.env.DATA_ORIGINS || process.env.DATA_ORIGIN || "")
+  .split(",")
+  .map((s) => s.trim().replace(/\/+$/, ""))
+  .filter(Boolean);
+const ORIGIN_LIST = ORIGINS.length > 0 ? ORIGINS : DEFAULT_ORIGINS;
+
 const OPTIONAL = process.argv.includes("--optional");
 const MANUAL_CASES_PATH = resolve(ROOT, "data/manual/cases.json");
 const MANUAL_TEMPLATES_PATH = resolve(ROOT, "data/manual/templates.json");
@@ -36,9 +52,21 @@ function localizeCategory(category) {
   return CATEGORY_LABELS[category] || category || "其他用例";
 }
 
+// Set after we successfully fetch from one of the candidate origins. All
+// `image`/`cover` paths inside the upstream JSON are resolved against this.
+let activeOrigin = ORIGIN_LIST[0];
+
 function absolutize(url) {
   if (!url) return "";
-  return new URL(url, ORIGIN).toString();
+  // activeOrigin points at a directory (`.../data`), not a host. Append a
+  // trailing slash so `new URL` treats it as the base directory and doesn't
+  // strip the `/data` segment when resolving paths like "/images/case408.jpg"
+  // or "images/case408.jpg".
+  const base = activeOrigin.endsWith("/") ? activeOrigin : activeOrigin + "/";
+  // If upstream gave us an absolute-rooted path, drop the leading slash so it
+  // resolves *under* the base dir rather than at host root.
+  const rel = url.startsWith("/") ? url.slice(1) : url;
+  return new URL(rel, base).toString();
 }
 
 async function fetchJson(url) {
@@ -50,6 +78,32 @@ async function fetchJson(url) {
   });
   if (!response.ok) throw new Error(`fetch ${url} -> ${response.status}`);
   return response.json();
+}
+
+/**
+ * Try each origin in order; return data from the first one that succeeds for
+ * BOTH cases.json and style-library.json. Returns the active origin too so
+ * callers can pin image URLs to the same source.
+ */
+async function fetchUpstream() {
+  const errors = [];
+  for (const origin of ORIGIN_LIST) {
+    try {
+      const casesUrl = `${origin}/cases.json`;
+      const styleUrl = `${origin}/style-library.json`;
+      console.log(`fetching ${casesUrl} ...`);
+      const casesPayload = await fetchJson(casesUrl);
+      console.log(`fetching ${styleUrl} ...`);
+      const stylePayload = await fetchJson(styleUrl);
+      activeOrigin = origin;
+      return { casesPayload, stylePayload, origin };
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      console.warn(`! origin failed (${origin}): ${reason}`);
+      errors.push(`${origin}: ${reason}`);
+    }
+  }
+  throw new Error(`all upstream origins failed:\n  ${errors.join("\n  ")}`);
 }
 
 function normalizeCase(item) {
@@ -195,14 +249,11 @@ async function main() {
   let upstreamOk = true;
 
   try {
-    console.log(`fetching ${CASES_URL} ...`);
-    const casesPayload = await fetchJson(CASES_URL);
+    const { casesPayload, stylePayload } = await fetchUpstream();
     upstreamCases = (casesPayload.cases || [])
       .map(normalizeCase)
       .filter((item) => item.imageUrl && item.prompt);
 
-    console.log(`fetching ${STYLE_LIBRARY_URL} ...`);
-    const stylePayload = await fetchJson(STYLE_LIBRARY_URL);
     upstreamTemplates = (stylePayload.templates || [])
       .map(normalizeTemplate)
       .filter((item) => item.id && item.prompt);
@@ -329,7 +380,7 @@ async function main() {
 
   console.log(
     upstreamOk
-      ? `synced ${fullCases.length} cases and ${templates.length} templates from GPT-Image2 public JSON.`
+      ? `synced ${fullCases.length} cases and ${templates.length} templates from ${activeOrigin}.`
       : `built ${fullCases.length} cases and ${templates.length} templates from cached snapshot + manual.`,
   );
 }
