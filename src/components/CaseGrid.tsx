@@ -10,6 +10,12 @@ interface CaseGridProps {
   onResetFilters?: () => void;
   /** Disable infinite scroll and render all at once. */
   paginate?: boolean;
+  /**
+   * Number of leading cards to mark as `priority` (eager + fetchPriority=high).
+   * Use this for above-the-fold grids — e.g. the featured strip on the home
+   * page renders 12 cards but only ~8 are visible without scrolling.
+   */
+  priorityCount?: number;
 }
 
 const PAGE_SIZE = 24;
@@ -49,6 +55,7 @@ export function CaseGrid({
   loading,
   onResetFilters,
   paginate = true,
+  priorityCount = 0,
 }: CaseGridProps) {
   const [visibleCount, setVisibleCount] = useState(paginate ? PAGE_SIZE : cases.length);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
@@ -122,12 +129,13 @@ export function CaseGrid({
   return (
     <div className="container-narrow pb-20">
       <div className="masonry">
-        {visible.map((item) => (
+        {visible.map((item, index) => (
           <CaseCard
             key={item.id}
             data={item}
             favorited={favoriteIds.has(item.id)}
             onToggleFavorite={onToggleFavorite}
+            priority={index < priorityCount}
           />
         ))}
       </div>

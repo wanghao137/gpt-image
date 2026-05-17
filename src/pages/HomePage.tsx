@@ -282,7 +282,13 @@ export default function HomePage() {
             查看全部 →
           </Link>
         </div>
-        <CaseGrid cases={featured} favoriteIds={new Set()} onToggleFavorite={toggle} paginate={false} />
+        <CaseGrid
+          cases={featured}
+          favoriteIds={new Set()}
+          onToggleFavorite={toggle}
+          paginate={false}
+          priorityCount={8}
+        />
       </section>
 
       {/* TEMPLATES TEASER */}

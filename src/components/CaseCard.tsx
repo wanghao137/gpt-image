@@ -11,6 +11,12 @@ interface CaseCardProps {
   data: PromptCase;
   favorited: boolean;
   onToggleFavorite: (id: string) => void;
+  /**
+   * Prioritize this card's image. Used for above-the-fold cards (e.g. the
+   * featured grid on the home page) so the browser fetches them eagerly
+   * with high priority instead of treating them as lazy below-the-fold.
+   */
+  priority?: boolean;
 }
 
 const FALLBACK =
@@ -100,7 +106,7 @@ function CheckIcon() {
  *   - Copy button is outline by default; fills with ember on hover. This way
  *     a 4-up grid doesn't have 4 saturated CTAs fighting for attention.
  */
-function CaseCardImpl({ data, favorited, onToggleFavorite }: CaseCardProps) {
+function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: CaseCardProps) {
   const { state, copy } = useCopy();
   const [imgErr, setImgErr] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -180,13 +186,15 @@ function CaseCardImpl({ data, favorited, onToggleFavorite }: CaseCardProps) {
               alt={data.imageAlt || data.title}
               width={640}
               height={800}
-              widths={[360, 540, 720]}
-              baseWidth={540}
+              widths={[320, 480, 640]}
+              baseWidth={320}
               sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
               onError={() => setImgErr(true)}
               onLoad={() => setImgLoaded(true)}
               className={
-                "absolute inset-0 h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-[1.04] " +
+                "absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] " +
                 (imgLoaded ? "opacity-100" : "opacity-0")
               }
             />
