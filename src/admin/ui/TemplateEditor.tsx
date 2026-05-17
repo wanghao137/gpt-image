@@ -97,11 +97,14 @@ export function TemplateEditor({
         description="维护 data/manual/templates.json。模板比案例少很多，通常一两条即可。"
         right={
           <>
-            <Badge tone={dirty ? "ember" : "neutral"}>
+            <Badge tone={dirty ? "ember" : "emerald"}>
               {dirty ? "● 未保存" : "已同步"}
             </Badge>
             <Button onClick={addNew} disabled={saving}>
-              + 新增模板
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
+                <path fillRule="evenodd" d="M10 3a.75.75 0 0 1 .75.75v5.5h5.5a.75.75 0 0 1 0 1.5h-5.5v5.5a.75.75 0 0 1-1.5 0v-5.5h-5.5a.75.75 0 0 1 0-1.5h5.5v-5.5A.75.75 0 0 1 10 3Z" clipRule="evenodd" />
+              </svg>
+              新增模板
             </Button>
             <Button
               onClick={handleSave}
@@ -109,13 +112,18 @@ export function TemplateEditor({
               loading={saving}
               disabled={!dirty || saving}
             >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                <polyline points="17 21 17 13 7 13 7 21" />
+                <polyline points="7 3 7 8 15 8" />
+              </svg>
               保存到 GitHub
             </Button>
           </>
         }
       />
 
-      <div className="mt-5 grid min-h-0 flex-1 gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
+      <div className="mt-6 grid min-h-0 flex-1 gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
         <Card className="flex min-h-0 flex-col overflow-hidden">
           <div className="flex-1 overflow-y-auto scrollbar-thin">
             {templates.length === 0 ? (
@@ -131,13 +139,15 @@ export function TemplateEditor({
                       <button
                         type="button"
                         onClick={() => setActiveIdx(i)}
-                        className={`flex w-full items-start gap-2 px-3 py-2.5 text-left transition ${
-                          isActive ? "bg-ember-500/10" : "hover:bg-white/[0.03]"
+                        className={`group flex w-full items-start gap-2.5 px-3 py-2.5 text-left transition ${
+                          isActive
+                            ? "bg-ember-500/[0.08] ring-1 ring-inset ring-ember-500/15"
+                            : "hover:bg-white/[0.03]"
                         }`}
                       >
                         <span
-                          className={`mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
-                            isActive ? "bg-ember-400" : "bg-ink-700"
+                          className={`mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
+                            isActive ? "bg-ember-400" : "bg-ink-700 group-hover:bg-ink-500"
                           }`}
                         />
                         <span className="min-w-0 flex-1">
@@ -174,12 +184,10 @@ export function TemplateEditor({
             </div>
           ) : (
             <div className="flex h-full min-h-0 flex-col">
-              <header className="flex items-center justify-between border-b border-white/[0.05] px-5 py-3">
+              <header className="flex items-center justify-between gap-3 border-b border-white/[0.05] px-5 py-3">
                 <div className="min-w-0">
-                  <p className="text-[10.5px] font-medium uppercase tracking-[0.2em] text-ink-500">
-                    Editing
-                  </p>
-                  <p className="mt-0.5 truncate text-[13px] font-medium text-ink-100">
+                  <p className="eyebrow">Editing</p>
+                  <p className="mt-0.5 truncate text-[14px] font-semibold text-ink-100">
                     {active.title || <em className="text-ink-500">无标题模板</em>}
                   </p>
                 </div>

@@ -111,9 +111,11 @@ export function RawJson<T>({
           </>
         }
       />
-      <Card className="mt-5 flex flex-1 flex-col overflow-hidden">
+      <Card className="mt-6 flex flex-1 flex-col overflow-hidden">
         <div className="flex items-center justify-between border-b border-white/[0.05] px-4 py-2 text-[11px] tabular-nums text-ink-500">
-          <span>{lineCount} 行 · {text.length} 字符</span>
+          <span>
+            {lineCount} 行 · {text.length} 字符
+          </span>
           {error && (
             <span className="font-medium text-rose-300">{error}</span>
           )}

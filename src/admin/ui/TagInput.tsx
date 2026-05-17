@@ -47,18 +47,18 @@ export function TagInput({
 
   return (
     <div>
-      <div className="flex min-h-[40px] flex-wrap items-center gap-1.5 rounded-lg border border-white/[0.08] bg-ink-950/40 px-2 py-1.5 transition focus-within:border-ember-500/50 focus-within:ring-2 focus-within:ring-ember-500/15">
+      <div className="flex min-h-[42px] flex-wrap items-center gap-1.5 rounded-lg border border-white/[0.08] bg-ink-950/50 px-2 py-1.5 transition focus-within:border-ember-500/60 focus-within:ring-2 focus-within:ring-ember-500/15">
         {value.map((tag) => (
           <span
             key={tag}
-            className="inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.05] px-1.5 py-0.5 text-[11.5px] font-medium text-ink-100"
+            className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.05] py-0.5 pl-2 pr-1 text-[11.5px] font-medium text-ink-100"
             title={tag}
           >
             {display(tag)}
             <button
               type="button"
               onClick={() => remove(tag)}
-              className="grid h-3.5 w-3.5 place-items-center rounded text-ink-400 transition hover:bg-white/10 hover:text-ink-50"
+              className="grid h-4 w-4 place-items-center rounded-full text-ink-400 transition hover:bg-white/10 hover:text-ink-50"
               aria-label={`移除 ${display(tag)}`}
             >
               <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="currentColor">
@@ -73,7 +73,7 @@ export function TagInput({
           onKeyDown={onKey}
           onBlur={() => draft && add(draft)}
           placeholder={value.length === 0 ? placeholder : ""}
-          className="flex-1 min-w-[120px] bg-transparent px-1 text-[13px] text-ink-100 outline-none placeholder:text-ink-500"
+          className="min-w-[140px] flex-1 bg-transparent px-1 text-[13px] text-ink-100 outline-none placeholder:text-ink-500"
         />
       </div>
       {unused.length > 0 && (
@@ -84,7 +84,7 @@ export function TagInput({
               type="button"
               onClick={() => add(s)}
               title={s}
-              className="inline-flex items-center gap-1 rounded-md border border-dashed border-white/10 px-1.5 py-0.5 text-[11px] font-medium text-ink-500 transition hover:border-ember-500/40 hover:text-ember-200"
+              className="inline-flex items-center gap-1 rounded-full border border-dashed border-white/15 px-2 py-0.5 text-[11px] font-medium text-ink-400 transition hover:border-ember-500/50 hover:bg-ember-500/[0.06] hover:text-ember-200"
             >
               + {display(s)}
             </button>

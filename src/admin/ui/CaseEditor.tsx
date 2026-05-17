@@ -112,7 +112,7 @@ export function CaseEditor({
         description="维护 data/manual/cases.json。每次保存会向 GitHub 提交一次 commit，CI 自动重新构建并部署。"
         right={
           <>
-            <Badge tone={dirty ? "ember" : "neutral"}>
+            <Badge tone={dirty ? "ember" : "emerald"}>
               {dirty ? "● 未保存改动" : "已同步"}
             </Badge>
             <Button onClick={addNew} variant="ghost" disabled={saving}>
@@ -142,7 +142,7 @@ export function CaseEditor({
         }
       />
 
-      <div className="mt-5 grid min-h-0 flex-1 gap-5 lg:grid-cols-[320px_minmax(0,1fr)]">
+      <div className="mt-6 grid min-h-0 flex-1 gap-5 lg:grid-cols-[320px_minmax(0,1fr)]">
         {/* Master list */}
         <Card className="flex min-h-0 flex-col overflow-hidden">
           <div className="border-b border-white/[0.05] p-3">
@@ -158,7 +158,7 @@ export function CaseEditor({
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="搜索 id / 标题 / prompt"
-                className="w-full rounded-lg border border-white/[0.08] bg-ink-950/40 py-2 pl-9 pr-3 text-[12.5px] text-ink-100 placeholder:text-ink-500 outline-none transition focus:border-ember-500/50 focus:ring-2 focus:ring-ember-500/15"
+                className="input-base pl-9"
               />
             </div>
             <p className="mt-2 px-1 text-[11px] tabular-nums text-ink-500">
@@ -180,16 +180,16 @@ export function CaseEditor({
                       <button
                         type="button"
                         onClick={() => setActiveIdx(i)}
-                        className={`group flex w-full items-start gap-2 px-3 py-2.5 text-left transition ${
+                        className={`group flex w-full items-start gap-2.5 px-3 py-2.5 text-left transition ${
                           isActive
-                            ? "bg-ember-500/10"
+                            ? "bg-ember-500/[0.08] ring-1 ring-inset ring-ember-500/15"
                             : "hover:bg-white/[0.03]"
                         }`}
                       >
                         <span
                           aria-hidden
-                          className={`mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
-                            isActive ? "bg-ember-400" : "bg-ink-700"
+                          className={`mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
+                            isActive ? "bg-ember-400" : "bg-ink-700 group-hover:bg-ink-500"
                           }`}
                         />
                         <span className="min-w-0 flex-1">
@@ -271,16 +271,14 @@ function CaseForm({
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <header className="flex items-center justify-between border-b border-white/[0.05] px-5 py-3">
+      <header className="flex items-center justify-between gap-3 border-b border-white/[0.05] px-5 py-3">
         <div className="min-w-0">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.2em] text-ink-500">
-            Editing
-          </p>
-          <p className="mt-0.5 truncate text-[13px] font-medium text-ink-100">
+          <p className="eyebrow">Editing</p>
+          <p className="mt-0.5 truncate text-[14px] font-semibold text-ink-100">
             {data.title || <em className="text-ink-500">无标题案例</em>}
           </p>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1.5">
           <Button variant="subtle" onClick={onDuplicate}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
               <rect x="9" y="9" width="13" height="13" rx="2" />
@@ -404,7 +402,7 @@ function CaseForm({
               />
             </Field>
 
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.06] bg-ink-950/40 p-3 transition hover:border-white/15">
+            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5 transition hover:border-white/15">
               <input
                 type="checkbox"
                 checked={Boolean(data.hidden)}
@@ -412,7 +410,7 @@ function CaseForm({
                 className="mt-0.5 h-4 w-4 accent-ember-500"
               />
               <div>
-                <p className="text-[13px] font-medium text-ink-100">屏蔽上游同 ID 案例</p>
+                <p className="text-[13px] font-semibold text-ink-100">屏蔽上游同 ID 案例</p>
                 <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink-500">
                   打开后只需要保留 id 字段，构建时该 id 的上游案例会被删除。其他字段可留空。
                 </p>
@@ -430,14 +428,23 @@ function CaseForm({
                 slug={data.title || data.id}
               />
             </Field>
-            <div className="rounded-xl border border-white/[0.06] bg-ink-950/40 p-3">
-              <p className="text-[10.5px] font-medium uppercase tracking-[0.18em] text-ink-500">
+            <div className="rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
                 Tip
               </p>
               <ul className="mt-2 space-y-1.5 text-[11.5px] leading-relaxed text-ink-400">
-                <li>· 直接粘贴外链最快，会自动走 wsrv.nl 转 WebP</li>
-                <li>· 上传到 /uploads 会先 commit 一次再返回路径</li>
-                <li>· id 100000+ 不会和上游冲突</li>
+                <li className="flex gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ember-400" />
+                  直接粘贴外链最快，会自动走 wsrv.nl 转 WebP
+                </li>
+                <li className="flex gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ember-400" />
+                  上传到 /uploads 会先 commit 一次再返回路径
+                </li>
+                <li className="flex gap-1.5">
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-ember-400" />
+                  id 100000+ 不会和上游冲突
+                </li>
               </ul>
             </div>
           </div>

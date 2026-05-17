@@ -1,6 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+ * Admin styles.
+ *
+ * We deliberately import the public site's CSS so the admin shares the same
+ * design language (surface tokens, btn-primary/ghost, chip, eyebrow,
+ * serif-display, scrollbars, reduce-motion guards). The admin then layers a
+ * few overrides + an admin-only entrance animation on top.
+ *
+ * Why not duplicate the tokens?
+ *  - keeps admin and public in sync as the brand evolves
+ *  - tailwind already scans both `index.html` and `admin.html`, so the cost is
+ *    only the few extra utility classes used here
+ *  - admin and public are separate Vite entries so the public `body::before`
+ *    ambient layer in index.css won't bleed into the public bundle twice.
+ */
+@import "../index.css";
+
+/* ----------------------------------------------------------------------- */
+/* Admin-only overrides                                                    */
+/* ----------------------------------------------------------------------- */
 
 @layer base {
   html,
@@ -9,70 +26,87 @@
     height: 100%;
   }
 
-  html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  body {
-    margin: 0;
+  /* Tighten the public-site ambient layer for admin. The public site uses a
+     more dramatic three-blob radial gradient — for an editor surface we want
+     a calmer, less distracting backdrop so eye time goes to the content. */
+  body::before {
     background:
-      radial-gradient(ellipse 60% 40% at 12% 0%, rgba(217, 119, 87, 0.10), transparent 60%),
-      radial-gradient(ellipse 50% 40% at 92% 100%, rgba(99, 60, 145, 0.06), transparent 60%),
-      linear-gradient(180deg, #0a0807 0%, #0c0a09 100%);
-    color: #ece8e1;
-    font-feature-settings: "ss01", "cv11";
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+      radial-gradient(ellipse 60% 45% at 8% -6%, rgba(217, 119, 87, 0.16), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 96% 10%, rgba(217, 119, 87, 0.07), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 50% 110%, rgba(99, 60, 145, 0.06), transparent 65%),
+      linear-gradient(180deg, #0a0807 0%, #0c0a09 60%, #0e0b0a 100%);
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
-  ::selection {
-    background: rgba(217, 119, 87, 0.42);
-    color: #fff;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(122, 116, 108, 0.3);
-    border-radius: 8px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(122, 116, 108, 0.5);
+  /* Drop the noise grain inside admin — it's distracting in long editing
+     sessions and adds CPU cost on continuous repaint. */
+  body::after {
+    display: none;
   }
 }
 
 @layer components {
-  .serif-display {
-    font-family: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
-    font-feature-settings: "liga", "dlig";
-    letter-spacing: -0.012em;
+  /* Form-shaped variant of `.surface`: square corners read as "tool" rather
+     than the public site's editorial 2xl-corner cards. */
+  .surface-form {
+    @apply rounded-xl border border-white/[0.06] bg-white/[0.025] backdrop-blur-sm;
+  }
+
+  /* Input base shared by TextInput / TextArea / Select / search box. */
+  .input-base {
+    @apply w-full rounded-lg border border-white/[0.08] bg-ink-950/50 px-3 py-2 text-[13px] text-ink-100 placeholder:text-ink-500 outline-none transition;
+  }
+  .input-base:focus,
+  .input-base:focus-visible {
+    @apply border-ember-500/60 ring-2 ring-ember-500/15;
+  }
+
+  /* Compact pill button for inline toolbars. Smaller than `.btn-primary`. */
+  .btn-pill-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-ember-500 px-3.5 py-1.5 text-[12.5px] font-semibold text-ink-950 transition hover:bg-ember-400 disabled:cursor-not-allowed disabled:opacity-50;
+    box-shadow:
+      0 10px 28px -14px rgba(217, 119, 87, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+  .btn-pill-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[12.5px] font-medium text-ink-100 transition hover:border-white/25 hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-pill-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 px-3.5 py-1.5 text-[12.5px] font-medium text-rose-200 transition hover:border-rose-400/50 hover:bg-rose-500/15 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-pill-subtle {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] font-medium text-ink-400 transition hover:bg-white/[0.04] hover:text-ink-100 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Sidebar nav row — matches public-site capsule navigation.
+     We keep `group` out of @apply (Tailwind doesn't allow it there) and
+     attach it directly in JSX. */
+  .nav-row {
+    @apply flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-[13px] font-medium transition;
+  }
+  .nav-row-idle {
+    @apply text-ink-300 hover:bg-white/[0.04] hover:text-ink-50;
+  }
+  .nav-row-active {
+    @apply bg-white/[0.06] text-ink-50 ring-1 ring-white/[0.08];
+  }
+
+  /* Dirty/synced status dot — used in toolbars and the sidebar footer. */
+  .status-dot {
+    @apply inline-block h-1.5 w-1.5 shrink-0 rounded-full;
   }
 }
 
-@layer utilities {
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-}
-
-/* Subtle entrance animation for the shell. */
+/* Subtle entrance animation for the admin shell. */
 @keyframes adminFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 #admin-root > div {
-  animation: adminFadeIn 0.25s ease-out both;
+  animation: adminFadeIn 0.28s ease-out both;
 }

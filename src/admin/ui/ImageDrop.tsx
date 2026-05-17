@@ -84,10 +84,10 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
           const file = e.dataTransfer.files?.[0];
           if (file) upload(file);
         }}
-        className={`relative flex h-44 w-full items-center justify-center overflow-hidden rounded-xl border-2 border-dashed transition ${
+        className={`relative flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed transition ${
           drag
-            ? "border-ember-500/60 bg-ember-500/5"
-            : "border-white/10 bg-ink-950/40 hover:border-white/25"
+            ? "border-ember-500/70 bg-ember-500/[0.08]"
+            : "border-white/12 bg-ink-950/50 hover:border-white/25 hover:bg-ink-950/65"
         }`}
       >
         {value ? (
@@ -96,29 +96,36 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
             <img
               src={resolvePreview(value)}
               alt="case preview"
-              className="h-full w-full object-cover opacity-90"
+              className="h-full w-full object-cover opacity-95"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";
               }}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
             <div className="absolute inset-x-2 bottom-2 flex items-center gap-1.5">
-              <span className="truncate rounded-md bg-ink-950/70 px-2 py-1 font-mono text-[11px] text-ink-100 backdrop-blur">
+              <span className="truncate rounded-full bg-ink-950/75 px-2.5 py-1 font-mono text-[11px] text-ink-100 ring-1 ring-white/10 backdrop-blur">
                 {value}
               </span>
             </div>
           </>
         ) : (
           <div className="text-center">
-            <p className="text-[13px] font-medium text-ink-200">拖拽图片到此处</p>
+            <div className="mx-auto mb-2 grid h-9 w-9 place-items-center rounded-full border border-white/[0.08] bg-white/[0.03] text-ink-300">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </div>
+            <p className="text-[13px] font-semibold text-ink-100">拖拽图片到此处</p>
             <p className="mt-1 text-[11.5px] text-ink-500">
               或点击下方按钮上传 · 最大 5MB
             </p>
           </div>
         )}
         {busy && (
-          <div className="absolute inset-0 flex items-center justify-center bg-ink-950/70 backdrop-blur-sm">
-            <div className="inline-flex items-center gap-2 text-[12.5px] font-medium text-ink-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-ink-950/75 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink-950/70 px-3.5 py-1.5 text-[12.5px] font-medium text-ink-100">
               <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-ember-400 border-t-transparent" />
               {progress || "处理中…"}
             </div>
@@ -162,7 +169,7 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
         onChange={(e) => onChange(e.target.value)}
         placeholder="或粘贴外链 https://..."
         spellCheck={false}
-        className="w-full rounded-lg border border-white/[0.08] bg-ink-950/40 px-3 py-2 font-mono text-[12.5px] text-ink-100 placeholder:text-ink-500 outline-none transition focus:border-ember-500/50 focus:ring-2 focus:ring-ember-500/15"
+        className="input-base font-mono text-[12.5px]"
       />
     </div>
   );

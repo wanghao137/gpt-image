@@ -26,7 +26,10 @@
       html { background: #0a0807; }
       body {
         margin: 0;
-        background: #0a0807;
+        background:
+          radial-gradient(ellipse 60% 45% at 8% -6%, rgba(217, 119, 87, 0.16), transparent 60%),
+          radial-gradient(ellipse 50% 40% at 96% 10%, rgba(217, 119, 87, 0.07), transparent 60%),
+          linear-gradient(180deg, #0a0807 0%, #0c0a09 60%, #0e0b0a 100%);
         color: #ece8e1;
         font-family: Inter, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -35,9 +38,9 @@
       }
       .boot {
         position: fixed; inset: 0; display: grid; place-items: center;
-        background: #0a0807; color: #d97757;
+        color: #d97757;
         font-family: "Instrument Serif", Palatino, Georgia, serif;
-        font-size: 22px; letter-spacing: -0.01em;
+        font-size: 22px; letter-spacing: -0.012em;
       }
       .boot::after {
         content: ""; width: 32px; height: 32px; margin-left: 12px;
