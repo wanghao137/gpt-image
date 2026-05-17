@@ -1,0 +1,14 @@
+[
+  {
+    "id": "100001",
+    "title": "示例案例 · 复制我开始",
+    "category": "其他用例",
+    "styles": ["Realistic", "Poster"],
+    "scenes": ["Tech", "Commerce"],
+    "imageUrl": "https://gpt-image2.canghe.ai/images/case435.jpg",
+    "imageAlt": "示例图，正式上线前请替换",
+    "prompt": "这里是完整 Prompt 正文。把你想要复用的指令写在这里，没有长度限制。\n\n复制这条记录、改 id（建议从 100001 起递增）、改 title、prompt、imageUrl、category 等字段，git push 后就会出现在网站上。",
+    "promptPreview": "这是一条手动添加的示例案例，演示 data/manual/cases.json 的用法。详细说明见 data/manual/README.md。",
+    "source": "本站作者"
+  }
+]

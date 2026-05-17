@@ -1,4 +1,4 @@
-import { mkdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -8,6 +8,8 @@ const ORIGIN = "https://gpt-image2.canghe.ai";
 const CASES_URL = `${ORIGIN}/cases.json`;
 const STYLE_LIBRARY_URL = `${ORIGIN}/style-library.json`;
 const OPTIONAL = process.argv.includes("--optional");
+const MANUAL_CASES_PATH = resolve(ROOT, "data/manual/cases.json");
+const MANUAL_TEMPLATES_PATH = resolve(ROOT, "data/manual/templates.json");
 
 const CATEGORY_LABELS = {
   "Architecture & Spaces": "建筑与空间",
@@ -128,19 +130,114 @@ function writeJson(relativePath, data, opts = {}) {
   writeFileSync(output, text, "utf8");
 }
 
+function readJsonSafe(absolutePath, fallback) {
+  if (!existsSync(absolutePath)) return fallback;
+  try {
+    const raw = readFileSync(absolutePath, "utf8").trim();
+    if (!raw) return fallback;
+    return JSON.parse(raw);
+  } catch (error) {
+    console.warn(`! could not parse ${absolutePath}: ${error.message}`);
+    return fallback;
+  }
+}
+
+/**
+ * Normalize a manual case authored in `data/manual/cases.json`.
+ * Manual entries follow the same shape as upstream JSON but the user only has
+ * to fill the meaningful fields — we backfill the rest.
+ */
+function normalizeManualCase(item) {
+  const id = String(item.id ?? "").trim();
+  if (!id) return null;
+  const styles = Array.isArray(item.styles) ? item.styles.filter(Boolean) : [];
+  const scenes = Array.isArray(item.scenes) ? item.scenes.filter(Boolean) : [];
+  const fallbackTags = [...new Set([...styles, ...scenes])].slice(0, 6);
+  const prompt = (item.prompt ?? "").toString();
+  return {
+    id,
+    title: item.title || `案例 ${id}`,
+    category: item.category || "其他用例",
+    tags: Array.isArray(item.tags) && item.tags.length > 0 ? item.tags : fallbackTags,
+    styles,
+    scenes,
+    imageUrl: item.imageUrl || "",
+    imageAlt: item.imageAlt || item.title || `案例 ${id}`,
+    prompt,
+    promptPreview: item.promptPreview || prompt.slice(0, 220),
+    source: item.source || undefined,
+    githubUrl: item.githubUrl || undefined,
+    hidden: Boolean(item.hidden),
+  };
+}
+
+function loadManualCases() {
+  const raw = readJsonSafe(MANUAL_CASES_PATH, []);
+  if (!Array.isArray(raw)) {
+    console.warn("! data/manual/cases.json is not an array, ignoring");
+    return [];
+  }
+  return raw.map(normalizeManualCase).filter(Boolean);
+}
+
+function loadManualTemplates() {
+  const raw = readJsonSafe(MANUAL_TEMPLATES_PATH, []);
+  if (!Array.isArray(raw)) {
+    console.warn("! data/manual/templates.json is not an array, ignoring");
+    return [];
+  }
+  return raw;
+}
+
 async function main() {
   console.log(`fetching ${CASES_URL} ...`);
   const casesPayload = await fetchJson(CASES_URL);
-  const fullCases = (casesPayload.cases || [])
+  const upstreamCases = (casesPayload.cases || [])
     .map(normalizeCase)
-    .filter((item) => item.imageUrl && item.prompt)
-    .sort((a, b) => Number(b.id) - Number(a.id));
+    .filter((item) => item.imageUrl && item.prompt);
 
   console.log(`fetching ${STYLE_LIBRARY_URL} ...`);
   const stylePayload = await fetchJson(STYLE_LIBRARY_URL);
-  const templates = (stylePayload.templates || [])
+  const upstreamTemplates = (stylePayload.templates || [])
     .map(normalizeTemplate)
     .filter((item) => item.id && item.prompt);
+
+  // --- Merge in manually-authored content from data/manual/ ---
+  const manualCases = loadManualCases();
+  const manualTemplates = loadManualTemplates();
+
+  // Build a map keyed by ID. Manual entries override upstream when IDs collide,
+  // and a manual entry with `hidden: true` removes the upstream entry entirely.
+  const caseMap = new Map();
+  for (const c of upstreamCases) caseMap.set(c.id, c);
+  let hiddenCount = 0;
+  for (const c of manualCases) {
+    if (c.hidden) {
+      if (caseMap.delete(c.id)) hiddenCount += 1;
+      continue;
+    }
+    if (!c.imageUrl || !c.prompt) {
+      console.warn(`! manual case "${c.id}" missing imageUrl or prompt — skipped`);
+      continue;
+    }
+    caseMap.set(c.id, c);
+  }
+  // Sort numerically descending so newer/larger IDs (manual entries usually use
+  // 100000+) appear at the top of the gallery.
+  const fullCases = Array.from(caseMap.values()).sort(
+    (a, b) => Number(b.id) - Number(a.id),
+  );
+
+  const templateMap = new Map();
+  for (const t of upstreamTemplates) templateMap.set(t.id, t);
+  for (const t of manualTemplates) {
+    if (t && t.id) templateMap.set(t.id, t);
+  }
+  const templates = Array.from(templateMap.values());
+
+  console.log(
+    `merged: upstream ${upstreamCases.length} + manual ${manualCases.length} → ${fullCases.length} cases (${hiddenCount} hidden)`,
+  );
 
   // Lite cases — strip the heavy `prompt` field. Card/grid only need `promptPreview`.
   const lite = fullCases.map((c) => ({
