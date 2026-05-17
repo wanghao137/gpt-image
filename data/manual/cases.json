@@ -1,14 +1,14 @@
 [
   {
-    "id": "100001",
+    "id": "001",
     "title": "逼真的宠物与主人广角自拍",
-    "category": "其他用例",
+    "category": "角色与人物",
     "styles": [
       "Realistic"
     ],
     "scenes": [
-      "Tech",
-      "Commerce"
+      "Lifestyle",
+      "Portrait"
     ],
     "imageUrl": "https://cms-assets.youmind.com/media/1778921894086_nzzkdi_HIYfDeTXkAERHWq.jpg",
     "imageAlt": "示例图，正式上线前请替换",
