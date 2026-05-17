@@ -1,4 +1,4 @@
-import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -225,7 +225,14 @@ async function main() {
       // Cached cases are LITE (no `prompt`). That's fine — the merge below
       // only needs the visible card fields. Per-case prompt files for these
       // ids are also already on disk from the previous successful sync.
-      upstreamCases = cachedCases.filter((c) => c.imageUrl);
+      //
+      // IMPORTANT: strip any IDs in the manual range (>= 100000) — those
+      // are stale manual entries that got baked into a previous snapshot.
+      // Manual gets re-applied fresh from data/manual/cases.json below, so
+      // keeping them here would leave deleted/renamed entries lingering.
+      upstreamCases = cachedCases.filter(
+        (c) => c.imageUrl && Number(c.id) < 100000,
+      );
     }
     if (Array.isArray(cachedTemplates)) {
       upstreamTemplates = cachedTemplates;
@@ -294,10 +301,19 @@ async function main() {
   //
   // When upstream is healthy: regenerate the entire prompts directory.
   // When upstream is down: keep the existing prompts directory intact (so cached
-  // upstream prompts still resolve) and only add/refresh files for manual cases.
+  // upstream prompts still resolve) but clean out any stale manual-range
+  // prompt files — those follow the manual cases and need to track renames /
+  // deletes that happen through the admin.
   const promptsDir = resolve(ROOT, "public/data/prompts");
   if (upstreamOk) {
     if (existsSync(promptsDir)) rmSync(promptsDir, { recursive: true, force: true });
+  } else if (existsSync(promptsDir)) {
+    for (const file of readdirSync(promptsDir)) {
+      const id = file.replace(/\.json$/i, "");
+      if (Number(id) >= 100000) {
+        rmSync(resolve(promptsDir, file), { force: true });
+      }
+    }
   }
   mkdirSync(promptsDir, { recursive: true });
 
