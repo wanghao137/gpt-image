@@ -36,6 +36,16 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
+        env:
+          # Password hash for the hidden /admin entry. Configure as a
+          # repository "Variable" (Settings → Secrets and variables → Actions →
+          # Variables tab) so it gets injected into the static bundle. The
+          # hash itself is safe to expose — it gates a UI that still requires
+          # a separate GitHub PAT to actually write anything.
+          VITE_ADMIN_PASSWORD_HASH: ${{ vars.VITE_ADMIN_PASSWORD_HASH }}
+          VITE_ADMIN_REPO_OWNER: ${{ github.repository_owner }}
+          VITE_ADMIN_REPO_NAME: ${{ github.event.repository.name }}
+          VITE_ADMIN_REPO_BRANCH: ${{ github.ref_name }}
         run: npm run build
 
       - name: Upload artifact

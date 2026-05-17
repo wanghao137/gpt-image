@@ -9,7 +9,8 @@
     "prebuild": "node scripts/sync.mjs",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "sync": "node scripts/sync.mjs"
+    "sync": "node scripts/sync.mjs",
+    "admin:hash": "node scripts/admin-hash.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
