@@ -1,0 +1,1 @@
+{"id":"100001","prompt":"这里是完整 Prompt 正文。把你想要复用的指令写在这里，没有长度限制。\n\n复制这条记录、改 id（建议从 100001 起递增）、改 title、prompt、imageUrl、category 等字段，git push 后就会出现在网站上。"}

@@ -190,17 +190,47 @@ function loadManualTemplates() {
 }
 
 async function main() {
-  console.log(`fetching ${CASES_URL} ...`);
-  const casesPayload = await fetchJson(CASES_URL);
-  const upstreamCases = (casesPayload.cases || [])
-    .map(normalizeCase)
-    .filter((item) => item.imageUrl && item.prompt);
+  let upstreamCases = [];
+  let upstreamTemplates = [];
+  let upstreamOk = true;
 
-  console.log(`fetching ${STYLE_LIBRARY_URL} ...`);
-  const stylePayload = await fetchJson(STYLE_LIBRARY_URL);
-  const upstreamTemplates = (stylePayload.templates || [])
-    .map(normalizeTemplate)
-    .filter((item) => item.id && item.prompt);
+  try {
+    console.log(`fetching ${CASES_URL} ...`);
+    const casesPayload = await fetchJson(CASES_URL);
+    upstreamCases = (casesPayload.cases || [])
+      .map(normalizeCase)
+      .filter((item) => item.imageUrl && item.prompt);
+
+    console.log(`fetching ${STYLE_LIBRARY_URL} ...`);
+    const stylePayload = await fetchJson(STYLE_LIBRARY_URL);
+    upstreamTemplates = (stylePayload.templates || [])
+      .map(normalizeTemplate)
+      .filter((item) => item.id && item.prompt);
+  } catch (error) {
+    upstreamOk = false;
+    if (!OPTIONAL) throw error;
+
+    // Optional mode: keep building. Fall back to whatever's already committed
+    // under public/data/ so the site still loads, and let the manual area
+    // continue to override entries normally.
+    const reason = error instanceof Error ? error.message : String(error);
+    console.warn(`! upstream unavailable, using cached public/data: ${reason}`);
+
+    const cachedCases = readJsonSafe(resolve(ROOT, "public/data/cases.json"), []);
+    const cachedTemplates = readJsonSafe(
+      resolve(ROOT, "public/data/templates.json"),
+      [],
+    );
+    if (Array.isArray(cachedCases)) {
+      // Cached cases are LITE (no `prompt`). That's fine — the merge below
+      // only needs the visible card fields. Per-case prompt files for these
+      // ids are also already on disk from the previous successful sync.
+      upstreamCases = cachedCases.filter((c) => c.imageUrl);
+    }
+    if (Array.isArray(cachedTemplates)) {
+      upstreamTemplates = cachedTemplates;
+    }
+  }
 
   // --- Merge in manually-authored content from data/manual/ ---
   const manualCases = loadManualCases();
@@ -261,16 +291,30 @@ async function main() {
   console.log(`✓ wrote ${templates.length} templates -> public/data/templates.json`);
 
   // Per-case prompts — fetched on demand when a user opens a case modal or copies.
+  //
+  // When upstream is healthy: regenerate the entire prompts directory.
+  // When upstream is down: keep the existing prompts directory intact (so cached
+  // upstream prompts still resolve) and only add/refresh files for manual cases.
   const promptsDir = resolve(ROOT, "public/data/prompts");
-  if (existsSync(promptsDir)) rmSync(promptsDir, { recursive: true, force: true });
-  mkdirSync(promptsDir, { recursive: true });
-  for (const c of fullCases) {
-    writeJson(`public/data/prompts/${c.id}.json`, { id: c.id, prompt: c.prompt });
+  if (upstreamOk) {
+    if (existsSync(promptsDir)) rmSync(promptsDir, { recursive: true, force: true });
   }
-  console.log(`✓ wrote ${fullCases.length} per-case prompt files -> public/data/prompts/`);
+  mkdirSync(promptsDir, { recursive: true });
+
+  let writtenPrompts = 0;
+  for (const c of fullCases) {
+    if (!c.prompt) continue; // lite-only fallback rows have no prompt
+    writeJson(`public/data/prompts/${c.id}.json`, { id: c.id, prompt: c.prompt });
+    writtenPrompts += 1;
+  }
+  console.log(
+    `✓ wrote ${writtenPrompts} per-case prompt files -> public/data/prompts/${upstreamOk ? "" : " (manual only — upstream offline)"}`,
+  );
 
   console.log(
-    `synced ${fullCases.length} cases and ${templates.length} templates from GPT-Image2 public JSON.`,
+    upstreamOk
+      ? `synced ${fullCases.length} cases and ${templates.length} templates from GPT-Image2 public JSON.`
+      : `built ${fullCases.length} cases and ${templates.length} templates from cached snapshot + manual.`,
   );
 }
 

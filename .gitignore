@@ -7,4 +7,3 @@ dist
 .vscode/
 tsconfig.tsbuildinfo
 src/data/
-public/data/prompts/

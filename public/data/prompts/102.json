@@ -1,0 +1,1 @@
+{"id":"102","prompt":"Search the web for {argument name=\"performance description\" default=\"this week’s standout individual performance in Champion’s League\"}, using exact stats and game summary, {argument name=\"colors\" default=\"bold team colors\"}, legible score breakdown, and generate a {argument name=\"card type\" default=\"Highlight card\"}."}
