@@ -46,9 +46,25 @@ export default function HomePage() {
     },
   };
 
+  // ItemList tells Google the page is a curated list — improves rich results.
+  // We surface the same 12 featured cases the user sees above the fold.
+  const ldItemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "本周精选 GPT-Image 2 案例",
+    numberOfItems: featured.length,
+    itemListElement: featured.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE.url}/case/${c.slug}`,
+      name: c.title,
+      image: c.imageUrl,
+    })),
+  };
+
   return (
     <>
-      <SEO title={HOME_TITLE} description={HOME_DESC} path="/" jsonLd={ldOrg} />
+      <SEO title={HOME_TITLE} description={HOME_DESC} path="/" jsonLd={[ldOrg, ldItemList]} />
 
       {/* HERO */}
       <section className="relative isolate">

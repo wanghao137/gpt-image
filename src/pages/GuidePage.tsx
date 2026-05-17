@@ -22,12 +22,24 @@ const TOPICS = [
 ];
 
 export default function GuidePage() {
+  // FAQ structured data so guide cards can show up as Google FAQ rich results.
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: TOPICS.map((t) => ({
+      "@type": "Question",
+      name: t.title,
+      acceptedAnswer: { "@type": "Answer", text: t.body },
+    })),
+  };
+
   return (
     <>
       <SEO
         title="新手教程 · GPT-Image 2 怎么用"
         description="GPT-Image 2 是什么、怎么用、Prompt 怎么写、中英版本怎么选、可商用边界——零基础上手指南。"
         path="/guide"
+        jsonLd={faqLd}
       />
 
       <section className="container-narrow pt-10 sm:pt-14">
@@ -62,7 +74,7 @@ export default function GuidePage() {
               <Link to="/templates" className="hover:text-ember-200">→ 拿一套工业模板起稿</Link>
             </li>
             <li>
-              <Link to="/category/xhs-cover" className="hover:text-ember-200">→ 直接看小红书封面分类</Link>
+              <Link to="/category/portrait" className="hover:text-ember-200">→ 直接看人像写真分类</Link>
             </li>
             <li>
               <Link to="/services" className="hover:text-ember-200">→ 没时间？让我帮你出</Link>
