@@ -1,5 +1,21 @@
 [
   {
+    "id": "100004",
+    "title": "人物发型设计",
+    "category": "角色与人物",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Commerce",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "https://promptsref.com/cdn-cgi/image/format=auto,quality=95,w=1800,fit=contain/https://upload.apimart.ai/f/image/9998221008584632-673e8bf0-eea2-4ec9-8f57-f885c258e778-gpt_image_2_codex_task_01KRT2DFT4TCK2MYS3TS2M6987_0.png",
+    "prompt": "Generate an image of an analysis report.\n\nFirst, analyze the head shape in the reference photo, and then visualize the results on the left.\n\nBased on head shape analysis, four best hairstyles are recommended and placed on the upper right side, while four worst hairstyles are given and placed on the lower right side.\n\nThe overall report is highly readable and has a sophisticated feel.",
+    "source": "汪浩"
+  },
+  {
     "id": "100003",
     "title": "人物照片",
     "category": "角色与人物",
