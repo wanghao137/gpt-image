@@ -6,38 +6,28 @@
     <meta name="theme-color" content="#0c0a09" />
     <meta name="color-scheme" content="dark" />
 
-    <title>GPT-Image 2 Prompt Gallery · 爆款图片到可复用 Prompt</title>
+    <!--
+      Default <head> tags. Each page replaces these via `<SEO>` (vite-react-ssg
+      injects the SSR'd head atoms into the static HTML at build time, so this
+      block here is just the "fallback before JS hydrates" surface area for
+      routes the SSG didn't touch — the title is intentionally omitted so
+      per-page <SEO> titles win in browsers that read the last title tag.)
+    -->
     <meta
       name="description"
-      content="精选 GPT-Image 2 真实案例与工业级 Prompt 模板。浏览、复制、复用，一站式完成从灵感到出图的工作流。"
+      content="小红书封面、商家海报、人像写真、信息图——435+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt，一键复制就能出图。"
     />
-    <meta name="author" content="GPT-Image 2 Prompt Gallery" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="GPT-Image 2 Prompt Gallery" />
-    <meta
-      property="og:description"
-      content="精选 GPT-Image 2 真实案例与工业级 Prompt 模板，浏览、复制、复用一站到位。"
-    />
-    <meta property="og:locale" content="zh_CN" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GPT-Image 2 Prompt Gallery" />
-    <meta
-      name="twitter:description"
-      content="精选 GPT-Image 2 真实案例与工业级 Prompt 模板。"
-    />
+    <meta name="author" content="GPT-Image 2 中文案例库" />
+    <meta name="keywords" content="GPT-Image 2, GPT-Image 提示词, AI 图片提示词, 小红书封面, 商家海报, 人像写真, AI 海报, 提示词案例" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://gpt-image2.canghe.ai" crossorigin />
-    <link rel="dns-prefetch" href="https://gpt-image2.canghe.ai" />
-    <!-- Image proxy used for on-the-fly WebP resizing (wsrv.nl) -->
     <link rel="preconnect" href="https://wsrv.nl" crossorigin />
     <link rel="dns-prefetch" href="https://wsrv.nl" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <link rel="preload" as="fetch" href="/data/cases.json" />
 
@@ -90,9 +80,7 @@
     </style>
   </head>
   <body>
-    <div id="root">
-      <div class="boot">GPT-Image 2 Gallery</div>
-    </div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

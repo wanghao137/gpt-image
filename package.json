@@ -1,20 +1,25 @@
 {
   "name": "prompt-gallery-mvp",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/sync.mjs --optional",
-    "dev": "vite",
-    "prebuild": "node scripts/sync.mjs --optional",
-    "build": "tsc -b && vite build",
+    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs",
+    "dev": "vite-react-ssg dev",
+    "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs",
+    "build": "tsc -b && vite-react-ssg build",
+    "postbuild": "node scripts/build-sitemap.mjs",
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
+    "migrate": "node scripts/migrate-v2.mjs",
     "admin:hash": "node scripts/admin-hash.mjs"
   },
   "dependencies": {
+    "pinyin-pro": "^3.28.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "vite-react-ssg": "^0.8.9"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

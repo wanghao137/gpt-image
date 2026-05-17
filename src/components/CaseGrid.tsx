@@ -5,10 +5,11 @@ import { CaseCard } from "./CaseCard";
 interface CaseGridProps {
   cases: PromptCase[];
   favoriteIds: Set<string>;
-  onSelect: (c: PromptCase) => void;
   onToggleFavorite: (id: string) => void;
-  loading: boolean;
-  onResetFilters: () => void;
+  loading?: boolean;
+  onResetFilters?: () => void;
+  /** Disable infinite scroll and render all at once. Useful on category pages. */
+  paginate?: boolean;
 }
 
 const PAGE_SIZE = 24;
@@ -30,20 +31,21 @@ function SkeletonCard() {
 export function CaseGrid({
   cases,
   favoriteIds,
-  onSelect,
   onToggleFavorite,
   loading,
   onResetFilters,
+  paginate = true,
 }: CaseGridProps) {
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [visibleCount, setVisibleCount] = useState(paginate ? PAGE_SIZE : cases.length);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   // reset pagination when result set changes
   useEffect(() => {
-    setVisibleCount(PAGE_SIZE);
-  }, [cases]);
+    setVisibleCount(paginate ? PAGE_SIZE : cases.length);
+  }, [cases, paginate]);
 
   useEffect(() => {
+    if (!paginate) return;
     const el = sentinelRef.current;
     if (!el) return;
     if (visibleCount >= cases.length) return;
@@ -57,7 +59,7 @@ export function CaseGrid({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [cases.length, visibleCount]);
+  }, [cases.length, visibleCount, paginate]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
 
@@ -92,13 +94,11 @@ export function CaseGrid({
           </div>
           <p className="text-base font-medium text-ink-50">没有找到匹配的案例</p>
           <p className="mt-1.5 text-sm text-ink-400">试试别的关键词，或者重置筛选条件。</p>
-          <button
-            type="button"
-            onClick={onResetFilters}
-            className="btn-ghost mt-5"
-          >
-            清除筛选
-          </button>
+          {onResetFilters && (
+            <button type="button" onClick={onResetFilters} className="btn-ghost mt-5">
+              清除筛选
+            </button>
+          )}
         </div>
       </div>
     );
@@ -114,13 +114,12 @@ export function CaseGrid({
             key={item.id}
             data={item}
             favorited={favoriteIds.has(item.id)}
-            onSelect={onSelect}
             onToggleFavorite={onToggleFavorite}
           />
         ))}
       </div>
 
-      {remaining > 0 && (
+      {paginate && remaining > 0 && (
         <div ref={sentinelRef} className="mt-8 flex flex-col items-center justify-center gap-3">
           <button
             type="button"
@@ -133,7 +132,7 @@ export function CaseGrid({
         </div>
       )}
 
-      {remaining === 0 && cases.length > PAGE_SIZE && (
+      {paginate && remaining === 0 && cases.length > PAGE_SIZE && (
         <p className="mt-10 text-center text-xs text-ink-500">已显示全部 {cases.length} 个案例</p>
       )}
     </div>

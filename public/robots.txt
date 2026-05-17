@@ -3,3 +3,5 @@ Allow: /
 Disallow: /admin
 Disallow: /admin.html
 Disallow: /uploads/
+
+Sitemap: https://gpt-image-6hu.pages.dev/sitemap.xml
