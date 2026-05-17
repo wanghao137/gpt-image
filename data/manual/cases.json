@@ -1,5 +1,21 @@
 [
   {
+    "id": "100005",
+    "title": "把自拍变成动漫电影名场面教学",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "Poster"
+    ],
+    "scenes": [
+      "Portrait",
+      "Product",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-05-17-100005.png",
+    "prompt": "轻小说封面风，电影感数位绘画，Starbucks咖啡馆内部。极低视角广角透视，镜头贴近地面，前景虚化。缩小版Q版公仔惊慌逃跑，双脚高速奔跑、头髮与(裙摆/长裤  )被速度带起，表情紧张可爱。主角(男/女  )保留参考照片五官与气质，(头发/长髮 * )微乱、脸颊泛红、呼吸急促，正全身前倾伸手抓向逃跑公仔。动作有强烈煞停感，力量从跨步脚掌一路延伸到肩膀与手掌。背景路人与货架被拉成倾斜残影，冷白咖啡馆灯光、玻璃反光、冰饮水珠、地面反射细节丰富。画面带有留白、空气感、速度感与海报级震撼构图。anime style, cinematic lighting, dynamic motion blur, shallow depth of field, ultra detailed, light novel cover, emotional tension, 8k"
+  },
+  {
     "id": "100004",
     "title": "人物发型设计",
     "category": "角色与人物",
