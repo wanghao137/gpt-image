@@ -155,11 +155,15 @@ export default function HomePage() {
                       alt={heroPrimary.imageAlt || heroPrimary.title}
                       width={800}
                       height={1000}
-                      widths={[480, 720, 960]}
-                      baseWidth={720}
-                      sizes="100vw"
+                      // Mobile-only hero — needs to look sharp on DPR 3 phones
+                      // (e.g. Pixel 8, Mi 14). 1200w ceiling avoids blurry
+                      // scaling on full-bleed renders without going wasteful.
+                      widths={[480, 720, 960, 1200]}
+                      baseWidth={480}
+                      sizes="(min-width:1024px) 540px, 100vw"
                       loading="eager"
                       fetchPriority="high"
+                      lqip={false}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
@@ -190,8 +194,8 @@ export default function HomePage() {
                             alt=""
                             width={400}
                             height={500}
-                            widths={[280, 420]}
-                            baseWidth={420}
+                            widths={[280, 420, 600]}
+                            baseWidth={280}
                             sizes="50vw"
                             className="absolute inset-0 h-full w-full object-cover opacity-90"
                           />
@@ -287,7 +291,12 @@ export default function HomePage() {
           favoriteIds={new Set()}
           onToggleFavorite={toggle}
           paginate={false}
-          priorityCount={8}
+          // Was 8 — that meant 8 cards racing for bandwidth on first paint,
+          // pushing the first visible card's LCP past 3s on mobile 4G.
+          // 4 is enough to cover what a desktop user sees above the fold;
+          // mobile only sees 1–2 cards anyway and the rest will lazy-load
+          // before the user can scroll to them.
+          priorityCount={4}
         />
       </section>
 

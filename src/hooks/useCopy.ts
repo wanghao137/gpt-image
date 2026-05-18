@@ -29,6 +29,16 @@ export function useCopy(resetMs = 1500) {
       try {
         await writeClipboard(text);
         setState("copied");
+        // Subtle haptic on supporting devices (Android Chrome, some iOS PWAs).
+        // Silently no-ops elsewhere. 8ms is short enough that it reads as
+        // "tactile confirmation" rather than an alert buzz.
+        if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+          try {
+            navigator.vibrate?.(8);
+          } catch {
+            /* some browsers throw on insecure contexts; ignore */
+          }
+        }
       } catch {
         setState("error");
       }

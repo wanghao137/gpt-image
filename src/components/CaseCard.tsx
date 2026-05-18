@@ -109,7 +109,6 @@ function CheckIcon() {
 function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: CaseCardProps) {
   const { state, copy } = useCopy();
   const [imgErr, setImgErr] = useState(false);
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [copying, setCopying] = useState(false);
   const articleRef = useRef<HTMLElement | null>(null);
   const tags = tagsOf(data);
@@ -161,7 +160,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
     <article
       ref={articleRef}
       onMouseEnter={() => prefetchPrompt(data.id)}
-      className="group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
+      className="case-card group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
     >
       <Link
         to={detailHref}
@@ -169,9 +168,6 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
         aria-label={`查看案例 ${data.title}`}
       >
         <div className="relative overflow-hidden bg-ink-850" style={aspectStyle(data.ratio)}>
-          {!imgLoaded && !imgErr && (
-            <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
-          )}
           {imgErr ? (
             <img
               src={FALLBACK}
@@ -186,24 +182,25 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               alt={data.imageAlt || data.title}
               width={640}
               height={800}
-              widths={[320, 480, 640]}
-              baseWidth={320}
+              // Cover DPR=1/2/3 — most high-end Android phones report DPR 2.75–3.
+              // Without an 800w step, a 360px wide phone with DPR 3 was
+              // upscaling 640w (the previous max) to 1080 physical px,
+              // producing visible softness on the case art.
+              widths={[280, 420, 560, 800]}
+              baseWidth={280}
               sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
               loading={priority ? "eager" : "lazy"}
               fetchPriority={priority ? "high" : "auto"}
               onError={() => setImgErr(true)}
-              onLoad={() => setImgLoaded(true)}
-              className={
-                "absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] " +
-                (imgLoaded ? "opacity-100" : "opacity-0")
-              }
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
             />
           )}
 
           {/* Hover-only gradient frames the image without polluting default state. */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
-          {/* Favorite — always visible on mobile, hover-only on desktop */}
+          {/* Favorite — always visible on mobile (with stronger contrast),
+              hover-only on desktop. */}
           <button
             type="button"
             onClick={(e) => {
@@ -213,10 +210,10 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
             }}
             aria-label={favorited ? "取消收藏" : "收藏"}
             className={
-              "absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border backdrop-blur transition " +
+              "absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
               (favorited
-                ? "border-ember-400/60 bg-ember-500/25 text-ember-100"
-                : "border-white/15 bg-ink-950/55 text-ink-100 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:opacity-0 sm:group-hover:opacity-100")
+                ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
+                : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
             }
           >
             <HeartIcon filled={favorited} />
@@ -248,13 +245,13 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
         </div>
       </Link>
 
-      <div className="flex items-center gap-2 px-3.5 pb-3 pt-3">
+      <div className="flex items-center gap-2 px-3 pb-3 pt-2.5 sm:px-3.5 sm:pt-3">
         <div className="min-w-0 flex-1">
           <Link
             to={detailHref}
-            className="block text-[13.5px] font-semibold leading-snug text-ink-100 transition group-hover:text-ember-200"
+            className="block text-[14px] font-semibold leading-[1.35] text-ink-100 transition group-hover:text-ember-200 sm:text-[13.5px] sm:leading-snug"
           >
-            <span className="line-clamp-1">{data.title}</span>
+            <span className="line-clamp-2 sm:line-clamp-1">{data.title}</span>
           </Link>
           <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-500">
             <Link
@@ -287,7 +284,10 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
           disabled={copying}
           aria-label="复制 Prompt"
           className={
-            "inline-flex h-8 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 " +
+            // h-9 (36px) on mobile clears the 32px touch-target floor most
+            // a11y reviewers flag for; collapses to h-8 on desktop where
+            // pointer precision is fine.
+            "inline-flex h-9 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 sm:h-8 " +
             (state === "copied"
               ? "border-emerald-400/40 bg-emerald-400/15 text-emerald-200"
               : state === "error"

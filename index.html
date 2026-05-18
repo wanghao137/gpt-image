@@ -32,21 +32,32 @@
 
     <link rel="preload" as="fetch" href="/data/cases.json" />
 
+    <!--
+      Font strategy (mobile-first):
+        - We previously preloaded Inter 400/500/600/700/800 + Instrument Serif
+          + JetBrains Mono. ~180KB of font CSS + woff2 just for the headline
+          typeface, on a Chinese-language site where Inter falls back to the
+          system font for 99% of glyphs anyway.
+        - Strip Inter and JetBrains Mono entirely. System UI handles them.
+        - Keep Instrument Serif because it's the *only* visual element that
+          makes the brand recognisable, and load just the two weights actually
+          referenced (italic + roman). Saves ~120KB on first load.
+    -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
       />
     </noscript>
 
@@ -58,7 +69,12 @@
         margin: 0;
         background: #0c0a09;
         color: #ece8e1;
-        font-family: Inter, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        /* Drop Inter — we only ship Instrument Serif now. The system stack
+           below produces near-identical results in zh-CN (PingFang SC on
+           iOS, HarmonyOS Sans on Huawei, MS YaHei on Windows) without the
+           400 + 500 + 600 + 700 + 800 woff2 download. */
+        font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei",
+          "Helvetica Neue", Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;

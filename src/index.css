@@ -58,6 +58,14 @@
     body::after {
       display: none;
     }
+    /* `position: fixed` background is a known scroll-jank source on iOS
+       Safari and low-end Android. Pin it to the document instead so the
+       compositor doesn't redraw it during every scroll frame. The visual
+       effect is identical for the typical scroll depth on mobile. */
+    body::before {
+      position: absolute;
+      height: 100vh;
+    }
   }
 
   * {
@@ -96,9 +104,11 @@
     }
   }
 
-  img {
-    content-visibility: auto;
-  }
+  /* Note: we deliberately do NOT set `content-visibility: auto` on every
+     <img>. The win is on the card *container* (see `.case-card` below)
+     where we can also provide an `intrinsic-size` hint. Slapping it on raw
+     <img> without sizing hints can cause spurious layout work and break
+     the LCP image's rendering on Chrome 124+. */
 }
 
 @layer components {
@@ -249,6 +259,11 @@
    * `break-inside: avoid` on each card keeps it from getting split across
    * columns. We also force a `transform: translateZ(0)` to pin the card into
    * its own stacking context so hover scale doesn't bleed into siblings.
+   *
+   * Mobile (<640px) drops the column layout entirely and renders a flex
+   * column. Reasoning: with column-count:1 the browser still does column
+   * layout work; flex is cheaper, lets us tighten gaps, and keeps the
+   * intersection observers (lazy images, prefetch) firing in document order.
    */
   .masonry {
     column-gap: 1.25rem;
@@ -269,6 +284,39 @@
     /* Each child must be its own stacking context so hover transforms,
        backdrop-filter, and absolute children don't escape the column track. */
     transform: translateZ(0);
+  }
+  @media (max-width: 639px) {
+    .masonry {
+      column-count: unset;
+      column-gap: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .masonry > * {
+      margin-bottom: 0;
+    }
+  }
+
+  /*
+   * `case-card` — the wrapper used by every CaseCard. We attach it here
+   * (rather than relying on Tailwind utilities) so we can:
+   *   - skip rendering offscreen cards via `content-visibility: auto`,
+   *   - give the browser an `intrinsic-size` hint so scroll height is stable
+   *     before images decode (kills CLS),
+   *   - apply a tap highlight reset that's specific to cards.
+   *
+   * intrinsic-size is the *typical* card size at the most common viewport;
+   * cards with extreme aspect ratios will reflow on first paint, but for the
+   * 4:5 majority this is dead-on.
+   */
+  .case-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 360px 520px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (min-width: 640px) {
+    .case-card { contain-intrinsic-size: 320px 460px; }
   }
 }
 

@@ -4,8 +4,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        // System-first sans stack. We dropped Inter as a webfont (see
+        // index.html font-strategy comment) — these are all preinstalled
+        // on every consumer device and render zh-CN glyphs cleanly. The
+        // English-script fallback chain still produces a polished result
+        // on Windows / Linux desktops where PingFang isn't present.
         sans: [
-          "Inter",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -13,6 +17,7 @@ export default {
           "Segoe UI",
           "PingFang SC",
           "Hiragino Sans GB",
+          "HarmonyOS Sans SC",
           "Microsoft YaHei",
           "Helvetica Neue",
           "Arial",
@@ -27,12 +32,11 @@ export default {
           "serif",
         ],
         mono: [
-          "'JetBrains Mono'",
-          "'Fira Code'",
           "ui-monospace",
           "SFMono-Regular",
           "Menlo",
           "Consolas",
+          "'Liberation Mono'",
           "monospace",
         ],
       },

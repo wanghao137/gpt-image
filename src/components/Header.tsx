@@ -51,6 +51,10 @@ function HeaderImpl() {
           ? "border-b border-white/[0.06] bg-ink-950/72 backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent bg-transparent")
       }
+      // Respect notch / Dynamic Island. `viewport-fit=cover` is set in
+      // index.html, but without honouring `safe-area-inset-top` the header
+      // logo is partially obscured on iPhone 14+.
+      style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
       <div className="container-narrow flex h-16 items-center justify-between gap-4">
         <Link
