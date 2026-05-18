@@ -7,3 +7,14 @@ dist
 .vscode/
 tsconfig.tsbuildinfo
 src/data/
+
+# Image pipeline cache. The cache is keyed by source URL hash and stores
+# raw (un-resized) bytes so repeat builds skip the network entirely. It
+# lives under node_modules/ which is already gitignored — this entry is
+# explicit for clarity / IDEs that hide node_modules.
+node_modules/.image-cache/
+
+# IMPORTANT: public/images/ IS NOT IGNORED. Those are the optimised JPEGs
+# that ship with the deploy and replace runtime image fetching. Committing
+# them keeps CF Pages CI builds fast (<2min vs ~10min if regenerated each
+# time) and matches the strategy the reference site uses.

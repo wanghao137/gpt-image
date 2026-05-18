@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { lqipUrl, rawTransformUrl, transformUrl } from "../lib/img";
+import { transformUrl } from "../lib/img";
 
 interface ImageLightboxProps {
   open: boolean;
@@ -279,21 +279,18 @@ function ImageLightboxImpl({
     [onClose],
   );
 
-  // Pre-compute LQIP + responsive sources.
-  const lqip = useMemo(() => lqipUrl(src), [src]);
-  // Lightbox primary path is the standard transform (COS for /uploads,
-  // wsrv for external URLs). On error we fall through to a raw wsrv URL,
-  // bypassing COS in case it's the failing layer.
+  // Lightbox source. transformUrl is identity for /images/* (the post-build
+  // local path) and routes through wsrv only for the rare runtime-only URL.
+  // No fallback ladder — the build pipeline guarantees the local file
+  // exists, and if it doesn't we'd rather show a broken image than ship
+  // multi-stage retry machinery that introduced its own latency.
   const main = useMemo(
     () => transformUrl(src, { width: 1440, quality: 86 }),
     [src],
   );
-  const fallback = useMemo(
-    () => rawTransformUrl(src, { width: 1440, quality: 86 }),
-    [src],
-  );
-  // Responsive ladder for `srcset`. Caps at 1920w which is enough for the
-  // largest tablets at DPR=3 (1024 CSS px × 2 → 2048; clamp to 1920).
+  // Responsive ladder. Local images don't actually have multi-width
+  // variants but emitting them lets the browser do its own DPR math
+  // and pick a candidate.
   const sset = useMemo(() => {
     const widths = [720, 1080, 1440, 1920];
     return widths
@@ -370,10 +367,10 @@ function ImageLightboxImpl({
           transformOrigin: "center center",
           willChange: "transform",
           transition: "transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1)",
-          backgroundImage: !loaded && lqip ? `url(${lqip})` : undefined,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          // No LQIP background — local /images/* paths come back fast
+          // enough that an inline blur preview hurts more than it helps
+          // (always-visible smudge on slow connections that gets confused
+          // for the real image).
         }}
       >
         <img
@@ -386,17 +383,11 @@ function ImageLightboxImpl({
           decoding="async"
           fetchPriority="high"
           onLoad={() => setLoaded(true)}
-          onError={(e) => {
-            // Single-stage fallback: if wsrv fails, jump to origin verbatim.
-            // Origin may itself fail (raw.github is partially blocked in CN)
-            // but at that point we're out of options — let the browser show
-            // its broken-image marker.
-            const img = e.currentTarget;
-            const cur = img.currentSrc || img.src;
-            if (cur.includes("wsrv.nl/?url=")) {
-              img.removeAttribute("srcset");
-              img.src = fallback;
-            }
+          onError={() => {
+            // No retry. The build pipeline guarantees /images/* exist;
+            // if rendering still fails the original src is bad and we
+            // let the browser show its broken-image marker — preferable
+            // to a forever-spinner.
           }}
           className="block h-full w-full object-contain"
           style={{

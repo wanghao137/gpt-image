@@ -6,12 +6,13 @@
   "scripts": {
     "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs",
     "dev": "vite-react-ssg dev",
-    "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs",
+    "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "build": "tsc -b && vite-react-ssg build",
     "postbuild": "node scripts/build-sitemap.mjs",
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
     "migrate": "node scripts/migrate-v2.mjs",
+    "images": "node scripts/build-images.mjs",
     "upload-cos": "node scripts/upload-cos.mjs",
     "admin:hash": "node scripts/admin-hash.mjs"
   },
@@ -30,6 +31,7 @@
     "cos-nodejs-sdk-v5": "^2.15.4",
     "dotenv": "^17.4.2",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3",
     "vite": "^5.4.11"

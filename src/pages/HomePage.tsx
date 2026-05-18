@@ -28,7 +28,12 @@ export default function HomePage() {
 
   const heroPrimary = cases[0];
   const heroGrid = useMemo(() => cases.slice(1, 5), [cases]);
-  const featured = useMemo(() => cases.slice(0, 12), [cases]);
+  // Featured grid: 6 cards on the home page. We used to ship 12; on a
+  // phone that meant ~12 image fetches racing the hero, half of which the
+  // user never even saw before clicking through. Six is what fits in two
+  // mobile-grid rows without scrolling on a typical 6.7" phone, plus a bit
+  // of "there's more here" affordance.
+  const featured = useMemo(() => cases.slice(0, 6), [cases]);
 
   const { has, toggle } = useFavorites();
 
@@ -143,7 +148,11 @@ export default function HomePage() {
               <div className="aspect-square animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800" />
             ) : (
               <>
-                {/* Mobile: single hero image */}
+                {/* Mobile: single hero image. Was: 1 hero + 2 thumbnails.
+                    The thumbnails were 2 extra image fetches we didn't need
+                    above the fold — on slow Chinese mobile networks they
+                    competed with the hero for bandwidth and pushed LCP
+                    further out. One image, sharp, fast. Period. */}
                 <Link
                   to={`/case/${heroPrimary.slug}`}
                   className="group relative block w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left lg:hidden"
@@ -155,15 +164,16 @@ export default function HomePage() {
                       alt={heroPrimary.imageAlt || heroPrimary.title}
                       width={800}
                       height={1000}
-                      // Mobile-only hero — needs to look sharp on DPR 3 phones
-                      // (e.g. Pixel 8, Mi 14). 1200w ceiling avoids blurry
-                      // scaling on full-bleed renders without going wasteful.
-                      widths={[480, 720, 960, 1200]}
+                      // 720w is more than enough for a phone's full width at
+                      // DPR 3 (typical 360 CSS px × 2 = 720 phys px). We
+                      // intentionally cap srcset lower than before — the
+                      // 1200w version was being chosen on tablets but the
+                      // bytes weren't worth the extra second of waiting.
+                      widths={[480, 720, 960]}
                       baseWidth={480}
-                      sizes="(min-width:1024px) 540px, 100vw"
+                      sizes="100vw"
                       loading="eager"
                       fetchPriority="high"
-                      lqip={false}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
@@ -177,37 +187,6 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-
-                {/* Mobile: 2-up thumbnails */}
-                {heroGrid.length > 0 && (
-                  <div className="mt-2.5 grid grid-cols-2 gap-2.5 lg:hidden">
-                    {heroGrid.slice(0, 2).map((item) => (
-                      <Link
-                        key={item.id}
-                        to={`/case/${item.slug}`}
-                        className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-ink-900/40 text-left"
-                        aria-label={item.title}
-                      >
-                        <div className="relative aspect-[4/5] overflow-hidden">
-                          <SmartImg
-                            src={item.imageUrl}
-                            alt=""
-                            width={400}
-                            height={500}
-                            widths={[280, 420, 600]}
-                            baseWidth={280}
-                            sizes="50vw"
-                            className="absolute inset-0 h-full w-full object-cover opacity-90"
-                          />
-                          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent" />
-                          <span className="absolute bottom-2 left-2 right-2 line-clamp-1 text-[11px] font-medium text-ink-100">
-                            {item.title}
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
 
                 {/* Desktop: 3x3 magazine grid */}
                 <div className="hidden aspect-square grid-cols-3 auto-rows-fr gap-3 lg:grid">
@@ -291,12 +270,12 @@ export default function HomePage() {
           favoriteIds={new Set()}
           onToggleFavorite={toggle}
           paginate={false}
-          // Was 8 — that meant 8 cards racing for bandwidth on first paint,
-          // pushing the first visible card's LCP past 3s on mobile 4G.
-          // 4 is enough to cover what a desktop user sees above the fold;
-          // mobile only sees 1–2 cards anyway and the rest will lazy-load
-          // before the user can scroll to them.
-          priorityCount={4}
+          // priorityCount=1 means only the very first case card competes
+          // with the hero for fetchpriority=high. Was 4 — that meant 4
+          // cards racing the hero on every page load, and on Chinese
+          // mobile networks that's the difference between "hero is up
+          // in 800ms" and "hero is up in 4s".
+          priorityCount={1}
         />
       </section>
 
