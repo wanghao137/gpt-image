@@ -1,5 +1,23 @@
 [
   {
+    "id": "100008",
+    "title": "涩谷裸眼3D大屏，把夏天的海风搬进城市",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic",
+      "3D Render"
+    ],
+    "scenes": [
+      "Commerce",
+      "Tech",
+      "Brand",
+      "Portrait",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-05-18-100008.png",
+    "prompt": "提示词：\n\n日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，穿浅色衬衫，背包肩带，回头看向镜头，手臂从广告牌中自然伸出，形成真实裸眼3D立体效果。广告背景是日本海边小镇，蓝色海岸线，山景，白色云朵，清透天空，夏日旅行氛围。城市街道下方有大量路人围观拍照，很多人举着手机录像，湿润地面反射霓虹灯和大屏光影，夜晚商业街，密集日式招牌，电影感灯光，超真实摄影，高清细节，社交媒体爆款画面，高级广告质感，16:9横图，cinematic, hyper realistic, ultra detailed, realistic crowd, wet pavement reflection, premium Japanese commercial style, naked-eye 3D billboard, Shibuya night street\n\n负面提示词：\n\n低清晰度，模糊，畸形手指，手部错误，人物变形，脸部崩坏，塑料皮肤，过度磨皮，动漫，卡通，CG感，3D渲染感，廉价广告，杂乱文字，文字过多，错误文字，水印，logo，UI界面，重复人物，过曝，背景混乱，比例错误，过度夸张的3D效果\n"
+  },
+  {
     "id": "100007",
     "title": "雨夜路口的凸面镜闪光自拍，有点电影感",
     "category": "角色与人物",
