@@ -216,13 +216,15 @@ export function srcSetFor(
 
 /**
  * Tiny blurred placeholder used for inline blur-up. Goes through wsrv since
- * we explicitly need a *resize* down to ~24px; the edge proxy can't do that.
- * Accepts local /uploads/* paths as well — those are resized on the wsrv
- * round-trip and the result is cached on our edge.
+ * we explicitly need a *resize* down to ~24px; we use the raw direct path so
+ * a non-functioning edge proxy doesn't take down LQIPs as well.
+ *
+ * Accepts local /uploads/* paths — those are promoted to absolute URLs in
+ * `rawTransformUrl` so wsrv can fetch them.
  */
 export function lqipUrl(src: string): string {
   if (!src) return src;
-  return transformUrl(src, { width: 24, quality: 30 });
+  return rawTransformUrl(src, { width: 24, quality: 30 });
 }
 
 /**
