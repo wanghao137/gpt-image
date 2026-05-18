@@ -25,10 +25,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Image delivery: PRIMARY path is `/img/<host>/<path>` proxied by our own
+      Cloudflare Pages Function (functions/img/[[path]].ts). That's same-origin
+      so no preconnect needed. We still preconnect to wsrv.nl as the SmartImg
+      stage-1 fallback, in case our edge function is ever unreachable.
+    -->
     <link rel="preconnect" href="https://wsrv.nl" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="dns-prefetch" href="https://wsrv.nl" />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <link rel="preload" as="fetch" href="/data/cases.json" />
 

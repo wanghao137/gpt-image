@@ -4,6 +4,21 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Edge image proxy (functions/img/[[path]].ts). The Function itself sets the
+# canonical Cache-Control headers per response, but this is a belt-and-braces
+# fallback in case the Function's response is ever served via a code path
+# that doesn't apply its own headers.
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
+
+# Locally hosted /uploads (manual case images). Filenames embed a date so
+# they're effectively immutable per filename.
+/uploads/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
 # Data JSON refreshed daily by the GH Action; revalidate on edge but show fast.
 /data/cases.json
   Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400

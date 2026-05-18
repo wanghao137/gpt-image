@@ -1,5 +1,5 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import { lqipUrl, mirrorOrigin, optimizeImage, srcSetFor } from "../lib/img";
+import { lqipUrl, rawTransformUrl, transformUrl } from "../lib/img";
 
 interface SmartImgProps {
   src: string;
@@ -11,12 +11,6 @@ interface SmartImgProps {
   /** Width used for the fallback `src` attribute (smallest reasonable). */
   baseWidth?: number;
   sizes?: string;
-  /**
-   * className is applied to the *wrapper* (which also hosts the LQIP blur
-   * background). The inner <img> always covers the wrapper via object-cover
-   * so passing `absolute inset-0 h-full w-full` (the existing call pattern)
-   * positions both placeholder + image correctly.
-   */
   className?: string;
   style?: React.CSSProperties;
   loading?: "eager" | "lazy";
@@ -26,14 +20,10 @@ interface SmartImgProps {
   onLoad?: () => void;
   onError?: () => void;
   /**
-   * If the proxied image hasn't loaded within this many ms, promote to the
-   * mirror-origin (jsDelivr) fallback. wsrv.nl can hang on Chinese networks
-   * without firing `onError`; this manual timeout is what keeps users from
-   * staring at a black tile.
-   *
-   * Default lowered from 3500ms → 1800ms after RUM showed p75 wsrv first
-   * byte for our payload sizes is ~700ms; anything past 1.8s is almost
-   * certainly stuck.
+   * Per-stage timeout. If the current source hasn't fired `load` by then,
+   * we promote to the next stage. Defaults to 2200ms — long enough that a
+   * cold edge fetch + slow Chinese mobile uplink gets a fair shot, short
+   * enough that we don't strand users on a stuck CDN.
    */
   proxyTimeoutMs?: number;
   /**
@@ -47,14 +37,24 @@ interface SmartImgProps {
 /**
  * `<img>` with three-stage fallback and inline blur-up placeholder.
  *
- *   stage 0 (fast path):    optimized WebP via wsrv.nl (size-targeted srcset)
- *   stage 1 (mirror):       jsDelivr / origin URL — fast in mainland China
- *   stage 2 (last resort):  surface onError to the parent (parent shows fallback)
+ *   stage 0 (fast path):    `transformUrl()` — wsrv resize wrapped in our
+ *                           own Cloudflare Pages edge proxy. After the cold
+ *                           fetch (any user, anywhere), the resized WebP is
+ *                           cached on the CF edge for a year. Mainland-China
+ *                           users hit HKG / NRT / SIN POPs in <50ms.
  *
- * The wsrv → mirror fallback matters for users opening the site inside WeChat
- * or on networks where the proxy is throttled. Per RUM data the proxy is
- * unreliable for ~5–8% of mainland China requests; on those connections the
- * jsDelivr origin we route through is consistently sub-second.
+ *   stage 1 (transform):    `rawTransformUrl()` — wsrv resize *without* the
+ *                           edge wrap. Slower for cold paths in China but a
+ *                           useful second opinion when the edge function is
+ *                           failing for any reason (deploy mid-rollout etc.)
+ *
+ *   stage 2 (origin):       Raw src URL — could be raw.github (slow in CN)
+ *                           or /uploads/<file>.png (fast but unresized,
+ *                           potentially 2–5MB). Last ditch only.
+ *
+ * The fallback ladder is the part that solves "image doesn't load at all".
+ * Even if a brand-new CF POP is mid-routing-flap, we still have two more
+ * URLs to try before giving up.
  *
  * Layout contract:
  *   The outer wrapper inherits the className/style passed in. Existing call
@@ -80,22 +80,45 @@ function SmartImgImpl({
   quality,
   onLoad,
   onError,
-  proxyTimeoutMs = 1800,
+  proxyTimeoutMs = 2200,
   lqip = true,
 }: SmartImgProps) {
-  const [stage, setStage] = useState<0 | 1>(0);
+  type Stage = 0 | 1 | 2;
+  const [stage, setStage] = useState<Stage>(0);
   const [loaded, setLoaded] = useState(false);
   const timerRef = useRef<number | null>(null);
   const loadedRef = useRef(false);
 
-  // Arm a timeout while we're on the proxied stage. If the image still hasn't
-  // fired `load` by then, promote to the mirror origin.
+  // Determine routing characteristics up front so the hooks below can read
+  // them. We only treat the src as "local-already-optimized" if it points to
+  // an *already-resized* asset under /assets (Vite-hashed bundles). Raw user
+  // uploads at /uploads/<file>.png are routinely 2–5MB PNGs and MUST be
+  // routed through our transform pipeline like any other image.
+  const isAssetPath = src.startsWith("/assets/");
+
+  // Reset on src change.
+  useEffect(() => {
+    setStage(0);
+    setLoaded(false);
+    loadedRef.current = false;
+  }, [src]);
+
+  // Arm a timeout per stage. If the current src hasn't fired `load` by then,
+  // we promote to the next stage. Stage 2 (origin) gets no timer — it's the
+  // last resort and we let the browser surface its own error.
+  //
+  // We skip the timer for /assets/* paths (Vite-hashed bundles) because all
+  // three stages render the same URL — promoting would just re-mount the
+  // same <img> for no benefit. Note: /uploads/* is NOT in this category;
+  // those go through wsrv resize like any external image.
   useEffect(() => {
     loadedRef.current = false;
     setLoaded(false);
-    if (stage !== 0 || !proxyTimeoutMs) return;
+    if (stage >= 2 || !proxyTimeoutMs || isAssetPath) return;
     timerRef.current = window.setTimeout(() => {
-      if (!loadedRef.current) setStage(1);
+      if (!loadedRef.current) {
+        setStage((s) => (s < 2 ? ((s + 1) as Stage) : s));
+      }
     }, proxyTimeoutMs);
     return () => {
       if (timerRef.current) {
@@ -103,25 +126,67 @@ function SmartImgImpl({
         timerRef.current = null;
       }
     };
-  }, [stage, proxyTimeoutMs, src]);
+  }, [stage, proxyTimeoutMs, src, isAssetPath]);
 
-  // When a `srcset` is in play the browser picks one of the widths from the
-  // set; the `src` attribute is only the fallback for browsers without
-  // `srcset` support. Keep `src` at the *smallest* width so we don't waste
-  // bytes on a redundant request when the browser also pre-resolves `src`.
+  // The width used for the `src` attribute (smallest reasonable — the
+  // browser will only use this if it doesn't support srcset, or as the LCP
+  // candidate hint). We default to the smallest widths entry so we don't
+  // waste bytes on a pre-resolution that gets replaced by srcset anyway.
   const baseW =
     baseWidth ??
     (widths && widths.length > 0 ? Math.min(...widths) : width);
 
-  // Pre-compute the LQIP URL once. Cheap (single string ops) but stable.
-  const placeholderUrl = useMemo(() => (lqip ? lqipUrl(src) : ""), [lqip, src]);
+  // Pre-compute the LQIP URL once per src. Cheap (just string ops).
+  // We always emit one for HTTP URLs and uploads; the only path we skip is
+  // /assets/* (Vite-hashed bundles), which don't benefit from a blur preview.
+  const placeholderUrl = useMemo(
+    () => (lqip && !isAssetPath ? lqipUrl(src) : ""),
+    [lqip, isAssetPath, src],
+  );
 
-  const finalSrc =
-    stage === 0 ? optimizeImage(src, { width: baseW, quality }) : mirrorOrigin(src);
-  const finalSrcSet =
-    stage === 0 && widths && widths.length > 0
-      ? srcSetFor(src, widths, { quality })
-      : undefined;
+  // Compute the URLs for each stage. We materialise them all so render is
+  // pure and deterministic — no async work in the hot path.
+  //
+  //   stage 0 — transformUrl: wsrv resize wrapped in our edge proxy, so the
+  //             resized bytes hit the CF cache. THIS is what we want for
+  //             every type of source — including local /uploads — because
+  //             admin uploads are routinely 2–5MB PNGs that would obliterate
+  //             mobile LCP if served as-is.
+  //   stage 1 — rawTransformUrl: same wsrv resize but without the edge wrap.
+  //             Useful when the edge function itself is the failing layer.
+  //   stage 2 — original src verbatim. Last resort.
+  //
+  // For /assets/* (Vite-hashed bundles) all three stages pass through to the
+  // same URL, which is correct: those are already-optimized JS/CSS chunks
+  // that don't go through wsrv anyway.
+  const stageUrls = useMemo(() => {
+    if (isAssetPath) return [src, src, src] as const;
+    const stage0 = transformUrl(src, { width: baseW, quality });
+    const stage1 = rawTransformUrl(src, { width: baseW, quality });
+    return [stage0, stage1, src] as const;
+  }, [src, baseW, quality, isAssetPath]);
+
+  const stageSrcSets = useMemo(() => {
+    if (!widths || widths.length === 0) return ["", "", ""] as const;
+    if (isAssetPath) {
+      const same = widths.map((w) => `${src} ${w}w`).join(", ");
+      return [same, same, same] as const;
+    }
+    // Stage 0: edge-wrapped wsrv resize, real per-width set.
+    const stage0Set = widths
+      .map((w) => `${transformUrl(src, { width: w, quality })} ${w}w`)
+      .join(", ");
+    // Stage 1: direct wsrv resize, real per-width set.
+    const stage1Set = widths
+      .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
+      .join(", ");
+    // Stage 2: origin doesn't resize; emit the same URL with descriptors.
+    const stage2Set = widths.map((w) => `${src} ${w}w`).join(", ");
+    return [stage0Set, stage1Set, stage2Set] as const;
+  }, [src, widths, quality, isAssetPath]);
+
+  const finalSrc = stageUrls[stage];
+  const finalSrcSet = stageSrcSets[stage] || undefined;
 
   const showPlaceholder = lqip && !!placeholderUrl && !loaded;
 
@@ -144,6 +209,11 @@ function SmartImgImpl({
   return (
     <div className={className} style={wrapperStyle}>
       <img
+        // We change the `key` per stage so React re-creates the <img>; without
+        // this Chrome will keep the broken in-flight request and refuse to
+        // re-fire `load` on the new src (a long-standing browser quirk with
+        // mid-flight src swaps on the same DOM node).
+        key={`${src}::${stage}`}
         src={finalSrc}
         srcSet={finalSrcSet}
         sizes={sizes}
@@ -154,8 +224,6 @@ function SmartImgImpl({
         decoding={decoding}
         fetchPriority={fetchPriority}
         style={{
-          // Always cover the wrapper. The wrapper is sized by the consumer
-          // (typically via `aspect-[4/5]` + absolute fill).
           display: "block",
           width: "100%",
           height: "100%",
@@ -173,8 +241,11 @@ function SmartImgImpl({
           onLoad?.();
         }}
         onError={() => {
-          if (stage === 0) setStage(1);
-          else onError?.();
+          if (stage < 2) {
+            setStage((s) => ((s + 1) as Stage));
+          } else {
+            onError?.();
+          }
         }}
       />
     </div>

@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { lqipUrl, mirrorOrigin, optimizeImage, srcSetFor } from "../lib/img";
+import { edgeProxyUrl, lqipUrl, rawTransformUrl, transformUrl } from "../lib/img";
 
 interface ImageLightboxProps {
   open: boolean;
@@ -281,9 +281,24 @@ function ImageLightboxImpl({
 
   // Pre-compute LQIP + responsive sources.
   const lqip = useMemo(() => lqipUrl(src), [src]);
-  const fallback = mirrorOrigin(src);
-  const main = optimizeImage(src, { width: 1200, quality: 86 });
-  const sset = srcSetFor(src, [720, 1080, 1440, 1920], { quality: 86 });
+  // Lightbox needs a high-quality render. Primary path is `transformUrl`
+  // (edge-wrapped wsrv resize). On error we fall through to a raw wsrv URL
+  // first (skips the edge proxy in case it's the failing layer), then to
+  // the bare edge-proxied origin bytes as a last resort.
+  const main = useMemo(() => transformUrl(src, { width: 1440, quality: 86 }), [src]);
+  const fallbackA = useMemo(
+    () => rawTransformUrl(src, { width: 1440, quality: 86 }),
+    [src],
+  );
+  const fallbackB = useMemo(() => edgeProxyUrl(src), [src]);
+  // wsrv responsive ladder for `srcset`. Caps at 1920w which is enough for
+  // the largest tablets at DPR=3 (1024 CSS px × 2 → 2048; clamp to 1920).
+  const sset = useMemo(() => {
+    const widths = [720, 1080, 1440, 1920];
+    return widths
+      .map((w) => `${transformUrl(src, { width: w, quality: 86 })} ${w}w`)
+      .join(", ");
+  }, [src]);
 
   if (!open) return null;
 
@@ -371,9 +386,26 @@ function ImageLightboxImpl({
           fetchPriority="high"
           onLoad={() => setLoaded(true)}
           onError={(e) => {
-            // wsrv stage failed; promote to mirror origin.
+            // Multi-stage fallback. We progressively peel back layers:
+            //   transform-via-edge → transform-direct-wsrv → edge-proxied-origin
+            // If even the last one fails the browser will display a broken
+            // image icon, which is still preferable to a forever-spinner.
+            //
+            // We compare on `currentSrc` and use string-includes rather than
+            // equality because the browser resolves relative URLs to absolute
+            // ones internally — `img.src` is never the same string we set.
             const img = e.currentTarget;
-            if (img.src !== fallback) img.src = fallback;
+            const cur = img.currentSrc || img.src;
+            if (cur.includes("/img/wsrv.nl/")) {
+              // Stage 0 (edge-wrapped wsrv) failed → drop edge wrapper.
+              img.removeAttribute("srcset");
+              img.src = fallbackA;
+            } else if (cur.includes("wsrv.nl/?url=")) {
+              // Stage 1 (direct wsrv) also failed → bare edge-proxied origin.
+              img.src = fallbackB;
+            }
+            // Otherwise we're already at the last stage; let the browser
+            // surface its broken-image marker.
           }}
           className="block h-full w-full object-contain"
           style={{

@@ -20,7 +20,7 @@ import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
 import { tagLabel } from "../lib/labels";
-import { optimizeImage } from "../lib/img";
+import { transformUrl } from "../lib/img";
 import NotFoundPage from "./NotFoundPage";
 
 /** Map "9:16" → CSS aspectRatio. */
@@ -70,7 +70,10 @@ export default function CaseDetailPage() {
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
 
   const tags = Array.from(new Set([...c.styles, ...c.scenes, ...c.tags])).slice(0, 8);
-  const ogImage = optimizeImage(c.imageUrl, { width: 1200 });
+  // OG cards are scraped by Twitter/Facebook/WeChat from non-CN IPs, so it's
+  // fine (and ideal) to send them straight through wsrv for a real 1200×630
+  // resize — saves the platforms a re-downscale step.
+  const ogImage = transformUrl(c.imageUrl, { width: 1200 });
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -503,7 +506,7 @@ function NavCard({
     >
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-ink-850">
         <img
-          src={optimizeImage(target.imageUrl, { width: 160 })}
+          src={transformUrl(target.imageUrl, { width: 160 })}
           alt=""
           loading="lazy"
           decoding="async"
