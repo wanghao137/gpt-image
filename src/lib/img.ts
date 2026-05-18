@@ -89,9 +89,7 @@ export function optimizeImage(src: string, opts: ImgOpts): string {
   return transformUrl(src, opts);
 }
 
-/** Build a `srcset` string. Local images don't have multi-width variants
- *  so we emit the same URL with width descriptors — the browser will pick
- *  one but they all resolve to the same well-compressed asset. */
+/** Build a `srcset` string for transformable external URLs. */
 export function srcSetFor(
   src: string,
   widths: number[],
@@ -99,7 +97,7 @@ export function srcSetFor(
 ): string {
   if (!src || widths.length === 0) return "";
   if (isLocalImage(src) || src.startsWith("/assets/")) {
-    return widths.map((w) => `${src} ${w}w`).join(", ");
+    return "";
   }
   return widths
     .map((w) => `${transformUrl(src, { ...opts, width: w })} ${w}w`)

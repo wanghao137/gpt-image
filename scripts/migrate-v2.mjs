@@ -42,6 +42,28 @@ const DRY = args.has("--dry");
 const CHECK = args.has("--check");
 const KEEP_CATS = args.has("--keep-categories");
 
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeFileWithRetry(path, data, encoding = "utf8") {
+  let lastError;
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    try {
+      writeFileSync(path, data, encoding);
+      return;
+    } catch (error) {
+      lastError = error;
+      const code = error?.code;
+      if (!["UNKNOWN", "EBUSY", "EPERM", "EACCES"].includes(code) || attempt === 7) {
+        throw error;
+      }
+      sleepSync(75 * (attempt + 1));
+    }
+  }
+  throw lastError;
+}
+
 // ───────────────────────────────────────────── slug ──
 
 function toSlug(title, id) {
@@ -406,7 +428,7 @@ if (DRY) {
   process.exit(0);
 }
 
-writeFileSync(CASES_PATH, JSON.stringify(next), "utf8");
+writeFileWithRetry(CASES_PATH, JSON.stringify(next), "utf8");
 console.log(
   `✓ migrated ${touchedCount} of ${raw.length} cases (${categoryChanges} re-categorized) → ${CASES_PATH}`,
 );

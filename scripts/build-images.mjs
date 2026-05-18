@@ -22,15 +22,17 @@
  *   their Vercel deploy. This script ports that strategy to Cloudflare Pages.
  *
  * Usage:
- *   node scripts/images.mjs                           - normal run
- *   node scripts/images.mjs --force                   - re-encode everything
- *   node scripts/images.mjs --concurrency 16          - more parallel downloads
+ *   node scripts/build-images.mjs                     - normal run
+ *   node scripts/build-images.mjs --force             - re-encode everything
+ *   node scripts/build-images.mjs --concurrency 16    - more parallel downloads
+ *   node scripts/build-images.mjs --strict            - fail if any source fails
  *
  * Env knobs:
  *   IMAGE_MAX_WIDTH   default 1200
  *   IMAGE_QUALITY     default 80
  *   IMAGE_SKIP_NET    "1" → don't fetch from the network, only re-process
  *                     local cache (useful when offline mid-build).
+ *   IMAGE_STRICT      "1" → exit non-zero if a source cannot be localised.
  */
 
 import {
@@ -58,11 +60,13 @@ const TEMPLATES_PATH = resolve(PUBLIC_DIR, "data/templates.json");
 
 const args = new Set(process.argv.slice(2));
 const FORCE = args.has("--force");
+const STRICT = args.has("--strict") || process.env.IMAGE_STRICT === "1";
 const CONCURRENCY_ARG = process.argv.indexOf("--concurrency");
 const CONCURRENCY = CONCURRENCY_ARG > -1 ? Number(process.argv[CONCURRENCY_ARG + 1]) : 8;
 const MAX_WIDTH = Number(process.env.IMAGE_MAX_WIDTH || 1200);
 const QUALITY = Number(process.env.IMAGE_QUALITY || 80);
 const SKIP_NET = process.env.IMAGE_SKIP_NET === "1";
+const PLACEHOLDER_PATH = "/images/image-unavailable.svg";
 
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(CACHE_DIR, { recursive: true });
@@ -72,7 +76,26 @@ function readJson(path) {
 }
 
 function writeJson(path, data) {
-  writeFileSync(path, JSON.stringify(data), "utf8");
+  writeFileWithRetry(path, JSON.stringify(data), "utf8");
+}
+
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeFileWithRetry(path, data, encoding = "utf8") {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    try {
+      writeFileSync(path, data, encoding);
+      return;
+    } catch (error) {
+      const code = error?.code;
+      if (!["UNKNOWN", "EBUSY", "EPERM", "EACCES"].includes(code) || attempt === 7) {
+        throw error;
+      }
+      sleepSync(75 * (attempt + 1));
+    }
+  }
 }
 
 function sha1(s) {
@@ -287,9 +310,9 @@ async function main() {
   // Step 2: process them with bounded concurrency.
   const results = await pmap(tasks, processOne, CONCURRENCY);
 
-  // Step 3: rewrite cases.json + templates.json `imageUrl` / `cover` to the
-  // new local paths. We do this AFTER all encoding succeeds so partial
-  // builds don't leave cases pointing at non-existent local files.
+  // Step 3: rewrite cases.json + templates.json `imageUrl` / `cover`.
+  // Successful sources point at their baked local JPEG. Failed sources point at
+  // a local placeholder so runtime never falls back to slow third-party hosts.
   const localByOriginal = new Map();
   let processed = 0;
   let skipped = 0;
@@ -303,6 +326,7 @@ async function main() {
       failed += 1;
       const e = r.err instanceof Error ? r.err.message : String(r.err);
       console.warn(`  FAILED ${r.rec.kind}#${r.rec.id} <- ${r.rec.url}: ${e}`);
+      localByOriginal.set(r.rec.url, PLACEHOLDER_PATH);
       continue;
     }
     if (r.skipped) skipped += 1;
@@ -345,8 +369,14 @@ async function main() {
     `done. processed=${processed} skipped=${skipped} failed=${failed} (saved ${ratio})`,
   );
   if (failed > 0) {
-    console.error("some sources failed; site will fall back to original URLs for those.");
-    process.exit(2);
+    const msg =
+      `some sources failed; rewritten to ${PLACEHOLDER_PATH} so the site keeps ` +
+      "serving same-origin images.";
+    if (STRICT) {
+      console.error(`${msg} strict mode is enabled.`);
+      process.exit(2);
+    }
+    console.warn(msg);
   }
 }
 

@@ -181,7 +181,26 @@ function writeJson(relativePath, data, opts = {}) {
   const text = opts.pretty
     ? JSON.stringify(data, null, 2) + "\n"
     : JSON.stringify(data);
-  writeFileSync(output, text, "utf8");
+  writeFileWithRetry(output, text, "utf8");
+}
+
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function writeFileWithRetry(path, data, encoding = "utf8") {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    try {
+      writeFileSync(path, data, encoding);
+      return;
+    } catch (error) {
+      const code = error?.code;
+      if (!["UNKNOWN", "EBUSY", "EPERM", "EACCES"].includes(code) || attempt === 7) {
+        throw error;
+      }
+      sleepSync(75 * (attempt + 1));
+    }
+  }
 }
 
 function readJsonSafe(absolutePath, fallback) {

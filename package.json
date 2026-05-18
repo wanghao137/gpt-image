@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs",
+    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "dev": "vite-react-ssg dev",
     "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "build": "tsc -b && vite-react-ssg build",

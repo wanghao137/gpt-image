@@ -288,17 +288,16 @@ function ImageLightboxImpl({
     () => transformUrl(src, { width: 1440, quality: 86 }),
     [src],
   );
-  // Responsive ladder. Local images don't actually have multi-width
-  // variants but emitting them lets the browser do its own DPR math
-  // and pick a candidate.
+  const isLocalImage =
+    src.startsWith("/images/") || src.startsWith("/assets/") || src.startsWith("/uploads/");
+  // Only external defensive fallbacks have real transformed width variants.
   const sset = useMemo(() => {
+    if (isLocalImage) return undefined;
     const widths = [720, 1080, 1440, 1920];
     return widths
       .map((w) => `${transformUrl(src, { width: w, quality: 86 })} ${w}w`)
       .join(", ");
-  }, [src]);
-
-  if (!open) return null;
+  }, [isLocalImage, src]);
 
   // Compute aspect ratio for the stage box so the initial scale-1 frame
   // matches the case's true ratio (avoids letterboxing on portrait images).
@@ -308,6 +307,8 @@ function ImageLightboxImpl({
     if (!w || !h) return undefined;
     return `${w} / ${h}`;
   }, [ratio]);
+
+  if (!open) return null;
 
   return (
     <div
@@ -381,7 +382,7 @@ function ImageLightboxImpl({
           draggable={false}
           loading="eager"
           decoding="async"
-          fetchPriority="high"
+          {...({ fetchpriority: "high" } as { fetchpriority: "high" })}
           onLoad={() => setLoaded(true)}
           onError={() => {
             // No retry. The build pipeline guarantees /images/* exist;

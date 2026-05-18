@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { rawTransformUrl } from "../lib/img";
 
 interface SmartImgProps {
@@ -73,6 +73,8 @@ function SmartImgImpl({
 }: SmartImgProps) {
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+  const signaledSrcRef = useRef<string | null>(null);
 
   // Decide the request URL. Local /images/* and /assets/* render as-is —
   // they're already optimised on disk. Anything else (an http URL the
@@ -89,17 +91,71 @@ function SmartImgImpl({
     ? src
     : rawTransformUrl(src, { width: baseW, quality });
 
-  // Local paths have no width variants — emit a srcset with the same URL
-  // at every width descriptor so the browser still gets a hint about which
-  // candidate to pick (the file is one and the same).
+  // Local paths have no real width variants, so avoid a fake srcset that
+  // points every descriptor at the same file. External defensive fallbacks can
+  // still use wsrv's real width transforms.
   const finalSrcSet =
-    !widths || widths.length === 0
+    isLocal || !widths || widths.length === 0
       ? undefined
-      : isLocal
-        ? widths.map((w) => `${src} ${w}w`).join(", ")
-        : widths
-            .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
-            .join(", ");
+      : widths
+          .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
+          .join(", ");
+  const priorityAttr = fetchPriority
+    ? ({ fetchpriority: fetchPriority } as { fetchpriority: NonNullable<SmartImgProps["fetchPriority"]> })
+    : {};
+
+  const markLoaded = () => {
+    setLoaded(true);
+    setErrored(false);
+    if (signaledSrcRef.current !== finalSrc) {
+      signaledSrcRef.current = finalSrc;
+      onLoad?.();
+    }
+  };
+
+  const markErrored = () => {
+    setErrored(true);
+    if (signaledSrcRef.current !== finalSrc) {
+      signaledSrcRef.current = finalSrc;
+      onError?.();
+    }
+  };
+
+  useEffect(() => {
+    signaledSrcRef.current = null;
+    setLoaded(false);
+    setErrored(false);
+
+    const img = imgRef.current;
+    if (!img) return;
+
+    let cancelled = false;
+    const syncFromElement = () => {
+      if (cancelled || !img.complete) return;
+      if (img.naturalWidth > 0) markLoaded();
+      else markErrored();
+    };
+
+    img.addEventListener("load", markLoaded);
+    img.addEventListener("error", markErrored);
+    syncFromElement();
+    const timers = [
+      window.setTimeout(syncFromElement, 0),
+      window.setTimeout(syncFromElement, 250),
+      window.setTimeout(syncFromElement, 1000),
+    ];
+
+    return () => {
+      cancelled = true;
+      img.removeEventListener("load", markLoaded);
+      img.removeEventListener("error", markErrored);
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+    // Run only when the resolved request URL changes. Parent callbacks often
+    // close over local state, and re-running for callback identity would
+    // re-signal a load that already happened.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finalSrc]);
 
   return (
     <div
@@ -114,6 +170,7 @@ function SmartImgImpl({
     >
       {!loaded && !errored && <SpinnerOverlay />}
       <img
+        ref={imgRef}
         src={finalSrc}
         srcSet={finalSrcSet}
         sizes={sizes}
@@ -122,7 +179,7 @@ function SmartImgImpl({
         height={height}
         loading={loading}
         decoding={decoding}
-        fetchPriority={fetchPriority}
+        {...priorityAttr}
         style={{
           display: "block",
           width: "100%",
@@ -131,14 +188,8 @@ function SmartImgImpl({
           opacity: loaded ? 1 : 0,
           transition: "opacity 220ms ease-out",
         }}
-        onLoad={() => {
-          setLoaded(true);
-          onLoad?.();
-        }}
-        onError={() => {
-          setErrored(true);
-          onError?.();
-        }}
+        onLoad={markLoaded}
+        onError={markErrored}
       />
     </div>
   );

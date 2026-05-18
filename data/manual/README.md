@@ -24,9 +24,9 @@ public/uploads/
 
 `imageUrl` 写相对路径：`"/uploads/2025-05-17-my-case.jpg"`
 
-**B. 用外部直链（最快）**
+**B. 用外部直链（临时可用）**
 
-任何 `https://...` 直链都行（图床、社交媒体、对方博客）。图片会自动走 wsrv.nl 转 WebP，性能比放本仓库还好。
+任何 `https://...` 直链都行（图床、社交媒体、对方博客）。构建时会尽量下载并改写为 `/images/...` 本地图片；如果外链失效，会使用本地占位图并在日志里报警。长期内容建议用方案 A，把图片放进 `public/uploads/`。
 
 > 不要用 GitHub blob 链接（`github.com/.../blob/...`），那是 HTML 页面不是图片。要用 `raw.githubusercontent.com/...` 才行。
 
