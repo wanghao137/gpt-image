@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { sceneLabel, styleLabel } from "../lib/labels";
-import { HOMEPAGE_USER_CATEGORIES, USER_CATEGORIES } from "../lib/userCategories";
+import { USER_CATEGORIES } from "../lib/userCategories";
 
 interface FilterBarProps {
   query: string;
@@ -115,6 +114,80 @@ export function FilterBar({
 
   return (
     <div className="container-narrow pb-6 pt-4">
+      {/*
+        Mobile-only sticky category strip.
+
+        Placed *outside* the surface card so it can run edge-to-edge under the
+        site header without being wrapped in surface borders. We use a
+        negative horizontal margin on small viewports to escape `container-narrow`
+        padding, then a horizontal scroll with edge fade masks. Each chip is
+        a button that toggles its category in the same `activeCategories` set
+        the drawer writes to — there's no parallel state, no extra reducer.
+
+        Sticking under the global header (h-16 = top-16) keeps it within
+        thumb reach as users scroll the case grid, which is the whole reason
+        for adding this — Xiaohongshu / Douyin both pin category nav at the
+        top of long feeds for the same reason.
+      */}
+      <div
+        className="sticky z-20 -mx-5 mb-3 border-y border-white/[0.04] bg-ink-950/82 backdrop-blur-xl backdrop-saturate-150 sm:hidden"
+        style={{
+          // Pin directly under the global Header. Header is h-16 (64px) and
+          // adds env(safe-area-inset-top) on iPhone notch/Dynamic Island
+          // devices, so we mirror that calculation here. Otherwise the chip
+          // strip would peek out from behind the header on those devices.
+          top: "calc(4rem + env(safe-area-inset-top, 0px))",
+        }}
+      >
+        <div className="mask-fade-x px-5 py-2.5">
+          <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-thin">
+            <button
+              type="button"
+              onClick={() => onCategoriesChange(new Set())}
+              className={
+                "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium transition " +
+                (activeCategories.size === 0
+                  ? "border-ember-500/60 bg-ember-500/15 text-ember-100"
+                  : "border-white/10 bg-white/[0.03] text-ink-200")
+              }
+            >
+              全部
+            </button>
+            {USER_CATEGORIES.filter((c) => c.pinnedHomepage).map((c) => {
+              const active = activeCategories.has(c.slug);
+              return (
+                <button
+                  key={c.slug}
+                  type="button"
+                  onClick={() => toggle(activeCategories, c.slug, onCategoriesChange)}
+                  className={
+                    "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium whitespace-nowrap transition " +
+                    (active
+                      ? "border-ember-500/60 bg-ember-500/20 text-ember-100"
+                      : "border-white/10 bg-white/[0.03] text-ink-200")
+                  }
+                >
+                  {c.label}
+                </button>
+              );
+            })}
+            <button
+              type="button"
+              onClick={() => setDrawerOpen(true)}
+              className="shrink-0 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12.5px] font-medium text-ink-300"
+              aria-label="更多筛选"
+            >
+              更多
+              {activeCount > 0 && (
+                <span className="ml-1 rounded-full bg-ember-500/20 px-1.5 text-[10px] font-semibold tabular-nums text-ember-200">
+                  +{activeCount}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="surface p-3 sm:p-5">
         {/* Search row */}
         <div className="flex items-center gap-2">
@@ -226,19 +299,6 @@ export function FilterBar({
             </button>
           )}
         </div>
-      </div>
-
-      {/* Quick category jump links — long-tail SEO + 1-tap browse */}
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-2 sm:hidden">
-        {HOMEPAGE_USER_CATEGORIES.slice(0, 8).map((c) => (
-          <Link
-            key={c.slug}
-            to={`/category/${c.slug}`}
-            className="chip chip-idle shrink-0"
-          >
-            {c.label}
-          </Link>
-        ))}
       </div>
 
       {/* Mobile drawer */}
