@@ -15,6 +15,7 @@ import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
 import { WeChatCTA } from "../components/WeChatCTA";
 import { StickyMobileActions } from "../components/StickyMobileActions";
+import { ImageLightbox } from "../components/ImageLightbox";
 import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
@@ -52,6 +53,7 @@ export default function CaseDetailPage() {
   const fetched = usePrompt(c?.id ?? null);
   const { state: copyState, copy } = useCopy();
   const [tab, setTab] = useState<"cn" | "en">("cn");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
   const related = useMemo(() => (c ? relatedCases(c, 6) : []), [c]);
@@ -160,30 +162,43 @@ export default function CaseDetailPage() {
         {/* IMAGE side — sticky on desktop, true ratio (no black bars). */}
         <div className="lg:col-span-7">
           <div className="lg:sticky lg:top-20">
-            <figure
-              className="relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40"
-              style={ratioStyle(c.ratio)}
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              aria-label={`放大查看：${c.title}`}
+              className="group block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/60"
             >
-              <SmartImg
-                src={c.imageUrl}
-                alt={c.imageAlt || c.title}
-                width={1200}
-                height={1500}
-                widths={[720, 1080, 1440]}
-                baseWidth={1080}
-                sizes="(min-width:1024px) 60vw, 100vw"
-                loading="eager"
-                fetchPriority="high"
-                quality={85}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              {/* subtle gradient at bottom for the ratio chip */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink-950/60 to-transparent" />
-              <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-ink-950/65 px-2.5 py-1 text-[11px] font-medium text-ink-100 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
-                {c.ratio} · GPT-Image 2
-              </div>
-            </figure>
+              <figure
+                className="relative cursor-zoom-in overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 transition group-hover:border-white/[0.14]"
+                style={ratioStyle(c.ratio)}
+              >
+                <SmartImg
+                  src={c.imageUrl}
+                  alt={c.imageAlt || c.title}
+                  width={1200}
+                  height={1500}
+                  widths={[720, 1080, 1440]}
+                  baseWidth={1080}
+                  sizes="(min-width:1024px) 60vw, 100vw"
+                  loading="eager"
+                  fetchPriority="high"
+                  quality={85}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* subtle gradient at bottom for the ratio chip */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink-950/60 to-transparent" />
+                <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-ink-950/65 px-2.5 py-1 text-[11px] font-medium text-ink-100 backdrop-blur">
+                  <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
+                  {c.ratio} · GPT-Image 2
+                </div>
+                {/* Zoom-in affordance — appears on hover (desktop) and is
+                    permanently visible on touch devices via the `cursor-zoom-in`
+                    cue + this badge. */}
+                <div className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/15 bg-ink-950/65 px-2 py-1 text-[10.5px] font-medium text-ink-200 backdrop-blur opacity-90 transition group-hover:opacity-100">
+                  <ZoomInIcon /> 放大
+                </div>
+              </figure>
+            </button>
 
             {/* Quick stats strip below the image — fills the dead space that
                 used to be the empty black padding. */}
@@ -401,6 +416,15 @@ export default function CaseDetailPage() {
         onCopy={() => copy(promptText)}
         copyState={copyState}
       />
+
+      <ImageLightbox
+        open={lightboxOpen}
+        src={c.imageUrl}
+        alt={c.imageAlt || c.title}
+        caption={c.title}
+        ratio={c.ratio}
+        onClose={() => setLightboxOpen(false)}
+      />
     </>
   );
 }
@@ -549,6 +573,25 @@ function GhIcon() {
         d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.13-4.55-5.04 0-1.11.39-2.02 1.03-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05A9.42 9.42 0 0 1 12 7.07c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.74 0 3.92-2.34 4.78-4.57 5.03.36.32.68.94.68 1.9v2.81c0 .27.18.6.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"
         clipRule="evenodd"
       />
+    </svg>
+  );
+}
+
+function ZoomInIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3 w-3"
+      aria-hidden="true"
+    >
+      <circle cx="9" cy="9" r="6" />
+      <path d="M14 14l3 3" />
+      <path d="M9 6.5v5M6.5 9h5" />
     </svg>
   );
 }
