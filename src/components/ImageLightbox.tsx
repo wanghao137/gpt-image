@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { lqipUrl, rawTransformUrl } from "../lib/img";
+import { lqipUrl, rawTransformUrl, transformUrl } from "../lib/img";
 
 interface ImageLightboxProps {
   open: boolean;
@@ -281,22 +281,23 @@ function ImageLightboxImpl({
 
   // Pre-compute LQIP + responsive sources.
   const lqip = useMemo(() => lqipUrl(src), [src]);
-  // Lightbox primary path is the direct wsrv resize. We *would* prefer to
-  // wrap this through our own edge proxy for caching, but the proxy isn't
-  // currently functional (Functions disabled at the deploy level). Going
-  // direct is the robust default; flip back to `transformUrl` once Functions
-  // are confirmed live.
+  // Lightbox primary path is the standard transform (COS for /uploads,
+  // wsrv for external URLs). On error we fall through to a raw wsrv URL,
+  // bypassing COS in case it's the failing layer.
   const main = useMemo(
+    () => transformUrl(src, { width: 1440, quality: 86 }),
+    [src],
+  );
+  const fallback = useMemo(
     () => rawTransformUrl(src, { width: 1440, quality: 86 }),
     [src],
   );
-  const fallback = useMemo(() => src, [src]);
   // Responsive ladder for `srcset`. Caps at 1920w which is enough for the
   // largest tablets at DPR=3 (1024 CSS px × 2 → 2048; clamp to 1920).
   const sset = useMemo(() => {
     const widths = [720, 1080, 1440, 1920];
     return widths
-      .map((w) => `${rawTransformUrl(src, { width: w, quality: 86 })} ${w}w`)
+      .map((w) => `${transformUrl(src, { width: w, quality: 86 })} ${w}w`)
       .join(", ");
   }, [src]);
 

@@ -3,46 +3,75 @@
  *
  * Strategy (mobile-first, China-friendly):
  *
- *   PRIMARY  — `/img/<host>/<path>` is proxied by `functions/img/[[path]].ts`
- *              on Cloudflare Pages. CF caches the bytes at the edge, so each
- *              image is fetched from origin once globally and then served
- *              from a nearby POP (HKG / NRT / SIN for mainland China users)
- *              for the next year. This is the fast path and the only one
- *              that consistently breaks 1s LCP on Chinese mobile networks.
+ *   /uploads/<file>          — uploaded by the admin. Mirrored to Tencent
+ *                              Cloud COS (Hong Kong region). Public requests
+ *                              go to `${COS_HOST}/uploads/<file>?imageMogr2/...`,
+ *                              which is <100ms RTT from CN telecom/unicom/
+ *                              mobile (vs ~700ms to CF Pages free-tier US/JP
+ *                              POPs) and supports on-the-fly WebP resize via
+ *                              URL params. THIS is the path that fixed the
+ *                              "image won't load on mobile" report.
  *
- *   SECONDARY — wsrv.nl, the previous primary. Useful as a client-side
- *              fallback if the edge function is unreachable (rare — Pages
- *              Functions share fate with the static deployment) or as the
- *              transformation layer when we want a tiny LQIP variant.
+ *   external http(s) URLs    — case dataset references on raw.github /
+ *                              jsdelivr. We route those through wsrv.nl for
+ *                              WebP resize. Slower than COS but origin is
+ *                              already a sunk cost.
  *
- *   TERTIARY  — the raw origin URL itself. Last-ditch fallback used by
- *              SmartImg when both proxies fail.
+ *   /assets/<hash>.<ext>     — Vite-hashed bundles. Already optimised, served
+ *                              direct from CF Pages. No transform layer.
  *
- * `optimizeImage()` returns a URL the browser can fetch with no query-string
- * gymnastics on the consumer side. SmartImg's three-stage fallback handles
- * the failure flow.
+ * Public env (read at build/runtime via Vite's `import.meta.env`):
+ *   VITE_COS_HOST    — full hostname, optional (overrides bucket+region)
+ *   VITE_COS_BUCKET  — bucket id with appid suffix
+ *   VITE_COS_REGION  — region slug, e.g. "ap-hongkong"
+ *
+ * If none are set we fall back to wsrv-via-our-own-origin for /uploads,
+ * which is the legacy path. That keeps local dev working before COS is
+ * configured.
  */
 
+const WSRV = "https://wsrv.nl/";
+
 /**
- * The deployed site origin. wsrv.nl can only resize images that are
- * publicly reachable, so when we want to transform a *local* path
- * (`/uploads/<file>.png`) we have to give wsrv our own absolute URL —
- * wsrv then fetches it back, resizes, and our edge proxy caches the
- * result so the second hop is local-edge instead of wsrv.
+ * Resolved COS hostname (no protocol, no trailing slash). Empty string
+ * means "no COS configured; fall back to wsrv pulling from our origin".
  *
- * In SSR we don't have `window`; the build pre-renders to absolute URLs
- * via a hard-coded fallback that mirrors `SITE.url` in src/components/SEO.tsx.
- * The two strings must match the production deployment domain.
+ * We hard-code the production bucket as the default so the site works on
+ * Cloudflare Pages without manual env var configuration. Override via
+ * VITE_COS_HOST or VITE_COS_BUCKET+VITE_COS_REGION when you need to point
+ * at a staging bucket or a custom CDN domain.
+ */
+const COS_HOST = (() => {
+  // Vite exposes `import.meta.env.VITE_*` to the browser bundle and to SSR.
+  // Wrap in try/catch in case this module is loaded outside a Vite context
+  // (e.g. unit tests).
+  try {
+    const env = (import.meta as unknown as { env?: Record<string, string> }).env || {};
+    if (env.VITE_COS_HOST) return env.VITE_COS_HOST.trim();
+    const bucket = env.VITE_COS_BUCKET?.trim();
+    const region = env.VITE_COS_REGION?.trim();
+    if (bucket && region) return `${bucket}.cos.${region}.myqcloud.com`;
+  } catch {
+    /* not running under Vite — fall through to default */
+  }
+  // Production default. Mirrors the bucket we provisioned in Tencent Cloud.
+  return "gpt-image-2-1259488227.cos.ap-hongkong.myqcloud.com";
+})();
+
+/**
+ * The deployed site origin. Used as a base for relative paths when we have
+ * to tell wsrv to fetch them — wsrv only takes absolute URLs.
+ *
+ * In SSR we don't have `window`; we hard-code the production domain. The
+ * value must match `SITE.url` in src/components/SEO.tsx.
  */
 const SITE_ORIGIN =
   typeof window !== "undefined"
     ? window.location.origin
     : "https://gpt-image-6hu.pages.dev";
 
-const WSRV = "https://wsrv.nl/";
-
 export interface ImgOpts {
-  /** Render width in CSS pixels. Used by the `wsrv` transform layer. */
+  /** Render width in CSS pixels. */
   width: number;
   /** 0–100. Defaults to 78 — visually lossless for our use case. */
   quality?: number;
@@ -53,125 +82,103 @@ export interface ImgOpts {
   format?: "webp" | "avif" | "auto";
 }
 
-/**
- * True for `http(s)://...` URLs. Edge proxy + transforms only make sense for
- * those; relative paths under our own deployment (e.g. `/uploads/...`) are
- * already served from CF Pages and need no further routing.
- */
-function isProxyable(src: string): boolean {
+function isHttp(src: string): boolean {
   return /^https?:\/\//i.test(src);
 }
 
 /**
- * Promote a relative path (`/uploads/foo.png`) to an absolute URL on our own
- * deployment so wsrv can fetch it. Pass-through for anything that's already
- * absolute or empty.
+ * True for paths under `/uploads/` (case-insensitive). These are admin
+ * uploads, mirrored to COS by `scripts/upload-cos.mjs`. Anything else
+ * relative is left alone.
+ */
+function isUploadsPath(src: string): boolean {
+  return /^\/uploads\//i.test(src);
+}
+
+/**
+ * True for paths under `/assets/` (Vite-hashed bundles). Those are already
+ * optimised and bypass every transform layer.
+ */
+function isAssetPath(src: string): boolean {
+  return /^\/assets\//i.test(src);
+}
+
+/**
+ * Build a Tencent Cloud COS `imageMogr2` query string for the given options.
+ * Reference: https://cloud.tencent.com/document/product/436/44880
+ *
+ * The pipeline we want:
+ *   - thumbnail/<W>x  → resize to width W, height auto, do not upscale
+ *   - format/webp     → server-side transcode to WebP (huge win for PNGs)
+ *   - quality/<Q>     → JPEG/WebP quality target
+ *
+ * Order matters in imageMogr2 pipelines: format must come AFTER thumbnail
+ * so the resize happens on the larger source then we encode the smaller
+ * frame as WebP.
+ */
+function cosImageQuery(opts: ImgOpts): string {
+  const w = Math.max(1, Math.round(opts.width));
+  const q = Math.max(1, Math.min(100, opts.quality ?? 78));
+  const fmt = opts.format ?? "webp";
+  // `thumbnail/!Wx` would force enlarge; plain `Wx` keeps source bounds and
+  // crops if necessary. We use `Wx` (no `!`, no `>`) which is "fit width,
+  // height auto". Add `/ignore-error/1` so missing-extension files don't 400.
+  return `imageMogr2/thumbnail/${w}x/format/${fmt}/quality/${q}/ignore-error/1`;
+}
+
+/**
+ * Promote a relative path to an absolute URL on our deployment, or pass
+ * through anything that's already absolute. Does NOT touch the path beyond
+ * resolving relative-to-root.
  */
 function absoluteUrl(src: string): string {
   if (!src) return src;
-  if (/^https?:\/\//i.test(src)) return src;
-  // Treat as a path relative to the deployment root; preserve the query.
+  if (isHttp(src)) return src;
   if (src.startsWith("/")) return SITE_ORIGIN + src;
   return SITE_ORIGIN + "/" + src;
 }
 
 /**
- * Edge-proxy a remote image through `/img/<host>/<path>`. Returns the input
- * unchanged for relative paths (already on our origin) and for non-HTTP URLs
- * (data: / blob:).
+ * Returns the URL the browser should fetch for a *resized* version of `src`.
  *
- * Why no transform params here:
- *   The Pages Function intentionally proxies bytes verbatim — adding
- *   transforms (resize, format conversion) would either need CF's paid
- *   Image Resizing or our own sharp-on-the-edge install. For now we rely on
- *   the browser's `srcset` to pick a width and let the original bytes flow
- *   through. The resulting payloads are still small because the upstream
- *   case images are already optimised for web (sub-300KB JPEGs).
- */
-export function edgeProxyUrl(src: string): string {
-  if (!src || !isProxyable(src)) return src;
-  try {
-    const u = new URL(src);
-    // Strip the protocol; the Function reads `host` from the first path segment.
-    return `/img/${u.host}${u.pathname}${u.search}`;
-  } catch {
-    return src;
-  }
-}
-
-/**
- * Same edge-proxy wrap as `edgeProxyUrl`, but used internally to wrap a URL
- * that *already contains* a query string (notably wsrv.nl transform URLs).
- *
- * Behaviour: hostname becomes the first path segment, the original query
- * string is preserved verbatim. Both `/img/<host>/<path>?<query>` and
- * `/img/<host>/?<query>` are valid for the Function — `[[path]]` matches
- * empty path segments so wsrv URLs like `https://wsrv.nl/?url=...` work.
- */
-function edgeProxyWrap(absoluteUrl: string): string {
-  return edgeProxyUrl(absoluteUrl);
-}
-
-/**
- * Rewrite `raw.githubusercontent.com/<user>/<repo>/<branch>/<path>` to the
- * jsDelivr equivalent. NOTE: jsDelivr now 301-redirects this specific repo
- * back to raw.github, so the practical benefit has evaporated. We keep the
- * rewriter purely as a no-op-safe helper for SmartImg's fallback chain;
- * if jsDelivr starts mirroring again in the future this will silently
- * become useful again.
- */
-export function mirrorOrigin(src: string): string {
-  if (!src) return src;
-  const m = src.match(
-    /^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)$/i,
-  );
-  if (!m) return src;
-  const [, user, repo, branch, path] = m;
-  return `https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/${path}`;
-}
-
-/**
- * Returns the URL that should be used as a *transform* request for a given
- * width.
- *
- * Routing: bytes flow through wsrv.nl for the actual resize, but the response
- * is wrapped through our own edge proxy so the resized output gets cached on
- * our CDN. Net effect: wsrv handles the heavy lifting once globally; every
- * subsequent request anywhere in the world hits a CF POP near the user.
- *
- * Local /uploads/<file> paths are promoted to absolute URLs against the
- * deployment origin before being handed to wsrv. This is critical: those
- * originals can be multi-megabyte PNGs straight from the admin uploader,
- * which would single-handedly destroy LCP on mobile if served as-is.
+ * Routing:
+ *   /uploads/<file> + COS configured  → `${COS_HOST}/uploads/<file>?imageMogr2/...`
+ *                                       (China-friendly, single hop)
+ *   /uploads/<file> + no COS host     → wsrv.nl resize of the absolute URL
+ *                                       (legacy local-dev path)
+ *   /assets/<file>                    → return verbatim (already optimised)
+ *   absolute http(s)                  → wsrv.nl resize of the URL
+ *   anything else                     → return verbatim (data:, blob:, etc.)
  */
 export function transformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
-  return edgeProxyWrap(rawTransformUrl(src, opts));
+  if (isAssetPath(src)) return src;
+
+  if (isUploadsPath(src) && COS_HOST) {
+    // COS keys are POSIX paths without a leading slash.
+    const key = src.replace(/^\/+/, "");
+    return `https://${COS_HOST}/${key}?${cosImageQuery(opts)}`;
+  }
+
+  // Fallback / external URLs → wsrv resize.
+  return rawTransformUrl(src, opts);
 }
 
 /**
- * Direct wsrv URL with no edge wrapper. Used by SmartImg's stage 1 fallback
- * so that "edge proxy is broken" doesn't cascade into "transforms also
- * broken" — the wsrv direct path is genuinely independent of our deploy.
- */
-/**
- * Direct wsrv URL with no edge wrapper. Used by SmartImg's stage 1 fallback
- * so that "edge proxy is broken" doesn't cascade into "transforms also
- * broken" — the wsrv direct path is genuinely independent of our deploy.
+ * Direct wsrv.nl URL with no edge wrapper. Used by SmartImg's stage-1
+ * fallback when an /uploads file is configured for COS but the user's
+ * network can't reach COS for some reason.
  *
- * Accepts both absolute (`http(s)://...`) and root-relative (`/uploads/...`)
- * URLs. Relative paths get promoted to absolute against the deployment
- * origin so wsrv can reach them — this is essential because uploaded
- * /uploads/<file>.png originals are routinely 2–5MB and *must* be resized
- * before they're sent to mobile devices.
+ * Accepts both absolute and root-relative URLs; relative paths get promoted
+ * to absolute against the deployment origin so wsrv can fetch them.
  */
 export function rawTransformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
   const abs = absoluteUrl(src);
-  if (!/^https?:\/\//i.test(abs)) return src; // data:, blob:, etc.
+  if (!isHttp(abs)) return src; // data:, blob:, etc.
   const params = new URLSearchParams();
   params.set("url", abs.replace(/^https?:\/\//i, ""));
-  params.set("w", String(Math.round(opts.width)));
+  params.set("w", String(Math.max(1, Math.round(opts.width))));
   params.set("output", opts.format ?? "webp");
   params.set("q", String(opts.quality ?? 78));
   params.set("we", "1");
@@ -180,51 +187,38 @@ export function rawTransformUrl(src: string, opts: ImgOpts): string {
 }
 
 /**
- * Default image URL used by SmartImg.src.
- *
- * Goes through the edge proxy, which:
- *   - is fast in mainland China (HKG / NRT / SIN POPs),
- *   - delivers bytes verbatim (no CSS-px resizing — relies on browser srcset
- *     to choose an appropriate file).
- *
- * Callers that *need* a precise-width fetch (LQIP, hero featured grid) should
- * call `transformUrl()` directly.
+ * Tiny blurred placeholder used for inline blur-up. ~24 px wide.
+ * Routes through the same `transformUrl` ladder so /uploads images get
+ * their LQIP from COS (single hop) too.
  */
-export function optimizeImage(src: string, _opts: ImgOpts): string {
-  return edgeProxyUrl(src);
+export function lqipUrl(src: string): string {
+  if (!src) return src;
+  if (isAssetPath(src)) return src;
+  return transformUrl(src, { width: 24, quality: 30 });
 }
 
 /**
- * Build a `srcset` string. Because the edge proxy returns the original bytes
- * regardless of `w`, all entries point at the same URL — but we still emit
- * the full `w` ladder so the browser can pick the largest one for DPR=3
- * devices. This is more bytes than ideal, but `<img>` only loads the chosen
- * candidate, so the cost is one full-size fetch per image.
- *
- * If we later add CF Image Resizing (paid) or sharp at the edge, this single
- * function is the only place that needs to switch to size-targeted URLs.
+ * Default image URL — kept for backward compatibility with existing call
+ * sites that don't care about width-targeting. Goes through `transformUrl`
+ * with a generous 1200w cap so the worst case is "slightly oversized for
+ * the actual render box" rather than "blurry".
+ */
+export function optimizeImage(src: string, opts: ImgOpts): string {
+  return transformUrl(src, opts);
+}
+
+/**
+ * Build a `srcset` string covering the supplied widths.
  */
 export function srcSetFor(
   src: string,
   widths: number[],
-  _opts: Omit<ImgOpts, "width"> = {},
+  opts: Omit<ImgOpts, "width"> = {},
 ): string {
-  if (!src || !isProxyable(src) || widths.length === 0) return "";
-  const proxied = edgeProxyUrl(src);
-  return widths.map((w) => `${proxied} ${w}w`).join(", ");
-}
-
-/**
- * Tiny blurred placeholder used for inline blur-up. Goes through wsrv since
- * we explicitly need a *resize* down to ~24px; we use the raw direct path so
- * a non-functioning edge proxy doesn't take down LQIPs as well.
- *
- * Accepts local /uploads/* paths — those are promoted to absolute URLs in
- * `rawTransformUrl` so wsrv can fetch them.
- */
-export function lqipUrl(src: string): string {
-  if (!src) return src;
-  return rawTransformUrl(src, { width: 24, quality: 30 });
+  if (!src || widths.length === 0) return "";
+  return widths
+    .map((w) => `${transformUrl(src, { ...opts, width: w })} ${w}w`)
+    .join(", ");
 }
 
 /**

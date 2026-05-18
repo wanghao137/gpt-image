@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
     "migrate": "node scripts/migrate-v2.mjs",
+    "upload-cos": "node scripts/upload-cos.mjs",
     "admin:hash": "node scripts/admin-hash.mjs"
   },
   "dependencies": {
@@ -26,6 +27,8 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
+    "cos-nodejs-sdk-v5": "^2.15.4",
+    "dotenv": "^17.4.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3",

@@ -1,5 +1,5 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import { lqipUrl, rawTransformUrl } from "../lib/img";
+import { lqipUrl, rawTransformUrl, transformUrl } from "../lib/img";
 
 interface SmartImgProps {
   src: string;
@@ -147,24 +147,19 @@ function SmartImgImpl({
   // Compute the URLs for each stage. We materialise them all so render is
   // pure and deterministic — no async work in the hot path.
   //
-  //   stage 0 — rawTransformUrl: wsrv direct. We *would* prefer to wrap
-  //             this through our own Cloudflare Pages edge proxy
-  //             (functions/img/[[path]].ts) so the resized output sits on
-  //             our edge, but if Functions aren't enabled on the deploy the
-  //             wrapper turns into a SPA fallback and breaks every image.
-  //             Going direct is robust today; if/when we confirm Functions
-  //             are live we can flip stage 0 back to `transformUrl`.
-  //   stage 1 — same direct wsrv URL, kept as a separate stage so the
-  //             stage-promotion machinery still has somewhere to go on
-  //             error before the final origin-verbatim fallback.
+  //   stage 0 — transformUrl: COS HK for /uploads (China-friendly, single
+  //             hop, on-the-fly WebP), wsrv for external URLs.
+  //   stage 1 — rawTransformUrl: forced wsrv fallback. Useful when COS is
+  //             unreachable from the user's network for any reason.
   //   stage 2 — original src verbatim. Last resort.
   //
   // For /assets/* (Vite-hashed bundles) all three stages pass through to the
   // same URL.
   const stageUrls = useMemo(() => {
     if (isAssetPath) return [src, src, src] as const;
-    const transformed = rawTransformUrl(src, { width: baseW, quality });
-    return [transformed, transformed, src] as const;
+    const stage0 = transformUrl(src, { width: baseW, quality });
+    const stage1 = rawTransformUrl(src, { width: baseW, quality });
+    return [stage0, stage1, src] as const;
   }, [src, baseW, quality, isAssetPath]);
 
   const stageSrcSets = useMemo(() => {
@@ -173,11 +168,14 @@ function SmartImgImpl({
       const same = widths.map((w) => `${src} ${w}w`).join(", ");
       return [same, same, same] as const;
     }
-    const wsrvSet = widths
+    const stage0Set = widths
+      .map((w) => `${transformUrl(src, { width: w, quality })} ${w}w`)
+      .join(", ");
+    const stage1Set = widths
       .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
       .join(", ");
     const originSet = widths.map((w) => `${src} ${w}w`).join(", ");
-    return [wsrvSet, wsrvSet, originSet] as const;
+    return [stage0Set, stage1Set, originSet] as const;
   }, [src, widths, quality, isAssetPath]);
 
   const finalSrc = stageUrls[stage];
