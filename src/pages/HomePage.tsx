@@ -10,6 +10,7 @@ import { SEO, SITE } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCountUp } from "../hooks/useCountUp";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
+import type { PromptCase } from "../types";
 
 const HOME_TITLE = "GPT-Image 2 中文案例库";
 const HOME_DESC =
@@ -102,7 +103,77 @@ export default function HomePage() {
           className="pointer-events-none absolute right-0 top-40 h-72 w-72 rounded-full bg-ember-700/10 blur-[100px]"
         />
 
-        <div className="container-narrow grid gap-10 pb-12 pt-10 sm:gap-12 sm:pb-16 sm:pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
+        {/* ─────────── MOBILE HERO (lg:hidden) ───────────
+            Image-first layout. Title compressed to 2 lines, subtitle
+            to one line, single CTA, and four real cases waterfalling
+            into view directly under the headline. The four-tick
+            credibility row that used to sit here moved to a quiet
+            strip below the category showcase — it answered objections
+            no first-time visitor was raising at the top of the page.
+        */}
+        <div className="container-narrow flex flex-col gap-7 pb-10 pt-8 lg:hidden">
+          <div className="relative z-10 flex flex-col">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
+              </span>
+              <span className="tracking-wide">
+                {recentCount > 0
+                  ? `近 48h 新增 ${recentCount} 个 · 中英双语 Prompt`
+                  : "每周更新 · 中英双语 Prompt"}
+              </span>
+            </div>
+
+            <h1 className="serif-display mt-4 text-[1.85rem] leading-[1.05] text-ink-50 sm:text-[2.4rem]">
+              GPT-Image 2 中文
+              <em className="not-italic">
+                <span className="bg-gradient-to-br from-ember-200 via-ember-400 to-ember-600 bg-clip-text text-transparent">
+                  案例库
+                </span>
+                <span className="ml-0.5 text-ember-400">.</span>
+              </em>
+            </h1>
+
+            <p className="mt-3 line-clamp-2 max-w-md text-[14px] leading-relaxed text-ink-300 sm:text-[15px]">
+              爆款 AI 图片 · 现成 Prompt · 一键复制。{cases.length}+ 个真实案例按场景分好类。
+            </p>
+
+            <div className="mt-5 flex">
+              <Link to="/cases" className="btn-primary w-full justify-center sm:w-auto">
+                浏览全部 {animCases || cases.length} 个案例
+                <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                  <path
+                    fillRule="evenodd"
+                    d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile case waterfall — four real cases, image-only.
+              Tapping any tile drops you straight into its detail page,
+              same as a CaseCard tap on the regular grid. */}
+          {heroPrimary && (
+            <div className="relative z-10 grid grid-cols-2 gap-2.5">
+              <div className="hero-mobile-col-left flex flex-col gap-2.5">
+                <HeroMobileTile case_={cases[0]} aspect="3/4" priority />
+                <HeroMobileTile case_={cases[2]} aspect="4/5" />
+              </div>
+              <div className="hero-mobile-col-right mt-6 flex flex-col gap-2.5">
+                <HeroMobileTile case_={cases[1]} aspect="4/5" />
+                <HeroMobileTile case_={cases[3]} aspect="3/4" />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ─────────── DESKTOP HERO (hidden lg:grid) ───────────
+            Original two-column magazine layout, untouched.
+        */}
+        <div className="container-narrow hidden gap-10 pb-12 pt-10 sm:gap-12 sm:pb-16 sm:pt-16 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
           <div className="relative z-10 flex flex-col justify-center">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
@@ -116,7 +187,7 @@ export default function HomePage() {
               </span>
             </div>
 
-            <h1 className="serif-display text-[2.2rem] leading-[1.05] text-ink-50 sm:text-5xl lg:text-[4.4rem] lg:leading-[1.02]">
+            <h1 className="serif-display text-5xl leading-[1.05] text-ink-50 lg:text-[4.4rem] lg:leading-[1.02]">
               GPT-Image 2
               <br />
               中文
@@ -128,13 +199,13 @@ export default function HomePage() {
               </em>
             </h1>
 
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
+            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink-300">
               爆款 AI 图片 · 现成 Prompt · 一键复制。
-              <br className="hidden sm:block" />
+              <br />
               小红书封面、商家海报、人像写真、信息图——按场景分好类，复制就能出图。
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/cases" className="btn-primary">
                 浏览全部 {animCases || cases.length} 个案例
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
@@ -166,105 +237,62 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Hero collage */}
+          {/* Desktop hero collage */}
           <div className="relative z-10">
             {!heroPrimary ? (
               <div className="aspect-square animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800" />
             ) : (
-              <>
-                {/* Mobile: single hero image. Was: 1 hero + 2 thumbnails.
-                    The thumbnails were 2 extra image fetches we didn't need
-                    above the fold — on slow Chinese mobile networks they
-                    competed with the hero for bandwidth and pushed LCP
-                    further out. One image, sharp, fast. Period. */}
-                <Link
-                  to={`/case/${heroPrimary.slug}`}
-                  className="group relative block w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left lg:hidden"
-                  aria-label={heroPrimary.title}
-                >
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    <SmartImg
-                      src={heroPrimary.imageUrl}
-                      alt={heroPrimary.imageAlt || heroPrimary.title}
-                      width={800}
-                      height={1000}
-                      // 720w is more than enough for a phone's full width at
-                      // DPR 3 (typical 360 CSS px × 2 = 720 phys px). We
-                      // intentionally cap srcset lower than before — the
-                      // 1200w version was being chosen on tablets but the
-                      // bytes weren't worth the extra second of waiting.
-                      widths={[480, 720, 960]}
-                      baseWidth={480}
-                      sizes="100vw"
-                      loading="eager"
-                      fetchPriority="high"
-                      className="ken-burns absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-4">
-                      <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
-                        FEATURED · {heroPrimary.ratio}
-                      </span>
-                      <strong className="mt-1 line-clamp-1 block text-[15px] font-semibold text-ink-50">
-                        {heroPrimary.title}
-                      </strong>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Desktop: 3x3 magazine grid */}
-                <div className="hidden aspect-square grid-cols-3 auto-rows-fr gap-3 lg:grid">
-                  {[heroPrimary, ...heroGrid].slice(0, 5).map((item, index) => {
-                    const layout =
-                      index === 0
-                        ? "col-span-2 row-span-2"
-                        : index === 1
-                          ? "col-start-3 row-start-1"
-                          : index === 2
-                            ? "col-start-3 row-start-2"
-                            : index === 3
-                              ? "col-start-1 row-start-3"
-                              : "col-start-2 row-start-3 col-span-2";
-                    return (
-                      <Link
-                        key={item.id}
-                        to={`/case/${item.slug}`}
-                        className={
-                          "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
-                          layout
+              <div className="aspect-square grid grid-cols-3 auto-rows-fr gap-3">
+                {[heroPrimary, ...heroGrid].slice(0, 5).map((item, index) => {
+                  const layout =
+                    index === 0
+                      ? "col-span-2 row-span-2"
+                      : index === 1
+                        ? "col-start-3 row-start-1"
+                        : index === 2
+                          ? "col-start-3 row-start-2"
+                          : index === 3
+                            ? "col-start-1 row-start-3"
+                            : "col-start-2 row-start-3 col-span-2";
+                  return (
+                    <Link
+                      key={item.id}
+                      to={`/case/${item.slug}`}
+                      className={
+                        "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
+                        layout
+                      }
+                      style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
+                    >
+                      <SmartImg
+                        src={item.imageUrl}
+                        alt={item.imageAlt || item.title}
+                        width={index === 0 ? 1000 : 500}
+                        height={index === 0 ? 1000 : 500}
+                        widths={index === 0 ? [800, 1100] : [360, 540]}
+                        baseWidth={index === 0 ? 1100 : 540}
+                        sizes={
+                          index === 0
+                            ? "(min-width:1024px) 360px, 100vw"
+                            : "(min-width:1024px) 180px, 50vw"
                         }
-                        style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
-                      >
-                        <SmartImg
-                          src={item.imageUrl}
-                          alt={item.imageAlt || item.title}
-                          width={index === 0 ? 1000 : 500}
-                          height={index === 0 ? 1000 : 500}
-                          widths={index === 0 ? [800, 1100] : [360, 540]}
-                          baseWidth={index === 0 ? 1100 : 540}
-                          sizes={
-                            index === 0
-                              ? "(min-width:1024px) 360px, 100vw"
-                              : "(min-width:1024px) 180px, 50vw"
-                          }
-                          loading={index === 0 ? "eager" : "lazy"}
-                          fetchPriority={index === 0 ? "high" : "auto"}
-                          className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
-                        />
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                        <div className="absolute inset-x-0 bottom-0 p-3">
-                          <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
-                            {item.ratio}
-                          </span>
-                          <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
-                            {item.title}
-                          </strong>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </>
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchPriority={index === 0 ? "high" : "auto"}
+                        className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
+                      />
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-3">
+                        <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
+                          {item.ratio}
+                        </span>
+                        <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
+                          {item.title}
+                        </strong>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
             )}
           </div>
         </div>
@@ -361,5 +389,63 @@ function Tick() {
     >
       <path d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" />
     </svg>
+  );
+}
+
+interface HeroMobileTileProps {
+  case_: PromptCase | undefined;
+  /** CSS aspect-ratio fragment, e.g. "3/4" / "4/5". */
+  aspect: "3/4" | "4/5" | "1/1";
+  priority?: boolean;
+}
+
+/**
+ * One image-only tile inside the mobile hero waterfall.
+ *
+ * Image-only by design — title / category / copy buttons live further
+ * down the page on the regular CaseCard grid. The hero's job is to
+ * *show* the gallery in the first 600ms, not to surface metadata. A
+ * tap drops you into the detail page, same as any other CaseCard.
+ *
+ * Aspect ratios alternate between 3/4 and 4/5 across the four tiles
+ * to create the staggered waterfall silhouette without us having to
+ * hand-author offset margins per tile. The right column also has a
+ * small `mt-6` push at the column level, so the visual rhythm is:
+ *
+ *      [ left: 3/4 ]  [ right: 4/5 ]  ← right starts 24px lower
+ *      [ left: 4/5 ]  [ right: 3/4 ]
+ */
+function HeroMobileTile({ case_, aspect, priority }: HeroMobileTileProps) {
+  if (!case_) {
+    return (
+      <div
+        className="animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800"
+        style={{ aspectRatio: aspect.replace("/", " / ") }}
+      />
+    );
+  }
+  return (
+    <Link
+      to={`/case/${case_.slug}`}
+      aria-label={case_.title}
+      className="group relative block overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 transition active:scale-[0.98]"
+      style={{ aspectRatio: aspect.replace("/", " / ") }}
+    >
+      <SmartImg
+        src={case_.imageUrl}
+        alt={case_.imageAlt || case_.title}
+        width={600}
+        height={800}
+        // Half-viewport on phones at DPR 2-3 means physical 360-540 px.
+        // Capping at 540w keeps the four tiles cheap on cellular and
+        // avoids loading desktop-grade detail no one will ever see.
+        widths={[280, 380, 540]}
+        baseWidth={280}
+        sizes="50vw"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+        className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+      />
+    </Link>
   );
 }

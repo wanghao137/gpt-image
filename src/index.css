@@ -253,6 +253,58 @@
   }
 
   /*
+   * Mobile hero — staggered 2-col case waterfall with subtle scroll-driven
+   * parallax. Inspired by the canghe.ai mobile hero (image-first, text as
+   * a small overlay), but using real cases from cases.json so the homepage
+   * doubles as a freshness signal.
+   *
+   * Parallax strategy:
+   *   The columns are positioned identically; we offset them via translateY
+   *   tied to root scroll progress. Left column moves 0 → -3vh, right
+   *   moves 0 → -6vh — small enough to be felt rather than seen, large
+   *   enough that the columns appear to "rise at different speeds" as
+   *   the user scrolls past the hero.
+   *
+   *   Animation-range is `entry-crossing 0% exit 100%` so the parallax
+   *   plays for the entire time any of the cards is in the viewport,
+   *   avoiding a hard "reset" snap.
+   *
+   *   Gated behind @supports (animation-timeline: scroll()) — Safari
+   *   <26 and Firefox today render the columns statically with no
+   *   regression beyond losing a small flourish.
+   *
+   * We deliberately don't transform the cards individually (would force
+   * a paint per card and fight content-visibility); transforming the
+   * column wrapper is one composite layer per side.
+   */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-mobile-col-left,
+      .hero-mobile-col-right {
+        animation: heroColParallax linear both;
+        animation-timeline: scroll(root block);
+        will-change: transform;
+      }
+      .hero-mobile-col-left  { animation-range: 0 60vh; }
+      .hero-mobile-col-right { animation-range: 0 80vh; }
+      @keyframes heroColParallax {
+        from { transform: translate3d(0, 0, 0); }
+        to   { transform: translate3d(0, -2vh, 0); }
+      }
+      /* Right column gets a slightly larger end translation so the two
+         sides drift apart as you scroll. Override via a separate
+         keyframe to avoid an extra @property declaration. */
+      .hero-mobile-col-right {
+        animation-name: heroColParallaxRight;
+      }
+      @keyframes heroColParallaxRight {
+        from { transform: translate3d(0, 0, 0); }
+        to   { transform: translate3d(0, -4.5vh, 0); }
+      }
+    }
+  }
+
+  /*
    * Masonry layout for the case grid.
    *
    * Uses native CSS multi-column rather than display: grid because the cases
