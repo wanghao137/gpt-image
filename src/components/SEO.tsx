@@ -12,7 +12,7 @@ interface SEOProps {
   noindex?: boolean;
 }
 
-const SITE_URL = "https://gpt-image-6hu.pages.dev";
+const SITE_URL = "https://taostudioai.com";
 const SITE_NAME = "GPT-Image 2 中文案例库";
 // Default OG card. The SVG ships under /public/og.svg as a 1200x630 baked-in
 // card. Most platforms (WeChat, Twitter, LinkedIn) rasterise SVG fine; if a

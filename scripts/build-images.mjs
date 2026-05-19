@@ -137,7 +137,7 @@ async function fetchToBuffer(url) {
   const r = await fetch(url, {
     headers: {
       "user-agent":
-        "gpt-image-image-pipeline/1.0 (+https://gpt-image-6hu.pages.dev)",
+        "gpt-image-image-pipeline/1.0 (+https://taostudioai.com)",
       accept: "image/*",
     },
     redirect: "follow",

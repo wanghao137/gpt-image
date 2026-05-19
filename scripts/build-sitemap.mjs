@@ -9,7 +9,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 
-const SITE_URL = "https://gpt-image-6hu.pages.dev";
+const SITE_URL = "https://taostudioai.com";
 const ROOT = process.cwd();
 const DIST = resolve(ROOT, "dist");
 

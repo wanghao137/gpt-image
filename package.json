@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.2.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "dev": "vite-react-ssg dev",

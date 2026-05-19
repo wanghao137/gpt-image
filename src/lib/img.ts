@@ -28,7 +28,7 @@ const WSRV = "https://wsrv.nl/";
 const SITE_ORIGIN =
   typeof window !== "undefined"
     ? window.location.origin
-    : "https://gpt-image-6hu.pages.dev";
+    : "https://taostudioai.com";
 
 export interface ImgOpts {
   /** Render width in CSS pixels. Most call sites pass this; we ignore it

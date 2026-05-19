@@ -2,7 +2,7 @@
 
 > 把 [`awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2) 的 400+ 案例做成一个**可搜索、可分类、SEO 友好**的中文导航站，并附带轻量后台与商业化落地页。
 
-🔗 线上站点：<https://gpt-image-6hu.pages.dev>
+🔗 线上站点：<https://taostudioai.com>
 🐙 GitHub：<https://github.com/wanghao137/gpt-image>
 
 [![Deploy](https://img.shields.io/github/actions/workflow/status/wanghao137/gpt-image/deploy.yml?branch=main&label=deploy)](https://github.com/wanghao137/gpt-image/actions)
@@ -35,7 +35,7 @@
 | 路由 | `react-router-dom 6.30`（与 SSG 共用） |
 | 样式 | `Tailwind CSS 3` + `@layer` 自定义 |
 | 工具 | `pinyin-pro`（slug 生成）、`react-helmet-async`（由 SSG 内置） |
-| 部署 | Cloudflare Pages（主部署） + GitHub Pages（workflow 备份） |
+| 部署 | Vercel（主部署，亚太 Edge 加速） |
 
 无后端、无数据库、无运行时鉴权。所有动态行为（搜索、筛选、收藏、分享、复制）都在浏览器完成。
 
@@ -139,7 +139,7 @@ npm run preview    # 预览构建产物
                 vite-react-ssg build
                           │
                           ▼
-              dist/ → Cloudflare Pages
+              dist/ → Vercel (sin1 / hnd1 Edge POPs)
 ```
 
 ### 上游同步策略
@@ -255,14 +255,26 @@ echo "VITE_ADMIN_PASSWORD_HASH=<你的哈希>" >> .env.local
 
 ## 🚢 部署
 
-### Cloudflare Pages（主站）
+### Vercel（主站）
 
-1. Cloudflare Pages → Connect to Git → 选择本仓库
-2. 构建命令：`npm run build`
-3. 输出目录：`dist`
-4. 环境变量：
-   - `VITE_ADMIN_PASSWORD_HASH=<你的哈希>`
+1. Vercel → Add New Project → Import Git Repository → 选择本仓库
+2. **Framework Preset**：选 `Other`（让 `vercel.json` 生效）
+3. **Build Command**：`npm run build`（会自动跑 prebuild 同步上游 + 生成 442 张优化图）
+4. **Output Directory**：`dist`
+5. **Root Directory**：`.`
+6. **Region**：默认会按 `vercel.json` 走 `sin1` / `hnd1`（新加坡 / 东京），亚太用户首屏 < 800ms
+7. **环境变量**（Settings → Environment Variables）：
+   - `VITE_ADMIN_PASSWORD_HASH`（必填，运行 `npm run admin:hash` 生成）
    - 可选：`VITE_ADMIN_REPO_OWNER` / `VITE_ADMIN_REPO_NAME` / `VITE_ADMIN_REPO_BRANCH`
+   - 可选：`VITE_COS_BUCKET` / `VITE_COS_REGION` / `VITE_COS_HOST`（启用 COS 加速时填）
+   - 可选：`COS_SECRET_ID` / `COS_SECRET_KEY`（仅 `npm run upload-cos` 时用，部署不需要）
+8. **自定义域名**：Settings → Domains → 添加 `taostudioai.com`，DNS 走 Cloudflare 灰云解析（关闭 Cloudflare 代理，直接 CNAME 到 Vercel）
+
+#### 为什么不再用 Cloudflare Pages
+
+Cloudflare Pages 免费版国内访问统一打境外 POP（实测 LAX 洛杉矶）。
+Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50ms，移动端首屏体验差距巨大。
+详见 [`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)。
 
 ### GitHub Pages（备用）
 
@@ -309,7 +321,6 @@ echo "VITE_ADMIN_PASSWORD_HASH=<你的哈希>" >> .env.local
 
 - 🟡 BlurHash 图片占位（提升 LCP）
 - 🟡 三篇深度教程文章（拓展 SEO 长尾）
-- 🟡 Cloudflare Pages Functions：联系表单 + 复制次数统计
 - 🟢 Web Analytics 埋点
 - 🟢 收藏夹分享 URL
 - 🟢 详情页快捷键
