@@ -1,5 +1,20 @@
 [
   {
+    "id": "100011",
+    "title": "Ronaldo Match Day Poster",
+    "category": "角色与人物",
+    "styles": [
+      "Poster"
+    ],
+    "scenes": [
+      "Commerce",
+      "Portrait",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-05-19-100011.png",
+    "prompt": "Ultra-realistic football match day poster design, Cristiano Ronaldo seen from the back wearing Portugal red jersey number 7, fist raised in victory, walking forward confidently, giant bold typography “MATCH DAY” behind player, modern sports graphic design, Portugal vs Colombia logos at top, FIFA World Cup 2026 branding, cinematic stadium atmosphere, textured off-white background, national flag elements blended diagonally, dramatic lighting, dust particles, high-detail jersey fabric, centered composition, editorial sports poster style, minimal premium layout, green red yellow color palette, realistic shadows, sharp focus, Nike/Puma style campaign aesthetic, 4k."
+  },
+  {
     "id": "100010",
     "title": "晚风撩发，街角的心动瞬间",
     "category": "摄影与写实",
