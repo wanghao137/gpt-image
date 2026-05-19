@@ -306,3 +306,99 @@ node scripts/build-images.mjs --force
 [ ] 12. 等 SSL 自签完成（通常 1-2 分钟），用 https://taostudioai.com 访问验证
 [ ] 13. ✅ 收工：把旧的 CF Pages 项目暂停或删除（保留几天观察期更稳）
 ```
+
+
+---
+
+## 七、迁移完成验证（2026-05-19 上午）
+
+### 实测响应头（迁移后）
+
+```
+GET https://taostudioai.com/images/case1.jpg
+HTTP/1.1 200 OK
+Server: Vercel
+X-Vercel-Id: hnd1::rhwmv-...                          ← 东京 POP ✅
+X-Vercel-Cache: HIT                                   ← 边缘命中
+Cache-Control: public, max-age=31536000, immutable    ← vercel.json 生效
+Cross-Origin-Resource-Policy: cross-origin
+Access-Control-Allow-Origin: *
+
+GET https://taostudioai.com/
+HTTP/1.1 200 OK
+Server: Vercel
+X-Vercel-Id: hnd1::jb2js-...
+X-Vercel-Cache: HIT
+```
+
+### 对比
+
+| 指标 | 之前 (CF Pages) | 现在 (Vercel) |
+|---|---|---|
+| POP | LAX 洛杉矶 | **hnd1 东京** |
+| 国内 RTT | ~200 ms | ~50-80 ms |
+| 跳转 | — | 无（apex 直接 200，没有 www 重定向） |
+| 域名 | gpt-image-6hu.pages.dev | **taostudioai.com** |
+
+### 关键踩坑记录
+
+1. **Hobby 计划 regions 限制**：`vercel.json` 不能写多个 region，会拒绝部署。删掉 `regions` 字段反而是对的——静态资源走 Vercel Edge Network 全球 POP，自动路由到亚太节点。
+2. **Cloudflare 橙云 vs 灰云**：第一次设置时 DNS 走了橙云，导致 `taostudioai.com → CF SEA → Vercel pdx1` 又绕回北美。改灰云（仅 DNS）后才走 Vercel 自己的边缘。
+3. **www 子域名的"主域名反转"**：第一次绑定时 Vercel 默认把 www 当主域名、apex 跳 www，多一次 RTT。最后干脆只绑 apex 不要 www，Vercel UI 干净，链路也最短。
+4. **DNS 缓存观察**：刚改完灰云时本地 DNS resolver 还在返回旧解析（`Server: cloudflare`），需要 `ipconfig /flushdns` 或等 5-10 分钟才能看到正确状态。
+
+### 后续建议
+
+- [ ] 国内手机 4G 实测体感
+- [ ] Google Search Console 添加 `https://taostudioai.com` 资源 + 提交 sitemap
+- [ ] 旧 CF Pages 部署加 301 重定向到新域名（保 SEO 权重，1 周后再彻底删）
+- [ ] 任何已分发的 `pages.dev` 链接同步换成 `taostudioai.com`
+
+
+---
+
+## 八、收尾确认（2026-05-19 完成）
+
+### 最终域名拓扑
+
+```
+taostudioai.com           Production           ← 主域名（apex）
+www.taostudioai.com       308 → taostudioai.com  ← SEO 友好的子域名兜底
+taostudioai.vercel.app    Production           ← Vercel 兜底地址（保留）
+```
+
+### 全链路抓包验证（4 个关键场景全绿）
+
+```
+✅ GET https://taostudioai.com/                  → 200 OK, hnd1, X-Vercel-Cache: HIT
+✅ GET https://taostudioai.com/images/case1.jpg  → 200 OK, hnd1, immutable, CORP
+✅ GET https://www.taostudioai.com/              → 308 → apex, hnd1
+✅ GET https://www.taostudioai.com/case/<slug>   → 308 → apex（路径完整保留）→ 200
+```
+
+所有响应都是：
+- `Server: Vercel`（无 Cloudflare 中间层）
+- `X-Vercel-Id: hnd1::...`（东京 POP，亚太边缘）
+- `X-Vercel-Cache: HIT`（首次预热后稳定命中边缘缓存）
+- `vercel.json` 配置的所有 headers 生效（缓存策略、安全 header、CORS）
+
+### 迁移成果总结
+
+| 维度 | 旧（CF Pages） | 新（Vercel） |
+|---|---|---|
+| 国内访问 POP | LAX 洛杉矶 | **HND 东京** |
+| 国内 RTT | ~200 ms | **~50-80 ms** |
+| 首屏 6 张图加载 | 弱网 3-5 秒 | **预期 0.8-1.2 秒** |
+| 域名 | `gpt-image-6hu.pages.dev` | **`taostudioai.com`** |
+| SEO | apex 没专属域 | apex 是 canonical，www 308 合并权重 |
+| 边缘缓存策略 | `_headers` | `vercel.json`（headers + cleanUrls） |
+
+### 项目状态：**性能瓶颈已解决，可进入下一阶段**
+
+下一阶段建议关注的方向（不在本次性能改造范围）：
+- 页面视觉/UX 优化（用户后续会单独开会话讨论）
+- agent skill / MCP server（对标站唯一压你一头的产品维度）
+- Google Search Console + 国内站长平台提交新域名
+- 旧 CF Pages 部署加 301 redirect 兜底，1-2 周后彻底关停
+
+—— 性能改造篇完结 ——
