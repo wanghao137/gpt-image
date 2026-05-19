@@ -33,6 +33,16 @@ const PLATFORM_OPTIONS = [
   { key: "offline", label: "线下" },
 ];
 
+type AxisKey = "category" | "platform" | "style" | "scene";
+
+interface AxisDef {
+  key: AxisKey;
+  label: string;
+  options: { key: string; label: string }[];
+  selected: Set<string>;
+  toggle: (key: string) => void;
+}
+
 /**
  * Chip-driven multi-select filter bar.
  *
@@ -40,8 +50,20 @@ const PLATFORM_OPTIONS = [
  *   - Tapping a chip toggles its membership in the corresponding Set.
  *   - All chip selections combine across axes with AND, within an axis with OR.
  *   - URL ?q= ?cat= ?style= ?scene= ?platform= is owned by the parent (CasesPage).
- *   - On mobile, axes collapse into a bottom sheet drawer with a sticky "Apply"
- *     button — the chip rows stay accessible above the fold.
+ *
+ *   Mobile drawer (rewrite Phase 2):
+ *     - Segmented header: 4 tabs corresponding to the 4 axes. Tapping a tab
+ *       reveals only that axis's chips, instead of stacking all four into
+ *       a 200vh scroll.
+ *     - Selection summary chip strip directly under the segments shows
+ *       what's currently active across all axes — tap × to remove inline.
+ *     - Sticky CTA at the bottom shows live `matched` count and updates
+ *       on every chip tap.
+ *
+ *   Mobile sticky category strip (above the drawer):
+ *     - Now horizontally swipeable left-right with snap behaviour. Tap
+ *       toggles a category in the same activeCategories set the drawer
+ *       writes to.
  */
 export function FilterBar({
   query,
@@ -63,6 +85,7 @@ export function FilterBar({
 }: FilterBarProps) {
   const [draft, setDraft] = useState(query);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerAxis, setDrawerAxis] = useState<AxisKey>("category");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   // Debounce search input.
@@ -112,30 +135,65 @@ export function FilterBar({
     setter(next);
   }
 
+  // ── Axis definitions used by both desktop chip rows and the mobile drawer ──
+  const categoryOptions = USER_CATEGORIES.map((c) => ({ key: c.slug, label: c.label }));
+  const platformOptions = PLATFORM_OPTIONS.map((p) => ({ key: p.key, label: p.label }));
+  const styleOptions = styles.map((s) => ({ key: s, label: styleLabel(s) }));
+  const sceneOptions = scenes.map((s) => ({ key: s, label: sceneLabel(s) }));
+
+  const axes: AxisDef[] = [
+    {
+      key: "category",
+      label: "场景",
+      options: categoryOptions,
+      selected: activeCategories,
+      toggle: (k) => toggle(activeCategories, k, onCategoriesChange),
+    },
+    {
+      key: "platform",
+      label: "平台",
+      options: platformOptions,
+      selected: activePlatforms,
+      toggle: (k) => toggle(activePlatforms, k, onPlatformsChange),
+    },
+    {
+      key: "style",
+      label: "风格",
+      options: styleOptions,
+      selected: activeStyles,
+      toggle: (k) => toggle(activeStyles, k, onStylesChange),
+    },
+    {
+      key: "scene",
+      label: "题材",
+      options: sceneOptions,
+      selected: activeScenes,
+      toggle: (k) => toggle(activeScenes, k, onScenesChange),
+    },
+  ];
+
+  // ── Build the "currently selected" strip for the drawer. We pull the
+  // human-readable label from each axis so the strip can show the right
+  // chip text regardless of which set the value lives in. ──
+  const selectedSummary: { axis: AxisKey; key: string; label: string; remove: () => void }[] = [];
+  for (const a of axes) {
+    for (const k of a.selected) {
+      const opt = a.options.find((o) => o.key === k);
+      selectedSummary.push({
+        axis: a.key,
+        key: k,
+        label: opt?.label ?? k,
+        remove: () => a.toggle(k),
+      });
+    }
+  }
+
   return (
     <div className="container-narrow pb-6 pt-4">
-      {/*
-        Mobile-only sticky category strip.
-
-        Placed *outside* the surface card so it can run edge-to-edge under the
-        site header without being wrapped in surface borders. We use a
-        negative horizontal margin on small viewports to escape `container-narrow`
-        padding, then a horizontal scroll with edge fade masks. Each chip is
-        a button that toggles its category in the same `activeCategories` set
-        the drawer writes to — there's no parallel state, no extra reducer.
-
-        Sticking under the global header (h-16 = top-16) keeps it within
-        thumb reach as users scroll the case grid, which is the whole reason
-        for adding this — Xiaohongshu / Douyin both pin category nav at the
-        top of long feeds for the same reason.
-      */}
+      {/* Mobile-only sticky category strip — horizontally swipeable. */}
       <div
         className="sticky z-20 -mx-5 mb-3 border-y border-white/[0.04] bg-ink-950/82 backdrop-blur-xl backdrop-saturate-150 sm:hidden"
         style={{
-          // Pin directly under the global Header. Header is h-16 (64px) and
-          // adds env(safe-area-inset-top) on iPhone notch/Dynamic Island
-          // devices, so we mirror that calculation here. Otherwise the chip
-          // strip would peek out from behind the header on those devices.
           top: "calc(4rem + env(safe-area-inset-top, 0px))",
         }}
       >
@@ -173,7 +231,10 @@ export function FilterBar({
             })}
             <button
               type="button"
-              onClick={() => setDrawerOpen(true)}
+              onClick={() => {
+                setDrawerAxis("category");
+                setDrawerOpen(true);
+              }}
               className="shrink-0 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12.5px] font-medium text-ink-300"
               aria-label="更多筛选"
             >
@@ -220,7 +281,10 @@ export function FilterBar({
 
           <button
             type="button"
-            onClick={() => setDrawerOpen(true)}
+            onClick={() => {
+              setDrawerAxis("category");
+              setDrawerOpen(true);
+            }}
             className="relative inline-flex h-[42px] shrink-0 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 text-sm font-medium text-ink-100 transition hover:border-white/25 sm:hidden"
             aria-label="筛选"
           >
@@ -264,20 +328,20 @@ export function FilterBar({
           />
           <ChipRow
             label="平台"
-            options={PLATFORM_OPTIONS.map((p) => ({ key: p.key, label: p.label }))}
+            options={platformOptions}
             selected={activePlatforms}
             onToggle={(k) => toggle(activePlatforms, k, onPlatformsChange)}
           />
           <ChipRow
             label="风格"
-            options={styles.map((s) => ({ key: s, label: styleLabel(s) }))}
+            options={styleOptions}
             selected={activeStyles}
             onToggle={(k) => toggle(activeStyles, k, onStylesChange)}
             collapsible
           />
           <ChipRow
             label="题材"
-            options={scenes.map((s) => ({ key: s, label: sceneLabel(s) }))}
+            options={sceneOptions}
             selected={activeScenes}
             onToggle={(k) => toggle(activeScenes, k, onScenesChange)}
             collapsible
@@ -301,7 +365,7 @@ export function FilterBar({
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* ────────── Mobile drawer (Phase 2 redesign) ────────── */}
       {drawerOpen && (
         <div
           role="dialog"
@@ -312,12 +376,19 @@ export function FilterBar({
             if (e.target === e.currentTarget) setDrawerOpen(false);
           }}
         >
-          <div className="absolute inset-0 bg-ink-950/80 backdrop-blur-md animate-fade-in" />
+          <div
+            className="absolute inset-0 bg-ink-950/80 backdrop-blur-md"
+            style={{ animation: "fadeIn 160ms ease-out both" }}
+          />
           <div
             className="relative z-10 flex max-h-[88vh] w-full flex-col rounded-t-3xl border-t border-white/10 bg-ink-900"
-            style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+            style={{
+              paddingBottom: "max(1rem, env(safe-area-inset-bottom))",
+              animation: "sheetUp 240ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
+            }}
           >
             <div className="mx-auto mt-3 mb-2 h-1 w-10 rounded-full bg-white/15" />
+
             <div className="flex items-center justify-between px-5 pb-3">
               <h3 className="serif-display text-2xl text-ink-50">筛选条件</h3>
               <button
@@ -332,31 +403,88 @@ export function FilterBar({
               </button>
             </div>
 
-            <div className="flex flex-1 flex-col gap-5 overflow-auto px-5 pb-4">
-              <ChipRow
-                label="场景"
-                options={USER_CATEGORIES.map((c) => ({ key: c.slug, label: c.label }))}
-                selected={activeCategories}
-                onToggle={(k) => toggle(activeCategories, k, onCategoriesChange)}
-              />
-              <ChipRow
-                label="平台"
-                options={PLATFORM_OPTIONS.map((p) => ({ key: p.key, label: p.label }))}
-                selected={activePlatforms}
-                onToggle={(k) => toggle(activePlatforms, k, onPlatformsChange)}
-              />
-              <ChipRow
-                label="风格"
-                options={styles.map((s) => ({ key: s, label: styleLabel(s) }))}
-                selected={activeStyles}
-                onToggle={(k) => toggle(activeStyles, k, onStylesChange)}
-              />
-              <ChipRow
-                label="题材"
-                options={scenes.map((s) => ({ key: s, label: sceneLabel(s) }))}
-                selected={activeScenes}
-                onToggle={(k) => toggle(activeScenes, k, onScenesChange)}
-              />
+            {/* Segmented axis switcher */}
+            <div className="px-5 pb-3">
+              <div className="grid grid-cols-4 gap-1 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-1">
+                {axes.map((a) => {
+                  const active = drawerAxis === a.key;
+                  return (
+                    <button
+                      key={a.key}
+                      type="button"
+                      onClick={() => setDrawerAxis(a.key)}
+                      className={
+                        "relative flex flex-col items-center justify-center gap-0.5 rounded-xl py-2 text-[12.5px] font-medium transition " +
+                        (active
+                          ? "bg-ink-950 text-ink-50 shadow-soft"
+                          : "text-ink-300 hover:text-ink-100")
+                      }
+                    >
+                      <span>{a.label}</span>
+                      {a.selected.size > 0 && (
+                        <span
+                          className={
+                            "absolute -right-1 -top-1 grid h-4 min-w-[16px] place-items-center rounded-full px-1 text-[10px] font-bold tabular-nums " +
+                            (active
+                              ? "bg-ember-500 text-ink-950"
+                              : "bg-ember-500/30 text-ember-100")
+                          }
+                        >
+                          {a.selected.size}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Selection summary strip */}
+            {selectedSummary.length > 0 && (
+              <div className="mb-2 px-5">
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedSummary.map((s) => (
+                    <button
+                      key={`${s.axis}-${s.key}`}
+                      type="button"
+                      onClick={s.remove}
+                      className="inline-flex items-center gap-1 rounded-full border border-ember-500/60 bg-ember-500/15 px-2.5 py-1 text-[11.5px] font-medium text-ember-100"
+                    >
+                      {s.label}
+                      <span aria-hidden="true" className="text-[10px] opacity-80">×</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Active axis chips */}
+            <div className="flex flex-1 flex-col overflow-auto px-5 pb-4">
+              {axes
+                .filter((a) => a.key === drawerAxis)
+                .map((a) => (
+                  <div key={a.key} className="flex flex-wrap gap-1.5">
+                    {a.options.length === 0 ? (
+                      <p className="py-6 text-center text-[13px] text-ink-500">
+                        暂无可用选项
+                      </p>
+                    ) : (
+                      a.options.map((opt) => {
+                        const active = a.selected.has(opt.key);
+                        return (
+                          <button
+                            key={opt.key}
+                            type="button"
+                            onClick={() => a.toggle(opt.key)}
+                            className={`chip ${active ? "chip-active" : "chip-idle"}`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+                ))}
             </div>
 
             <div className="flex gap-2 border-t border-white/[0.06] p-4">
@@ -377,6 +505,19 @@ export function FilterBar({
                 查看 {matched} 个结果
               </button>
             </div>
+
+            <style>{`
+              @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+              @keyframes sheetUp {
+                from { opacity: 0; transform: translateY(28px); }
+                to   { opacity: 1; transform: translateY(0); }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                div[role="dialog"] > div {
+                  animation: none !important;
+                }
+              }
+            `}</style>
           </div>
         </div>
       )}

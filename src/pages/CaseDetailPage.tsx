@@ -425,6 +425,14 @@ export default function CaseDetailPage() {
       <StickyMobileActions
         onCopy={() => copy(promptText)}
         copyState={copyState}
+        caption={
+          fetched.loading
+            ? "Prompt 加载中…"
+            : promptText
+              ? `${tab === "cn" ? "中文" : "English"} · ${charCount} 字符`
+              : undefined
+        }
+        disabled={fetched.loading || !promptText}
       />
 
       <ImageLightbox

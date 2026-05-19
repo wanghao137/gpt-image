@@ -7,13 +7,23 @@ interface StickyMobileActionsProps {
   copyState: "idle" | "copied" | "error";
   /** When true, the WeChat CTA is the secondary CTA on the right. */
   showWeChat?: boolean;
+  /**
+   * Optional context shown above the buttons — typically the prompt's
+   * character count, used to remind the user what they're about to copy.
+   * Hidden when undefined to keep the bar compact.
+   */
+  caption?: string;
+  /** Disable the primary action while the prompt is still loading. */
+  disabled?: boolean;
 }
 
 /**
  * Mobile-only fixed action bar at the bottom of the case detail page.
- * Two jobs:
+ * Three jobs:
  *   1. Make "Copy Prompt" reachable without scrolling on long detail pages.
- *   2. Keep the WeChat conversion CTA visible at all times.
+ *   2. Communicate context — char count, copy state — so the user knows
+ *      what they're acting on without scrolling back to the toolbar.
+ *   3. Keep the WeChat conversion CTA visible at all times.
  *
  * Hides on `sm:` breakpoints — desktop already has the inline buttons.
  */
@@ -21,23 +31,34 @@ export function StickyMobileActions({
   onCopy,
   copyState,
   showWeChat = true,
+  caption,
+  disabled = false,
 }: StickyMobileActionsProps) {
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-30 border-t border-white/[0.08] bg-ink-950/85 backdrop-blur-xl sm:hidden"
       style={{ paddingBottom: "max(0.625rem, env(safe-area-inset-bottom))" }}
     >
+      {caption && (
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 pt-1.5 text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-500">
+          <span>{caption}</span>
+          {copyState === "copied" && (
+            <span className="text-emerald-300">✓ 已复制</span>
+          )}
+        </div>
+      )}
       <div className="mx-auto flex w-full max-w-7xl gap-2 px-4 py-2.5">
         <button
           type="button"
           onClick={onCopy}
+          disabled={disabled}
           className={
-            "inline-flex flex-1 items-center justify-center gap-1.5 rounded-full px-4 py-3 text-[13.5px] font-semibold transition " +
+            "inline-flex flex-1 items-center justify-center gap-1.5 rounded-full px-4 py-3 text-[13.5px] font-semibold transition disabled:opacity-50 " +
             (copyState === "copied"
               ? "bg-emerald-400 text-ink-950"
               : copyState === "error"
                 ? "bg-rose-400 text-ink-950"
-                : "bg-ember-500 text-ink-950")
+                : "bg-ember-500 text-ink-950 active:bg-ember-400")
           }
         >
           {copyState === "copied" ? (
