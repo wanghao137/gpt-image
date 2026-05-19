@@ -17,12 +17,12 @@
 ## ✨ 核心特性
 
 - **静态优先**：基于 `vite-react-ssg`，构建期把每个路由预渲染成独立 HTML。一次构建产出约 **461** 个静态页面（435 个案例详情 + 19 个分类落地页 + 7 个静态页 + sitemap）。
-- **SEO 全套**：每页独立 `<title>` / `meta` / `canonical` / `og:*` / `twitter:*`，9 类 schema.org JSON-LD（`WebSite` / `ItemList` / `BreadcrumbList` / `CreativeWork` / `ImageObject` / `CollectionPage` / `Service` / `Offer` / `FAQPage`），构建后自动产出 `sitemap.xml`。
+- **SEO 全套**：每页独立 `<title>` / `meta` / `canonical` / `og:*` / `twitter:*`，8 类 schema.org JSON-LD（`WebSite` / `ItemList` / `BreadcrumbList` / `CreativeWork` / `ImageObject` / `CollectionPage` / `Service` / `FAQPage`），构建后自动产出 `sitemap.xml`。
 - **数据双源**：每天自动从上游 `awesome-gpt-image-2` 同步 + 本地 `data/manual/` 手动条目。同 ID 时手动覆盖上游，`hidden:true` 屏蔽上游条目。
 - **轻量后台**：`/admin` 是独立 Vite 入口，密码哈希网关 + GitHub Fine-grained PAT，**纯浏览器写仓库**，无任何服务端。
 - **图像优化**：`SmartImg` 三段降级 → wsrv.nl WebP → 原始 URL → 占位 SVG；卡片显示真实比例徽章，避免 CLS。
 - **用户向分类**：除上游 13 个原始分类外，再用规则引擎自动派生 19 个**用户意图**分类（`小红书封面` / `朋友圈九宫格` / `商家海报` / `人像写真` ……），驱动 `/category/:slug` 落地页。
-- **商业化闭环**：内嵌 `/services` 价格 + FAQ 页、`WeChatCTA` 微信咨询组件、移动端 sticky 行动栏，5 处转化入口。
+- **商业化闭环**：内嵌 `/services` 服务咨询 + FAQ 页、`WeChatCTA` 微信咨询组件、移动端 sticky 行动栏，5 处转化入口。
 
 ---
 
@@ -183,7 +183,7 @@ npm run preview    # 预览构建产物
 | `/category/:slug` | 用户意图分类落地（SSG 预渲染） | 19 |
 | `/templates` | 全部模板 | 1 |
 | `/guide` | 教程 / FAQ | 1 |
-| `/services` | 商业服务 + 价格 + FAQ | 1 |
+| `/services` | 商业服务 + 合作流程 + FAQ | 1 |
 | `/about` | 关于 | 1 |
 | `/agents` | Claude Code / Codex skill 安装引导 | 1 |
 | `/admin` | 内容后台（独立入口，noindex） | 1 |
@@ -276,14 +276,25 @@ Cloudflare Pages 免费版国内访问统一打境外 POP（实测 LAX 洛杉矶
 Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50ms，移动端首屏体验差距巨大。
 详见 [`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)。
 
-### GitHub Pages（备用）
+### GitHub Pages（备用镜像）
 
-`.github/workflows/deploy.yml` 已就绪：
+`.github/workflows/deploy.yml` 把 `dist/` 推到 GitHub Pages，仅作为 Vercel 不可用时的兜底镜像。
 
-- 每天 UTC 18:17 定时构建（自动拉取上游更新）
 - main 分支 push 触发
-- 手动 workflow_dispatch
+- 手动 `workflow_dispatch` 触发
 - 把 `VITE_ADMIN_PASSWORD_HASH` 配到 repo Variables 即可
+
+### 每日上游同步
+
+`.github/workflows/sync.yml` 每天 UTC 18:17（北京时间约 02:17）跑一次：
+
+- `npm run sync` 拉取 `awesome-gpt-image-2` 上游数据
+- `npm run migrate` 补齐 v2 字段
+- `public/data/*` 或 `data/manual/*` 有变化时，自动用 `github-actions[bot]` commit 回 main
+- 这次 push 同时触发 Vercel 自动部署 + GH Pages 兜底部署，无需 deploy hook 或额外 secret
+- 上游 CDN 全部失败时直接 fail（避免提交半空 `cases.json`）
+
+要让自动 commit 能 push 到 main，确认 repo Settings → Actions → General → Workflow permissions 选了 **Read and write permissions**。
 
 ---
 

@@ -1,11 +1,15 @@
 name: Deploy GitHub Pages
 
+# GH Pages is kept as a fallback mirror only. The live site is on Vercel
+# (auto-deploys on push to main). Daily upstream data sync lives in
+# `sync.yml` — running it here too would just re-deploy GH Pages with
+# no code or data delta. Triggers are limited to git push and manual
+# workflow_dispatch on purpose.
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: "17 18 * * *"
 
 permissions:
   contents: read

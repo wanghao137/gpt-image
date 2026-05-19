@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
  * Conversion CTA used at the bottom of the home page and inside every case
  * detail. Three jobs:
  *   1. Make it obvious there's a real person behind the gallery.
- *   2. Set price expectations (anchor + 48h delivery).
+ *   2. Anchor the value prop (48h delivery + free revisions).
  *   3. Single, unambiguous next step → /services.
+ *
+ * Pricing copy was intentionally removed — productized quoting is still
+ * being shaped, so the CTA points users to a contact / inquiry surface
+ * rather than promising numbers we can't honor at scale.
  */
 interface WeChatCTAProps {
   /** Optional contextual lead — e.g. the case title we're up-selling around. */
@@ -29,7 +33,7 @@ export function WeChatCTA({ context, variant = "default" }: WeChatCTAProps) {
           to="/services"
           className="btn-primary justify-center sm:justify-start"
         >
-          看报价 / 加微信
+          微信咨询定制
         </Link>
       </div>
     );
@@ -81,7 +85,7 @@ export function WeChatCTA({ context, variant = "default" }: WeChatCTAProps) {
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <Link to="/services" className="btn-primary">
-                查看报价与作品集
+                微信咨询定制
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
                   <path
                     fillRule="evenodd"

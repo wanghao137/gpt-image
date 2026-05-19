@@ -56,7 +56,7 @@ export function Footer() {
           <Link to="/services" className="footer-link font-medium text-ember-300 hover:text-ember-200">
             代做 / 定制 ▸
           </Link>
-          <Link to="/services#pricing" className="footer-link">价格说明</Link>
+          <Link to="/services#faq" className="footer-link">合作流程</Link>
           <Link to="/services#cases" className="footer-link">客户案例</Link>
           <Link to="/about" className="footer-link">关于我</Link>
         </FooterCol>

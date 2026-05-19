@@ -1,0 +1,97 @@
+name: Daily Upstream Sync
+
+# Runs `npm run sync` once a day, then commits any changes to public/data/*.
+# A push to main triggers the live Vercel deployment automatically (and the
+# GH Pages fallback workflow), so this single workflow keeps both surfaces
+# fresh without needing platform-specific deploy hooks or secrets.
+#
+# Why a separate workflow:
+#   - The old all-in-one `deploy.yml` cron only rebuilt the GH Pages mirror
+#     after the Vercel migration. Vercel does NOT poll for upstream changes;
+#     it only redeploys when something actually changes in git.
+#   - Splitting sync from deploy means data refreshes even on days when no
+#     code changes happen, and the resulting commit is the single trigger
+#     for every downstream deploy target.
+
+on:
+  schedule:
+    # 18:17 UTC ≈ 02:17 CST. Off-peak for both upstream CDNs and Vercel.
+    - cron: "17 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Don't queue parallel sync runs — if a manual run is in flight, skip
+  # the cron rather than racing it. New data will land on the next slot.
+  group: data-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need full history so the auto-commit shows up cleanly on main.
+          fetch-depth: 1
+          # Use the default GITHUB_TOKEN; pushes to protected branches
+          # require Settings → Actions → Workflow permissions =
+          # "Read and write permissions".
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync upstream → public/data/
+        # `--optional` keeps a partial build from blowing up on a transient
+        # CDN outage, but here we want hard failure: if upstream is down we
+        # don't want to commit a half-empty cases.json. So omit it.
+        run: npm run sync
+
+      - name: Apply v2 field migration
+        # Idempotent — re-runs are no-ops if all fields are already present.
+        # Doing it here keeps a manual sync + commit path producing the
+        # exact same on-disk shape as a full local `npm run build`.
+        run: npm run migrate
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if git diff --quiet -- public/data data/manual; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes — skipping commit."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- public/data data/manual
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data data/manual
+          # Pull a one-line summary for the commit body so the history is
+          # actually scannable instead of a wall of "auto sync" entries.
+          summary=$(git diff --cached --stat -- public/data | tail -n 1 | sed 's/^ *//')
+          git commit -m "data(sync): daily upstream refresh" \
+            -m "Triggered by ${GITHUB_EVENT_NAME} on $(date -u +%Y-%m-%d) UTC" \
+            -m "Changes: ${summary}"
+          git push origin HEAD:main
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.diff.outputs.changed }}" = "true" ]; then
+            echo "✅ Pushed updated data to main; Vercel will redeploy automatically." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "ℹ️ Upstream is already in sync — no commit, no redeploy." >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -28,12 +28,12 @@ export default function HomePage() {
 
   const heroPrimary = cases[0];
   const heroGrid = useMemo(() => cases.slice(1, 5), [cases]);
-  // Featured grid: 6 cards on the home page. We used to ship 12; on a
-  // phone that meant ~12 image fetches racing the hero, half of which the
-  // user never even saw before clicking through. Six is what fits in two
-  // mobile-grid rows without scrolling on a typical 6.7" phone, plus a bit
-  // of "there's more here" affordance.
-  const featured = useMemo(() => cases.slice(0, 6), [cases]);
+  // Featured grid: 12 cards on the home page — matches the section heading
+  // ("本周精选 12 个案例") and gives the gallery enough surface area to
+  // showcase variety. Mobile perf is still protected via priorityCount=1
+  // below, plus lazy-loading on every non-priority card; only the first
+  // featured card competes with the hero for fetchpriority=high.
+  const featured = useMemo(() => cases.slice(0, 12), [cases]);
 
   const { has, toggle } = useFavorites();
 

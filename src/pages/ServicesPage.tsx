@@ -1,47 +1,13 @@
 import { Link } from "react-router-dom";
 import { SEO, SITE } from "../components/SEO";
 
-const PRICING = [
-  {
-    tier: "单图定制",
-    price: "¥ 50 起",
-    cadence: "/ 张",
-    features: [
-      "48 小时内交付",
-      "免费修改 3 次",
-      "4K 高清输出",
-      "适配小红书 / 朋友圈 / 抖音",
-    ],
-    cta: "适合一次性需求",
-    highlight: false,
-  },
-  {
-    tier: "包月套餐",
-    price: "¥ 599",
-    cadence: "/ 月起",
-    features: [
-      "每月 20 张定制",
-      "排期优先",
-      "Prompt 模板沉淀",
-      "可改文字图层 / PSD",
-    ],
-    cta: "推荐：博主 / 中小商家",
-    highlight: true,
-  },
-  {
-    tier: "长期合作",
-    price: "面议",
-    cadence: "",
-    features: [
-      "品牌视觉一致性",
-      "专属 Prompt 库",
-      "节日营销节点保障",
-      "可签合同与 NDA",
-    ],
-    cta: "适合品牌方 / 机构",
-    highlight: false,
-  },
-];
+// Pricing intentionally omitted while the productized quoting flow is still
+// being shaped. The page used to show three tiers + price anchors, but we
+// pulled them: posting numbers we can't actually honor at scale was creating
+// expectation gaps in WeChat. For now the page is positioned as a contact /
+// inquiry surface — concrete quotes happen 1:1 over WeChat after we see the
+// brief. When we have a real price sheet, restore PRICING + Offer schema
+// from git history.
 
 const SCENARIOS = [
   { title: "小红书博主", desc: "高点击封面、风格一致的 9:16 视觉" },
@@ -53,7 +19,7 @@ const SCENARIOS = [
 const FAQ: { q: string; a: string }[] = [
   {
     q: "出图周期一般多久？修改怎么算？",
-    a: "单图 48 小时内交付，包月套餐当周排期。每张包含 3 次免费修改，超出后按 ¥ 20/次 计算或合并到下一档。",
+    a: "单图通常 48 小时内交付，复杂的多图项目当周排期。每张包含 3 次免费修改，超出后再合并到下一轮迭代里，不会临时收费。",
   },
   {
     q: "能保证 100% 还原我的需求吗？",
@@ -68,10 +34,6 @@ const FAQ: { q: string; a: string }[] = [
     a: "案例库里看得到的所有风格都能做：胶片人像、3D IP 形象、信息图、品牌 KV、儿童写真、节日海报等。看到喜欢的案例直接发我对应链接即可。",
   },
   {
-    q: "支持开发票吗？怎么付款？",
-    a: "支持。微信、支付宝、对公转账均可。¥ 599 以上提供电子发票（增值税普通发票）。¥ 3000 以上可签合同。",
-  },
-  {
     q: "需要我提供什么资料？",
     a: "通用情况下：参考风格 / 文字内容 / 比例平台 / 颜色品牌色。涉及人像可提供 1–3 张身份参考图。资料越完整出图越准。",
   },
@@ -79,6 +41,7 @@ const FAQ: { q: string; a: string }[] = [
 
 export default function ServicesPage() {
   // schema.org Service + FAQPage — helps Google show rich results.
+  // Offer schema is intentionally omitted: no price, no offer.
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -88,13 +51,6 @@ export default function ServicesPage() {
     description:
       "按需定制 GPT-Image 2 中文出图：小红书封面、商家海报、人像写真、电商主图。48 小时交付，免费修改 3 次。",
     serviceType: "AI 图像生成 / 视觉定制",
-    offers: PRICING.map((p) => ({
-      "@type": "Offer",
-      name: p.tier,
-      price: p.price.replace(/[^0-9]/g, "") || "0",
-      priceCurrency: "CNY",
-      description: p.cta,
-    })),
   };
 
   const faqLd = {
@@ -111,7 +67,7 @@ export default function ServicesPage() {
     <>
       <SEO
         title="代做 / 定制 · 小红书封面 · 商家海报 · 人像写真"
-        description="按需定制 GPT-Image 2 出图服务。48 小时交付，免费修改 3 次，4K 高清，已为 60+ 客户合作。单图 / 包月 / 长期合作三档可选。"
+        description="按需定制 GPT-Image 2 出图服务。48 小时交付，免费修改 3 次，4K 高清，已为 60+ 客户合作。"
         path="/services"
         jsonLd={[serviceLd, faqLd]}
       />
@@ -139,57 +95,65 @@ export default function ServicesPage() {
             </span>
           ))}
         </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#wechat" className="btn-primary">
+            微信咨询
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+              <path
+                fillRule="evenodd"
+                d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </a>
+          <a href="#faq" className="btn-ghost">
+            常见问题
+          </a>
+        </div>
       </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="container-narrow scroll-mt-20 py-12 sm:py-16">
-        <h2 className="serif-display text-[24px] text-ink-50 sm:text-3xl">价格与套餐</h2>
-        <div className="mt-6 grid gap-5 sm:grid-cols-3">
-          {PRICING.map((p) => (
-            <div
-              key={p.tier}
-              className={
-                "relative flex flex-col rounded-2xl border p-6 transition " +
-                (p.highlight
-                  ? "border-ember-500/40 bg-ember-500/[0.04] shadow-ember"
-                  : "border-white/[0.08] bg-white/[0.02]")
-              }
+      {/* HOW IT WORKS — replaces the old PRICING grid; same visual rhythm,
+          no numbers we can't honor yet. */}
+      <section className="container-narrow scroll-mt-20 py-12 sm:py-16">
+        <h2 className="serif-display text-[24px] text-ink-50 sm:text-3xl">合作流程</h2>
+        <p className="mt-2 text-[14px] text-ink-400">
+          每个项目都从一次具体沟通开始。把需求发我，我先评估方向再给方案。
+        </p>
+        <ol className="mt-6 grid gap-4 sm:grid-cols-3">
+          {[
+            {
+              step: "01",
+              title: "微信发需求",
+              body: "把参考图、品牌色、平台、文字内容打包发我。1 小时内反馈方向是否能做，以及大致工时。",
+            },
+            {
+              step: "02",
+              title: "草图确认方向",
+              body: "先用 1–2 张草图锁定大方向，避免后期返工。方向确认后再开始正式出图。",
+            },
+            {
+              step: "03",
+              title: "出图 + 微调交付",
+              body: "48 小时内交付首版。每张包含 3 次免费修改，4K 高清成品 + 可商用授权。",
+            },
+          ].map((item) => (
+            <li
+              key={item.step}
+              className="surface relative flex flex-col p-6"
             >
-              {p.highlight && (
-                <span className="absolute right-4 top-4 rounded-full border border-ember-500/40 bg-ember-500/15 px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-wider text-ember-100">
-                  推荐
-                </span>
-              )}
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-300">
-                {p.tier}
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ember-300">
+                Step {item.step}
+              </span>
+              <strong className="mt-2 text-[16px] font-semibold text-ink-50">
+                {item.title}
+              </strong>
+              <p className="mt-3 text-[13.5px] leading-relaxed text-ink-300">
+                {item.body}
               </p>
-              <p className="mt-3 flex items-baseline gap-1">
-                <span className="serif-display text-3xl text-ink-50 sm:text-4xl">{p.price}</span>
-                <span className="text-[12px] text-ink-400">{p.cadence}</span>
-              </p>
-              <ul className="mt-5 space-y-2 text-[13.5px] text-ink-200">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
-                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-ember-400" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-[12px] text-ink-400">{p.cta}</p>
-              <a
-                href="#wechat"
-                className={
-                  "mt-6 inline-flex items-center justify-center rounded-full px-4 py-2.5 text-[13px] font-semibold transition " +
-                  (p.highlight
-                    ? "bg-ember-500 text-ink-950 hover:bg-ember-400"
-                    : "border border-white/10 bg-white/[0.03] text-ink-100 hover:border-white/25")
-                }
-              >
-                微信咨询
-              </a>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* WECHAT QR */}
@@ -202,11 +166,11 @@ export default function ServicesPage() {
                 扫码加微信，备注「来自 Gallery」
               </h2>
               <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-ink-300 sm:text-[15px]">
-                工作日 10:00–22:00 在线。把你的需求 / 参考图发给我，我会在 1 小时内反馈方向与报价。
+                工作日 10:00–22:00 在线。把你的需求 / 参考图发给我，我会在 1 小时内反馈是否能做以及大致方向。
               </p>
               <ul className="mt-5 grid gap-2 text-[13.5px] text-ink-200 sm:grid-cols-2">
                 <li>· 不收顾问费 / 沟通成本</li>
-                <li>· 仅在确认方向后开始计费</li>
+                <li>· 方向确认后才开始出图</li>
                 <li>· 可签合同 + 开发票</li>
                 <li>· 接受微信 / 支付宝 / 对公</li>
               </ul>
