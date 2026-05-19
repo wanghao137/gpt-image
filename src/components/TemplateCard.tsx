@@ -8,7 +8,14 @@ interface TemplateCardProps {
 }
 
 function TemplateCardImpl({ data }: TemplateCardProps) {
-  const { state, copy } = useCopy();
+  const { state, copy } = useCopy(1500, {
+    successTitle: "模板已复制",
+    successDescription: "去 ChatGPT 粘贴并替换占位",
+    successAction: {
+      label: "打开 ChatGPT",
+      href: "https://chat.openai.com/",
+    },
+  });
   const [imgLoaded, setImgLoaded] = useState(false);
   const tags = data.tags.slice(0, 3);
 

@@ -12,8 +12,14 @@ const SKILL_REQUEST = "Use gpt-image-2-style-library to create a city life syste
  * Moved off the homepage where it was scaring off non-technical visitors.
  */
 export default function AgentsPage() {
-  const cmdCopy = useCopy(1500);
-  const reqCopy = useCopy(1500);
+  const cmdCopy = useCopy(1500, {
+    successTitle: "安装命令已复制",
+    successDescription: "粘贴到终端运行",
+  });
+  const reqCopy = useCopy(1500, {
+    successTitle: "请求已复制",
+    successDescription: "粘贴到 Claude Code / Codex",
+  });
   const [count] = useState(ALL_TEMPLATES.length);
 
   return (

@@ -3,12 +3,15 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { BackToTop } from "../components/BackToTop";
+import { ToastViewport } from "../components/Toast";
 
 /**
  * Wraps every route. Lives outside individual pages so that:
  *   - The header/footer DOM is stable across SPA navigation (no re-mount).
  *   - Per-page <SEO> tags can replace head atoms cleanly.
  *   - Scroll resets at the top on every navigation, except for in-page anchors.
+ *   - One ToastViewport mounts at the root — anywhere in the app can fire
+ *     toasts via `toast.success(...)` without prop-drilling.
  */
 export default function RootLayout() {
   const location = useLocation();
@@ -27,6 +30,7 @@ export default function RootLayout() {
       </main>
       <Footer />
       <BackToTop />
+      <ToastViewport />
     </div>
   );
 }

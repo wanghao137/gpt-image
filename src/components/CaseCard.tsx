@@ -1,11 +1,14 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
+import { useLongPress } from "../hooks/useLongPress";
 import { tagLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
+import { transformUrl } from "../lib/img";
 import { SmartImg } from "./SmartImg";
+import { CardActionSheet, type CardAction } from "./CardActionSheet";
 
 interface CaseCardProps {
   data: PromptCase;
@@ -58,11 +61,11 @@ function HeartIcon({ filled }: { filled: boolean }) {
     </svg>
   );
 }
-function CopyIcon() {
+function CopyIcon({ size = 14 }: { size?: number }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
+      style={{ width: size, height: size }}
       fill="none"
       stroke="currentColor"
       strokeWidth="1.8"
@@ -91,28 +94,92 @@ function CheckIcon() {
     </svg>
   );
 }
+function ZoomIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <circle cx="9" cy="9" r="5.5" />
+      <path d="m13.5 13.5 3 3M9 6.5v5M6.5 9h5" />
+    </svg>
+  );
+}
+function ArrowRightIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+function FolderIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <path d="M3 6.5a1.5 1.5 0 0 1 1.5-1.5h3l1.5 1.5h6.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 14V6.5Z" />
+    </svg>
+  );
+}
 
 /**
  * Editorial-grade case card.
  *
- * Design rules:
- *   - Image is the hero. Everything else is in service of it.
- *   - Default state shows nothing on top of the image — no badges, no chips.
- *     The viewer can scan a 4-column grid of pure imagery.
- *   - Hover surfaces ratio + favorite + author + a "View" affordance.
- *   - Footer uses a single horizontal row: title / 2 tags / copy button.
- *     No source line, no category eyebrow — both are reachable via hover or
- *     the detail page.
- *   - Copy button is outline by default; fills with ember on hover. This way
- *     a 4-up grid doesn't have 4 saturated CTAs fighting for attention.
+ * Layout:
+ *   - Mobile: image → title (one line) → primary action row (Copy + Favorite).
+ *     The category/tag eyebrow that used to live on the card is now reachable
+ *     via long-press menu — fewer touch targets fighting for the user's
+ *     thumb, and no "I tapped the title but landed on a category" surprises.
+ *   - Desktop: same image, but the secondary metadata row (category · tags)
+ *     stays visible. Pointer precision is fine, info density is welcome.
+ *
+ * Gestures:
+ *   - Long-press (mobile) / right-click (desktop): opens CardActionSheet
+ *     with primary actions: Copy, Open detail, View full image, Favorite,
+ *     Browse same category.
+ *   - Tap: navigate to detail.
+ *   - Tap copy button: copy + global toast (with "去 ChatGPT" action).
+ *
+ * Performance:
+ *   - Prompt prefetch on intersection AND hover (warm cache for instant copy).
+ *   - `priority` flag controls eager fetch + fetchpriority=high; flip on for
+ *     above-the-fold cards only.
  */
 function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: CaseCardProps) {
-  const { state, copy } = useCopy();
+  const navigate = useNavigate();
+  const { state, copy } = useCopy(1500, {
+    successTitle: "Prompt 已复制",
+    successDescription: "去 ChatGPT 粘贴出图",
+    successAction: {
+      label: "打开 ChatGPT",
+      href: "https://chat.openai.com/",
+    },
+  });
   const [imgErr, setImgErr] = useState(false);
   const [copying, setCopying] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const articleRef = useRef<HTMLElement | null>(null);
   const tags = tagsOf(data);
+  const detailHref = `/case/${data.slug}`;
 
+  // ── Prompt prefetch ──
   useEffect(() => {
     const el = articleRef.current;
     if (!el) return;
@@ -135,6 +202,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
     return () => io.disconnect();
   }, [data.id]);
 
+  // ── Copy handler (shared by inline button + action sheet) ──
   const handleCopy = useCallback(async () => {
     const cached = getCachedPrompt(data.id);
     if (cached) {
@@ -154,165 +222,284 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
     }
   }, [copy, data.id]);
 
-  const detailHref = `/case/${data.slug}`;
+  // ── Long press / right click → action sheet ──
+  const longPress = useLongPress({
+    onLongPress: () => setMenuOpen(true),
+  });
+
+  const sheetActions: CardAction[] = [
+    {
+      key: "copy",
+      label: state === "copied" ? "已复制" : "复制 Prompt",
+      icon: state === "copied" ? <CheckIcon /> : <CopyIcon size={16} />,
+      variant: "accent",
+      hint: "粘贴到 ChatGPT 即可出图",
+      onSelect: () => {
+        void handleCopy();
+      },
+    },
+    {
+      key: "detail",
+      label: "查看案例详情",
+      icon: <ArrowRightIcon />,
+      hint: "完整 Prompt + 比例 + 可商用信息",
+      onSelect: () => navigate(detailHref),
+    },
+    {
+      key: "lightbox",
+      label: "打开大图",
+      icon: <ZoomIcon />,
+      hint: "进入详情页后双指缩放查看",
+      onSelect: () => navigate(detailHref + "?z=1"),
+    },
+    {
+      key: "fav",
+      label: favorited ? "取消收藏" : "收藏",
+      icon: <HeartIcon filled={favorited} />,
+      onSelect: () => onToggleFavorite(data.id),
+    },
+    {
+      key: "category",
+      label: `更多 ${userCategoryLabel(data.userCategory)}`,
+      icon: <FolderIcon />,
+      hint: "浏览同类型案例",
+      onSelect: () => navigate(`/category/${data.userCategory}`),
+    },
+  ];
 
   return (
-    <article
-      ref={articleRef}
-      onMouseEnter={() => prefetchPrompt(data.id)}
-      className="case-card group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
-    >
-      <Link
-        to={detailHref}
-        className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
-        aria-label={`查看案例 ${data.title}`}
+    <>
+      <article
+        ref={articleRef}
+        onMouseEnter={() => prefetchPrompt(data.id)}
+        {...longPress}
+        // Block iOS callout (long-press → "Save Image / Copy Image") so our
+        // menu can take over. Without this the OS sheet fights ours.
+        style={{ WebkitTouchCallout: "none" }}
+        className="case-card group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
       >
-        <div className="relative overflow-hidden bg-ink-850" style={aspectStyle(data.ratio)}>
-          {imgErr ? (
-            <img
-              src={FALLBACK}
-              alt={data.imageAlt || data.title}
-              width={640}
-              height={800}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          ) : (
-            <SmartImg
-              src={data.imageUrl}
-              alt={data.imageAlt || data.title}
-              width={640}
-              height={800}
-              // Cover DPR=1/2/3 — most high-end Android phones report DPR 2.75–3.
-              // Without an 800w step, a 360px wide phone with DPR 3 was
-              // upscaling 640w (the previous max) to 1080 physical px,
-              // producing visible softness on the case art.
-              widths={[280, 420, 560, 800]}
-              baseWidth={280}
-              sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-              loading={priority ? "eager" : "lazy"}
-              fetchPriority={priority ? "high" : "auto"}
-              onError={() => setImgErr(true)}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
-            />
-          )}
+        <Link
+          to={detailHref}
+          className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
+          aria-label={`查看案例 ${data.title}`}
+        >
+          <div className="relative overflow-hidden bg-ink-850" style={aspectStyle(data.ratio)}>
+            {imgErr ? (
+              <img
+                src={FALLBACK}
+                alt={data.imageAlt || data.title}
+                width={640}
+                height={800}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <SmartImg
+                src={data.imageUrl}
+                alt={data.imageAlt || data.title}
+                width={640}
+                height={800}
+                widths={[280, 420, 560, 800]}
+                baseWidth={280}
+                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                loading={priority ? "eager" : "lazy"}
+                fetchPriority={priority ? "high" : "auto"}
+                onError={() => setImgErr(true)}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+              />
+            )}
 
-          {/* Hover-only gradient frames the image without polluting default state. */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+            {/* Hover-only gradient frames the image without polluting default state. */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
-          {/* Favorite — always visible on mobile (with stronger contrast),
-              hover-only on desktop. */}
+            {/* Favorite — always visible on mobile (with stronger contrast),
+                hover-only on desktop. */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onToggleFavorite(data.id);
+              }}
+              aria-label={favorited ? "取消收藏" : "收藏"}
+              className={
+                "absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
+                (favorited
+                  ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
+                  : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
+              }
+            >
+              <HeartIcon filled={favorited} />
+            </button>
+
+            {/* Hover overlay: ratio + author + view affordance (desktop) */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden items-end justify-between gap-2 p-3 opacity-0 transition duration-500 group-hover:opacity-100 sm:flex">
+              <div className="min-w-0 flex-1 text-[11px] text-ink-200">
+                <span className="rounded-md border border-white/15 bg-ink-950/60 px-1.5 py-0.5 font-mono backdrop-blur">
+                  {data.ratio}
+                </span>
+                {data.source && (
+                  <span className="ml-2 truncate align-middle text-[11px] text-ink-300">
+                    {data.source}
+                  </span>
+                )}
+              </div>
+              <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[11px] font-medium text-ink-50 backdrop-blur">
+                查看
+                <ArrowRightIcon />
+              </span>
+            </div>
+
+            {/* Always-on ratio chip (mobile only) — replaces the hover row.
+                On a phone, hover doesn't exist; this gives the same metadata
+                without obscuring the image. */}
+            <div className="pointer-events-none absolute left-2.5 bottom-2.5 inline-flex items-center gap-1 rounded-md border border-white/15 bg-ink-950/60 px-1.5 py-0.5 text-[10px] font-mono text-ink-200 backdrop-blur sm:hidden">
+              {data.ratio}
+            </div>
+          </div>
+        </Link>
+
+        {/* MOBILE FOOTER — single-line title + primary action row */}
+        <div className="flex flex-col gap-2 px-3 pb-3 pt-2.5 sm:hidden">
+          <Link
+            to={detailHref}
+            className="block text-[14px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200"
+          >
+            <span className="line-clamp-1">{data.title}</span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleCopy();
+              }}
+              disabled={copying}
+              aria-label="复制 Prompt"
+              className={
+                "inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-xl text-[13.5px] font-semibold transition disabled:opacity-60 " +
+                (state === "copied"
+                  ? "bg-emerald-400/95 text-ink-950"
+                  : state === "error"
+                    ? "bg-rose-400/90 text-ink-950"
+                    : "bg-ember-500/95 text-ink-950 active:bg-ember-400")
+              }
+            >
+              {copying ? (
+                "…"
+              ) : state === "copied" ? (
+                <>
+                  <CheckIcon /> 已复制
+                </>
+              ) : state === "error" ? (
+                "失败"
+              ) : (
+                <>
+                  <CopyIcon /> 复制 Prompt
+                </>
+              )}
+            </button>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setMenuOpen(true);
+              }}
+              aria-label="更多操作"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-ink-300 active:bg-white/[0.06]"
+            >
+              <DotsIcon />
+            </button>
+          </div>
+        </div>
+
+        {/* DESKTOP FOOTER — original dense layout */}
+        <div className="hidden items-center gap-2 px-3 pb-3 pt-2.5 sm:flex sm:px-3.5 sm:pt-3">
+          <div className="min-w-0 flex-1">
+            <Link
+              to={detailHref}
+              className="block text-[13.5px] font-semibold leading-snug text-ink-100 transition group-hover:text-ember-200"
+            >
+              <span className="line-clamp-1">{data.title}</span>
+            </Link>
+            <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-500">
+              <Link
+                to={`/category/${data.userCategory}`}
+                className="truncate transition hover:text-ember-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {userCategoryLabel(data.userCategory)}
+              </Link>
+              {tags.length > 0 && <span className="text-ink-700">·</span>}
+              {tags.map((tag, i) => (
+                <span key={`${data.id}-${tag}`} className="truncate text-ink-400">
+                  {tagLabel(tag)}
+                  {i < tags.length - 1 && <span className="ml-1.5 text-ink-700">·</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <button
             type="button"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              onToggleFavorite(data.id);
+              handleCopy();
             }}
-            aria-label={favorited ? "取消收藏" : "收藏"}
+            disabled={copying}
+            aria-label="复制 Prompt"
             className={
-              "absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
-              (favorited
-                ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
-                : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
+              "inline-flex h-8 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 " +
+              (state === "copied"
+                ? "border-emerald-400/40 bg-emerald-400/15 text-emerald-200"
+                : state === "error"
+                  ? "border-rose-400/40 bg-rose-400/15 text-rose-200"
+                  : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-ember-500/50 hover:bg-ember-500/10 hover:text-ember-100")
             }
           >
-            <HeartIcon filled={favorited} />
+            {copying ? (
+              <span className="text-[11px]">…</span>
+            ) : state === "copied" ? (
+              <>
+                <CheckIcon />
+                <span>已复制</span>
+              </>
+            ) : state === "error" ? (
+              <span className="text-[11px]">失败</span>
+            ) : (
+              <>
+                <CopyIcon />
+                <span>复制</span>
+              </>
+            )}
           </button>
-
-          {/* Hover overlay: ratio + author + view affordance */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3 opacity-0 transition duration-500 group-hover:opacity-100">
-            <div className="min-w-0 flex-1 text-[11px] text-ink-200">
-              <span className="rounded-md border border-white/15 bg-ink-950/60 px-1.5 py-0.5 font-mono backdrop-blur">
-                {data.ratio}
-              </span>
-              {data.source && (
-                <span className="ml-2 truncate align-middle text-[11px] text-ink-300">
-                  {data.source}
-                </span>
-              )}
-            </div>
-            <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[11px] font-medium text-ink-50 backdrop-blur">
-              查看
-              <svg viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3" aria-hidden="true">
-                <path
-                  fillRule="evenodd"
-                  d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
-          </div>
         </div>
-      </Link>
+      </article>
 
-      <div className="flex items-center gap-2 px-3 pb-3 pt-2.5 sm:px-3.5 sm:pt-3">
-        <div className="min-w-0 flex-1">
-          <Link
-            to={detailHref}
-            className="block text-[14px] font-semibold leading-[1.35] text-ink-100 transition group-hover:text-ember-200 sm:text-[13.5px] sm:leading-snug"
-          >
-            <span className="line-clamp-2 sm:line-clamp-1">{data.title}</span>
-          </Link>
-          <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-500">
-            <Link
-              to={`/category/${data.userCategory}`}
-              className="truncate transition hover:text-ember-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {userCategoryLabel(data.userCategory)}
-            </Link>
-            {tags.length > 0 && <span className="text-ink-700">·</span>}
-            {tags.map((tag, i) => (
-              <span
-                key={`${data.id}-${tag}`}
-                className="truncate text-ink-400"
-              >
-                {tagLabel(tag)}
-                {i < tags.length - 1 && <span className="ml-1.5 text-ink-700">·</span>}
-              </span>
-            ))}
-          </div>
-        </div>
+      <CardActionSheet
+        open={menuOpen}
+        title={data.title}
+        caption={`${userCategoryLabel(data.userCategory)} · ${data.ratio}`}
+        image={transformUrl(data.imageUrl, { width: 168 })}
+        actions={sheetActions}
+        onClose={() => setMenuOpen(false)}
+      />
+    </>
+  );
+}
 
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            handleCopy();
-          }}
-          disabled={copying}
-          aria-label="复制 Prompt"
-          className={
-            // h-9 (36px) on mobile clears the 32px touch-target floor most
-            // a11y reviewers flag for; collapses to h-8 on desktop where
-            // pointer precision is fine.
-            "inline-flex h-9 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 sm:h-8 " +
-            (state === "copied"
-              ? "border-emerald-400/40 bg-emerald-400/15 text-emerald-200"
-              : state === "error"
-                ? "border-rose-400/40 bg-rose-400/15 text-rose-200"
-                : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-ember-500/50 hover:bg-ember-500/10 hover:text-ember-100")
-          }
-        >
-          {copying ? (
-            <span className="text-[11px]">…</span>
-          ) : state === "copied" ? (
-            <>
-              <CheckIcon />
-              <span className="hidden sm:inline">已复制</span>
-            </>
-          ) : state === "error" ? (
-            <span className="text-[11px]">失败</span>
-          ) : (
-            <>
-              <CopyIcon />
-              <span className="hidden sm:inline">复制</span>
-            </>
-          )}
-        </button>
-      </div>
-    </article>
+function DotsIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <path d="M4 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm4.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM13 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
+    </svg>
   );
 }
 

@@ -51,7 +51,14 @@ export default function CaseDetailPage() {
   const c = slug ? getCaseBySlug(slug) : undefined;
   const { has, toggle } = useFavorites();
   const fetched = usePrompt(c?.id ?? null);
-  const { state: copyState, copy } = useCopy();
+  const { state: copyState, copy } = useCopy(1500, {
+    successTitle: "Prompt 已复制",
+    successDescription: "去 ChatGPT 粘贴出图",
+    successAction: {
+      label: "打开 ChatGPT",
+      href: "https://chat.openai.com/",
+    },
+  });
   const [tab, setTab] = useState<"cn" | "en">("cn");
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
