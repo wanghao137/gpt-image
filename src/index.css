@@ -160,6 +160,10 @@
     @apply inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.03] px-1.5 py-0.5 text-[10.5px] font-medium tracking-wide text-ink-300;
   }
 
+  .footer-link {
+    @apply block text-[13px] text-ink-400 transition hover:text-ink-50;
+  }
+
   .serif-display {
     font-family: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
     font-feature-settings: "liga", "dlig";
