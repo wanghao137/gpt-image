@@ -262,9 +262,11 @@ export default function CaseDetailPage() {
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">
                     Prompt
                   </h2>
-                  <div className="inline-flex rounded-full border border-white/10 bg-ink-950/40 p-0.5 text-[11px] font-medium">
+                  <div className="inline-flex rounded-full border border-white/10 bg-ink-950/40 p-0.5 text-[11px] font-medium" role="tablist" aria-label="Prompt 语言">
                     <button
                       type="button"
+                      role="tab"
+                      aria-selected={tab === "cn"}
                       onClick={() => setTab("cn")}
                       className={
                         "rounded-full px-2.5 py-0.5 transition " +
@@ -277,6 +279,8 @@ export default function CaseDetailPage() {
                     </button>
                     <button
                       type="button"
+                      role="tab"
+                      aria-selected={tab === "en"}
                       onClick={() => setTab("en")}
                       className={
                         "rounded-full px-2.5 py-0.5 transition " +

@@ -230,7 +230,7 @@ export default function HomePage() {
                         key={item.id}
                         to={`/case/${item.slug}`}
                         className={
-                          "group card-spotlight relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
+                          "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
                           layout
                         }
                         style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}

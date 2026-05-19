@@ -198,33 +198,15 @@
     opacity: 1;
   }
 
-  /* Marquee row for category showcase */
-  .marquee {
-    display: flex;
-    gap: 1rem;
-    width: max-content;
-    animation: marquee 60s linear infinite;
-  }
-  .marquee:hover {
-    animation-play-state: paused;
-  }
-  .marquee-reverse {
-    animation-direction: reverse;
-  }
-
-  /* Pause the entire ticker when its wrapper is offscreen — saves CPU/battery
-     on long sessions and dramatically reduces jank on low-end mobile. */
-  .ticker-wrap {
-    content-visibility: auto;
-    contain-intrinsic-size: 200px 100%;
-  }
-  .ticker-wrap:not(:hover) .marquee {
-    /* default keeps animation; offscreen pause handled by content-visibility above */
-  }
-
-  @keyframes marquee {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(-50%, 0, 0); }
+  /* Section divider — subtle ember line */
+  .divider-ember {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(217, 119, 87, 0.4),
+      transparent
+    );
   }
 
   @keyframes fadeUp {
@@ -264,17 +246,6 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .ken-burns > img { animation: none; }
-  }
-
-  /* Section divider — subtle ember line */
-  .divider-ember {
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(217, 119, 87, 0.4),
-      transparent
-    );
   }
 
   /*
@@ -407,18 +378,6 @@
   .scrollbar-thin::-webkit-scrollbar {
     width: 6px;
     height: 6px;
-  }
-
-  /* Performance-friendly fade-in on intersection */
-  .reveal {
-    opacity: 0;
-    transform: translate3d(0, 12px, 0);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-    will-change: opacity, transform;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 
   /* GPU hint for hover-rich elements */

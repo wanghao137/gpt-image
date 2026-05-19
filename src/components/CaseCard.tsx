@@ -423,7 +423,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
             >
               <span className="line-clamp-1">{data.title}</span>
             </Link>
-            <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-500">
+            <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-400">
               <Link
                 to={`/category/${data.userCategory}`}
                 className="truncate transition hover:text-ember-200"
@@ -431,11 +431,11 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               >
                 {userCategoryLabel(data.userCategory)}
               </Link>
-              {tags.length > 0 && <span className="text-ink-700">·</span>}
+              {tags.length > 0 && <span className="text-ink-600">·</span>}
               {tags.map((tag, i) => (
-                <span key={`${data.id}-${tag}`} className="truncate text-ink-400">
+                <span key={`${data.id}-${tag}`} className="truncate text-ink-300">
                   {tagLabel(tag)}
-                  {i < tags.length - 1 && <span className="ml-1.5 text-ink-700">·</span>}
+                  {i < tags.length - 1 && <span className="ml-1.5 text-ink-600">·</span>}
                 </span>
               ))}
             </div>
