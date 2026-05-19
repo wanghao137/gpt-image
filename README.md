@@ -326,7 +326,9 @@ Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50m
 
 ## 🗺️ 路线图与技术债
 
-完整的工程交接、剩余任务、优先级、踩坑提示见 [`docs/ROADMAP.md`](./docs/ROADMAP.md)。
+- 系统架构基线（接手开发的人先看这份）：[`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
+- 部署历史与决策记录（CF Pages → Vercel、COS 启停）：[`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)
+- 工程交接与待办清单：[`docs/ROADMAP.md`](./docs/ROADMAP.md)
 
 主要待办（节选）：
 

@@ -15,7 +15,7 @@
     -->
     <meta
       name="description"
-      content="小红书封面、商家海报、人像写真、信息图——435+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt，一键复制就能出图。"
+      content="小红书封面、商家海报、人像写真、信息图——435+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt,一键复制就能出图。"
     />
     <meta name="author" content="GPT-Image 2 中文案例库" />
     <meta name="keywords" content="GPT-Image 2, GPT-Image 提示词, AI 图片提示词, 小红书封面, 商家海报, 人像写真, AI 海报, 提示词案例" />
@@ -23,50 +23,62 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--
       Image delivery: every image is baked into /images/* during the
-      `prebuild` script (`scripts/build-images.mjs`), so all production
-      requests are same-origin and need no preconnect. The wsrv.nl
-      preconnect that used to sit here is gone — kept SmartImg's wsrv
-      fallback path for defensive edge cases (an upstream URL the build
-      didn't get to rewrite), but those should never happen in
-      production and aren't worth preconnecting for.
+      `prebuild` script (`scripts/build-images.mjs`), with WebP variants
+      at 320/480/640/960 widths plus a canonical 1200 px JPEG fallback.
+      All same-origin, no preconnect needed.
+
+      Fonts: Instrument Serif is self-hosted under /fonts/. We dropped the
+      previous Google Fonts <link> because fonts.googleapis.com regularly
+      blocks for 5-15 seconds on Chinese mobile networks before the browser
+      gives up and falls back. With self-hosted woff2 (~15KB each, latin
+      subset) the font is loaded from the same Vercel edge as the HTML —
+      first paint is instant, and the headlines stop flickering between
+      system serif and Instrument Serif.
     -->
 
-    <link rel="preload" as="fetch" href="/data/cases.json" />
-
     <!--
-      Font strategy (mobile-first):
-        - We previously preloaded Inter 400/500/600/700/800 + Instrument Serif
-          + JetBrains Mono. ~180KB of font CSS + woff2 just for the headline
-          typeface, on a Chinese-language site where Inter falls back to the
-          system font for 99% of glyphs anyway.
-        - Strip Inter and JetBrains Mono entirely. System UI handles them.
-        - Keep Instrument Serif because it's the *only* visual element that
-          makes the brand recognisable, and load just the two weights actually
-          referenced (italic + roman). Saves ~120KB on first load.
+      Preload the headline font so it arrives during initial connection
+      multiplexing rather than blocking the first paint.
+      `crossorigin` is required even for same-origin fonts when used with
+      preload — browsers fetch fonts in CORS mode by default and a
+      mismatch invalidates the preload.
     -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      as="font"
+      type="font/woff2"
+      href="/fonts/instrument-serif-regular.woff2"
+      crossorigin
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      />
-    </noscript>
 
     <style>
+      /* Self-hosted Instrument Serif. Latin subset only — covers all the
+         glyphs we actually render in headlines (the Chinese text uses
+         the system serif/sans stack via the .serif-display class fallback
+         chain in tailwind.config.cjs). */
+      @font-face {
+        font-family: "Instrument Serif";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/instrument-serif-regular.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Instrument Serif";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
       /* Critical inline styles to prevent FOUC and reduce CLS */
       html, body, #root { height: 100%; }
       html { background: #0c0a09; }
@@ -74,10 +86,10 @@
         margin: 0;
         background: #0c0a09;
         color: #ece8e1;
-        /* Drop Inter — we only ship Instrument Serif now. The system stack
-           below produces near-identical results in zh-CN (PingFang SC on
-           iOS, HarmonyOS Sans on Huawei, MS YaHei on Windows) without the
-           400 + 500 + 600 + 700 + 800 woff2 download. */
+        /* System UI stack handles Chinese text natively (PingFang SC on iOS,
+           HarmonyOS Sans on Huawei, MS YaHei on Windows). The `.serif-display`
+           Tailwind class layers Instrument Serif on top for headline latin
+           glyphs only — Chinese chars fall through to the system serif. */
         font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei",
           "Helvetica Neue", Arial, sans-serif;
         -webkit-font-smoothing: antialiased;

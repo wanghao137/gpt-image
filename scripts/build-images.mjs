@@ -2,24 +2,40 @@
  * Image pipeline.
  *
  * Downloads every image referenced from cases.json + templates.json (plus
- * /uploads/* originals) and emits a deterministic, deploy-friendly copy
- * under `public/images/`. Each image is:
+ * /uploads/* originals) and emits a deterministic, deploy-friendly set of
+ * variants under `public/images/`. For each source we produce:
  *
- *   - resized to a max width of 1200 px (preserving aspect ratio)
- *   - re-encoded as JPEG quality 80, mozjpeg, progressive
- *   - cached locally by source-URL hash so repeat runs are instant
+ *   case123.jpg          ← 1200 px JPEG (mozjpeg q=80, progressive). Kept
+ *                          as the canonical fallback / OG card / link
+ *                          target. cases.json's imageUrl still points here.
+ *   case123-320.webp     ← responsive WebP variants (4:80 → 5:80 q vs
+ *   case123-480.webp        the JPEG, ~30-40% smaller at the same fidelity).
+ *   case123-640.webp        Generated for above-the-fold thumbnails so
+ *   case123-960.webp        mobile cards never download a 1200 px file.
  *
- * After this script runs, the case dataset's `imageUrl` is *also* rewritten
- * in-place to point at the local `/images/<id>.jpg` path. The site never
- * makes an outbound image request again — every image lives on the same
- * Cloudflare Pages edge as the HTML.
+ * Why multiple variants:
+ *   The previous pipeline emitted ONE 1200 px JPEG per source. SmartImg
+ *   couldn't generate a real srcset because there were no real width
+ *   variants on disk — every <img> downloaded the full 1200 px file even
+ *   for a 56 px thumbnail. On Chinese mobile this dominated first-paint
+ *   time. WebP at q=78 routinely lands the same image at 30-50% of the
+ *   JPEG bytes; multi-width srcset lets the browser pick the right one.
  *
- * Why this exists:
- *   wsrv.nl is North-America-hosted and hits ~1.7s TTFB from mainland China.
- *   Tencent COS HK is closer (~700ms) but adds a transform hop and only
- *   covers admin uploads. The competitor reference site
- *   (https://gpt-image2.canghe.ai) gets <300ms by simply baking JPEGs into
- *   their Vercel deploy. This script ports that strategy to Cloudflare Pages.
+ * Why NOT multiple JPEG widths:
+ *   By 2026, WebP support is ≥96% across iOS Safari, Android Chrome, and
+ *   the WeChat / Xiaohongshu / Douyin in-app browsers. The remaining
+ *   long-tail downloads the canonical 1200 JPEG via <img>'s plain `src`
+ *   attribute — not great but not catastrophic, and saves us ~170 MB of
+ *   build artefacts that almost no one would ever consume.
+ *
+ * Why NOT AVIF:
+ *   sharp's AVIF encode is 4-6× slower than WebP and the savings (~10%
+ *   over WebP) don't justify lengthening the prebuild on every Vercel
+ *   redeploy. Easy to add later if it becomes worth it.
+ *
+ * After this script runs, cases.json + templates.json are rewritten so
+ * `imageUrl` / `cover` point at the canonical local `/images/<id>.jpg`
+ * — same as before, so admin tooling and external links keep working.
  *
  * Usage:
  *   node scripts/build-images.mjs                     - normal run
@@ -28,8 +44,10 @@
  *   node scripts/build-images.mjs --strict            - fail if any source fails
  *
  * Env knobs:
- *   IMAGE_MAX_WIDTH   default 1200
- *   IMAGE_QUALITY     default 80
+ *   IMAGE_MAX_WIDTH   default 1200       (canonical JPEG width)
+ *   IMAGE_QUALITY     default 80         (canonical JPEG quality)
+ *   IMAGE_WEBP_Q      default 78         (WebP quality across all widths)
+ *   IMAGE_VARIANTS    default "320,480,640,960"  (comma-separated WebP widths)
  *   IMAGE_SKIP_NET    "1" → don't fetch from the network, only re-process
  *                     local cache (useful when offline mid-build).
  *   IMAGE_STRICT      "1" → exit non-zero if a source cannot be localised.
@@ -40,7 +58,6 @@ import {
   mkdirSync,
   readFileSync,
   readdirSync,
-  rmSync,
   statSync,
   writeFileSync,
 } from "node:fs";
@@ -65,6 +82,12 @@ const CONCURRENCY_ARG = process.argv.indexOf("--concurrency");
 const CONCURRENCY = CONCURRENCY_ARG > -1 ? Number(process.argv[CONCURRENCY_ARG + 1]) : 8;
 const MAX_WIDTH = Number(process.env.IMAGE_MAX_WIDTH || 1200);
 const QUALITY = Number(process.env.IMAGE_QUALITY || 80);
+const WEBP_Q = Number(process.env.IMAGE_WEBP_Q || 78);
+const VARIANTS = (process.env.IMAGE_VARIANTS || "320,480,640,960")
+  .split(",")
+  .map((s) => Number(s.trim()))
+  .filter((n) => Number.isFinite(n) && n > 0)
+  .sort((a, b) => a - b);
 const SKIP_NET = process.env.IMAGE_SKIP_NET === "1";
 const PLACEHOLDER_PATH = "/images/image-unavailable.svg";
 
@@ -106,7 +129,8 @@ function sha1(s) {
  * Local file path inside our raw-bytes cache. We key by the *content* hash
  * of the URL itself so URL changes invalidate naturally. A URL with the
  * same content as another URL (e.g. case dataset + admin upload pointing
- * at the same image) still gets one local copy.
+ * at the same image) still gets one local copy. The raw cache is shared
+ * across all variants — we fetch once and re-encode N times locally.
  */
 function cachePath(url) {
   const h = sha1(url);
@@ -114,22 +138,19 @@ function cachePath(url) {
 }
 
 /**
- * Final filename inside `public/images/`. Stable + recognisable so cases
- * directly reference `/images/case<id>.jpg` (matching the dataset's natural
- * naming), with admin uploads getting an `admin-<file>.jpg` prefix to avoid
- * any chance of collision.
+ * Canonical base name (without extension) for a record. The base name is
+ * what cases.json points at via `<base>.jpg`; responsive variants are
+ * `<base>-<width>.webp`.
  */
-function outputNameFor(kind, id, originalUrl) {
-  if (kind === "case") return `case${id}.jpg`;
-  if (kind === "template") return `template${id}.jpg`;
+function outputBaseName(kind, id, originalUrl) {
+  if (kind === "case") return `case${id}`;
+  if (kind === "template") return `template${id}`;
   if (kind === "upload") {
     // Admin uploads use the date+id naming convention from the uploader.
-    // Strip extension; we always emit .jpg.
-    const base = originalUrl.split("/").pop().replace(/\.[^.]+$/, "");
-    return `${base}.jpg`;
+    // Strip extension; we always emit .jpg / .webp.
+    return originalUrl.split("/").pop().replace(/\.[^.]+$/, "");
   }
-  // Last-resort: hash of the URL, .jpg.
-  return `${sha1(originalUrl).slice(0, 16)}.jpg`;
+  return sha1(originalUrl).slice(0, 16);
 }
 
 async function fetchToBuffer(url) {
@@ -148,11 +169,9 @@ async function fetchToBuffer(url) {
 
 /**
  * Get raw bytes for a remote URL, caching to disk on first fetch. Returns
- * a Buffer.
- *
- * The cache is kept under node_modules/.image-cache (auto-cleaned by
- * `npm ci` in CI, persistent locally) so cold builds in CF Pages CI don't
- * re-pay the cost across PRs but local dev iteration is instant.
+ * a Buffer. Cached under node_modules/.image-cache (auto-cleaned by
+ * `npm ci` in CI, persistent locally) so cold builds don't re-pay the
+ * network cost across PRs but local dev iteration is instant.
  */
 async function fetchCached(url) {
   const p = cachePath(url);
@@ -170,18 +189,31 @@ function readLocal(localPath) {
 }
 
 /**
- * Encode bytes → web-friendly JPEG. Uses sharp's mozjpeg pipeline which
- * produces ~15% smaller files than standard libjpeg at equivalent quality
- * scores. PNG inputs lose transparency on the JPEG → that's fine for our
- * dataset (every case image is a flat photo / poster).
+ * Encode a sharp pipeline at `width` into the requested format. Width is
+ * a hard cap — sources smaller than `width` stay at their native size,
+ * sources larger get downscaled. Always preserves EXIF orientation.
  */
-async function encode(buf) {
-  return sharp(buf, { failOn: "none" })
-    .resize({
-      width: MAX_WIDTH,
-      withoutEnlargement: true, // never upscale; tiny originals stay tiny
-    })
-    .rotate() // honour EXIF orientation
+async function encodeVariant(buf, width, format) {
+  const pipeline = sharp(buf, { failOn: "none" })
+    .resize({ width, withoutEnlargement: true })
+    .rotate();
+
+  if (format === "webp") {
+    return pipeline
+      .webp({
+        quality: WEBP_Q,
+        // 'effort: 4' is the default and a good speed/compression trade —
+        // pushing to 6 saves ~3% bytes for ~3× encode time, not worth it
+        // when the pipeline runs on every Vercel deploy.
+        effort: 4,
+        smartSubsample: true,
+      })
+      .toBuffer();
+  }
+
+  // jpg fallback path — same params as the canonical image so the 1200 px
+  // file we keep matches the historical output byte-for-byte.
+  return pipeline
     .jpeg({
       quality: QUALITY,
       mozjpeg: true,
@@ -210,20 +242,45 @@ async function pmap(items, fn, n) {
   return out;
 }
 
-/** Process a single record (case / template / upload). */
+/**
+ * Process a single record (case / template / upload). Emits one canonical
+ * 1200 px JPEG plus N responsive WebP variants. Each variant is skipped
+ * independently if its file already exists on disk — so adding a new
+ * variant width to VARIANTS only re-encodes the missing widths.
+ */
 async function processOne(rec) {
-  const outName = outputNameFor(rec.kind, rec.id, rec.url);
-  const outPath = resolve(OUT_DIR, outName);
-  const localPath = `/images/${outName}`;
+  const baseName = outputBaseName(rec.kind, rec.id, rec.url);
+  const canonicalPath = `/images/${baseName}.jpg`;
 
-  // Fast path: already encoded and not forcing.
-  if (existsSync(outPath) && !FORCE) {
-    return { ok: true, rec, localPath, skipped: true };
+  // Define the full variant set: 1 JPEG (canonical, 1200) + N WebPs.
+  const variants = [
+    { file: `${baseName}.jpg`, width: MAX_WIDTH, format: "jpg" },
+    ...VARIANTS.map((w) => ({
+      file: `${baseName}-${w}.webp`,
+      width: w,
+      format: "webp",
+    })),
+  ];
+
+  // Fast path: every variant already exists and we're not forcing.
+  if (
+    !FORCE &&
+    variants.every((v) => existsSync(resolve(OUT_DIR, v.file)))
+  ) {
+    return { ok: true, rec, canonicalPath, skipped: true };
   }
 
+  // Fetch raw bytes once for all variants of this source.
   let raw;
-  if (rec.kind === "upload") {
-    raw = readLocal(rec.localFile);
+  if (rec.kind === "upload" || rec.localFile) {
+    // Either an admin upload or a previously-baked canonical JPEG that
+    // we're re-encoding into WebP variants. Either way the source is on
+    // disk — no network hop needed.
+    try {
+      raw = readLocal(rec.localFile);
+    } catch (err) {
+      return { ok: false, rec, err };
+    }
   } else {
     try {
       raw = await fetchCached(rec.url);
@@ -232,21 +289,40 @@ async function processOne(rec) {
     }
   }
 
-  let encoded;
-  try {
-    encoded = await encode(raw);
-  } catch (err) {
-    return { ok: false, rec, err };
+  // Encode each missing variant. Per-variant skip means re-runs after a
+  // partial failure (e.g. one width OOMed) only redo what's missing.
+  let bytesIn = 0;
+  let bytesOut = 0;
+  let processed = 0;
+  let skippedVariants = 0;
+  for (const v of variants) {
+    const out = resolve(OUT_DIR, v.file);
+    if (existsSync(out) && !FORCE) {
+      skippedVariants += 1;
+      continue;
+    }
+    try {
+      const encoded = await encodeVariant(raw, v.width, v.format);
+      writeFileSync(out, encoded);
+      processed += 1;
+      bytesIn += raw.length;
+      bytesOut += encoded.length;
+    } catch (err) {
+      // Encoding failed for one variant — bail on this record so we can
+      // surface the error and avoid leaving cases.json half-rewritten.
+      return { ok: false, rec, err };
+    }
   }
 
-  writeFileSync(outPath, encoded);
   return {
     ok: true,
     rec,
-    localPath,
+    canonicalPath,
     skipped: false,
-    inSize: raw.length,
-    outSize: encoded.length,
+    processed,
+    skippedVariants,
+    bytesIn,
+    bytesOut,
   };
 }
 
@@ -260,12 +336,27 @@ async function main() {
     cases = readJson(CASES_PATH);
     for (const c of cases) {
       if (c.imageUrl && /^https?:\/\//i.test(c.imageUrl)) {
+        // Remote upstream URL (first build, or new case from sync).
         tasks.push({ kind: "case", id: c.id, url: c.imageUrl });
       } else if (c.imageUrl?.startsWith("/uploads/")) {
+        // Admin-uploaded original — read from disk.
         const localFile = resolve(PUBLIC_DIR, c.imageUrl.replace(/^\/+/, ""));
         if (existsSync(localFile)) {
           tasks.push({
             kind: "upload",
+            id: c.id,
+            url: c.imageUrl,
+            localFile,
+          });
+        }
+      } else if (c.imageUrl?.startsWith("/images/")) {
+        // Already-baked canonical JPEG from a previous build. We still
+        // want to (re)generate its responsive WebP variants — the JPEG
+        // we baked earlier is the source we re-encode from.
+        const localFile = resolve(PUBLIC_DIR, c.imageUrl.replace(/^\/+/, ""));
+        if (existsSync(localFile)) {
+          tasks.push({
+            kind: "case",
             id: c.id,
             url: c.imageUrl,
             localFile,
@@ -281,6 +372,16 @@ async function main() {
     for (const t of templates) {
       if (t.cover && /^https?:\/\//i.test(t.cover)) {
         tasks.push({ kind: "template", id: t.id, url: t.cover });
+      } else if (t.cover?.startsWith("/images/")) {
+        const localFile = resolve(PUBLIC_DIR, t.cover.replace(/^\/+/, ""));
+        if (existsSync(localFile)) {
+          tasks.push({
+            kind: "template",
+            id: t.id,
+            url: t.cover,
+            localFile,
+          });
+        }
       }
     }
   }
@@ -304,18 +405,22 @@ async function main() {
   }
 
   console.log(
-    `image pipeline: ${tasks.length} sources -> ${OUT_DIR} (max width ${MAX_WIDTH}, q=${QUALITY})`,
+    `image pipeline: ${tasks.length} sources × ${1 + VARIANTS.length} variants -> ${OUT_DIR}\n` +
+      `  jpg: ${MAX_WIDTH}w q=${QUALITY}\n` +
+      `  webp: [${VARIANTS.join(", ")}] q=${WEBP_Q}`,
   );
 
   // Step 2: process them with bounded concurrency.
   const results = await pmap(tasks, processOne, CONCURRENCY);
 
   // Step 3: rewrite cases.json + templates.json `imageUrl` / `cover`.
-  // Successful sources point at their baked local JPEG. Failed sources point at
-  // a local placeholder so runtime never falls back to slow third-party hosts.
+  // Successful sources point at their canonical baked JPEG. Failed sources
+  // point at a local placeholder so runtime never falls back to slow
+  // third-party hosts.
   const localByOriginal = new Map();
-  let processed = 0;
-  let skipped = 0;
+  let recordsProcessed = 0;
+  let recordsSkipped = 0;
+  let variantsWritten = 0;
   let bytesIn = 0;
   let bytesOut = 0;
   let failed = 0;
@@ -329,11 +434,12 @@ async function main() {
       localByOriginal.set(r.rec.url, PLACEHOLDER_PATH);
       continue;
     }
-    if (r.skipped) skipped += 1;
-    else processed += 1;
-    if (r.inSize) bytesIn += r.inSize;
-    if (r.outSize) bytesOut += r.outSize;
-    localByOriginal.set(r.rec.url, r.localPath);
+    if (r.skipped) recordsSkipped += 1;
+    else recordsProcessed += 1;
+    if (r.processed) variantsWritten += r.processed;
+    if (r.bytesIn) bytesIn += r.bytesIn;
+    if (r.bytesOut) bytesOut += r.bytesOut;
+    localByOriginal.set(r.rec.url, r.canonicalPath);
   }
 
   // Apply rewrites.
@@ -364,9 +470,12 @@ async function main() {
   }
 
   const ratio =
-    bytesIn > 0 ? `${((1 - bytesOut / bytesIn) * 100).toFixed(0)}%` : "n/a";
+    bytesIn > 0
+      ? `${((1 - bytesOut / bytesIn) * 100).toFixed(0)}% saved on encoded variants`
+      : "n/a";
   console.log(
-    `done. processed=${processed} skipped=${skipped} failed=${failed} (saved ${ratio})`,
+    `done. records: processed=${recordsProcessed} skipped=${recordsSkipped} failed=${failed}\n` +
+      `      variants written=${variantsWritten} (${ratio})`,
   );
   if (failed > 0) {
     const msg =
