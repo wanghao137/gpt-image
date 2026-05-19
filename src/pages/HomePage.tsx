@@ -35,6 +35,26 @@ export default function HomePage() {
   // featured card competes with the hero for fetchpriority=high.
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
 
+  // "Today's new" chip — counts cases whose createdAt falls within the
+  // last 48 hours. We use 48h instead of 24h because:
+  //   - Upstream sync runs once a day at 18:17 UTC, so a strict 24h
+  //     window would oscillate between "0 new" and "5 new" depending on
+  //     when the user lands. 48h smooths that out without lying about
+  //     freshness.
+  //   - From a user POV, "新增 5 个" reads as "this site is alive" whether
+  //     the cases shipped yesterday or today — both feel current.
+  // Returns null when there are 0 new cases so the chip hides cleanly.
+  const recentCount = useMemo(() => {
+    const now = Date.now();
+    const cutoff = now - 48 * 60 * 60 * 1000;
+    let n = 0;
+    for (const c of cases) {
+      const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
+      if (Number.isFinite(t) && t >= cutoff && t <= now) n += 1;
+    }
+    return n;
+  }, [cases]);
+
   const { has, toggle } = useFavorites();
 
   const ldOrg = {
@@ -89,7 +109,11 @@ export default function HomePage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
               </span>
-              <span className="tracking-wide">每周更新 · 中英双语 Prompt</span>
+              <span className="tracking-wide">
+                {recentCount > 0
+                  ? `近 48h 新增 ${recentCount} 个 · 中英双语 Prompt`
+                  : "每周更新 · 中英双语 Prompt"}
+              </span>
             </div>
 
             <h1 className="serif-display text-[2.2rem] leading-[1.05] text-ink-50 sm:text-5xl lg:text-[4.4rem] lg:leading-[1.02]">
@@ -174,7 +198,7 @@ export default function HomePage() {
                       sizes="100vw"
                       loading="eager"
                       fetchPriority="high"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="ken-burns absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-4">

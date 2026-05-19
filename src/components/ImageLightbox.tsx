@@ -9,6 +9,15 @@ interface ImageLightboxProps {
   caption?: string;
   /** Aspect ratio string like "9:16". Used for the initial render box. */
   ratio?: string;
+  /** Optional copy action — when provided, renders a "Copy Prompt" button
+   *  in the toolbar that fires this callback. */
+  onCopy?: () => void;
+  /** Current copy state for visual feedback on the toolbar button. */
+  copyState?: "idle" | "copied" | "error";
+  /** Optional prev / next navigation. When provided, the toolbar shows
+   *  arrow buttons and arrow-key navigation switches between cases. */
+  onPrev?: () => void;
+  onNext?: () => void;
   onClose: () => void;
 }
 
@@ -44,6 +53,10 @@ function ImageLightboxImpl({
   alt,
   caption,
   ratio,
+  onCopy,
+  copyState = "idle",
+  onPrev,
+  onNext,
   onClose,
 }: ImageLightboxProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -65,20 +78,22 @@ function ImageLightboxImpl({
     repaint();
   }, [open, src, repaint]);
 
-  // Lock body scroll while open + close on Escape.
+  // Lock body scroll while open + close on Escape, switch on arrows.
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft" && onPrev) onPrev();
+      else if (e.key === "ArrowRight" && onNext) onNext();
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
     };
-  }, [open, onClose]);
+  }, [open, onClose, onPrev, onNext]);
 
   // ── Gesture state (refs only; no React rerender per frame) ──
   // Active pointers, keyed by pointerId. Each entry stores its current
@@ -338,6 +353,33 @@ function ImageLightboxImpl({
           </p>
         )}
         <div className="ml-auto flex items-center gap-2">
+          {onCopy && (
+            <button
+              type="button"
+              onClick={onCopy}
+              className={
+                "pointer-events-auto inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-[12px] font-semibold transition " +
+                (copyState === "copied"
+                  ? "bg-emerald-400 text-ink-950"
+                  : copyState === "error"
+                    ? "bg-rose-400 text-ink-950"
+                    : "bg-ember-500 text-ink-950 hover:bg-ember-400")
+              }
+              aria-label="复制 Prompt"
+            >
+              {copyState === "copied" ? (
+                <>
+                  <CheckIcon /> 已复制
+                </>
+              ) : copyState === "error" ? (
+                "失败"
+              ) : (
+                <>
+                  <CopyIcon /> 复制 Prompt
+                </>
+              )}
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setTransform({ scale: 1, x: 0, y: 0 })}
@@ -356,6 +398,35 @@ function ImageLightboxImpl({
           </button>
         </div>
       </div>
+
+      {/* Side prev/next buttons — desktop only, hidden on touch where the
+          toolbar already takes the upper region. */}
+      {(onPrev || onNext) && (
+        <>
+          {onPrev && (
+            <button
+              data-lb-toolbar
+              type="button"
+              onClick={onPrev}
+              aria-label="上一个案例"
+              className="pointer-events-auto absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-3 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:inline-flex"
+            >
+              <ArrowLeftIcon />
+            </button>
+          )}
+          {onNext && (
+            <button
+              data-lb-toolbar
+              type="button"
+              onClick={onNext}
+              aria-label="下一个案例"
+              className="pointer-events-auto absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-3 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:inline-flex"
+            >
+              <ArrowRightIcon />
+            </button>
+          )}
+        </>
+      )}
 
       {/* Stage — the image lives inside this. We size it to the viewport
           and let the inner <img> use object-contain to keep its true
@@ -405,7 +476,9 @@ function ImageLightboxImpl({
         style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 1rem)" }}
       >
         <span className="rounded-full border border-white/10 bg-ink-950/60 px-3 py-1 backdrop-blur">
-          双指缩放 · 双击放大 · 点击空白关闭
+          {onPrev || onNext
+            ? "双指缩放 · 双击放大 · ← → 切换案例 · ESC 关闭"
+            : "双指缩放 · 双击放大 · 点击空白关闭"}
         </span>
       </div>
     </div>
@@ -413,6 +486,75 @@ function ImageLightboxImpl({
 }
 
 export const ImageLightbox = memo(ImageLightboxImpl);
+
+function CopyIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3.5 w-3.5"
+      aria-hidden="true"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-3.5 w-3.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m5 12 5 5 9-11" />
+    </svg>
+  );
+}
+
+function ArrowLeftIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+      aria-hidden="true"
+    >
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+      aria-hidden="true"
+    >
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  );
+}
 
 function CloseIcon() {
   return (

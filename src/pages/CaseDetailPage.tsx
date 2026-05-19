@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   caseNeighbors,
   getCaseBySlug,
@@ -48,6 +48,7 @@ function ratioStyle(ratio: string): React.CSSProperties {
  */
 export default function CaseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const c = slug ? getCaseBySlug(slug) : undefined;
   const { has, toggle } = useFavorites();
   const fetched = usePrompt(c?.id ?? null);
@@ -441,6 +442,10 @@ export default function CaseDetailPage() {
         alt={c.imageAlt || c.title}
         caption={c.title}
         ratio={c.ratio}
+        onCopy={promptText ? () => copy(promptText) : undefined}
+        copyState={copyState}
+        onPrev={prev ? () => navigate(`/case/${prev.slug}`) : undefined}
+        onNext={next ? () => navigate(`/case/${next.slug}`) : undefined}
         onClose={() => setLightboxOpen(false)}
       />
     </>

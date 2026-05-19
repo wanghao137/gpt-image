@@ -237,6 +237,35 @@
     to { opacity: 1; }
   }
 
+  /*
+   * Ken Burns slow zoom for the hero. Used on the home page main hero
+   * image to keep the landing surface "alive" without distracting motion.
+   *
+   *   - 16s loop, alternating direction so it stays infinite without a
+   *     visible reset jump.
+   *   - max scale 1.04 — large enough to perceive, small enough that
+   *     the image never crops something the user was looking at.
+   *   - prefers-reduced-motion zeroes the animation; we still keep the
+   *     1.0 base transform so layout doesn't shift.
+   *
+   * The class is attached to the SmartImg wrapper <div>; we target the
+   * inner <img> via a child selector because SmartImg's API doesn't expose
+   * the inner img className. This is intentional — keeps the hero-only
+   * effect from leaking into every SmartImg consumer.
+   */
+  @keyframes kenBurns {
+    0%   { transform: scale(1) translate3d(0, 0, 0); }
+    100% { transform: scale(1.04) translate3d(-1%, -1%, 0); }
+  }
+  .ken-burns > img {
+    animation: kenBurns 16s ease-in-out infinite alternate;
+    transform-origin: center center;
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ken-burns > img { animation: none; }
+  }
+
   /* Section divider — subtle ember line */
   .divider-ember {
     height: 1px;
@@ -317,6 +346,38 @@
   }
   @media (min-width: 640px) {
     .case-card { contain-intrinsic-size: 320px 460px; }
+  }
+
+  /*
+   * Scroll-driven entrance for case cards.
+   *
+   * Modern browsers (Chrome 115+, Edge 115+, Safari 26+ behind a flag) ship
+   * `animation-timeline: view()` which lets us tie an animation's progress
+   * to where the element is in the viewport — zero JS, zero IntersectionObserver,
+   * zero re-layout. We use it to fade + lift each card as it enters.
+   *
+   * The animation runs ONLY in the bottom 40% of the viewport (cover 0–40%),
+   * which means cards that are already fully on-screen at page load skip
+   * the animation entirely. That's deliberate — animating the LCP card
+   * delays paint and reads as "site is still loading" rather than "site
+   * is alive". Scroll-revealed cards animate; first-screen cards don't.
+   *
+   * The @supports gate keeps this opt-in: unsupported browsers (Safari
+   * <26, Firefox today) get the static layout with no animation at all,
+   * which is identical to today's behaviour. No feature regression.
+   */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .case-card {
+        animation: caseReveal linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 40%;
+      }
+      @keyframes caseReveal {
+        from { opacity: 0; transform: translate3d(0, 14px, 0); }
+        to   { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+    }
   }
 }
 
