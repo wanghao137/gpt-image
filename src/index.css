@@ -242,6 +242,38 @@
     );
   }
 
+  /*
+   * Hero card drift — modelled after gpt-image2.canghe.ai's right-side
+   * collage. Five cards are absolutely positioned with different tilt
+   * angles and animation delays, so the deck visibly "breathes" without
+   * any individual card shifting more than a few pixels. The animation
+   * is GPU-cheap (one transform property, no width/height) and we
+   * disable it on prefers-reduced-motion.
+   */
+  @keyframes cardDrift {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -12px; }
+  }
+  .hero-card {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a1715;
+    box-shadow: 0 24px 64px -22px rgba(0, 0, 0, 0.7);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 220ms ease, border-color 220ms ease;
+    animation: cardDrift 7s ease-in-out infinite;
+    will-change: transform, translate;
+  }
+  .hero-card:hover {
+    border-color: rgba(217, 119, 87, 0.45);
+    transform: translateY(-8px) rotate(var(--tilt, 0deg));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-card { animation: none; }
+  }
+
   @keyframes fadeUp {
     0% { opacity: 0; transform: translate3d(0, 12px, 0); }
     100% { opacity: 1; transform: translate3d(0, 0, 0); }

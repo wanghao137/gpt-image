@@ -91,22 +91,20 @@ function StripTile({ item }: { item: PromptCase }) {
           group-hover:scale-[1.05]
         "
       />
-      {/* Bottom gradient + ID badge. The badge mirrors canghe's style:
-          a small white `#NNN` label on a dark gradient bottom strip. */}
+      {/*
+        Subtle bottom gradient on hover only — keeps the rail looking
+        clean at rest. The previous revision overlaid a `#NNN` ID badge
+        (canghe-style); per design feedback we drop the badge and let
+        the thumbnail stand on its own.
+      */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink-950/85 via-ink-950/35 to-transparent"
-      />
-      <span
         className="
-          absolute bottom-2 left-2 inline-flex items-center
-          rounded-md bg-ink-950/60 px-1.5 py-0.5
-          text-[10.5px] font-semibold tracking-wide text-ink-50
-          backdrop-blur
+          pointer-events-none absolute inset-x-0 bottom-0 h-2/5
+          bg-gradient-to-t from-ink-950/70 via-ink-950/25 to-transparent
+          opacity-0 transition duration-300 group-hover:opacity-100
         "
-      >
-        #{item.id}
-      </span>
+      />
     </Link>
   );
 }

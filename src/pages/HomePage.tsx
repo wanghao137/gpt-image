@@ -30,11 +30,12 @@ export default function HomePage() {
   const cases = ALL_CASES;
   const templates = ALL_TEMPLATES;
   const animCases = useCountUp(cases.length, 900);
+  // Hero deck — 5 floating cards, modelled on canghe's right-rail collage.
   const heroCases = useMemo(() => cases.slice(0, 5), [cases]);
-  // Strip below the hero — modelled after canghe's landing rail. Pull the
-  // newest cases (cases.json is already sorted desc by id) so the strip
-  // doubles as a "what's new" indicator without needing its own heading.
-  const stripCases = useMemo(() => cases.slice(0, 14), [cases]);
+  // Strip below the hero. Skip the 5 cases already in the deck so the
+  // visuals don't repeat in the user's first viewport — show the next
+  // batch of newest cases instead.
+  const stripCases = useMemo(() => cases.slice(5, 19), [cases]);
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
   const { ids: favoriteIds, toggle } = useFavorites();
 
@@ -184,80 +185,120 @@ export default function HomePage() {
 }
 
 function HeroDeck({ cases }: { cases: PromptCase[] }) {
+  // Slot specs mirror gpt-image2.canghe.ai's right-rail collage:
+  // five cards absolutely positioned with mild rotation + cardDrift
+  // animation delays staggered so the deck "breathes" without any
+  // single card moving more than a few pixels. Slots are sized in rem
+  // and scaled down on smaller breakpoints by transforming the deck
+  // wrapper (avoids redoing five separate sets of inset values).
+  const slots: Array<{
+    /** Tailwind absolute-position utilities. */
+    pos: string;
+    /** Tailwind w-/h- utilities for the card size. */
+    size: string;
+    /** CSS rotation passed via the `--tilt` custom property. */
+    tilt: string;
+    /** Negative animation-delay seconds — staggered so adjacent cards
+     *  don't peak at the same moment. */
+    delay: string;
+    /** Hint for which on-disk WebP variant to fall back to. */
+    baseW: number;
+    /** First card gets eager + high priority for LCP. */
+    priority?: boolean;
+  }> = [
+    { pos: "left-[2.5rem] top-[1.5rem]",  size: "w-[16rem] h-[20rem]",   tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
+    { pos: "right-[0.5rem] top-0",        size: "w-[14rem] h-[18rem]",   tilt: "4deg",  delay: "-1.2s", baseW: 480 },
+    { pos: "left-0 top-[17rem]",          size: "w-[13rem] h-[14.5rem]", tilt: "5deg",  delay: "-2.3s", baseW: 320 },
+    { pos: "right-[1.5rem] top-[16.5rem]",size: "w-[17.25rem] h-[15.25rem]", tilt: "-3deg", delay: "-3.4s", baseW: 480 },
+    { pos: "left-[10.5rem] top-[11rem]",  size: "w-[12.75rem] h-[15rem]", tilt: "2deg", delay: "-4.2s", baseW: 320 },
+  ];
+
   if (cases.length === 0) {
     return <div className="h-[360px] rounded-2xl bg-ink-850 sm:h-[480px]" />;
   }
 
-  const primary =
-    cases.find(
-      (item, index) => index > 0 && (item.userCategory === "portrait" || item.ratio === "9:16"),
-    ) ??
-    cases[1] ??
-    cases[0];
-  const secondary = cases.filter((item) => item.id !== primary.id).slice(0, 2);
+  // Pad the case list out to 5 — first paint is fine even if the data
+  // pipeline somehow returned fewer items.
+  const items: PromptCase[] = [];
+  for (let i = 0; i < 5; i += 1) items.push(cases[i] ?? cases[cases.length - 1]);
 
   return (
-    <div className="relative z-10 h-[360px] sm:h-[480px] lg:h-[560px]">
+    <div className="relative z-10 mx-auto h-[420px] w-full max-w-[34rem] sm:h-[520px] lg:h-[580px]">
+      {/* Soft ambient glow under the deck. */}
       <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_42%,rgba(217,119,87,0.12),transparent_42%),radial-gradient(circle_at_80%_72%,rgba(255,255,255,0.06),transparent_36%)] blur-2xl" />
-      <div className="relative grid h-full grid-cols-[minmax(0,1.05fr)_minmax(132px,0.72fr)] gap-2 sm:gap-3">
-        <HeroTile item={primary} large priority />
-        <div className="grid min-h-0 grid-rows-2 gap-2 sm:gap-3">
-          {secondary.map((item) => (
-            <HeroTile key={item.id} item={item} />
-          ))}
-        </div>
+      {/*
+        Inner wrapper handles the deck's responsive scaling. The slots
+        themselves are sized in absolute rems against this 34rem×520px
+        canvas, so a single transform-scale on this wrapper brings the
+        whole thing down on smaller breakpoints without redoing positions.
+      */}
+      <div className="absolute inset-0 origin-top-right scale-[0.78] sm:scale-90 lg:scale-100">
+        {items.map((item, i) => {
+          const slot = slots[i];
+          return (
+            <HeroCard
+              key={`${item.id}-${i}`}
+              item={item}
+              tilt={slot.tilt}
+              delay={slot.delay}
+              baseW={slot.baseW}
+              priority={slot.priority}
+              className={`${slot.pos} ${slot.size}`}
+            />
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function HeroTile({
+function HeroCard({
   item,
-  large = false,
-  priority = false,
+  tilt,
+  delay,
+  baseW,
+  priority,
+  className,
 }: {
-  item: PromptCase | undefined;
-  large?: boolean;
+  item: PromptCase;
+  tilt: string;
+  delay: string;
+  baseW: number;
   priority?: boolean;
+  className: string;
 }) {
-  if (!item) {
-    return <div className="rounded-2xl bg-ink-850" />;
-  }
-
   return (
     <Link
       to={`/case/${item.slug}`}
       aria-label={item.title}
-      className="group relative block min-h-0 overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 shadow-[0_18px_48px_-16px_rgba(0,0,0,0.7)] transition active:scale-[0.99] sm:hover:border-white/20"
+      className={`hero-card group block ${className}`}
+      style={
+        {
+          "--tilt": tilt,
+          animationDelay: delay,
+        } as React.CSSProperties
+      }
     >
       <SmartImg
         src={item.imageUrl}
         alt={item.imageAlt || item.title}
-        width={large ? 760 : 420}
-        height={large ? 950 : 520}
-        widths={large ? [480, 640, 960] : [320, 480]}
-        baseWidth={large ? 640 : 320}
-        sizes={large ? "(min-width:1024px) 30vw, 54vw" : "(min-width:1024px) 18vw, 34vw"}
+        width={baseW * 2}
+        height={Math.round(baseW * 2.5)}
+        widths={[baseW, Math.min(baseW * 2, 960)]}
+        baseWidth={baseW}
+        sizes={`(min-width:1024px) ${baseW}px, ${Math.round(baseW * 0.75)}px`}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
-        className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-[1.035]"
+        className="absolute inset-0 h-full w-full"
       />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/35 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3">
-        {large && (
-          <span className="mb-2 inline-flex rounded-full border border-white/15 bg-ink-950/65 px-2 py-0.5 text-[10.5px] font-medium text-ember-200 backdrop-blur">
-            {item.ratio}
-          </span>
-        )}
-        <strong
-          className={
-            "line-clamp-2 font-semibold leading-tight text-ink-50 " +
-            (large ? "text-[15px] sm:text-[17px]" : "text-[11.5px] sm:text-[12.5px]")
-          }
-        >
-          {item.title}
-        </strong>
-      </div>
+      {/* Bottom gradient + caption: only the title, no IDs (per design feedback). */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink-950/85 via-ink-950/35 to-transparent"
+      />
+      <strong className="absolute inset-x-3 bottom-3 line-clamp-2 text-[12.5px] font-semibold leading-tight text-ink-50">
+        {item.title}
+      </strong>
     </Link>
   );
 }
