@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { PromptCase } from "../types";
-import { transformUrl } from "../lib/img";
+import { pickLocalWebp } from "../lib/img";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 
 interface CategoryShowcaseProps {
@@ -77,7 +77,7 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
               >
                 {tile.cover && (
                   <img
-                    src={transformUrl(tile.cover, { width: 168 })}
+                    src={pickLocalWebp(tile.cover, 168)}
                     alt=""
                     width={56}
                     height={56}
@@ -130,7 +130,7 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
                 aria-hidden="true"
                 className="absolute inset-0 opacity-30 transition duration-700 group-hover:scale-105 group-hover:opacity-55"
                 style={{
-                  backgroundImage: `url(${transformUrl(tile.cover, { width: 480 })})`,
+                  backgroundImage: `url(${pickLocalWebp(tile.cover, 480)})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

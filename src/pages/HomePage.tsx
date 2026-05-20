@@ -14,49 +14,24 @@ import type { PromptCase } from "../types";
 
 const HOME_TITLE = "GPT-Image 2 中文案例库";
 const HOME_DESC =
-  "小红书封面、商家海报、人像写真、信息图——435+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt，一键复制就能出图。";
+  "小红书封面、商家海报、人像写真、信息图，450+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt，一键复制就能出图。";
 
-/**
- * Home — the conversion-critical landing page. Three jobs:
- *   1. In 5 seconds: communicate "this is the Chinese GPT-Image 2 case library".
- *   2. In 30 seconds: get users into a category page or a copy action.
- *   3. In 90 seconds: surface the WeChat CTA so commercial leads convert.
- */
 export default function HomePage() {
   const cases = ALL_CASES;
   const templates = ALL_TEMPLATES;
-  const animCases = useCountUp(cases.length, 1100);
-
-  const heroPrimary = cases[0];
-  const heroGrid = useMemo(() => cases.slice(1, 5), [cases]);
-  // Featured grid: 12 cards on the home page — matches the section heading
-  // ("本周精选 12 个案例") and gives the gallery enough surface area to
-  // showcase variety. Mobile perf is still protected via priorityCount=1
-  // below, plus lazy-loading on every non-priority card; only the first
-  // featured card competes with the hero for fetchpriority=high.
+  const animCases = useCountUp(cases.length, 900);
+  const heroCases = useMemo(() => cases.slice(0, 5), [cases]);
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
+  const { ids: favoriteIds, toggle } = useFavorites();
 
-  // "Today's new" chip — counts cases whose createdAt falls within the
-  // last 48 hours. We use 48h instead of 24h because:
-  //   - Upstream sync runs once a day at 18:17 UTC, so a strict 24h
-  //     window would oscillate between "0 new" and "5 new" depending on
-  //     when the user lands. 48h smooths that out without lying about
-  //     freshness.
-  //   - From a user POV, "新增 5 个" reads as "this site is alive" whether
-  //     the cases shipped yesterday or today — both feel current.
-  // Returns null when there are 0 new cases so the chip hides cleanly.
   const recentCount = useMemo(() => {
     const now = Date.now();
     const cutoff = now - 48 * 60 * 60 * 1000;
-    let n = 0;
-    for (const c of cases) {
+    return cases.reduce((n, c) => {
       const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
-      if (Number.isFinite(t) && t >= cutoff && t <= now) n += 1;
-    }
-    return n;
+      return Number.isFinite(t) && t >= cutoff && t <= now ? n + 1 : n;
+    }, 0);
   }, [cases]);
-
-  const { has, toggle } = useFavorites();
 
   const ldOrg = {
     "@context": "https://schema.org",
@@ -72,12 +47,10 @@ export default function HomePage() {
     },
   };
 
-  // ItemList tells Google the page is a curated list — improves rich results.
-  // We surface the same 12 featured cases the user sees above the fold.
   const ldItemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "本周精选 GPT-Image 2 案例",
+    name: "精选 GPT-Image 2 案例",
     numberOfItems: featured.length,
     itemListElement: featured.map((c, i) => ({
       "@type": "ListItem",
@@ -92,218 +65,50 @@ export default function HomePage() {
     <>
       <SEO title={HOME_TITLE} description={HOME_DESC} path="/" jsonLd={[ldOrg, ldItemList]} />
 
-      {/* HERO */}
-      <section className="relative isolate">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-ember-500/10 blur-[120px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-40 h-72 w-72 rounded-full bg-ember-700/10 blur-[100px]"
-        />
-
-        {/* ─────────── MOBILE HERO (lg:hidden) ───────────
-            Image-first layout. Title compressed to 2 lines, subtitle
-            to one line, single CTA, and four real cases waterfalling
-            into view directly under the headline. The four-tick
-            credibility row that used to sit here moved to a quiet
-            strip below the category showcase — it answered objections
-            no first-time visitor was raising at the top of the page.
-        */}
-        <div className="container-narrow flex flex-col gap-7 pb-10 pt-8 lg:hidden">
-          <div className="relative z-10 flex flex-col">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
-              </span>
-              <span className="tracking-wide">
-                {recentCount > 0
-                  ? `近 48h 新增 ${recentCount} 个 · 中英双语 Prompt`
-                  : "每周更新 · 中英双语 Prompt"}
-              </span>
-            </div>
-
-            <h1 className="serif-display mt-4 text-[1.85rem] leading-[1.05] text-ink-50 sm:text-[2.4rem]">
-              GPT-Image 2 中文
-              <em className="not-italic">
-                <span className="bg-gradient-to-br from-ember-200 via-ember-400 to-ember-600 bg-clip-text text-transparent">
-                  案例库
-                </span>
-                <span className="ml-0.5 text-ember-400">.</span>
-              </em>
-            </h1>
-
-            <p className="mt-3 line-clamp-2 max-w-md text-[14px] leading-relaxed text-ink-300 sm:text-[15px]">
-              爆款 AI 图片 · 现成 Prompt · 一键复制。{cases.length}+ 个真实案例按场景分好类。
-            </p>
-
-            <div className="mt-5 flex">
-              <Link to="/cases" className="btn-primary w-full justify-center sm:w-auto">
-                浏览全部 {animCases || cases.length} 个案例
-                <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-                  <path
-                    fillRule="evenodd"
-                    d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-            </div>
+      <section className="container-narrow grid gap-8 pb-8 pt-7 sm:gap-10 sm:pb-12 sm:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:pb-16">
+        <div className="relative z-10 flex flex-col">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
+            <span>
+              {recentCount > 0
+                ? `近 48h 新增 ${recentCount} 个案例`
+                : "每周更新真实案例"}
+            </span>
           </div>
 
-          {/* Mobile case waterfall — four real cases, image-only.
-              Tapping any tile drops you straight into its detail page,
-              same as a CaseCard tap on the regular grid. */}
-          {heroPrimary && (
-            <div className="relative z-10 grid grid-cols-2 gap-2.5">
-              <div className="hero-mobile-col-left flex flex-col gap-2.5">
-                <HeroMobileTile case_={cases[0]} aspect="3/4" priority />
-                <HeroMobileTile case_={cases[2]} aspect="4/5" />
-              </div>
-              <div className="hero-mobile-col-right mt-6 flex flex-col gap-2.5">
-                <HeroMobileTile case_={cases[1]} aspect="4/5" />
-                <HeroMobileTile case_={cases[3]} aspect="3/4" />
-              </div>
-            </div>
-          )}
-        </div>
+          <h1 className="serif-display mt-4 max-w-3xl text-[2.35rem] leading-[0.98] text-ink-50 sm:text-[4.2rem] lg:text-[4.8rem]">
+            GPT-Image 2
+            <span className="block text-ember-300">中文案例库</span>
+          </h1>
 
-        {/* ─────────── DESKTOP HERO (hidden lg:grid) ───────────
-            Original two-column magazine layout, untouched.
-        */}
-        <div className="container-narrow hidden gap-10 pb-12 pt-10 sm:gap-12 sm:pb-16 sm:pt-16 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,1fr)] lg:gap-16 lg:pb-24 lg:pt-24">
-          <div className="relative z-10 flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember-500" />
-              </span>
-              <span className="tracking-wide">
-                {recentCount > 0
-                  ? `近 48h 新增 ${recentCount} 个 · 中英双语 Prompt`
-                  : "每周更新 · 中英双语 Prompt"}
-              </span>
-            </div>
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
+            爆款 AI 图片、现成 Prompt、按场景筛选。直接看图、复制、改词，少刷教程，多出结果。
+          </p>
 
-            <h1 className="serif-display text-5xl leading-[1.05] text-ink-50 lg:text-[4.4rem] lg:leading-[1.02]">
-              GPT-Image 2
-              <br />
-              中文
-              <em className="not-italic">
-                <span className="bg-gradient-to-br from-ember-200 via-ember-400 to-ember-600 bg-clip-text text-transparent">
-                  案例库
-                </span>
-                <span className="ml-0.5 text-ember-400">.</span>
-              </em>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink-300">
-              爆款 AI 图片 · 现成 Prompt · 一键复制。
-              <br />
-              小红书封面、商家海报、人像写真、信息图——按场景分好类，复制就能出图。
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/cases" className="btn-primary">
-                浏览全部 {animCases || cases.length} 个案例
-                <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-                  <path
-                    fillRule="evenodd"
-                    d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-              <Link to="/services" className="btn-ghost">
-                代做 / 定制 ▸
-              </Link>
-            </div>
-
-            <ul className="mt-8 grid max-w-md grid-cols-2 gap-x-4 gap-y-2 text-[13px] text-ink-300">
-              <li className="flex items-center gap-2">
-                <Tick /> 全部 GPT-Image 2 真实出图
-              </li>
-              <li className="flex items-center gap-2">
-                <Tick /> 中英双语 Prompt
-              </li>
-              <li className="flex items-center gap-2">
-                <Tick /> 比例 / 平台已标注
-              </li>
-              <li className="flex items-center gap-2">
-                <Tick /> 每周更新
-              </li>
-            </ul>
+          <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+            <Link to="/cases" className="btn-primary justify-center">
+              浏览全部 {animCases || cases.length} 个案例
+              <ArrowRightIcon />
+            </Link>
+            <Link to="/services" className="btn-ghost justify-center">
+              代做 / 定制
+            </Link>
           </div>
 
-          {/* Desktop hero collage */}
-          <div className="relative z-10">
-            {!heroPrimary ? (
-              <div className="aspect-square animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800" />
-            ) : (
-              <div className="aspect-square grid grid-cols-3 auto-rows-fr gap-3">
-                {[heroPrimary, ...heroGrid].slice(0, 5).map((item, index) => {
-                  const layout =
-                    index === 0
-                      ? "col-span-2 row-span-2"
-                      : index === 1
-                        ? "col-start-3 row-start-1"
-                        : index === 2
-                          ? "col-start-3 row-start-2"
-                          : index === 3
-                            ? "col-start-1 row-start-3"
-                            : "col-start-2 row-start-3 col-span-2";
-                  return (
-                    <Link
-                      key={item.id}
-                      to={`/case/${item.slug}`}
-                      className={
-                        "group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 text-left transition duration-700 hover:-translate-y-1 hover:border-white/20 hover:shadow-soft " +
-                        layout
-                      }
-                      style={{ animation: `fadeUp 0.6s ${index * 80}ms ease-out both` }}
-                    >
-                      <SmartImg
-                        src={item.imageUrl}
-                        alt={item.imageAlt || item.title}
-                        width={index === 0 ? 1000 : 500}
-                        height={index === 0 ? 1000 : 500}
-                        widths={index === 0 ? [800, 1100] : [360, 540]}
-                        baseWidth={index === 0 ? 1100 : 540}
-                        sizes={
-                          index === 0
-                            ? "(min-width:1024px) 360px, 100vw"
-                            : "(min-width:1024px) 180px, 50vw"
-                        }
-                        loading={index === 0 ? "eager" : "lazy"}
-                        fetchPriority={index === 0 ? "high" : "auto"}
-                        className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-[1500ms] group-hover:scale-[1.06] group-hover:opacity-100"
-                      />
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-3">
-                        <span className="text-[10.5px] font-medium tracking-[0.18em] text-ember-300">
-                          {item.ratio}
-                        </span>
-                        <strong className="mt-1 line-clamp-1 block text-[13px] font-semibold text-ink-50">
-                          {item.title}
-                        </strong>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+          <div className="mt-6 grid max-w-md grid-cols-3 gap-2 text-center sm:mt-8">
+            <Metric value={`${cases.length}+`} label="真实案例" />
+            <Metric value={`${HOMEPAGE_USER_CATEGORIES.length}`} label="使用场景" />
+            <Metric value={`${templates.length}`} label="工业模板" />
           </div>
         </div>
+
+        <HeroDeck cases={heroCases} />
       </section>
 
-      {/* CATEGORY SHOWCASE */}
       <CategoryShowcase cases={cases} />
 
-      {/* FEATURED CASES */}
-      <section className="container-narrow scroll-mt-20 pt-12 sm:pt-16" id="featured">
-        <div className="flex flex-col gap-3 pb-6 sm:flex-row sm:items-end sm:justify-between">
+      <section className="container-narrow scroll-mt-20 pt-10 sm:pt-14" id="featured">
+        <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
             <p className="eyebrow">Featured</p>
             <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
@@ -314,26 +119,19 @@ export default function HomePage() {
             to="/cases"
             className="text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
           >
-            查看全部 →
+            查看全部
           </Link>
         </div>
         <CaseGrid
           cases={featured}
-          favoriteIds={new Set()}
+          favoriteIds={favoriteIds}
           onToggleFavorite={toggle}
           paginate={false}
-          // priorityCount=1 means only the very first case card competes
-          // with the hero for fetchpriority=high. Was 4 — that meant 4
-          // cards racing the hero on every page load, and on Chinese
-          // mobile networks that's the difference between "hero is up
-          // in 800ms" and "hero is up in 4s".
-          priorityCount={1}
         />
       </section>
 
-      {/* TEMPLATES TEASER */}
-      <section className="container-narrow scroll-mt-20 pt-8 sm:pt-12" id="templates-teaser">
-        <div className="flex flex-col gap-3 pb-6 sm:flex-row sm:items-end sm:justify-between">
+      <section className="container-narrow scroll-mt-20 pt-4 sm:pt-10" id="templates-teaser">
+        <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
             <p className="eyebrow">Templates</p>
             <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
@@ -344,7 +142,7 @@ export default function HomePage() {
             to="/templates"
             className="text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
           >
-            全部模板 →
+            全部模板
           </Link>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
@@ -354,10 +152,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WECHAT CTA */}
       <WeChatCTA />
 
-      {/* CATEGORY PILLS — long tail SEO + scrollable nav */}
       <section className="container-narrow pb-16">
         <div className="flex flex-wrap gap-2">
           {HOMEPAGE_USER_CATEGORIES.map((c) => (
@@ -372,80 +168,106 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      {/* SAFE SECONDARY: ensure favorites are surfaced via a hidden fav check (uses `has` to satisfy TS) */}
-      <span className="hidden">{has("__noop__") ? "" : ""}</span>
     </>
   );
 }
 
-function Tick() {
+function HeroDeck({ cases }: { cases: PromptCase[] }) {
+  if (cases.length === 0) {
+    return <div className="h-[360px] rounded-2xl bg-ink-850 sm:h-[480px]" />;
+  }
+
+  const primary =
+    cases.find(
+      (item, index) => index > 0 && (item.userCategory === "portrait" || item.ratio === "9:16"),
+    ) ??
+    cases[1] ??
+    cases[0];
+  const secondary = cases.filter((item) => item.id !== primary.id).slice(0, 2);
+
   return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      className="h-3.5 w-3.5 text-ember-400"
-      aria-hidden="true"
-    >
-      <path d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z" />
-    </svg>
+    <div className="relative z-10 h-[360px] sm:h-[480px] lg:h-[560px]">
+      <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_42%,rgba(217,119,87,0.12),transparent_42%),radial-gradient(circle_at_80%_72%,rgba(255,255,255,0.06),transparent_36%)] blur-2xl" />
+      <div className="relative grid h-full grid-cols-[minmax(0,1.05fr)_minmax(132px,0.72fr)] gap-2 sm:gap-3">
+        <HeroTile item={primary} large priority />
+        <div className="grid min-h-0 grid-rows-2 gap-2 sm:gap-3">
+          {secondary.map((item) => (
+            <HeroTile key={item.id} item={item} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
-interface HeroMobileTileProps {
-  case_: PromptCase | undefined;
-  /** CSS aspect-ratio fragment, e.g. "3/4" / "4/5". */
-  aspect: "3/4" | "4/5" | "1/1";
+function HeroTile({
+  item,
+  large = false,
+  priority = false,
+}: {
+  item: PromptCase | undefined;
+  large?: boolean;
   priority?: boolean;
-}
-
-/**
- * One image-only tile inside the mobile hero waterfall.
- *
- * Image-only by design — title / category / copy buttons live further
- * down the page on the regular CaseCard grid. The hero's job is to
- * *show* the gallery in the first 600ms, not to surface metadata. A
- * tap drops you into the detail page, same as any other CaseCard.
- *
- * Aspect ratios alternate between 3/4 and 4/5 across the four tiles
- * to create the staggered waterfall silhouette without us having to
- * hand-author offset margins per tile. The right column also has a
- * small `mt-6` push at the column level, so the visual rhythm is:
- *
- *      [ left: 3/4 ]  [ right: 4/5 ]  ← right starts 24px lower
- *      [ left: 4/5 ]  [ right: 3/4 ]
- */
-function HeroMobileTile({ case_, aspect, priority }: HeroMobileTileProps) {
-  if (!case_) {
-    return (
-      <div
-        className="animate-pulse rounded-2xl bg-gradient-to-br from-ink-850 to-ink-800"
-        style={{ aspectRatio: aspect.replace("/", " / ") }}
-      />
-    );
+}) {
+  if (!item) {
+    return <div className="rounded-2xl bg-ink-850" />;
   }
+
   return (
     <Link
-      to={`/case/${case_.slug}`}
-      aria-label={case_.title}
-      className="group relative block overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 transition active:scale-[0.98]"
-      style={{ aspectRatio: aspect.replace("/", " / ") }}
+      to={`/case/${item.slug}`}
+      aria-label={item.title}
+      className="group relative block min-h-0 overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 shadow-[0_18px_48px_-16px_rgba(0,0,0,0.7)] transition active:scale-[0.99] sm:hover:border-white/20"
     >
       <SmartImg
-        src={case_.imageUrl}
-        alt={case_.imageAlt || case_.title}
-        width={600}
-        height={800}
-        // Half-viewport on phones at DPR 2-3 means physical 360-540 px.
-        // Capping at 540w keeps the four tiles cheap on cellular and
-        // avoids loading desktop-grade detail no one will ever see.
-        widths={[280, 380, 540]}
-        baseWidth={280}
-        sizes="50vw"
+        src={item.imageUrl}
+        alt={item.imageAlt || item.title}
+        width={large ? 760 : 420}
+        height={large ? 950 : 520}
+        widths={large ? [480, 640, 960] : [320, 480]}
+        baseWidth={large ? 640 : 320}
+        sizes={large ? "(min-width:1024px) 30vw, 54vw" : "(min-width:1024px) 18vw, 34vw"}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
-        className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+        className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-[1.035]"
       />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/35 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3">
+        {large && (
+          <span className="mb-2 inline-flex rounded-full border border-white/15 bg-ink-950/65 px-2 py-0.5 text-[10.5px] font-medium text-ember-200 backdrop-blur">
+            {item.ratio}
+          </span>
+        )}
+        <strong
+          className={
+            "line-clamp-2 font-semibold leading-tight text-ink-50 " +
+            (large ? "text-[15px] sm:text-[17px]" : "text-[11.5px] sm:text-[12.5px]")
+          }
+        >
+          {item.title}
+        </strong>
+      </div>
     </Link>
+  );
+}
+
+function Metric({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] px-3 py-2.5">
+      <strong className="stat-num block text-[22px] leading-none text-ink-50">{value}</strong>
+      <span className="mt-1 block text-[11px] text-ink-400">{label}</span>
+    </div>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 }

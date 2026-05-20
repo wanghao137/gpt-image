@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
@@ -6,7 +6,7 @@ import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
 import { useLongPress } from "../hooks/useLongPress";
 import { tagLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
-import { transformUrl } from "../lib/img";
+import { pickLocalWebp } from "../lib/img";
 import { SmartImg } from "./SmartImg";
 import { CardActionSheet, type CardAction } from "./CardActionSheet";
 
@@ -158,7 +158,8 @@ function FolderIcon() {
  *   - Tap copy button: copy + global toast (with "去 ChatGPT" action).
  *
  * Performance:
- *   - Prompt prefetch on intersection AND hover (warm cache for instant copy).
+ *   - Prompt prefetch only on fine-pointer hover. Mobile should not burn
+ *     bandwidth fetching prompt JSON for every card that scrolls into view.
  *   - `priority` flag controls eager fetch + fetchpriority=high; flip on for
  *     above-the-fold cards only.
  */
@@ -175,32 +176,9 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
   const [imgErr, setImgErr] = useState(false);
   const [copying, setCopying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const articleRef = useRef<HTMLElement | null>(null);
+  const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
-
-  // ── Prompt prefetch ──
-  useEffect(() => {
-    const el = articleRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries, observer) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const trigger = () => prefetchPrompt(data.id);
-            const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
-              .requestIdleCallback;
-            if (typeof idle === "function") idle(trigger);
-            else setTimeout(trigger, 200);
-            observer.unobserve(entry.target);
-          }
-        }
-      },
-      { rootMargin: "200px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [data.id]);
 
   // ── Copy handler (shared by inline button + action sheet) ──
   const handleCopy = useCallback(async () => {
@@ -224,7 +202,10 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
 
   // ── Long press / right click → action sheet ──
   const longPress = useLongPress({
-    onLongPress: () => setMenuOpen(true),
+    onLongPress: () => {
+      suppressNextClickRef.current = true;
+      setMenuOpen(true);
+    },
   });
 
   const sheetActions: CardAction[] = [
@@ -270,8 +251,18 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
   return (
     <>
       <article
-        ref={articleRef}
-        onMouseEnter={() => prefetchPrompt(data.id)}
+        onMouseEnter={() => {
+          if (typeof window === "undefined") return;
+          if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+            prefetchPrompt(data.id);
+          }
+        }}
+        onClickCapture={(e) => {
+          if (!suppressNextClickRef.current) return;
+          suppressNextClickRef.current = false;
+          e.preventDefault();
+          e.stopPropagation();
+        }}
         {...longPress}
         // Block iOS callout (long-press → "Save Image / Copy Image") so our
         // menu can take over. Without this the OS sheet fights ours.
@@ -482,7 +473,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
         open={menuOpen}
         title={data.title}
         caption={`${userCategoryLabel(data.userCategory)} · ${data.ratio}`}
-        image={transformUrl(data.imageUrl, { width: 168 })}
+        image={pickLocalWebp(data.imageUrl, 168)}
         actions={sheetActions}
         onClose={() => setMenuOpen(false)}
       />

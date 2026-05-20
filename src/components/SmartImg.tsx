@@ -19,6 +19,7 @@ interface SmartImgProps {
   sizes?: string;
   className?: string;
   style?: React.CSSProperties;
+  objectFit?: React.CSSProperties["objectFit"];
   loading?: "eager" | "lazy";
   fetchPriority?: "high" | "low" | "auto";
   decoding?: "sync" | "async" | "auto";
@@ -63,6 +64,7 @@ function SmartImgImpl({
   sizes,
   className,
   style,
+  objectFit = "cover",
   loading = "lazy",
   fetchPriority,
   decoding = "async",
@@ -184,13 +186,15 @@ function SmartImgImpl({
       display: "block" as const,
       width: "100%",
       height: "100%",
-      objectFit: "cover" as const,
+      objectFit,
       opacity: loaded ? 1 : 0,
       transition: "opacity 220ms ease-out",
     },
     onLoad: markLoaded,
     onError: markErrored,
   };
+  const showSpinner =
+    !loaded && !errored && (loading === "eager" || fetchPriority === "high");
 
   return (
     <div
@@ -203,11 +207,11 @@ function SmartImgImpl({
         backgroundColor: loaded ? undefined : "#1a1715",
       }}
     >
-      {!loaded && !errored && <SpinnerOverlay />}
+      {showSpinner && <SpinnerOverlay />}
       {webpSrcSet ? (
         // Local image with WebP variants on disk: render <picture> so the
         // browser auto-picks WebP if it supports it, JPEG canonical otherwise.
-        <picture>
+        <picture className="smart-img-picture">
           <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
           <img
             {...imgProps}
@@ -227,37 +231,14 @@ function SmartImgImpl({
 }
 
 /**
- * Centred ember spinner. Matches the homepage boot loader (.boot::after
- * in index.html) so the visual language is consistent from boot through
- * lazy-loaded card images.
+ * Centred ember spinner. Only shown for the true high-priority image path;
+ * long mobile feeds use the static dark skeleton instead to avoid dozens of
+ * simultaneous CSS animations.
  */
 function SpinnerOverlay() {
   return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: "absolute",
-        inset: 0,
-        display: "grid",
-        placeItems: "center",
-        pointerEvents: "none",
-      }}
-    >
-      <div
-        style={{
-          width: 24,
-          height: 24,
-          borderRadius: "50%",
-          border: "2px solid rgba(217,119,87,0.18)",
-          borderTopColor: "#d97757",
-          animation: "smartImgSpin 0.9s linear infinite",
-        }}
-      />
-      <style>{`
-        @keyframes smartImgSpin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
+    <div aria-hidden="true" className="smart-img-spinner">
+      <span />
     </div>
   );
 }

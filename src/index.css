@@ -177,6 +177,35 @@
     letter-spacing: -0.02em;
   }
 
+  .smart-img-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .smart-img-picture > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .smart-img-spinner {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+  .smart-img-spinner > span {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    border: 2px solid rgba(217, 119, 87, 0.18);
+    border-top-color: #d97757;
+    animation: smartImgSpin 0.9s linear infinite;
+  }
+  @keyframes smartImgSpin {
+    to { transform: rotate(360deg); }
+  }
+
   /* Premium card with spotlight gradient on hover (uses CSS vars updated in JS) */
   .card-spotlight {
     position: relative;
@@ -253,58 +282,6 @@
   }
 
   /*
-   * Mobile hero — staggered 2-col case waterfall with subtle scroll-driven
-   * parallax. Inspired by the canghe.ai mobile hero (image-first, text as
-   * a small overlay), but using real cases from cases.json so the homepage
-   * doubles as a freshness signal.
-   *
-   * Parallax strategy:
-   *   The columns are positioned identically; we offset them via translateY
-   *   tied to root scroll progress. Left column moves 0 → -3vh, right
-   *   moves 0 → -6vh — small enough to be felt rather than seen, large
-   *   enough that the columns appear to "rise at different speeds" as
-   *   the user scrolls past the hero.
-   *
-   *   Animation-range is `entry-crossing 0% exit 100%` so the parallax
-   *   plays for the entire time any of the cards is in the viewport,
-   *   avoiding a hard "reset" snap.
-   *
-   *   Gated behind @supports (animation-timeline: scroll()) — Safari
-   *   <26 and Firefox today render the columns statically with no
-   *   regression beyond losing a small flourish.
-   *
-   * We deliberately don't transform the cards individually (would force
-   * a paint per card and fight content-visibility); transforming the
-   * column wrapper is one composite layer per side.
-   */
-  @supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .hero-mobile-col-left,
-      .hero-mobile-col-right {
-        animation: heroColParallax linear both;
-        animation-timeline: scroll(root block);
-        will-change: transform;
-      }
-      .hero-mobile-col-left  { animation-range: 0 60vh; }
-      .hero-mobile-col-right { animation-range: 0 80vh; }
-      @keyframes heroColParallax {
-        from { transform: translate3d(0, 0, 0); }
-        to   { transform: translate3d(0, -2vh, 0); }
-      }
-      /* Right column gets a slightly larger end translation so the two
-         sides drift apart as you scroll. Override via a separate
-         keyframe to avoid an extra @property declaration. */
-      .hero-mobile-col-right {
-        animation-name: heroColParallaxRight;
-      }
-      @keyframes heroColParallaxRight {
-        from { transform: translate3d(0, 0, 0); }
-        to   { transform: translate3d(0, -4.5vh, 0); }
-      }
-    }
-  }
-
-  /*
    * Masonry layout for the case grid.
    *
    * Uses native CSS multi-column rather than display: grid because the cases
@@ -367,43 +344,12 @@
    * 4:5 majority this is dead-on.
    */
   .case-card {
-    content-visibility: auto;
-    contain-intrinsic-size: 360px 520px;
     -webkit-tap-highlight-color: transparent;
   }
   @media (min-width: 640px) {
-    .case-card { contain-intrinsic-size: 320px 460px; }
-  }
-
-  /*
-   * Scroll-driven entrance for case cards.
-   *
-   * Modern browsers (Chrome 115+, Edge 115+, Safari 26+ behind a flag) ship
-   * `animation-timeline: view()` which lets us tie an animation's progress
-   * to where the element is in the viewport — zero JS, zero IntersectionObserver,
-   * zero re-layout. We use it to fade + lift each card as it enters.
-   *
-   * The animation runs ONLY in the bottom 40% of the viewport (cover 0–40%),
-   * which means cards that are already fully on-screen at page load skip
-   * the animation entirely. That's deliberate — animating the LCP card
-   * delays paint and reads as "site is still loading" rather than "site
-   * is alive". Scroll-revealed cards animate; first-screen cards don't.
-   *
-   * The @supports gate keeps this opt-in: unsupported browsers (Safari
-   * <26, Firefox today) get the static layout with no animation at all,
-   * which is identical to today's behaviour. No feature regression.
-   */
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .case-card {
-        animation: caseReveal linear both;
-        animation-timeline: view();
-        animation-range: cover 0% cover 40%;
-      }
-      @keyframes caseReveal {
-        from { opacity: 0; transform: translate3d(0, 14px, 0); }
-        to   { opacity: 1; transform: translate3d(0, 0, 0); }
-      }
+    .case-card {
+      content-visibility: auto;
+      contain-intrinsic-size: 320px 460px;
     }
   }
 }

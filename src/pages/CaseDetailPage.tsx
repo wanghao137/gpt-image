@@ -20,7 +20,7 @@ import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
 import { tagLabel } from "../lib/labels";
-import { transformUrl } from "../lib/img";
+import { pickLocalWebp, transformUrl } from "../lib/img";
 import NotFoundPage from "./NotFoundPage";
 
 /** Map "9:16" → CSS aspectRatio. */
@@ -530,7 +530,7 @@ function NavCard({
     >
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-ink-850">
         <img
-          src={transformUrl(target.imageUrl, { width: 160 })}
+          src={pickLocalWebp(target.imageUrl, 160)}
           alt=""
           loading="lazy"
           decoding="async"
