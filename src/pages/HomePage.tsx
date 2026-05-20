@@ -185,34 +185,6 @@ export default function HomePage() {
 }
 
 function HeroDeck({ cases }: { cases: PromptCase[] }) {
-  // Slot specs mirror gpt-image2.canghe.ai's right-rail collage:
-  // five cards absolutely positioned with mild rotation + cardDrift
-  // animation delays staggered so the deck "breathes" without any
-  // single card moving more than a few pixels. Slots are sized in rem
-  // and scaled down on smaller breakpoints by transforming the deck
-  // wrapper (avoids redoing five separate sets of inset values).
-  const slots: Array<{
-    /** Tailwind absolute-position utilities. */
-    pos: string;
-    /** Tailwind w-/h- utilities for the card size. */
-    size: string;
-    /** CSS rotation passed via the `--tilt` custom property. */
-    tilt: string;
-    /** Negative animation-delay seconds — staggered so adjacent cards
-     *  don't peak at the same moment. */
-    delay: string;
-    /** Hint for which on-disk WebP variant to fall back to. */
-    baseW: number;
-    /** First card gets eager + high priority for LCP. */
-    priority?: boolean;
-  }> = [
-    { pos: "left-[2.5rem] top-[1.5rem]",  size: "w-[16rem] h-[20rem]",   tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
-    { pos: "right-[0.5rem] top-0",        size: "w-[14rem] h-[18rem]",   tilt: "4deg",  delay: "-1.2s", baseW: 480 },
-    { pos: "left-0 top-[17rem]",          size: "w-[13rem] h-[14.5rem]", tilt: "5deg",  delay: "-2.3s", baseW: 320 },
-    { pos: "right-[1.5rem] top-[16.5rem]",size: "w-[17.25rem] h-[15.25rem]", tilt: "-3deg", delay: "-3.4s", baseW: 480 },
-    { pos: "left-[10.5rem] top-[11rem]",  size: "w-[12.75rem] h-[15rem]", tilt: "2deg", delay: "-4.2s", baseW: 320 },
-  ];
-
   if (cases.length === 0) {
     return <div className="h-[360px] rounded-2xl bg-ink-850 sm:h-[480px]" />;
   }
@@ -223,16 +195,98 @@ function HeroDeck({ cases }: { cases: PromptCase[] }) {
   for (let i = 0; i < 5; i += 1) items.push(cases[i] ?? cases[cases.length - 1]);
 
   return (
-    <div className="relative z-10 mx-auto h-[420px] w-full max-w-[34rem] sm:h-[520px] lg:h-[580px]">
-      {/* Soft ambient glow under the deck. */}
-      <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_42%,rgba(217,119,87,0.12),transparent_42%),radial-gradient(circle_at_80%_72%,rgba(255,255,255,0.06),transparent_36%)] blur-2xl" />
+    <div className="relative z-10">
       {/*
-        Inner wrapper handles the deck's responsive scaling. The slots
-        themselves are sized in absolute rems against this 34rem×520px
-        canvas, so a single transform-scale on this wrapper brings the
-        whole thing down on smaller breakpoints without redoing positions.
+        Mobile / tablet: a single tall hero card. The 5-card floating deck
+        looks great at desktop widths but collapses into a stacked mess
+        below ~1024 px (the slots are absolutely positioned on a 34 rem
+        canvas; even with transform-scale they overlap badly on a 360 px
+        viewport). HeroStrip immediately below the hero already gives the
+        user a "lots of cases" cue — the hero just needs one strong image.
       */}
-      <div className="absolute inset-0 origin-top-right scale-[0.78] sm:scale-90 lg:scale-100">
+      <div className="lg:hidden">
+        <HeroSolo item={items[0]} />
+      </div>
+
+      {/* Desktop: the 5-card floating collage. */}
+      <div className="hidden lg:block">
+        <HeroFloatingDeck items={items} />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Single large hero card for mobile / tablet. No tilt, no drift — just a
+ * cleanly framed 4:5 image with a soft caption strip.
+ */
+function HeroSolo({ item }: { item: PromptCase }) {
+  return (
+    <Link
+      to={`/case/${item.slug}`}
+      aria-label={item.title}
+      className="
+        group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl
+        border border-white/[0.06] bg-ink-900/40
+        shadow-[0_24px_60px_-22px_rgba(0,0,0,0.7)]
+        transition active:scale-[0.99]
+        sm:aspect-[5/4] sm:rounded-3xl
+      "
+    >
+      <SmartImg
+        src={item.imageUrl}
+        alt={item.imageAlt || item.title}
+        width={960}
+        height={1200}
+        widths={[480, 640, 960]}
+        baseWidth={480}
+        sizes="(min-width:640px) 70vw, 90vw"
+        loading="eager"
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-[1.02]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink-950/85 via-ink-950/35 to-transparent"
+      />
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+        <span className="mb-2 inline-flex rounded-full border border-white/15 bg-ink-950/65 px-2 py-0.5 text-[10.5px] font-medium text-ember-200 backdrop-blur">
+          {item.ratio}
+        </span>
+        <strong className="line-clamp-2 text-[15px] font-semibold leading-tight text-ink-50 sm:text-[17px]">
+          {item.title}
+        </strong>
+      </div>
+    </Link>
+  );
+}
+
+/**
+ * Desktop-only collage: five absolutely-positioned cards with mild rotation
+ * and a 7s vertical drift, modelled after gpt-image2.canghe.ai. The slot
+ * canvas is 34 rem × 580 px; we never down-scale it because this branch
+ * only renders at lg and above where there's plenty of room.
+ */
+function HeroFloatingDeck({ items }: { items: PromptCase[] }) {
+  const slots: Array<{
+    pos: string;
+    size: string;
+    tilt: string;
+    delay: string;
+    baseW: number;
+    priority?: boolean;
+  }> = [
+    { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
+    { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480 },
+    { pos: "left-0 top-[17rem]",              size: "w-[13rem] h-[14.5rem]",      tilt: "5deg",  delay: "-2.3s", baseW: 320 },
+    { pos: "right-[1.5rem] top-[16.5rem]",    size: "w-[17.25rem] h-[15.25rem]",  tilt: "-3deg", delay: "-3.4s", baseW: 480 },
+    { pos: "left-[10.5rem] top-[11rem]",      size: "w-[12.75rem] h-[15rem]",     tilt: "2deg",  delay: "-4.2s", baseW: 320 },
+  ];
+
+  return (
+    <div className="relative mx-auto h-[580px] w-full max-w-[34rem]">
+      <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_42%,rgba(217,119,87,0.12),transparent_42%),radial-gradient(circle_at_80%_72%,rgba(255,255,255,0.06),transparent_36%)] blur-2xl" />
+      <div className="absolute inset-0">
         {items.map((item, i) => {
           const slot = slots[i];
           return (
