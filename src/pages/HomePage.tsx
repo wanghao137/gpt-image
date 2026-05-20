@@ -5,6 +5,7 @@ import { SmartImg } from "../components/SmartImg";
 import { CategoryShowcase } from "../components/CategoryShowcase";
 import { CaseGrid } from "../components/CaseGrid";
 import { TemplateCard } from "../components/TemplateCard";
+import { HeroStrip } from "../components/HeroStrip";
 import { SEO, SITE } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCountUp } from "../hooks/useCountUp";
@@ -30,6 +31,10 @@ export default function HomePage() {
   const templates = ALL_TEMPLATES;
   const animCases = useCountUp(cases.length, 900);
   const heroCases = useMemo(() => cases.slice(0, 5), [cases]);
+  // Strip below the hero — modelled after canghe's landing rail. Pull the
+  // newest cases (cases.json is already sorted desc by id) so the strip
+  // doubles as a "what's new" indicator without needing its own heading.
+  const stripCases = useMemo(() => cases.slice(0, 14), [cases]);
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
   const { ids: favoriteIds, toggle } = useFavorites();
 
@@ -110,6 +115,8 @@ export default function HomePage() {
 
         <HeroDeck cases={heroCases} />
       </section>
+
+      <HeroStrip cases={stripCases} />
 
       <CategoryShowcase cases={cases} />
 

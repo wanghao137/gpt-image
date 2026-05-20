@@ -97,24 +97,149 @@
         overflow-x: hidden;
       }
       #root { min-height: 100vh; }
-      .boot {
-        position: fixed; inset: 0; display: grid; place-items: center;
-        background: #0c0a09; color: #d97757;
-        font-family: "Instrument Serif", Palatino, Georgia, serif;
-        font-size: 22px; letter-spacing: -0.01em;
+
+      /* Boot overlay — shown over the SSG'd HTML for the first paint and
+         dismissed by an inline script as soon as `window.load` fires (or
+         after a 3 s safety net). Renders inline (no JS framework) so it
+         appears the moment the HTML parser reaches it.
+
+         Design intent:
+           - Full-bleed dark with the same ember radial gradient as the
+             site background, so the transition into the home page is a
+             pure cross-fade rather than a colour jump.
+           - Magic-wand glyph in ink-100 + ember-tinted spinner ring + a
+             single line of copy. No business about progress bars: the
+             actual page is already fully painted underneath, this is
+             just a brand handoff for the first 200-400 ms.
+           - `pointer-events: none` only after `is-hidden` so we can't
+             swallow the user's first click. */
+      .boot-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.18), transparent 60%),
+          radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.08), transparent 60%),
+          linear-gradient(180deg, #0c0a09 0%, #0a0807 60%, #0e0b0a 100%);
+        transition: opacity 380ms ease, visibility 380ms ease;
       }
-      .boot::after {
-        content: ""; width: 38px; height: 38px; margin-left: 14px;
-        border-radius: 50%;
-        border: 2px solid rgba(217,119,87,0.18);
+      .boot-overlay.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .boot-overlay__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 0 24px;
+      }
+      .boot-overlay__icon {
+        width: 36px;
+        height: 36px;
+        color: #ece8e1;
+        opacity: 0.92;
+        animation: bootGlow 1.6s ease-in-out infinite alternate;
+      }
+      .boot-overlay__spinner {
+        width: 28px;
+        height: 28px;
+        border-radius: 9999px;
+        border: 2px solid rgba(217, 119, 87, 0.18);
         border-top-color: #d97757;
-        animation: bspin 1s linear infinite;
+        animation: bspin 0.9s linear infinite;
+      }
+      .boot-overlay__text {
+        font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei",
+          "Helvetica Neue", Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #ece8e1;
+        opacity: 0.7;
       }
       @keyframes bspin { to { transform: rotate(360deg); } }
+      @keyframes bootGlow {
+        from { opacity: 0.55; transform: translateY(0); }
+        to   { opacity: 1;    transform: translateY(-2px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boot-overlay__icon,
+        .boot-overlay__spinner { animation: none; }
+      }
     </style>
   </head>
   <body>
     <div id="root"><!--app-html--></div>
+
+    <!--
+      Boot overlay. Sits on top of the SSG'd page until the document fully
+      loads (or 3 s elapse). The inline script fires before main.tsx so it
+      doesn't depend on React being parsed. It survives a slow JS cold start
+      because the SSG'd HTML beneath is already meaningful — this is purely
+      a brand-consistent visual handoff.
+    -->
+    <div id="boot-overlay" class="boot-overlay" aria-hidden="true">
+      <div class="boot-overlay__inner">
+        <svg
+          class="boot-overlay__icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m14 7 3 3" />
+          <path d="M5 6v4" />
+          <path d="M19 14v4" />
+          <path d="M10 2v2" />
+          <path d="M7 8H3" />
+          <path d="M21 16h-4" />
+          <path d="M11 3H9" />
+          <path d="m21 21-9-9" />
+        </svg>
+        <span class="boot-overlay__spinner"></span>
+        <span class="boot-overlay__text">正在加载 GPT-Image 2 案例…</span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var el = document.getElementById("boot-overlay");
+        if (!el) return;
+        var dismissed = false;
+        function dismiss() {
+          if (dismissed) return;
+          dismissed = true;
+          el.classList.add("is-hidden");
+          setTimeout(function () {
+            if (el && el.parentNode) el.parentNode.removeChild(el);
+          }, 500);
+        }
+        if (document.readyState === "complete") {
+          // Browser already done — dismiss on the next frame so the user
+          // still sees a brief cross-fade rather than a hard pop.
+          requestAnimationFrame(dismiss);
+        } else {
+          window.addEventListener(
+            "load",
+            function () {
+              // Tiny breath after `load` so React's first paint is up.
+              setTimeout(dismiss, 80);
+            },
+            { once: true }
+          );
+        }
+        // Safety net: never block interaction for more than 3 seconds even
+        // if `load` never fires (e.g. a single hung image somewhere).
+        setTimeout(dismiss, 3000);
+      })();
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
