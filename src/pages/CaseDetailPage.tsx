@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   caseNeighbors,
@@ -19,6 +19,7 @@ import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
 import { tagLabel } from "../lib/labels";
+import { readCaseReturn, rememberCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
 import NotFoundPage from "./NotFoundPage";
 
@@ -59,7 +60,6 @@ export default function CaseDetailPage() {
       href: "https://chat.openai.com/",
     },
   });
-  const [tab, setTab] = useState<"cn" | "en">("cn");
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
@@ -68,11 +68,23 @@ export default function CaseDetailPage() {
     () => (c ? caseNeighbors(c) : { prev: undefined, next: undefined }),
     [c],
   );
+  const promptText = fetched.prompt || c?.promptPreview || "";
+
+  useEffect(() => {
+    if (!c) return;
+    const saved = readCaseReturn();
+    if (saved) rememberCaseReturn(c.id, saved.path);
+  }, [c]);
+
+  const closeDetail = useCallback(() => {
+    const saved = readCaseReturn();
+    const targetPath = saved?.path || "/cases";
+    if (c) rememberCaseReturn(c.id, targetPath);
+    navigate(targetPath);
+  }, [c, navigate]);
 
   if (!c) return <NotFoundPage />;
 
-  // Same prompt for both tabs until we ship a separate EN prompt field.
-  const promptText = fetched.prompt || c.promptPreview || "";
   const charCount = promptText.length;
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
 
@@ -143,29 +155,48 @@ export default function CaseDetailPage() {
         jsonLd={[breadcrumbLd, creativeWorkLd, imageLd]}
       />
 
+      <button
+        type="button"
+        onClick={closeDetail}
+        aria-label="关闭并返回案例列表"
+        className="fixed right-4 z-30 grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-ink-950/80 text-ink-50 shadow-soft backdrop-blur-xl sm:hidden"
+        style={{ top: "calc(env(safe-area-inset-top) + 4.75rem)" }}
+      >
+        <CloseIcon />
+      </button>
+
       {/* Breadcrumb + author */}
-      <div className="container-narrow flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-8 text-[12px] text-ink-500">
-        <nav aria-label="面包屑" className="flex items-center gap-1.5">
-          <Link to="/" className="hover:text-ink-200">首页</Link>
-          <span className="text-ink-700">›</span>
-          <Link to="/cases" className="hover:text-ink-200">案例</Link>
-          {meta && (
+      <div className="container-narrow flex items-center justify-between gap-3 pt-8 text-[12px] text-ink-500">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+          <nav aria-label="面包屑" className="flex items-center gap-1.5">
+            <Link to="/" className="hover:text-ink-200">首页</Link>
+            <span className="text-ink-700">›</span>
+            <Link to="/cases" className="hover:text-ink-200">案例</Link>
+            {meta && (
+              <>
+                <span className="text-ink-700">›</span>
+                <Link to={`/category/${meta.slug}`} className="hover:text-ink-200">
+                  {meta.label}
+                </Link>
+              </>
+            )}
+          </nav>
+          {c.source && (
             <>
-              <span className="text-ink-700">›</span>
-              <Link to={`/category/${meta.slug}`} className="hover:text-ink-200">
-                {meta.label}
-              </Link>
+              <span className="text-ink-700">·</span>
+              <span className="text-ink-400">
+                来源 <span className="text-ink-200">{c.source}</span>
+              </span>
             </>
           )}
-        </nav>
-        {c.source && (
-          <>
-            <span className="text-ink-700">·</span>
-            <span className="text-ink-400">
-              来源 <span className="text-ink-200">{c.source}</span>
-            </span>
-          </>
-        )}
+        </div>
+        <button
+          type="button"
+          onClick={closeDetail}
+          className="hidden shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12px] font-medium text-ink-200 transition hover:border-white/25 hover:text-ink-50 sm:inline-flex"
+        >
+          <ArrowLeftSmallIcon /> 返回案例
+        </button>
       </div>
 
       <article className="container-narrow grid gap-7 pb-12 pt-5 lg:grid-cols-12 lg:gap-10">
@@ -195,12 +226,6 @@ export default function CaseDetailPage() {
                   quality={85}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                {/* subtle gradient at bottom for the ratio chip */}
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink-950/60 to-transparent" />
-                <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-ink-950/65 px-2.5 py-1 text-[11px] font-medium text-ink-100 backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
-                  {c.ratio} · GPT-Image 2
-                </div>
                 {/* Zoom-in affordance — appears on hover (desktop) and is
                     permanently visible on touch devices via the `cursor-zoom-in`
                     cue + this badge. */}
@@ -209,24 +234,6 @@ export default function CaseDetailPage() {
                 </div>
               </figure>
             </button>
-
-            {/* Quick stats strip below the image — fills the dead space that
-                used to be the empty black padding. */}
-            <div className="mt-3 grid grid-cols-3 gap-2 text-[11.5px]">
-              <Stat label="比例" value={c.ratio} />
-              <Stat label="难度" value={`${c.difficulty} / 5`} />
-              <Stat
-                label="可商用"
-                value={
-                  c.commercialOk === "commercial"
-                    ? "✓ 是"
-                    : c.commercialOk === "personal"
-                      ? "仅个人"
-                      : "咨询"
-                }
-                accent={c.commercialOk === "commercial"}
-              />
-            </div>
           </div>
         </div>
 
@@ -257,42 +264,12 @@ export default function CaseDetailPage() {
             <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-950/60">
               {/* Toolbar */}
               <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 items-center gap-2">
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">
                     Prompt
                   </h2>
-                  <div className="inline-flex rounded-full border border-white/10 bg-ink-950/40 p-0.5 text-[11px] font-medium" role="tablist" aria-label="Prompt 语言">
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={tab === "cn"}
-                      onClick={() => setTab("cn")}
-                      className={
-                        "rounded-full px-2.5 py-0.5 transition " +
-                        (tab === "cn"
-                          ? "bg-white/10 text-ink-50"
-                          : "text-ink-400 hover:text-ink-100")
-                      }
-                    >
-                      中文
-                    </button>
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={tab === "en"}
-                      onClick={() => setTab("en")}
-                      className={
-                        "rounded-full px-2.5 py-0.5 transition " +
-                        (tab === "en"
-                          ? "bg-white/10 text-ink-50"
-                          : "text-ink-400 hover:text-ink-100")
-                      }
-                    >
-                      English
-                    </button>
-                  </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   {!fetched.loading && promptText && (
                     <span className="hidden text-[11px] tabular-nums text-ink-500 sm:inline">
                       {charCount} 字符 · {wordCount} 词
@@ -426,7 +403,7 @@ export default function CaseDetailPage() {
           fetched.loading
             ? "Prompt 加载中…"
             : promptText
-              ? `${tab === "cn" ? "中文" : "English"} · ${charCount} 字符`
+              ? `${charCount} 字符`
               : undefined
         }
         disabled={fetched.loading || !promptText}
@@ -449,39 +426,6 @@ export default function CaseDetailPage() {
 }
 
 // ─────────────────────────────────────────── small atoms ──
-
-function Stat({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div
-      className={
-        "rounded-xl border px-3 py-2.5 " +
-        (accent
-          ? "border-ember-500/30 bg-ember-500/[0.06]"
-          : "border-white/[0.06] bg-white/[0.02]")
-      }
-    >
-      <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-ink-500">
-        {label}
-      </p>
-      <p
-        className={
-          "mt-0.5 text-[14px] font-semibold tabular-nums " +
-          (accent ? "text-ember-100" : "text-ink-100")
-        }
-      >
-        {value}
-      </p>
-    </div>
-  );
-}
 
 function Chip({ label }: { label: string }) {
   return (
@@ -541,6 +485,37 @@ function NavCard({
         </span>
       </div>
     </Link>
+  );
+}
+
+function ArrowLeftSmallIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3.5 w-3.5"
+      aria-hidden="true"
+    >
+      <path d="M12.5 4.5 7 10l5.5 5.5" />
+      <path d="M7.5 10H16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-5 w-5"
+      aria-hidden="true"
+    >
+      <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+    </svg>
   );
 }
 

@@ -5,6 +5,7 @@ import { getUserCategoryBySlug, USER_CATEGORIES } from "../lib/userCategories";
 import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
+import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import NotFoundPage from "./NotFoundPage";
 
 /**
@@ -20,6 +21,7 @@ export default function CategoryPage() {
     [meta],
   );
   const { ids, toggle } = useFavorites();
+  const { restoreId, onRestored } = useCaseReturnRestore();
 
   if (!meta) return <NotFoundPage />;
 
@@ -106,7 +108,13 @@ export default function CategoryPage() {
       </section>
 
       <div className="pt-6">
-        <CaseGrid cases={list} favoriteIds={ids} onToggleFavorite={toggle} />
+        <CaseGrid
+          cases={list}
+          favoriteIds={ids}
+          onToggleFavorite={toggle}
+          restoreId={restoreId}
+          onRestored={onRestored}
+        />
       </div>
     </>
   );

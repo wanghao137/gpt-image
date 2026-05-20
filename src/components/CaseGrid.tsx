@@ -16,9 +16,20 @@ interface CaseGridProps {
    * page renders 12 cards but only ~8 are visible without scrolling.
    */
   priorityCount?: number;
+  /** Case id to scroll back to after returning from the detail page. */
+  restoreId?: string | null;
+  onRestored?: () => void;
 }
 
 const PAGE_SIZE = 24;
+
+function countForRestore(cases: PromptCase[], paginate: boolean, restoreId?: string | null) {
+  if (!paginate) return cases.length;
+  if (!restoreId) return PAGE_SIZE;
+  const index = cases.findIndex((item) => item.id === restoreId);
+  if (index < 0) return PAGE_SIZE;
+  return Math.min(cases.length, Math.max(PAGE_SIZE, Math.ceil((index + 1) / PAGE_SIZE) * PAGE_SIZE));
+}
 
 function SkeletonCard() {
   return (
@@ -56,13 +67,18 @@ export function CaseGrid({
   onResetFilters,
   paginate = true,
   priorityCount = 0,
+  restoreId,
+  onRestored,
 }: CaseGridProps) {
-  const [visibleCount, setVisibleCount] = useState(paginate ? PAGE_SIZE : cases.length);
+  const [visibleCount, setVisibleCount] = useState(() =>
+    countForRestore(cases, paginate, restoreId),
+  );
   const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const restoredRef = useRef<string | null>(null);
 
   useEffect(() => {
-    setVisibleCount(paginate ? PAGE_SIZE : cases.length);
-  }, [cases, paginate]);
+    setVisibleCount(countForRestore(cases, paginate, restoreId));
+  }, [cases, paginate, restoreId]);
 
   useEffect(() => {
     if (!paginate) return;
@@ -82,6 +98,27 @@ export function CaseGrid({
   }, [cases.length, visibleCount, paginate]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
+
+  useEffect(() => {
+    if (!restoreId || restoredRef.current === restoreId) return;
+    if (!visible.some((item) => item.id === restoreId)) return;
+    const el = document.getElementById(`case-${restoreId}`);
+    if (!el) return;
+
+    restoredRef.current = restoreId;
+    let firstFrame = 0;
+    let secondFrame = 0;
+    firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        el.scrollIntoView({ block: "center", behavior: "auto" });
+        onRestored?.();
+      });
+    });
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, [onRestored, restoreId, visible]);
 
   if (loading) {
     return (

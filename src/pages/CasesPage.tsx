@@ -5,6 +5,7 @@ import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
 import { SEO } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
+import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 
 function uniqueValues(items: string[][]): string[] {
   return Array.from(new Set(items.flat())).sort((a, b) =>
@@ -44,6 +45,7 @@ export default function CasesPage() {
     readSet(sp, "platform"),
   );
   const [showFavorites, setShowFavorites] = useState(false);
+  const { restoreId, onRestored } = useCaseReturnRestore();
 
   // ── URL sync (one-way: state → URL) ──
   useEffect(() => {
@@ -198,6 +200,8 @@ export default function CasesPage() {
         favoriteIds={favoriteIds}
         onToggleFavorite={toggle}
         onResetFilters={resetFilters}
+        restoreId={restoreId}
+        onRestored={onRestored}
       />
     </>
   );

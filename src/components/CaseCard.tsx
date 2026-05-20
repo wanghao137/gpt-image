@@ -1,5 +1,5 @@
 import { memo, useCallback, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
@@ -7,6 +7,7 @@ import { useLongPress } from "../hooks/useLongPress";
 import { tagLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
 import { pickLocalWebp } from "../lib/img";
+import { rememberCaseReturn } from "../lib/caseReturn";
 import { SmartImg } from "./SmartImg";
 import { CardActionSheet, type CardAction } from "./CardActionSheet";
 
@@ -165,6 +166,7 @@ function FolderIcon() {
  */
 function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: CaseCardProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { state, copy } = useCopy(1500, {
     successTitle: "Prompt 已复制",
     successDescription: "去 ChatGPT 粘贴出图",
@@ -179,6 +181,12 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
+  const rememberReturn = useCallback(() => {
+    rememberCaseReturn(
+      data.id,
+      `${location.pathname}${location.search}${location.hash}`,
+    );
+  }, [data.id, location.hash, location.pathname, location.search]);
 
   // ── Copy handler (shared by inline button + action sheet) ──
   const handleCopy = useCallback(async () => {
@@ -223,15 +231,21 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
       key: "detail",
       label: "查看案例详情",
       icon: <ArrowRightIcon />,
-      hint: "完整 Prompt + 比例 + 可商用信息",
-      onSelect: () => navigate(detailHref),
+      hint: "完整 Prompt + 大图查看",
+      onSelect: () => {
+        rememberReturn();
+        navigate(detailHref);
+      },
     },
     {
       key: "lightbox",
       label: "打开大图",
       icon: <ZoomIcon />,
       hint: "进入详情页后双指缩放查看",
-      onSelect: () => navigate(detailHref + "?z=1"),
+      onSelect: () => {
+        rememberReturn();
+        navigate(detailHref + "?z=1");
+      },
     },
     {
       key: "fav",
@@ -251,6 +265,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
   return (
     <>
       <article
+        id={`case-${data.id}`}
         onMouseEnter={() => {
           if (typeof window === "undefined") return;
           if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
@@ -271,6 +286,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
       >
         <Link
           to={detailHref}
+          onClick={rememberReturn}
           className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
           aria-label={`查看案例 ${data.title}`}
         >
@@ -322,14 +338,11 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               <HeartIcon filled={favorited} />
             </button>
 
-            {/* Hover overlay: ratio + author + view affordance (desktop) */}
+            {/* Hover overlay: author + view affordance (desktop) */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden items-end justify-between gap-2 p-3 opacity-0 transition duration-500 group-hover:opacity-100 sm:flex">
               <div className="min-w-0 flex-1 text-[11px] text-ink-200">
-                <span className="rounded-md border border-white/15 bg-ink-950/60 px-1.5 py-0.5 font-mono backdrop-blur">
-                  {data.ratio}
-                </span>
                 {data.source && (
-                  <span className="ml-2 truncate align-middle text-[11px] text-ink-300">
+                  <span className="truncate align-middle text-[11px] text-ink-300">
                     {data.source}
                   </span>
                 )}
@@ -340,12 +353,6 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               </span>
             </div>
 
-            {/* Always-on ratio chip (mobile only) — replaces the hover row.
-                On a phone, hover doesn't exist; this gives the same metadata
-                without obscuring the image. */}
-            <div className="pointer-events-none absolute left-2.5 bottom-2.5 inline-flex items-center gap-1 rounded-md border border-white/15 bg-ink-950/60 px-1.5 py-0.5 text-[10px] font-mono text-ink-200 backdrop-blur sm:hidden">
-              {data.ratio}
-            </div>
           </div>
         </Link>
 
@@ -353,6 +360,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
         <div className="flex flex-col gap-2 px-3 pb-3 pt-2.5 sm:hidden">
           <Link
             to={detailHref}
+            onClick={rememberReturn}
             className="block text-[14px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200"
           >
             <span className="line-clamp-1">{data.title}</span>
@@ -416,6 +424,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
           <div className="min-w-0 flex-1">
             <Link
               to={detailHref}
+              onClick={rememberReturn}
               className="block text-[13.5px] font-semibold leading-snug text-ink-100 transition group-hover:text-ember-200"
             >
               <span className="line-clamp-1">{data.title}</span>
@@ -487,7 +496,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
       <CardActionSheet
         open={menuOpen}
         title={data.title}
-        caption={`${userCategoryLabel(data.userCategory)} · ${data.ratio}`}
+        caption={userCategoryLabel(data.userCategory)}
         image={pickLocalWebp(data.imageUrl, 168)}
         actions={sheetActions}
         onClose={() => setMenuOpen(false)}
