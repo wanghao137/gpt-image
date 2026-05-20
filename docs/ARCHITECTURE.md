@@ -1,12 +1,10 @@
-# 系统架构（2026-05-19 基线）
+# 系统架构（2026-05-20 基线）
 
-> 这份文档是"代码层蓝本"。`README.md` 面向使用者，`ROADMAP.md` 面向待办，
-> 这份面向**接手开发的人**——读完一份就能在脑子里画出从 git push 到
-> 浏览器渲染图片的全链路。
+> 这份文档是"代码层蓝本"。`README.md` 面向使用者，这份面向**接手开发的人**——
+> 读完一份就能在脑子里画出从 git push 到浏览器渲染图片的全链路。
 
 > 关联文档：
 > - 部署历史与决策记录：[`PERF_PLAN.md`](./PERF_PLAN.md)
-> - 待办与优先级：[`ROADMAP.md`](./ROADMAP.md)
 > - 上手与命令速查：[`../README.md`](../README.md)
 
 ---
@@ -14,16 +12,18 @@
 ## 一、产品定位
 
 把 [`freestylefly/awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2)
-的 400+ Prompt 案例做成一个**可搜索、可分类、SEO 友好、商业化闭环**的中文
-导航站。线上：[taostudioai.com](https://taostudioai.com)。
+的 450+ Prompt 案例做成一个**可搜索、可分类、SEO 友好**的中文导航站。
+线上：[taostudioai.com](https://taostudioai.com)。
 
 核心特征：
 
-- **静态优先**：构建期把每个路由预渲染成独立 HTML（约 461 个页面）。
-- **零服务端**:动态行为（搜索、收藏、复制、admin 写入）全在浏览器；写入靠
-  GitHub Contents API。
+- **静态优先**：构建期把每个路由预渲染成独立 HTML（约 470+ 个页面，随
+  `cases.json` 浮动）。
+- **零服务端**：动态行为（搜索、收藏、复制、admin 写入）全在浏览器；admin
+  写入靠 GitHub Contents API。
 - **数据双源**：上游每日同步 + `data/manual/` 手动覆盖。
-- **图像就地烘焙**：构建期把所有外链图下载、压缩、本地化，运行时 same-origin。
+- **图像就地烘焙**：构建期把所有外链图下载、压缩、本地化为 4 档 WebP +
+  1200px JPEG，运行时 same-origin。
 
 ---
 
@@ -31,11 +31,11 @@
 
 | 层 | 选型 | 备注 |
 |---|---|---|
-| 构建 | Vite 5 + `vite-react-ssg 0.8.9` | SSG 由 antfu 团队的实验性插件提供，构建期走 `routes.tsx` 的 `getStaticPaths` |
+| 构建 | Vite 5 + `vite-react-ssg 0.8.9` | SSG 走 `routes.tsx` 的 `getStaticPaths` 展开静态路径 |
 | 框架 | React 18 + TypeScript 5 | |
 | 路由 | `react-router-dom 6.30` | 与 SSG 共用同一份 `routes` 表 |
-| 样式 | Tailwind 3 + 自定义主题（`ink-*` 暗灰、`ember-*` 琥珀） | 系统字体优先 + Instrument Serif |
-| 图像 | `sharp 0.34` (build-only) | mozjpeg、progressive、1200px 上限 |
+| 样式 | Tailwind 3 + 自定义主题（`ink-*` 暗灰、`ember-*` 琥珀） | 系统字体优先 + 自托管 Instrument Serif |
+| 图像 | `sharp 0.34` (build-only) | mozjpeg、progressive、4 档 WebP |
 | 拼音 | `pinyin-pro 3.28` | slug 生成 |
 | 后端 | **无** | admin 直连 GitHub API；上游同步靠 GitHub Actions |
 
@@ -53,21 +53,20 @@ gpt-image/
 │   │   ├── cases.json        所有案例的 lite 数据（无 prompt 正文）
 │   │   ├── templates.json    模板库
 │   │   └── prompts/{id}.json 单个案例的完整 Prompt（懒加载）
-│   ├── images/               470 张烘焙后的同源 JPG（约 76 MB）
+│   ├── images/               烘焙后的同源 WebP 多档 + JPEG 兜底
 │   ├── uploads/              admin 上传的原图（PNG/JPG）
-│   ├── og.svg / favicon.svg / robots.txt / _headers
+│   ├── fonts/                自托管 Instrument Serif（latin 子集）
+│   ├── og.svg / favicon.svg / robots.txt
 │
 ├── data/manual/              手动维护的案例 / 模板（覆盖上游）
 ├── scripts/                  6 个 Node 脚本，纯 ESM
 ├── src/                      前端源码（主站 + admin 各自入口）
-├── docs/                     ROADMAP.md + PERF_PLAN.md + ARCHITECTURE.md
+├── docs/                     ARCHITECTURE.md + PERF_PLAN.md
 ├── .github/workflows/        deploy.yml（GH Pages 兜底） + sync.yml（每日拉数据）
 ├── index.html / admin.html   两个 Vite 入口（多页面）
 ├── vercel.json               生产部署配置（headers + cleanUrls）
 └── .env.local                未提交（VITE_ADMIN_PASSWORD_HASH 等）
 ```
-
-`src/data/` 是空目录（历史遗留）。
 
 ---
 
@@ -112,15 +111,17 @@ gpt-image/
 │ 4. 图片本地化 (build-images.mjs)                               │
 │    输入: cases.json.imageUrl + templates.json.cover           │
 │           + public/uploads/* 原图                              │
-│    sharp resize ≤1200w + JPEG q=80 mozjpeg progressive        │
-│    输出: public/images/case<id>.jpg / template<id>.jpg / ...  │
+│    sharp:                                                      │
+│      • 1200px JPEG q=80 mozjpeg progressive                   │
+│      • WebP 多档：320 / 480 / 640 / 960                       │
+│    输出: public/images/case<id>.jpg + case<id>-{w}.webp 等    │
 │    然后**就地改写** cases.json 的 imageUrl 指向 /images/...    │
 │    缓存键: sha1(URL) → node_modules/.image-cache/             │
 │    失败时把 imageUrl 改成 /images/image-unavailable.svg       │
 └────────────────────────────────────────────────────────────────┘
                           │
                           ▼
-                vite-react-ssg build (461 HTML + sitemap.xml)
+              vite-react-ssg build (470+ HTML + sitemap.xml)
                           │
                           ▼
                   Vercel Edge (HND POP)
@@ -132,7 +133,7 @@ sync.mjs → migrate-v2.mjs → build-images.mjs
 ```
 
 `postbuild`：`build-sitemap.mjs`（用 `cases.json` + `USER_CATEGORY_SLUGS` 生成
-461 行 `dist/sitemap.xml`）。
+`dist/sitemap.xml`）。
 
 `predev` 走 `--optional` 模式：上游不可达就回退到本地缓存的 `public/data/`，
 不阻塞开发。
@@ -147,13 +148,10 @@ sync.mjs → migrate-v2.mjs → build-images.mjs
 |---|---|---|
 | `/` | HomePage | 1 |
 | `/cases` | CasesPage | 1 |
-| `/case/:slug` | CaseDetailPage | 435（`getStaticPaths` 展开 `ALL_CASES`） |
+| `/case/:slug` | CaseDetailPage | N（`getStaticPaths` 展开 `ALL_CASES`） |
 | `/category/:slug` | CategoryPage | 19（展开 `USER_CATEGORIES`） |
 | `/templates` | TemplatesPage | 1 |
-| `/guide` | GuidePage | 1 |
-| `/services` | ServicesPage | 1 |
 | `/about` | AboutPage | 1 |
-| `/agents` | AgentsPage | 1 |
 | `*` | NotFoundPage | — |
 
 外壳是 `RootLayout`：`Header + Outlet + Footer + BackToTop + ToastViewport`，
@@ -166,8 +164,8 @@ sync.mjs → migrate-v2.mjs → build-images.mjs
 - 派生 `BY_SLUG` / `BY_ID` 两个 Map 做 O(1) 查询。
 - 提供 `casesByUserCategory` / `relatedCases` / `caseNeighbors`。
 
-> **当前 lite 数据约 200 KB gzip 后**，整体进客户端 bundle 没问题。`ROADMAP`
-> 把 1MB 设为切换分块的阈值（按 userCategory 分块懒加载）。
+> **当前 lite 数据约 200 KB gzip**，整体进客户端 bundle 没问题。当 cases 数
+> 接近 1000+ 时要考虑按 userCategory 分块懒加载。
 
 完整 prompt 走 `usePrompt(id)` 懒加载 `/data/prompts/{id}.json`，模块级 Map
 缓存 + 飞行中请求去重（`inflight` Map）。
@@ -176,22 +174,26 @@ sync.mjs → migrate-v2.mjs → build-images.mjs
 
 | 组件 | 职责 |
 |---|---|
-| `SEO` | `<Head>` + 8 类 JSON-LD；body 内输出 `<script type="application/ld+json">` 避开 helmet 的 SSR 限制 |
-| `SmartImg` | 同源图直接 `<img>`；外链兜底走 wsrv.nl；spinner + opacity 过渡；不为同源图生成假的 srcSet |
-| `ImageLightbox` | 详情页大图查看器，本地图无 srcSet |
-| `CategoryShowcase` | 首页 12 个 pinned 分类磁贴 |
+| `SEO` | `<Head>` + 多类 JSON-LD；body 内输出 `<script type="application/ld+json">` 避开 helmet 的 SSR 限制 |
+| `SmartImg` | 同源图走 `<picture>` + 真 srcSet（4 档 WebP + JPEG fallback）；外链兜底走 wsrv.nl |
+| `ImageLightbox` | 详情页大图查看器 |
+| `CategoryShowcase` | 首页分类磁贴 |
 | `CaseCard` / `CaseGrid` | 卡片 + 无限滚动 + 真实 `aspect-ratio` 占位 |
 | `FilterBar` | URL 同步的多选 chip + 搜索 + 移动端抽屉 |
-| `WeChatCTA` / `StickyMobileActions` | 商业化转化入口（5 处 CTA） |
+| `StickyMobileActions` | 详情页移动端固定底栏（复制 / 收藏） |
+| `CardActionSheet` | 长按卡片弹出的操作菜单（移动端） |
 | `Toast` | 全局 toast bus（`toast.success("已复制")`） |
+| `BackToTop` | 滚动到顶按钮 |
+| `Header` / `Footer` | 站点导航 |
+| `TemplateCard` | 模板卡片 |
 
 ### 自定义 Hook
 
 - `useCopy` — Clipboard API + `execCommand` 双路径（兼容微信内置浏览器），
-  12ms vibrate，统一 toast。
+  统一 toast。
 - `useFavorites` — localStorage + `storage` 事件跨 tab 同步；SSR 安全。
 - `usePrompt` / `prefetchPrompt` / `getCachedPrompt` — 懒加载 + 模块级缓存。
-- `useCountUp` / `useReveal` / `useLongPress` / `useToast` — 配合视觉效果。
+- `useCountUp` / `useLongPress` / `useToast` — 配合视觉效果与交互。
 
 ---
 
@@ -238,8 +240,7 @@ ready { token, login } → 加载 Shell
 - commit 到 main → push 触发 Vercel 自动重建（约 1–2 分钟后线上能看到）
 
 > **已知技术债**：admin UI 没暴露 v2 字段（userCategory / ratio / platforms /
-> commercialOk）；目前由 `migrate-v2.mjs` 每次构建重新分类。详见
-> [`ROADMAP §5`](./ROADMAP.md)。
+> commercialOk）；目前由 `migrate-v2.mjs` 每次构建重新分类。
 
 ---
 
@@ -255,6 +256,7 @@ ready { token, login } → 加载 Shell
   | `/images/(.*)` | `max-age=31536000, immutable` + `CORP: cross-origin` + CORS `*` |
   | `/assets/(.*)` | `max-age=31536000, immutable` |
   | `/uploads/(.*)` | `max-age=31536000, immutable` + CORS `*` |
+  | `/fonts/(.*)` | `max-age=31536000, immutable` + CORS `*` |
   | `/data/cases.json` `/data/templates.json` | `max-age=300, s-maxage=3600, swr=86400` |
   | `/data/prompts/(.*)` | `max-age=86400, s-maxage=604800, swr=604800` |
   | `/sitemap.xml` `/robots.txt` | `max-age=600, s-maxage=3600` |
@@ -273,8 +275,7 @@ ready { token, login } → 加载 Shell
 - **`sync.yml`**：cron `17 18 * * *`（北京时 02:17）。`npm run sync` +
   `npm run migrate` → 若 `public/data` 或 `data/manual` 有 diff，以
   `github-actions[bot]` 身份 commit & push 回 main → 触发 Vercel 重建。
-  `concurrency: data-sync, cancel-in-progress: false`，避免和手动触发
-  抢车道。
+  `concurrency: data-sync, cancel-in-progress: false`，避免和手动触发抢车道。
 
 ### 环境变量约定
 
@@ -295,8 +296,8 @@ IMAGE_SKIP_NET / IMAGE_STRICT     build-images.mjs 离线模式 / 严格模式
 
 ## 八、图像管线运行时部分（`src/lib/img.ts`）
 
-构建期 `build-images.mjs` 已经把所有图改写为 `/images/case<id>.jpg`。运行时
-的 `transformUrl(src, opts)` 行为：
+构建期 `build-images.mjs` 已经把所有图改写为 `/images/case<id>.jpg`，并伴随
+4 档 `case<id>-{320,480,640,960}.webp`。运行时的 `transformUrl(src, opts)` 行为：
 
 | 输入 | 输出 |
 |---|---|
@@ -305,9 +306,13 @@ IMAGE_SKIP_NET / IMAGE_STRICT     build-images.mjs 离线模式 / 严格模式
 | `https://...`（漏网外链） | wsrv.nl + WebP + width 多档（兜底，生产几乎不命中） |
 | 空字符串 | 空字符串 |
 
-`SmartImg` 对同源路径**不**生成 `srcSet`（同一文件多个 descriptor 没意义，
-浪费字节）。`lqipUrl()` 也只对外链才返回真正的 LQIP；同源图返回空（直接跳过
-blur）。
+`SmartImg` 对同源图发出 `<picture>`：
+
+- WebP `<source>` 用 `localWebpSrcSet()` 输出真 srcSet（4 档），让浏览器按
+  `sizes` 自动选档。
+- JPEG fallback `<img>` 走 1200px 单档（覆盖 < 4% 不支持 WebP 的浏览器）。
+- 调用方传 CSS 宽度梯度，`localWebpSrcSet` 内部 snap-up 到最近的 on-disk
+  档位（避免历史 ladder 写错变成"全部 fallback 1200"）。
 
 ---
 
@@ -317,25 +322,21 @@ blur）。
 
 | 项 | 实际状态 | 出处 |
 |---|---|---|
-| 腾讯云 COS 加速 | bucket 开了，脚本写好了，**前端运行时无任何消费者**，CI 无任何调用。决策记录见 [`PERF_PLAN.md §九`](./PERF_PLAN.md#九关于腾讯云-cos暂不启用2026-05-19-决策) | `scripts/upload-cos.mjs`、`.env.local` |
+| 腾讯云 COS 加速 | bucket 开了，脚本写好了，**前端运行时无任何消费者**，CI 无任何调用。决策记录见 [`PERF_PLAN.md §九`](./PERF_PLAN.md#九关于腾讯云-cos暂不启用2026-05-19-决策) | `scripts/upload-cos.mjs`、`.env.example` |
 | Cloudflare Pages Function (`functions/img/[[path]].ts`) | 已删（[`PERF_PLAN.md §六`](./PERF_PLAN.md)） | — |
-| `_headers` 文件 | 仍保留作 CF Pages 镜像兜底 | `public/_headers` |
 
 ### 技术债（不阻塞，但下次大改时该顺手清）
 
 1. **管理后台没暴露 v2 字段**：`userCategory` / `ratio` / `platforms` /
-   `commercialOk` / `featured` 都靠 `migrate-v2.mjs` 推断，admin 设置无法保留
+   `commercialOk` 都靠 `migrate-v2.mjs` 推断，admin 设置无法保留
    （除非加 `--keep-categories`）。
-2. **`HomePage.featured` 硬编码取前 12**：应该走 `case.featured` 字段。
-3. **`useFavorites` 不同步 URL**：分享收藏夹缺路由（`ROADMAP §2.5`）。
+2. **`HomePage.featured` 硬编码取前 12**：可改为按某个 `featured` 字段筛选。
+3. **`useFavorites` 不同步 URL**：分享收藏夹缺路由。
 4. **整个 `cases.json` lite 进客户端 bundle**：当前约 200 KB gzip，超过 1MB
    时要按 userCategory 分块。
-5. **无单元测试**：上线了就有，但任何 schema/支付/表单类改动应先建 vitest
-   基础设施。
+5. **无单元测试**：上线了就有，但任何 schema 类改动应先建 vitest 基础设施。
 6. **`deploy.yml` 是冗余兜底**：实际生产是 Vercel；这条 workflow 留着无害但
    不会被用。
-7. **每页 SSG HTML 体积偏大**（~50KB/案例），数据规模到 1000+ 时要考虑
-   streaming SSR 或 islands。
 
 ### 安全敏感面（运行时所有写入路径）
 

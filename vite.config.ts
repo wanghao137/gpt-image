@@ -5,7 +5,9 @@ import { resolve } from "node:path";
 
 /**
  * After Vite emits `dist/admin.html`, also write `dist/admin/index.html` so
- * the admin works at the clean URL `/admin` on Cloudflare Pages.
+ * the admin works at the clean URL `/admin` on Vercel (which honours
+ * `cleanUrls` for top-level paths but not for sub-routes that don't have a
+ * matching directory index file).
  *
  * Sitemap generation lives in `scripts/build-sitemap.mjs` (run as `postbuild`)
  * because the SSG step hasn't run by the time this Vite plugin closes.
@@ -59,5 +61,12 @@ export default defineConfig(({ isSsrBuild }) => ({
     formatting: "minify",
     crittersOptions: false,
     dirStyle: "nested",
+    // Windows + lots of nested case/category dirs (~470 routes) hits an
+    // ENOENT race in vite-react-ssg's writer at the default concurrency
+    // of 20: a sibling page's mkdir hasn't finished by the time the
+    // current one tries to open its index.html for writing. Capping at 6
+    // is conservative but eliminates the race; CI on Linux is unaffected
+    // and would happily run higher.
+    concurrency: 6,
   } as Record<string, unknown>,
 }));

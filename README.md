@@ -1,6 +1,6 @@
 # GPT-Image 2 中文案例库
 
-> 把 [`awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2) 的 400+ 案例做成一个**可搜索、可分类、SEO 友好**的中文导航站，并附带轻量后台与商业化落地页。
+> 把 [`awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2) 的 450+ 案例做成一个**可搜索、可分类、SEO 友好**的中文导航站，附带轻量内容后台。
 
 🔗 线上站点：<https://taostudioai.com>
 🐙 GitHub：<https://github.com/wanghao137/gpt-image>
@@ -16,13 +16,12 @@
 
 ## ✨ 核心特性
 
-- **静态优先**：基于 `vite-react-ssg`，构建期把每个路由预渲染成独立 HTML。一次构建产出约 **461** 个静态页面（435 个案例详情 + 19 个分类落地页 + 7 个静态页 + sitemap）。
-- **SEO 全套**：每页独立 `<title>` / `meta` / `canonical` / `og:*` / `twitter:*`，8 类 schema.org JSON-LD（`WebSite` / `ItemList` / `BreadcrumbList` / `CreativeWork` / `ImageObject` / `CollectionPage` / `Service` / `FAQPage`），构建后自动产出 `sitemap.xml`。
+- **静态优先**：基于 `vite-react-ssg`，构建期把每个路由预渲染成独立 HTML（约 470+ 个静态页面 = 案例详情 + 用户分类落地 + 静态页 + sitemap）。
+- **SEO 全套**：每页独立 `<title>` / `meta` / `canonical` / `og:*` / `twitter:*`，多类 schema.org JSON-LD（`WebSite` / `ItemList` / `BreadcrumbList` / `CreativeWork` / `ImageObject` / `CollectionPage` 等），构建后自动产出 `sitemap.xml`。
 - **数据双源**：每天自动从上游 `awesome-gpt-image-2` 同步 + 本地 `data/manual/` 手动条目。同 ID 时手动覆盖上游，`hidden:true` 屏蔽上游条目。
 - **轻量后台**：`/admin` 是独立 Vite 入口，密码哈希网关 + GitHub Fine-grained PAT，**纯浏览器写仓库**，无任何服务端。
-- **图像优化**：`SmartImg` 三段降级 → wsrv.nl WebP → 原始 URL → 占位 SVG；卡片显示真实比例徽章，避免 CLS。
-- **用户向分类**：除上游 13 个原始分类外，再用规则引擎自动派生 19 个**用户意图**分类（`小红书封面` / `朋友圈九宫格` / `商家海报` / `人像写真` ……），驱动 `/category/:slug` 落地页。
-- **商业化闭环**：内嵌 `/services` 服务咨询 + FAQ 页、`WeChatCTA` 微信咨询组件、移动端 sticky 行动栏，5 处转化入口。
+- **图像优化**：构建期把每张图烘焙成 4 档 WebP（320 / 480 / 640 / 960） + 1200px JPEG 兜底，全部同源出，配合卡片真实比例徽章避免 CLS。
+- **用户向分类**：除上游 13 个原始分类外，再用规则引擎自动派生 19 个**用户意图**分类（小红书封面 / 朋友圈九宫格 / 商家海报 / 人像写真 ……），驱动 `/category/:slug` 落地页。
 
 ---
 
@@ -34,8 +33,8 @@
 | 框架 | `React 18` + `TypeScript 5` |
 | 路由 | `react-router-dom 6.30`（与 SSG 共用） |
 | 样式 | `Tailwind CSS 3` + `@layer` 自定义 |
-| 工具 | `pinyin-pro`（slug 生成）、`react-helmet-async`（由 SSG 内置） |
-| 部署 | Vercel（主部署，亚太 Edge 加速） |
+| 工具 | `pinyin-pro`（slug 生成）、`react-helmet-async`（由 SSG 内置）、`sharp`（图像管线） |
+| 部署 | Vercel（主部署，亚太 hnd1 / sin1 边缘节点） |
 
 无后端、无数据库、无运行时鉴权。所有动态行为（搜索、筛选、收藏、分享、复制）都在浏览器完成。
 
@@ -60,7 +59,8 @@ npm run build      # 构建，产物在 dist/
 npm run preview    # 预览构建产物
 ```
 
-`npm run dev` 启动前会自动尝试一次上游同步（失败不阻断）；`npm run build` 会强制同步并在失败时终止构建。
+`npm run dev` 启动前会自动尝试一次上游同步 + 字段补齐 + 图像烘焙（任一失败不阻断）；
+`npm run build` 会强制同步并在失败时终止构建。
 
 ### 常用脚本
 
@@ -68,9 +68,11 @@ npm run preview    # 预览构建产物
 |---|---|
 | `npm run sync` | 手动同步上游数据 |
 | `npm run migrate` | 单独执行 v2 字段补齐（slug / ratio / userCategory / SEO 等） |
+| `npm run images` | 单独跑图像烘焙（增量） |
 | `npm run admin:hash` | 给 admin 入口生成密码 SHA-256 哈希 |
 | `node scripts/migrate-v2.mjs --check` | CI 校验：缺字段则 `exit 1` |
 | `node scripts/migrate-v2.mjs --dry` | 仅预演不写盘 |
+| `node scripts/build-images.mjs --force` | 强制重新生成所有图像变体 |
 | `npx tsc -b --noEmit` | 仅做类型检查 |
 
 ---
@@ -84,7 +86,9 @@ npm run preview    # 预览构建产物
 │   │   ├── cases.json            # 所有案例的 lite 列表（无 prompt 正文）
 │   │   ├── templates.json        # 模板库
 │   │   └── prompts/{id}.json     # 单个案例的完整 Prompt（懒加载）
-│   ├── uploads/                  # 用户/管理员上传的图片
+│   ├── images/                   # 构建期烘焙的同源 WebP/JPEG（不入库）
+│   ├── uploads/                  # 用户/管理员上传的原图
+│   ├── fonts/                    # 自托管 Instrument Serif（latin 子集）
 │   ├── og.svg                    # 默认社交分享卡
 │   └── robots.txt
 │
@@ -97,7 +101,9 @@ npm run preview    # 预览构建产物
 ├── scripts/
 │   ├── sync.mjs                  # 上游 → public/data/ 同步管线
 │   ├── migrate-v2.mjs            # v2 字段补齐（idempotent）
+│   ├── build-images.mjs          # 多档 WebP + JPEG 烘焙（增量）
 │   ├── build-sitemap.mjs         # postbuild 生成 sitemap.xml
+│   ├── upload-cos.mjs            # 可选：上传到腾讯云 COS（默认未启用）
 │   └── admin-hash.mjs            # 生成 admin 密码哈希
 │
 ├── src/
@@ -105,16 +111,19 @@ npm run preview    # 预览构建产物
 │   ├── routes.tsx                # 路由表 + getStaticPaths
 │   ├── types.ts                  # PromptCase / PromptTemplate (v2)
 │   ├── layouts/RootLayout.tsx
-│   ├── pages/                    # 10 个页面级组件
+│   ├── pages/                    # 7 个页面级组件
 │   ├── components/               # 13 个 UI 组件
 │   ├── hooks/                    # useCopy / useFavorites / usePrompt …
 │   ├── lib/                      # data.ts / img.ts / userCategories.ts …
 │   └── admin/                    # 独立 SPA，/admin 入口
 │
-├── docs/ROADMAP.md               # 工程交接路线图
+├── docs/
+│   ├── ARCHITECTURE.md           # 架构现状（先看这份）
+│   └── PERF_PLAN.md              # 部署/性能历史决策记录
 ├── admin.html                    # /admin 的入口 HTML
 ├── index.html                    # 主站入口
-└── .github/workflows/deploy.yml  # GitHub Pages 自动部署
+├── vercel.json                   # 部署配置（headers / cache / cleanUrls）
+└── .github/workflows/            # deploy.yml + sync.yml
 ```
 
 ---
@@ -136,10 +145,13 @@ npm run preview    # 预览构建产物
         scripts/migrate-v2.mjs (slug / ratio / SEO …)
                           │
                           ▼
+        scripts/build-images.mjs (4 档 WebP + JPEG 烘焙)
+                          │
+                          ▼
                 vite-react-ssg build
                           │
                           ▼
-              dist/ → Vercel (sin1 / hnd1 Edge POPs)
+              dist/ → Vercel (hnd1 / sin1 Edge POPs)
 ```
 
 ### 上游同步策略
@@ -175,18 +187,17 @@ npm run preview    # 预览构建产物
 
 ## 🛣️ 路由总览
 
-| 路径 | 说明 | 数量 |
-|---|---|---|
-| `/` | 首页：Hero + 分类卡 + 精选案例 + 模板 + WeChat CTA | 1 |
-| `/cases` | 全部案例：多选筛选 + 搜索 + 收藏视图 | 1 |
-| `/case/:slug` | 案例详情（SSG 预渲染） | 435 |
-| `/category/:slug` | 用户意图分类落地（SSG 预渲染） | 19 |
-| `/templates` | 全部模板 | 1 |
-| `/guide` | 教程 / FAQ | 1 |
-| `/services` | 商业服务 + 合作流程 + FAQ | 1 |
-| `/about` | 关于 | 1 |
-| `/agents` | Claude Code / Codex skill 安装引导 | 1 |
-| `/admin` | 内容后台（独立入口，noindex） | 1 |
+| 路径 | 说明 |
+|---|---|
+| `/` | 首页：Hero + 分类 showcase + 精选案例 + 模板 teaser + 长尾分类 chip |
+| `/cases` | 全部案例：多选筛选 + 搜索 + 收藏视图 |
+| `/case/:slug` | 案例详情（SSG 预渲染，每个案例一份 HTML） |
+| `/category/:slug` | 用户意图分类落地（SSG 预渲染，19 个） |
+| `/templates` | 全部模板 |
+| `/about` | 关于 |
+| `/admin` | 内容后台（独立入口，noindex） |
+
+构建产出的 HTML 数 = 1 (首页) + 1 (cases) + 1 (templates) + 1 (about) + 19 (分类) + N (案例详情) + 1 (404) ≈ 470+ 页。具体数量随 `cases.json` 浮动。
 
 ---
 
@@ -204,9 +215,10 @@ npm run admin:hash
 # 2a. 本地开发：写到 .env.local
 echo "VITE_ADMIN_PASSWORD_HASH=<你的哈希>" >> .env.local
 
-# 2b. GitHub Pages / Cloudflare：把哈希配到构建环境变量
-#     Settings → Secrets and variables → Actions → Variables
-#     名字: VITE_ADMIN_PASSWORD_HASH
+# 2b. Vercel / GitHub Pages：把哈希配到构建环境变量
+#     Vercel: Settings → Environment Variables
+#     GH:     Settings → Secrets and variables → Actions → Variables
+#     名字：VITE_ADMIN_PASSWORD_HASH
 ```
 
 ### 使用流程
@@ -239,9 +251,10 @@ echo "VITE_ADMIN_PASSWORD_HASH=<你的哈希>" >> .env.local
 
 ### 图像策略
 
-- 默认通过 [wsrv.nl](https://wsrv.nl) 转 WebP + 多档 srcSet（见 `src/lib/img.ts`）。
-- 失败时降级到原始 URL，再失败显示占位 SVG。
-- 卡片用 `RatioBadge` 显示真实比例，配合 CSS `aspect-ratio` 避免 CLS。
+- `scripts/build-images.mjs` 在 `prebuild` 阶段把每张上游图烘焙成 `case<id>-{320,480,640,960}.webp` + `case<id>.jpg`，全部写到 `public/images/`，与 HTML 同源出。
+- `cases.json` 的 `imageUrl` 始终指向 1200 px JPEG（兜底 / OG 卡 / 老浏览器），`SmartImg` 组件按 CSS 像素 + DPR 自动选 WebP 档。
+- 失败兜底是 wsrv.nl，但实际命中率几乎为 0（管线已覆盖全集）。
+- 卡片用 CSS `aspect-ratio` 配合 `RatioBadge` 显示真实比例，避免 CLS。
 
 ### 收藏与分享
 
@@ -259,26 +272,22 @@ echo "VITE_ADMIN_PASSWORD_HASH=<你的哈希>" >> .env.local
 
 1. Vercel → Add New Project → Import Git Repository → 选择本仓库
 2. **Framework Preset**：选 `Other`（让 `vercel.json` 生效）
-3. **Build Command**：`npm run build`（会自动跑 prebuild 同步上游 + 生成 442 张优化图）
+3. **Build Command**：`npm run build`（自动跑 prebuild 同步上游 + 字段补齐 + 图像烘焙）
 4. **Output Directory**：`dist`
 5. **Root Directory**：`.`
-6. **Region**：默认会按 `vercel.json` 走 `sin1` / `hnd1`（新加坡 / 东京），亚太用户首屏 < 800ms
+6. **Region**：Hobby 计划走 Vercel Edge Network 全球 POP，亚太用户实测落在 hnd1（东京），RTT ~50–80ms
 7. **环境变量**（Settings → Environment Variables）：
    - `VITE_ADMIN_PASSWORD_HASH`（必填，运行 `npm run admin:hash` 生成）
    - 可选：`VITE_ADMIN_REPO_OWNER` / `VITE_ADMIN_REPO_NAME` / `VITE_ADMIN_REPO_BRANCH`
-   - 可选：`VITE_COS_BUCKET` / `VITE_COS_REGION` / `VITE_COS_HOST`（启用 COS 加速时填）
-   - 可选：`COS_SECRET_ID` / `COS_SECRET_KEY`（仅 `npm run upload-cos` 时用，部署不需要）
-8. **自定义域名**：Settings → Domains → 添加 `taostudioai.com`，DNS 走 Cloudflare 灰云解析（关闭 Cloudflare 代理，直接 CNAME 到 Vercel）
+8. **自定义域名**：Settings → Domains → 添加域名，DNS 走 Cloudflare 灰云解析（关闭 Cloudflare 代理，直接 CNAME 到 Vercel）
 
-#### 为什么不再用 Cloudflare Pages
+#### 为什么不用 Cloudflare Pages
 
-Cloudflare Pages 免费版国内访问统一打境外 POP（实测 LAX 洛杉矶）。
-Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50ms，移动端首屏体验差距巨大。
-详见 [`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)。
+CF Pages 免费版国内访问统一打境外 POP（实测 LAX 洛杉矶）。Vercel Edge Network 在亚太命中 hnd1 节点，国内 RTT 从 ~200ms 降到 ~50ms。详见 [`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)。
 
 ### GitHub Pages（备用镜像）
 
-`.github/workflows/deploy.yml` 把 `dist/` 推到 GitHub Pages，仅作为 Vercel 不可用时的兜底镜像。
+`.github/workflows/deploy.yml` 把 `dist/` 推到 GitHub Pages，作为 Vercel 不可用时的兜底镜像。
 
 - main 分支 push 触发
 - 手动 `workflow_dispatch` 触发
@@ -291,7 +300,7 @@ Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50m
 - `npm run sync` 拉取 `awesome-gpt-image-2` 上游数据
 - `npm run migrate` 补齐 v2 字段
 - `public/data/*` 或 `data/manual/*` 有变化时，自动用 `github-actions[bot]` commit 回 main
-- 这次 push 同时触发 Vercel 自动部署 + GH Pages 兜底部署，无需 deploy hook 或额外 secret
+- 这次 push 同时触发 Vercel 自动部署 + GH Pages 兜底部署
 - 上游 CDN 全部失败时直接 fail（避免提交半空 `cases.json`）
 
 要让自动 commit 能 push 到 main，确认 repo Settings → Actions → General → Workflow permissions 选了 **Read and write permissions**。
@@ -324,22 +333,10 @@ Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50m
 
 ---
 
-## 🗺️ 路线图与技术债
+## 🗺️ 文档
 
-- 系统架构基线（接手开发的人先看这份）：[`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
-- 部署历史与决策记录（CF Pages → Vercel、COS 启停）：[`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)
-- 工程交接与待办清单：[`docs/ROADMAP.md`](./docs/ROADMAP.md)
-
-主要待办（节选）：
-
-- 🟡 BlurHash 图片占位（提升 LCP）
-- 🟡 三篇深度教程文章（拓展 SEO 长尾）
-- 🟢 Web Analytics 埋点
-- 🟢 收藏夹分享 URL
-- 🟢 详情页快捷键
-- 🔵 RSS Feed
-- 🔵 动态 OG 图片（satori + resvg）
-- 🔵 i18n（英文站）
+- 系统架构基线：[`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
+- 部署 / 性能改造历史决策（CF Pages → Vercel、COS 启停、图片管线）：[`docs/PERF_PLAN.md`](./docs/PERF_PLAN.md)
 
 ---
 
@@ -366,5 +363,5 @@ Vercel Edge Network 在亚太有 sin1 节点，国内 RTT 从 ~200ms 降到 ~50m
 
 - 上游数据集：[`freestylefly/awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2)
 - 视觉/交互参考：[`gpt-image2.canghe.ai`](https://gpt-image2.canghe.ai)
-- 图像处理：[wsrv.nl](https://wsrv.nl)
 - SSG：[`antfu-collective/vite-react-ssg`](https://github.com/antfu-collective/vite-react-ssg)
+- 图像处理：[`sharp`](https://sharp.pixelplumbing.com/) + [wsrv.nl](https://wsrv.nl)（兜底）

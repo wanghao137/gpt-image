@@ -52,15 +52,6 @@ function isLocalImage(src: string): boolean {
   return /^\/images\//i.test(src);
 }
 
-/** True for any same-origin static asset (images, vite assets, uploads). */
-function isSameOriginAsset(src: string): boolean {
-  return (
-    src.startsWith("/images/") ||
-    src.startsWith("/assets/") ||
-    src.startsWith("/uploads/")
-  );
-}
-
 /**
  * Default image URL. Identity for local /images/* paths and for /assets/*
  * Vite bundles. Anything else (rare — would mean the build pipeline missed
@@ -95,51 +86,6 @@ export function rawTransformUrl(src: string, opts: ImgOpts): string {
   params.set("we", "1");
   params.set("il", "1");
   return WSRV + "?" + params.toString();
-}
-
-/**
- * Same as `transformUrl`. Kept for back-compat with existing call sites
- * (CategoryShowcase, CaseDetailPage, etc.) that imported it before the
- * July 2026 simplification.
- */
-export function optimizeImage(src: string, opts: ImgOpts): string {
-  return transformUrl(src, opts);
-}
-
-/** Build a `srcset` string for transformable external URLs. */
-export function srcSetFor(
-  src: string,
-  widths: number[],
-  opts: Omit<ImgOpts, "width"> = {},
-): string {
-  if (!src || widths.length === 0) return "";
-  if (isSameOriginAsset(src)) {
-    return "";
-  }
-  return widths
-    .map((w) => `${transformUrl(src, { ...opts, width: w })} ${w}w`)
-    .join(", ");
-}
-
-/**
- * No-op for local images — there's no LQIP to generate when the asset
- * is already on our edge. Returns "" so SmartImg knows to skip the blur.
- *
- * For external URLs we still fall back to a tiny wsrv preview, which is
- * the only situation where we'd want one (and that's rare post-pipeline).
- */
-export function lqipUrl(src: string): string {
-  if (!src) return src;
-  if (isSameOriginAsset(src)) return "";
-  return rawTransformUrl(src, { width: 24, quality: 30 });
-}
-
-/** Sensible default width ladder for a given CSS-px render width. */
-export function responsiveWidths(cssWidth: number): number[] {
-  const w = Math.round(cssWidth);
-  return Array.from(
-    new Set([w, Math.round(w * 1.5), w * 2, Math.min(w * 3, 1600)]),
-  ).sort((a, b) => a - b);
 }
 
 // ─────────────────────────────────────────── local variant helpers ──

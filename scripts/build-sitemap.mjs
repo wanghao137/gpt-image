@@ -48,10 +48,7 @@ const STATIC_PATHS = [
   { path: "/", priority: "1.0" },
   { path: "/cases", priority: "0.9" },
   { path: "/templates", priority: "0.8" },
-  { path: "/guide", priority: "0.7" },
-  { path: "/services", priority: "0.9" },
   { path: "/about", priority: "0.5" },
-  { path: "/agents", priority: "0.5" },
 ];
 
 const today = new Date().toISOString().slice(0, 10);
