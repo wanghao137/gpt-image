@@ -1,7 +1,6 @@
 import { ALL_TEMPLATES } from "../lib/data";
 import { TemplateCard } from "../components/TemplateCard";
 import { SEO } from "../components/SEO";
-import { WeChatCTA } from "../components/WeChatCTA";
 
 export default function TemplatesPage() {
   const templates = ALL_TEMPLATES;
@@ -27,8 +26,6 @@ export default function TemplatesPage() {
           <TemplateCard key={t.id} data={t} />
         ))}
       </div>
-
-      <WeChatCTA />
     </>
   );
 }

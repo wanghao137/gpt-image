@@ -3,16 +3,10 @@ import { Link } from "react-router-dom";
 /**
  * Site-wide footer. Surfaces:
  *   1. Brand promise — what this site is, in one sentence.
- *   2. A quick chip row to the 5 most-used category landing pages.
- *   3. Five secondary nav columns. On mobile each column is a <details>
- *      panel collapsed by default; on sm+ they expand into the original
- *      five-column grid with no collapse affordance. SEO is preserved
- *      because the link DOM lives inside <details>, just visually hidden.
- *   4. Contact + WeChat CTA — the conversion entry point.
- *
- * Mobile height before this rewrite: ~1100px (5 stacked columns).
- * After: ~400px collapsed, ~1100px fully expanded — but expansion is
- * intentional, only on the section the user actually wants to see.
+ *   2. A quick chip row to the most-used category landing pages.
+ *   3. Three secondary nav columns. On mobile each column is a <details>
+ *      panel collapsed by default; on sm+ they expand into a 4-col grid
+ *      (brand + 3 link columns) with no collapse affordance.
  */
 export function Footer() {
   return (
@@ -29,8 +23,8 @@ export function Footer() {
           <QuickChips />
         </div>
 
-        {/* Desktop 5-col grid. Hidden on mobile. */}
-        <div className="hidden gap-10 md:grid md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
+        {/* Desktop 4-col grid. Hidden on mobile. */}
+        <div className="hidden gap-10 md:grid md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <BrandBlock />
           {COLUMNS.map((col) => (
             <DesktopCol key={col.title} title={col.title}>
@@ -82,26 +76,15 @@ const COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    title: "模板与教程",
+    title: "模板与工具",
     links: [
       { to: "/templates", label: "工业级模板" },
-      { to: "/guide", label: "新手教程" },
-      { to: "/agents", label: "Agent 技能" },
     ],
   },
   {
-    title: "服务",
+    title: "其他",
     links: [
-      { to: "/services", label: "代做 / 定制 ▸", accent: true },
-      { to: "/services#faq", label: "合作流程" },
-      { to: "/services#cases", label: "客户案例" },
-      { to: "/about", label: "关于我" },
-    ],
-  },
-  {
-    title: "联系",
-    links: [
-      { href: "#wechat", label: "微信咨询" },
+      { to: "/about", label: "关于" },
       {
         href: "https://github.com/freestylefly/awesome-gpt-image-2",
         external: true,

@@ -5,10 +5,7 @@ import CasesPage from "./pages/CasesPage";
 import CaseDetailPage from "./pages/CaseDetailPage";
 import CategoryPage from "./pages/CategoryPage";
 import TemplatesPage from "./pages/TemplatesPage";
-import GuidePage from "./pages/GuidePage";
-import ServicesPage from "./pages/ServicesPage";
 import AboutPage from "./pages/AboutPage";
-import AgentsPage from "./pages/AgentsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { ALL_CASES } from "./lib/data";
 import { USER_CATEGORIES } from "./lib/userCategories";
@@ -39,10 +36,7 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => USER_CATEGORIES.map((c) => `/category/${c.slug}`),
       },
       { path: "templates", Component: TemplatesPage, entry: "src/pages/TemplatesPage.tsx" },
-      { path: "guide", Component: GuidePage, entry: "src/pages/GuidePage.tsx" },
-      { path: "services", Component: ServicesPage, entry: "src/pages/ServicesPage.tsx" },
       { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
-      { path: "agents", Component: AgentsPage, entry: "src/pages/AgentsPage.tsx" },
       { path: "*", Component: NotFoundPage },
     ],
   },

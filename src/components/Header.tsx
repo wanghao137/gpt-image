@@ -11,8 +11,6 @@ interface NavItem {
 const NAV: NavItem[] = [
   { to: "/cases", label: "案例" },
   { to: "/templates", label: "模板" },
-  { to: "/guide", label: "教程" },
-  { to: "/services", label: "服务定制", accent: true },
   { to: "/about", label: "关于" },
 ];
 
@@ -95,26 +93,6 @@ function HeaderImpl() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/services"
-            className="hidden h-9 items-center gap-1.5 rounded-full bg-ember-500 px-4 text-[13px] font-semibold text-ink-950 transition hover:bg-ember-400 sm:inline-flex"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-4 w-4"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M9.5 7.5c-1.4.7-2.5 2-2.5 3.5 0 .8.3 1.5.8 2.1l-.7 2 2.1-.7c.6.3 1.3.5 2 .5 2.2 0 4-1.6 4-3.5S13.4 7.5 11.2 7.5h-1.7Zm1 .9c1.6 0 2.9 1.2 2.9 2.6 0 1.4-1.3 2.6-2.9 2.6-.6 0-1.2-.2-1.7-.5l-1 .3.3-.9a2.6 2.6 0 0 1-.6-1.5c0-1.4 1.3-2.6 3-2.6Z" />
-              <path
-                fillRule="evenodd"
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            微信咨询
-          </Link>
-
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}

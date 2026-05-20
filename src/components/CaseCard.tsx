@@ -349,7 +349,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
           </div>
         </Link>
 
-        {/* MOBILE FOOTER — single-line title + primary action row */}
+        {/* MOBILE FOOTER — single-line title, author/source row, primary action */}
         <div className="flex flex-col gap-2 px-3 pb-3 pt-2.5 sm:hidden">
           <Link
             to={detailHref}
@@ -357,6 +357,12 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
           >
             <span className="line-clamp-1">{data.title}</span>
           </Link>
+          {data.source && (
+            <div className="flex items-center gap-1 text-[11.5px] text-ink-400">
+              <SourceDot />
+              <span className="truncate">{data.source}</span>
+            </div>
+          )}
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -405,7 +411,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
           </div>
         </div>
 
-        {/* DESKTOP FOOTER — original dense layout */}
+        {/* DESKTOP FOOTER — title + author/category meta + always-on copy button */}
         <div className="hidden items-center gap-2 px-3 pb-3 pt-2.5 sm:flex sm:px-3.5 sm:pt-3">
           <div className="min-w-0 flex-1">
             <Link
@@ -415,6 +421,15 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               <span className="line-clamp-1">{data.title}</span>
             </Link>
             <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-400">
+              {data.source && (
+                <>
+                  <span className="inline-flex items-center gap-1 truncate text-ink-300">
+                    <SourceDot />
+                    {data.source}
+                  </span>
+                  <span className="text-ink-600">·</span>
+                </>
+              )}
               <Link
                 to={`/category/${data.userCategory}`}
                 className="truncate transition hover:text-ember-200"
@@ -491,6 +506,20 @@ function DotsIcon() {
     >
       <path d="M4 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm4.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM13 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
     </svg>
+  );
+}
+
+/**
+ * Tiny dot used as a leader before a `@source` handle. Kept as an icon
+ * (not a unicode bullet) so it inherits the surrounding text color and
+ * stays crisp at any zoom level.
+ */
+function SourceDot() {
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-block h-1 w-1 shrink-0 rounded-full bg-current opacity-60"
+    />
   );
 }
 

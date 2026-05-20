@@ -1,12 +1,8 @@
-import { Link } from "react-router-dom";
-
 interface StickyMobileActionsProps {
   /** Click handler for the primary "copy" action. */
   onCopy: () => void;
   /** Current copy state for visual feedback. */
   copyState: "idle" | "copied" | "error";
-  /** When true, the WeChat CTA is the secondary CTA on the right. */
-  showWeChat?: boolean;
   /**
    * Optional context shown above the buttons — typically the prompt's
    * character count, used to remind the user what they're about to copy.
@@ -19,18 +15,15 @@ interface StickyMobileActionsProps {
 
 /**
  * Mobile-only fixed action bar at the bottom of the case detail page.
- * Three jobs:
- *   1. Make "Copy Prompt" reachable without scrolling on long detail pages.
- *   2. Communicate context — char count, copy state — so the user knows
- *      what they're acting on without scrolling back to the toolbar.
- *   3. Keep the WeChat conversion CTA visible at all times.
+ * Single job: make "Copy Prompt" reachable without scrolling on long
+ * detail pages, and surface copy state at all times.
  *
- * Hides on `sm:` breakpoints — desktop already has the inline buttons.
+ * Hides on `sm:` breakpoints — desktop already has the inline button
+ * inside the prompt toolbar.
  */
 export function StickyMobileActions({
   onCopy,
   copyState,
-  showWeChat = true,
   caption,
   disabled = false,
 }: StickyMobileActionsProps) {
@@ -73,14 +66,6 @@ export function StickyMobileActions({
             </>
           )}
         </button>
-        {showWeChat && (
-          <Link
-            to="/services#wechat"
-            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-[13.5px] font-medium text-ink-100"
-          >
-            <Chat /> 微信定制
-          </Link>
-        )}
       </div>
     </div>
   );
@@ -116,22 +101,6 @@ function Copy() {
     >
       <rect x="9" y="9" width="13" height="13" rx="2" />
       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-    </svg>
-  );
-}
-function Chat() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3a8.5 8.5 0 0 1 8.5 8.5Z" />
     </svg>
   );
 }

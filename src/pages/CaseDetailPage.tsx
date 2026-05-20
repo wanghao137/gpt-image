@@ -13,7 +13,6 @@ import {
 import { SmartImg } from "../components/SmartImg";
 import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
-import { WeChatCTA } from "../components/WeChatCTA";
 import { StickyMobileActions } from "../components/StickyMobileActions";
 import { ImageLightbox } from "../components/ImageLightbox";
 import { useCopy } from "../hooks/useCopy";
@@ -382,11 +381,6 @@ export default function CaseDetailPage() {
             </div>
           </section>
 
-          {/* WeChat conversion */}
-          <div className="mt-8">
-            <WeChatCTA context={c.title} variant="compact" />
-          </div>
-
           {/* Prev / Next — image thumbs make these meaningful */}
           {(prev || next) && (
             <div className="mt-8 grid grid-cols-2 gap-3 border-t border-white/[0.06] pt-6">
@@ -424,8 +418,6 @@ export default function CaseDetailPage() {
           />
         </section>
       )}
-
-      <WeChatCTA />
 
       <StickyMobileActions
         onCopy={() => copy(promptText)}
