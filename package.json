@@ -11,6 +11,7 @@
     "dev": "vite-react-ssg dev",
     "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "build": "tsc -b && vite-react-ssg build",
+    "check": "tsc -b",
     "postbuild": "node scripts/build-sitemap.mjs",
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
