@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { PromptCase } from "../types";
+import { rememberCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp } from "../lib/img";
 
 interface HeroStripProps {
@@ -70,6 +71,7 @@ function StripTile({ item }: { item: PromptCase }) {
   return (
     <Link
       to={`/case/${item.slug}`}
+      onClick={() => rememberCaseReturn(item.id)}
       className="
         group relative block shrink-0 snap-start overflow-hidden rounded-xl
         border border-white/[0.06] bg-ink-900/40

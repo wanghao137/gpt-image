@@ -3,6 +3,66 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: dark;
+    --color-ink-950: 12 10 9;
+    --color-ink-900: 19 17 15;
+    --color-ink-850: 26 23 21;
+    --color-ink-800: 31 28 25;
+    --color-ink-700: 42 38 34;
+    --color-ink-600: 61 55 51;
+    --color-ink-500: 90 84 78;
+    --color-ink-400: 122 116 108;
+    --color-ink-300: 168 162 154;
+    --color-ink-200: 212 207 199;
+    --color-ink-100: 236 232 225;
+    --color-ink-50: 247 244 238;
+    --color-ember-50: 251 242 236;
+    --color-ember-100: 244 220 205;
+    --color-ember-200: 236 191 164;
+    --color-ember-300: 227 161 123;
+    --color-ember-400: 220 138 108;
+    --color-ember-500: 217 119 87;
+    --color-ember-600: 194 94 63;
+    --color-ember-700: 156 72 48;
+    --color-ember-800: 111 51 34;
+    --page-bg: #0c0a09;
+    --page-fg: #ece8e1;
+    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.22), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(99, 60, 145, 0.08), transparent 65%), linear-gradient(180deg, #0c0a09 0%, #0a0807 60%, #0e0b0a 100%);
+    --noise-dot: rgba(255, 255, 255, 0.04);
+    --accent-text: #0c0a09;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --color-ink-950: 255 252 247;
+    --color-ink-900: 250 246 239;
+    --color-ink-850: 244 238 229;
+    --color-ink-800: 235 226 214;
+    --color-ink-700: 222 211 195;
+    --color-ink-600: 190 175 155;
+    --color-ink-500: 132 119 101;
+    --color-ink-400: 96 84 70;
+    --color-ink-300: 70 60 49;
+    --color-ink-200: 48 40 32;
+    --color-ink-100: 33 27 22;
+    --color-ink-50: 22 18 15;
+    --color-ember-50: 120 45 25;
+    --color-ember-100: 140 54 31;
+    --color-ember-200: 160 64 40;
+    --color-ember-300: 184 82 54;
+    --color-ember-400: 204 101 72;
+    --color-ember-500: 217 119 87;
+    --color-ember-600: 227 143 112;
+    --color-ember-700: 242 190 166;
+    --color-ember-800: 252 232 221;
+    --page-bg: #fffaf2;
+    --page-fg: #211b16;
+    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.16), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255, 226, 196, 0.55), transparent 65%), linear-gradient(180deg, #fffaf2 0%, #f8efe3 60%, #fff7ee 100%);
+    --noise-dot: rgba(57, 43, 30, 0.05);
+    --accent-text: #1b130f;
+  }
+
   html,
   body,
   #root {
@@ -18,8 +78,8 @@
   body {
     min-width: 320px;
     margin: 0;
-    background: #0c0a09;
-    color: #ece8e1;
+    background: var(--page-bg);
+    color: var(--page-fg);
     font-feature-settings: "ss01", "cv11";
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -33,11 +93,7 @@
     position: fixed;
     inset: 0;
     z-index: -2;
-    background:
-      radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.22), transparent 60%),
-      radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(99, 60, 145, 0.08), transparent 65%),
-      linear-gradient(180deg, #0c0a09 0%, #0a0807 60%, #0e0b0a 100%);
+    background: var(--page-gradient);
   }
 
   body::after {
@@ -47,7 +103,7 @@
     z-index: -1;
     pointer-events: none;
     background-image:
-      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      radial-gradient(var(--noise-dot) 1px, transparent 1px);
     background-size: 3px 3px;
     opacity: 0.45;
     mix-blend-mode: overlay;
@@ -314,77 +370,52 @@
   }
 
   /*
-   * Masonry layout for the case grid.
-   *
-   * Uses native CSS multi-column rather than display: grid because the cases
-   * render at their real aspect ratios (16:9 / 9:16 / 4:5 mixed). In a CSS
-   * grid that produces ugly tall gaps under short cards. Columns pack from
-   * top-down naturally and need no JS.
-   *
-   * `break-inside: avoid` on each card keeps it from getting split across
-   * columns. We also force a `transform: translateZ(0)` to pin the card into
-   * its own stacking context so hover scale doesn't bleed into siblings.
-   *
-   * Mobile (<640px) drops the column layout entirely and renders a flex
-   * column. Reasoning: with column-count:1 the browser still does column
-   * layout work; flex is cheaper, lets us tighten gaps, and keeps the
-   * intersection observers (lazy images, prefetch) firing in document order.
+   * Masonry layout shell for the case grid. React assigns cards into fixed
+   * columns; CSS only controls the responsive column tracks and gaps. Keeping
+   * column ownership out of CSS multi-column prevents scroll-time rebalancing
+   * when late image decodes or font metrics settle.
    */
   .masonry {
-    column-gap: 1.25rem;
-    column-count: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
   }
   @media (min-width: 640px) {
-    .masonry { column-count: 2; }
+    .masonry { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (min-width: 1024px) {
-    .masonry { column-count: 3; }
+    .masonry { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
   @media (min-width: 1280px) {
-    .masonry { column-count: 4; }
+    .masonry { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   .masonry > * {
-    break-inside: avoid;
-    margin-bottom: 1.25rem;
-    /* Each child must be its own stacking context so hover transforms,
-       backdrop-filter, and absolute children don't escape the column track. */
+    min-width: 0;
     transform: translateZ(0);
   }
+  .masonry-column {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
   @media (max-width: 639px) {
-    .masonry {
-      column-count: unset;
-      column-gap: 0;
-      display: flex;
-      flex-direction: column;
+    .masonry,
+    .masonry-column {
       gap: 0.875rem;
-    }
-    .masonry > * {
-      margin-bottom: 0;
     }
   }
 
-  /*
-   * `case-card` — the wrapper used by every CaseCard. We attach it here
-   * (rather than relying on Tailwind utilities) so we can:
-   *   - skip rendering offscreen cards via `content-visibility: auto`,
-   *   - give the browser an `intrinsic-size` hint so scroll height is stable
-   *     before images decode (kills CLS),
-   *   - apply a tap highlight reset that's specific to cards.
-   *
-   * intrinsic-size is the *typical* card size at the most common viewport;
-   * cards with extreme aspect ratios will reflow on first paint, but for the
-   * 4:5 majority this is dead-on.
-   */
   .case-card {
     -webkit-tap-highlight-color: transparent;
   }
-  @media (min-width: 640px) {
-    .case-card {
-      content-visibility: auto;
-      contain-intrinsic-size: 320px 460px;
-    }
+
+  :root[data-theme="light"] .text-ink-950 {
+    color: var(--accent-text);
   }
 }
+
 
 @layer utilities {
   .mask-fade-r {

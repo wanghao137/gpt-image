@@ -19,9 +19,18 @@ interface CaseGridProps {
   /** Case id to scroll back to after returning from the detail page. */
   restoreId?: string | null;
   onRestored?: () => void;
+  contained?: boolean;
 }
 
 const PAGE_SIZE = 24;
+
+function getColumnCount() {
+  if (typeof window === "undefined") return 1;
+  if (window.matchMedia("(min-width: 1280px)").matches) return 4;
+  if (window.matchMedia("(min-width: 1024px)").matches) return 3;
+  if (window.matchMedia("(min-width: 640px)").matches) return 2;
+  return 1;
+}
 
 function countForRestore(cases: PromptCase[], paginate: boolean, restoreId?: string | null) {
   if (!paginate) return cases.length;
@@ -69,16 +78,25 @@ export function CaseGrid({
   priorityCount = 0,
   restoreId,
   onRestored,
+  contained = true,
 }: CaseGridProps) {
   const [visibleCount, setVisibleCount] = useState(() =>
     countForRestore(cases, paginate, restoreId),
   );
+  const [columnCount, setColumnCount] = useState(1);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const restoredRef = useRef<string | null>(null);
 
   useEffect(() => {
     setVisibleCount(countForRestore(cases, paginate, restoreId));
   }, [cases, paginate, restoreId]);
+
+  useEffect(() => {
+    const updateColumnCount = () => setColumnCount(getColumnCount());
+    updateColumnCount();
+    window.addEventListener("resize", updateColumnCount);
+    return () => window.removeEventListener("resize", updateColumnCount);
+  }, []);
 
   useEffect(() => {
     if (!paginate) return;
@@ -98,6 +116,14 @@ export function CaseGrid({
   }, [cases.length, visibleCount, paginate]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
+  const columns = useMemo(() => {
+    const next = Array.from({ length: columnCount }, () => [] as Array<{ item: PromptCase; index: number }>);
+    visible.forEach((item, index) => {
+      next[index % columnCount].push({ item, index });
+    });
+    return next;
+  }, [columnCount, visible]);
+  const wrapperClassName = contained ? "container-narrow pb-20" : "pb-20";
 
   useEffect(() => {
     if (!restoreId || restoredRef.current === restoreId) return;
@@ -108,15 +134,26 @@ export function CaseGrid({
     restoredRef.current = restoreId;
     let firstFrame = 0;
     let secondFrame = 0;
+    let settleTimer = 0;
+    const calibrationTimers: number[] = [];
+    const scrollToTarget = () => el.scrollIntoView({ block: "center", behavior: "auto" });
     firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
-        el.scrollIntoView({ block: "center", behavior: "auto" });
-        onRestored?.();
+        scrollToTarget();
+        [120, 350, 700, 1200, 1800, 2400].forEach((delay) => {
+          calibrationTimers.push(window.setTimeout(scrollToTarget, delay));
+        });
+        settleTimer = window.setTimeout(() => {
+          scrollToTarget();
+          onRestored?.();
+        }, 2600);
       });
     });
     return () => {
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
+      calibrationTimers.forEach((timer) => window.clearTimeout(timer));
+      window.clearTimeout(settleTimer);
     };
   }, [onRestored, restoreId, visible]);
 
@@ -164,16 +201,20 @@ export function CaseGrid({
   const remaining = cases.length - visibleCount;
 
   return (
-    <div className="container-narrow pb-20">
+    <div className={wrapperClassName}>
       <div className="masonry">
-        {visible.map((item, index) => (
-          <CaseCard
-            key={item.id}
-            data={item}
-            favorited={favoriteIds.has(item.id)}
-            onToggleFavorite={onToggleFavorite}
-            priority={index < priorityCount}
-          />
+        {columns.map((column, columnIndex) => (
+          <div key={columnIndex} className="masonry-column">
+            {column.map(({ item, index }) => (
+              <CaseCard
+                key={item.id}
+                data={item}
+                favorited={favoriteIds.has(item.id)}
+                onToggleFavorite={onToggleFavorite}
+                priority={index < priorityCount}
+              />
+            ))}
+          </div>
         ))}
       </div>
 

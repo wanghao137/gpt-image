@@ -9,6 +9,8 @@ import { HeroStrip } from "../components/HeroStrip";
 import { SEO, SITE } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCountUp } from "../hooks/useCountUp";
+import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
+import { rememberCaseReturn } from "../lib/caseReturn";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 import type { PromptCase } from "../types";
 
@@ -38,6 +40,7 @@ export default function HomePage() {
   const stripCases = useMemo(() => cases.slice(5, 19), [cases]);
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
   const { ids: favoriteIds, toggle } = useFavorites();
+  const { restoreId, onRestored } = useCaseReturnRestore();
 
   const recentCount = useMemo(() => {
     const now = Date.now();
@@ -141,6 +144,10 @@ export default function HomePage() {
           favoriteIds={favoriteIds}
           onToggleFavorite={toggle}
           paginate={false}
+          priorityCount={4}
+          restoreId={restoreId}
+          onRestored={onRestored}
+          contained={false}
         />
       </section>
 
@@ -224,6 +231,7 @@ function HeroSolo({ item }: { item: PromptCase }) {
   return (
     <Link
       to={`/case/${item.slug}`}
+      onClick={() => rememberCaseReturn(item.id)}
       aria-label={item.title}
       className="
         group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl
@@ -324,6 +332,7 @@ function HeroCard({
   return (
     <Link
       to={`/case/${item.slug}`}
+      onClick={() => rememberCaseReturn(item.id)}
       aria-label={item.title}
       className={`hero-card group block ${className}`}
       style={

@@ -8,6 +8,26 @@ interface NavItem {
   accent?: boolean;
 }
 
+type ThemeMode = "dark" | "light";
+
+const THEME_KEY = "taostudio.theme";
+
+function initialTheme(): ThemeMode {
+  if (typeof window === "undefined") return "dark";
+  try {
+    const saved = window.localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light") return saved;
+  } catch {
+    return "dark";
+  }
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
+function applyTheme(theme: ThemeMode) {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+}
+
 const NAV: NavItem[] = [
   { to: "/cases", label: "案例" },
   { to: "/templates", label: "模板" },
@@ -17,7 +37,17 @@ const NAV: NavItem[] = [
 function HeaderImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>(initialTheme);
   const location = useLocation();
+
+  useEffect(() => {
+    applyTheme(theme);
+    try {
+      window.localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      return;
+    }
+  }, [theme]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -95,6 +125,15 @@ function HeaderImpl() {
         <div className="flex items-center gap-2">
           <button
             type="button"
+            onClick={() => setTheme((value) => (value === "dark" ? "light" : "dark"))}
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 text-[12px] font-medium text-ink-200 transition hover:border-white/25 hover:text-ink-50"
+            aria-label={theme === "dark" ? "切换浅色模式" : "切换深色模式"}
+          >
+            <ThemeIcon theme={theme} />
+            <span className="hidden sm:inline">{theme === "dark" ? "浅色" : "深色"}</span>
+          </button>
+          <button
+            type="button"
             onClick={() => setMobileOpen((v) => !v)}
             className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-200 md:hidden"
             aria-label="打开菜单"
@@ -150,6 +189,30 @@ function HeaderImpl() {
         </nav>
       )}
     </header>
+  );
+}
+
+function ThemeIcon({ theme }: { theme: ThemeMode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      {theme === "dark" ? (
+        <>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </>
+      ) : (
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z" />
+      )}
+    </svg>
   );
 }
 
