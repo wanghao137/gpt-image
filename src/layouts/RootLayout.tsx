@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { BackToTop } from "../components/BackToTop";
 import { ToastViewport } from "../components/Toast";
-import { readCaseReturn } from "../lib/caseReturn";
+import { caseReturnPath, readCaseReturn } from "../lib/caseReturn";
 
 /**
  * Wraps every route. Lives outside individual pages so that:
@@ -14,10 +14,6 @@ import { readCaseReturn } from "../lib/caseReturn";
  *   - One ToastViewport mounts at the root — anywhere in the app can fire
  *     toasts via `toast.success(...)` without prop-drilling.
  */
-function locationPath(location: ReturnType<typeof useLocation>) {
-  return `${location.pathname}${location.search}${location.hash}`;
-}
-
 export default function RootLayout() {
   const location = useLocation();
 
@@ -34,7 +30,7 @@ export default function RootLayout() {
     if (location.hash) return; // let anchor scroll do its job
     if (typeof window === "undefined") return;
     const target = readCaseReturn();
-    if (target?.path === locationPath(location)) return;
+    if (target?.path === caseReturnPath(location)) return;
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location]);
 

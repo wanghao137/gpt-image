@@ -35,20 +35,28 @@ export default function CasesPage() {
   const cases = ALL_CASES;
   const { ids: favoriteIds, toggle } = useFavorites();
 
-  const [query, setQuery] = useState(sp.get("q") ?? "");
-  const [activeCategories, setActiveCategories] = useState<Set<string>>(() =>
-    readSet(sp, "cat"),
-  );
-  const [activeStyles, setActiveStyles] = useState<Set<string>>(() => readSet(sp, "style"));
-  const [activeScenes, setActiveScenes] = useState<Set<string>>(() => readSet(sp, "scene"));
-  const [activePlatforms, setActivePlatforms] = useState<Set<string>>(() =>
-    readSet(sp, "platform"),
-  );
+  const [query, setQuery] = useState("");
+  const [activeCategories, setActiveCategories] = useState<Set<string>>(() => new Set());
+  const [activeStyles, setActiveStyles] = useState<Set<string>>(() => new Set());
+  const [activeScenes, setActiveScenes] = useState<Set<string>>(() => new Set());
+  const [activePlatforms, setActivePlatforms] = useState<Set<string>>(() => new Set());
   const [showFavorites, setShowFavorites] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const { restoreId, onRestored } = useCaseReturnRestore();
+
+  useEffect(() => {
+    setQuery(sp.get("q") ?? "");
+    setActiveCategories(readSet(sp, "cat"));
+    setActiveStyles(readSet(sp, "style"));
+    setActiveScenes(readSet(sp, "scene"));
+    setActivePlatforms(readSet(sp, "platform"));
+    setHydrated(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // ── URL sync (one-way: state → URL) ──
   useEffect(() => {
+    if (!hydrated) return;
     const next = new URLSearchParams(sp);
     if (query) next.set("q", query);
     else next.delete("q");
@@ -60,7 +68,7 @@ export default function CasesPage() {
       setSp(next, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, activeCategories, activeStyles, activeScenes, activePlatforms]);
+  }, [hydrated, query, activeCategories, activeStyles, activeScenes, activePlatforms]);
 
   // ── derived filter option lists ──
   const styleOptions = useMemo(() => uniqueValues(cases.map((c) => c.styles)), [cases]);

@@ -53,26 +53,27 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
 
   return (
     <section aria-label="按场景浏览" className="container-narrow pt-10 sm:pt-14">
-      <div className="mb-5 flex flex-col gap-1 sm:mb-6">
-        <p className="eyebrow">Browse by Use Case · 按场景浏览</p>
-        <h2 className="serif-display text-[24px] text-ink-50 sm:text-4xl lg:text-[42px]">
-          从一个场景开始，复制就能出图。
-        </h2>
-        <p className="mt-1 hidden text-[14px] text-ink-400 sm:block sm:text-[15px]">
-          按真实使用场景重新分类，找最常用的 GPT-Image 2 案例和 Prompt。
-        </p>
-      </div>
+      <div className="rounded-[1.75rem] border border-ink-800/70 bg-ink-950/90 p-4 shadow-soft sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
+        <div className="mb-5 flex flex-col gap-1 sm:mb-6">
+          <p className="eyebrow">Browse by Use Case · 按场景浏览</p>
+          <h2 className="serif-display text-[24px] text-ink-50 sm:text-4xl lg:text-[42px]">
+            从一个场景开始，复制就能出图。
+          </h2>
+          <p className="mt-1 hidden text-[14px] text-ink-400 sm:block sm:text-[15px]">
+            按真实使用场景重新分类，找最常用的 GPT-Image 2 案例和 Prompt。
+          </p>
+        </div>
 
-      {/* Mobile: list rows — easier to scan, thumb gives at-a-glance preview */}
-      <ul className="flex flex-col divide-y divide-white/[0.04] overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.015] sm:hidden">
+        {/* Mobile: list rows — easier to scan, thumb gives at-a-glance preview */}
+        <ul className="flex flex-col divide-y divide-ink-800/70 overflow-hidden rounded-2xl border border-ink-800/70 bg-ink-900/70 sm:hidden">
         {tiles.map((tile) => (
           <li key={tile.slug}>
             <Link
               to={`/category/${tile.slug}`}
-              className="flex items-center gap-3.5 px-3.5 py-3 transition active:bg-white/[0.04]"
+              className="flex items-center gap-3.5 px-3.5 py-3 transition active:bg-ink-850/80"
             >
               <span
-                className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] bg-ink-850"
+                className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-ink-800/70 bg-ink-850"
                 aria-hidden="true"
               >
                 {tile.cover && (
@@ -92,7 +93,7 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
                   <strong className="truncate text-[15px] font-semibold text-ink-50">
                     {tile.label}
                   </strong>
-                  <span className="shrink-0 rounded-full border border-white/10 bg-ink-950/60 px-1.5 py-0.5 text-[10.5px] tabular-nums text-ink-300">
+                  <span className="shrink-0 rounded-full border border-ink-800/70 bg-ink-950/70 px-1.5 py-0.5 text-[10.5px] tabular-nums text-ink-300">
                     {tile.count}
                   </span>
                 </div>
@@ -154,20 +155,21 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
         ))}
       </div>
 
-      <div className="mt-5 text-right sm:mt-6">
-        <Link
-          to="/cases"
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
-        >
-          查看全部 {cases.length} 个案例
-          <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
-            <path
-              fillRule="evenodd"
-              d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </Link>
+        <div className="mt-5 text-right sm:mt-6">
+          <Link
+            to="/cases"
+            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
+          >
+            查看全部 {cases.length} 个案例
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
+              <path
+                fillRule="evenodd"
+                d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.97-3.97a.75.75 0 1 1 1.06-1.06l5.25 5.25c.3.3.3.77 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H3.75A.75.75 0 0 1 3 10Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   );

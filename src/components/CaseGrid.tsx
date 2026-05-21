@@ -53,21 +53,6 @@ function SkeletonCard() {
   );
 }
 
-/**
- * Masonry-style case grid using CSS multi-column layout.
- *
- * Why columns instead of `display: grid`:
- *   - cases render at their *real* aspect ratio (16:9 / 9:16 / 4:5 mixed)
- *   - in a CSS grid this produces large vertical gaps below shorter cards,
- *     which looks like "missing images" — see screenshot bug.
- *   - CSS columns + `break-inside: avoid` packs cards top-down with no JS,
- *     keeping the build SSG-friendly and zero-runtime-cost.
- *
- * Trade-off: visual order goes column-by-column rather than row-by-row.
- * For a curated feed where freshness > strict ordering this reads naturally;
- * if strict left-to-right reading order is ever required we'll switch to a
- * JS layout (e.g. react-masonry-css) but pay the hydration cost.
- */
 export function CaseGrid({
   cases,
   favoriteIds,
@@ -92,7 +77,10 @@ export function CaseGrid({
   }, [cases, paginate, restoreId]);
 
   useEffect(() => {
-    const updateColumnCount = () => setColumnCount(getColumnCount());
+    const updateColumnCount = () => {
+      const next = getColumnCount();
+      setColumnCount((current) => (current === next ? current : next));
+    };
     updateColumnCount();
     window.addEventListener("resize", updateColumnCount);
     return () => window.removeEventListener("resize", updateColumnCount);
@@ -128,15 +116,17 @@ export function CaseGrid({
   useEffect(() => {
     if (!restoreId || restoredRef.current === restoreId) return;
     if (!visible.some((item) => item.id === restoreId)) return;
-    const el = document.getElementById(`case-${restoreId}`);
-    if (!el) return;
 
-    restoredRef.current = restoreId;
     let firstFrame = 0;
     let secondFrame = 0;
     let settleTimer = 0;
     const calibrationTimers: number[] = [];
-    const scrollToTarget = () => el.scrollIntoView({ block: "center", behavior: "auto" });
+    const scrollToTarget = () => {
+      const el = document.getElementById(`case-${restoreId}`);
+      if (!el) return false;
+      el.scrollIntoView({ block: "center", behavior: "auto" });
+      return true;
+    };
     firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
         scrollToTarget();
@@ -144,7 +134,8 @@ export function CaseGrid({
           calibrationTimers.push(window.setTimeout(scrollToTarget, delay));
         });
         settleTimer = window.setTimeout(() => {
-          scrollToTarget();
+          if (!scrollToTarget()) return;
+          restoredRef.current = restoreId;
           onRestored?.();
         }, 2600);
       });

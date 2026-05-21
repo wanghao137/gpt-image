@@ -7,9 +7,13 @@ export interface CaseReturnTarget {
   savedAt: number;
 }
 
+export function caseReturnPath(location: Pick<Location, "pathname" | "search" | "hash">) {
+  return `${location.pathname}${location.search}${location.hash}`;
+}
+
 function currentPath() {
   if (typeof window === "undefined") return "/cases";
-  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  return caseReturnPath(window.location);
 }
 
 function isFresh(target: CaseReturnTarget) {
