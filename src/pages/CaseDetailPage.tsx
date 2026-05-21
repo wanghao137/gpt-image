@@ -240,7 +240,7 @@ export default function CaseDetailPage() {
         {/* INFO side */}
         <div className="flex flex-col lg:col-span-5">
           <p className="eyebrow">{meta?.label ?? userCategoryLabel(c.userCategory)}</p>
-          <h1 className="serif-display mt-2 text-[28px] leading-[1.1] text-ink-50 sm:text-4xl lg:text-[40px]">
+          <h1 className="mt-2 text-[24px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[40px]">
             {c.title}
           </h1>
 

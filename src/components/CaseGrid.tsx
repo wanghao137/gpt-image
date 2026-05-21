@@ -87,6 +87,10 @@ export function CaseGrid({
   }, []);
 
   useEffect(() => {
+    if (!restoreId) restoredRef.current = null;
+  }, [restoreId]);
+
+  useEffect(() => {
     if (!paginate) return;
     const el = sentinelRef.current;
     if (!el) return;
@@ -120,8 +124,32 @@ export function CaseGrid({
     let firstFrame = 0;
     let secondFrame = 0;
     let settleTimer = 0;
+    let cancelled = false;
     const calibrationTimers: number[] = [];
+    const userEvents = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+    const clearTimers = () => {
+      calibrationTimers.forEach((timer) => window.clearTimeout(timer));
+      window.clearTimeout(settleTimer);
+    };
+    const removeUserListeners = () => {
+      userEvents.forEach((event) => window.removeEventListener(event, cancelCalibration));
+    };
+    const finish = () => {
+      if (restoredRef.current === restoreId) return;
+      restoredRef.current = restoreId;
+      onRestored?.();
+    };
+    const cancelCalibration = () => {
+      cancelled = true;
+      clearTimers();
+      removeUserListeners();
+      finish();
+    };
+    const addUserListeners = () => {
+      userEvents.forEach((event) => window.addEventListener(event, cancelCalibration, { passive: true }));
+    };
     const scrollToTarget = () => {
+      if (cancelled) return false;
       const el = document.getElementById(`case-${restoreId}`);
       if (!el) return false;
       el.scrollIntoView({ block: "center", behavior: "auto" });
@@ -129,22 +157,23 @@ export function CaseGrid({
     };
     firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
-        scrollToTarget();
+        if (scrollToTarget()) addUserListeners();
         [120, 350, 700, 1200, 1800, 2400].forEach((delay) => {
           calibrationTimers.push(window.setTimeout(scrollToTarget, delay));
         });
         settleTimer = window.setTimeout(() => {
-          if (!scrollToTarget()) return;
-          restoredRef.current = restoreId;
-          onRestored?.();
+          scrollToTarget();
+          removeUserListeners();
+          finish();
         }, 2600);
       });
     });
     return () => {
+      cancelled = true;
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
-      calibrationTimers.forEach((timer) => window.clearTimeout(timer));
-      window.clearTimeout(settleTimer);
+      clearTimers();
+      removeUserListeners();
     };
   }, [onRestored, restoreId, visible]);
 

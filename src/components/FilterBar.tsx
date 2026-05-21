@@ -192,7 +192,7 @@ export function FilterBar({
     <div className="container-narrow pb-6 pt-4">
       {/* Mobile-only sticky category strip — horizontally swipeable. */}
       <div
-        className="sticky z-20 -mx-5 mb-3 border-y border-white/[0.04] bg-ink-950/82 backdrop-blur-xl backdrop-saturate-150 sm:hidden"
+        className="sticky z-20 -mx-5 mb-3 border-y border-ink-800/70 bg-ink-950/95 shadow-soft backdrop-blur-xl backdrop-saturate-150 sm:hidden"
         style={{
           top: "calc(4rem + env(safe-area-inset-top, 0px))",
         }}
@@ -205,8 +205,8 @@ export function FilterBar({
               className={
                 "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium transition " +
                 (activeCategories.size === 0
-                  ? "border-ember-500/60 bg-ember-500/15 text-ember-100"
-                  : "border-white/10 bg-white/[0.03] text-ink-200")
+                  ? "border-ember-400/60 bg-ember-500 text-ink-950"
+                  : "border-ink-800/70 bg-ink-900/80 text-ink-200")
               }
             >
               全部
@@ -221,8 +221,8 @@ export function FilterBar({
                   className={
                     "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium whitespace-nowrap transition " +
                     (active
-                      ? "border-ember-500/60 bg-ember-500/20 text-ember-100"
-                      : "border-white/10 bg-white/[0.03] text-ink-200")
+                      ? "border-ember-400/60 bg-ember-500 text-ink-950"
+                      : "border-ink-800/70 bg-ink-900/80 text-ink-200")
                   }
                 >
                   {c.label}
@@ -235,7 +235,7 @@ export function FilterBar({
                 setDrawerAxis("category");
                 setDrawerOpen(true);
               }}
-              className="shrink-0 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12.5px] font-medium text-ink-300"
+              className="shrink-0 rounded-full border border-ink-800/70 bg-ink-900/80 px-3 py-1.5 text-[12.5px] font-medium text-ink-200"
               aria-label="更多筛选"
             >
               更多

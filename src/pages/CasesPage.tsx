@@ -148,7 +148,7 @@ export default function CasesPage() {
       <section className="container-narrow pb-2 pt-10 sm:pt-14">
         <p className="eyebrow">All Cases</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <h1 className="serif-display text-[28px] text-ink-50 sm:text-4xl lg:text-[44px]">
+          <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
             按场景筛选 {cases.length} 个 GPT-Image 2 案例
           </h1>
           <button

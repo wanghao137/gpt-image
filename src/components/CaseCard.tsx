@@ -412,7 +412,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
                 setMenuOpen(true);
               }}
               aria-label="更多操作"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-ink-300 active:bg-white/[0.06]"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
             >
               <DotsIcon />
             </button>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export interface CardAction {
   key: string;
@@ -23,20 +24,6 @@ interface CardActionSheetProps {
   onClose: () => void;
 }
 
-/**
- * Bottom-sheet action menu invoked from a long-press / right-click on a
- * card. Same component on every viewport (mobile bottom sheet vs centred
- * desktop modal — both look identical other than max-width).
- *
- * Implementation notes:
- *   - Backdrop click closes. Escape closes. Body scroll locked while open.
- *   - Each action row is a real <button> with full-row hit area.
- *   - Auto-dismiss after picking an action — every action's onSelect closes.
- *   - We don't render a portal; React-DOM's createPortal would force an
- *     extra dependency for one element. Instead the absolute-positioned
- *     wrapper takes the whole viewport, which is sufficient for z-stacking
- *     above the StickyMobileActions bar (z-30) and below the toast (z-50).
- */
 export function CardActionSheet({
   open,
   title,
@@ -61,7 +48,7 @@ export function CardActionSheet({
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -71,11 +58,7 @@ export function CardActionSheet({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-ink-950/72 backdrop-blur-md"
-        style={{ animation: "fadeIn 160ms ease-out both" }}
-      />
+      <div className="absolute inset-0 bg-transparent" />
 
       {/* Sheet */}
       <div
@@ -184,7 +167,8 @@ export function CardActionSheet({
           }
         `}</style>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
