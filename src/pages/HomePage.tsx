@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ALL_CASES, ALL_TEMPLATES } from "../lib/data";
 import { SmartImg } from "../components/SmartImg";
@@ -11,6 +11,7 @@ import { useFavorites } from "../hooks/useFavorites";
 import { useCountUp } from "../hooks/useCountUp";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { rememberCaseReturn } from "../lib/caseReturn";
+import { createHeroSeed, selectHeroCases } from "../lib/home-hero";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 import type { PromptCase } from "../types";
 
@@ -32,12 +33,26 @@ export default function HomePage() {
   const cases = ALL_CASES;
   const templates = ALL_TEMPLATES;
   const animCases = useCountUp(cases.length, 900);
+  const [heroSeed, setHeroSeed] = useState(0);
+
+  useEffect(() => {
+    setHeroSeed(createHeroSeed());
+  }, []);
+
   // Hero deck — 5 floating cards, modelled on canghe's right-rail collage.
-  const heroCases = useMemo(() => cases.slice(0, 5), [cases]);
-  // Strip below the hero. Skip the 5 cases already in the deck so the
-  // visuals don't repeat in the user's first viewport — show the next
-  // batch of newest cases instead.
-  const stripCases = useMemo(() => cases.slice(5, 19), [cases]);
+  // The zero seed keeps SSG/hydration stable; the client seed randomizes it
+  // after mount without adding network work or heavier first-paint markup.
+  const heroCases = useMemo(
+    () => selectHeroCases(cases, { limit: 5, seed: heroSeed }),
+    [cases, heroSeed],
+  );
+  const heroCaseIds = useMemo(() => new Set(heroCases.map((item) => item.id)), [heroCases]);
+  // Strip below the hero. Avoid repeating whichever cases the randomized
+  // deck picked so the first viewport still feels varied.
+  const stripCases = useMemo(
+    () => cases.filter((item) => !heroCaseIds.has(item.id)).slice(0, 14),
+    [cases, heroCaseIds],
+  );
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
   const { ids: favoriteIds, toggle } = useFavorites();
   const { restoreId, onRestored } = useCaseReturnRestore();

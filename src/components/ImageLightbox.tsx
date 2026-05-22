@@ -344,21 +344,31 @@ function ImageLightboxImpl({
       {/* Top toolbar — hit area excluded from gestures via data-lb-toolbar */}
       <div
         data-lb-toolbar
-        className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-3 p-4"
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-col gap-2 p-3 sm:flex-row sm:items-start sm:justify-between sm:gap-3 sm:p-4"
         style={{ paddingTop: "calc(env(safe-area-inset-top) + 0.75rem)" }}
       >
-        {caption && (
-          <p className="pointer-events-auto max-w-[60%] truncate rounded-full border border-white/10 bg-ink-950/60 px-3 py-1.5 text-[12px] font-medium text-ink-100 backdrop-blur">
-            {caption}
-          </p>
-        )}
-        <div className="ml-auto flex items-center gap-2">
+        <div className="flex min-w-0 items-center justify-end gap-2 sm:contents">
+          {caption && (
+            <p className="pointer-events-auto min-w-0 flex-1 truncate rounded-full border border-white/10 bg-ink-950/60 px-3 py-1.5 text-[12px] font-medium text-ink-100 backdrop-blur sm:max-w-[60%] sm:flex-none">
+              {caption}
+            </p>
+          )}
+          <button
+            type="button"
+            onClick={onClose}
+            className="pointer-events-auto grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15 bg-ink-950/65 text-ink-50 backdrop-blur sm:hidden"
+            aria-label="关闭"
+          >
+            <CloseIcon />
+          </button>
+        </div>
+        <div className="ml-0 flex min-w-0 items-center justify-end gap-2 sm:ml-auto">
           {onCopy && (
             <button
               type="button"
               onClick={onCopy}
               className={
-                "pointer-events-auto inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-[12px] font-semibold transition " +
+                "pointer-events-auto inline-flex h-9 min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-3 text-[12px] font-semibold transition sm:flex-none " +
                 (copyState === "copied"
                   ? "bg-emerald-400 text-ink-950"
                   : copyState === "error"
@@ -369,13 +379,13 @@ function ImageLightboxImpl({
             >
               {copyState === "copied" ? (
                 <>
-                  <CheckIcon /> 已复制
+                  <CheckIcon /> <span>已复制</span>
                 </>
               ) : copyState === "error" ? (
                 "失败"
               ) : (
                 <>
-                  <CopyIcon /> 复制 Prompt
+                  <CopyIcon /> <span>复制 Prompt</span>
                 </>
               )}
             </button>
@@ -383,7 +393,7 @@ function ImageLightboxImpl({
           <button
             type="button"
             onClick={() => setTransform({ scale: 1, x: 0, y: 0 })}
-            className="pointer-events-auto inline-flex h-9 items-center gap-1 rounded-full border border-white/10 bg-ink-950/60 px-3 text-[12px] font-medium text-ink-100 backdrop-blur"
+            className="pointer-events-auto inline-flex h-9 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-white/10 bg-ink-950/60 px-3 text-[12px] font-medium text-ink-100 backdrop-blur"
             aria-label="重置缩放"
           >
             <ResetIcon /> 重置
@@ -391,7 +401,7 @@ function ImageLightboxImpl({
           <button
             type="button"
             onClick={onClose}
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-ink-950/65 text-ink-50 backdrop-blur"
+            className="pointer-events-auto hidden h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15 bg-ink-950/65 text-ink-50 backdrop-blur sm:grid"
             aria-label="关闭"
           >
             <CloseIcon />
