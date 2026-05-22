@@ -33,9 +33,17 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pinyin } from "pinyin-pro";
+import {
+  deriveTemplatesFromCases,
+  getTemplateDerivationBase,
+  mergeTemplateCollections,
+  TARGET_TEMPLATE_COUNT,
+} from "./template-derivation.mjs";
 
 const ROOT = resolve(process.cwd());
 const CASES_PATH = resolve(ROOT, "public/data/cases.json");
+const TEMPLATES_PATH = resolve(ROOT, "public/data/templates.json");
+const MERGED_CASES_SOURCE_URL = "/data/cases.json";
 
 const args = new Set(process.argv.slice(2));
 const DRY = args.has("--dry");
@@ -425,6 +433,7 @@ if (CHECK) {
 if (DRY) {
   console.log(`would touch ${touchedCount} of ${raw.length} cases`);
   console.log(`would re-categorize ${categoryChanges} cases`);
+  expandTemplates(next, { dry: true });
   process.exit(0);
 }
 
@@ -432,3 +441,36 @@ writeFileWithRetry(CASES_PATH, JSON.stringify(next), "utf8");
 console.log(
   `✓ migrated ${touchedCount} of ${raw.length} cases (${categoryChanges} re-categorized) → ${CASES_PATH}`,
 );
+expandTemplates(next);
+
+function expandTemplates(cases, options = {}) {
+  let templates;
+  try {
+    templates = JSON.parse(readFileSync(TEMPLATES_PATH, "utf8"));
+  } catch (error) {
+    console.warn(`! could not read templates for derivation: ${error.message}`);
+    return;
+  }
+  if (!Array.isArray(templates)) {
+    console.warn("! public/data/templates.json is not an array, skipping derivation");
+    return;
+  }
+
+  const templateBase = getTemplateDerivationBase(templates);
+  const derivedTemplates = deriveTemplatesFromCases(cases, templateBase, {
+    sourceUrl: MERGED_CASES_SOURCE_URL,
+  });
+  const nextTemplates = mergeTemplateCollections({
+    upstreamTemplates: templateBase,
+    derivedTemplates,
+    manualTemplates: [],
+  });
+
+  if (!options.dry) {
+    writeFileWithRetry(TEMPLATES_PATH, JSON.stringify(nextTemplates, null, 2), "utf8");
+  }
+
+  console.log(
+    `${options.dry ? "would expand" : "✓ expanded"} templates: base ${templateBase.length} + derived ${derivedTemplates.length} → ${nextTemplates.length} (target ${TARGET_TEMPLATE_COUNT})`,
+  );
+}

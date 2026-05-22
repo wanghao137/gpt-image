@@ -1,6 +1,10 @@
 import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  enrichUpstreamTemplate,
+  mergeTemplateCollections,
+} from "./template-derivation.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -266,16 +270,19 @@ async function main() {
   let upstreamCases = [];
   let upstreamTemplates = [];
   let upstreamOk = true;
+  let upstreamStyleUrl = "";
 
   try {
-    const { casesPayload, stylePayload } = await fetchUpstream();
+    const { casesPayload, stylePayload, origin } = await fetchUpstream();
+    upstreamStyleUrl = `${origin}/style-library.json`;
     upstreamCases = (casesPayload.cases || [])
       .map(normalizeCase)
       .filter((item) => item.imageUrl && item.prompt);
 
     upstreamTemplates = (stylePayload.templates || [])
       .map(normalizeTemplate)
-      .filter((item) => item.id && item.prompt);
+      .filter((item) => item.id && item.prompt)
+      .map((item) => enrichUpstreamTemplate(item, upstreamStyleUrl));
   } catch (error) {
     upstreamOk = false;
     if (!OPTIONAL) throw error;
@@ -335,15 +342,17 @@ async function main() {
     (a, b) => Number(b.id) - Number(a.id),
   );
 
-  const templateMap = new Map();
-  for (const t of upstreamTemplates) templateMap.set(t.id, t);
-  for (const t of manualTemplates) {
-    if (t && t.id) templateMap.set(t.id, t);
-  }
-  const templates = Array.from(templateMap.values());
+  const templates = mergeTemplateCollections({
+    upstreamTemplates,
+    derivedTemplates: [],
+    manualTemplates,
+  });
 
   console.log(
     `merged: upstream ${upstreamCases.length} + manual ${manualCases.length} → ${fullCases.length} cases (${hiddenCount} hidden)`,
+  );
+  console.log(
+    `templates: upstream/cache ${upstreamTemplates.length} + manual ${manualTemplates.length} → ${templates.length} templates`,
   );
 
   // Lite cases — strip the heavy `prompt` field. Card/grid only need `promptPreview`.

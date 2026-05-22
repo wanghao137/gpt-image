@@ -26,6 +26,10 @@ export interface ManualTemplate {
   cover: string;
   prompt: string;
   useWhen: string;
+  sourceType?: "upstream-style" | "derived-case" | "manual";
+  sourceLabel?: string;
+  sourceUrl?: string;
+  derivedFrom?: string[];
 }
 
 /** Repo state we track locally — the server SHA is needed for safe writes. */

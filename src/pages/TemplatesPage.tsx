@@ -19,11 +19,14 @@ export default function TemplatesPage() {
         <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink-400 sm:text-[15px]">
           每套模板都从真实案例中提炼，包含结构、约束与防坑指南，适合直接复制后替换主体、场景、品牌和限制条件。
         </p>
+        <p className="mt-2 max-w-2xl text-[12.5px] leading-relaxed text-ink-500 sm:text-[13px]">
+          模板来自 awesome-gpt-image-2 上游模板库，并由本项目基于合并案例库自动派生补全。
+        </p>
       </section>
 
       <div className="container-narrow grid gap-5 pb-16 pt-8 sm:grid-cols-2 xl:grid-cols-4">
         {templates.map((t) => (
-          <TemplateCard key={t.id} data={t} />
+          <TemplateCard key={t.id} data={t} expandable />
         ))}
       </div>
     </>

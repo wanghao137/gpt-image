@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0c0a09" />
     <meta name="color-scheme" content="dark" />
+    <script>
+      (function () {
+        try {
+          var key = "taostudio.theme";
+          var mode = window.localStorage.getItem(key);
+          if (mode !== "light" && mode !== "dark" && mode !== "system") mode = "system";
+          var system = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+          var theme = mode === "system" ? system : mode;
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          var themeColor = document.querySelector('meta[name="theme-color"]');
+          if (themeColor) themeColor.setAttribute("content", theme === "light" ? "#fffaf2" : "#0c0a09");
+          var colorScheme = document.querySelector('meta[name="color-scheme"]');
+          if (colorScheme) colorScheme.setAttribute("content", theme);
+        } catch (e) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
 
     <!--
       Default <head> tags. Each page replaces these via `<SEO>` (vite-react-ssg

@@ -1,5 +1,13 @@
 import { memo, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import {
+  applyThemeToDocument,
+  getSystemTheme,
+  parseThemeMode,
+  resolveEffectiveTheme,
+  THEME_KEY,
+} from "../lib/theme";
+import type { EffectiveTheme, ThemeMode } from "../lib/theme";
 
 interface NavItem {
   to: string;
@@ -8,24 +16,13 @@ interface NavItem {
   accent?: boolean;
 }
 
-type ThemeMode = "dark" | "light";
-
-const THEME_KEY = "taostudio.theme";
-
-function initialTheme(): ThemeMode {
-  if (typeof window === "undefined") return "dark";
+function initialThemeMode(): ThemeMode {
+  if (typeof window === "undefined") return "system";
   try {
-    const saved = window.localStorage.getItem(THEME_KEY);
-    if (saved === "dark" || saved === "light") return saved;
+    return parseThemeMode(window.localStorage.getItem(THEME_KEY));
   } catch {
-    return "dark";
+    return "system";
   }
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-}
-
-function applyTheme(theme: ThemeMode) {
-  document.documentElement.dataset.theme = theme;
-  document.documentElement.style.colorScheme = theme;
 }
 
 const NAV: NavItem[] = [
@@ -34,20 +31,39 @@ const NAV: NavItem[] = [
   { to: "/about", label: "关于" },
 ];
 
+const THEME_OPTIONS: Array<{ mode: ThemeMode; label: string }> = [
+  { mode: "light", label: "浅色" },
+  { mode: "dark", label: "深色" },
+  { mode: "system", label: "系统" },
+];
+
 function HeaderImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>(initialTheme);
+  const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
+  const [systemTheme, setSystemTheme] = useState<EffectiveTheme>(() =>
+    typeof window === "undefined" ? "dark" : getSystemTheme(),
+  );
   const location = useLocation();
+  const effectiveTheme = resolveEffectiveTheme(themeMode, systemTheme);
 
   useEffect(() => {
-    applyTheme(theme);
+    applyThemeToDocument(effectiveTheme);
     try {
-      window.localStorage.setItem(THEME_KEY, theme);
+      window.localStorage.setItem(THEME_KEY, themeMode);
     } catch {
       return;
     }
-  }, [theme]);
+  }, [effectiveTheme, themeMode]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-color-scheme: light)");
+    const update = () => setSystemTheme(getSystemTheme());
+    update();
+    media.addEventListener?.("change", update);
+    return () => media.removeEventListener?.("change", update);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -123,15 +139,34 @@ function HeaderImpl() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setTheme((value) => (value === "dark" ? "light" : "dark"))}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 text-[12px] font-medium text-ink-200 transition hover:border-white/25 hover:text-ink-50"
-            aria-label={theme === "dark" ? "切换浅色模式" : "切换深色模式"}
+          <div
+            className="inline-flex h-9 items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.04] p-0.5 text-[12px] font-medium text-ink-300 shadow-inner backdrop-blur"
+            role="radiogroup"
+            aria-label="颜色模式"
           >
-            <ThemeIcon theme={theme} />
-            <span className="hidden sm:inline">{theme === "dark" ? "浅色" : "深色"}</span>
-          </button>
+            {THEME_OPTIONS.map((option) => {
+              const active = themeMode === option.mode;
+              return (
+                <button
+                  key={option.mode}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => setThemeMode(option.mode)}
+                  className={
+                    "inline-flex h-8 items-center justify-center gap-1.5 rounded-full px-2 transition sm:px-2.5 " +
+                    (active
+                      ? "bg-white/[0.12] text-ink-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)]"
+                      : "text-ink-400 hover:bg-white/[0.05] hover:text-ink-100")
+                  }
+                  aria-label={`切换${option.label}模式`}
+                >
+                  <ThemeIcon mode={option.mode} effectiveTheme={effectiveTheme} />
+                  <span className="hidden sm:inline">{option.label}</span>
+                </button>
+              );
+            })}
+          </div>
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -192,7 +227,13 @@ function HeaderImpl() {
   );
 }
 
-function ThemeIcon({ theme }: { theme: ThemeMode }) {
+function ThemeIcon({
+  mode,
+  effectiveTheme,
+}: {
+  mode: ThemeMode;
+  effectiveTheme: EffectiveTheme;
+}) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -204,13 +245,23 @@ function ThemeIcon({ theme }: { theme: ThemeMode }) {
       className="h-4 w-4"
       aria-hidden="true"
     >
-      {theme === "dark" ? (
+      {mode === "light" ? (
         <>
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
         </>
-      ) : (
+      ) : mode === "dark" ? (
         <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z" />
+      ) : (
+        <>
+          <rect x="3" y="4" width="18" height="13" rx="2.5" />
+          <path d="M8 21h8M12 17v4" />
+          {effectiveTheme === "light" ? (
+            <circle cx="17" cy="8" r="1.5" />
+          ) : (
+            <path d="M18.5 8.7A2.6 2.6 0 1 1 15.3 5.5 2.2 2.2 0 0 0 18.5 8.7Z" />
+          )}
+        </>
       )}
     </svg>
   );
