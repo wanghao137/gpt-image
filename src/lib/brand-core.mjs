@@ -4,6 +4,9 @@ export const BRAND = {
   latinName: "Tao Studio AI",
   productName: "GPT-Image 2 案例与 Prompt 模板库",
   siteTitle: "桃子AI视觉实验室 - GPT-Image 2 案例与 Prompt 模板库",
+  adminTitle: "桃子AI视觉实验室 · 管理后台",
+  adminShortTitle: "管理后台",
+  faviconVersion: "taostudio-peach-20260522",
   siteUrl: "https://taostudioai.com",
   description:
     "桃子AI视觉实验室整理小红书封面、商家海报、人像写真、信息图等 GPT-Image 2 真实案例与 Prompt 模板，按场景分类，一键复制就能出图。",

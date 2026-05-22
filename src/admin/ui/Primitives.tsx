@@ -18,6 +18,8 @@ import type {
   InputHTMLAttributes,
   TextareaHTMLAttributes,
 } from "react";
+import { PeachLogoMark } from "../../components/BrandLogo";
+import { BRAND } from "../../lib/brand";
 
 /* ------------------------------------------------------------------ */
 /* Button                                                              */
@@ -239,17 +241,9 @@ export function SrOnly({ children }: { children: ReactNode }) {
 /* ------------------------------------------------------------------ */
 
 /**
- * Admin logo — mirrors the public site's three-stop ember gradient + ring
- * accent so the user immediately reads "this is the same product".
+ * Admin logo — reuses the public peach mark so the editor and public site
+ * cannot drift into separate identities.
  */
 export function BrandMark({ className = "h-9 w-9" }: { className?: string }) {
-  return (
-    <span
-      aria-hidden
-      className={`relative grid place-items-center rounded-xl bg-gradient-to-br from-ember-300 via-ember-500 to-ember-700 text-ink-950 shadow-ember ${className}`}
-    >
-      <span className="serif-display text-[15px] font-bold leading-none">A</span>
-      <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-ember-200 ring-2 ring-ink-950" />
-    </span>
-  );
+  return <PeachLogoMark className={className} title={BRAND.name} decorative={false} />;
 }

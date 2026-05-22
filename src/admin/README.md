@@ -1,4 +1,4 @@
-# Admin Studio
+# 桃子AI视觉实验室 · 管理后台
 
 一个只对你开放的内容管理后台。它直接通过 GitHub Contents API 把改动写回仓库，CI 自动重新部署，不需要任何服务端。
 

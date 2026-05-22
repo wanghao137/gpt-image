@@ -2,6 +2,7 @@ import { useState } from "react";
 import { REPO_TARGET } from "../config";
 import { checkToken } from "../github";
 import { saveToken } from "../auth";
+import { BRAND } from "../../lib/brand";
 import { BrandMark, Button } from "./Primitives";
 
 interface ConnectProps {
@@ -57,9 +58,9 @@ export function Connect({ onConnected }: ConnectProps) {
           <div className="mb-6 flex items-center gap-3">
             <BrandMark className="h-10 w-10" />
             <div>
-              <p className="eyebrow">Step 02 · Connect</p>
+              <p className="eyebrow">{BRAND.latinName}</p>
               <p className="mt-0.5 text-[12.5px] text-ink-400">
-                Admin Studio
+                {BRAND.name} · {BRAND.adminShortTitle}
               </p>
             </div>
           </div>

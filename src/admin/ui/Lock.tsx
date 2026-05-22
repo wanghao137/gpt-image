@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { adminPasswordRequired, tryUnlock } from "../auth";
+import { BRAND } from "../../lib/brand";
 import { BrandMark } from "./Primitives";
 
 interface LockProps {
@@ -68,10 +69,11 @@ export function Lock({ onUnlock }: LockProps) {
         <div className="mb-7 flex items-center gap-3">
           <BrandMark className="h-10 w-10" />
           <div>
-            <p className="eyebrow">Restricted access</p>
+            <p className="eyebrow">{BRAND.latinName}</p>
             <h1 className="serif-display mt-0.5 text-[22px] leading-tight text-ink-50">
-              Admin Studio
+              {BRAND.adminShortTitle}
             </h1>
+            <p className="mt-1 text-[12px] font-medium text-ink-400">{BRAND.name}</p>
           </div>
         </div>
 

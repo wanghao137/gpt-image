@@ -4,6 +4,9 @@ export interface BrandConfig {
   latinName: string;
   productName: string;
   siteTitle: string;
+  adminTitle: string;
+  adminShortTitle: string;
+  faviconVersion: string;
   siteUrl: string;
   description: string;
   fallbackDescription: string;

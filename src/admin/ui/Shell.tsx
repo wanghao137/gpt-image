@@ -5,6 +5,7 @@ import { CaseEditor } from "./CaseEditor";
 import { TemplateEditor } from "./TemplateEditor";
 import { RawJson } from "./RawJson";
 import { useAdminStore } from "../store";
+import { BRAND } from "../../lib/brand";
 import { Badge, BrandMark } from "./Primitives";
 
 interface ShellProps {
@@ -205,10 +206,13 @@ function Sidebar({
         <BrandMark />
         <div className="min-w-0">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-500">
-            Gallery
+            {BRAND.latinName}
           </p>
           <p className="serif-display truncate text-[18px] leading-tight text-ink-50">
-            Admin Studio
+            {BRAND.adminShortTitle}
+          </p>
+          <p className="mt-0.5 truncate text-[11px] font-medium text-ink-500">
+            {BRAND.name}
           </p>
         </div>
       </div>

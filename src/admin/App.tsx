@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { isUnlocked, readToken, saveToken } from "./auth";
 import { REPO_TARGET } from "./config";
 import { checkToken } from "./github";
+import { BRAND } from "../lib/brand";
 import { Lock } from "./ui/Lock";
 import { Connect } from "./ui/Connect";
 import { Shell } from "./ui/Shell";
@@ -22,6 +23,10 @@ export function AdminApp() {
   const [stage, setStage] = useState<Stage>(() =>
     isUnlocked() ? { kind: "connecting", verifying: false } : { kind: "locked" },
   );
+
+  useEffect(() => {
+    document.title = BRAND.adminTitle;
+  }, []);
 
   // After unlocking, try to silently verify any token previously saved in the
   // current session so the user lands directly on the editor when reloading.
