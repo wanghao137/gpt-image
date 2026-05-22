@@ -249,7 +249,7 @@ export function FilterBar({
         </div>
       </div>
 
-      <div className="surface p-3 sm:p-5">
+      <div className="surface case-filter-panel p-3 sm:p-5">
         {/* Search row */}
         <div className="flex items-center gap-2">
           <div className="relative flex-1">
@@ -271,7 +271,7 @@ export function FilterBar({
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               placeholder="搜索标题、Prompt、来源…"
-              className="w-full rounded-xl border border-white/10 bg-white/[0.03] py-2.5 pl-10 pr-16 text-sm font-medium text-ink-100 outline-none transition placeholder:text-ink-500 hover:border-white/25 focus:border-ember-500/60 focus:ring-2 focus:ring-ember-500/20"
+              className="case-filter-control w-full rounded-xl border border-white/10 bg-white/[0.03] py-2.5 pl-10 pr-16 text-sm font-medium text-ink-100 outline-none transition placeholder:text-ink-500 hover:border-white/25 focus:border-ember-500/60 focus:ring-2 focus:ring-ember-500/20"
               aria-label="搜索案例"
             />
             <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 text-[10px] font-medium text-ink-400 lg:inline-block">
@@ -285,7 +285,7 @@ export function FilterBar({
               setDrawerAxis("category");
               setDrawerOpen(true);
             }}
-            className="relative inline-flex h-[42px] shrink-0 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 text-sm font-medium text-ink-100 transition hover:border-white/25 sm:hidden"
+            className="case-filter-control relative inline-flex h-[42px] shrink-0 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 text-sm font-medium text-ink-100 transition hover:border-white/25 sm:hidden"
             aria-label="筛选"
           >
             <FilterIcon />
@@ -297,14 +297,14 @@ export function FilterBar({
             )}
           </button>
 
-          <span className="hidden rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-[13px] font-medium tabular-nums text-ink-200 sm:inline-block">
+          <span className="case-filter-meta hidden rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-[13px] font-medium tabular-nums text-ink-200 sm:inline-block">
             {matchLabel}
           </span>
           {hasActiveFilter && (
             <button
               type="button"
               onClick={onReset}
-              className="hidden rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-[13px] font-medium text-ink-300 transition hover:border-white/25 hover:text-ink-50 sm:inline-block"
+              className="case-filter-control hidden rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-[13px] font-medium text-ink-300 transition hover:border-white/25 hover:text-ink-50 sm:inline-block"
             >
               清除
             </button>
@@ -350,7 +350,7 @@ export function FilterBar({
 
         {/* Mobile match label below the search row */}
         <div className="mt-3 flex items-center justify-between text-[12px] sm:hidden">
-          <span className="rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 font-medium tabular-nums text-ink-200">
+          <span className="case-filter-meta rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 font-medium tabular-nums text-ink-200">
             {matchLabel}
           </span>
           {hasActiveFilter && (

@@ -6,6 +6,7 @@ import CaseDetailPage from "./pages/CaseDetailPage";
 import CategoryPage from "./pages/CategoryPage";
 import TemplatesPage from "./pages/TemplatesPage";
 import AboutPage from "./pages/AboutPage";
+import SitemapPage from "./pages/SitemapPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { ALL_CASES } from "./lib/data";
 import { USER_CATEGORIES } from "./lib/userCategories";
@@ -37,6 +38,7 @@ export const routes: RouteRecord[] = [
       },
       { path: "templates", Component: TemplatesPage, entry: "src/pages/TemplatesPage.tsx" },
       { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
+      { path: "sitemap", Component: SitemapPage, entry: "src/pages/SitemapPage.tsx" },
       { path: "*", Component: NotFoundPage },
     ],
   },

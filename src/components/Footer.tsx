@@ -92,7 +92,7 @@ const COLUMNS: FooterColumn[] = [
         external: true,
         label: "GitHub 数据源",
       },
-      { href: "/sitemap.xml", label: "站点地图" },
+      { to: "/sitemap", label: "站点地图" },
     ],
   },
 ];

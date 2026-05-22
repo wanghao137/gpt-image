@@ -204,7 +204,7 @@ function SmartImgImpl({
         overflow: "hidden",
         position: style?.position ?? "relative",
         // Calm dark skeleton. No animation — saves CPU on long mobile feeds.
-        backgroundColor: loaded ? undefined : "#1a1715",
+        backgroundColor: loaded ? undefined : "var(--smart-img-skeleton, #1a1715)",
       }}
     >
       {showSpinner && <SpinnerOverlay />}
