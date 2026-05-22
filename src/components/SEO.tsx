@@ -1,4 +1,5 @@
 import { Head } from "vite-react-ssg";
+import { BRAND, formatSiteTitle } from "../lib/brand";
 
 interface SEOProps {
   title: string;
@@ -12,8 +13,8 @@ interface SEOProps {
   noindex?: boolean;
 }
 
-const SITE_URL = "https://taostudioai.com";
-const SITE_NAME = "GPT-Image 2 中文案例库";
+const SITE_URL = BRAND.siteUrl;
+const SITE_NAME = BRAND.name;
 // Default OG card. The SVG ships under /public/og.svg as a 1200x630 baked-in
 // card. Most platforms (WeChat, Twitter, LinkedIn) rasterise SVG fine; if a
 // PNG is later dropped at /og.png it'll override automatically.
@@ -43,7 +44,7 @@ export function SEO({
 }: SEOProps) {
   const fullUrl = path.startsWith("http") ? path : SITE_URL + path;
   const ogImage = image || DEFAULT_OG;
-  const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+  const fullTitle = formatSiteTitle(title);
   const ldArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   return (
@@ -87,5 +88,7 @@ export function SEO({
 export const SITE = {
   url: SITE_URL,
   name: SITE_NAME,
+  latinName: BRAND.latinName,
+  productName: BRAND.productName,
   defaultOg: DEFAULT_OG,
 };

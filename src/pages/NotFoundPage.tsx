@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { SEO } from "../components/SEO";
+import { BRAND } from "../lib/brand";
 
 export default function NotFoundPage() {
   return (
     <>
       <SEO
-        title="页面不存在 · GPT-Image 2 中文案例库"
+        title={`页面不存在 · ${BRAND.name}`}
         description="你访问的页面不存在或已下架。回到首页继续浏览 450+ 个 GPT-Image 2 案例。"
         path="/404"
         noindex

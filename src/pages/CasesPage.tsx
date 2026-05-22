@@ -4,6 +4,7 @@ import { ALL_CASES } from "../lib/data";
 import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
 import { SEO } from "../components/SEO";
+import { BRAND } from "../lib/brand";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 
@@ -141,7 +142,7 @@ export default function CasesPage() {
     <>
       <SEO
         title={`全部案例 · ${cases.length}+ GPT-Image 2 真实案例`}
-        description="按用例、风格、场景、平台筛选 GPT-Image 2 中文案例库的全部案例。一键复制 Prompt，免费用作灵感来源。"
+        description={`${BRAND.name}按用例、风格、场景、平台筛选 GPT-Image 2 真实案例。一键复制 Prompt，免费用作灵感来源。`}
         path="/cases"
       />
 

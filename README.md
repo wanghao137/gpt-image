@@ -1,4 +1,4 @@
-# GPT-Image 2 中文案例库
+# 桃子AI视觉实验室
 
 > 把 [`awesome-gpt-image-2`](https://github.com/freestylefly/awesome-gpt-image-2) 的 450+ 案例做成一个**可搜索、可分类、SEO 友好**的中文导航站，附带轻量内容后台。
 

@@ -60,7 +60,7 @@ export function CategoryShowcase({ cases }: CategoryShowcaseProps) {
             从一个场景开始，复制就能出图。
           </h2>
           <p className="mt-1 hidden text-[14px] text-ink-400 sm:block sm:text-[15px]">
-            按真实使用场景重新分类，找最常用的 GPT-Image 2 案例和 Prompt。
+            桃子AI视觉实验室按真实使用场景重新分类，找最常用的 GPT-Image 2 案例和 Prompt。
           </p>
         </div>
 

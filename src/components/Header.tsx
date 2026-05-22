@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { BrandLogo } from "./BrandLogo";
 import {
   applyThemeToDocument,
   getSystemTheme,
@@ -7,6 +8,7 @@ import {
   resolveEffectiveTheme,
   THEME_KEY,
 } from "../lib/theme";
+import { BRAND } from "../lib/brand";
 import type { EffectiveTheme, ThemeMode } from "../lib/theme";
 
 interface NavItem {
@@ -103,18 +105,14 @@ function HeaderImpl() {
       <div className="container-narrow flex h-16 items-center justify-between gap-4">
         <Link
           to="/"
-          className="group inline-flex items-center gap-2.5"
-          aria-label="GPT-Image 2 中文案例库"
+          className="group inline-flex min-w-0 items-center"
+          aria-label={BRAND.name}
         >
-          <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-ember-300 via-ember-500 to-ember-700 text-[15px] font-bold text-ink-950 shadow-ember transition group-hover:scale-105">
-            <span className="serif-display leading-none">G</span>
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-ember-200 ring-2 ring-ink-950" />
-          </span>
-          <span className="hidden text-[15px] font-semibold tracking-tight text-ink-50 sm:block">
-            <span className="text-ink-300">GPT-Image 2</span>
-            <span className="mx-1.5 text-ink-500">·</span>
-            <span>案例库</span>
-          </span>
+          <BrandLogo
+            className="transition group-hover:scale-[1.02]"
+            markClassName="h-9 w-9 drop-shadow-[0_14px_26px_rgba(255,107,107,0.25)]"
+            textClassName="hidden max-w-[9rem] sm:block md:max-w-none"
+          />
         </Link>
 
         <nav className="hidden items-center gap-0.5 rounded-full border border-white/[0.06] bg-white/[0.03] p-1 text-sm shadow-inner backdrop-blur md:flex">

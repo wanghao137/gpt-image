@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { BrandLogo } from "./BrandLogo";
+import { BRAND } from "../lib/brand";
 
 /**
  * Site-wide footer. Surfaces:
@@ -109,25 +111,23 @@ function BrandBlock() {
   return (
     <div>
       <Link to="/" className="inline-flex items-center gap-2.5">
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-ember-300 via-ember-500 to-ember-700 text-[15px] font-bold text-ink-950 shadow-ember">
-          <span className="serif-display leading-none">G</span>
-        </span>
-        <span className="text-[15px] font-semibold tracking-tight text-ink-50">
-          GPT-Image 2 中文案例库
-        </span>
+        <BrandLogo
+          markClassName="h-10 w-10 drop-shadow-[0_16px_32px_rgba(255,107,107,0.22)]"
+          showEnglish
+        />
       </Link>
       <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-ink-400">
-        真实案例 + 中英双语 Prompt + 一键复制。让小红书博主、商家与设计师从灵感到出图只走一步。
+        {BRAND.name}整理真实案例、Prompt 模板与场景分类。让小红书博主、商家与设计师从灵感到出图只走一步。
       </p>
       <p className="mt-4 text-[12px] text-ink-500">
-        © {new Date().getFullYear()} GPT-Image 2 中文案例库 · 部分素材来源
+        © {new Date().getFullYear()} {BRAND.name} · 部分素材来源
         <a
           className="ml-1 underline-offset-2 hover:text-ink-300 hover:underline"
           href="https://github.com/freestylefly/awesome-gpt-image-2"
           target="_blank"
           rel="noreferrer"
         >
-          awesome-gpt-image-2
+          {BRAND.sourceCredit}
         </a>
       </p>
     </div>

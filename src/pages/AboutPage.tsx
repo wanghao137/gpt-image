@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import { SEO } from "../components/SEO";
+import { BRAND } from "../lib/brand";
 
 export default function AboutPage() {
   return (
     <>
       <SEO
-        title="关于 · GPT-Image 2 中文案例库"
-        description="一个按场景重新整理的 GPT-Image 2 中文案例库。所有案例都附中英双语 Prompt，可一键复制后粘贴到 ChatGPT 出图。"
+        title={`关于 · ${BRAND.name}`}
+        description={`${BRAND.name}是一个按场景重新整理的 GPT-Image 2 案例与 Prompt 模板库。所有案例都附中英双语 Prompt，可一键复制后粘贴到 ChatGPT 出图。`}
         path="/about"
       />
 
       <section className="container-narrow pt-10 sm:pt-14">
         <p className="eyebrow">About</p>
         <h1 className="serif-display mt-2 text-[28px] text-ink-50 sm:text-4xl lg:text-[44px]">
-          一个为出图而生的中文 Prompt 案例库。
+          {BRAND.name}，为出图而生。
         </h1>
       </section>
 

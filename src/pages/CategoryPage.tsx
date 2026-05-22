@@ -4,6 +4,7 @@ import { ALL_CASES, casesByUserCategory } from "../lib/data";
 import { getUserCategoryBySlug, USER_CATEGORIES } from "../lib/userCategories";
 import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
+import { BRAND } from "../lib/brand";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import NotFoundPage from "./NotFoundPage";
@@ -26,7 +27,7 @@ export default function CategoryPage() {
   if (!meta) return <NotFoundPage />;
 
   const seoTitle = `${meta.label} · GPT-Image 2 案例与 Prompt`;
-  const seoDesc = `${meta.label} GPT-Image 2 提示词案例 ${list.length} 个。${meta.tagline}。中英双语 Prompt，一键复制就能出图。`;
+  const seoDesc = `${BRAND.name}整理 ${meta.label} GPT-Image 2 提示词案例 ${list.length} 个。${meta.tagline}。中英双语 Prompt，一键复制就能出图。`;
 
   const breadcrumbLd = {
     "@context": "https://schema.org",

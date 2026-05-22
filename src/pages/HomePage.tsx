@@ -12,12 +12,12 @@ import { useCountUp } from "../hooks/useCountUp";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { rememberCaseReturn } from "../lib/caseReturn";
 import { createHeroSeed, selectHeroCases } from "../lib/home-hero";
+import { BRAND } from "../lib/brand";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 import type { PromptCase } from "../types";
 
-const HOME_TITLE = "GPT-Image 2 中文案例库";
-const HOME_DESC =
-  "小红书封面、商家海报、人像写真、信息图，450+ 个 GPT-Image 2 真实案例，按场景分类，中英双语 Prompt，一键复制就能出图。";
+const HOME_TITLE = BRAND.siteTitle;
+const HOME_DESC = BRAND.description;
 
 /**
  * Home — restored to the hero + collage + featured layout that performed
@@ -110,12 +110,12 @@ export default function HomePage() {
           </div>
 
           <h1 className="serif-display mt-4 max-w-3xl text-[2.35rem] leading-[0.98] text-ink-50 sm:text-[4.2rem] lg:text-[4.8rem]">
-            GPT-Image 2
-            <span className="block text-ember-300">中文案例库</span>
+            桃子AI
+            <span className="block text-ember-300">视觉实验室</span>
           </h1>
 
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
-            爆款 AI 图片、现成 Prompt、按场景筛选。直接看图、复制、改词，少刷教程，多出结果。
+            GPT-Image 2 真实案例、现成 Prompt、工业模板和场景筛选。直接看图、复制、改词，少刷教程，多出结果。
           </p>
 
           <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
