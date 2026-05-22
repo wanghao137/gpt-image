@@ -65,6 +65,10 @@ import { createHash } from "node:crypto";
 import { dirname, extname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import {
+  applyImageRewrites,
+  shouldProcessExistingVariants,
+} from "./build-images-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -263,10 +267,8 @@ async function processOne(rec) {
   ];
 
   // Fast path: every variant already exists and we're not forcing.
-  if (
-    !FORCE &&
-    variants.every((v) => existsSync(resolve(OUT_DIR, v.file)))
-  ) {
+  const allVariantsExist = variants.every((v) => existsSync(resolve(OUT_DIR, v.file)));
+  if (!shouldProcessExistingVariants({ force: FORCE, allVariantsExist, rec })) {
     return { ok: true, rec, canonicalPath, skipped: true };
   }
 
@@ -337,13 +339,14 @@ async function main() {
     for (const c of cases) {
       if (c.imageUrl && /^https?:\/\//i.test(c.imageUrl)) {
         // Remote upstream URL (first build, or new case from sync).
-        tasks.push({ kind: "case", id: c.id, url: c.imageUrl });
+        tasks.push({ kind: "case", targetKind: "case", id: c.id, url: c.imageUrl });
       } else if (c.imageUrl?.startsWith("/uploads/")) {
         // Admin-uploaded original — read from disk.
         const localFile = resolve(PUBLIC_DIR, c.imageUrl.replace(/^\/+/, ""));
         if (existsSync(localFile)) {
           tasks.push({
             kind: "upload",
+            targetKind: "case",
             id: c.id,
             url: c.imageUrl,
             localFile,
@@ -357,6 +360,7 @@ async function main() {
         if (existsSync(localFile)) {
           tasks.push({
             kind: "case",
+            targetKind: "case",
             id: c.id,
             url: c.imageUrl,
             localFile,
@@ -371,12 +375,13 @@ async function main() {
     templates = readJson(TEMPLATES_PATH);
     for (const t of templates) {
       if (t.cover && /^https?:\/\//i.test(t.cover)) {
-        tasks.push({ kind: "template", id: t.id, url: t.cover });
+        tasks.push({ kind: "template", targetKind: "template", id: t.id, url: t.cover });
       } else if (t.cover?.startsWith("/images/")) {
         const localFile = resolve(PUBLIC_DIR, t.cover.replace(/^\/+/, ""));
         if (existsSync(localFile)) {
           tasks.push({
             kind: "template",
+            targetKind: "template",
             id: t.id,
             url: t.cover,
             localFile,
@@ -397,6 +402,7 @@ async function main() {
       if (tasks.some((t) => t.url === url)) continue;
       tasks.push({
         kind: "upload",
+        targetKind: "upload",
         id: f.replace(/\.[^.]+$/, ""),
         url,
         localFile,
@@ -417,7 +423,6 @@ async function main() {
   // Successful sources point at their canonical baked JPEG. Failed sources
   // point at a local placeholder so runtime never falls back to slow
   // third-party hosts.
-  const localByOriginal = new Map();
   let recordsProcessed = 0;
   let recordsSkipped = 0;
   let variantsWritten = 0;
@@ -431,7 +436,6 @@ async function main() {
       failed += 1;
       const e = r.err instanceof Error ? r.err.message : String(r.err);
       console.warn(`  FAILED ${r.rec.kind}#${r.rec.id} <- ${r.rec.url}: ${e}`);
-      localByOriginal.set(r.rec.url, PLACEHOLDER_PATH);
       continue;
     }
     if (r.skipped) recordsSkipped += 1;
@@ -439,26 +443,15 @@ async function main() {
     if (r.processed) variantsWritten += r.processed;
     if (r.bytesIn) bytesIn += r.bytesIn;
     if (r.bytesOut) bytesOut += r.bytesOut;
-    localByOriginal.set(r.rec.url, r.canonicalPath);
   }
 
   // Apply rewrites.
-  let casesRewrites = 0;
-  for (const c of cases) {
-    const local = localByOriginal.get(c.imageUrl);
-    if (local && c.imageUrl !== local) {
-      c.imageUrl = local;
-      casesRewrites += 1;
-    }
-  }
-  let templatesRewrites = 0;
-  for (const t of templates) {
-    const local = localByOriginal.get(t.cover);
-    if (local && t.cover !== local) {
-      t.cover = local;
-      templatesRewrites += 1;
-    }
-  }
+  const { casesRewrites, templatesRewrites } = applyImageRewrites({
+    cases,
+    templates,
+    results,
+    placeholderPath: PLACEHOLDER_PATH,
+  });
 
   if (casesRewrites > 0) {
     writeJson(CASES_PATH, cases);
