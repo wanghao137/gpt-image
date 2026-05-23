@@ -67,6 +67,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import {
   applyImageRewrites,
+  isRetriableImageFetchFailure,
   shouldProcessExistingVariants,
 } from "./build-images-core.mjs";
 
@@ -93,6 +94,7 @@ const VARIANTS = (process.env.IMAGE_VARIANTS || "320,480,640,960")
   .filter((n) => Number.isFinite(n) && n > 0)
   .sort((a, b) => a - b);
 const SKIP_NET = process.env.IMAGE_SKIP_NET === "1";
+const FETCH_RETRIES = Number(process.env.IMAGE_FETCH_RETRIES || 3);
 const PLACEHOLDER_PATH = "/images/image-unavailable.svg";
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -108,6 +110,10 @@ function writeJson(path, data) {
 
 function sleepSync(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function writeFileWithRetry(path, data, encoding = "utf8") {
@@ -159,16 +165,26 @@ function outputBaseName(kind, id, originalUrl) {
 
 async function fetchToBuffer(url) {
   if (SKIP_NET) throw new Error("skipped: IMAGE_SKIP_NET=1");
-  const r = await fetch(url, {
-    headers: {
-      "user-agent":
-        "gpt-image-image-pipeline/1.0 (+https://taostudioai.com)",
-      accept: "image/*",
-    },
-    redirect: "follow",
-  });
-  if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
-  return Buffer.from(await r.arrayBuffer());
+  let lastError;
+  for (let attempt = 0; attempt <= FETCH_RETRIES; attempt += 1) {
+    try {
+      const r = await fetch(url, {
+        headers: {
+          "user-agent":
+            "gpt-image-image-pipeline/1.0 (+https://taostudioai.com)",
+          accept: "image/*",
+        },
+        redirect: "follow",
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
+      return Buffer.from(await r.arrayBuffer());
+    } catch (err) {
+      lastError = err;
+      if (attempt >= FETCH_RETRIES || !isRetriableImageFetchFailure(err)) break;
+      await sleep(350 * (attempt + 1));
+    }
+  }
+  throw lastError;
 }
 
 /**
@@ -255,6 +271,7 @@ async function pmap(items, fn, n) {
 async function processOne(rec) {
   const baseName = outputBaseName(rec.kind, rec.id, rec.url);
   const canonicalPath = `/images/${baseName}.jpg`;
+  const canonicalFile = resolve(OUT_DIR, `${baseName}.jpg`);
 
   // Define the full variant set: 1 JPEG (canonical, 1200) + N WebPs.
   const variants = [
@@ -274,6 +291,8 @@ async function processOne(rec) {
 
   // Fetch raw bytes once for all variants of this source.
   let raw;
+  let reusedExistingFallback = false;
+  let fallbackReason;
   if (rec.kind === "upload" || rec.localFile) {
     // Either an admin upload or a previously-baked canonical JPEG that
     // we're re-encoding into WebP variants. Either way the source is on
@@ -281,13 +300,43 @@ async function processOne(rec) {
     try {
       raw = readLocal(rec.localFile);
     } catch (err) {
-      return { ok: false, rec, err };
+      return {
+        ok: false,
+        rec,
+        err,
+        fallbackPath: allVariantsExist ? canonicalPath : undefined,
+      };
     }
   } else {
     try {
       raw = await fetchCached(rec.url);
     } catch (err) {
-      return { ok: false, rec, err };
+      if (allVariantsExist) {
+        return {
+          ok: true,
+          rec,
+          canonicalPath,
+          skipped: true,
+          reusedExistingFallback: true,
+          fallbackReason: err,
+        };
+      }
+      if (existsSync(canonicalFile)) {
+        try {
+          raw = readLocal(canonicalFile);
+          reusedExistingFallback = true;
+          fallbackReason = err;
+        } catch (fallbackErr) {
+          return { ok: false, rec, err, fallbackErr };
+        }
+      } else {
+        return {
+          ok: false,
+          rec,
+          err,
+          fallbackPath: allVariantsExist ? canonicalPath : undefined,
+        };
+      }
     }
   }
 
@@ -312,7 +361,12 @@ async function processOne(rec) {
     } catch (err) {
       // Encoding failed for one variant — bail on this record so we can
       // surface the error and avoid leaving cases.json half-rewritten.
-      return { ok: false, rec, err };
+      return {
+        ok: false,
+        rec,
+        err,
+        fallbackPath: allVariantsExist ? canonicalPath : undefined,
+      };
     }
   }
 
@@ -325,6 +379,8 @@ async function processOne(rec) {
     skippedVariants,
     bytesIn,
     bytesOut,
+    reusedExistingFallback,
+    fallbackReason,
   };
 }
 
@@ -420,11 +476,13 @@ async function main() {
   const results = await pmap(tasks, processOne, CONCURRENCY);
 
   // Step 3: rewrite cases.json + templates.json `imageUrl` / `cover`.
-  // Successful sources point at their canonical baked JPEG. Failed sources
-  // point at a local placeholder so runtime never falls back to slow
-  // third-party hosts.
+  // Successful sources point at their canonical baked JPEG. If a remote
+  // source fails but a previous local build exists, keep that local image.
+  // Unrecoverable failures are left unchanged so a transient network issue
+  // cannot publish the permanent image-unavailable placeholder.
   let recordsProcessed = 0;
   let recordsSkipped = 0;
+  let recordsRecovered = 0;
   let variantsWritten = 0;
   let bytesIn = 0;
   let bytesOut = 0;
@@ -437,6 +495,16 @@ async function main() {
       const e = r.err instanceof Error ? r.err.message : String(r.err);
       console.warn(`  FAILED ${r.rec.kind}#${r.rec.id} <- ${r.rec.url}: ${e}`);
       continue;
+    }
+    if (r.reusedExistingFallback) {
+      recordsRecovered += 1;
+      const e =
+        r.fallbackReason instanceof Error
+          ? r.fallbackReason.message
+          : String(r.fallbackReason ?? "source failed");
+      console.warn(
+        `  REUSED existing ${r.rec.kind}#${r.rec.id} -> ${r.canonicalPath}: ${e}`,
+      );
     }
     if (r.skipped) recordsSkipped += 1;
     else recordsProcessed += 1;
@@ -467,13 +535,13 @@ async function main() {
       ? `${((1 - bytesOut / bytesIn) * 100).toFixed(0)}% saved on encoded variants`
       : "n/a";
   console.log(
-    `done. records: processed=${recordsProcessed} skipped=${recordsSkipped} failed=${failed}\n` +
+    `done. records: processed=${recordsProcessed} skipped=${recordsSkipped} recovered=${recordsRecovered} failed=${failed}\n` +
       `      variants written=${variantsWritten} (${ratio})`,
   );
   if (failed > 0) {
     const msg =
-      `some sources failed; rewritten to ${PLACEHOLDER_PATH} so the site keeps ` +
-      "serving same-origin images.";
+      "some sources failed without an existing local fallback; records were " +
+      "left unchanged instead of being rewritten to a placeholder.";
     if (STRICT) {
       console.error(`${msg} strict mode is enabled.`);
       process.exit(2);

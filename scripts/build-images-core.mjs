@@ -24,16 +24,20 @@ export function shouldProcessExistingVariants({ force, allVariantsExist, rec }) 
   return false;
 }
 
+export function isRetriableImageFetchFailure(error) {
+  const message = error instanceof Error ? error.message : String(error ?? "");
+  if (/^HTTP (408|425|429|5\d\d)\b/.test(message)) return true;
+  return /(fetch failed|network|ECONNRESET|ETIMEDOUT|EAI_AGAIN|UND_ERR)/i.test(message);
+}
+
 export function applyImageRewrites({ cases, templates, results, placeholderPath }) {
   const localByRecord = new Map();
 
   for (const result of results) {
     if (!result?.rec) continue;
     const key = imageRewriteKey(result.rec);
-    localByRecord.set(
-      key,
-      result.ok ? result.canonicalPath : placeholderPath,
-    );
+    const localPath = result.ok ? result.canonicalPath : result.fallbackPath;
+    if (localPath) localByRecord.set(key, localPath);
   }
 
   let casesRewrites = 0;
