@@ -10,20 +10,20 @@
 
 1. `docs/hermes/prompts/system.md`
 2. `docs/hermes/taostudio-admin-content/SKILL.md`
-3. `docs/hermes/HERMES_AUTOMATION_HANDOFF.md`
-4. `data/manual/cases.json`
-5. `data/manual/templates.json`
-6. `data/manual/README.md`
-7. `src/admin/config.ts`
+3. `docs/hermes/HERMES_ADMIN_API.md`
+4. `docs/hermes/HERMES_AUTOMATION_HANDOFF.md`
 
-## 开始前同步仓库
+## API 配置
 
-```bash
-git switch main
-git fetch origin main
-git pull --rebase origin main
-npm ci
+Hermes 使用：
+
+```text
+POST https://taostudioai.com/api/hermes/content
+Authorization: Bearer <HERMES_ADMIN_API_KEY>
+Content-Type: application/json
 ```
+
+Hermes 不需要 GitHub token，也不需要 clone 仓库。
 
 ## 候选筛选
 
@@ -108,40 +108,52 @@ public/uploads/YYYY-MM-DD-case-100001-short-topic.jpg
 - `source`
 - `githubUrl`
 
-可以参考 `src/admin/content-automation-core.mjs` 的 `inferCaseFields` 和 `makePromptPreview` 做确定性补全。
+API 会参考 `src/admin/content-automation-core.mjs` 的 `inferCaseFields` 和 `makePromptPreview` 做确定性补全。
 
-## 验证
+## API 提交
 
-编辑后执行：
+先 dry-run：
 
-```bash
-npm run check
-npm run build
-git status --short
+```json
+{
+  "dryRun": true,
+  "kind": "case",
+  "action": "upsert",
+  "item": {
+    "title": "清晰具体的中文标题",
+    "category": "海报与排版",
+    "styles": ["Poster"],
+    "scenes": ["Commerce"],
+    "imageUrl": "/uploads/YYYY-MM-DD-case-topic.jpg",
+    "prompt": "完整 Prompt 正文",
+    "source": "Hermes original"
+  }
+}
 ```
 
-验证失败时不要 push。输出失败命令、关键错误和需要处理的文件。
+dry-run 返回 `ok: true` 后正式提交：
 
-## 提交和推送
-
-只 stage 本次案例相关文件：
-
-```bash
-git add data/manual/cases.json public/uploads public/data public/images public/sitemap.xml
-git commit -m "content(cases): add daily curated cases"
-git pull --rebase origin main
-npm run check
-npm run build
-git add data/manual/cases.json public/uploads public/data public/images public/sitemap.xml
-git commit -m "chore(content): refresh generated case assets"
-git push origin main
+```json
+{
+  "kind": "case",
+  "action": "upsert",
+  "commitMessage": "content(api): add Hermes curated case",
+  "item": {
+    "title": "清晰具体的中文标题",
+    "category": "海报与排版",
+    "styles": ["Poster"],
+    "scenes": ["Commerce"],
+    "imageUrl": "/uploads/YYYY-MM-DD-case-topic.jpg",
+    "prompt": "完整 Prompt 正文",
+    "source": "Hermes original"
+  },
+  "uploads": []
+}
 ```
 
-如果 rebase 或第二次 build 后没有新增变化，跳过第二个 commit。
+如果有图片文件，把图片 base64 放入 `uploads`，路径必须在 `public/uploads/` 下。
 
-如果无精品候选，不要提交空 commit。
-
-不要在 `main` 上 force push。需要撤回已发布内容时，按 `docs/hermes/HERMES_AUTOMATION_HANDOFF.md` 的回滚流程使用普通 commit 或 `git revert`。
+如果无精品候选，不要调用正式提交 API。
 
 ## 完成输出
 
@@ -161,11 +173,11 @@ git push origin main
 - quality reason:
 - source/rights:
 验证：
-- npm run check:
-- npm run build:
-Git：
-- commit:
-- pushed to origin/main:
+- dryRun:
+API：
+- ok:
+- commitSha:
+- commitUrl:
 备注：
 - ...
 ```

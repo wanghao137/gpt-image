@@ -136,6 +136,7 @@ export function inferTemplateFields(template, options = {}) {
   const overwrite = options.overwrite ?? true;
   const next = { ...template };
   const title = normalizeText(next.title) || normalizeText(next.id) || "未命名";
+  const titleForDescription = title.endsWith("模板") ? title.slice(0, -2) : title;
   const category = normalizeText(next.category) || "其他用例";
   const tags = unique([...(TEMPLATE_TAG_HINTS[category] || []), ...(next.tags || [])], 6);
 
@@ -143,7 +144,7 @@ export function inferTemplateFields(template, options = {}) {
     next.tags = tags;
   }
   if (shouldWrite(next.description, overwrite)) {
-    next.description = `用于${category}的${title}模板。`;
+    next.description = `用于${category}的${titleForDescription}模板。`;
   }
   if (shouldWrite(next.useWhen, overwrite)) {
     next.useWhen = `适合需要快速复用「${title}」结构的内容生产场景。`;

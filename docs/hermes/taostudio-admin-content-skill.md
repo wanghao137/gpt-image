@@ -1,6 +1,6 @@
 # TaoStudio Admin Content Skill for Hermes
 
-这份文档给 Hermes 直接执行 TaoStudio 管理系统里的案例和模板维护任务。标准 skill 版本在 `docs/hermes/taostudio-admin-content/SKILL.md`。
+这份文档给 Hermes 准备 TaoStudio 管理系统案例和模板的 API payload。标准 skill 版本在 `docs/hermes/taostudio-admin-content/SKILL.md`，接口说明在 `docs/hermes/HERMES_ADMIN_API.md`。
 
 ## 适用场景
 

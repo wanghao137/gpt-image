@@ -70,6 +70,18 @@ npm run admin:hash
 
 GitHub Pages 是纯静态托管，没有服务端鉴权能力。**真正决定能否写仓库的，是那个 PAT**。所以请把 token 当密码看待：用完关浏览器 / 撤销 / 重新生成。
 
+## Hermes 机器接口
+
+自动化代理不要模拟点击 `/admin`，也不要拿浏览器里的 PAT。Hermes 应调用服务端接口：
+
+```text
+POST /api/hermes/content
+Authorization: Bearer <HERMES_ADMIN_API_KEY>
+Content-Type: application/json
+```
+
+服务端函数在 Vercel 里读取 `HERMES_GITHUB_TOKEN`，通过 GitHub Git Data API 创建单个 commit。接口细节见 `docs/hermes/HERMES_ADMIN_API.md`。
+
 ## 文件结构
 
 ```

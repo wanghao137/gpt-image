@@ -7,7 +7,7 @@ description: Use when maintaining TaoStudio admin case or template content, incl
 
 ## Overview
 
-Use this skill to maintain TaoStudio admin content without breaking the static GitHub-backed workflow. Treat cases as copyable finished examples and templates as reusable prompt structures.
+Use this skill to prepare TaoStudio admin content for the Hermes Admin API without breaking the static GitHub-backed workflow. Treat cases as copyable finished examples and templates as reusable prompt structures.
 
 ## Required Context
 

@@ -5,8 +5,9 @@
 核心结论：
 
 - 案例和模板都可以自动化更新。
-- 推荐让 Hermes 直接维护仓库内容并 push，不推荐自动点击 `/admin` 页面。
-- `/admin` 适合人工编辑；自动化应编辑 `data/manual/cases.json`、`data/manual/templates.json` 和 `public/uploads/`。
+- Hermes 应调用 TaoStudio 服务端 API，不直接登录 `/admin`，也不直接拿 GitHub 写权限 token。
+- `/admin` 适合人工编辑；Hermes 自动化使用 `POST /api/hermes/content`。
+- GitHub 写权限保存在 Vercel 服务端环境变量里，不暴露给 Hermes 或浏览器。
 - 每日案例、每周模板的数量目标必须服从精品门槛：没有精品就跳过，不要为了凑数发布。
 
 ## 文件说明
@@ -18,6 +19,7 @@ Hermes 需要读取这些文件：
 - `docs/hermes/prompts/system.md`：Hermes 常驻系统提示词。
 - `docs/hermes/prompts/daily-cases.md`：每日 1-2 个精品案例的任务提示词。
 - `docs/hermes/prompts/weekly-templates.md`：每周 1-2 个精品模板的任务提示词。
+- `docs/hermes/HERMES_ADMIN_API.md`：Hermes 调用 TaoStudio API 的接口说明。
 - `docs/hermes/HERMES_AUTOMATION_HANDOFF.md`：当前交接说明。
 
 如果 Hermes 支持 Skill：
@@ -37,54 +39,54 @@ Hermes 需要读取这些文件：
 
 Hermes 机器需要具备：
 
-- Git，并且有 `wanghao137/gpt-image` 的 push 权限。
-- Node.js `>=20`。
-- npm。
-- 可以访问 GitHub。
+- 可以访问 `https://taostudioai.com/api/hermes/content`。
+- 一个 TaoStudio 专用 API key：`HERMES_ADMIN_API_KEY`，通过 `Authorization: Bearer ...` 发送。
 - 如果 Hermes 需要自己生成结果图，需要单独配置模型密钥；密钥只能放在 Hermes 机器环境变量里，不要写入仓库。
 
-常见环境变量按实际工具选择，不是全部必需：
+Vercel 服务端需要配置：
 
 | 变量 | 用途 | 规则 |
 |---|---|---|
-| `GITHUB_TOKEN` | HTTPS push、GitHub API、自动化提交 | 只放在 Hermes 机器或 Git credential manager，不写入仓库。 |
+| `HERMES_ADMIN_API_KEY` | Hermes 调 API 的共享密钥 | 只放在 Vercel 和 Hermes 机器，不写入仓库。 |
+| `HERMES_GITHUB_TOKEN` | Vercel 服务端写 GitHub 的 token | 只放 Vercel，Hermes 不需要知道。 |
+| `HERMES_REPO_OWNER` | 仓库 owner，可选 | 默认 `wanghao137`。 |
+| `HERMES_REPO_NAME` | 仓库名，可选 | 默认 `gpt-image`。 |
+| `HERMES_REPO_BRANCH` | 分支名，可选 | 默认 `main`。 |
+
+Hermes 机器常见模型环境变量按实际工具选择，不是全部必需：
+
+| 变量 | 用途 | 规则 |
+|---|---|---|
 | `OPENAI_API_KEY` | 使用 OpenAI 生成 Prompt、图片或做质量审查 | 只在 Hermes 运行环境配置。 |
 | `DASHSCOPE_API_KEY` | 使用通义/千问/阿里云模型链路 | 只在 Hermes 运行环境配置。 |
 | `ARK_API_KEY` | 使用火山方舟/Seedream 等模型链路 | 只在 Hermes 运行环境配置。 |
-| `HTTP_PROXY` / `HTTPS_PROXY` | Hermes 机器需要代理访问模型或 GitHub 时使用 | 不要提交到仓库。 |
+| `HTTP_PROXY` / `HTTPS_PROXY` | Hermes 机器需要代理访问模型或 TaoStudio API 时使用 | 不要提交到仓库。 |
 
 本仓库不要求固定使用哪一家模型服务。Hermes 可以使用已配置的任意合法生成链路，但最终提交到仓库的只能是内容文件和图片资产，不能包含密钥、请求日志或账号信息。
 
-首次安装：
+Hermes 调用方式：
 
 ```bash
-git clone https://github.com/wanghao137/gpt-image.git
-cd gpt-image
-npm ci
-npm run check
-npm run build
+curl -X POST "https://taostudioai.com/api/hermes/content" \
+  -H "Authorization: Bearer $HERMES_ADMIN_API_KEY" \
+  -H "Content-Type: application/json" \
+  --data @payload.json
 ```
 
-如果仓库已经存在，每次任务开始前执行：
+完整接口见 `docs/hermes/HERMES_ADMIN_API.md`。
 
-```bash
-git switch main
-git fetch origin main
-git pull --rebase origin main
-npm ci
-```
+如果维护者需要本地开发 API，再 clone 仓库并运行测试；Hermes 自动化本身不需要 clone 仓库。
 
 ## 自动上传方式
 
-这里的“自动上传”不是让 Hermes 打开网页后台点按钮，而是让它走仓库发布链路：
+这里的“自动上传”不是让 Hermes 打开网页后台点按钮，而是让它调用服务端 API：
 
-1. 新案例写入 `data/manual/cases.json`。
-2. 新模板写入 `data/manual/templates.json`。
-3. 案例图片放入 `public/uploads/`，JSON 里用 `/uploads/...`。
-4. 执行 `npm run check` 和 `npm run build`。
-5. 构建脚本会生成或更新 `public/data/`、`public/images/`、`public/sitemap.xml` 等静态产物。
-6. Hermes commit 并 push 到 `main`。
-7. GitHub/Vercel 后续部署，线上站点自动更新。
+1. Hermes 生成或筛选精品案例/模板。
+2. Hermes 把内容组织成 JSON payload。
+3. Hermes 调用 `POST https://taostudioai.com/api/hermes/content`。
+4. Vercel 服务端校验 API key、校验字段、写入 `data/manual/*.json` 和 `public/uploads/*`。
+5. Vercel 服务端通过 GitHub Git Data API 创建一个 commit。
+6. Vercel/GitHub Pages 后续部署，线上站点自动更新。
 
 不要把 GitHub `blob` 页面当作图片地址。长期内容优先把图片放进 `public/uploads/`。
 
@@ -199,7 +201,9 @@ target: publish 1-2 premium templates, or skip with reasons
 
 模板任务应优先分析最近新增案例，再结合全部案例判断是否有稳定可复用模式。
 
-## 标准 Git 流程
+## 备用 Git 流程（仅维护者）
+
+Hermes 默认不使用本节。只有维护者本地排查、批量修复或 API 不可用时，才使用 Git 直写流程。
 
 每次任务开始：
 
@@ -337,11 +341,11 @@ git push origin main
 - quality reason:
 - source/rights:
 验证：
-- npm run check: pass/fail
-- npm run build: pass/fail
-Git：
-- commit:
-- pushed to origin/main: yes/no
+- API dryRun: pass/fail
+API：
+- ok: true/false
+- commitSha:
+- commitUrl:
 风险或备注：
 - ...
 ```
@@ -358,5 +362,5 @@ Git：
 可以这样描述总需求：
 
 ```text
-你负责自动维护 TaoStudio 的精品案例和精品模板。请使用仓库里的 taostudio-admin-content skill。每天自动筛选并发布 1-2 个真正精品案例；每周自动整理并发布 1-2 个真正精品模板。默认发布 Hermes 原创生成或用户明确授权的内容；公开平台作品只能作为趋势参考，不能无授权搬运。案例和模板都通过修改仓库数据文件、运行验证和 push main 来上线。质量优先于数量；没有精品就跳过，不要凑数，不要伪造来源，不要用 promptPreview 替代完整 prompt，不要 force push，出问题用普通 commit 或 git revert 撤回。
+你负责自动维护 TaoStudio 的精品案例和精品模板。请使用仓库里的 taostudio-admin-content skill 和 HERMES_ADMIN_API.md。每天自动筛选并发布 1-2 个真正精品案例；每周自动整理并发布 1-2 个真正精品模板。默认发布 Hermes 原创生成或用户明确授权的内容；公开平台作品只能作为趋势参考，不能无授权搬运。案例和模板都通过 POST https://taostudioai.com/api/hermes/content 上线。质量优先于数量；没有精品就跳过，不要凑数，不要伪造来源，不要用 promptPreview 替代完整 prompt，不要直接拿 GitHub token，不要 force push。
 ```
