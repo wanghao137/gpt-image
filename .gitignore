@@ -18,3 +18,4 @@ node_modules/.image-cache/
 # that ship with the deploy and replace runtime image fetching. Committing
 # them keeps CF Pages CI builds fast (<2min vs ~10min if regenerated each
 # time) and matches the strategy the reference site uses.
+.vercel
