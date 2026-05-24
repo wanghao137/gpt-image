@@ -40,6 +40,7 @@ npm ci
 - 只对应单个案例的模板。
 - 空洞表单式 Prompt。
 - 缺少封面图的模板。
+- 封面图来源、授权或许可不清楚的模板。
 - 与现有模板高度重复的模板。
 
 ## 模板评分
@@ -81,6 +82,7 @@ npm ci
 - `title` 要说明用途，不要泛泛命名。
 - `tags` 使用 2-5 个英文标签。
 - `cover` 优先使用最能代表该模板的已有案例图。
+- `cover` 必须来自已发布案例、Hermes 自己生成图片、用户授权图片或许可明确允许使用的图片。
 - `prompt` 必须是模板化结构，不复制单个案例全文。
 - `sourceType`：
   - 从案例派生：`derived-case`
@@ -112,13 +114,15 @@ git pull --rebase origin main
 npm run check
 npm run build
 git add data/manual/templates.json public/data public/images public/sitemap.xml
-git commit --amend --no-edit
+git commit -m "chore(content): refresh generated template assets"
 git push origin main
 ```
 
-如果 rebase 或第二次 build 后没有新增变化，跳过 amend。
+如果 rebase 或第二次 build 后没有新增变化，跳过第二个 commit。
 
 如果无精品模板，不要提交空 commit。
+
+不要在 `main` 上 force push。需要撤回已发布模板时，按 `docs/hermes/HERMES_AUTOMATION_HANDOFF.md` 的回滚流程使用普通 commit 或 `git revert`。
 
 ## 完成输出
 
@@ -137,6 +141,7 @@ git push origin main
 - derivedFrom:
 - score:
 - quality reason:
+- cover source/rights:
 验证：
 - npm run check:
 - npm run build:
@@ -146,4 +151,3 @@ Git：
 备注：
 - ...
 ```
-

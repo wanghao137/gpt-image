@@ -88,6 +88,8 @@ Create a template only when the pattern is reusable across multiple cases or hig
 - Do not fabricate source, author, URL, date, model, or platform details.
 - Do not replace the full Prompt with a summary.
 - Do not store GitHub `blob` URLs as images.
+- Do not publish images copied from social platforms or third-party sites unless explicit permission or license evidence is available.
+- Prefer original Hermes-generated images, user-provided assets, or explicitly licensed assets.
 - Do not delete unrelated manual entries during cleanup.
 - Do not publish a template that only works for one exact case.
 - Preserve existing hand-written optional fields unless explicitly asked to overwrite them.
