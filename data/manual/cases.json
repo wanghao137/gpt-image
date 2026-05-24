@@ -1,5 +1,32 @@
 [
   {
+    "id": "100021",
+    "title": "餐饮品牌全案VI物料矩阵",
+    "category": "品牌与标志",
+    "styles": [
+      "Poster",
+      "Realistic"
+    ],
+    "scenes": [
+      "Brand",
+      "Commerce"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-05-24-case-100021-restaurant-brand-vi.jpg",
+    "imageAlt": "餐饮品牌全案VI物料矩阵",
+    "prompt": "Generate a [Restaurant Brand Touchpoint Matrix] series visual that showcases a complete restaurant brand identity system and packaging application plan.\n\nThis is a brand VI mockup board / packaging system lineup / brand pitch page for the food & beverage industry. Not a single promotional poster, but a systematic brand showcase that integrates the main visual, hero products, packaging materials, menu information, promotional content, and small extension items into one composition.\n\n[User input]\n- Brand name: [brand]\n- Category: [category]\n\n[Optional info]\n- Hero product, slogan, style direction, primary color, accent color, audience, price tier, regional flavor, aspect ratio\n\n[Auto-completion rules]\nIf full info is not provided, derive the optimal combination from [brand] + [category]:\n1. Determine brand tone (youthful, friendly, guochao, retro, fresh, healing, refined, fast-food, etc.)\n2. Match a visual style fitting the category\n3. Auto-set sensible primary, secondary, and accent colors\n4. Auto-fill hero and supporting products\n5. Auto-generate slogan, selling-point copy, pricing, and recommendation tags suited to F&B\n6. Auto-pick appropriate F&B material types and displayed content\n\n[Composition contents]\nBuild a complete F&B brand material system around [brand], including but not limited to:\n- Core packaging: tote bag, takeout bag, packaging box, lunch box, paper bag, plastic bag\n- Beverage / food containers: paper cups, cup sleeves, bowls, meal boxes, seals, labels\n- Information items: menus, promo posters, price boards, table cards, standees, small cards\n- Brand extensions: stickers, badges, napkins, utensils, package seals, hang tags\n- Product expression: hero dish photos, single-product hero shots, food close-ups, cross-section shots, recommended combos\n\n[Layout]\nVertical [aspect ratio] composition on a white, off-white, or light grey background, organized like a brand pitch board or mockup matrix.\nMix large / medium / small items to form a clear hierarchy:\n- Large packaging and hero visuals as anchors\n- Medium menus, posters, and price modules for information delivery\n- Small stickers, utensils, labels, and swag for system completeness\n\nOverall should feel ordered but not stiff, rich but not cluttered, modular and readable, close to a brand proposal page, portfolio display, or packaging pitch page.\n\n[Style & texture]\nMatch [category] and [brand] character with a clearly food-branded, commercially distributed, mockup-display, system-design vibe. Can lean modern minimal, guochao playful, light retro, lifestyle, FMCG, warm-healing, or youth-leaning.\nRealistic materials: paper, plastic, fabric bag, packaging box, cup body, sticker, utensil textures. Soft, unified lighting like a clean photo-studio brand-material flat lay.\n\n[Text & graphics]\nAll items consistently carry the brand name, logo, brand symbol, primary color block, slogan, or selling-point copy. Copy can be Chinese or Chinese+English mix but must read as F&B marketing, concise, direct, with sales-driven energy. Graphics system can use minimal illustration, geometric shapes, mascot, iconography, or auxiliary patterns to strengthen brand recall.\n\n[Output goal]\nProduce one complete [brand] F&B brand identity showcase, like an entire mockup proposal board produced by a design team. Image must be unified, refined, commercially deployable, with portfolio-grade quality, clearly expressing brand style, hero category, and multi-touchpoint packaging extension capability.\n\nMake the aspect ratio 9:16",
+    "promptPreview": "Generate a [Restaurant Brand Touchpoint Matrix] series visual that showcases a complete restaurant brand identity system and packaging application plan. This is a brand VI mockup board / packaging system lineup / brand …",
+    "source": "Community collected via @iamaiistudio",
+    "githubUrl": "https://x.com/i/status/2058339111724016060"
+  },
+  {
     "id": "100020",
     "title": "超高级Master JUMBO ProMPT V1",
     "category": "其他用例",
