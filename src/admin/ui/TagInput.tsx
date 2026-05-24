@@ -43,7 +43,7 @@ export function TagInput({
     }
   };
 
-  const unused = suggestions.filter((s) => !value.includes(s));
+  const unused = Array.from(new Set(suggestions)).filter((s) => !value.includes(s));
 
   return (
     <div>

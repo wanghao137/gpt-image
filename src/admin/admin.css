@@ -42,6 +42,14 @@
   body::after {
     display: none;
   }
+
+  :root[data-theme="light"] body::before {
+    background:
+      radial-gradient(ellipse 60% 45% at 8% -6%, rgba(217, 119, 87, 0.13), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 96% 10%, rgba(217, 119, 87, 0.08), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 50% 110%, rgba(255, 226, 196, 0.48), transparent 65%),
+      linear-gradient(180deg, #fffaf2 0%, #f8efe3 60%, #fff7ee 100%);
+  }
 }
 
 @layer components {
@@ -55,9 +63,23 @@
   .input-base {
     @apply w-full rounded-lg border border-white/[0.08] bg-ink-950/50 px-3 py-2 text-[13px] text-ink-100 placeholder:text-ink-500 outline-none transition;
   }
+  :root[data-theme="light"] .input-base {
+    border-color: rgba(104, 79, 55, 0.24);
+    background: rgba(255, 255, 255, 0.68);
+    color: rgb(var(--color-ink-50));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+  :root[data-theme="light"] .input-base::placeholder {
+    color: rgba(96, 84, 70, 0.72);
+  }
   .input-base:focus,
   .input-base:focus-visible {
     @apply border-ember-500/60 ring-2 ring-ember-500/15;
+  }
+  :root[data-theme="light"] .input-base:focus,
+  :root[data-theme="light"] .input-base:focus-visible {
+    border-color: rgba(184, 82, 54, 0.68);
+    background: #fff;
   }
 
   /* Compact pill button for inline toolbars. Smaller than `.btn-primary`. */
@@ -70,11 +92,29 @@
   .btn-pill-ghost {
     @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[12.5px] font-medium text-ink-100 transition hover:border-white/25 hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-50;
   }
+  :root[data-theme="light"] .btn-pill-ghost {
+    border-color: rgba(104, 79, 55, 0.24);
+    background: rgba(255, 255, 255, 0.58);
+    color: rgb(var(--color-ink-100));
+  }
+  :root[data-theme="light"] .btn-pill-ghost:hover {
+    border-color: rgba(204, 101, 72, 0.42);
+    background: rgb(var(--color-ember-800) / 0.5);
+    color: rgb(var(--color-ink-50));
+  }
   .btn-pill-danger {
     @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 px-3.5 py-1.5 text-[12.5px] font-medium text-rose-200 transition hover:border-rose-400/50 hover:bg-rose-500/15 disabled:cursor-not-allowed disabled:opacity-50;
   }
+  :root[data-theme="light"] .btn-pill-danger {
+    border-color: rgba(190, 18, 60, 0.24);
+    background: rgba(255, 241, 242, 0.78);
+    color: rgb(159 18 57);
+  }
   .btn-pill-subtle {
     @apply inline-flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] font-medium text-ink-400 transition hover:bg-white/[0.04] hover:text-ink-100 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  :root[data-theme="light"] .btn-pill-subtle:hover {
+    background: rgba(104, 79, 55, 0.08);
   }
 
   /* Sidebar nav row — matches public-site capsule navigation.
@@ -89,10 +129,41 @@
   .nav-row-active {
     @apply bg-white/[0.06] text-ink-50 ring-1 ring-white/[0.08];
   }
+  :root[data-theme="light"] .nav-row-idle {
+    color: rgb(var(--color-ink-200));
+  }
+  :root[data-theme="light"] .nav-row-idle:hover {
+    background: rgba(104, 79, 55, 0.08);
+    color: rgb(var(--color-ink-50));
+  }
+  :root[data-theme="light"] .nav-row-active {
+    background: rgba(255, 255, 255, 0.72);
+    color: rgb(var(--color-ink-50));
+    box-shadow:
+      0 10px 28px -24px rgba(80, 55, 34, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
 
   /* Dirty/synced status dot — used in toolbars and the sidebar footer. */
   .status-dot {
     @apply inline-block h-1.5 w-1.5 shrink-0 rounded-full;
+  }
+
+  .admin-sidebar,
+  .admin-topbar,
+  .admin-mobile-tabs {
+    transition: background-color 180ms ease, border-color 180ms ease;
+  }
+
+  :root[data-theme="light"] .admin-sidebar,
+  :root[data-theme="light"] .admin-topbar,
+  :root[data-theme="light"] .admin-mobile-tabs {
+    border-color: rgba(104, 79, 55, 0.16);
+    background: rgba(255, 250, 242, 0.76);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
   }
 }
 

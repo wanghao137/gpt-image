@@ -120,10 +120,15 @@ export function Select({ value, onChange, options, className = "" }: SelectProps
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className={`input-base appearance-none bg-[length:14px_14px] bg-[right_0.75rem_center] bg-no-repeat pr-9 ${className}`}
+      className={`input-base pr-9 ${className}`}
       style={{
+        appearance: "none",
+        WebkitAppearance: "none",
         backgroundImage:
           "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%237a746c'%3E%3Cpath d='m2 4 4 4 4-4z'/%3E%3C/svg%3E\")",
+        backgroundPosition: "right 0.75rem center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "14px 14px",
       }}
     >
       {options.map((opt) => (

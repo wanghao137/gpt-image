@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { ManualTemplate } from "../types";
 import { CATEGORIES } from "../config";
 import { collides, summarize } from "../utils";
+import { inferTemplateFields } from "../content-automation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
 import { ImageDrop } from "./ImageDrop";
@@ -87,6 +88,11 @@ export function TemplateEditor({
     } catch (e) {
       toast.push(e instanceof Error ? e.message : "保存失败", "error");
     }
+  };
+
+  const smartFill = (overwrite: boolean) => {
+    if (!active) return;
+    update(inferTemplateFields(active, { overwrite }));
   };
 
   return (
@@ -199,63 +205,96 @@ export function TemplateEditor({
               <div className="flex-1 overflow-y-auto p-5 scrollbar-thin">
                 <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
                   <div className="space-y-5">
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="ID" required>
-                        <TextInput
-                          value={active.id}
-                          onChange={(e) => update({ id: e.target.value })}
-                        />
-                      </Field>
-                      <Field label="分类">
-                        <Select
-                          value={active.category}
-                          onChange={(v) => update({ category: v })}
-                          options={CATEGORIES}
-                        />
-                      </Field>
-                    </div>
+                    <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
+                      <div className="mb-4 flex items-center justify-between gap-3">
+                        <div>
+                          <p className="eyebrow">Template core</p>
+                          <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
+                            模板主信息
+                          </h2>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          <Button type="button" variant="ghost" onClick={() => smartFill(false)}>
+                            只补空字段
+                          </Button>
+                          <Button type="button" variant="primary" onClick={() => smartFill(true)}>
+                            智能补全
+                          </Button>
+                        </div>
+                      </div>
 
-                    <Field label="标题" required>
-                      <TextInput
-                        value={active.title}
-                        onChange={(e) => update({ title: e.target.value })}
-                      />
-                    </Field>
+                      <div className="space-y-4">
+                        <div className="grid grid-cols-2 gap-3">
+                          <Field label="ID" required>
+                            <TextInput
+                              value={active.id}
+                              onChange={(e) => update({ id: e.target.value })}
+                            />
+                          </Field>
+                          <Field label="分类">
+                            <Select
+                              value={active.category}
+                              onChange={(v) => update({ category: v })}
+                              options={CATEGORIES}
+                            />
+                          </Field>
+                        </div>
 
-                    <Field label="标签 tags">
-                      <TagInput
-                        value={active.tags}
-                        onChange={(tags) => update({ tags })}
-                        placeholder="回车或逗号分隔"
-                      />
-                    </Field>
+                        <Field label="标题" required>
+                          <TextInput
+                            value={active.title}
+                            onChange={(e) => update({ title: e.target.value })}
+                          />
+                        </Field>
 
-                    <Field label="一句话描述 description">
-                      <TextArea
-                        value={active.description}
-                        onChange={(e) => update({ description: e.target.value })}
-                        rows={2}
-                      />
-                    </Field>
+                        <Field label="使用场景 useWhen">
+                          <TextArea
+                            value={active.useWhen}
+                            onChange={(e) => update({ useWhen: e.target.value })}
+                            rows={2}
+                            placeholder="这个模板适合在什么内容生产场景里复用"
+                          />
+                        </Field>
 
-                    <Field label="使用场景 useWhen">
-                      <TextArea
-                        value={active.useWhen}
-                        onChange={(e) => update({ useWhen: e.target.value })}
-                        rows={2}
-                      />
-                    </Field>
+                        <Field label="模板 Prompt" required hint={`${active.prompt.length} 字符`}>
+                          <TextArea
+                            value={active.prompt}
+                            onChange={(e) => update({ prompt: e.target.value })}
+                            rows={15}
+                          />
+                        </Field>
+                      </div>
+                    </section>
 
-                    <Field label="模板 Prompt" required hint={`${active.prompt.length} 字符`}>
-                      <TextArea
-                        value={active.prompt}
-                        onChange={(e) => update({ prompt: e.target.value })}
-                        rows={14}
-                      />
-                    </Field>
+                    <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
+                      <div className="mb-4">
+                        <p className="eyebrow">Metadata</p>
+                        <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
+                          展示辅助字段
+                        </h2>
+                      </div>
+
+                      <div className="space-y-4">
+                        <Field label="标签 tags" hint={`${active.tags.length} 项`}>
+                          <TagInput
+                            value={active.tags}
+                            onChange={(tags) => update({ tags })}
+                            placeholder="回车或逗号分隔"
+                          />
+                        </Field>
+
+                        <Field label="一句话描述 description">
+                          <TextArea
+                            value={active.description}
+                            onChange={(e) => update({ description: e.target.value })}
+                            rows={2}
+                          />
+                        </Field>
+                      </div>
+                    </section>
                   </div>
 
-                  <div>
+                  <div className="space-y-4">
                     <Field label="封面图" required>
                       <ImageDrop
                         token={token}
@@ -264,6 +303,14 @@ export function TemplateEditor({
                         slug={active.title || active.id}
                       />
                     </Field>
+                    <div className="rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
+                        Template Rule
+                      </p>
+                      <p className="mt-2 text-[11.5px] leading-relaxed text-ink-400">
+                        模板应该抽象一类可复用工作流，而不是只复刻单个案例。优先写清用途、结构和防坑约束。
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

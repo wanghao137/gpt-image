@@ -7,6 +7,14 @@ import { RawJson } from "./RawJson";
 import { useAdminStore } from "../store";
 import { BRAND } from "../../lib/brand";
 import { Badge, BrandMark } from "./Primitives";
+import {
+  applyThemeToDocument,
+  getSystemTheme,
+  parseThemeMode,
+  resolveEffectiveTheme,
+  THEME_KEY,
+} from "../../lib/theme";
+import type { EffectiveTheme, ThemeMode } from "../../lib/theme";
 
 interface ShellProps {
   token: string;
@@ -73,9 +81,29 @@ const TABS: TabDef[] = [
   },
 ];
 
+const THEME_OPTIONS: Array<{ mode: ThemeMode; label: string }> = [
+  { mode: "light", label: "浅色" },
+  { mode: "dark", label: "深色" },
+  { mode: "system", label: "系统" },
+];
+
+function initialThemeMode(): ThemeMode {
+  if (typeof window === "undefined") return "system";
+  try {
+    return parseThemeMode(window.localStorage.getItem(THEME_KEY));
+  } catch {
+    return "system";
+  }
+}
+
 export function Shell({ token, login, onSignOut }: ShellProps) {
   const store = useAdminStore(token);
   const [tab, setTab] = useState<Tab>("cases");
+  const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
+  const [systemTheme, setSystemTheme] = useState<EffectiveTheme>(() =>
+    typeof window === "undefined" ? "dark" : getSystemTheme(),
+  );
+  const effectiveTheme = resolveEffectiveTheme(themeMode, systemTheme);
 
   // Browser-level guard against accidentally navigating away with unsaved edits.
   useEffect(() => {
@@ -88,6 +116,24 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
     window.addEventListener("beforeunload", onUnload);
     return () => window.removeEventListener("beforeunload", onUnload);
   }, [store.dirty]);
+
+  useEffect(() => {
+    applyThemeToDocument(effectiveTheme);
+    try {
+      window.localStorage.setItem(THEME_KEY, themeMode);
+    } catch {
+      return;
+    }
+  }, [effectiveTheme, themeMode]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-color-scheme: light)");
+    const update = () => setSystemTheme(getSystemTheme());
+    update();
+    media.addEventListener?.("change", update);
+    return () => media.removeEventListener?.("change", update);
+  }, []);
 
   const repoLabel = `${REPO_TARGET.owner}/${REPO_TARGET.repo}`;
 
@@ -118,8 +164,17 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
           loadError={store.loadError}
           loading={store.loading}
           dirty={store.dirty}
+          themeMode={themeMode}
+          effectiveTheme={effectiveTheme}
+          onThemeModeChange={setThemeMode}
         />
-        <section className="flex-1 overflow-hidden p-6 lg:p-8">
+        <MobileTabBar
+          active={tab}
+          onChange={setTab}
+          casesCount={store.cases.data.length}
+          templatesCount={store.templates.data.length}
+        />
+        <section className="flex-1 overflow-hidden p-4 sm:p-6 lg:p-8">
           {store.loadError ? (
             <ErrorState message={store.loadError} onRetry={store.refresh} />
           ) : store.loading && store.cases.sha === null ? (
@@ -200,7 +255,7 @@ function Sidebar({
     TABS.filter((t) => t.group === group);
 
   return (
-    <aside className="hidden w-64 shrink-0 flex-col border-r border-white/[0.05] bg-ink-950/60 backdrop-blur-xl md:flex">
+    <aside className="admin-sidebar hidden w-64 shrink-0 flex-col border-r border-white/[0.05] bg-ink-950/60 backdrop-blur-xl md:flex">
       {/* Brand */}
       <div className="flex items-center gap-3 px-5 py-5">
         <BrandMark />
@@ -336,6 +391,58 @@ function NavGroup({ label, items, active, onChange }: NavGroupProps) {
   );
 }
 
+function countForTab(tab: Tab, casesCount: number, templatesCount: number) {
+  if (tab === "cases") return casesCount;
+  if (tab === "templates") return templatesCount;
+  return undefined;
+}
+
+function MobileTabBar({
+  active,
+  onChange,
+  casesCount,
+  templatesCount,
+}: {
+  active: Tab;
+  onChange: (tab: Tab) => void;
+  casesCount: number;
+  templatesCount: number;
+}) {
+  return (
+    <nav className="admin-mobile-tabs border-b border-white/[0.05] bg-ink-950/45 px-4 py-2 md:hidden">
+      <div className="flex gap-1.5 overflow-x-auto scrollbar-thin">
+        {TABS.map((item) => {
+          const isActive = item.id === active;
+          const count = countForTab(item.id, casesCount, templatesCount);
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => onChange(item.id)}
+              className={
+                "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border px-3 text-[12px] font-medium transition " +
+                (isActive
+                  ? "border-ember-500/45 bg-ember-500/15 text-ember-100"
+                  : "border-white/[0.08] bg-white/[0.03] text-ink-300 hover:border-white/18 hover:text-ink-100")
+              }
+            >
+              <span className={isActive ? "text-ember-300" : "text-ink-500"}>
+                {item.icon}
+              </span>
+              <span>{item.label}</span>
+              {typeof count === "number" && (
+                <span className="rounded-full bg-ink-950/45 px-1.5 py-0.5 text-[10.5px] tabular-nums text-ink-400">
+                  {count}
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /* TopBar                                                              */
 /* ------------------------------------------------------------------ */
@@ -346,12 +453,24 @@ interface TopBarProps {
   loadError: string;
   loading: boolean;
   dirty: boolean;
+  themeMode: ThemeMode;
+  effectiveTheme: EffectiveTheme;
+  onThemeModeChange: (mode: ThemeMode) => void;
 }
 
-function TopBar({ login, repoLabel, loadError, loading, dirty }: TopBarProps) {
+function TopBar({
+  login,
+  repoLabel,
+  loadError,
+  loading,
+  dirty,
+  themeMode,
+  effectiveTheme,
+  onThemeModeChange,
+}: TopBarProps) {
   const githubUrl = `https://github.com/${repoLabel}`;
   return (
-    <header className="flex items-center justify-between border-b border-white/[0.05] bg-ink-950/55 px-6 py-2.5 backdrop-blur-xl backdrop-saturate-150 lg:px-8">
+    <header className="admin-topbar flex items-center justify-between border-b border-white/[0.05] bg-ink-950/55 px-6 py-2.5 backdrop-blur-xl backdrop-saturate-150 lg:px-8">
       <div className="flex items-center gap-2.5 text-[12px] text-ink-400">
         <span className="hidden md:inline">连接到</span>
         <a
@@ -400,10 +519,96 @@ function TopBar({ login, repoLabel, loadError, loading, dirty }: TopBarProps) {
           </>
         )}
       </div>
-      <div className="flex items-center gap-3 text-[12px] text-ink-400 md:hidden">
-        @{login}
+      <div className="flex items-center gap-3 text-[12px] text-ink-400">
+        <ThemeSwitcher
+          mode={themeMode}
+          effectiveTheme={effectiveTheme}
+          onChange={onThemeModeChange}
+        />
+        <span className="hidden md:inline">@{login}</span>
       </div>
     </header>
+  );
+}
+
+function ThemeSwitcher({
+  mode,
+  effectiveTheme,
+  onChange,
+}: {
+  mode: ThemeMode;
+  effectiveTheme: EffectiveTheme;
+  onChange: (mode: ThemeMode) => void;
+}) {
+  return (
+    <div
+      className="inline-flex h-8 items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.04] p-0.5 text-[12px] font-medium text-ink-300 shadow-inner backdrop-blur"
+      role="radiogroup"
+      aria-label="颜色模式"
+    >
+      {THEME_OPTIONS.map((option) => {
+        const active = mode === option.mode;
+        return (
+          <button
+            key={option.mode}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            onClick={() => onChange(option.mode)}
+            className={
+              "inline-flex h-7 items-center justify-center gap-1.5 rounded-full px-2 transition " +
+              (active
+                ? "bg-white/[0.12] text-ink-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)]"
+                : "text-ink-400 hover:bg-white/[0.05] hover:text-ink-100")
+            }
+            aria-label={`切换${option.label}模式`}
+          >
+            <ThemeIcon mode={option.mode} effectiveTheme={effectiveTheme} />
+            <span className="hidden xl:inline">{option.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function ThemeIcon({
+  mode,
+  effectiveTheme,
+}: {
+  mode: ThemeMode;
+  effectiveTheme: EffectiveTheme;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3.5 w-3.5"
+      aria-hidden="true"
+    >
+      {mode === "light" ? (
+        <>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </>
+      ) : mode === "dark" ? (
+        <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z" />
+      ) : (
+        <>
+          <rect x="3" y="4" width="18" height="13" rx="2.5" />
+          <path d="M8 21h8M12 17v4" />
+          {effectiveTheme === "light" ? (
+            <circle cx="17" cy="8" r="1.5" />
+          ) : (
+            <path d="M18.5 8.7A2.6 2.6 0 1 1 15.3 5.5 2.2 2.2 0 0 0 18.5 8.7Z" />
+          )}
+        </>
+      )}
+    </svg>
   );
 }
 

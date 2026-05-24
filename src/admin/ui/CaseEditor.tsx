@@ -3,6 +3,7 @@ import type { ManualCase } from "../types";
 import { CATEGORIES, COMMON_SCENES, COMMON_STYLES } from "../config";
 import { collides, makeEmptyCase, suggestNextCaseId, summarize } from "../utils";
 import { sceneLabel, styleLabel } from "../../lib/labels";
+import { inferCaseFields } from "../content-automation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
 import { ImageDrop } from "./ImageDrop";
@@ -268,6 +269,16 @@ function CaseForm({
   token,
 }: CaseFormProps) {
   const idCollides = data.id ? collides(cases, data.id, activeIdx) : false;
+  const [advancedOpen, setAdvancedOpen] = useState(false);
+  const requiredMissing = [
+    !data.title.trim() ? "标题" : "",
+    !data.imageUrl.trim() ? "封面图" : "",
+    !data.prompt.trim() ? "Prompt" : "",
+  ].filter(Boolean);
+
+  const smartFill = (overwrite: boolean) => {
+    onChange(inferCaseFields(data, { overwrite }));
+  };
 
   return (
     <div className="flex h-full min-h-0 flex-col">
@@ -299,123 +310,170 @@ function CaseForm({
       <div className="flex-1 overflow-y-auto p-5 scrollbar-thin">
         <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
           <div className="space-y-5">
-            <div className="grid grid-cols-2 gap-3">
-              <Field
-                label="ID"
-                required
-                hint={idCollides ? <span className="text-rose-300">已存在</span> : "建议 100001+"}
-              >
-                <TextInput
-                  value={data.id}
-                  onChange={(e) => onChange({ id: e.target.value })}
-                  className={idCollides ? "border-rose-500/50" : ""}
-                />
-              </Field>
-              <Field label="分类" required>
-                <Select
-                  value={data.category}
-                  onChange={(v) => onChange({ category: v })}
-                  options={CATEGORIES}
-                />
-              </Field>
-            </div>
-
-            <Field label="标题" required>
-              <TextInput
-                value={data.title}
-                onChange={(e) => onChange({ title: e.target.value })}
-                placeholder="一句话概括这个案例"
-              />
-            </Field>
-
-            <Field label="风格 styles" hint={`${data.styles.length} 项`}>
-              <TagInput
-                value={data.styles}
-                onChange={(styles) => onChange({ styles })}
-                suggestions={COMMON_STYLES}
-                format={styleLabel}
-                placeholder="回车或逗号分隔，可点击下方常用标签"
-              />
-            </Field>
-
-            <Field label="场景 scenes" hint={`${data.scenes.length} 项`}>
-              <TagInput
-                value={data.scenes}
-                onChange={(scenes) => onChange({ scenes })}
-                suggestions={COMMON_SCENES}
-                format={sceneLabel}
-                placeholder="回车或逗号分隔"
-              />
-            </Field>
-
-            <Field
-              label="Prompt 正文"
-              required
-              hint={`${data.prompt.length} 字符`}
-            >
-              <TextArea
-                value={data.prompt}
-                onChange={(e) => onChange({ prompt: e.target.value })}
-                rows={12}
-                placeholder="完整 Prompt，没有长度限制。点开案例的弹窗里会展示并支持复制。"
-              />
-            </Field>
-
-            <Field
-              label="卡片预览（可选）"
-              hint={
-                data.promptPreview
-                  ? `${data.promptPreview.length} 字符`
-                  : "留空则自动取 prompt 前 220 字"
-              }
-            >
-              <TextArea
-                value={data.promptPreview || ""}
-                onChange={(e) => onChange({ promptPreview: e.target.value })}
-                rows={3}
-                placeholder="卡片上展示的短预览。"
-              />
-            </Field>
-
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="来源 / 作者">
-                <TextInput
-                  value={data.source || ""}
-                  onChange={(e) => onChange({ source: e.target.value || undefined })}
-                  placeholder="@username 或 GitHub 等"
-                />
-              </Field>
-              <Field label="原始链接">
-                <TextInput
-                  value={data.githubUrl || ""}
-                  onChange={(e) => onChange({ githubUrl: e.target.value || undefined })}
-                  placeholder="https://..."
-                />
-              </Field>
-            </div>
-
-            <Field label="无障碍替代文本 imageAlt">
-              <TextInput
-                value={data.imageAlt || ""}
-                onChange={(e) => onChange({ imageAlt: e.target.value || undefined })}
-                placeholder="留空将使用标题"
-              />
-            </Field>
-
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5 transition hover:border-white/15">
-              <input
-                type="checkbox"
-                checked={Boolean(data.hidden)}
-                onChange={(e) => onChange({ hidden: e.target.checked })}
-                className="mt-0.5 h-4 w-4 accent-ember-500"
-              />
-              <div>
-                <p className="text-[13px] font-semibold text-ink-100">屏蔽上游同 ID 案例</p>
-                <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink-500">
-                  打开后只需要保留 id 字段，构建时该 id 的上游案例会被删除。其他字段可留空。
-                </p>
+            <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div>
+                  <p className="eyebrow">Publish fields</p>
+                  <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
+                    快速发布
+                  </h2>
+                </div>
+                <Badge tone={requiredMissing.length > 0 ? "ember" : "emerald"}>
+                  {requiredMissing.length > 0 ? `缺 ${requiredMissing.join(" / ")}` : "可保存"}
+                </Badge>
               </div>
-            </label>
+
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <Field
+                    label="ID"
+                    required
+                    hint={idCollides ? <span className="text-rose-300">已存在</span> : "自动建议，可改"}
+                  >
+                    <TextInput
+                      value={data.id}
+                      onChange={(e) => onChange({ id: e.target.value })}
+                      className={idCollides ? "border-rose-500/50" : ""}
+                    />
+                  </Field>
+                  <Field label="分类" required>
+                    <Select
+                      value={data.category}
+                      onChange={(v) => onChange({ category: v })}
+                      options={CATEGORIES}
+                    />
+                  </Field>
+                </div>
+
+                <Field label="标题" required>
+                  <TextInput
+                    value={data.title}
+                    onChange={(e) => onChange({ title: e.target.value })}
+                    placeholder="一句话概括这个案例"
+                  />
+                </Field>
+
+                <Field
+                  label="Prompt 正文"
+                  required
+                  hint={`${data.prompt.length} 字符`}
+                >
+                  <TextArea
+                    value={data.prompt}
+                    onChange={(e) => onChange({ prompt: e.target.value })}
+                    rows={14}
+                    placeholder="完整 Prompt，没有长度限制。点开案例的弹窗里会展示并支持复制。"
+                  />
+                </Field>
+              </div>
+            </section>
+
+            <details
+              open={advancedOpen}
+              onToggle={(e) => setAdvancedOpen(e.currentTarget.open)}
+              className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4"
+            >
+              <summary className="cursor-pointer list-none">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <p className="eyebrow">Metadata</p>
+                    <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
+                      高级字段
+                    </h2>
+                  </div>
+                  <span className="text-[12px] font-medium text-ink-400">
+                    {advancedOpen ? "收起" : "展开"}
+                  </span>
+                </div>
+              </summary>
+
+              <div className="mt-4 space-y-5">
+                <Field label="风格 styles" hint={`${data.styles.length} 项`}>
+                  <TagInput
+                    value={data.styles}
+                    onChange={(styles) => onChange({ styles })}
+                    suggestions={COMMON_STYLES}
+                    format={styleLabel}
+                    placeholder="回车或逗号分隔，可点击下方常用标签"
+                  />
+                </Field>
+
+                <Field label="场景 scenes" hint={`${data.scenes.length} 项`}>
+                  <TagInput
+                    value={data.scenes}
+                    onChange={(scenes) => onChange({ scenes })}
+                    suggestions={COMMON_SCENES}
+                    format={sceneLabel}
+                    placeholder="回车或逗号分隔"
+                  />
+                </Field>
+
+                <Field label="手动标签 tags" hint={`${data.tags?.length || 0} 项`}>
+                  <TagInput
+                    value={data.tags || []}
+                    onChange={(tags) => onChange({ tags: tags.length > 0 ? tags : undefined })}
+                    suggestions={[...COMMON_STYLES, ...COMMON_SCENES]}
+                    placeholder="一般不用手填，智能补全会从 styles / scenes 合并"
+                  />
+                </Field>
+
+                <Field
+                  label="卡片预览（可选）"
+                  hint={
+                    data.promptPreview
+                      ? `${data.promptPreview.length} 字符`
+                      : "留空则自动取 prompt 前 220 字"
+                  }
+                >
+                  <TextArea
+                    value={data.promptPreview || ""}
+                    onChange={(e) => onChange({ promptPreview: e.target.value })}
+                    rows={3}
+                    placeholder="卡片上展示的短预览。"
+                  />
+                </Field>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <Field label="来源 / 作者">
+                    <TextInput
+                      value={data.source || ""}
+                      onChange={(e) => onChange({ source: e.target.value || undefined })}
+                      placeholder="@username 或 GitHub 等"
+                    />
+                  </Field>
+                  <Field label="原始链接">
+                    <TextInput
+                      value={data.githubUrl || ""}
+                      onChange={(e) => onChange({ githubUrl: e.target.value || undefined })}
+                      placeholder="https://..."
+                    />
+                  </Field>
+                </div>
+
+                <Field label="无障碍替代文本 imageAlt">
+                  <TextInput
+                    value={data.imageAlt || ""}
+                    onChange={(e) => onChange({ imageAlt: e.target.value || undefined })}
+                    placeholder="留空将使用标题"
+                  />
+                </Field>
+
+                <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5 transition hover:border-white/15">
+                  <input
+                    type="checkbox"
+                    checked={Boolean(data.hidden)}
+                    onChange={(e) => onChange({ hidden: e.target.checked })}
+                    className="mt-0.5 h-4 w-4 accent-ember-500"
+                  />
+                  <div>
+                    <p className="text-[13px] font-semibold text-ink-100">屏蔽上游同 ID 案例</p>
+                    <p className="mt-0.5 text-[11.5px] leading-relaxed text-ink-500">
+                      打开后只需要保留 id 字段，构建时该 id 的上游案例会被删除。其他字段可留空。
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </details>
           </div>
 
           {/* Right rail */}
@@ -428,6 +486,25 @@ function CaseForm({
                 slug={data.title || data.id}
               />
             </Field>
+            <div className="rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
+                Smart Fill
+              </p>
+              <p className="mt-2 text-[11.5px] leading-relaxed text-ink-400">
+                根据标题、分类和 Prompt 生成预览、替代文本、风格、场景和标签。生成后仍可手动修改。
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Button type="button" variant="primary" onClick={() => smartFill(true)}>
+                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
+                    <path d="M10.7 2.4a.75.75 0 0 0-1.4 0L8.5 4.8 6.1 5.6a.75.75 0 0 0 0 1.4l2.4.8.8 2.4a.75.75 0 0 0 1.4 0l.8-2.4 2.4-.8a.75.75 0 0 0 0-1.4l-2.4-.8-.8-2.4ZM5 11.8a.6.6 0 0 0-1.1 0l-.4 1.1-1.1.4a.6.6 0 0 0 0 1.1l1.1.4.4 1.1a.6.6 0 0 0 1.1 0l.4-1.1 1.1-.4a.6.6 0 0 0 0-1.1l-1.1-.4-.4-1.1ZM15.7 11.4a.6.6 0 0 0-1.1 0l-.5 1.5-1.5.5a.6.6 0 0 0 0 1.1l1.5.5.5 1.5a.6.6 0 0 0 1.1 0l.5-1.5 1.5-.5a.6.6 0 0 0 0-1.1l-1.5-.5-.5-1.5Z" />
+                  </svg>
+                  智能补全
+                </Button>
+                <Button type="button" variant="ghost" onClick={() => smartFill(false)}>
+                  只补空字段
+                </Button>
+              </div>
+            </div>
             <div className="rounded-xl border border-white/[0.06] bg-ink-950/50 p-3.5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
                 Tip
