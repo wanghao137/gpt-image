@@ -1,5 +1,30 @@
 [
   {
+    "id": "100023",
+    "title": "极简奢华品牌概念演示封面设计",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-05-25-case-100023-brand-concept-slides.jpg",
+    "imageAlt": "极简奢华品牌概念演示封面设计",
+    "prompt": "目标：为 {argument name=\"brand name\" default=\"BRAND\"} 创建一张极简奢华品牌概念演示封面 Slides，采用分栏式编辑布局，结合稀疏排版与电影质感的建筑摄影。\n\n画布：16:9 宽屏 Slides，左侧为干净的白色背景，右侧为全高摄影图像。使用精致的单色调配色：白色、炭灰色、深海军黑、冷灰色和柔和的日光。\n\n布局：将 Slides 垂直居中分割。左侧 50% 为留白充裕的白色设计区；右侧 50% 为照片面板。在最左侧边缘附近放置一条细垂直线，分为两段，中间垂直居中放置单词\"BRAND\"。在左上角区域，设置大号、字间距宽的标题\"CONCEPT\"。在左侧中部区域，放置一个由 2 个深海军蓝正方形/长方形组成的抽象几何 Logo，随后是同样大号、字间距宽的标题\"KEY MESSAGE\"。在 Logo/标题行下方，添加一条短水平线，然后添加 2 行简短的辅助文本：\"Short statement line\" 和 \"Supporting statement line\"。\n\n文本内容：使用 {argument name=\"main headline\" default=\"CONCEPT\"} 作为顶部标题，{argument name=\"key message text\" default=\"KEY MESSAGE\"} 作为中心标题，以及两行辅助文本 {argument name=\"supporting copy\" default=\"Short statement line / Supporting statement line\"}。所有排版应采用大写或标题样式，字间距宽，使用纤细的现代无衬线字体，颜色为深海军黑，并保持精确对齐。\n\n照片面板：右侧应展示一个安静、高端的建筑室内空间，包含混凝土墙面、落地窗、柔和的自然光和强烈的对角线阴影。包含 1 把极简设计师椅子作为唯一的道具，放置在右下四分之一区域，提供比例感和居住感。构图应感觉宁静、空间感强、精致，如同一张高端建筑摄影作品。不得出现人物。",
+    "promptPreview": "目标：为 {argument name=\"brand name\" default=\"BRAND\"} 创建一张极简奢华品牌概念演示封面 Slides，采用分栏式编辑布局，结合稀疏排版与电影质感的建筑摄影。 画布：16:9 宽屏 Slides，左侧为干净的白色背景，右侧为全高摄影图像。使用精致的单色调配色：白色、炭灰色、深海军黑、冷灰色和柔和的日光。 布局：将 Slides 垂直居中分割。左侧 50% 为留白充裕的白色设计区；右侧 50%…",
+    "source": "Community collected via @Mojofull",
+    "githubUrl": "https://x.com/Mojofull/status/2058185946030571925"
+  },
+  {
     "id": "100022",
     "title": "韩式咖啡馆饮品剪贴簿海报",
     "category": "海报与排版",
