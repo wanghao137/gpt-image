@@ -1,5 +1,30 @@
 [
   {
+    "id": "100024",
+    "title": "未来感电商产品概览海报设计",
+    "category": "产品与电商",
+    "styles": [
+      "Studio"
+    ],
+    "scenes": [
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-05-25-case-100024-futuristic-product-overview.jpg",
+    "imageAlt": "未来感电商产品概览海报设计",
+    "prompt": "目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。\n\n画布：1:1 正方形构图，光泽感银灰色摄影棚背景，带有柔和的渐变效果、淡淡的透明 HUD 线条、边角支架、霓虹蓝和紫色的点缀，以及微妙的科幻界面叠加层，呈现高端、简洁的照明效果。\n\n布局：右侧为主要时尚模特，占据画面约 60%。左侧包含产品信息面板、产品包装、卷起的丝袜展示、面料拉伸演示图以及功能列表卡片。保持构图平衡、奢华且极简。\n\n主体：一位成年女性时尚模特坐在金属银色立方体上，身穿黑色透肤丝袜、带有金色小装饰的黑色高跟鞋，以及一件修身黑色长袖连衣裙，配有白色尖领和一枚金色小胸针。她双腿交叠，清晰展示丝袜的透肤质感和修身剪裁。留着棕色长发，姿态优雅，一只手靠近头发。面部刻意用柔和的方形模糊处理以保持匿名。\n\n产品元素：左侧包含 3 个清晰可见的产品/演示元素：1 个高大的半透明银色产品盒，上面印有穿着丝袜的腿部剪影；1 个卷起的黑色丝袜，前方延伸出一部分松散的透肤面料；以及 1 张嵌入的特写照片，展示双手水平拉伸丝袜面料。\n\n文字内容：左上方的大号英文标题：\"PRODUCT OVERVIEW\"。下方展示中文产品标语 {argument name=\"Chinese slogan\" default=\"薄透丝袜，显瘦有质感\"}。在其下方，添加英文描述行：\"Sheer Texture / Slim Fit / Soft Matte Glow\"。使用深灰色的现代紧凑型无衬线字体。\n\n功能列表卡片：左下方包含 5 行功能列表，配有小型圆形线条图标和英文标签：1) Sheer Texture，2) Slim Fit，3) Soft Matte Glow，4) High Elasticity，5) Commuter Friendly。使用紧凑的灰色排版。",
+    "promptPreview": "目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。 画布：1:1 正方形构图，光泽感银灰色摄影棚背景，带有柔和的渐变效果、淡淡的透明 HUD 线条、边角支架、霓虹蓝和紫色的点缀，以及微妙的科幻界面叠加层，呈现高端、简洁的照明效果。 布局：右侧为主要时尚模特，占据画面约 60%。左侧包含产品信息面板、产品包装、卷起的丝袜…",
+    "source": "Community collected via @serein",
+    "githubUrl": "https://x.com/serein/status/2058202492236894354"
+  },
+  {
     "id": "100023",
     "title": "极简奢华品牌概念演示封面设计",
     "category": "品牌与标志",
