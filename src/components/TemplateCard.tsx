@@ -1,6 +1,7 @@
 import { memo, useCallback, useState } from "react";
 import type { PromptTemplate } from "../types";
 import { useCopy } from "../hooks/useCopy";
+import { ImageLightbox } from "./ImageLightbox";
 import { SmartImg } from "./SmartImg";
 
 interface TemplateCardProps {
@@ -20,6 +21,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   });
   const [imgLoaded, setImgLoaded] = useState(false);
   const [expanded, setExpanded] = useState(defaultExpanded);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const visibleTags = data.tags.slice(0, 3);
   const hiddenTagCount = Math.max(0, data.tags.length - visibleTags.length);
   const sourceLabel =
@@ -52,7 +54,8 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   );
 
   return (
-    <article
+    <>
+      <article
       aria-expanded={expandable ? expanded : undefined}
       onMouseMove={handleSpotlight}
       onClick={toggleExpanded}
@@ -86,6 +89,30 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
         <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
           TEMPLATE
         </span>
+        <button
+          type="button"
+          aria-label="查看模板大图"
+          onClick={(e) => {
+            e.stopPropagation();
+            setLightboxOpen(true);
+          }}
+          className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-ink-950/70 text-ink-100 shadow-soft backdrop-blur transition hover:border-ember-400/45 hover:bg-ember-500/15 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M15 3h6v6" />
+            <path d="M10 14 21 3" />
+            <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" />
+          </svg>
+        </button>
       </div>
 
       <div className="relative z-[2] flex flex-1 flex-col gap-3 p-5">
@@ -225,7 +252,16 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
           </div>
         )}
       </div>
-    </article>
+      </article>
+      <ImageLightbox
+        open={lightboxOpen}
+        src={data.cover}
+        alt={data.title}
+        caption={data.title}
+        ratio="16:10"
+        onClose={() => setLightboxOpen(false)}
+      />
+    </>
   );
 }
 

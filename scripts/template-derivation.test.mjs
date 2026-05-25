@@ -172,6 +172,33 @@ test("mergeTemplateCollections applies manual templates last and marks their sou
 }
 );
 
+test("mergeTemplateCollections puts dated manual templates first without reshuffling generated templates", () => {
+  const merged = mergeTemplateCollections({
+    upstreamTemplates: [
+      template("upstream-a", { sourceType: "upstream-style" }),
+      template("upstream-b", { sourceType: "upstream-style" }),
+    ],
+    derivedTemplates: [
+      template("derived-a", { sourceType: "derived-case" }),
+      template("derived-b", { sourceType: "derived-case" }),
+    ],
+    manualTemplates: [
+      template("manual-old", {
+        createdAt: "2026-05-20T00:00:00.000Z",
+      }),
+      template("manual-undated"),
+      template("manual-new", {
+        createdAt: "2026-05-25T00:00:00.000Z",
+      }),
+    ],
+  });
+
+  assert.deepEqual(
+    merged.map((item) => item.id),
+    ["manual-new", "manual-old", "manual-undated", "upstream-a", "upstream-b", "derived-a", "derived-b"],
+  );
+});
+
 test("mergeTemplateCollections treats manual file entries as manual even with derived source metadata", () => {
   const merged = mergeTemplateCollections({
     upstreamTemplates: [template("upstream-template", { sourceType: "upstream-style" })],
@@ -190,7 +217,7 @@ test("mergeTemplateCollections treats manual file entries as manual even with de
 
   assert.deepEqual(
     getTemplateDerivationBase(merged).map((item) => item.id),
-    ["upstream-template", "derived-product-hero-shot"],
+    ["derived-product-hero-shot", "upstream-template"],
   );
 });
 

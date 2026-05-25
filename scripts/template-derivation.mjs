@@ -220,7 +220,39 @@ export function mergeTemplateCollections({
       sourceLabel: template.sourceLabel || MANUAL_SOURCE_LABEL,
     });
   }
-  return Array.from(map.values());
+  return sortManualTemplatesFirst(Array.from(map.values()));
+}
+
+function sortManualTemplatesFirst(templates) {
+  return templates
+    .map((template, index) => ({
+      template,
+      index,
+      time: validCreatedTime(template.createdAt),
+    }))
+    .sort((a, b) => {
+      const aManual = a.template.sourceType === "manual";
+      const bManual = b.template.sourceType === "manual";
+      if (aManual !== bManual) return aManual ? -1 : 1;
+
+      if (aManual && bManual) {
+        const aHasDate = a.time !== null;
+        const bHasDate = b.time !== null;
+        if (aHasDate !== bHasDate) return aHasDate ? -1 : 1;
+        if (a.time !== null && b.time !== null && a.time !== b.time) {
+          return b.time - a.time;
+        }
+      }
+
+      return a.index - b.index;
+    })
+    .map(({ template }) => template);
+}
+
+function validCreatedTime(value) {
+  if (!value) return null;
+  const time = Date.parse(value);
+  return Number.isFinite(time) ? time : null;
 }
 
 export function getTemplateDerivationBase(templates) {

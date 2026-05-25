@@ -1,10 +1,11 @@
 import { ALL_TEMPLATES } from "../lib/data";
+import { sortTemplatesForDisplay } from "../lib/templateSort";
 import { TemplateCard } from "../components/TemplateCard";
 import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
 
 export default function TemplatesPage() {
-  const templates = ALL_TEMPLATES;
+  const templates = sortTemplatesForDisplay(ALL_TEMPLATES);
   return (
     <>
       <SEO

@@ -53,7 +53,16 @@ export function makeEmptyCase(id: string): ManualCase {
     scenes: [],
     imageUrl: "",
     prompt: "",
+    createdAt: new Date().toISOString(),
   };
+}
+
+export function formatContentDate(value?: string): string {
+  if (!value) return "未记录";
+  const dateInPath = value.match(/(?:^|\/)(20\d{2}-\d{2}-\d{2})(?:[-_/]|$)/)?.[1];
+  const time = Date.parse(dateInPath ? `${dateInPath}T00:00:00.000Z` : value);
+  if (!Number.isFinite(time)) return "未记录";
+  return new Date(time).toISOString().slice(0, 10);
 }
 
 /** A short summary string used in commit messages. */

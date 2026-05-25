@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { ManualTemplate } from "../types";
 import { CATEGORIES } from "../config";
-import { collides, summarize } from "../utils";
+import { collides, formatContentDate, summarize } from "../utils";
 import { inferTemplateFields } from "../content-automation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
@@ -27,6 +27,7 @@ function makeEmpty(): ManualTemplate {
     cover: "",
     prompt: "",
     useWhen: "",
+    createdAt: new Date().toISOString(),
   };
 }
 
@@ -157,8 +158,13 @@ export function TemplateEditor({
                           }`}
                         />
                         <span className="min-w-0 flex-1">
-                          <span className="font-mono text-[10.5px] text-ink-400">
-                            {t.id || "—"}
+                          <span className="flex items-center justify-between gap-2">
+                            <span className="truncate font-mono text-[10.5px] text-ink-400">
+                              {t.id || "—"}
+                            </span>
+                            <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-ink-500">
+                              {formatContentDate(t.createdAt || t.cover)}
+                            </span>
                           </span>
                           <span
                             className={`mt-0.5 line-clamp-1 block text-[13px] ${isActive ? "text-ink-50" : "text-ink-100"}`}

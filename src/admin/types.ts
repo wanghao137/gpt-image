@@ -13,6 +13,7 @@ export interface ManualCase {
   promptPreview?: string;
   source?: string;
   githubUrl?: string;
+  createdAt?: string;
   /** When true, this entry hides an upstream case with the same id. */
   hidden?: boolean;
 }
@@ -26,6 +27,7 @@ export interface ManualTemplate {
   cover: string;
   prompt: string;
   useWhen: string;
+  createdAt?: string;
   sourceType?: "upstream-style" | "derived-case" | "manual";
   sourceLabel?: string;
   sourceUrl?: string;

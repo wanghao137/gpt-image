@@ -243,6 +243,7 @@ function uploadPathToPublicUrl(path) {
 }
 
 function optionalText(obj, field) {
+  if (!obj) return undefined;
   const value = text(obj[field]);
   return value || undefined;
 }
@@ -259,10 +260,12 @@ function prepareCaseItem(input, cases, uploads) {
 
   const imageUrl = text(item.imageUrl) || (uploads.length === 1 ? uploadPathToPublicUrl(uploads[0].path) : "");
   if (!imageUrl) throw new HermesContentError(422, "imageUrl is required");
+  const id = optionalText(item, "id") || nextCaseId(cases);
+  const existing = cases.find((entry) => text(entry?.id) === id);
 
   const next = inferCaseFields(
     {
-      id: optionalText(item, "id") || nextCaseId(cases),
+      id,
       title,
       category,
       styles: normalizeList(item.styles, "styles"),
@@ -274,6 +277,7 @@ function prepareCaseItem(input, cases, uploads) {
       promptPreview: optionalText(item, "promptPreview"),
       source: optionalText(item, "source"),
       githubUrl: optionalText(item, "githubUrl"),
+      createdAt: optionalText(item, "createdAt") || optionalText(existing, "createdAt") || new Date().toISOString(),
     },
     { overwrite: false },
   );
@@ -281,7 +285,7 @@ function prepareCaseItem(input, cases, uploads) {
   return Object.fromEntries(Object.entries(next).filter(([, value]) => value !== undefined));
 }
 
-function prepareTemplateItem(input) {
+function prepareTemplateItem(input, templates) {
   const item = requireObject(input, "item");
   const id = requireText(item, "id");
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
@@ -295,6 +299,8 @@ function prepareTemplateItem(input) {
   if (sourceType && !TEMPLATE_SOURCE_TYPES.has(sourceType)) {
     throw new HermesContentError(422, `sourceType is invalid: ${sourceType}`);
   }
+  const existing = templates.find((entry) => text(entry?.id) === id);
+  const templateCreatedAt = optionalText(item, "createdAt") || optionalText(existing, "createdAt") || new Date().toISOString();
 
   const next = inferTemplateFields(
     {
@@ -306,6 +312,7 @@ function prepareTemplateItem(input) {
       cover: requireText(item, "cover"),
       prompt: requireText(item, "prompt"),
       useWhen: text(item.useWhen),
+      createdAt: templateCreatedAt,
       sourceType: sourceType || undefined,
       sourceLabel: optionalText(item, "sourceLabel"),
       sourceUrl: optionalText(item, "sourceUrl"),
@@ -350,7 +357,7 @@ export function buildHermesContentUpdate({ body, casesText, templatesText }) {
     };
   }
 
-  const item = prepareTemplateItem(request.item);
+  const item = prepareTemplateItem(request.item, templates);
   const nextTemplates = upsertById(templates, item);
   return {
     summary: {

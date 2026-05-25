@@ -11,6 +11,7 @@ export interface CaseAutomationInput {
   promptPreview?: string;
   source?: string;
   githubUrl?: string;
+  createdAt?: string;
   hidden?: boolean;
 }
 
@@ -23,6 +24,7 @@ export interface TemplateAutomationInput {
   cover: string;
   prompt: string;
   useWhen: string;
+  createdAt?: string;
   sourceType?: "upstream-style" | "derived-case" | "manual";
   sourceLabel?: string;
   sourceUrl?: string;

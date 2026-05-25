@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import type { ManualCase } from "../types";
 import { CATEGORIES, COMMON_SCENES, COMMON_STYLES } from "../config";
-import { collides, makeEmptyCase, suggestNextCaseId, summarize } from "../utils";
+import { collides, formatContentDate, makeEmptyCase, suggestNextCaseId, summarize } from "../utils";
 import { sceneLabel, styleLabel } from "../../lib/labels";
 import { inferCaseFields } from "../content-automation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
@@ -74,7 +74,12 @@ export function CaseEditor({
   const duplicate = () => {
     if (activeIdx < 0 || !active) return;
     const id = suggestNextCaseId(cases);
-    const copy: ManualCase = { ...active, id, title: `${active.title} · 副本` };
+    const copy: ManualCase = {
+      ...active,
+      id,
+      title: `${active.title} · 副本`,
+      createdAt: new Date().toISOString(),
+    };
     const next = [copy, ...cases];
     onChange(next);
     setActiveIdx(0);
@@ -194,11 +199,16 @@ export function CaseEditor({
                           }`}
                         />
                         <span className="min-w-0 flex-1">
-                          <span className="flex items-center gap-1.5">
-                            <span className="font-mono text-[10.5px] text-ink-400">
-                              #{c.id || "—"}
+                          <span className="flex items-center justify-between gap-2">
+                            <span className="min-w-0 flex items-center gap-1.5">
+                              <span className="truncate font-mono text-[10.5px] text-ink-400">
+                                #{c.id || "—"}
+                              </span>
+                              {c.hidden && <Badge tone="rose">hidden</Badge>}
                             </span>
-                            {c.hidden && <Badge tone="rose">hidden</Badge>}
+                            <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-ink-500">
+                              {formatContentDate(c.createdAt || c.imageUrl)}
+                            </span>
                           </span>
                           <span
                             className={`mt-0.5 line-clamp-1 block text-[13px] ${

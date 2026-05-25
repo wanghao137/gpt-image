@@ -94,6 +94,7 @@ export interface PromptTemplate {
   cover: string;
   prompt: string;
   useWhen: string;
+  createdAt?: string;
   sourceType?: "upstream-style" | "derived-case" | "manual";
   sourceLabel?: string;
   sourceUrl?: string;

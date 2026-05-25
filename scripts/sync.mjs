@@ -219,6 +219,54 @@ function readJsonSafe(absolutePath, fallback) {
   }
 }
 
+function normalizedIsoDate(value) {
+  if (!value) return undefined;
+  const time = Date.parse(String(value));
+  return Number.isFinite(time) ? new Date(time).toISOString() : undefined;
+}
+
+function inferContentDate(item) {
+  const explicit = normalizedIsoDate(item?.createdAt);
+  if (explicit) return explicit;
+
+  const candidates = [item?.imageUrl, item?.image, item?.cover].filter(Boolean);
+  for (const candidate of candidates) {
+    const match = String(candidate).match(/(?:^|\/)(20\d{2}-\d{2}-\d{2})(?:[-_/]|$)/);
+    if (match) return new Date(`${match[1]}T00:00:00.000Z`).toISOString();
+  }
+
+  return undefined;
+}
+
+function sortTemplatesForDisplay(templates) {
+  return templates
+    .map((item, index) => {
+      const iso = normalizedIsoDate(item?.createdAt);
+      return {
+        item,
+        index,
+        time: iso ? Date.parse(iso) : null,
+      };
+    })
+    .sort((a, b) => {
+      const aManual = a.item.sourceType === "manual";
+      const bManual = b.item.sourceType === "manual";
+      if (aManual !== bManual) return aManual ? -1 : 1;
+
+      if (aManual && bManual) {
+        const aHasDate = a.time !== null;
+        const bHasDate = b.time !== null;
+        if (aHasDate !== bHasDate) return aHasDate ? -1 : 1;
+        if (a.time !== null && b.time !== null && a.time !== b.time) {
+          return b.time - a.time;
+        }
+      }
+
+      return a.index - b.index;
+    })
+    .map(({ item }) => item);
+}
+
 /**
  * Normalize a manual case authored in `data/manual/cases.json`.
  * Manual entries follow the same shape as upstream JSON but the user only has
@@ -244,6 +292,7 @@ function normalizeManualCase(item) {
     promptPreview: item.promptPreview || prompt.slice(0, 220),
     source: item.source || undefined,
     githubUrl: item.githubUrl || undefined,
+    createdAt: item.createdAt || inferContentDate(item),
     hidden: Boolean(item.hidden),
   };
 }
@@ -263,7 +312,15 @@ function loadManualTemplates() {
     console.warn("! data/manual/templates.json is not an array, ignoring");
     return [];
   }
-  return raw;
+  return raw.map(normalizeManualTemplate).filter(Boolean);
+}
+
+function normalizeManualTemplate(item) {
+  if (!item?.id) return null;
+  return {
+    ...item,
+    createdAt: item.createdAt || inferContentDate(item),
+  };
 }
 
 async function main() {
@@ -342,11 +399,13 @@ async function main() {
     (a, b) => Number(b.id) - Number(a.id),
   );
 
-  const templates = mergeTemplateCollections({
-    upstreamTemplates,
-    derivedTemplates: [],
-    manualTemplates,
-  });
+  const templates = sortTemplatesForDisplay(
+    mergeTemplateCollections({
+      upstreamTemplates,
+      derivedTemplates: [],
+      manualTemplates,
+    }),
+  );
 
   console.log(
     `merged: upstream ${upstreamCases.length} + manual ${manualCases.length} → ${fullCases.length} cases (${hiddenCount} hidden)`,
@@ -368,6 +427,7 @@ async function main() {
     promptPreview: c.promptPreview,
     source: c.source,
     githubUrl: c.githubUrl,
+    createdAt: c.createdAt,
   }));
 
   writeJson("public/data/cases.json", lite);

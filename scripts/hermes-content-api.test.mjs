@@ -77,6 +77,7 @@ test("buildHermesContentUpdate upserts a case with generated id and inferred hel
   assert.ok(cases[0].tags.includes("Poster"));
   assert.match(cases[0].promptPreview, /本地奶茶门店/);
   assert.equal(cases[0].imageAlt, "小红书奶茶新品促销海报");
+  assert.match(cases[0].createdAt, /^20\d{2}-\d{2}-\d{2}T/);
 });
 
 test("buildHermesContentUpdate rejects invalid upload paths and incomplete cases", () => {
@@ -151,6 +152,7 @@ test("buildHermesContentUpdate upserts a reusable template", () => {
 
   const templates = JSON.parse(result.files[0].content);
   assert.equal(templates[0].id, "merchant-promo-poster");
+  assert.match(templates[0].createdAt, /^20\d{2}-\d{2}-\d{2}T/);
   assert.equal(templates[0].description, "用于海报与排版的商家促销海报模板。");
   assert.equal(
     templates[0].useWhen,

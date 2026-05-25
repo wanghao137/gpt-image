@@ -12,6 +12,7 @@ import { useCountUp } from "../hooks/useCountUp";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { rememberCaseReturn } from "../lib/caseReturn";
 import { createHeroSeed, selectHeroCases } from "../lib/home-hero";
+import { sortTemplatesForDisplay } from "../lib/templateSort";
 import { BRAND } from "../lib/brand";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 import type { PromptCase } from "../types";
@@ -31,7 +32,7 @@ const HOME_DESC = BRAND.description;
  */
 export default function HomePage() {
   const cases = ALL_CASES;
-  const templates = ALL_TEMPLATES;
+  const templates = sortTemplatesForDisplay(ALL_TEMPLATES);
   const animCases = useCountUp(cases.length, 900);
   const [heroSeed, setHeroSeed] = useState(0);
 
