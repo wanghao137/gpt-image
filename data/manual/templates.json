@@ -11,7 +11,7 @@
       "Campaign"
     ],
     "description": "生成高质量产品英雄镜头、电商主图和商业推广海报，覆盖饮品美妆科技等多品类。",
-    "cover": "/images/templatederived-product-hero-shot.jpg",
+    "cover": "/images/templateproduct-commerce-visual.jpg",
     "prompt": "模板：产品英雄镜头与商业海报\n用途：生成产品推广英雄镜头、电商主图、品牌 Campaign 海报，覆盖食品饮料、美妆个护、科技电子、时尚服饰等多品类。\n\n视觉方向：Product / Commerce / Photography / Brand / Campaign\n\n基于以下结构生成可直接用于 GPT Image 2 的 Prompt：\n\n1. 目标\n明确创作目的——是单品英雄镜头、产品使用场景、品牌 Campaign 海报还是电商详情页主图。\n示例：\"为 {argument name=\"品牌名\" default=\"品牌\"} 的 {argument name=\"产品名\" default=\"产品\"} 创作一张 {argument name=\"画面类型\" default=\"英雄镜头\"}，呈现 {argument name=\"视觉调性\" default=\"高端、精致、具有强烈购买欲\"} 的视觉效果。\"\n\n2. 画布\n定义比例与背景环境。\n示例：\"{argument name=\"画布比例\" default=\"4:5 竖版\"}，{argument name=\"背景\" default=\"无缝纯色背景\"}，{argument name=\"光线\" default=\"摄影棚柔光，强调产品质感\"}。\"\n\n3. 主体\n描述产品本身——材质、颜色、标签细节、液体质感等。\n示例：\"{argument name=\"产品描述\" default=\"产品居中放置，展现精细的包装纹理、品牌标签、液体光泽\"}，{argument name=\"装饰元素\" default=\"飞溅的水珠、环绕的新鲜水果切片\"}。\"\n\n4. 布局与构图\n定义视觉层次和空间关系。\n示例：\"{argument name=\"构图\" default=\"居中对称，产品占画面 60%\"}，{argument name=\"层次\" default=\"前景产品清晰，背景柔焦虚化\"}。\"\n\n5. 排版（如适用）\n如果需要文字，定义字体风格与位置。\n示例：\"{argument name=\"文字\" default=\"产品名大字居上，品牌 slogan 底部\"}，{argument name=\"字体风格\" default=\"无衬线粗体，白色或金属质感\"}。\"\n\n6. 风格与约束\n定义渲染质量和禁忌。\n示例：\"{argument name=\"渲染风格\" default=\"超写实产品摄影，8K，浅景深，焦点清晰\"}。禁止：模糊的产品边缘、不自然的阴影、变形的文字。\"\n\n使用建议：\n- 饮品/美妆：重点写液体质感、光泽、飞溅/凝结水珠\n- 科技产品：强调金属/玻璃材质、屏幕反光、精密感\n- 食品：突出食材新鲜度、蒸汽/温度感、色彩饱和度\n- 时尚：用模特穿着场景代替纯产品照\n\n防坑指南：\n- 产品主体必须清晰锐利，不能被装饰元素遮挡\n- 文字拼写必须准确，尤其是品牌名\n- 避免产品比例失真（如饮料瓶变形）\n- 深色产品注意轮廓与背景的分离度",
     "useWhen": "用于产品英雄镜头、电商主图、品牌推广海报、单品详情页视觉。",
     "sourceType": "derived-case",

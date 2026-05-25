@@ -189,6 +189,7 @@ const BLUEPRINTS = [
     guardrails: "避免正文过长、字号过小、装饰过多和随机乱码文字。",
   },
 ];
+const BLUEPRINT_IDS = new Set(BLUEPRINTS.map((blueprint) => blueprint.id));
 
 export function enrichUpstreamTemplate(template, sourceUrl) {
   return {
@@ -215,7 +216,7 @@ export function mergeTemplateCollections({
     if (!template?.id) continue;
     map.set(template.id, {
       ...template,
-      sourceType: template.sourceType || "manual",
+      sourceType: "manual",
       sourceLabel: template.sourceLabel || MANUAL_SOURCE_LABEL,
     });
   }
@@ -235,7 +236,8 @@ export function deriveTemplatesFromCases(cases, existingTemplates, options = {})
   const targetCount = options.targetCount ?? TARGET_TEMPLATE_COUNT;
   const sourceUrl = options.sourceUrl || "";
   const existingIds = new Set(existingTemplates.map((template) => template.id));
-  const remaining = Math.max(0, targetCount - existingTemplates.length);
+  const targetBaseCount = existingTemplates.filter(countsTowardGeneratedTarget).length;
+  const remaining = Math.max(0, targetCount - targetBaseCount);
   const derived = [];
 
   if (remaining === 0) return derived;
@@ -253,6 +255,11 @@ export function deriveTemplatesFromCases(cases, existingTemplates, options = {})
   }
 
   return derived;
+}
+
+function countsTowardGeneratedTarget(template) {
+  if (template?.sourceType !== "manual") return true;
+  return !String(template.id || "").startsWith("derived-") || BLUEPRINT_IDS.has(template.id);
 }
 
 function buildDerivedTemplate(blueprint, cases, sourceUrl) {

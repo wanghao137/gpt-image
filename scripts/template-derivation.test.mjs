@@ -171,3 +171,70 @@ test("mergeTemplateCollections applies manual templates last and marks their sou
   assert.equal(merged.length, 2);
 }
 );
+
+test("mergeTemplateCollections treats manual file entries as manual even with derived source metadata", () => {
+  const merged = mergeTemplateCollections({
+    upstreamTemplates: [template("upstream-template", { sourceType: "upstream-style" })],
+    derivedTemplates: [template("derived-xhs-cover", { sourceType: "derived-case" })],
+    manualTemplates: [
+      template("derived-product-hero-shot", {
+        sourceType: "derived-case",
+        sourceLabel: "curated source note",
+      }),
+    ],
+  });
+
+  const manual = merged.find((item) => item.id === "derived-product-hero-shot");
+  assert.equal(manual.sourceType, "manual");
+  assert.equal(manual.sourceLabel, "curated source note");
+
+  assert.deepEqual(
+    getTemplateDerivationBase(merged).map((item) => item.id),
+    ["upstream-template", "derived-product-hero-shot"],
+  );
+});
+
+test("manual templates that are not generated blueprints expand beyond the target count", () => {
+  const upstreamTemplates = Array.from({ length: 22 }, (_, index) =>
+    template(`upstream-${index + 1}`),
+  );
+  const manualTemplates = [
+    template("derived-product-hero-shot", {
+      sourceType: "manual",
+    }),
+  ];
+  const existing = [...upstreamTemplates, ...manualTemplates];
+  const cases = [
+    caseItem(1, "xhs-cover"),
+    caseItem(2, "merchant-poster"),
+    caseItem(3, "ecommerce"),
+    caseItem(4, "portrait"),
+    caseItem(5, "travel-poster"),
+    caseItem(6, "festival"),
+    caseItem(7, "wechat-grid"),
+    caseItem(8, "sticker"),
+    caseItem(9, "kids-portrait"),
+    caseItem(10, "3d-ip"),
+    caseItem(11, "brand-kv"),
+    caseItem(12, "storyboard"),
+    caseItem(13, "architecture"),
+    caseItem(14, "document-publishing", {
+      category: "文档与出版",
+      userCategory: "other",
+      tags: ["document", "publishing"],
+    }),
+  ];
+
+  const derived = deriveTemplatesFromCases(cases, existing, {
+    sourceUrl: DERIVED_SOURCE_URL,
+  });
+  const merged = mergeTemplateCollections({
+    upstreamTemplates,
+    derivedTemplates: derived,
+    manualTemplates,
+  });
+
+  assert.equal(derived.length, TARGET_TEMPLATE_COUNT - upstreamTemplates.length);
+  assert.equal(merged.length, TARGET_TEMPLATE_COUNT + manualTemplates.length);
+  assert.ok(merged.some((item) => item.id === "derived-product-hero-shot"));
+});
