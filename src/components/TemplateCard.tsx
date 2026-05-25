@@ -20,7 +20,8 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   });
   const [imgLoaded, setImgLoaded] = useState(false);
   const [expanded, setExpanded] = useState(defaultExpanded);
-  const tags = data.tags.slice(0, 3);
+  const visibleTags = data.tags.slice(0, 3);
+  const hiddenTagCount = Math.max(0, data.tags.length - visibleTags.length);
   const sourceLabel =
     data.sourceLabel ||
     (data.sourceType === "derived-case"
@@ -94,13 +95,21 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
         </h3>
         <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
 
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {tags.map((tag) => (
-              <span key={`${data.id}-${tag}`} className="tag">
-                {tag}
-              </span>
-            ))}
+        {visibleTags.length > 0 && (
+          <div className="template-capability-strip" aria-label="模板适用方向">
+            <span className="template-capability-label">适用方向</span>
+            <div className="template-capability-tags">
+              {visibleTags.map((tag) => (
+                <span key={`${data.id}-${tag}`} className="template-capability-tag" title={tag}>
+                  {tag}
+                </span>
+              ))}
+              {hiddenTagCount > 0 && (
+                <span className="template-capability-more" aria-label={`还有 ${hiddenTagCount} 个适用方向`}>
+                  +{hiddenTagCount}
+                </span>
+              )}
+            </div>
           </div>
         )}
 

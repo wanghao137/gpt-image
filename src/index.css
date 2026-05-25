@@ -273,6 +273,52 @@
     @apply inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.03] px-1.5 py-0.5 text-[10.5px] font-medium tracking-wide text-ink-300;
   }
 
+  .template-capability-strip {
+    @apply flex min-h-[44px] flex-col justify-center gap-1.5 rounded-lg border border-white/[0.07] bg-white/[0.025] px-3 py-2;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  .template-capability-label {
+    @apply text-[10.5px] font-medium leading-none text-ink-500;
+    letter-spacing: 0;
+  }
+
+  .template-capability-tags {
+    @apply flex min-w-0 max-w-full flex-wrap gap-1.5;
+  }
+
+  .template-capability-tag,
+  .template-capability-more {
+    @apply inline-flex h-6 max-w-full items-center rounded-full border border-white/[0.1] bg-white/[0.04] px-2 text-[11px] font-medium leading-none text-ink-300;
+    letter-spacing: 0;
+  }
+
+  .template-capability-tag {
+    @apply min-w-0 overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .template-capability-more {
+    @apply shrink-0 border-ember-500/25 bg-ember-500/10 text-ember-200;
+  }
+
+  :root[data-theme="light"] .template-capability-strip {
+    border-color: rgba(104, 79, 55, 0.18);
+    background: rgba(255, 255, 255, 0.46);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  :root[data-theme="light"] .template-capability-tag {
+    border-color: rgba(104, 79, 55, 0.18);
+    background: rgba(255, 252, 247, 0.72);
+    color: rgb(var(--color-ink-200));
+  }
+
+  :root[data-theme="light"] .template-capability-more {
+    border-color: rgba(184, 82, 54, 0.34);
+    background: rgba(217, 119, 87, 0.12);
+    color: rgb(var(--color-ember-100));
+  }
+
   .footer-link {
     @apply block text-[13px] text-ink-400 transition hover:text-ink-50;
   }
