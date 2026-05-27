@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-fashion-typo-mask-poster",
+    "title": "时尚排版蒙版海报",
+    "category": "海报与排版",
+    "tags": [
+      "typography",
+      "poster",
+      "fashion",
+      "editorial",
+      "masking"
+    ],
+    "description": "文字蒙版 + 人物写真合成的高时尚编辑排版海报。大字作为镂空蒙版揭示下方人物照片，适合品牌宣言、时尚杂志、Campaign 视觉。",
+    "cover": "/uploads/templatederived-fashion-typo-mask-poster.jpg",
+    "prompt": "Style & Composition: High-fashion editorial typography poster with a strict 1:2 composition split. Layout & Ratio: The frame is divided so that the right two-thirds show the full subject and background, while the left one-third is reserved for the typography masking section.\n\nTypography Masking: A massive, ultra-bold, vertical word \"{argument name=\\\"蒙版文字\\\" default=\\\"ELEVATE\\\"}\" is placed on the left third. The text is strictly full-bleed, stretching perfectly and touching the absolute top and absolute bottom edges of the frame with zero vertical padding, gaps, or margins. This typography acts as a stencil mask: the letters reveal the underlying character, while the space to the far left of the letters is a solid, clean white.\n\nSubject Details & Positioning: An upper-body shot of {argument name=\\\"人物描述\\\" default=\\\"a young woman in haute couture, porcelain skin, bold red lipstick, sleek pulled-back hair\\\"}. The model is positioned so that only her left-most side is visible through the letters, while the rest of her body is fully visible and contained on the right side against a solid {argument name=\\\"主题色\\\" default=\\\"red\\\"} background, ensuring no part of the subject is cropped by the right edge of the frame. Pose: {argument name=\\\"姿势描述\\\" default=\\\"gazing slightly upward with serene confidence\\\"}, ensuring the silhouette remains within the center of the right two-thirds area.\n\nSecondary Text: In the top right corner, add the text: \"{argument name=\\\"副标题\\\" default=\\\"SS26 COLLECTION\\\"}\". Use a small, sophisticated, white \"Helvetica Condensed\" style font with wide letter spacing (kerning) for a premium, minimalist look. Color Palette: A strict monochromatic {argument name=\\\"主题色\\\" default=\\\"red\\\"} theme, sharply contrasted by the crisp white negative space on the left. 8k resolution, photorealistic textures, sharp studio lighting, high contrast, clean graphic design aesthetic.",
+    "useWhen": "需要生成文字镂空蒙版 + 人物写真合成的高端时尚海报、品牌宣言视觉、杂志封面风格设计时使用。支持替换蒙版文字、人物描述、姿势、主题色和副标题。",
+    "createdAt": "2026-05-27T01:44:00.026Z",
+    "sourceType": "manual",
+    "sourceLabel": "Creative Toolkit Gallery · Poster Design (1 prompt analyzed, 336 likes, 15K views)"
+  },
+  {
     "id": "derived-premium-dark-dashboard",
     "title": "高端暗色系数据仪表板 UI",
     "category": "UI 与界面",
@@ -488,18 +507,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-05-26-case-100027-kids-wardrobe-concept.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / 3D Render / Editorial / Minimal / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n- #100024 未来感电商产品概览海报设计: 目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。 画布：1:1 正方形…\n- #100015 超充满活力的Poppi草莓柠檬苏打英雄镜头: 超充满活力的Poppi草莓柠檬苏打英雄镜头，热粉色无缝背景，超大的光泽草莓和切片柠檬包围在罐周围，凝结液滴覆盖苏打罐，起泡起泡 清爽能量、亮黄色口音、俏皮的Z世代互联网美学、干净的商业饮料成…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-05-28-case-100031-q-eraser-product.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Brand / Poster / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n- #100024 未来感电商产品概览海报设计: 目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。 画布：1:1 正方形…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100031",
       "100027",
       "100024",
       "100015",
-      "462",
-      "455"
+      "475"
     ]
   },
   {
@@ -537,7 +556,7 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "/uploads/2026-05-18-100008.png",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Commerce / Tech / Brand / Portrait / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100008 涩谷裸眼3D大屏，把夏天的海风搬进城市: 提示词： 日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，…\n- #100013 电影极简主义旅行海报: [城市名称]的电影极简主义旅行海报 自动调整视觉语言以适应地点的地理、文化、建筑、气候和情感氛围。 灵感源自大韩航空《Morning Calm》机上杂志封面美学明亮、优雅、乐观的视觉氛围。 …\n- #469 导览式科普绘本: 《导览式科普绘本》提示词： 请根据【主题】创作一张高完成度的「导览式科普绘本」风格插画。 这是一张结合“大型场景主视觉 + 导览路线 + 可爱导览 IP + 知识站点 + 儿童科普绘本质感”…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Commerce / Tech / Brand / Portrait / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100008 涩谷裸眼3D大屏，把夏天的海风搬进城市: 提示词： 日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，…\n- #100013 电影极简主义旅行海报: [城市名称]的电影极简主义旅行海报 自动调整视觉语言以适应地点的地理、文化、建筑、气候和情感氛围。 灵感源自大韩航空《Morning Calm》机上杂志封面美学明亮、优雅、乐观的视觉氛围。 …\n- #474 四城极简旅行海报系列: Minimalist flat travel poster illustration series of iconic destinations around the world, clea…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -545,9 +564,9 @@
     "derivedFrom": [
       "100008",
       "100013",
+      "474",
       "469",
-      "464",
-      "461"
+      "464"
     ]
   },
   {
@@ -664,7 +683,7 @@
       "402",
       "378",
       "32",
-      "371"
+      "473"
     ]
   },
   {
