@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-fashion-typo-mask-poster",
+    "title": "时尚排版蒙版海报",
+    "category": "海报与排版",
+    "tags": [
+      "typography",
+      "poster",
+      "fashion",
+      "editorial",
+      "masking"
+    ],
+    "description": "文字蒙版 + 人物写真合成的高时尚编辑排版海报。大字作为镂空蒙版揭示下方人物照片，适合品牌宣言、时尚杂志、Campaign 视觉。",
+    "cover": "/uploads/templatederived-fashion-typo-mask-poster.jpg",
+    "prompt": "Style & Composition: High-fashion editorial typography poster with a strict 1:2 composition split. Layout & Ratio: The frame is divided so that the right two-thirds show the full subject and background, while the left one-third is reserved for the typography masking section.\n\nTypography Masking: A massive, ultra-bold, vertical word \"{argument name=\\\"蒙版文字\\\" default=\\\"ELEVATE\\\"}\" is placed on the left third. The text is strictly full-bleed, stretching perfectly and touching the absolute top and absolute bottom edges of the frame with zero vertical padding, gaps, or margins. This typography acts as a stencil mask: the letters reveal the underlying character, while the space to the far left of the letters is a solid, clean white.\n\nSubject Details & Positioning: An upper-body shot of {argument name=\\\"人物描述\\\" default=\\\"a young woman in haute couture, porcelain skin, bold red lipstick, sleek pulled-back hair\\\"}. The model is positioned so that only her left-most side is visible through the letters, while the rest of her body is fully visible and contained on the right side against a solid {argument name=\\\"主题色\\\" default=\\\"red\\\"} background, ensuring no part of the subject is cropped by the right edge of the frame. Pose: {argument name=\\\"姿势描述\\\" default=\\\"gazing slightly upward with serene confidence\\\"}, ensuring the silhouette remains within the center of the right two-thirds area.\n\nSecondary Text: In the top right corner, add the text: \"{argument name=\\\"副标题\\\" default=\\\"SS26 COLLECTION\\\"}\". Use a small, sophisticated, white \"Helvetica Condensed\" style font with wide letter spacing (kerning) for a premium, minimalist look. Color Palette: A strict monochromatic {argument name=\\\"主题色\\\" default=\\\"red\\\"} theme, sharply contrasted by the crisp white negative space on the left. 8k resolution, photorealistic textures, sharp studio lighting, high contrast, clean graphic design aesthetic.",
+    "useWhen": "需要生成文字镂空蒙版 + 人物写真合成的高端时尚海报、品牌宣言视觉、杂志封面风格设计时使用。支持替换蒙版文字、人物描述、姿势、主题色和副标题。",
+    "createdAt": "2026-05-27T01:44:00.026Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "Creative Toolkit Gallery · Poster Design (1 prompt analyzed, 336 likes, 15K views)"
+  },
+  {
     "id": "derived-premium-dark-dashboard",
     "title": "高端暗色系数据仪表板 UI",
     "category": "UI 与界面",
