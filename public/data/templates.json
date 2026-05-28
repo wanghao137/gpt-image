@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-brand-logo-materialization",
+    "title": "品牌浮雕Logo金属化材质渲染",
+    "category": "品牌与标志",
+    "tags": [
+      "brand",
+      "logo",
+      "3d",
+      "material",
+      "cgi"
+    ],
+    "description": "将品牌Logo以浮雕形式呈现在金属/哑光表面上，模拟硬币、纪念章或奢侈品牌压印效果，适用于品牌展示、VI物料、高端视觉识别系统",
+    "cover": "/uploads/templatederived-brand-logo-materialization.jpg",
+    "prompt": "{argument name=\"品牌名称\" default=\"LUXORA\"} + {argument name=\"金属色调\" default=\"玫瑰金\"}\nAct as a Senior CGI Artist and Brand Identity Director specializing in premium logo materializations. Your reference aesthetic: a logo mark that appears to have been pushed outward from behind a {argument name=\"表面材质\" default=\"拉丝金属\"} surface — like a relief stamp pressed from the reverse side of a metal sheet, a hallmark embossed on luxury packaging, or a raised seal on official documents. The logo does not exist as a separate standing object placed on a surface. It exists as a raised relief, an outward protrusion that is part of the surface itself.\n\nBRAND INTELLIGENCE SYSTEM\nBefore executing any phase, resolve these parameters:\n(1) LOGO GEOMETRY — identify {品牌名称}'s primary icon mark in its simplest most reduced form — the mark that works at any scale.\n(2) COLOR PALETTE — based on {金属色调}, build the full tonal system from the lightest specular highlight to the deepest shadow tone.\n(3) SURFACE MATERIAL — based on {金属色调}: silver/grey → brushed or circular-grain steel; gold/champagne → warm brushed metal with radial grain; black → anodized aluminum or matte carbon fiber; white → matte ceramic or chalk plaster; saturated hue → anodized colored metal.\n(4) LIGHT DIRECTION — determine the most flattering single light angle to reveal the emboss topography.\n\nPHASE 1: SURFACE & ATMOSPHERE\nThe entire image is one single continuous material surface — not a background with an object placed on it, but one unified physical plane filling the entire canvas. This surface is made of the SURFACE MATERIAL resolved above. The surface has a subtle radial gradient in its lighting — brighter near the center where the embossed logo sits, gradually darkening toward all four edges. Apply fine uniform grain texture across the entire surface at ISO 800 equivalent.\n\nPHASE 2: THE EMBOSS — CRITICAL\nThe {品牌名称} logo mark is rendered as a full bas-relief — think of a coin, a commemorative medal, or a luxury brand stamp. The ENTIRE logo shape rises as one unified solid mass from the surface — every filled area, every curve, every solid region pushes outward as one piece, at a uniform height above the surrounding flat surface. The top face of this raised form is slightly convex — gently domed — so it catches the key light across its full width. The transition from flat surface to raised form follows a smooth beveled wall — curved, not sharp — like the edge of a coin. Negative spaces WITHIN the logo are recessed back to the flat surface level, creating clean negative voids.\n\nPHASE 3: LIGHTING & FINISH\nOne primary soft area light from {argument name=\"光源方位\" default=\"左上10-11点钟\"} — broad and diffused, wrapping around the curved walls to create highlight peak at the top and gradual shadow descent on the far wall. {argument name=\"后期处理\" default=\"微妙电影级颗粒感, 微光反射, 无文字, 无水印\"}",
+    "useWhen": "需要将品牌Logo做高端材质化呈现时使用，如品牌手册封面、VI系统展示、社交媒体品牌视觉、高端产品包装预览",
+    "createdAt": "2026-05-28T02:02:49.741Z",
+    "sourceType": "manual",
+    "sourceLabel": "Creative Toolkit Gallery · Brand Identity · 3 entries analyzed (1043+257+162 likes)"
+  },
+  {
     "id": "derived-fashion-typo-mask-poster",
     "title": "时尚排版蒙版海报",
     "category": "海报与排版",
@@ -507,18 +526,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-05-28-case-100031-q-eraser-product.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Brand / Poster / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n- #100024 未来感电商产品概览海报设计: 目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。 画布：1:1 正方形…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-05-29-case-100032-drpepper-diner-poster.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100032 电影级品牌饮料餐馆场景广告海报: 目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈…\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100032",
       "100031",
       "100027",
       "100024",
-      "100015",
-      "475"
+      "100015"
     ]
   },
   {
