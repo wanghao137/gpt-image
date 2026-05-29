@@ -12,7 +12,7 @@
     "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict",
     "build": "tsc -b && vite-react-ssg build",
     "check": "tsc -b && npm run test",
-    "test": "node --test scripts/*.test.mjs src/components/*.test.mjs src/lib/*.test.mjs",
+    "test": "node --test scripts/*.test.mjs src/components/*.test.mjs src/lib/*.test.mjs src/pages/*.test.mjs",
     "postbuild": "node scripts/build-sitemap.mjs",
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",

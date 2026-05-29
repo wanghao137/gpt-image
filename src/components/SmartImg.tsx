@@ -17,6 +17,8 @@ interface SmartImgProps {
   /** Width used for the fallback `src` attribute (smallest reasonable). */
   baseWidth?: number;
   sizes?: string;
+  /** Optional media query that gates local <picture> sources. */
+  media?: string;
   className?: string;
   style?: React.CSSProperties;
   objectFit?: React.CSSProperties["objectFit"];
@@ -32,6 +34,8 @@ interface SmartImgProps {
 }
 
 const IMAGE_RETRY_DELAY_MS = 350;
+const TRANSPARENT_PIXEL_SRC =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 function appendRetryParam(url: string, retryToken: number): string {
   if (!url || retryToken === 0) return url;
@@ -88,6 +92,7 @@ function SmartImgImpl({
   widths,
   baseWidth,
   sizes,
+  media,
   className,
   style,
   objectFit = "cover",
@@ -274,14 +279,17 @@ function SmartImgImpl({
         // Local image with WebP variants on disk: render <picture> so the
         // browser auto-picks WebP if it supports it, JPEG canonical otherwise.
         <picture className="smart-img-picture">
-          <source type="image/webp" srcSet={retryWebpSrcSet} sizes={sizes} />
+          <source media={media} type="image/webp" srcSet={retryWebpSrcSet} sizes={sizes} />
+          {media && retryJpegSrcSet ? (
+            <source media={media} srcSet={retryJpegSrcSet} sizes={sizes} />
+          ) : null}
           <img
             {...imgProps}
-            srcSet={retryJpegSrcSet}
+            srcSet={media ? undefined : retryJpegSrcSet}
             // Override fallback src to the canonical JPEG when WebP is
             // unavailable — the smallest WebP isn't readable by clients
             // that hit the JPEG fallback, so they need the full file.
-            src={retryPictureFallbackSrc}
+            src={media ? TRANSPARENT_PIXEL_SRC : retryPictureFallbackSrc}
           />
         </picture>
       ) : (

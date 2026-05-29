@@ -18,7 +18,7 @@ interface NavItem {
   accent?: boolean;
 }
 
-function initialThemeMode(): ThemeMode {
+function readStoredThemeMode(): ThemeMode {
   if (typeof window === "undefined") return "system";
   try {
     return parseThemeMode(window.localStorage.getItem(THEME_KEY));
@@ -42,27 +42,30 @@ const THEME_OPTIONS: Array<{ mode: ThemeMode; label: string }> = [
 function HeaderImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
-  const [systemTheme, setSystemTheme] = useState<EffectiveTheme>(() =>
-    typeof window === "undefined" ? "dark" : getSystemTheme(),
-  );
+  const [themeReady, setThemeReady] = useState(false);
+  const [themeMode, setThemeMode] = useState<ThemeMode>("system");
+  const [systemTheme, setSystemTheme] = useState<EffectiveTheme>("dark");
   const location = useLocation();
   const effectiveTheme = resolveEffectiveTheme(themeMode, systemTheme);
 
   useEffect(() => {
+    if (!themeReady) return;
     applyThemeToDocument(effectiveTheme);
     try {
       window.localStorage.setItem(THEME_KEY, themeMode);
     } catch {
       return;
     }
-  }, [effectiveTheme, themeMode]);
+  }, [effectiveTheme, themeMode, themeReady]);
 
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
-    const media = window.matchMedia("(prefers-color-scheme: light)");
+    setThemeMode(readStoredThemeMode());
     const update = () => setSystemTheme(getSystemTheme());
     update();
+    setThemeReady(true);
+
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-color-scheme: light)");
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
   }, []);

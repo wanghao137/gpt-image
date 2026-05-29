@@ -35,10 +35,22 @@ export default function HomePage() {
   const templates = sortTemplatesForDisplay(ALL_TEMPLATES);
   const animCases = useCountUp(cases.length, 900);
   const [heroSeed, setHeroSeed] = useState(0);
+  const [recentCount, setRecentCount] = useState<number | null>(null);
 
   useEffect(() => {
     setHeroSeed(createHeroSeed());
   }, []);
+
+  useEffect(() => {
+    const now = Date.now();
+    const cutoff = now - 48 * 60 * 60 * 1000;
+    setRecentCount(
+      cases.reduce((n, c) => {
+        const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
+        return Number.isFinite(t) && t >= cutoff && t <= now ? n + 1 : n;
+      }, 0),
+    );
+  }, [cases]);
 
   // Hero deck — 5 floating cards, modelled on canghe's right-rail collage.
   // The zero seed keeps SSG/hydration stable; the client seed randomizes it
@@ -57,15 +69,6 @@ export default function HomePage() {
   const featured = useMemo(() => cases.slice(0, 12), [cases]);
   const { ids: favoriteIds, toggle } = useFavorites();
   const { restoreId, onRestored } = useCaseReturnRestore();
-
-  const recentCount = useMemo(() => {
-    const now = Date.now();
-    const cutoff = now - 48 * 60 * 60 * 1000;
-    return cases.reduce((n, c) => {
-      const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
-      return Number.isFinite(t) && t >= cutoff && t <= now ? n + 1 : n;
-    }, 0);
-  }, [cases]);
 
   const ldOrg = {
     "@context": "https://schema.org",
@@ -104,7 +107,7 @@ export default function HomePage() {
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
             <span>
-              {recentCount > 0
+              {recentCount !== null && recentCount > 0
                 ? `近 48h 新增 ${recentCount} 个案例`
                 : "每周更新真实案例"}
             </span>
@@ -136,7 +139,7 @@ export default function HomePage() {
         <HeroDeck cases={heroCases} />
       </section>
 
-      <HeroStrip cases={stripCases} limit={8} />
+      <HeroStrip cases={stripCases} />
 
       <CategoryShowcase cases={cases} />
 
@@ -300,8 +303,8 @@ function HeroFloatingDeck({ items }: { items: PromptCase[] }) {
     baseW: number;
     priority?: boolean;
   }> = [
-    { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480 },
-    { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480 },
+    { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
+    { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480, priority: true },
     { pos: "left-0 top-[17rem]",              size: "w-[13rem] h-[14.5rem]",      tilt: "5deg",  delay: "-2.3s", baseW: 320 },
     { pos: "right-[1.5rem] top-[16.5rem]",    size: "w-[17.25rem] h-[15.25rem]",  tilt: "-3deg", delay: "-3.4s", baseW: 480 },
     { pos: "left-[10.5rem] top-[11rem]",      size: "w-[12.75rem] h-[15rem]",     tilt: "2deg",  delay: "-4.2s", baseW: 320 },
@@ -366,7 +369,8 @@ function HeroCard({
         widths={[baseW, Math.min(baseW * 2, 960)]}
         baseWidth={baseW}
         sizes={`(min-width:1024px) ${baseW}px, ${Math.round(baseW * 0.75)}px`}
-        loading={priority ? "eager" : "lazy"}
+        media="(min-width: 1024px)"
+        loading="eager"
         fetchPriority={priority ? "high" : "auto"}
         className="absolute inset-0 h-full w-full"
       />
