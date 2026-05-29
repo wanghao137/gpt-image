@@ -1,5 +1,32 @@
 [
   {
+    "id": "100036",
+    "title": "电影感屋顶光影人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Cinematic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-000103-cinematic-rooftop-portrait.jpg",
+    "imageAlt": "电影感屋顶光影人像",
+    "prompt": "Use the uploaded portrait only as the identity reference. Preserve the person’s real facial features, face shape, skin tone, and recognizable hairstyle. Do not copy the original outfit, background, pose, lighting, or image quality from the uploaded portrait.\n\nCreate a realistic cinematic portrait of the same person sitting quietly on an old green-tiled rooftop under dense tree shadows. The person is relaxed, looking slightly downward with a soft calm expression. Surround the scene with dark green foliage, hanging red pomegranate fruits, scattered sunlight, and natural leaf-shaped shadows across the face, body, and roof tiles. Add a vintage handheld camera placed casually nearby as a storytelling detail.\n\nChoose an outfit that best matches the person’s appearance and personality, different from the scene inspiration: natural, clean, elegant, lightweight, and suitable for a dreamy outdoor summer portrait. Keep the styling tasteful and realistic.\n\nLow-angle composition, full-body or three-quarter body framing, cinematic natural light, strong contrast between deep shadow and bright sun patches, soft film grain, subtle lens flare, dreamy atmosphere, realistic skin texture, natural body proportions, authentic photography, shallow depth of field, poetic summer mood, high-detail editorial photo, no text, no logo, no watermark.\n\nNegative Prompt：\n\nwatermark, logo, text, Chinese characters, AI-generated mark, over-smoothed skin, plastic skin, fake face, anime style, cartoon style, 3D render, doll-like face, distorted body, bad anatomy, extra fingers, missing fingers, deformed hands, deformed feet, unnatural legs, awkward pose, blurry face, low resolution, harsh filter, over-sharpened, messy composition, duplicated person, wrong identity, copied outfit from input portrait, copied background from input portrait.",
+    "promptPreview": "Use the uploaded portrait only as the identity reference. Preserve the person’s real facial features, face shape, skin tone, and recognizable hairstyle. Do not copy the original outfit, background, pose, lighting, or im…",
+    "source": "Community collected via @Shinning1010",
+    "githubUrl": "https://x.com/Shinning1010/status/2059266617268486240",
+    "createdAt": "2026-05-29T08:22:35.619Z"
+  },
+  {
     "id": "100035",
     "title": "超写实混乱自拍节日场景",
     "category": "摄影与写实",
