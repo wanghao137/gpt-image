@@ -31,6 +31,32 @@ interface SmartImgProps {
   proxyTimeoutMs?: number;
 }
 
+const IMAGE_RETRY_DELAY_MS = 350;
+
+function appendRetryParam(url: string, retryToken: number): string {
+  if (!url || retryToken === 0) return url;
+  const hashIndex = url.indexOf("#");
+  const base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
+  const hash = hashIndex >= 0 ? url.slice(hashIndex) : "";
+  const separator = base.includes("?") ? "&" : "?";
+  return `${base}${separator}imgRetry=${retryToken}${hash}`;
+}
+
+function appendRetryParamToSrcSet(srcSet: string | undefined, retryToken: number) {
+  if (!srcSet || retryToken === 0) return srcSet;
+  return srcSet
+    .split(",")
+    .map((candidate) => {
+      const trimmed = candidate.trim();
+      const descriptorIndex = trimmed.search(/\s/);
+      if (descriptorIndex < 0) return appendRetryParam(trimmed, retryToken);
+      const url = trimmed.slice(0, descriptorIndex);
+      const descriptor = trimmed.slice(descriptorIndex);
+      return `${appendRetryParam(url, retryToken)}${descriptor}`;
+    })
+    .join(", ");
+}
+
 /**
  * Image with a calm loading state and responsive variant negotiation.
  *
@@ -74,8 +100,10 @@ function SmartImgImpl({
 }: SmartImgProps) {
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
+  const [retryToken, setRetryToken] = useState(0);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const signaledSrcRef = useRef<string | null>(null);
+  const retryDelayRef = useRef<number | null>(null);
 
   // Decide the request URL. Local /images/* and /assets/* render as-is —
   // they're already optimised on disk. Anything else (an http URL the
@@ -114,29 +142,63 @@ function SmartImgImpl({
           .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
           .join(", ");
 
+  const retrySrc = appendRetryParam(fallbackSrc, retryToken);
+  const retryPictureFallbackSrc = appendRetryParam(src, retryToken);
+  const retryWebpSrcSet = appendRetryParamToSrcSet(webpSrcSet, retryToken);
+  const retryJpegSrcSet = appendRetryParamToSrcSet(jpegSrcSet, retryToken);
+
   const priorityAttr = fetchPriority
     ? ({ fetchpriority: fetchPriority } as { fetchpriority: NonNullable<SmartImgProps["fetchPriority"]> })
     : {};
 
+  const clearRetryDelay = () => {
+    if (retryDelayRef.current === null) return;
+    window.clearTimeout(retryDelayRef.current);
+    retryDelayRef.current = null;
+  };
+
   const markLoaded = () => {
+    clearRetryDelay();
     setLoaded(true);
     setErrored(false);
-    if (signaledSrcRef.current !== fallbackSrc) {
-      signaledSrcRef.current = fallbackSrc;
+    if (signaledSrcRef.current !== retrySrc) {
+      signaledSrcRef.current = retrySrc;
       onLoad?.();
     }
   };
 
   const markErrored = () => {
+    if (retryToken === 0) {
+      clearRetryDelay();
+      retryDelayRef.current = window.setTimeout(() => {
+        retryDelayRef.current = null;
+        setRetryToken((current) => (current === 0 ? 1 : current));
+      }, IMAGE_RETRY_DELAY_MS);
+      return;
+    }
+
+    clearRetryDelay();
     setErrored(true);
-    if (signaledSrcRef.current !== fallbackSrc) {
-      signaledSrcRef.current = fallbackSrc;
+    if (signaledSrcRef.current !== retrySrc) {
+      signaledSrcRef.current = retrySrc;
       onError?.();
     }
   };
 
   useEffect(() => {
     signaledSrcRef.current = null;
+    setLoaded(false);
+    setErrored(false);
+    setRetryToken(0);
+    clearRetryDelay();
+
+    return clearRetryDelay;
+    // Reset only when the source family changes; the retry token itself is
+    // allowed to trigger a second request without clearing this state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fallbackSrc]);
+
+  useEffect(() => {
     setLoaded(false);
     setErrored(false);
 
@@ -169,12 +231,12 @@ function SmartImgImpl({
     // close over local state, and re-running for callback identity would
     // re-signal a load that already happened.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fallbackSrc]);
+  }, [retrySrc]);
 
   // Common <img> props shared between the <picture> and bare-<img> paths.
   const imgProps = {
     ref: imgRef,
-    src: fallbackSrc,
+    src: retrySrc,
     sizes,
     alt,
     width,
@@ -212,19 +274,19 @@ function SmartImgImpl({
         // Local image with WebP variants on disk: render <picture> so the
         // browser auto-picks WebP if it supports it, JPEG canonical otherwise.
         <picture className="smart-img-picture">
-          <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
+          <source type="image/webp" srcSet={retryWebpSrcSet} sizes={sizes} />
           <img
             {...imgProps}
-            srcSet={jpegSrcSet}
+            srcSet={retryJpegSrcSet}
             // Override fallback src to the canonical JPEG when WebP is
             // unavailable — the smallest WebP isn't readable by clients
             // that hit the JPEG fallback, so they need the full file.
-            src={src}
+            src={retryPictureFallbackSrc}
           />
         </picture>
       ) : (
         // External URL or same-origin asset without variants: bare <img>.
-        <img {...imgProps} srcSet={jpegSrcSet} />
+        <img {...imgProps} srcSet={retryJpegSrcSet} />
       )}
     </div>
   );

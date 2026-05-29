@@ -136,7 +136,7 @@ export default function HomePage() {
         <HeroDeck cases={heroCases} />
       </section>
 
-      <HeroStrip cases={stripCases} />
+      <HeroStrip cases={stripCases} limit={8} />
 
       <CategoryShowcase cases={cases} />
 
@@ -160,7 +160,7 @@ export default function HomePage() {
           favoriteIds={favoriteIds}
           onToggleFavorite={toggle}
           paginate={false}
-          priorityCount={4}
+          priorityCount={1}
           restoreId={restoreId}
           onRestored={onRestored}
           contained={false}
@@ -300,7 +300,7 @@ function HeroFloatingDeck({ items }: { items: PromptCase[] }) {
     baseW: number;
     priority?: boolean;
   }> = [
-    { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
+    { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480 },
     { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480 },
     { pos: "left-0 top-[17rem]",              size: "w-[13rem] h-[14.5rem]",      tilt: "5deg",  delay: "-2.3s", baseW: 320 },
     { pos: "right-[1.5rem] top-[16.5rem]",    size: "w-[17.25rem] h-[15.25rem]",  tilt: "-3deg", delay: "-3.4s", baseW: 480 },
