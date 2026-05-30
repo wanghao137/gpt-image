@@ -233,23 +233,27 @@
             if (el && el.parentNode) el.parentNode.removeChild(el);
           }, 500);
         }
-        if (document.readyState === "complete") {
-          // Browser already done — dismiss on the next frame so the user
-          // still sees a brief cross-fade rather than a hard pop.
+        // Expose a hook so main.tsx can dismiss the overlay the instant React
+        // mounts (hydration done → page is interactive), instead of waiting on
+        // network. This is the primary, fastest dismissal path.
+        window.__dismissBoot = dismiss;
+
+        // The SSG'd HTML beneath this overlay is already fully painted, so we
+        // hand off as soon as the DOM is parsed/interactive — NOT on
+        // `window.load`, which waits for every image to finish downloading.
+        // On a weak mobile network a single slow image used to keep the
+        // spinner up for the full 3 s safety net even though the page was
+        // usable the whole time.
+        if (document.readyState === "interactive" || document.readyState === "complete") {
           requestAnimationFrame(dismiss);
         } else {
-          window.addEventListener(
-            "load",
-            function () {
-              // Tiny breath after `load` so React's first paint is up.
-              setTimeout(dismiss, 80);
-            },
-            { once: true }
-          );
+          document.addEventListener("DOMContentLoaded", function () {
+            requestAnimationFrame(dismiss);
+          }, { once: true });
         }
-        // Safety net: never block interaction for more than 3 seconds even
-        // if `load` never fires (e.g. a single hung image somewhere).
-        setTimeout(dismiss, 3000);
+        // Safety net: trimmed to 1.2 s. The page is interactive well before
+        // this; the net only covers a pathological parse stall.
+        setTimeout(dismiss, 1200);
       })();
     </script>
 

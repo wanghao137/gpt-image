@@ -217,6 +217,84 @@ test("commitFilesToGitHub creates one commit with all changed files", async () =
   assert.equal(JSON.parse(calls[6].init.body).force, false);
 });
 
+test("buildHermesContentUpdate rejects too many uploads and oversized combined payload", () => {
+  const oneByte = Buffer.from("x").toString("base64");
+  // Too many files
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "case",
+          action: "upsert",
+          item: {
+            title: "多图",
+            category: "海报与排版",
+            imageUrl: "/uploads/a.jpg",
+            prompt: "完整 Prompt",
+          },
+          uploads: Array.from({ length: 9 }, (_, i) => ({
+            path: `public/uploads/img-${i}.jpg`,
+            contentBase64: oneByte,
+          })),
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    /uploads must not exceed/,
+  );
+
+  // Duplicate upload paths
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "case",
+          action: "upsert",
+          item: {
+            title: "重复路径",
+            category: "海报与排版",
+            imageUrl: "/uploads/dup.jpg",
+            prompt: "完整 Prompt",
+          },
+          uploads: [
+            { path: "public/uploads/dup.jpg", contentBase64: oneByte },
+            { path: "public/uploads/dup.jpg", contentBase64: oneByte },
+          ],
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    /duplicate upload path/,
+  );
+});
+
+test("commitFilesToGitHub maps a non-fast-forward PATCH to a REF_CONFLICT", async () => {
+  const responses = [
+    { ok: true, status: 200, json: async () => ({ object: { sha: "head-sha" } }), text: async () => "" },
+    { ok: true, status: 200, json: async () => ({ tree: { sha: "base-tree" } }), text: async () => "" },
+    { ok: true, status: 200, json: async () => ({ sha: "blob-1" }), text: async () => "" },
+    { ok: true, status: 200, json: async () => ({ sha: "tree-1" }), text: async () => "" },
+    { ok: true, status: 200, json: async () => ({ sha: "commit-1", html_url: "x" }), text: async () => "" },
+    // PATCH ref → 422 non-fast-forward
+    { ok: false, status: 422, statusText: "Unprocessable Entity", json: async () => ({}), text: async () => "Update is not a fast forward" },
+  ];
+  const fetchImpl = async () => responses.shift();
+
+  await assert.rejects(
+    () =>
+      commitFilesToGitHub({
+        fetchImpl,
+        owner: "o",
+        repo: "r",
+        branch: "main",
+        token: "t",
+        message: "m",
+        files: [{ path: "data/manual/cases.json", content: "[]\n", encoding: "utf-8" }],
+      }),
+    (err) => err.code === "REF_CONFLICT" && err.status === 409,
+  );
+});
+
 test("readGitHubTextFile preserves slashes in GitHub contents paths", async () => {
   const calls = [];
   const fetchImpl = async (url) => {

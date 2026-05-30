@@ -69,7 +69,7 @@ npm run preview    # 预览构建产物
 | `npm run sync` | 手动同步上游数据 |
 | `npm run migrate` | 单独执行 v2 字段补齐（slug / ratio / userCategory / SEO 等） |
 | `npm run images` | 单独跑图像烘焙（增量） |
-| `npm run admin:hash` | 给 admin 入口生成密码 SHA-256 哈希 |
+| `npm run admin:hash` | 给 admin 入口生成密码哈希（盐化 PBKDF2-SHA-256） |
 | `node scripts/migrate-v2.mjs --check` | CI 校验：缺字段则 `exit 1` |
 | `node scripts/migrate-v2.mjs --dry` | 仅预演不写盘 |
 | `node scripts/build-images.mjs --force` | 强制重新生成所有图像变体 |

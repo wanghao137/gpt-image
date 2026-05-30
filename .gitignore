@@ -19,3 +19,17 @@ node_modules/.image-cache/
 # them keeps CF Pages CI builds fast (<2min vs ~10min if regenerated each
 # time) and matches the strategy the reference site uses.
 .vercel
+
+# Binary archives don't belong in version control — the unpacked sources
+# (e.g. docs/hermes/) are tracked instead. Keeping the zip out avoids repo
+# bloat and noisy binary diffs.
+*.zip
+
+# Throwaway investigation / probe artifacts. These are generated ad-hoc while
+# debugging classifiers, sizes, etc. and should never be committed.
+/classify-*.txt
+/scripts/_*.mjs
+
+# Playwright MCP browser-testing scratch output.
+.playwright-mcp/
+

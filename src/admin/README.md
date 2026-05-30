@@ -18,7 +18,7 @@ https://你的站点/admin
 npm run admin:hash
 ```
 
-按提示输入密码，会得到一个 SHA-256 哈希。把它写进构建环境：
+按提示输入密码，会得到一个盐化 PBKDF2-SHA-256 哈希（形如 `pbkdf2$210000$…$…`）。把它写进构建环境：
 
 - 本地开发：在仓库根目录建 `.env.local`：
   ```
@@ -89,8 +89,8 @@ src/admin/
 ├── App.tsx              # 三阶段流程：locked → connecting → ready
 ├── main.tsx             # 入口（挂载到 admin.html）
 ├── admin.css            # 仅 admin 用的样式
-├── auth.ts              # SHA-256 密码网关 + sessionStorage token
-├── crypto.ts            # base64 / sha256 helpers
+├── auth.ts              # 盐化 PBKDF2 密码网关 + sessionStorage token
+├── crypto.ts            # base64 / PBKDF2 / sha256 helpers
 ├── github.ts            # GitHub Contents API 客户端
 ├── store.ts             # 状态机：load / edit / save
 ├── config.ts            # 仓库目标、分类与建议标签

@@ -21,6 +21,7 @@ import { usePrompt } from "../hooks/usePrompt";
 import { tagLabel } from "../lib/labels";
 import { readCaseReturn, rememberCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
+import { absoluteUrl, deriveCaseSeo, imageDimensionsForRatio } from "../lib/seo-url.mjs";
 import NotFoundPage from "./NotFoundPage";
 
 /** Map "9:16" → CSS aspectRatio. */
@@ -63,6 +64,13 @@ export default function CaseDetailPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
+  // SEO title/description are DERIVED, not stored (they used to bloat the
+  // shared data chunk that every page downloads). On this SSG'd page the
+  // result is baked into the static HTML at build time, so crawlers still see
+  // the full strings.
+  const seo = c
+    ? deriveCaseSeo(c, meta?.label ?? userCategoryLabel(c.userCategory))
+    : { seoTitle: "", seoDescription: "" };
   const related = useMemo(() => (c ? relatedCases(c, 6) : []), [c]);
   const { prev, next } = useMemo(
     () => (c ? caseNeighbors(c) : { prev: undefined, next: undefined }),
@@ -89,10 +97,16 @@ export default function CaseDetailPage() {
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
 
   const tags = Array.from(new Set([...c.styles, ...c.scenes, ...c.tags])).slice(0, 8);
-  // OG cards are scraped by Twitter/Facebook/WeChat from non-CN IPs, so it's
-  // fine (and ideal) to send them straight through wsrv for a real 1200×630
-  // resize — saves the platforms a re-downscale step.
-  const ogImage = transformUrl(c.imageUrl, { width: 1200 });
+  // OG / share card image. The baked 1200px JPEG is same-origin and already
+  // optimised, so we serve it directly (no third-party dependency). `transformUrl`
+  // returns the local /images/* path unchanged; `absoluteUrl` promotes it to a
+  // full URL because social scrapers ignore relative image paths.
+  const imageAbs = absoluteUrl(SITE.url, c.imageUrl);
+  const ogImage = absoluteUrl(SITE.url, transformUrl(c.imageUrl, { width: 1200 }));
+  // Real pixel dimensions from the case's declared ratio — emitting a hardcoded
+  // 1200×1500 for every image (the old behaviour) feeds search engines false
+  // structured data for any non-4:5 case.
+  const { width: ldImgWidth, height: ldImgHeight } = imageDimensionsForRatio(c.ratio, 1200);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -119,9 +133,9 @@ export default function CaseDetailPage() {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: c.title,
-    description: c.seoDescription,
+    description: seo.seoDescription,
     inLanguage: "zh-CN",
-    image: c.imageUrl,
+    image: imageAbs,
     url: `${SITE.url}/case/${c.slug}`,
     keywords: [...c.tags, ...c.styles, ...c.scenes].join(","),
     dateCreated: c.createdAt,
@@ -133,11 +147,11 @@ export default function CaseDetailPage() {
   const imageLd = {
     "@context": "https://schema.org",
     "@type": "ImageObject",
-    contentUrl: c.imageUrl,
+    contentUrl: imageAbs,
     name: c.title,
     description: c.imageAlt || c.title,
-    width: "1200",
-    height: "1500",
+    width: String(ldImgWidth),
+    height: String(ldImgHeight),
     representativeOfPage: true,
     inLanguage: "zh-CN",
   };
@@ -147,12 +161,13 @@ export default function CaseDetailPage() {
   return (
     <>
       <SEO
-        title={c.seoTitle}
-        description={c.seoDescription}
+        title={seo.seoTitle}
+        description={seo.seoDescription}
         path={`/case/${c.slug}`}
         image={ogImage}
         imageAlt={c.imageAlt || c.title}
         jsonLd={[breadcrumbLd, creativeWorkLd, imageLd]}
+        preloadFetch={[`${import.meta.env.BASE_URL}data/prompts/${c.id}.json`]}
       />
 
       <button

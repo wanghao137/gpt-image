@@ -30,7 +30,7 @@ export function isRetriableImageFetchFailure(error) {
   return /(fetch failed|network|ECONNRESET|ETIMEDOUT|EAI_AGAIN|UND_ERR)/i.test(message);
 }
 
-export function applyImageRewrites({ cases, templates, results, placeholderPath }) {
+export function applyImageRewrites({ cases, templates, results }) {
   const localByRecord = new Map();
 
   for (const result of results) {

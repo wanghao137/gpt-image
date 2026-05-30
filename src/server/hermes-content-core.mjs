@@ -8,6 +8,13 @@ import {
 
 const GITHUB_API = "https://api.github.com";
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+// Defence-in-depth limits on a single request. The endpoint holds a repo-write
+// token, so we bound how much one (authorised) call can push: cap the number
+// of uploads and the combined decoded image payload. Without these a single
+// request could attach an unbounded number of 10 MB images and balloon the
+// commit / function memory.
+const MAX_UPLOADS_PER_REQUEST = 8;
+const MAX_TOTAL_UPLOAD_BYTES = 24 * 1024 * 1024;
 const UPLOAD_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
 
 const PATHS = {
@@ -196,7 +203,7 @@ function validateBase64(value, label) {
   if (bytes.byteLength > MAX_UPLOAD_BYTES) {
     throw new HermesContentError(422, `${label} exceeds ${MAX_UPLOAD_BYTES} bytes`);
   }
-  return normalized;
+  return { normalized, byteLength: bytes.byteLength };
 }
 
 function normalizeUploadPath(value) {
@@ -228,14 +235,35 @@ function normalizeUploads(uploads) {
   if (!Array.isArray(uploads)) {
     throw new HermesContentError(422, "uploads must be an array");
   }
-  return uploads.map((upload, index) => {
+  if (uploads.length > MAX_UPLOADS_PER_REQUEST) {
+    throw new HermesContentError(
+      422,
+      `uploads must not exceed ${MAX_UPLOADS_PER_REQUEST} files per request`,
+    );
+  }
+  let totalBytes = 0;
+  const seenPaths = new Set();
+  const normalized = uploads.map((upload, index) => {
     const item = requireObject(upload, `uploads[${index}]`);
-    return {
-      path: normalizeUploadPath(item.path),
-      content: validateBase64(item.contentBase64, `uploads[${index}].contentBase64`),
-      encoding: "base64",
-    };
+    const path = normalizeUploadPath(item.path);
+    if (seenPaths.has(path)) {
+      throw new HermesContentError(422, `duplicate upload path: ${path}`);
+    }
+    seenPaths.add(path);
+    const { normalized: content, byteLength } = validateBase64(
+      item.contentBase64,
+      `uploads[${index}].contentBase64`,
+    );
+    totalBytes += byteLength;
+    if (totalBytes > MAX_TOTAL_UPLOAD_BYTES) {
+      throw new HermesContentError(
+        422,
+        `combined uploads exceed ${MAX_TOTAL_UPLOAD_BYTES} bytes`,
+      );
+    }
+    return { path, content, encoding: "base64" };
   });
+  return normalized;
 }
 
 function uploadPathToPublicUrl(path) {
@@ -488,11 +516,34 @@ export async function commitFilesToGitHub({
     }),
   });
 
-  await githubJson(fetchImpl, `${base}/git/refs/heads/${encodeURIComponent(branch)}`, {
-    method: "PATCH",
-    headers: { ...headers, "Content-Type": "application/json" },
-    body: JSON.stringify({ sha: commit.sha, force: false }),
-  });
+  let commitRef;
+  try {
+    commitRef = await githubJson(
+      fetchImpl,
+      `${base}/git/refs/heads/${encodeURIComponent(branch)}`,
+      {
+        method: "PATCH",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify({ sha: commit.sha, force: false }),
+      },
+    );
+  } catch (error) {
+    // A non-fast-forward PATCH means another writer (the daily sync action, or
+    // a browser-admin commit) advanced `main` between our HEAD read and this
+    // update. Surface a dedicated, retriable code instead of a bare 500 so the
+    // Hermes automation can re-read HEAD and retry rather than treating it as a
+    // hard failure. GitHub returns 422 for this case.
+    if (error instanceof HermesContentError && error.status === 422) {
+      throw new HermesContentError(
+        409,
+        "Branch moved during commit (non-fast-forward). Re-read HEAD and retry.",
+        "REF_CONFLICT",
+        error.details,
+      );
+    }
+    throw error;
+  }
+  void commitRef;
 
   return {
     commitSha: commit.sha,

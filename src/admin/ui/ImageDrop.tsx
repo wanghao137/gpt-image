@@ -92,7 +92,6 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
       >
         {value ? (
           <>
-            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
             <img
               src={resolvePreview(value)}
               alt="case preview"

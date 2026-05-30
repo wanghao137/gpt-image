@@ -9,11 +9,12 @@
   "scripts": {
     "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
     "dev": "vite-react-ssg dev",
-    "prebuild": "node scripts/sync.mjs && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict",
+    "prebuild": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict",
     "build": "tsc -b && vite-react-ssg build",
     "check": "tsc -b && npm run test",
+    "lint": "eslint .",
     "test": "node --test scripts/*.test.mjs src/components/*.test.mjs src/lib/*.test.mjs",
-    "postbuild": "node scripts/build-sitemap.mjs",
+    "postbuild": "node scripts/build-sitemap.mjs && node scripts/build-404.mjs",
     "preview": "vite preview",
     "sync": "node scripts/sync.mjs",
     "migrate": "node scripts/migrate-v2.mjs",
@@ -30,16 +31,22 @@
     "vite-react-ssg": "^0.8.9"
   },
   "devDependencies": {
+    "@eslint/js": "9.17.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "cos-nodejs-sdk-v5": "^2.15.4",
     "dotenv": "^17.4.2",
+    "eslint": "9.39.4",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "eslint-plugin-react-refresh": "0.4.16",
+    "globals": "15.14.0",
     "postcss": "^8.4.49",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3",
+    "typescript-eslint": "8.18.2",
     "vite": "^5.4.11"
   }
 }

@@ -1,17 +1,25 @@
 #!/usr/bin/env node
 /**
- * Generate a SHA-256 hash for the admin password.
+ * Generate a salted PBKDF2-SHA-256 hash for the admin password.
+ *
+ * Output format (matches src/admin/crypto.ts `verifyPassword`):
+ *   pbkdf2$<iterations>$<saltBase64>$<hashBase64>
  *
  * Usage:
  *   node scripts/admin-hash.mjs           # prompts (hidden) for the password
  *   node scripts/admin-hash.mjs <pwd>     # one-shot
  *
- * Then put the hex digest into your build environment:
- *   VITE_ADMIN_PASSWORD_HASH=<digest>
+ * Then put the value into your build environment:
+ *   VITE_ADMIN_PASSWORD_HASH=pbkdf2$210000$...$...
  */
 
-import { createHash } from "node:crypto";
+import { pbkdf2Sync, randomBytes } from "node:crypto";
 import { stdin, stdout } from "node:process";
+
+// Keep in sync with src/admin/crypto.ts.
+const PBKDF2_ITERATIONS = 210000;
+const PBKDF2_KEY_BYTES = 32; // 256 bits
+const PBKDF2_DIGEST = "sha256";
 
 async function readHidden(prompt) {
   return new Promise((resolve) => {
@@ -61,11 +69,13 @@ async function main() {
     console.error("password is empty, aborting.");
     process.exit(1);
   }
-  const digest = createHash("sha256").update(pwd, "utf8").digest("hex");
+  const salt = randomBytes(16);
+  const hash = pbkdf2Sync(pwd, salt, PBKDF2_ITERATIONS, PBKDF2_KEY_BYTES, PBKDF2_DIGEST);
+  const value = `pbkdf2$${PBKDF2_ITERATIONS}$${salt.toString("base64")}$${hash.toString("base64")}`;
   console.log("");
   console.log("Add this to your build environment:");
   console.log("");
-  console.log(`  VITE_ADMIN_PASSWORD_HASH=${digest}`);
+  console.log(`  VITE_ADMIN_PASSWORD_HASH=${value}`);
   console.log("");
   console.log("e.g. for local dev create .env.local with that line.");
 }

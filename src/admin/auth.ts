@@ -1,8 +1,6 @@
-import { sha256Hex } from "./crypto";
+import { verifyPassword } from "./crypto";
 
-const PASSWORD_HASH: string = (
-  import.meta.env.VITE_ADMIN_PASSWORD_HASH || ""
-).toLowerCase();
+const PASSWORD_HASH: string = (import.meta.env.VITE_ADMIN_PASSWORD_HASH || "").trim();
 
 const SESSION_KEY = "admin:unlocked:v1";
 const TOKEN_KEY = "admin:gh-token:v1";
@@ -19,8 +17,8 @@ export function isUnlocked(): boolean {
 /** Verify a password against the configured hash; on success, mark unlocked. */
 export async function tryUnlock(password: string): Promise<boolean> {
   if (!adminPasswordRequired) return true;
-  const digest = await sha256Hex(password);
-  if (digest !== PASSWORD_HASH) return false;
+  const ok = await verifyPassword(password, PASSWORD_HASH);
+  if (!ok) return false;
   sessionStorage.setItem(SESSION_KEY, "1");
   return true;
 }

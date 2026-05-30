@@ -209,6 +209,7 @@ export default function CasesPage() {
         favoriteIds={favoriteIds}
         onToggleFavorite={toggle}
         onResetFilters={resetFilters}
+        priorityCount={4}
         restoreId={restoreId}
         onRestored={onRestored}
       />
