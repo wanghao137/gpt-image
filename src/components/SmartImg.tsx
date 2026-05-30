@@ -200,7 +200,6 @@ function SmartImgImpl({
     return clearRetryDelay;
     // Reset only when the source family changes; the retry token itself is
     // allowed to trigger a second request without clearing this state.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fallbackSrc]);
 
   useEffect(() => {
