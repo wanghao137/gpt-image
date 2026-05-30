@@ -1,5 +1,43 @@
 [
   {
+    "id": "derived-brand-logo-materialization",
+    "title": "品牌浮雕Logo金属化材质渲染",
+    "category": "品牌与标志",
+    "tags": [
+      "brand",
+      "logo",
+      "3d",
+      "material",
+      "cgi"
+    ],
+    "description": "将品牌Logo以浮雕形式呈现在金属/哑光表面上，模拟硬币、纪念章或奢侈品牌压印效果，适用于品牌展示、VI物料、高端视觉识别系统",
+    "cover": "/uploads/templatederived-brand-logo-materialization.jpg",
+    "prompt": "{argument name=\"品牌名称\" default=\"LUXORA\"} + {argument name=\"金属色调\" default=\"玫瑰金\"}\nAct as a Senior CGI Artist and Brand Identity Director specializing in premium logo materializations. Your reference aesthetic: a logo mark that appears to have been pushed outward from behind a {argument name=\"表面材质\" default=\"拉丝金属\"} surface — like a relief stamp pressed from the reverse side of a metal sheet, a hallmark embossed on luxury packaging, or a raised seal on official documents. The logo does not exist as a separate standing object placed on a surface. It exists as a raised relief, an outward protrusion that is part of the surface itself.\n\nBRAND INTELLIGENCE SYSTEM\nBefore executing any phase, resolve these parameters:\n(1) LOGO GEOMETRY — identify {品牌名称}'s primary icon mark in its simplest most reduced form — the mark that works at any scale.\n(2) COLOR PALETTE — based on {金属色调}, build the full tonal system from the lightest specular highlight to the deepest shadow tone.\n(3) SURFACE MATERIAL — based on {金属色调}: silver/grey → brushed or circular-grain steel; gold/champagne → warm brushed metal with radial grain; black → anodized aluminum or matte carbon fiber; white → matte ceramic or chalk plaster; saturated hue → anodized colored metal.\n(4) LIGHT DIRECTION — determine the most flattering single light angle to reveal the emboss topography.\n\nPHASE 1: SURFACE & ATMOSPHERE\nThe entire image is one single continuous material surface — not a background with an object placed on it, but one unified physical plane filling the entire canvas. This surface is made of the SURFACE MATERIAL resolved above. The surface has a subtle radial gradient in its lighting — brighter near the center where the embossed logo sits, gradually darkening toward all four edges. Apply fine uniform grain texture across the entire surface at ISO 800 equivalent.\n\nPHASE 2: THE EMBOSS — CRITICAL\nThe {品牌名称} logo mark is rendered as a full bas-relief — think of a coin, a commemorative medal, or a luxury brand stamp. The ENTIRE logo shape rises as one unified solid mass from the surface — every filled area, every curve, every solid region pushes outward as one piece, at a uniform height above the surrounding flat surface. The top face of this raised form is slightly convex — gently domed — so it catches the key light across its full width. The transition from flat surface to raised form follows a smooth beveled wall — curved, not sharp — like the edge of a coin. Negative spaces WITHIN the logo are recessed back to the flat surface level, creating clean negative voids.\n\nPHASE 3: LIGHTING & FINISH\nOne primary soft area light from {argument name=\"光源方位\" default=\"左上10-11点钟\"} — broad and diffused, wrapping around the curved walls to create highlight peak at the top and gradual shadow descent on the far wall. {argument name=\"后期处理\" default=\"微妙电影级颗粒感, 微光反射, 无文字, 无水印\"}",
+    "useWhen": "需要将品牌Logo做高端材质化呈现时使用，如品牌手册封面、VI系统展示、社交媒体品牌视觉、高端产品包装预览",
+    "createdAt": "2026-05-28T02:02:49.741Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "Creative Toolkit Gallery · Brand Identity · 3 entries analyzed (1043+257+162 likes)"
+  },
+  {
+    "id": "derived-fashion-typo-mask-poster",
+    "title": "时尚排版蒙版海报",
+    "category": "海报与排版",
+    "tags": [
+      "typography",
+      "poster",
+      "fashion",
+      "editorial",
+      "masking"
+    ],
+    "description": "文字蒙版 + 人物写真合成的高时尚编辑排版海报。大字作为镂空蒙版揭示下方人物照片，适合品牌宣言、时尚杂志、Campaign 视觉。",
+    "cover": "/uploads/templatederived-fashion-typo-mask-poster.jpg",
+    "prompt": "Style & Composition: High-fashion editorial typography poster with a strict 1:2 composition split. Layout & Ratio: The frame is divided so that the right two-thirds show the full subject and background, while the left one-third is reserved for the typography masking section.\n\nTypography Masking: A massive, ultra-bold, vertical word \"{argument name=\\\"蒙版文字\\\" default=\\\"ELEVATE\\\"}\" is placed on the left third. The text is strictly full-bleed, stretching perfectly and touching the absolute top and absolute bottom edges of the frame with zero vertical padding, gaps, or margins. This typography acts as a stencil mask: the letters reveal the underlying character, while the space to the far left of the letters is a solid, clean white.\n\nSubject Details & Positioning: An upper-body shot of {argument name=\\\"人物描述\\\" default=\\\"a young woman in haute couture, porcelain skin, bold red lipstick, sleek pulled-back hair\\\"}. The model is positioned so that only her left-most side is visible through the letters, while the rest of her body is fully visible and contained on the right side against a solid {argument name=\\\"主题色\\\" default=\\\"red\\\"} background, ensuring no part of the subject is cropped by the right edge of the frame. Pose: {argument name=\\\"姿势描述\\\" default=\\\"gazing slightly upward with serene confidence\\\"}, ensuring the silhouette remains within the center of the right two-thirds area.\n\nSecondary Text: In the top right corner, add the text: \"{argument name=\\\"副标题\\\" default=\\\"SS26 COLLECTION\\\"}\". Use a small, sophisticated, white \"Helvetica Condensed\" style font with wide letter spacing (kerning) for a premium, minimalist look. Color Palette: A strict monochromatic {argument name=\\\"主题色\\\" default=\\\"red\\\"} theme, sharply contrasted by the crisp white negative space on the left. 8k resolution, photorealistic textures, sharp studio lighting, high contrast, clean graphic design aesthetic.",
+    "useWhen": "需要生成文字镂空蒙版 + 人物写真合成的高端时尚海报、品牌宣言视觉、杂志封面风格设计时使用。支持替换蒙版文字、人物描述、姿势、主题色和副标题。",
+    "createdAt": "2026-05-27T01:44:00.026Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "Creative Toolkit Gallery · Poster Design (1 prompt analyzed, 336 likes, 15K views)"
+  },
+  {
     "id": "derived-premium-dark-dashboard",
     "title": "高端暗色系数据仪表板 UI",
     "category": "UI 与界面",

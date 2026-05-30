@@ -1,5 +1,383 @@
 [
   {
+    "id": "100039",
+    "title": "四格漫画风跨次元叙事写真",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Illustration",
+      "Editorial",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-05-30-case-100039-comic-story-4panel.jpg",
+    "imageAlt": "四格漫画风跨次元叙事写真",
+    "prompt": "主题：{argument name=\"theme\" default=\"一个漫画风格的 4 格故事，讲述一名女孩在夏日午后从漫画世界步入现实\"}\n\n人物/表情：{argument name=\"character description\" default=\"20 岁出头的日本女性，黑色长卷发\"}，半透明白皙皮肤，自然的日系妆容，眼神柔和，氛围友好可爱。在所有 4 张图片中保持为同一个人，确保面部特征、发型、体型和皮肤纹理一致。表情按\"惊讶 → 确认 → 享受 → 放松\"的顺序变化。\n\n服装/姿势：所有 4 张图片中穿着相同的自然清凉夏季家居服：薄款白色外搭衬衫、象牙色罗纹吊带背心、浅灰色宽松短裤，赤脚。适度暴露，自然的日常家居服。仅姿势随场景变化，服装必须保持完全相同。\n\n背景/光线：明亮的日式房间，木地板，大窗户，白色窗帘，室内植物，书架，矮桌，柔和的午后自然光。所有 4 张图片中的房间和世界观保持统一。房间的主角是一本巨大的打开的黑白漫画书，展示出清晰的页厚和书脊。漫画页面描绘了同一个黑发女性角色，使其看起来与现实世界中的女性完全一致。撕碎的纸片和漫画书页散落在地板上。\n\n构图/镜头：竖构图，4:5，写实摄影表现，35mm 镜头，自然视角，浅景深，电影感构图。4 张图片视觉一致。黑白漫画书与彩色现实世界形成鲜明对比。每张图片既独立存在，又像 4 格漫画一样呈现为一个连续的短篇故事。\n\n纹理/风格：高清晰度，4K 画质，自然皮肤纹理，写实 AI 人像，日系人像，柔和的夏日光线，趣味超现实摄影，黑白漫画与彩色现实空间的对比，对撕纸边缘和书本厚度的精确描绘，整洁的室内环境，柔和的色调，自然可爱的统一照片系列。\n\n负面提示：低质量，不自然的手，崩坏的脸，多余的手指，扭曲的身体，面部特征或发型改变，服装改变，衣柜状结构，变形的漫画书形状，页面厚度不足，人物与漫画角色不匹配，过度曝光，过度处理，乱码，Logo，水印。\n\n--- 场景 1 补充：她从一本巨大的打开的漫画书的撕裂页面中迈出进入现实世界第一步的瞬间。表情略带惊讶，双手抓着撕裂的纸边，做出向前迈步的动态姿势。漫画书在房间中央显得最大的构图。\n\n--- 场景 2 补充：在同一个房间里照镜子，确认自己真的来到了现实世界。背景中可见同一本巨大的漫画书，她一边盯着镜子里的自己，一边轻轻整理头发。表情从惊讶转为些许释然。\n\n--- 场景 3 补充：她在厨房或同一本巨大漫画书附近的矮桌旁，开心地制作哈密瓜苏打浮冰的场景。使用玻璃杯、哈密瓜苏打、香草冰淇淋和樱桃，捕捉冰块和碳酸气泡运动的有趣瞬间。表情明亮且专注。\n\n--- 场景 4 补充：她一手拿着做好的哈密瓜苏打浮冰，坐在同一本巨大漫画书附近的地板上放松的场景。放松的微笑，平静的午后氛围。随着她完全融入现实世界，故事自然而舒适地结束。",
+    "promptPreview": "主题：{argument name=\"theme\" default=\"一个漫画风格的 4 格故事，讲述一名女孩在夏日午后从漫画世界步入现实\"} 人物/表情：{argument name=\"character description\" default=\"20 岁出头的日本女性，黑色长卷发\"}，半透明白皙皮肤，自然的日系妆容，眼神柔和，氛围友好可爱。在所有 4 张图片中保持为同一个人，确保面部特征、发型、体型和皮肤纹理一致。表情按\"惊讶 …",
+    "source": "Community collected via @Prompt アトリエ",
+    "githubUrl": "https://x.com/CyberTotal2026/status/2058809472152408241",
+    "createdAt": "2026-05-29T20:03:43.288Z"
+  },
+  {
+    "id": "100038",
+    "title": "古代木塔建造过程3D剖面建筑蓝图",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "3D Render",
+      "Architecture",
+      "Editorial",
+      "Infographic"
+    ],
+    "imageUrl": "/uploads/2026-05-30-case-100038-wooden-pagoda-section.jpg",
+    "imageAlt": "古代木塔建造过程3D剖面建筑蓝图",
+    "prompt": "目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 3D 剖面/等轴测模型。\n\n画布：纵向海报，米白色绘图纸背景，4:5 比例，简洁的博物馆展览/建筑蓝图风格。使用黑色中文字体、精细的灰色测量线和深褐色木材纹理。图像应呈现出技术建筑图板与微缩模型相结合的质感。\n\n布局：在中心放置一个巨大的八角形木塔细节模型，占据海报大部分空间。从略微俯视的正面角度展示木塔，以便观察屋顶结构和内部放射状木框架。在底部周围布置许多微小的建筑工人、脚手架、木料堆、手推车、梯子、起重机和装配架。周围的图纸和文字必须像专业的建筑图纸一样保持对齐。\n\n文字内容：左上角为大标题：「应县木塔」。下方为副标题：「建筑营造过程示意图」。在左侧添加两个信息块，标题分别为「工程概况」和「营造特点」，包含多行简短的中文，描述项目名称、地点、建造时期、高度、结构类型、平面形式和工艺特点。确保中文字符清晰，无乱码。\n\n所需图表元素：包含 7 个主要的标注图区：1) 中央 3D 木塔施工模型，2) 左侧「工程概况」文字块，3) 左侧「营造特点」文字块，4) 左下角「平面图」八角形平面图，标注约 30.27 米的尺寸，5) 右上角「立面图 1:400」立面图，带有楼层标签和垂直尺寸，6) 右中「剖面图 1:400」剖面图，带有楼层标签，7) 底部一排小型技术细节面板，标注类别如「斗拱详图」、「构件解析」、「结构分析」和「节点详图」。\n\n主体细节：木塔应为八角形多檐中国木塔，带有深灰色瓦顶、裸露的棕色木梁、密集的斗拱、层叠的屋檐、中央塔刹，顶部可见放射状屋顶框架。添加施工场景：未完成的上层内部桁架、下层周围的脚手架、木栅栏和搬运木梁的工人。使用 {argument name=\"primary material\" default=\"木质框架\"} 作为主要建筑材料，并使用 {argument name=\"drawing scale\" default=\"1:400\"} 作为立面图和剖面图的比例标签。\n\n视觉风格：高度详细的建筑可视化，逼真的微缩模型渲染，精确的技术注释，精细的墨线，柔和的阴影，柔和的深褐色和灰色调，无鲜艳色彩。将照片级真实的 3D 施工模型与清晰的 2D 蓝图叠加结合。使排版类似于正式的中国建筑图纸。\n\n约束：保持密集的中文布局和技术图纸的清晰度。不要添加徽标、水印、英文标签或现代建筑。保持所有图表在空间上井然有序，主木塔上不得有重叠文字。确保中文字符显示正确，特别是标题 {argument name=\"main title\" default=\"应县木塔\"} 和副标题 {argument name=\"subtitle\" default=\"建筑营造过程示意图\"}。",
+    "promptPreview": "目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 3D 剖面/等轴测模型。 画布：纵向海报，米白色绘图纸背景，4:5 比例，简洁的博物馆展览/建筑蓝图风格。使用黑色中文字体、精细的灰色测量线和深褐色木材纹理。图像应呈现出技术建筑图板与微缩模型相结合的质感。 布局：在中心放置一个巨大的八角形木塔细节…",
+    "source": "Community collected via @唐华斑竹🦅",
+    "githubUrl": "https://x.com/uniswap12/status/2058777914083266617",
+    "createdAt": "2026-05-29T20:03:06.165Z"
+  },
+  {
+    "id": "100037",
+    "title": "波普艺术时尚编辑街拍",
+    "category": "摄影与写实",
+    "styles": [
+      "Editorial",
+      "Realistic"
+    ],
+    "scenes": [
+      "Fashion"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-000101-pop-art-fashion-editorial.png",
+    "imageAlt": "波普艺术时尚编辑街拍",
+    "prompt": "A full-body fashion editorial scene against a vibrant electric-blue studio background with layered geometric blue shapes and overlays. The composition has a youthful, energetic pop-art aesthetic blending realistic streetwear photography with playful 2D graphic doodles.\n\nThe character is standing in a confident wide-leg pose, one hand casually touching their hair/head, facing the camera. Outfit includes a glossy navy blue puffer jacket as the centerpiece, layered over a minimal dark t-shirt, black cargo pants, a small black crossbody utility bag, and white sneakers with blue accents.\n\nHand-drawn white doodles are scattered around the scene, including cartoon-style motion swirls, lightning bolts, exclamation marks, plus signs, and a cute cartoon dog in the bottom-left corner. Clean studio lighting, high contrast, trendy urban fashion campaign style, dynamic composition, crisp shadows, modern streetwear aesthetic, playful graphic design fusion, highly detailed, professional fashion photography.",
+    "promptPreview": "A full-body fashion editorial scene against a vibrant electric-blue studio background with layered geometric blue shapes and overlays. The composition has a youthful, energetic pop-art aesthetic blending realistic stree…",
+    "source": "MeiGen Community Gallery",
+    "githubUrl": "https://www.meigen.ai/prompt/community_8326dad0-2505-4b0e-8e73-c38497a56ae9",
+    "createdAt": "2026-05-29T08:22:48.248Z"
+  },
+  {
+    "id": "100036",
+    "title": "电影感屋顶光影人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Cinematic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-000103-cinematic-rooftop-portrait.jpg",
+    "imageAlt": "电影感屋顶光影人像",
+    "prompt": "Use the uploaded portrait only as the identity reference. Preserve the person’s real facial features, face shape, skin tone, and recognizable hairstyle. Do not copy the original outfit, background, pose, lighting, or image quality from the uploaded portrait.\n\nCreate a realistic cinematic portrait of the same person sitting quietly on an old green-tiled rooftop under dense tree shadows. The person is relaxed, looking slightly downward with a soft calm expression. Surround the scene with dark green foliage, hanging red pomegranate fruits, scattered sunlight, and natural leaf-shaped shadows across the face, body, and roof tiles. Add a vintage handheld camera placed casually nearby as a storytelling detail.\n\nChoose an outfit that best matches the person’s appearance and personality, different from the scene inspiration: natural, clean, elegant, lightweight, and suitable for a dreamy outdoor summer portrait. Keep the styling tasteful and realistic.\n\nLow-angle composition, full-body or three-quarter body framing, cinematic natural light, strong contrast between deep shadow and bright sun patches, soft film grain, subtle lens flare, dreamy atmosphere, realistic skin texture, natural body proportions, authentic photography, shallow depth of field, poetic summer mood, high-detail editorial photo, no text, no logo, no watermark.\n\nNegative Prompt：\n\nwatermark, logo, text, Chinese characters, AI-generated mark, over-smoothed skin, plastic skin, fake face, anime style, cartoon style, 3D render, doll-like face, distorted body, bad anatomy, extra fingers, missing fingers, deformed hands, deformed feet, unnatural legs, awkward pose, blurry face, low resolution, harsh filter, over-sharpened, messy composition, duplicated person, wrong identity, copied outfit from input portrait, copied background from input portrait.",
+    "promptPreview": "Use the uploaded portrait only as the identity reference. Preserve the person’s real facial features, face shape, skin tone, and recognizable hairstyle. Do not copy the original outfit, background, pose, lighting, or im…",
+    "source": "Community collected via @Shinning1010",
+    "githubUrl": "https://x.com/Shinning1010/status/2059266617268486240",
+    "createdAt": "2026-05-29T08:22:35.619Z"
+  },
+  {
+    "id": "100035",
+    "title": "超写实混乱自拍节日场景",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Illustration",
+      "Cinematic",
+      "Documentary",
+      "Portrait",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-000102-chaotic-eid-selfie.jpg",
+    "imageAlt": "超写实混乱自拍节日场景",
+    "prompt": "Ultra-realistic super cute chaotic Eid al-Adha selfie photograph in front of a dreamy pastel-toned grand mosque during bright sunny afternoon, featuring an adorable stylish young woman (face photo refference) taking a playful ultra-wide-angle smartphone selfie surrounded by funny wholesome animal chaos.\nThe young woman wears a soft pastel cream oversized cardigan layered over a flowy white dress with cute ribbon details, paired with chunky pastel sneakers and tiny heart-shaped accessories.\nHer long dark hair flows softly in the wind with colorful mini hair clips and ribbon pins.\nShe smiles brightly with sparkling eyes while making a tiny finger-heart pose toward the camera, giving soft bubbly “cute chaos” energy.\nCamera style: extreme fisheye selfie perspective, slight smartphone distortion, playful close-up framing, TikTok / Instagram selfie aesthetic, dynamic arm-reaching composition, candid chaotic energy.\nSurrounding her are adorable expressive farm animals: a fluffy baby goat wearing tiny pink sunglasses, a smiling cow with flower crown photobombing beside her, another baby goat jumping happily behind her, tiny chicks waddling around her feet, a sleepy sheep sitting adorably in foreground, and one goat trying to lick the camera lens.\nBackground: beautiful giant mosque with glowing cream domes and tall white minarets, soft pastel blue sky, warm fluffy clouds, busy Eid celebration crowd, cute wholesome festival atmosphere, people laughing and reacting in the background.\nAdd playful cute doodles everywhere: tiny pastel hearts, sparkles, comic stars, handwritten texts like: “CUTIE CHAOS 🐐✨” “HELP 😭” “EID BESTIE” “too cute to handle” “AAAAA” small arrows pointing at funny animals, sticker-style smiley faces, pastel flower doodles, soft glitter effects.\nLighting: bright warm sunlight, soft dreamy glow, slightly overexposed highlights, cute pastel color grading, gentle lens flare, vibrant cheerful tones.\nVisual style: ultra-realistic but adorable social media chaos, Pinterest cute-core aesthetic, playful Gen Z selfie energy, wholesome meme realism, soft cinematic textures, high-detail smartphone HDR look, TikTok viral cute aesthetic, funny but heartwarming composition.\nMood & keywords: cute Eid chaos, wholesome funny selfie, adorable animal madness, playful Muslim holiday vibe, bubbly internet energy, cozy pastel realism, dreamy social media aesthetic, chaotic but lovable happiness.\nTypography overlay: large handwritten pastel doodle text: “Selamat Hari Raya Idul Adha”\nAspect ratio 9:16 vertical.",
+    "promptPreview": "Ultra-realistic super cute chaotic Eid al-Adha selfie photograph in front of a dreamy pastel-toned grand mosque during bright sunny afternoon, featuring an adorable stylish young woman (face photo refference) taking a p…",
+    "source": "Community collected via @ChillaiKalan__",
+    "githubUrl": "https://x.com/ChillaiKalan__/status/2059493565768815049",
+    "createdAt": "2026-05-29T08:22:28.637Z"
+  },
+  {
+    "id": "100034",
+    "title": "面部保留风格化人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "Portrait"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-000100-face-preserve-portrait.jpg",
+    "imageAlt": "面部保留风格化人像摄影",
+    "prompt": "ABSOLUTE FACE PRESERVATION MODE — USE MY UPLOADED FACE PHOTO AS THE PRIMARY FACIAL IDENTITY REFERENCE.\n\nKEEP EXACT SAME FACE IDENTITY.\n\nDO NOT CREATE A NEW PERSON.\nDO NOT ALTER FACIAL STRUCTURE.\nDO NOT BEAUTIFY INTO ANOTHER PERSON.\n\nMaintain 95–100% facial similarity to my uploaded face.\n\nPreserve EXACT:\nsame eyes,\nsame nose,\nsame lips,\nsame jawline,\nsame cheekbones,\nsame forehead,\nsame skin tone,\nsame age,\nsame ethnicity,\nsame facial proportions,\nsame recognizable identity,\nsame natural skin texture.\n\nSubject:\n\nyoung woman (18–23),\nultra-realistic stylish urban street beauty,\ncool confident feminine aura,\nsubtle attitude expression,\nsoft editorial fashion mood,\npreserve MY ORIGINAL FACE exactly.\n\nMake-up — MATCH REFERENCE STYLE:\n\nsoft glossy skin,\nlight peach blush,\nsubtle luminous highlights,\nminimal shimmer eyelids,\nthin eyeliner,\nnatural lashes,\nhealthy glossy lips,\ndefined but natural brows matching original face,\nvisible pores,\nrealistic skin texture,\nbalanced skin tone between face, neck, hands, and bo",
+    "promptPreview": "ABSOLUTE FACE PRESERVATION MODE — USE MY UPLOADED FACE PHOTO AS THE PRIMARY FACIAL IDENTITY REFERENCE. KEEP EXACT SAME FACE IDENTITY. DO NOT CREATE A NEW PERSON. DO NOT ALTER FACIAL STRUCTURE. DO NOT BEAUTIFY INTO ANOTH…",
+    "source": "Community collected via @Zyrellix",
+    "githubUrl": "https://x.com/Zyrellix/status/2058896819917320482",
+    "createdAt": "2026-05-29T08:22:19.140Z"
+  },
+  {
+    "id": "100033",
+    "title": "奇幻潮汐祭司角色概念设计项目",
+    "category": "场景与叙事",
+    "styles": [
+      "Illustration",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial",
+      "Creative"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-100033-tide-priestess-concept.jpg",
+    "imageAlt": "奇幻潮汐祭司角色概念设计项目",
+    "prompt": "目标：为 {argument name=\"character name\" default=\"Sera Vayne\"} 创建一张单页奇幻角色设计项目，她是一位拥有仪式战刃的潮汐祭司战士，展现优雅的海岸神秘感和高细节的概念艺术效果。\n\n画布：宽幅横向角色设计项目，比例约为 16:9，采用温暖的灰白色羊皮纸背景，带有细灰色边框，呈现出精致但略显风化的水墨渲染奇幻概念艺术风格。色调主要使用中性奶油色、深蓝黑色、浅象牙色、海沫青色、暖棕褐色以及明亮的生物发光蓝色。\n\n主英雄姿态：在左侧三分之一处，展示一位赤脚成年女性的全身英雄站姿，她拥有古铜色皮肤、健美的苗条身材、长而凌乱的黑色波浪卷发（松散地束在脑后），佩戴多层项链、贝壳和珠子装饰、垂坠耳环，展现出冷静的祭司战士气质。她身穿一件浅色半透明盐白色挂脖裹身裙，带有高开叉，系着海沫色腰带，前臂缠绕绷带，佩戴脚链，并披着一件飘逸且破损的深蓝黑色斗篷，看起来如同湿润的潮汐织物。她身旁竖立着一把华丽的仪式长柄战刃；刀刃呈锯齿状，优雅且由深色金属制成，边缘闪烁着蓝光，并刻有波浪状纹饰。在裙摆周围添加微妙的水渍和墨迹纹理。\n\n左侧标题栏：在最左侧垂直添加四个大号中文字，旁边附带小型英文翻译：潮、静、刃、身、归。下方盖有一个小红章。在左下角，书写大号笔刷字体名字 {argument name=\"character name\" default=\"Sera Vayne\"}，副标题 {argument name=\"subtitle\" default=\"The Rite Before the Tide\"}，以及三行简短的背景描述：角色：战争祭司 · 潮汐解读者 · 海岸教团最后一人；核心主题：大海从不狂怒——它只是如约而至。她的行动亦是如此。耐心、彻底、终结；武器：Tidecaller —— 仪式战刃。刀刃发光是因为潮汐选择了她。\n\n正视图：在上方中间栏，包含 3 个精确标注的视图：1 FRONT 全身视图（战刃立于身旁），2 BACK 全身视图（展示背后的斗篷和发型），3 PROFILE 侧视图（展示她携带武器的样子）。使用星形标记和大写标签 FRONT、BACK、PROFILE。\n\n表情展示：在右上角，创建一个名为 EXPRESSIONS 的方框区域，包含 6 个 3x2 网格排列的头像。标签必须为：1 Ceremonial neutral（仪式中立），2 Focused pre-strike（攻击前专注），3 Profile left（左侧面），4 Post-release（释放后），5 Looking down（低头），6 3/4 right（右侧 3/4 视角）。保持面部特征一致，头发保持松散湿润质感，饰品清晰可见，并使用相同的服装领口。\n\n服装细节插图：在右中位置，创建一个名为 DETAILS 的方框区域，包含 4 个垂直特写面板，标注为：1 Waist & hip（腰部与臀部），2 Neckline & collarbone（领口与锁骨），3 Leg & hem（腿部与下摆），4 Forearm & hand（前臂与手部）。展示织物层叠、贝壳、珠子、腰带结、半透明布料、破损的斗篷边缘、赤脚脚链以及前臂缠绕细节。\n\n标志性武器拆解：在右侧，创建一个 SIGNATURE PROP 区域，从左下到右上斜向展示战刃，并使用引导线标注 6 个部分：blade（刀刃）、glow edge（发光边缘）、engraving（雕刻）、grip wrap（握把缠绕）、shaft（柄身）、butt cap（尾盖）。添加一个刀尖的放大框，强调雕刻金属和蓝色发光边缘。\n\n剪影研究行：在底部中心，包含 6 个黑色剪影缩略图，标注为：1 Neutral standing（中立站姿），2 Low sweep prep（低位横扫准备），3 Overhead raise（高举），4 Aerial extension（空中伸展），5 Kneeling finish（跪地终结），6 Horizon facing（面向地平线）。确保剪影清晰、动态且多样化，始终包含长柄战刃和飘逸的斗篷。\n\n调色板：在右下角，包含一个 COLOR PALETTE 方框，带有 6 个圆形色块和标签：1 Deep Ocean Blue-Black（深海蓝黑）：仪式权威、深度、统御；2 Pale Salt White（浅盐白）：耐力、潮汐泡沫、历经风霜的优雅；3 Seafoam Teal with Gold（海沫青配金）：水之连接、祭司阶级；4 Warm Tan（暖棕褐）：扎实的体魄、自然力量；5 Bioluminescent Blue（生物发光蓝）：潮汐印记、生命能量；6 柔和的贝壳金作为装饰和仪式细节的点缀。\n\n风格限制：使其看起来像专业的 AAA 级奇幻角色设计项目，采用绘画风格的半写实插画，清晰的区域标签，细面板线，无多余角色，无现代物品，无 UI 样机元素，无照片级摄影棚灯光，除指定区域外无杂乱内容。",
+    "promptPreview": "目标：为 {argument name=\"character name\" default=\"Sera Vayne\"} 创建一张单页奇幻角色设计项目，她是一位拥有仪式战刃的潮汐祭司战士，展现优雅的海岸神秘感和高细节的概念艺术效果。 画布：宽幅横向角色设计项目，比例约为 16:9，采用温暖的灰白色羊皮纸背景，带有细灰色边框，呈现出精致但略显风化的水墨渲染奇幻概念艺术风格。色调主要使用中性奶油色、深蓝黑色、浅象牙色、海沫青色、暖棕褐色以及明…",
+    "source": "Community collected via @CoderJunkie",
+    "githubUrl": "https://x.com/CoderJunkie/status/2058205773969457526",
+    "createdAt": "2026-05-28T20:04:50.929Z"
+  },
+  {
+    "id": "100032",
+    "title": "电影级品牌饮料餐馆场景广告海报",
+    "category": "产品与电商",
+    "styles": [
+      "Cinematic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Commerce",
+      "Product"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "Editorial",
+      "Cinematic"
+    ],
+    "imageUrl": "/uploads/2026-05-29-case-100032-drpepper-diner-poster.jpg",
+    "imageAlt": "电影级品牌饮料餐馆场景广告海报",
+    "prompt": "目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈现极具张力的商业饮料摄影效果。\n\n画布：竖版海报，2:3 宽高比，高分辨率，深黑与深红配色，雨后湿滑街道的倒影，发光的霓虹灯，浅景深，强烈的轮廓光，高级杂志广告质感。\n\n主体：一位时尚的年轻女性站在前景左侧和中心，自信地倚靠在一辆闪亮的红色经典汽车旁。她的面部被一个平整的棕色矩形遮挡块刻意遮盖，没有任何面部细节可见。她留着深色长卷发，遮挡块周围的颈部和手部皮肤呈现出真实的质感，佩戴圆环耳环，姿态自信，如同时尚大片。服装：{argument name=\"woman outfit\" default=\"酒红色修身西装外套、黑色短款上衣、黑色修身牛仔裤和黑色高跟靴\"}。一只手臂靠在红色汽车旁，另一只手伸向观众，手中拿着汽水罐。\n\n产品焦点：前景中，她伸出的手中握着一个巨大的红色冰镇汽水罐，罐身略微倾斜，表面布满冷凝水珠和高光。罐身标签上印有醒目的白色手写体 \"Dr Pepper\"，包含 \"Est. 1885\"、圆形的 \"23\" 口味标志以及细小的品牌装饰细节。易拉罐应作为画面中最清晰的物体，并通过强制透视法呈现出超大尺寸的视觉效果。\n\n液体动态：从易拉罐开口处，一股浓郁的深红色碳酸汽水向上喷涌而出，形成优雅的漩涡状波浪，横跨海报上半部分。汽水飞溅中包含闪烁的气泡、液滴以及精确的 5 块冰块：右上角曲线附近一块，右侧下方一块，飞溅中心上方一块，罐口附近稍低处一块，以及飞溅流左侧较小的一块。\n\n背景：怀旧的美国餐馆街道夜景，闪烁着红色霓虹灯和温暖的窗灯。背景上方包含一座显眼的餐馆建筑，屋顶上有明亮的 \"DINER\" 霓虹灯招牌，窗内可见顾客剪影，前方停放着两辆复古汽车，后方是城市建筑。最左侧展示一个模糊的红色霓虹灯餐馆招牌特写，仅露出部分文字。右侧背景包含一个巨大的发光路边招牌，上面印有品牌 Logo 和圆形的 \"23\" 标志。潮湿的地面反射着红色的灯光和车灯。\n\n文字内容：在右下角，添加一行巨大的、做旧风格的粗体白色标题 {argument name=\"headline text\" default=\"BOLD FLAVOR\"}，分为两行。下方添加一行较小的全大写标语 {argument name=\"tagline text\" default=\"NOT ORDINARY. NEVER BORING.\"}，其中 \"NEVER BORING.\" 用红色强调。保持文字清晰易读，并像专业汽水广告一样融入海报设计中。\n\n视觉风格：超写实、电影感、高对比度、亮面商业修图、奢华饮料摄影、戏剧性透视、体积感霓虹光效、清晰的冷凝水珠、细小的汽水气泡、红黑单色调氛围、高级广告海报美学。\n\n约束条件：仅限一位女性、一个主汽水罐、前景中一辆红色汽车、一座餐馆建筑、一个路边品牌招牌，以及精确的 5 块冰块。前景中不得添加额外人物，不得添加额外的标题文案，避免卡通或插画风格，并确保所有可见文字拼写清晰。",
+    "promptPreview": "目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈现极具张力的商业饮料摄影效果。 画布：竖版海报，2:3 宽高比，高分辨率，深黑与深红配色，雨后湿滑街道的倒影，发光的霓虹灯，浅景深，强烈的轮廓光，高级杂志广告质感。 主体：一位时尚的年轻女性站在前景左侧和中心，自信地倚靠在一辆闪亮的红色经典汽车旁。…",
+    "source": "Community collected via @HaniaAi12",
+    "githubUrl": "https://x.com/HaniaAi12/status/2058574510862049483",
+    "createdAt": "2026-05-28T20:03:12.985Z"
+  },
+  {
+    "id": "100031",
+    "title": "日系Q版角色橡皮擦产品包装摄影",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Commerce",
+      "Product",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-05-28-case-100031-q-eraser-product.jpg",
+    "imageAlt": "日系Q版角色橡皮擦产品包装摄影",
+    "prompt": "请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。\n\n■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" default=\"Q 版橡皮擦产品\"}”，并创作出如同文具店或扭蛋机中售卖的逼真包装产品照片。\n\n■ 概念：“在百元店和文具店售卖的袋装 Q 版橡皮擦产品。”\n\n■ 橡皮擦主体：（保持与之前完全相同的规格）- 高度变形的 Q 版角色 - 厚实的块状造型 - 全哑光橡胶材质 - 带有细微颗粒/粉末/碎屑/磨损痕迹 - 印刷错位/颜色偏差 - 50 多种物品的随机组合。\n\n■ 包装（关键）：- 小型透明塑料袋（OPP 袋） - 顶部带有挂孔的纸质卡头 - 卡头印刷略显廉价（轻微错位/油墨不均） - 塑料袋起皱、略显浑浊，因静电吸附在内容物上 - 袋内充气导致鼓胀 - 密封处有轻微翘曲。\n\n■ 平面设计：- 日本儿童文具风格 - 流行且色彩鲜艳（以 {argument name=\"color theme\" default=\"粉色、黄色、浅蓝色\"} 为基调） - 手写体或圆体字 - 产品 Logo（可使用原创） - 带有“Mini-Keshi”或“Chibi-Keshi”等文字 - 星星、爱心、闪光装饰。\n\n■ 信息元素（增强真实感）：- JAN 码（条形码） - “6 岁以上适用” - “不可食用”警告 - “共 X 款”或“随机包含” - 小型公司名称（虚构） - MADE IN JAPAN 或 CHINA 标识。\n\n■ 构图：- 包装位于画面中心主体位置 - 周围散落几个橡皮擦 - 1 到 2 个在袋子外面 - 指尖拿起一个作为点缀 - 自然的感觉，部分元素可超出画面。\n\n■ 稀有元素：- 混入一个荧光色或渐变色的特殊个体 - 放置在显眼位置以引导观众视线。\n\n■ 灯光：- 明亮的自然光（略微高调） - 柔和的阴影 - 如产品目录照片般的整洁感。\n\n■ 相机：- 微距倾向 - 浅景深 - 中心锐利。\n\n■ 背景：- 白色至淡色系桌面 - 微妙的圆点或流行图案 - 简洁干净。\n\n■ 禁止事项：- 塑料感 - 光泽感表现 - 过度高端的质感（廉价感才是正确的） - 过度完美的印刷。\n\n■ 输出要求：- 达到与真实产品无法区分的水平 - 呈现出便利店或百元店商品般的真实感 - 让社交媒体用户看到后产生“我想要这个”的品质。",
+    "promptPreview": "请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" default=\"Q 版橡皮擦产品\"}”，并创作出如同文具店或扭蛋机中售卖的逼真包装产品照片。 ■ 概念：“在百元店和文具店售卖的袋装 Q 版橡皮擦产品。” ■ 橡皮擦主体：（保持与之前完全相同的规格）- 高度变形的 Q 版角色 - 厚实的块状造型…",
+    "source": "Community collected via @ZetoGroovin",
+    "githubUrl": "https://x.com/ZetoGroovin/status/2058408514247410003",
+    "createdAt": "2026-05-27T20:03:32.322Z"
+  },
+  {
+    "id": "100030",
+    "title": "日式棒球新秀排名体育信息图",
+    "category": "图表与信息图",
+    "styles": [
+      "Minimal",
+      "Editorial"
+    ],
+    "scenes": [
+      "Infographic",
+      "Sports"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "Editorial",
+      "Infographic",
+      "Education",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-05-28-case-100030-npb-prospect-ranking.jpg",
+    "imageAlt": "日式棒球新秀排名体育信息图",
+    "prompt": "目标：制作一张极具视觉冲击力的日式棒球新秀排名信息图，风格参考专业 MLB 新秀榜单。主标题为 {argument name=\"main title\" default=\"NPB PROSPECT RANKING TOP 30\"}，右侧展示一位重点球员，左侧为排名列表。\n\n画布：1:1 正方形体育图形，背景为深蓝色夜间球场，配有明亮的探照灯、蓝色烟雾、细微火花、高对比度光效以及光泽感的广播级图形质感。使用粗体压缩的运动字体、金属白与红色点缀、青色细分割线以及球队 Logo 风格图标。\n\n页眉：左上角添加一个红色日期丝带，显示「2026年5月24日時点」。下方放置醒目的大标题，其中“NPB PROSPECT RANKING”采用做旧白色块状字体，“TOP 30”置于下方，且“30”显示为亮红色。标题下方添加日文副标题：「MLB型本卒業基準（野手130打数未満 / 投手50投球回未満）」及一行简短说明：「OVR＝総合評価 / FV＝将来価値 / ETA＝一軍定着見込み / Risk＝リスク」。\n\n重点球员：右半部分展示一名动态的棒球投手，身穿蓝白相间的 Fighters 风格球衣，戴蓝色球帽，球衣号码为 11 号，处于投球动作中，一只手持球向前，另一只手向后伸展。面部应刻意模糊或柔化，呈现出匿名体育模版的效果。利用球场灯光营造戏剧性的轮廓光。右下角添加重点球员姓名的大号日文字体 {argument name=\"featured player name\" default=\"柴田獅子\"}，下方附带罗马拼音：{argument name=\"featured romanization and position\" default=\"SHIBATA REO / RHP\"}。在其下方，创建四个数据方块，标签分别为 OVR、FV、ETA、Risk，数值为 {argument name=\"featured stat line\" default=\"68, 55, 2027, 3\"}。\n\n主要排名布局：左侧创建 30 个排名条目。前 5 名为垂直堆叠的大型横向卡片，每张卡片包含排名数字、球队风格 Logo、日文球员姓名、位置，以及 OVR、FV、ETA、Risk 四列数据。第 4 名必须以红色高亮显示并带有发光边框，作为重点球员。\n\n前 5 名可见条目，具体如下：\n1. 前田悠伍, 投手, OVR 72, FV 60, ETA 2026, Risk 2, 金色 SoftBank 风格 Logo。\n2. 齋藤響介, 投手, OVR 70, FV 55+, ETA 2026, Risk 2, 黑金配色 Buffaloes 风格 Logo。\n3. 立石正広, 内野手, OVR 69, FV 55, ETA 2026, Risk 2, 黄黑配色 Tigers 风格 Logo。\n4. 柴田獅子, 投手, OVR 68, FV 55, ETA 2027, Risk 3, Fighters 风格菱形 Logo，红色高亮卡片。\n5. 有薗直輝, 三塁手, OVR 67, FV 55, ETA 2026, Risk 3, Fighters 风格菱形 Logo。\n\n排名表格：在前 5 名下方，创建一个紧凑的两栏表格，包含第 6 至 30 名，共 25 行，左侧列为第 6–18 名，右侧列为第 19–30 名。包含列：#、選手名、位置、OVR、FV、ETA、Risk。每行开头使用小型球队 Logo 方块，并采用深蓝色行交替填充。可见的排名姓名应为：\n6 石垣元気; 7 孫易磊; 8 松下歩叶; 9 中村優斗; 10 石塚裕惺; 11 常廣羽也斗; 12 内藤鵬; 13 草加勝; 14 杉山遙希; 15 佐藤龍月; 16 横山聖哉; 17 石見颯真; 18 小田康一郎; 19 平川蓮; 20 坂井陽翔; 21 今朝丸裕喜; 22 東松快征; 23 堀柊那; 24 井坪陽生; 25 イヒネ・イツア; 26 村田怜音; 27 宮崎一樹; 28 西村瑠伊斗; 29 石代エトニー; 30 齊藤優汰。保持数据精简但真实，并与上方列表保持一致。\n\n页脚：添加一个深色细页脚栏，包含日文注释：「注：OVRは100点満点の独自総合評価。FVはMLB系スカウティングで使われる将来価値の目安。ETAは一軍定着見込み時期。Riskはリスク評価。」\n\n约束条件：仅在指定位置使用日文，保持构图紧凑且易读，不得直接复制真实的联赛商标，不得添加水印，不得超出 30 个排名，并严格保留 1 名重点球员、5 张大型排名卡片、25 行紧凑表格行以及 4 个重点数据方块的配置。",
+    "promptPreview": "目标：制作一张极具视觉冲击力的日式棒球新秀排名信息图，风格参考专业 MLB 新秀榜单。主标题为 {argument name=\"main title\" default=\"NPB PROSPECT RANKING TOP 30\"}，右侧展示一位重点球员，左侧为排名列表。 画布：1:1 正方形体育图形，背景为深蓝色夜间球场，配有明亮的探照灯、蓝色烟雾、细微火花、高对比度光效以及光泽感的广播级图形质感。使用粗体压缩的运动字体、金属白与红色点…",
+    "source": "Community collected via @gochan_hnf",
+    "githubUrl": "https://x.com/gochan_hnf/status/2058358935627899161",
+    "createdAt": "2026-05-27T20:03:27.503Z"
+  },
+  {
+    "id": "100029",
+    "title": "3D纸艺宇宙图书馆立体模型场景",
+    "category": "场景与叙事",
+    "styles": [
+      "Paper Craft",
+      "Fantasy"
+    ],
+    "scenes": [
+      "Storytelling",
+      "Art"
+    ],
+    "tags": [
+      "Cinematic",
+      "3D Render",
+      "Editorial",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-05-27-case-100029-paper-cosmic-library.jpg",
+    "imageAlt": "3D纸艺宇宙图书馆立体模型场景",
+    "prompt": "这是一件细节极其丰富的 3D 分层纸艺立体模型，场景设定在漂浮的宇宙图书馆中，融合了奇幻与蒸汽朋克美学。构图中心是一位 {argument name=\"character\" default=\"留着银色挑染长发、扎着松散辫子的沉思年轻探险家\"}，她身穿 {argument name=\"outfit\" default=\"带有黄铜装饰的优雅深海军蓝外套\"}，胸前挂着一块闪闪发光的怀表。她正轻柔地将一本发光的书放在悬浮的基座上，仿佛正在开启一段隐藏的宇宙故事。围绕在她身边的是她自己不同角色的微型手工版本：一个正在破译漂浮石板上的古老符文，另一个正驾驶着一艘由羊皮纸和齿轮制成的小型飞艇，一个在展开的星图上勾勒星座，还有一个正在修理一只由层叠纸张和铜质纹理制成的机械猫头鹰。环境是一个梦幻般的广阔图书馆，由堆叠的漂浮书籍、消融在星光中的螺旋楼梯以及悬浮在半空中的知识光球组成。背景渐变为深靛色的太空，点缀着微妙的星云和构成抽象地图的金色星座。整件艺术品呈现出高级的手工纸艺美感，具有清晰的纸张分层边缘、柔和的电影级轮廓光、错综复杂的阴影深度，以及 {argument name=\"color palette\" default=\"午夜蓝、古董金、发光青色和羊皮纸米色构成的丰富色调\"}。整体氛围神秘、知性且宏大，宛如宇宙的秘密档案馆。",
+    "promptPreview": "这是一件细节极其丰富的 3D 分层纸艺立体模型，场景设定在漂浮的宇宙图书馆中，融合了奇幻与蒸汽朋克美学。构图中心是一位 {argument name=\"character\" default=\"留着银色挑染长发、扎着松散辫子的沉思年轻探险家\"}，她身穿 {argument name=\"outfit\" default=\"带有黄铜装饰的优雅深海军蓝外套\"}，胸前挂着一块闪闪发光的怀表。她正轻柔地将一本发光的书放在悬浮的基座上，仿佛正在开启一…",
+    "source": "Community collected via @Mind_Boticni",
+    "githubUrl": "https://x.com/Mind_Boticni/status/2058609756429062218",
+    "createdAt": "2026-05-26T20:03:47.415Z"
+  },
+  {
+    "id": "100028",
+    "title": "玛德琳蛋糕工程蓝图技术绘图",
+    "category": "图表与信息图",
+    "styles": [
+      "Blueprint",
+      "Technical"
+    ],
+    "scenes": [
+      "Food",
+      "Design"
+    ],
+    "tags": [
+      "Minimal",
+      "3D Render",
+      "Infographic",
+      "Education",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-05-27-case-100028-madeleine-blueprint.jpg",
+    "imageAlt": "玛德琳蛋糕工程蓝图技术绘图",
+    "prompt": "以提供的参考图像为主题，将玛德琳蛋糕转换为清晰的工程蓝图绘图，而非照片。在深蓝色网格背景上创建垂直工程图纸布局，使用细白线条、双边框、测量箭头、标签和示意轮廓，以保留玛德琳蛋糕的贝壳状椭圆形外观。\n\n目标：制作一张标题为 {argument name=\"title text\" default=\"MADELEINE\"}、副标题为 {argument name=\"subtitle text\" default=\"TECHNICAL BLUEPRINT\"} 的蓝图。\n\n布局：包含 4 个源自参考糕点的技术绘图面板：右上角为 1 个大型顶视图，下方居中为 1 个侧视图，左下角为 1 个前视图，右下角为 1 个带框的细节插图，展示贝壳肋纹图案。使用白色轮廓线和虚线内部肋纹线。\n\n技术文本：在左上角添加一个规格说明块，包含 4 行内容：类型：{argument name=\"type label\" default=\"Small Shell Cake\"}，产地：{argument name=\"origin label\" default=\"France\"}，形状：卵形 / 贝壳状，单位：毫米。\n\n测量：添加符合蓝图规范的尺寸线和数字标签：顶视图宽度 75、高度 45，侧视图高度 22，前视图宽度 45、高度 22。在左下角添加一个标有 SCALE 的比例尺，刻度为 0、10、20、30、40、50 毫米。\n\n附加元素：添加插图标签\"DETAIL A\"和\"SHELL RIB PATTERN\"。在右下角添加一个注释框，包含 2 条注释：\"1. 所有尺寸均为近似值。\"以及\"2. 玛德琳蛋糕的典型比例可能会有所不同。\"\n\n风格限制：请勿将糕点渲染为逼真的食物照片；将其完全转换为蓝底白线的技术示意图。保持蓝图清晰、精确，轮廓边缘带有轻微的手绘感，且不包含多余物体、阴影或水印。",
+    "promptPreview": "以提供的参考图像为主题，将玛德琳蛋糕转换为清晰的工程蓝图绘图，而非照片。在深蓝色网格背景上创建垂直工程图纸布局，使用细白线条、双边框、测量箭头、标签和示意轮廓，以保留玛德琳蛋糕的贝壳状椭圆形外观。 目标：制作一张标题为 {argument name=\"title text\" default=\"MADELEINE\"}、副标题为 {argument name=\"subtitle text\" default=\"TECHNICAL BLUEP…",
+    "source": "Community collected via @gomagometti",
+    "githubUrl": "https://x.com/gomagometti/status/2058522695613268129",
+    "createdAt": "2026-05-26T20:02:31.000Z"
+  },
+  {
+    "id": "100027",
+    "title": "幼童时尚衣橱蜂巢概念设计板",
+    "category": "产品与电商",
+    "styles": [
+      "Editorial",
+      "Studio"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-05-26-case-100027-kids-wardrobe-concept.jpg",
+    "imageAlt": "幼童时尚衣橱蜂巢概念设计板",
+    "prompt": "目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/科幻档案美学。\n\n画布：垂直 2:3 海报，采用带有细微纹理的暖象牙色纸张背景，柔和的摄影棚灯光，柔和的阴影，以及大量的留白。使用纤细的浅灰褐色线条勾勒出正好 7 个六边形的蜂巢结构：1 个大型中心六边形和 6 个环绕的衣橱六边形。\n\n布局：将中心六边形置于中央，上方放置一个小型几何菱形徽章，下方是间距宽阔的文字 {argument name=\"central title\" default=\"SECTION 42\"}。周围环绕 6 个带标签的服装面板：顶部中心、左上、右上、左下、右下和底部中心。每个服装面板左侧或中心包含一个全身儿童模特，右侧包含 4 个小型垂直材质/细节样本。在每个面板中，儿童的面部均需保持柔和模糊，不具辨识度。\n\n主体：同一名 5–7 岁左右的幼童，身材娇小，凌乱的深色卷发松散地扎在脑后，姿态中性，比例写实，具有时尚编辑风格。肤色为中浅色至棕褐色，但面部刻意模糊。渲染为精致的写实时尚画册，而非卡通风格。\n\n六个衣橱面板及其具体内容：\n1. 顶部中心面板标签：{argument name=\"top outfit label\" default=\"RITUAL MOTION\"}。儿童身穿短款奶油色裹身衬衫、叠层腰带和腰包、宽松橄榄色哈伦裤、护腕以及米色绑带厚底凉鞋。4 个样本展示了奶油色面料、橄榄色面料、凉鞋和卷起的袋子。\n2. 左上面板标签：DISCIPLINE TRAINING。儿童身穿铁锈橙色运动短上衣、黑色宽松短款训练裤、红色护腕和橙色运动鞋。4 个样本展示了橙色面料、红色缠绕带、黑色面料和橙色运动鞋细节。\n3. 右上面板标签：FIELD MAINTENANCE。儿童身穿深色牛仔背带裤，内搭炭灰色衬衫，佩戴工作手套，卷起裤脚，穿着粗犷的棕色靴子。4 个样本展示了牛仔布、磨损的牛仔细节、黑色手套和棕色靴子。\n4. 左下面板标签：DEPTH EXPLORATION。儿童身穿厚重的深色复古潜水服或深海探索装备，配有圆形头盔、导管、厚重手套、实用细节和黑色靴子。4 个样本展示了黄铜舷窗/头盔细节、机械服质感、水下剪影场景和黑色靴子细节。\n5. 右下面板标签：CEREMONY PRESENCE。儿童身穿优雅飘逸的象牙色礼服，配有垂坠袖子、柔和褶皱、简约项链和浅色鞋子。4 个样本展示了象牙色垂坠面料、沙色/米色质感、吊坠项链和象牙色面料褶皱。\n6. 底部中心面板标签：WEEKEND UNWIND。儿童身穿超大号红色曲棍球球衣，印有数字 42 和带翼轮式徽章，搭配牛仔短裤、条纹袜和毛绒动物拖鞋。4 个样本展示了红白相间的球衣条纹、牛仔短裤、图案袜和毛绒鸭子拖鞋。\n\n排版：使用纤细的、字母间距较大的无衬线字体，颜色为柔和的灰褐色。面板标签小而简洁，必要时分为两行。中心文字较大，字间距较宽：第一行显示 SECTION，下方显示 42。\n\n视觉风格：极简奢华编辑风格，档案式衣橱分类，柔和的米色调，点缀柔和的橄榄色、铁锈色、牛仔蓝、象牙色、炭灰色和红色。写实风格的服装，具有真实的织物细节，干净的剪裁呈现，每个儿童下方有柔和的阴影，精确的细六边形边框。\n\n约束：使用正好 6 个全身儿童形象，总共 7 个六边形，总共 24 个样本/细节矩形，每个服装面板 4 个。无额外字符，无水印，无密集正文，无明亮背景，除虚构的球衣徽章外无任何标志。",
+    "promptPreview": "目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/科幻档案美学。 画布：垂直 2:3 海报，采用带有细微纹理的暖象牙色纸张背景，柔和的摄影棚灯光，柔和的阴影，以及大量的留白。使用纤细的浅灰褐色线条勾勒出正好 7 个六边形的蜂巢结构：1 个大型中心六边形和 6 个环绕的衣橱六边形。 布局：将中心六边…",
+    "source": "Community collected via @42",
+    "githubUrl": "https://x.com/i/status/2058168362476179583",
+    "createdAt": "2026-05-25T20:03:55.735Z"
+  },
+  {
+    "id": "100026",
+    "title": "日式手写风格早餐日记社媒配图",
+    "category": "海报与排版",
+    "styles": [
+      "Realistic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Social",
+      "Lifestyle"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Social",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-05-26-case-100026-breakfast-diary.jpg",
+    "imageAlt": "日式手写风格早餐日记社媒配图",
+    "prompt": "目标：创作一张温馨的早餐俯拍照片，配有手写日记风格的日文标注，营造出适合温暖清晨社交媒体帖子的氛围。画面应具有真实感、柔和的后期处理效果以及淡淡的怀旧气息。\n\n画布：16:9 宽屏横向图片，尺寸约为 1024×576。背景使用棕白格纹桌布，配以柔和的晨光、轻柔的阴影以及略带温暖的胶片质感。\n\n主体布局：放置 2 个主要的食物/饮品区。左侧是一个装饰性的红白瓷茶杯，盛着黑咖啡，放在配套的托盘上。右侧是一个白色大方盘，盛放早餐食物。左上角留出深色的负空间，用于书写标题。\n\n食物与物品数量：盘子区域内包含 7 个可见的早餐物品/道具：1 叠烤面包片、1 根剥了一半皮的熟香蕉、1 小堆格兰诺拉麦片、1 个透明玻璃碗盛着浅黄色苹果酱（顶部有 1 颗深色西梅）、1 个棕色鸡蛋、1 个位于鸡蛋后方的小木制蛋杯或木制杯垫，以及 1 个白色方盘。吐司应作为盘子的视觉中心，呈现金黄的烤制表面和厚实的白面包边。香蕉应位于盘子左上方。鸡蛋应位于盘子右上方。玻璃碗应位于右下方。格兰诺拉麦片应位于吐司和玻璃碗之间。\n\n手写文字与标注数量：添加 9 组白色/黑色墨水的手写标注，配有箭头、圆圈、小爱心、闪光符号和涂鸦。保留日文文本作为装饰性手写内容：\n1. 左上角大标题：「わたしの整う朝ごはん。」\n2. 标题下方副标题：「シンプルだけど、ちゃんと満たされる。」\n3. 咖啡附近的圆形注释：「今日も はじまりは 深い一杯から。」\n4. 咖啡下方的小注释：「ほっと息をつく、大切な時間。」\n5. 左下角带有粉色胶带的撕纸便签：「朝の光を浴びて、心もからだも ゆっくり目覚めていく。」\n6. 香蕉上方带箭头的注释：「完熟バナナで やさしい甘みを チャージ。」\n7. 鸡蛋旁边的气泡注释：「たんぱく質で 1日を すっきり スタート！」\n8. 吐司附近带箭头的注释：「サクッと焼けた トーストが 一番のごちそう。」\n9. 右下方围绕格兰诺拉麦片、苹果酱和整体感受的注释：「ザクザクのグラノーラで 食感と栄養をプラス。」、「りんごとプルーンで 自然な甘さを からだにやさしく。」以及「ちゃんと食べると、心までふんわり軽くなる。」\n\n视觉风格：写实的早餐摄影与随性的手绘叠加图形相结合。大部分手写文字使用白色墨水，盘子上的食物标签使用黑色墨水，并配以虚线气泡、弯曲箭头、小星星、小爱心和俏皮的下划线。字体应看起来像手写，而非数字化字体。标注应清晰可见，但带有自然的不完美感。\n\n可自定义元素：标题应显示为 {argument name=\"headline text\" default=\"わたしの整う朝ごはん。\"}；饮品应为 {argument name=\"morning drink\" default=\"红瓷杯中的黑咖啡\"}；主食应为 {argument name=\"main breakfast food\" default=\"厚实金黄的吐司\"}；水果应为 {argument name=\"fruit item\" default=\"熟香蕉和配有西梅的苹果酱\"}；整体氛围应为 {argument name=\"mood\" default=\"温柔、温馨、正念的清晨\"}。\n\n约束条件：保持构图整洁且令人食欲大开，不要添加超出规定数量的额外食物，不要出现人物或手部，避免出现 Logo 或水印，并将日文手写字自然地融入图片中，就像一张经过精心编辑的早餐日记照片。",
+    "promptPreview": "目标：创作一张温馨的早餐俯拍照片，配有手写日记风格的日文标注，营造出适合温暖清晨社交媒体帖子的氛围。画面应具有真实感、柔和的后期处理效果以及淡淡的怀旧气息。 画布：16:9 宽屏横向图片，尺寸约为 1024×576。背景使用棕白格纹桌布，配以柔和的晨光、轻柔的阴影以及略带温暖的胶片质感。 主体布局：放置 2 个主要的食物/饮品区。左侧是一个装饰性的红白瓷茶杯，盛着黑咖啡，放在配套的托盘上。右侧是一个白色大方盘，盛放早餐食物。左上角留出…",
+    "source": "Community collected via @chi Okey",
+    "githubUrl": "https://x.com/i/status/2058325688105763103",
+    "createdAt": "2026-05-25T20:03:10.804Z"
+  },
+  {
     "id": "100025",
     "title": "高端品牌Logo金属浮雕材质化展示",
     "category": "品牌与标志",

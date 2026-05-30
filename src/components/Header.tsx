@@ -18,7 +18,7 @@ interface NavItem {
   accent?: boolean;
 }
 
-function initialThemeMode(): ThemeMode {
+function readStoredThemeMode(): ThemeMode {
   if (typeof window === "undefined") return "system";
   try {
     return parseThemeMode(window.localStorage.getItem(THEME_KEY));
@@ -42,26 +42,23 @@ const THEME_OPTIONS: Array<{ mode: ThemeMode; label: string }> = [
 function HeaderImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  // IMPORTANT (hydration): the server/SSG render has no localStorage or
+  // Theme hydration gate. The server/SSG render has no localStorage or
   // matchMedia, so it always produces themeMode="system" + systemTheme="dark".
-  // If the client read localStorage during the FIRST render, the theme toggle
-  // icons (sun/moon <circle>) would differ from the server markup and React
-  // would throw a hydration mismatch, then fall back to full client rendering
-  // for the WHOLE app — silently destroying the SSG benefit. So we deliberately
-  // start from the same values the server used and only adopt the persisted
-  // mode + real system theme in an effect, after hydration has committed.
+  // Reading localStorage on the FIRST client render would make the theme toggle
+  // icons (sun/moon <circle>) differ from the server markup → hydration
+  // mismatch → full client re-render. So we start from the server's values and
+  // adopt the persisted mode + real system theme in an effect, gated by
+  // `themeReady`, after hydration has committed.
+  const [themeReady, setThemeReady] = useState(false);
   const [themeMode, setThemeMode] = useState<ThemeMode>("system");
   const [systemTheme, setSystemTheme] = useState<EffectiveTheme>("dark");
-  const [themeHydrated, setThemeHydrated] = useState(false);
   // Nav active-state gate. react-router's <NavLink> derives `aria-current` from
   // the router location. Under vite-react-ssg the client router's FIRST render
-  // can briefly resolve a different location than the SSG used, so the baked
+  // can briefly resolve a different location than the SSG used, so a baked
   // `aria-current="page"` didn't match the client's first render — React threw
-  // a hydration error and re-rendered the WHOLE app on the client (a big
-  // weak-network regression, and it defeats the SSG). We render nav links
-  // INACTIVE on the server and the first client render (deterministically
-  // identical), then enable active styling after mount. The highlight appears a
-  // frame later but hydration stays intact.
+  // a hydration error and re-rendered the WHOLE app on the client. We render
+  // nav links INACTIVE on the server and the first client render
+  // (deterministically identical), then enable active styling after mount.
   const [navMounted, setNavMounted] = useState(false);
   const location = useLocation();
   const effectiveTheme = resolveEffectiveTheme(themeMode, systemTheme);
@@ -73,33 +70,24 @@ function HeaderImpl() {
     setNavMounted(true);
   }, []);
 
-  // Adopt the persisted theme mode + real system theme once, after the first
-  // client render. The inline script in index.html already applied the correct
-  // `data-theme` to <html> pre-paint, so there's no visible flash.
   useEffect(() => {
-    setThemeMode(initialThemeMode());
-    setSystemTheme(getSystemTheme());
-    setThemeHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    // Don't touch the document until we've adopted the persisted values —
-    // otherwise the first commit (themeMode="system"/systemTheme="dark") would
-    // briefly force dark on a light-theme client, fighting the inline script.
-    if (!themeHydrated) return;
+    if (!themeReady) return;
     applyThemeToDocument(effectiveTheme);
     try {
       window.localStorage.setItem(THEME_KEY, themeMode);
     } catch {
       return;
     }
-  }, [themeHydrated, effectiveTheme, themeMode]);
+  }, [effectiveTheme, themeMode, themeReady]);
 
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
-    const media = window.matchMedia("(prefers-color-scheme: light)");
+    setThemeMode(readStoredThemeMode());
     const update = () => setSystemTheme(getSystemTheme());
     update();
+    setThemeReady(true);
+
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-color-scheme: light)");
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
   }, []);

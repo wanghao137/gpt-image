@@ -1,5 +1,43 @@
 [
   {
+    "id": "derived-brand-logo-materialization",
+    "title": "品牌浮雕Logo金属化材质渲染",
+    "category": "品牌与标志",
+    "tags": [
+      "brand",
+      "logo",
+      "3d",
+      "material",
+      "cgi"
+    ],
+    "description": "将品牌Logo以浮雕形式呈现在金属/哑光表面上，模拟硬币、纪念章或奢侈品牌压印效果，适用于品牌展示、VI物料、高端视觉识别系统",
+    "cover": "/uploads/templatederived-brand-logo-materialization.jpg",
+    "prompt": "{argument name=\"品牌名称\" default=\"LUXORA\"} + {argument name=\"金属色调\" default=\"玫瑰金\"}\nAct as a Senior CGI Artist and Brand Identity Director specializing in premium logo materializations. Your reference aesthetic: a logo mark that appears to have been pushed outward from behind a {argument name=\"表面材质\" default=\"拉丝金属\"} surface — like a relief stamp pressed from the reverse side of a metal sheet, a hallmark embossed on luxury packaging, or a raised seal on official documents. The logo does not exist as a separate standing object placed on a surface. It exists as a raised relief, an outward protrusion that is part of the surface itself.\n\nBRAND INTELLIGENCE SYSTEM\nBefore executing any phase, resolve these parameters:\n(1) LOGO GEOMETRY — identify {品牌名称}'s primary icon mark in its simplest most reduced form — the mark that works at any scale.\n(2) COLOR PALETTE — based on {金属色调}, build the full tonal system from the lightest specular highlight to the deepest shadow tone.\n(3) SURFACE MATERIAL — based on {金属色调}: silver/grey → brushed or circular-grain steel; gold/champagne → warm brushed metal with radial grain; black → anodized aluminum or matte carbon fiber; white → matte ceramic or chalk plaster; saturated hue → anodized colored metal.\n(4) LIGHT DIRECTION — determine the most flattering single light angle to reveal the emboss topography.\n\nPHASE 1: SURFACE & ATMOSPHERE\nThe entire image is one single continuous material surface — not a background with an object placed on it, but one unified physical plane filling the entire canvas. This surface is made of the SURFACE MATERIAL resolved above. The surface has a subtle radial gradient in its lighting — brighter near the center where the embossed logo sits, gradually darkening toward all four edges. Apply fine uniform grain texture across the entire surface at ISO 800 equivalent.\n\nPHASE 2: THE EMBOSS — CRITICAL\nThe {品牌名称} logo mark is rendered as a full bas-relief — think of a coin, a commemorative medal, or a luxury brand stamp. The ENTIRE logo shape rises as one unified solid mass from the surface — every filled area, every curve, every solid region pushes outward as one piece, at a uniform height above the surrounding flat surface. The top face of this raised form is slightly convex — gently domed — so it catches the key light across its full width. The transition from flat surface to raised form follows a smooth beveled wall — curved, not sharp — like the edge of a coin. Negative spaces WITHIN the logo are recessed back to the flat surface level, creating clean negative voids.\n\nPHASE 3: LIGHTING & FINISH\nOne primary soft area light from {argument name=\"光源方位\" default=\"左上10-11点钟\"} — broad and diffused, wrapping around the curved walls to create highlight peak at the top and gradual shadow descent on the far wall. {argument name=\"后期处理\" default=\"微妙电影级颗粒感, 微光反射, 无文字, 无水印\"}",
+    "useWhen": "需要将品牌Logo做高端材质化呈现时使用，如品牌手册封面、VI系统展示、社交媒体品牌视觉、高端产品包装预览",
+    "createdAt": "2026-05-28T02:02:49.741Z",
+    "sourceType": "manual",
+    "sourceLabel": "Creative Toolkit Gallery · Brand Identity · 3 entries analyzed (1043+257+162 likes)"
+  },
+  {
+    "id": "derived-fashion-typo-mask-poster",
+    "title": "时尚排版蒙版海报",
+    "category": "海报与排版",
+    "tags": [
+      "typography",
+      "poster",
+      "fashion",
+      "editorial",
+      "masking"
+    ],
+    "description": "文字蒙版 + 人物写真合成的高时尚编辑排版海报。大字作为镂空蒙版揭示下方人物照片，适合品牌宣言、时尚杂志、Campaign 视觉。",
+    "cover": "/uploads/templatederived-fashion-typo-mask-poster.jpg",
+    "prompt": "Style & Composition: High-fashion editorial typography poster with a strict 1:2 composition split. Layout & Ratio: The frame is divided so that the right two-thirds show the full subject and background, while the left one-third is reserved for the typography masking section.\n\nTypography Masking: A massive, ultra-bold, vertical word \"{argument name=\\\"蒙版文字\\\" default=\\\"ELEVATE\\\"}\" is placed on the left third. The text is strictly full-bleed, stretching perfectly and touching the absolute top and absolute bottom edges of the frame with zero vertical padding, gaps, or margins. This typography acts as a stencil mask: the letters reveal the underlying character, while the space to the far left of the letters is a solid, clean white.\n\nSubject Details & Positioning: An upper-body shot of {argument name=\\\"人物描述\\\" default=\\\"a young woman in haute couture, porcelain skin, bold red lipstick, sleek pulled-back hair\\\"}. The model is positioned so that only her left-most side is visible through the letters, while the rest of her body is fully visible and contained on the right side against a solid {argument name=\\\"主题色\\\" default=\\\"red\\\"} background, ensuring no part of the subject is cropped by the right edge of the frame. Pose: {argument name=\\\"姿势描述\\\" default=\\\"gazing slightly upward with serene confidence\\\"}, ensuring the silhouette remains within the center of the right two-thirds area.\n\nSecondary Text: In the top right corner, add the text: \"{argument name=\\\"副标题\\\" default=\\\"SS26 COLLECTION\\\"}\". Use a small, sophisticated, white \"Helvetica Condensed\" style font with wide letter spacing (kerning) for a premium, minimalist look. Color Palette: A strict monochromatic {argument name=\\\"主题色\\\" default=\\\"red\\\"} theme, sharply contrasted by the crisp white negative space on the left. 8k resolution, photorealistic textures, sharp studio lighting, high contrast, clean graphic design aesthetic.",
+    "useWhen": "需要生成文字镂空蒙版 + 人物写真合成的高端时尚海报、品牌宣言视觉、杂志封面风格设计时使用。支持替换蒙版文字、人物描述、姿势、主题色和副标题。",
+    "createdAt": "2026-05-27T01:44:00.026Z",
+    "sourceType": "manual",
+    "sourceLabel": "Creative Toolkit Gallery · Poster Design (1 prompt analyzed, 336 likes, 15K views)"
+  },
+  {
     "id": "derived-premium-dark-dashboard",
     "title": "高端暗色系数据仪表板 UI",
     "category": "UI 与界面",
@@ -30,7 +68,7 @@
       "Campaign"
     ],
     "description": "生成高质量产品英雄镜头、电商主图和商业推广海报，覆盖饮品美妆科技等多品类。",
-    "cover": "/images/templatederived-product-hero-shot.jpg",
+    "cover": "/images/templateproduct-commerce-visual.jpg",
     "prompt": "模板：产品英雄镜头与商业海报\n用途：生成产品推广英雄镜头、电商主图、品牌 Campaign 海报，覆盖食品饮料、美妆个护、科技电子、时尚服饰等多品类。\n\n视觉方向：Product / Commerce / Photography / Brand / Campaign\n\n基于以下结构生成可直接用于 GPT Image 2 的 Prompt：\n\n1. 目标\n明确创作目的——是单品英雄镜头、产品使用场景、品牌 Campaign 海报还是电商详情页主图。\n示例：\"为 {argument name=\"品牌名\" default=\"品牌\"} 的 {argument name=\"产品名\" default=\"产品\"} 创作一张 {argument name=\"画面类型\" default=\"英雄镜头\"}，呈现 {argument name=\"视觉调性\" default=\"高端、精致、具有强烈购买欲\"} 的视觉效果。\"\n\n2. 画布\n定义比例与背景环境。\n示例：\"{argument name=\"画布比例\" default=\"4:5 竖版\"}，{argument name=\"背景\" default=\"无缝纯色背景\"}，{argument name=\"光线\" default=\"摄影棚柔光，强调产品质感\"}。\"\n\n3. 主体\n描述产品本身——材质、颜色、标签细节、液体质感等。\n示例：\"{argument name=\"产品描述\" default=\"产品居中放置，展现精细的包装纹理、品牌标签、液体光泽\"}，{argument name=\"装饰元素\" default=\"飞溅的水珠、环绕的新鲜水果切片\"}。\"\n\n4. 布局与构图\n定义视觉层次和空间关系。\n示例：\"{argument name=\"构图\" default=\"居中对称，产品占画面 60%\"}，{argument name=\"层次\" default=\"前景产品清晰，背景柔焦虚化\"}。\"\n\n5. 排版（如适用）\n如果需要文字，定义字体风格与位置。\n示例：\"{argument name=\"文字\" default=\"产品名大字居上，品牌 slogan 底部\"}，{argument name=\"字体风格\" default=\"无衬线粗体，白色或金属质感\"}。\"\n\n6. 风格与约束\n定义渲染质量和禁忌。\n示例：\"{argument name=\"渲染风格\" default=\"超写实产品摄影，8K，浅景深，焦点清晰\"}。禁止：模糊的产品边缘、不自然的阴影、变形的文字。\"\n\n使用建议：\n- 饮品/美妆：重点写液体质感、光泽、飞溅/凝结水珠\n- 科技产品：强调金属/玻璃材质、屏幕反光、精密感\n- 食品：突出食材新鲜度、蒸汽/温度感、色彩饱和度\n- 时尚：用模特穿着场景代替纯产品照\n\n防坑指南：\n- 产品主体必须清晰锐利，不能被装饰元素遮挡\n- 文字拼写必须准确，尤其是品牌名\n- 避免产品比例失真（如饮料瓶变形）\n- 深色产品注意轮廓与背景的分离度",
     "useWhen": "用于产品英雄镜头、电商主图、品牌推广海报、单品详情页视觉。",
     "createdAt": "2026-05-24T13:56:38.000Z",
@@ -66,7 +104,7 @@
       "Screenshot"
     ],
     "description": "生成 App、网页、仪表盘、社媒截图等高保真界面。",
-    "cover": "/images/templateui-screenshot-system.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case17.jpg",
     "prompt": "模板：UI 截图系统\n用途：用于 App 截图、仪表盘、社媒截图和直播界面。\n视觉方向：UI / Dashboard / Screenshot / Tech / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 锁定平台、比例、层级和画面文字。\n- 明确状态栏、Tab、操作区、评论层等 UI 元素。\n\n防坑指南：\n- 避免平台描述过泛。\n- 约束文字可读性和平台特征。",
     "useWhen": "用于 App 截图、仪表盘、社媒截图和直播界面。",
     "sourceType": "upstream-style",
@@ -83,7 +121,7 @@
       "Education"
     ],
     "description": "生成结构化图解、时间线、知识图谱和技术解释图。",
-    "cover": "/images/templateinfographic-engine.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case334.png",
     "prompt": "模板：信息图引擎\n用途：用于解释图、技术图解、时间线和知识卡片。\n视觉方向：Infographic / Chart / Education / Charts / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义 3-5 个模块、信息流、层级和短标签。\n- 用色块、箭头、图标和留白控制复杂度。\n\n防坑指南：\n- 避免把长段正文塞进画面。\n- 先限制模块数量，再补视觉细节。",
     "useWhen": "用于解释图、技术图解、时间线和知识卡片。",
     "sourceType": "upstream-style",
@@ -100,7 +138,7 @@
       "Education"
     ],
     "description": "生成多尺度科学信息图，强调层级、标签和可读性。",
-    "cover": "/images/templatescientific-scale-diagram.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case341.jpg",
     "prompt": "模板：科学尺度缩放图\n用途：用于需要从微观到宏观展示尺度变化的科普主题。\n视觉方向：Infographic / Chart / Education / Charts / Realistic / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用 6-8 个尺度框，每个标签保持短句。\n- 展示单位、倍率和不同尺度的细节。\n\n防坑指南：\n- 避免所有尺度框长得一样。\n- 避免通用放大镜式布局。",
     "useWhen": "用于需要从微观到宏观展示尺度变化的科普主题。",
     "sourceType": "upstream-style",
@@ -117,7 +155,7 @@
       "Campaign"
     ],
     "description": "生成活动、产品、电影和社媒传播海报。",
-    "cover": "/images/templateposter-layout-system.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case345.jpg",
     "prompt": "模板：海报排版系统\n用途：用于活动海报、电影海报、封面和社媒传播视觉。\n视觉方向：Poster / Typography / Campaign / Commerce / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 锁定主体、标题、版式、配色和比例。\n- 突出标题层级和主视觉。\n\n防坑指南：\n- 需要成品海报时，避免生成拼贴展示板。\n- 约束多余文字和装饰符号。",
     "useWhen": "用于活动海报、电影海报、封面和社媒传播视觉。",
     "sourceType": "upstream-style",
@@ -134,7 +172,7 @@
       "Typography"
     ],
     "description": "生成运动员、道具、品牌色统一的商业运动海报。",
-    "cover": "/images/templatesports-campaign-poster.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case350.jpg",
     "prompt": "模板：运动商业 Campaign\n用途：用于运动品牌 Campaign、运动员海报和运动产品视觉。\n视觉方向：Poster / Campaign / Typography / Realistic / Commerce / Fashion\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义运动项目、姿态、核心道具、标题和品牌色。\n- 使用强光影、干净构图和可读数据层。\n\n防坑指南：\n- 避免错误运动器材和杂乱拼贴。\n- 让运动员和核心道具占据主导。",
     "useWhen": "用于运动品牌 Campaign、运动员海报和运动产品视觉。",
     "sourceType": "upstream-style",
@@ -151,7 +189,7 @@
       "Style"
     ],
     "description": "生成以标题文字为主视觉的高级字体海报。",
-    "cover": "/images/templateconceptual-typography-poster.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case355.jpg",
     "prompt": "模板：概念字体海报\n用途：用于标题文字需要成为主视觉结构的海报。\n视觉方向：Typography / Poster / Style / Creative / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 让字体成为画面主角，并保证标题拼写准确。\n- 人物、物体或风景需要服务标题含义。\n\n防坑指南：\n- 避免默认字效、无关图标和标题错字。\n- 控制配色数量，保持克制。",
     "useWhen": "用于标题文字需要成为主视觉结构的海报。",
     "sourceType": "upstream-style",
@@ -168,7 +206,7 @@
       "Style"
     ],
     "description": "生成水墨、人像与层叠氛围结合的视觉海报。",
-    "cover": "/images/templateink-double-exposure-poster.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case359.jpg",
     "prompt": "模板：水墨双重曝光海报\n用途：用于诗意人像海报、水墨氛围和文化主题视觉。\n视觉方向：Poster / Classical / Style / Illustration / Story / History\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 融合人像剪影、水墨质感、氛围和留白。\n- 保持构图克制、高级、可读。\n\n防坑指南：\n- 避免廉价奇幻拼贴和景物堆叠。\n- 非必要时减少文字。",
     "useWhen": "用于诗意人像海报、水墨氛围和文化主题视觉。",
     "sourceType": "upstream-style",
@@ -185,7 +223,7 @@
       "Style"
     ],
     "description": "生成极简产品感自然科普海报。",
-    "cover": "/images/templatenature-science-poster.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case339.jpg",
     "prompt": "模板：自然科普海报\n用途：用于自然主题的高级、干净科普海报。\n视觉方向：Poster / Education / Style / Infographic\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用清晰主体、少量文案、柔和阴影和充足留白。\n- 让科普标签短而清楚。\n\n防坑指南：\n- 避免广告感太重。\n- 避免密集百科正文。",
     "useWhen": "用于自然主题的高级、干净科普海报。",
     "sourceType": "upstream-style",
@@ -202,7 +240,7 @@
       "Packaging"
     ],
     "description": "生成商品图、包装、详情页和卖点排版。",
-    "cover": "/images/templateproduct-commerce-visual.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case373.jpg",
     "prompt": "模板：商品商业视觉\n用途：用于商品主图、包装视觉、详情页和销售卖点排版。\n视觉方向：Product / Commerce / Packaging / Realistic / Food\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义商品、卖点、材质、场景、光线和版块。\n- 区分主商品、卖点标签和辅助道具。\n\n防坑指南：\n- 避免无关道具削弱商品识别。\n- 约束包装文字和卖点表达。",
     "useWhen": "用于商品主图、包装视觉、详情页和销售卖点排版。",
     "sourceType": "upstream-style",
@@ -219,7 +257,7 @@
       "Style"
     ],
     "description": "生成美妆与生活方式产品的推荐报告版式。",
-    "cover": "/images/templatepersonalized-beauty-report.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case353.jpg",
     "prompt": "模板：个性化美妆报告\n用途：用于美妆推荐、肤质报告、导购助手和生活方式商品卡片。\n视觉方向：Product / Layout / Style / UI / Commerce / Fashion\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 使用诊断、推荐和商品卡片的报告层级。\n- 对齐商品图、标签和评分。\n\n防坑指南：\n- 避免医疗化结论和难读小字。\n- 保持推荐逻辑清楚。",
     "useWhen": "用于美妆推荐、肤质报告、导购助手和生活方式商品卡片。",
     "sourceType": "upstream-style",
@@ -236,7 +274,7 @@
       "Identity"
     ],
     "description": "生成 Logo、配色、字体、应用触点与品牌系统。",
-    "cover": "/images/templatebrand-identity-package.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case354.jpg",
     "prompt": "模板：品牌身份包\n用途：用于 Logo 系统、品牌板、VI 套件和应用样机。\n视觉方向：Brand / Logo / Identity / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义品牌名、定位、配色、字体、Logo 用法和触点。\n- 要求视觉板中的应用统一对齐。\n\n防坑指南：\n- 避免无关 Logo 变体和混乱配色。\n- 保持品牌文字准确。",
     "useWhen": "用于 Logo 系统、品牌板、VI 套件和应用样机。",
     "sourceType": "upstream-style",
@@ -253,7 +291,7 @@
       "Campaign"
     ],
     "description": "生成包装、社媒、网页和展示场景里的品牌触点板。",
-    "cover": "/images/templatebrand-touchpoint-board.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case362.jpg",
     "prompt": "模板：品牌触点视觉板\n用途：用于多触点 Campaign 展示和品牌落地预览。\n视觉方向：Brand / Identity / Campaign / Product / Commerce / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定触点清单、统一视觉规则和样机排列。\n- 让所有面板共享配色和字体逻辑。\n\n防坑指南：\n- 避免混入多个无关 Campaign 风格。\n- 可读性下降时减少触点数量。",
     "useWhen": "用于多触点 Campaign 展示和品牌落地预览。",
     "sourceType": "upstream-style",
@@ -270,7 +308,7 @@
       "Map"
     ],
     "description": "生成室内、建筑、城市地图和空间概念视觉。",
-    "cover": "/images/templatearchitecture-space.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case331.png",
     "prompt": "模板：建筑与空间\n用途：用于室内、建筑表现、城市地图、空间规划和环境概念图。\n视觉方向：Architecture / Interior / Map / Travel / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义视角、尺度、材质、光线和空间功能。\n- 地图需要指定地标、标签、边框装饰和准确度。\n\n防坑指南：\n- 概念图之外要避免不合理透视。\n- 锁定地图标签语言和相对位置。",
     "useWhen": "用于室内、建筑表现、城市地图、空间规划和环境概念图。",
     "sourceType": "upstream-style",
@@ -287,7 +325,7 @@
       "Lens"
     ],
     "description": "控制镜头、光线、胶片质感和纪实摄影效果。",
-    "cover": "/images/templaterealistic-photography.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case377.jpg",
     "prompt": "模板：写实摄影\n用途：用于人像、街拍、商品摄影和电影感写实。\n视觉方向：Photography / Realistic / Lens / Fashion / Commerce\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定机位、镜头、光源、质感、背景和动作。\n- 加入可信的小瑕疵增强纪实感。\n\n防坑指南：\n- 商业美妆之外，避免过度磨皮。\n- 需要时加入手部、文字、结构类负面约束。",
     "useWhen": "用于人像、街拍、商品摄影和电影感写实。",
     "sourceType": "upstream-style",
@@ -304,7 +342,7 @@
       "Scene"
     ],
     "description": "生成手机纪实风街头瞬间，并加入负面约束。",
-    "cover": "/images/templatestreet-accident-moment.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case376.jpg",
     "prompt": "模板：街头意外瞬间摄影\n用途：用于街头抓拍、意外泼洒、手机纪实和快速动作。\n视觉方向：Photography / Realistic / Scene / Travel / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 描述具体瞬间、机位高度、运动模糊和街景。\n- 加入避免摆拍和广告棚拍感的限制。\n\n防坑指南：\n- 避免画面过于干净。\n- 让事件看起来可信。",
     "useWhen": "用于街头抓拍、意外泼洒、手机纪实和快速动作。",
     "sourceType": "upstream-style",
@@ -321,7 +359,7 @@
       "Style"
     ],
     "description": "生成动漫、水彩、水墨、材质实验和艺术风格图。",
-    "cover": "/images/templateillustration-art-style.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case346.jpg",
     "prompt": "模板：插画与艺术风格\n用途：用于动漫、水彩、水墨、装饰画和风格实验。\n视觉方向：Illustration / Art / Style / Story / Creative\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义构图、主体、配色、笔触材质、情绪和完成度。\n- 参考图任务需要说明保留哪些特征。\n\n防坑指南：\n- 避免只写风格，不写构图。\n- 使用参考图时锁定角色识别。",
     "useWhen": "用于动漫、水彩、水墨、装饰画和风格实验。",
     "sourceType": "upstream-style",
@@ -338,7 +376,7 @@
       "Style"
     ],
     "description": "生成角色设定、动作分解和一致性参考。",
-    "cover": "/images/templatecharacter-design-sheet.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case347.jpg",
     "prompt": "模板：角色设定表\n用途：用于角色设定表、动作网格、动作拆解和一致性参考。\n视觉方向：Character / Pose / Style / Illustration / Story\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义身份锚点、服装、比例、动作数量和版式。\n- 保持脸、发型和服装细节一致。\n\n防坑指南：\n- 避免不同动作里服装细节变化。\n- 画面拥挤时减少动作数量。",
     "useWhen": "用于角色设定表、动作网格、动作拆解和一致性参考。",
     "sourceType": "upstream-style",
@@ -355,7 +393,7 @@
       "Style"
     ],
     "description": "把参考图转换成高级 3D 收藏玩具效果。",
-    "cover": "/images/template3d-collectible-toy.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case378.jpg",
     "prompt": "模板：3D 收藏玩具\n用途：用于高级收藏玩具、头像公仔、潮玩角色和 3D 展示图。\n视觉方向：Character / 3D / Style / Commerce / Creative\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 保留参考图中的脸和服装锚点。\n- 指定材质、包装、底座、光线和收藏比例。\n\n防坑指南：\n- 避免没有身份细节的通用玩具。\n- 包装文字保持少量且准确。",
     "useWhen": "用于高级收藏玩具、头像公仔、潮玩角色和 3D 展示图。",
     "sourceType": "upstream-style",
@@ -372,7 +410,7 @@
       "Storyboard"
     ],
     "description": "生成分镜、世界观、故事场景和情绪节奏。",
-    "cover": "/images/templatescene-storytelling.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case330.png",
     "prompt": "模板：场景叙事\n用途：用于分镜、世界观、直播场景和情绪叙事画面。\n视觉方向：Scene / Story / Storyboard / Scenes / Illustration / Social\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义人物、地点、时间、冲突、情绪和机位。\n- 让场景细节服务故事。\n\n防坑指南：\n- 避免通用幻想背景。\n- 让故事线索在画面里可见。",
     "useWhen": "用于分镜、世界观、直播场景和情绪叙事画面。",
     "sourceType": "upstream-style",
@@ -389,7 +427,7 @@
       "Scroll"
     ],
     "description": "生成朝代服饰、长卷叙事、诗词和传统题材。",
-    "cover": "/images/templatehistory-classical-themes.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case375.jpg",
     "prompt": "模板：历史与古风题材\n用途：用于古风题材、长卷、朝代服饰、诗词视觉和历史场景。\n视觉方向：History / Classical / Scroll / Illustration / Story\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 指定朝代、服饰制度、器物参考、版式和文化气质。\n- 明确长卷、册页或海报形式。\n\n防坑指南：\n- 需要历史准确时，避免朝代混搭。\n- 约束随机现代物件。",
     "useWhen": "用于古风题材、长卷、朝代服饰、诗词视觉和历史场景。",
     "sourceType": "upstream-style",
@@ -406,7 +444,7 @@
       "Layout"
     ],
     "description": "生成白皮书、手册、百科图鉴和页面系统。",
-    "cover": "/images/templatedocument-publishing.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case360.jpg",
     "prompt": "模板：文档与出版物\n用途：用于白皮书、手册、百科图鉴、报告页面和出版系统。\n视觉方向：Document / Publishing / Layout / Documents / Infographic / Education / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义页面尺寸、分栏、目录、图表系统和字体层级。\n- 使用可读标题、表格、标签和页面节奏。\n\n防坑指南：\n- 避免密集小字。\n- 让图表和说明对齐页面网格。",
     "useWhen": "用于白皮书、手册、百科图鉴、报告页面和出版系统。",
     "sourceType": "upstream-style",
@@ -423,7 +461,7 @@
       "Special"
     ],
     "description": "生成研发板、拆解图、混合任务和特殊输出。",
-    "cover": "/images/templateconcept-product-breakdown.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case370.jpg",
     "prompt": "模板：概念产品研发拆解\n用途：用于实验型任务、研发视觉板、拆解图和特殊视觉系统。\n视觉方向：Creative / R&D / Special / Other Use Cases / Product / Tech\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[要生成的产品、人物、空间、界面或信息主题]\n- 场景：[使用环境、叙事背景、受众语境]\n- 构图：[画面比例、镜头距离、主体位置、层级关系]\n- 风格：[材质、光线、色彩、字体或渲染语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n使用建议：\n- 定义产物类型、组件、标签、材质逻辑和展示格式。\n- 使用清晰标注和受控技术风格。\n\n防坑指南：\n- 避免任务边界过泛。\n- 标签要短，组件关系要清楚。",
     "useWhen": "用于实验型任务、研发视觉板、拆解图和特殊视觉系统。",
     "sourceType": "upstream-style",
@@ -440,7 +478,7 @@
       "Social"
     ],
     "description": "把标题、主体和高点击信息层组织成小红书封面。",
-    "cover": "/images/case403.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case403.jpg",
     "prompt": "模板：小红书爆款封面\n用途：用于小红书笔记封面、种草图、合集封面和教程首图。\n视觉方向：XHS / Cover / Social / Character / 3D / Creative / UI / Tech / Poster / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「高点击标题、主体识别、封面层级、留白和移动端可读性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #403 小红书数字破屏 3D 女孩: 将一位气质绝佳的女孩放置在一个显示小红书帖文的3D透明玻璃手机画面中，并重新调整她的身体姿势，使她看起来像是正从屏幕中突破、进入现实世界。其中一只脚必须强烈地朝向观者延伸，采用戏剧化的 3D…\n- #402 3D 小红书个人资料卡: 一只手中握着一张3D小红书个人资料卡，卡片中间方形镂空，一个女孩随意地坐在卡片镂空的边缘，温暖的米色和柔和的粉彩美学背景，逼真的深度和阴影，电影般的柔和光线，闪亮光滑的纹理，小红书风格的UI…\n- #287 不知火舞的小红书主页: [中文] 生成不知火舞的小红书主页截图 [English] Generate a screenshot of Mai Shiranui's Xiaohongshu homepage\n\n使用建议：\n- 先锁定 高点击标题、主体识别、封面层级、留白和移动端可读性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免长段正文、错误标题、平台 UI 标识和过多装饰贴纸。",
     "useWhen": "用于小红书笔记封面、种草图、合集封面和教程首图。",
     "sourceType": "derived-case",
@@ -464,18 +502,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/images/case100005.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Portrait / Product / Brand / Social / Commerce / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100005 把自拍变成动漫电影名场面教学: 轻小说封面风，电影感数位绘画，Starbucks咖啡馆内部。极低视角广角透视，镜头贴近地面，前景虚化。缩小版Q版公仔惊慌逃跑，双脚高速奔跑、头髮与(裙摆/长裤 )被速度带起，表情紧张可爱。主…\n- #100022 韩式咖啡馆饮品剪贴簿海报: 目标：为一款韩式咖啡馆饮品创作一张梦幻复古的剪贴簿海报，以分层冰开心果玫瑰拿铁为中心，采用浪漫的粉色与开心果绿配色，呈现 Pinterest 风格的咖啡馆日记美学及手写注释。 画布：2:3 …\n- #100021 餐饮品牌全案VI物料矩阵: Generate a [Restaurant Brand Touchpoint Matrix] series visual that showcases a complete restaur…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-05-26-case-100026-breakfast-diary.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Social / Brand / Portrait / Lifestyle / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100026 日式手写风格早餐日记社媒配图: 目标：创作一张温馨的早餐俯拍照片，配有手写日记风格的日文标注，营造出适合温暖清晨社交媒体帖子的氛围。画面应具有真实感、柔和的后期处理效果以及淡淡的怀旧气息。 画布：16:9 宽屏横向图片，尺…\n- #100022 韩式咖啡馆饮品剪贴簿海报: 目标：为一款韩式咖啡馆饮品创作一张梦幻复古的剪贴簿海报，以分层冰开心果玫瑰拿铁为中心，采用浪漫的粉色与开心果绿配色，呈现 Pinterest 风格的咖啡馆日记美学及手写注释。 画布：2:3 …\n- #100021 餐饮品牌全案VI物料矩阵: Generate a [Restaurant Brand Touchpoint Matrix] series visual that showcases a complete restaur…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100005",
+      "100026",
       "100022",
       "100021",
       "100020",
-      "100016"
+      "100019"
     ]
   },
   {
@@ -488,18 +526,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/images/case100024.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Minimal / Brand / Fashion / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100024 未来感电商产品概览海报设计: 目标：为 {argument name=\"product type\" default=\"黑色透肤丝袜\"} 创建一张未来感电商产品概览海报，风格类似于高科技产品发布页面。 画布：1:1 正方形…\n- #100015 超充满活力的Poppi草莓柠檬苏打英雄镜头: 超充满活力的Poppi草莓柠檬苏打英雄镜头，热粉色无缝背景，超大的光泽草莓和切片柠檬包围在罐周围，凝结液滴覆盖苏打罐，起泡起泡 清爽能量、亮黄色口音、俏皮的Z世代互联网美学、干净的商业饮料成…\n- #462 复古日系迷你橡皮商品包装: 添付されたキャラクターシートをSTRICTなデザインリファレンスとして使用すること。 キャラクターの顔、髪型、目の形、プロポーションは絶対に変更しない。 ■目的： キャラクターを日本の「ちび…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-05-29-case-100032-drpepper-diner-poster.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100032 电影级品牌饮料餐馆场景广告海报: 目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈…\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100032",
+      "100031",
+      "100027",
       "100024",
-      "100015",
-      "462",
-      "459",
-      "455"
+      "100015"
     ]
   },
   {
@@ -512,18 +550,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/images/case100014.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Cinematic / Lifestyle / Poster / Commerce / Product / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n- #100011 ⚡C罗战斗日海报｜葡萄牙 VS 哥伦比亚: 超真实足球海报，C罗背影，葡萄牙7号战袍，拳头胜利高举，巨型“MATCH DAY”字样，现代体育设计风格，葡萄牙 vs 哥伦比亚LOGO，世界杯2026元素，电影感球场氛围，斜纹国旗元素，光…\n- #100010 晚风撩发，街角的心动瞬间: 中文提示词： 场景与环境： 夜晚，城市街道，艺术街区，红砖墙，大树，树影，路灯，远处城市灯光，街角夜景 人物描述： 年轻亚洲女性，长腰际深棕色波浪发，娃娃脸，白皙透亮肌肤，自然妆容，微微挑起…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-05-30-case-100039-comic-story-4panel.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Realistic / Illustration / Editorial / Brand / Poster / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100039 四格漫画风跨次元叙事写真: 主题：{argument name=\"theme\" default=\"一个漫画风格的 4 格故事，讲述一名女孩在夏日午后从漫画世界步入现实\"} 人物/表情：{argument name=\"c…\n- #100037 波普艺术时尚编辑街拍: A full-body fashion editorial scene against a vibrant electric-blue studio background with laye…\n- #100036 电影感屋顶光影人像: Use the uploaded portrait only as the identity reference. Preserve the person’s real facial fea…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100014",
-      "100011",
-      "100010",
-      "100008",
-      "100007"
+      "100039",
+      "100037",
+      "100036",
+      "100035",
+      "100034"
     ]
   },
   {
@@ -536,8 +574,8 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/images/case100008.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Commerce / Tech / Brand / Portrait / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100008 涩谷裸眼3D大屏，把夏天的海风搬进城市: 提示词： 日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，…\n- #100013 电影极简主义旅行海报: [城市名称]的电影极简主义旅行海报 自动调整视觉语言以适应地点的地理、文化、建筑、气候和情感氛围。 灵感源自大韩航空《Morning Calm》机上杂志封面美学明亮、优雅、乐观的视觉氛围。 …\n- #464 高雄水彩拼贴旅行海报: Watercolor and collage travel poster for Kaohsiung, Taiwan, vertical layout, soft pastel and wa…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-05-18-100008.png",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Commerce / Tech / Brand / Portrait / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100008 涩谷裸眼3D大屏，把夏天的海风搬进城市: 提示词： 日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，…\n- #100013 电影极简主义旅行海报: [城市名称]的电影极简主义旅行海报 自动调整视觉语言以适应地点的地理、文化、建筑、气候和情感氛围。 灵感源自大韩航空《Morning Calm》机上杂志封面美学明亮、优雅、乐观的视觉氛围。 …\n- #474 四城极简旅行海报系列: Minimalist flat travel poster illustration series of iconic destinations around the world, clea…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -545,9 +583,9 @@
     "derivedFrom": [
       "100008",
       "100013",
-      "464",
-      "461",
-      "454"
+      "474",
+      "469",
+      "464"
     ]
   },
   {
@@ -560,15 +598,16 @@
       "KV"
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
-    "cover": "/images/case252.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV / Other Use Cases / Creative / Poster / Product / Tech / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #252 五一劳动节手举牌创意设计集: [中文] 生成一系列五一劳动节的手举牌设计 [English] Generate a series of hand-held sign designs for May Day Labor D…\n- #139 主题海报版式设计: { \"type\": \"Japanese promotional landing page poster\", \"style\": \"hyper-energetic, explosive typo…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case252.jpg",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV / Other Use Cases / Creative / Poster / Product / Tech / Commerce / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #252 五一劳动节手举牌创意设计集: [中文] 生成一系列五一劳动节的手举牌设计 [English] Generate a series of hand-held sign designs for May Day Labor D…\n- #139 主题海报版式设计: { \"type\": \"Japanese promotional landing page poster\", \"style\": \"hyper-energetic, explosive typo…\n- #100035 超写实混乱自拍节日场景: Ultra-realistic super cute chaotic Eid al-Adha selfie photograph in front of a dreamy pastel-to…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "252",
-      "139"
+      "139",
+      "100035"
     ]
   },
   {
@@ -581,18 +620,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "/images/case335.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / UI / Social / Character / Creative / Illustration / Tech / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #335 朋友圈截图生成: 原文未公开，重点展示 GPT-Image2 在高仿社交截图与中文排版场景中的能力。\n- #302 九位大师的机械键盘设计图鉴: [中文] 一个九宫格图片，展现九位当代知名设计师设计的同一组物体：机械键盘，包括设计师头像，设计师对于设计的中文文字解读和作品呈现。排版统一规则 [English] A nine-grid …\n- #274 成都吃货暴走手绘美食地图: [中文] 一张手绘风格的城市美食地图，以成都为主题。画面以鸟瞰视角的手绘简化城市地图为底，标注主要道路和地标但不追求精确比例而是追求可爱的手绘感。地图上分布着 12 个美食地点的精致手绘小插…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case467.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Character / Commerce / UI / Social / Creative / Illustration / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n- #335 朋友圈截图生成: 原文未公开，重点展示 GPT-Image2 在高仿社交截图与中文排版场景中的能力。\n- #302 九位大师的机械键盘设计图鉴: [中文] 一个九宫格图片，展现九位当代知名设计师设计的同一组物体：机械键盘，包括设计师头像，设计师对于设计的中文文字解读和作品呈现。排版统一规则 [English] A nine-grid …\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "467",
       "335",
       "302",
       "274",
-      "267",
-      "235"
+      "267"
     ]
   },
   {
@@ -605,18 +644,18 @@
       "Pack"
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
-    "cover": "/images/case378.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / Realistic / Brand / 3D / Tech / Commerce / Character / Creative\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n- #302 九位大师的机械键盘设计图鉴: [中文] 一个九宫格图片，展现九位当代知名设计师设计的同一组物体：机械键盘，包括设计师头像，设计师对于设计的中文文字解读和作品呈现。排版统一规则 [English] A nine-grid …\n- #188 暗黑极简头像网站视觉设计: [中文] 用 ABCD（a black cover design) 的风格，为 图你太美 设计一个 vi 系统。图你太美是一个头像美图分享 网站。 [English] In the styl…\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "cover": "https://cms-assets.youmind.com/media/1779440774362_1zr6h8_HIz7XFBbkAACCFE.jpg",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / Poster / Realistic / Social / Commerce / Editorial / Brand / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100022 韩式咖啡馆饮品剪贴簿海报: 目标：为一款韩式咖啡馆饮品创作一张梦幻复古的剪贴簿海报，以分层冰开心果玫瑰拿铁为中心，采用浪漫的粉色与开心果绿配色，呈现 Pinterest 风格的咖啡馆日记美学及手写注释。 画布：2:3 …\n- #100016 可爱的剪贴簿风格美食摄影海报: 可爱的剪贴簿风格美食摄影海报、美观的抹茶拿铁饮料平板画、卡哇伊咖啡馆设计、分层的冰抹茶配草莓泥和牛奶漩涡、混合涂鸦插图的现实饮料摄影、俏皮的手写笔记和箭头、贴纸拼贴美学、舒适的Pintere…\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100022",
+      "100016",
       "378",
       "302",
-      "188",
-      "44",
-      "40"
+      "267"
     ]
   },
   {
@@ -629,13 +668,14 @@
       "Portrait"
     ],
     "description": "生成自然、温暖、身份稳定的儿童或全家福影像。",
-    "cover": "/images/case452.jpg",
-    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Realistic / Illustration / Character / Tech / Commerce / Social / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n- #393 Y2K 金色时刻人像: candid portrait of a beautiful young blonde woman, 21 years old, glowing sun-kissed skin, weari…\n- #461 家庭旅行纸雕拼贴: Adorable kawaii family travel collage, combining four different scenes in one composition, cute…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case469.jpg",
+    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Infographic / Illustration / Character / Education / Travel / Story / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #469 导览式科普绘本: 《导览式科普绘本》提示词： 请根据【主题】创作一张高完成度的「导览式科普绘本」风格插画。 这是一张结合“大型场景主视觉 + 导览路线 + 可爱导览 IP + 知识站点 + 儿童科普绘本质感”…\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n- #393 Y2K 金色时刻人像: candid portrait of a beautiful young blonde woman, 21 years old, glowing sun-kissed skin, weari…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
     "useWhen": "用于亲子写真、儿童毕业照、节日合影和家庭记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "469",
       "452",
       "393",
       "461",
@@ -652,18 +692,18 @@
       "Mascot"
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
-    "cover": "/images/case100005.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Realistic / Poster / Portrait / Product / Brand / Tech / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100005 把自拍变成动漫电影名场面教学: 轻小说封面风，电影感数位绘画，Starbucks咖啡馆内部。极低视角广角透视，镜头贴近地面，前景虚化。缩小版Q版公仔惊慌逃跑，双脚高速奔跑、头髮与(裙摆/长裤 )被速度带起，表情紧张可爱。主…\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n- #32 插画艺术创作图: { \"type\": \"3x3 character expression grid\", \"style\": \"{argument name=\\\"art style\\\" default=\\\"3D …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case419.jpg",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / UI / Infographic / Poster / Tech / Commerce / Food / Creative\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #419 可颂烘焙流程 Storyboard: Create a crisp, clean infographic storyboard poster for THE CROISSANT BAKER. Wide 16:9 layout, …\n- #402 3D 小红书个人资料卡: 一只手中握着一张3D小红书个人资料卡，卡片中间方形镂空，一个女孩随意地坐在卡片镂空的边缘，温暖的米色和柔和的粉彩美学背景，逼真的深度和阴影，电影般的柔和光线，闪亮光滑的纹理，小红书风格的UI…\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100005",
+      "419",
+      "402",
       "378",
       "32",
-      "371",
-      "347"
+      "473"
     ]
   },
   {
@@ -676,7 +716,7 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/images/case422.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case422.jpg",
     "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / UI / Infographic / Poster / Tech / Commerce / Food / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #422 冬季生存惊悚 Storyboard: Cinematic Survival Thriller Storyboard Prompt Create a premium cinematic storyboard presentatio…\n- #419 可颂烘焙流程 Storyboard: Create a crisp, clean infographic storyboard poster for THE CROISSANT BAKER. Wide 16:9 layout, …\n- #413 当代舞现场 Storyboard: Create a raw contemporary dance performance storyboard focused on intense physical movement and…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
@@ -700,18 +740,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/images/case100014.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Cinematic / Lifestyle / Portrait / UI / Tech / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n- #395 骑士法师大战石像魔像: Create a cinematic dark fantasy action scene in a ruined cathedral hall: a {argument name=\"hero…\n- #391 四国文化锚点服装设计宫格: <instructions> input: continent pick 4 lesser known countries in that continent function drawx(…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-05-30-case-100038-wooden-pagoda-section.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Poster / 3D Render / Editorial / Infographic / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100038 古代木塔建造过程3D剖面建筑蓝图: 目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 …\n- #100023 极简奢华品牌概念演示封面设计: 目标：为 {argument name=\"brand name\" default=\"BRAND\"} 创建一张极简奢华品牌概念演示封面 Slides，采用分栏式编辑布局，结合稀疏排版与电影质感…\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100038",
+      "100023",
       "100014",
-      "395",
-      "391",
-      "390",
-      "381"
+      "100008",
+      "100018"
     ]
   },
   {
@@ -724,7 +764,7 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/images/case453.jpg",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case453.jpg",
     "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Poster / Brand / Tech / Commerce / Story / Documents / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #453 企业级商用画册视觉系统: 请生成一套企业级商用画册视觉方案，主题为【品牌名称】的【行业 / 产品 / 解决方案】宣传画册。 整体风格：高端、专业、具有强视觉冲击力；避免传统 Word 排版感和普通 PPT 感。采用【…\n- #303 人教版三年级语文课本内页: [中文] 生成人教版小学三年级语文课本的一页 [English] Generate a page from the PEP (People's Education Press) primar…\n- #293 聚焦人工智能的校园日报: [中文] 生成一张校园日报，主题AI教育 [English] Generate a campus daily newspaper, theme AI education\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
