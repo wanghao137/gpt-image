@@ -1,5 +1,33 @@
 [
   {
+    "id": "100043",
+    "title": "Nike风格品牌产品广告活动排版",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial",
+      "Poster"
+    ],
+    "scenes": [
+      "Commerce",
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-06-01-case-100043-nike-ad-layout.jpg",
+    "imageAlt": "Nike风格品牌产品广告活动排版",
+    "prompt": "以 REFERENCE_0 作为产品和生活方式照片的基础，将这张休闲鞋照片转化为 {argument name=\"product name\" default=\"Nike Mind 001\"} 的精美 Nike 风格产品广告活动。保持原有的白色一脚蹬恢复鞋概念，保留鞋垫中的橙色按摩节点，并将原始的甲板照片作为拼贴元素之一，但要将其重新设计为干净的编辑品牌排版。\n\n在垂直画布上创建 3 个堆叠的水平海报板块，并用细边框分隔：\n\n板块 1：主推海报。展示一张向上倾斜的大型浮动鞋子剪影渲染图，右侧配有米色沙漠/岩石景观条，并辅以极简的纸张纹理拼贴元素。添加醒目的大标题“Nike”和“mind 001”。添加副标题 {argument name=\"recovery tagline\" default=\"Recovery for Body. Calm for Mind.\"}。左上角包含小型产品系统文本，一个写着“mental reset.”的小型手写椭圆便签，三个简单的圆形功能图标，分别标注为“LIGHTWEIGHT COMFORT”（轻盈舒适）、“MASSAGE FOOTBED”（按摩鞋垫）和“EASY SLIP-ON”（轻松穿脱），以及一张小型产品标签卡和页脚短语“MOVE LESS. FEEL MORE.”。\n\n板块 2：生活方式拼贴广告。使用参考照片作为右上方的矩形主图，保留脚踩甲板的视角。周围环绕产品细节剪影图：一张透气鞋面的特写，一张橙色按摩鞋垫的角度视图，以及一张波浪形缓冲鞋底的特写。左侧添加醒目大标题 {argument name=\"middle headline\" default=\"Made to Feel Better.\"}。左上角添加手写便签“Every step, a soft reset.”，右上角添加纸质便签“Take it easy. You’re doing great.”，一个小标签写着“DETAILS 001”，以及指向“Breathable upper Soft support. All day calm.”和“Cushioning that moves with you.”的手写标注箭头。\n\n板块 3：多角度产品海报。在米白色背景上展示 3 个浮动的鞋子剪影视图：上方中心附近的一个斜上方视图，左下方显示橙色鞋垫的侧/上方视图，以及右侧的一个鞋底/侧面视图。左侧添加堆叠的大字体排版，写着“Mind Set. Go Light.”，其中“Light.”为橙色。包含小型 Nike Mind Series 文本，一个写着 {argument name=\"handwritten note\" default=\"Simple. Soft. Essential.\"} 的圆形手写便签，右侧一个垂直条形码标签，写着“MIND 001”和“YOUR DAILY RESET.”，以及一个橙色的行动呼吁按钮，写着 {argument name=\"button text\" default=\"SHOP NIKE MIND 001 →\"}。\n\n风格：高端极简运动鞋活动，米白色纸张背景，柔和阴影，剪贴画美学，黑色/灰色排版搭配橙色强调色，微妙的胶带纸纹理，手写红/橙色铅笔标注，干净的现代无衬线字体。使鞋子看起来像高端摄影棚产品渲染图，同时清晰地源自参考鞋款。避免添加额外的板块、指定产品视图之外的额外鞋子、水印，或除 Nike 风格标记和文本之外的无关品牌内容。",
+    "promptPreview": "以 REFERENCE_0 作为产品和生活方式照片的基础，将这张休闲鞋照片转化为 {argument name=\"product name\" default=\"Nike Mind 001\"} 的精美 Nike 风格产品广告活动。保持原有的白色一脚蹬恢复鞋概念，保留鞋垫中的橙色按摩节点，并将原始的甲板照片作为拼贴元素之一，但要将其重新设计为干净的编辑品牌排版。 在垂直画布上创建 3 个堆叠的水平海报板块，并用细边框分隔： 板块 1：主推…",
+    "source": "Community collected via @busyddd",
+    "githubUrl": "https://x.com/busyddd/status/2058574902119342262",
+    "createdAt": "2026-05-31T20:03:02.492Z"
+  },
+  {
     "id": "100042",
     "title": "古代忍者角色解剖手稿档案图",
     "category": "历史与古典",
