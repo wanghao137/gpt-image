@@ -19,7 +19,7 @@ interface TemplateEditorProps {
 
 function makeEmpty(): ManualTemplate {
   return {
-    id: `tmpl-${Date.now().toString(36)}`,
+    id: `tmpl-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
     title: "",
     category: "其他用例",
     tags: [],

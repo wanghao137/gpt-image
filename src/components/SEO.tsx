@@ -1,6 +1,6 @@
 import { Head } from "vite-react-ssg";
 import { BRAND, formatSiteTitle } from "../lib/brand";
-import { absoluteUrl } from "../lib/seo-url.mjs";
+import { absoluteUrl, jsonLdSafeStringify } from "../lib/seo-url.mjs";
 
 interface SEOProps {
   title: string;
@@ -25,10 +25,11 @@ interface SEOProps {
 
 const SITE_URL = BRAND.siteUrl;
 const SITE_NAME = BRAND.name;
-// Default OG card. The SVG ships under /public/og.svg as a 1200x630 baked-in
-// card. Most platforms (WeChat, Twitter, LinkedIn) rasterise SVG fine; if a
-// PNG is later dropped at /og.png it'll override automatically.
-const DEFAULT_OG = `${SITE_URL}/og.svg`;
+// Default OG card. A baked 1200×630 PNG (built from public/og.svg by
+// `scripts/build-og-image.mjs`). PNG — not SVG — because WeChat / Twitter / X
+// and many scrapers don't rasterise SVG `og:image`, which produced image-less
+// share cards on first/no-image pages.
+const DEFAULT_OG = `${SITE_URL}/og.png`;
 
 /**
  * Per-page <head> manager + JSON-LD emitter.
@@ -96,14 +97,16 @@ export function SEO({
 
       {/* JSON-LD lives in body — search engines parse it regardless of
           placement. `suppressHydrationWarning` keeps a (cosmetic) inner-HTML
-          diff from escalating into a fatal hydration bailout. */}
+          diff from escalating into a fatal hydration bailout.
+          `jsonLdSafeStringify` escapes `<`/`>`/`&` so a field containing
+          `</script>` (titles/descriptions/source flow from upstream sync +
+          admin/Hermes input, i.e. NOT trusted) can't break out of the tag. */}
       {ldArray.map((data, i) => (
         <script
           key={`ld-${i}`}
           type="application/ld+json"
           suppressHydrationWarning
-          // Trusted, locally-built JSON, never user input.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdSafeStringify(data) }}
         />
       ))}
     </>

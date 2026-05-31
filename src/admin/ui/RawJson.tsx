@@ -38,20 +38,32 @@ export function RawJson<T>({
     if (!touched) setText(JSON.stringify(data, null, 2));
   }, [data, touched]);
 
+  // Debounced parse + propagate. The textarea value updates instantly
+  // (responsive typing); the expensive JSON.parse + onChange only runs ~250ms
+  // after the user stops typing, so large arrays don't re-parse per keystroke.
+  useEffect(() => {
+    if (!touched) return;
+    const handle = window.setTimeout(() => {
+      try {
+        const parsed = JSON.parse(text);
+        if (!Array.isArray(parsed)) {
+          setError("根节点必须是数组");
+          return;
+        }
+        setError("");
+        onChange(parsed as T);
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "JSON 无效");
+      }
+    }, 250);
+    return () => window.clearTimeout(handle);
+    // onChange identity is stable (admin store callbacks are memoised).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, touched]);
+
   const onTextChange = (v: string) => {
     setText(v);
     setTouched(true);
-    try {
-      const parsed = JSON.parse(v);
-      if (!Array.isArray(parsed)) {
-        setError("根节点必须是数组");
-        return;
-      }
-      setError("");
-      onChange(parsed as T);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "JSON 无效");
-    }
   };
 
   const handleFormat = () => {

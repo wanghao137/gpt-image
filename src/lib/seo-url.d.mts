@@ -13,6 +13,9 @@ export function imageDimensionsForRatio(
 /** Collapse whitespace and hard-truncate with an ellipsis. */
 export function clipText(value: string | null | undefined, max: number): string;
 
+/** JSON.stringify that escapes HTML/script-context chars for safe inline <script> embedding. */
+export function jsonLdSafeStringify(data: unknown): string;
+
 /** Derive a case's SEO title + description from its content (not stored). */
 export function deriveCaseSeo(
   promptCase: { title?: string; promptPreview?: string },

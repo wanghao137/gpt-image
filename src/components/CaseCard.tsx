@@ -2,7 +2,8 @@ import { memo, useCallback, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
-import { getCachedPrompt, prefetchPrompt } from "../hooks/usePrompt";
+import { getCachedPrompt, loadPrompt, prefetchPrompt } from "../hooks/usePrompt";
+import { toast } from "../hooks/useToast";
 import { useLongPress } from "../hooks/useLongPress";
 import { tagLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
@@ -197,16 +198,31 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
     }
     setCopying(true);
     try {
-      const url = `${import.meta.env.BASE_URL}data/prompts/${data.id}.json`;
-      const r = await fetch(url, { cache: "force-cache" });
-      const json = (await r.json()) as { prompt: string };
-      copy(json.prompt);
+      // Reuse the shared loader (timeout + de-dup + cache).
+      const prompt = await loadPrompt(data.id);
+      if (prompt) {
+        copy(prompt);
+      } else if (data.promptPreview) {
+        // Empty prompt file — fall back to the preview so the user gets
+        // *something* useful rather than an empty clipboard.
+        copy(data.promptPreview);
+      } else {
+        throw new Error("empty prompt");
+      }
     } catch {
-      copy("");
+      // NEVER copy an empty string with a success toast. Try the preview as a
+      // last resort; otherwise surface a real failure.
+      if (data.promptPreview) {
+        copy(data.promptPreview);
+      } else {
+        toast.error("Prompt 加载失败", {
+          description: "网络不稳定，请打开详情页重试。",
+        });
+      }
     } finally {
       setCopying(false);
     }
-  }, [copy, data.id]);
+  }, [copy, data.id, data.promptPreview]);
 
   // ── Long press / right click → action sheet ──
   const longPress = useLongPress({
@@ -322,6 +338,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
                 hover-only on desktop. */}
             <button
               type="button"
+              data-no-longpress
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -371,7 +388,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
               <span className="truncate">{data.source}</span>
             </div>
           )}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" data-no-longpress>
             <button
               type="button"
               onClick={(e) => {
@@ -458,6 +475,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
 
           <button
             type="button"
+            data-no-longpress
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();

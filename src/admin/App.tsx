@@ -34,12 +34,15 @@ export function AdminApp() {
     if (stage.kind !== "connecting" || stage.verifying) return;
     const cached = readToken();
     if (!cached) return;
+    let cancelled = false;
     setStage({ kind: "connecting", verifying: true });
     checkToken(REPO_TARGET, cached)
       .then(({ login }) => {
+        if (cancelled) return;
         setStage({ kind: "ready", token: cached, login });
       })
       .catch((e) => {
+        if (cancelled) return;
         // Token expired or invalid — wipe and prompt for a new one.
         saveToken("");
         setStage({
@@ -48,6 +51,9 @@ export function AdminApp() {
           error: e instanceof Error ? e.message : "Token 验证失败",
         });
       });
+    return () => {
+      cancelled = true;
+    };
     // We only want this to run on the first connecting transition.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage.kind]);

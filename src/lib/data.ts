@@ -109,6 +109,8 @@ export const ALL_TEMPLATES: PromptTemplate[] = templatesJson as PromptTemplate[]
 
 const BY_SLUG = new Map<string, PromptCase>(ALL_CASES.map((c) => [c.slug, c]));
 const BY_ID = new Map<string, PromptCase>(ALL_CASES.map((c) => [c.id, c]));
+// Position index for O(1) prev/next lookup in caseNeighbors.
+const INDEX_BY_ID = new Map<string, number>(ALL_CASES.map((c, i) => [c.id, i]));
 
 export function getCaseBySlug(slug: string): PromptCase | undefined {
   return BY_SLUG.get(slug);
@@ -146,8 +148,8 @@ export function caseNeighbors(c: PromptCase): {
   prev?: PromptCase;
   next?: PromptCase;
 } {
-  const i = ALL_CASES.findIndex((x) => x.id === c.id);
-  if (i < 0) return {};
+  const i = INDEX_BY_ID.get(c.id);
+  if (i === undefined) return {};
   return {
     prev: i + 1 < ALL_CASES.length ? ALL_CASES[i + 1] : undefined, // older
     next: i > 0 ? ALL_CASES[i - 1] : undefined, // newer

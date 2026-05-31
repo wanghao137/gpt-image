@@ -62,6 +62,11 @@ export function useLongPress({
     (e: React.PointerEvent) => {
       // Ignore non-primary buttons (right-click handled via onContextMenu).
       if (e.button !== 0 && e.pointerType === "mouse") return;
+      // Don't arm the long-press when the gesture starts on an interactive
+      // control that opts out (e.g. the card's footer Copy / 更多 buttons).
+      // Without this, holding those buttons for 380ms opens the action sheet
+      // on top of / instead of the button's own tap action.
+      if ((e.target as HTMLElement)?.closest?.("[data-no-longpress]")) return;
       triggered.current = false;
       startPos.current = { x: e.clientX, y: e.clientY };
       // Snapshot the original target — fired callback gets a clone-safe

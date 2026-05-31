@@ -32,7 +32,7 @@ export function PeachLogoMark({
       className={`object-contain ${className}`.trim()}
       src={PEACH_LOGO_SRC}
       srcSet={PEACH_LOGO_SRC_SET}
-      sizes="(max-width: 640px) 40px, 48px"
+      sizes="40px"
       width={256}
       height={256}
       alt={decorative ? "" : title}

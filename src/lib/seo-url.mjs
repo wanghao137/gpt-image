@@ -75,6 +75,28 @@ export function clipText(value, max) {
 }
 
 /**
+ * Serialize a value to a JSON string that is SAFE to embed inside an inline
+ * `<script type="application/ld+json">` tag.
+ *
+ * `JSON.stringify` does NOT escape `<`, `>` or `&`, so a field containing the
+ * literal `</script>` (these fields flow from third-party upstream sync AND
+ * admin/Hermes input — NOT trusted local data) would close the script element
+ * and allow arbitrary markup/script injection (stored XSS). We escape the
+ * characters that matter for HTML/script-context breakouts using unicode
+ * escapes, which are still valid JSON and parse back to the identical value.
+ */
+export function jsonLdSafeStringify(data) {
+  return JSON.stringify(data)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    // U+2028 / U+2029 are valid in JSON strings but break inline scripts in
+    // some engines; escape them too.
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
+/**
  * Derive a case's `seoTitle` + `seoDescription` from its content.
  *
  * WHY DERIVE INSTEAD OF STORE

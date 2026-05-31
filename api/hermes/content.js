@@ -41,8 +41,18 @@ const RATE_LIMIT_MAX = 20;
 const rateBuckets = new Map();
 
 function clientIp(req) {
-  const fwd = req.headers?.["x-forwarded-for"];
-  if (typeof fwd === "string" && fwd.length > 0) return fwd.split(",")[0].trim();
+  const h = req.headers || {};
+  // Prefer platform-set, harder-to-spoof headers. On Vercel `x-real-ip` and
+  // `x-vercel-forwarded-for` are set by the edge from the actual connection.
+  // `x-forwarded-for` is client-controllable, so we take its LAST hop (the one
+  // appended by our own trusted proxy) rather than the spoofable first entry.
+  const real = h["x-real-ip"] || h["x-vercel-forwarded-for"];
+  if (typeof real === "string" && real.length > 0) return real.split(",")[0].trim();
+  const fwd = h["x-forwarded-for"];
+  if (typeof fwd === "string" && fwd.length > 0) {
+    const parts = fwd.split(",").map((s) => s.trim()).filter(Boolean);
+    if (parts.length > 0) return parts[parts.length - 1];
+  }
   return req.socket?.remoteAddress || "unknown";
 }
 

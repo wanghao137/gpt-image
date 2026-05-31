@@ -127,4 +127,11 @@ test("image fetch retries only transient failures", () => {
   assert.equal(isRetriableImageFetchFailure(new Error("HTTP 503 Service Unavailable")), true);
   assert.equal(isRetriableImageFetchFailure(new Error("HTTP 429 Too Many Requests")), true);
   assert.equal(isRetriableImageFetchFailure(new Error("HTTP 404 Not Found")), false);
+  // A per-attempt timeout aborts the fetch; that must be retriable so a stalled
+  // mirror doesn't fail the whole image build on the first hiccup.
+  assert.equal(
+    isRetriableImageFetchFailure(new DOMException("The operation was aborted.", "AbortError")),
+    true,
+  );
+  assert.equal(isRetriableImageFetchFailure(new Error("request timed out")), true);
 });

@@ -20,6 +20,7 @@
     "migrate": "node scripts/migrate-v2.mjs",
     "images": "node scripts/build-images.mjs",
     "brand:assets": "node scripts/build-brand-assets.mjs",
+    "og": "node scripts/build-og-image.mjs",
     "upload-cos": "node scripts/upload-cos.mjs",
     "admin:hash": "node scripts/admin-hash.mjs"
   },

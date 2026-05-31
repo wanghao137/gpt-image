@@ -51,17 +51,38 @@ type Listener = (items: ToastItem[]) => void;
 let counter = 0;
 let queue: ToastItem[] = [];
 const listeners = new Set<Listener>();
+// Track per-toast auto-dismiss timers so manual dismissal can cancel them
+// (otherwise the timer fires later as a harmless no-op, but timers accumulate).
+const timers = new Map<number, ReturnType<typeof setTimeout>>();
+// Hard cap so a burst of toasts can't stack unboundedly.
+const MAX_TOASTS = 4;
 
 function emit() {
   for (const l of listeners) l(queue);
 }
 
+function clearToastTimer(id: number) {
+  const t = timers.get(id);
+  if (t !== undefined) {
+    clearTimeout(t);
+    timers.delete(id);
+  }
+}
+
+function remove(id: number) {
+  clearToastTimer(id);
+  queue = queue.filter((i) => i.id !== id);
+  emit();
+}
+
 function dismissAfter(item: ToastItem) {
   if (typeof window === "undefined") return;
-  window.setTimeout(() => {
+  const t = window.setTimeout(() => {
+    timers.delete(item.id);
     queue = queue.filter((i) => i.id !== item.id);
     emit();
   }, item.durationMs);
+  timers.set(item.id, t);
 }
 
 function push(input: ToastInput): number {
@@ -77,6 +98,12 @@ function push(input: ToastInput): number {
     action: input.action,
   };
   queue = [...queue, item];
+  // Evict the oldest toasts beyond the cap (and cancel their timers).
+  while (queue.length > MAX_TOASTS) {
+    const dropped = queue[0];
+    queue = queue.slice(1);
+    clearToastTimer(dropped.id);
+  }
   emit();
   dismissAfter(item);
   return item.id;
@@ -93,8 +120,7 @@ export const toast = {
     return push({ ...opts, title, variant: "info" });
   },
   dismiss(id: number) {
-    queue = queue.filter((i) => i.id !== id);
-    emit();
+    remove(id);
   },
 };
 

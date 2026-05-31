@@ -6,6 +6,7 @@ import {
   imageDimensionsForRatio,
   clipText,
   deriveCaseSeo,
+  jsonLdSafeStringify,
 } from "./seo-url.mjs";
 
 test("absoluteUrl keeps absolute http(s) URLs untouched", () => {
@@ -110,4 +111,25 @@ test("deriveCaseSeo clips a long promptPreview to 110 chars + tail", () => {
   // head is clipped to 110 (109 chars + ellipsis), then the tail is appended.
   assert.ok(seoDescription.includes("…——"));
   assert.ok(seoDescription.length < 160);
+});
+
+test("jsonLdSafeStringify escapes </script> breakout attempts", () => {
+  const payload = { name: "evil</script><script>alert(1)</script>" };
+  const out = jsonLdSafeStringify(payload);
+  // No raw '<' or '>' may survive — they'd let the string close the tag.
+  assert.ok(!out.includes("<"), "must not contain raw <");
+  assert.ok(!out.includes(">"), "must not contain raw >");
+  assert.ok(out.includes("\\u003c") && out.includes("\\u003e"));
+  // Still valid JSON that round-trips to the original value.
+  assert.equal(JSON.parse(out).name, "evil</script><script>alert(1)</script>");
+});
+
+test("jsonLdSafeStringify escapes ampersand and line/paragraph separators", () => {
+  const out = jsonLdSafeStringify({ a: "x & y", b: "p\u2028q\u2029r" });
+  assert.ok(!out.includes("&"), "must not contain raw &");
+  assert.ok(out.includes("\\u0026"));
+  assert.ok(out.includes("\\u2028") && out.includes("\\u2029"));
+  const parsed = JSON.parse(out);
+  assert.equal(parsed.a, "x & y");
+  assert.equal(parsed.b, "p\u2028q\u2029r");
 });

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { writeBinaryFile } from "../github";
 import { PATHS, REPO_TARGET } from "../config";
 import { buildUploadFilename, fmtBytes } from "../utils";
@@ -26,7 +26,16 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState("");
   const [drag, setDrag] = useState(false);
+  // Tracks whether the CURRENT `value` failed to preview. Reset whenever the
+  // value changes so a new (valid) URL re-attempts the preview instead of
+  // staying hidden — the previous command-style `display:none` was permanent.
+  const [previewFailed, setPreviewFailed] = useState(false);
   const toast = useToast();
+
+  // A new value gets a fresh chance to preview.
+  useEffect(() => {
+    setPreviewFailed(false);
+  }, [value]);
 
   const upload = async (file: File) => {
     if (file.size > MAX_BYTES) {
@@ -92,14 +101,23 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
       >
         {value ? (
           <>
-            <img
-              src={resolvePreview(value)}
-              alt="case preview"
-              className="h-full w-full object-cover opacity-95"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-              }}
-            />
+            {previewFailed ? (
+              <div className="flex h-full w-full flex-col items-center justify-center gap-1.5 text-center text-ink-400">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="m3 16 5-5 4 4 3-3 6 6" />
+                  <path d="M21 3 3 21" />
+                </svg>
+                <span className="text-[12px]">预览加载失败（文件可能尚未部署）</span>
+              </div>
+            ) : (
+              <img
+                src={resolvePreview(value)}
+                alt="case preview"
+                className="h-full w-full object-cover opacity-95"
+                onError={() => setPreviewFailed(true)}
+              />
+            )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
             <div className="absolute inset-x-2 bottom-2 flex items-center gap-1.5">
               <span className="truncate rounded-full bg-ink-950/75 px-2.5 py-1 font-mono text-[11px] text-ink-100 ring-1 ring-white/10 backdrop-blur">
