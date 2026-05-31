@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-papercraft-style-transfer",
+    "title": "纸艺风格转换与立体纸雕",
+    "category": "插画与艺术",
+    "tags": [
+      "papercraft",
+      "paper-cut",
+      "origami",
+      "style-transfer",
+      "illustration"
+    ],
+    "description": "将照片/主体转换为纸艺风格——包括层叠纸雕、折纸雕塑、剪纸镂空、低多边形纸模等多种纸质媒介，适用于艺术插画、品牌视觉和创意设计。",
+    "cover": "/uploads/templatederived-papercraft-style-transfer.jpg",
+    "prompt": "{argument name=\"语言\" default=\"[中文]\"} \n将 {argument name=\"输入素材\" default=\"上传的图片/照片\"} 转换为 {argument name=\"纸艺风格\" default=\"分层纸雕\"} 风格的插画。\n\n风格定义：\n- 纸艺类型：{argument name=\"具体技法\" default=\"layered paper-cut illustration, multiple stacked paper layers with depth shadows, handcrafted aesthetic\"}\n- 纸质材质：{argument name=\"纸张质感\" default=\"textured matte paper, visible grain, warm cream and soft pastel palette\"}\n- 层次结构：{argument name=\"层次设计\" default=\"前景→中景→背景 3-5 层，每层之间有自然阴影营造纵深感\"}\n- 色彩方案：{argument name=\"色彩\" default=\"柔和粉彩配色，低饱和度，少量亮色点缀\"}\n\n技法要求：\n- 所有元素保持纸张的物理特性：边缘略带毛边、折痕、厚度感\n- 层与层之间有真实的投影阴影\n- 保留主体的核心特征和姿态，用纸艺语言重新诠释细节\n- 整体构图干净，留有呼吸感\n\n{argument name=\"语言2\" default=\"[English]\"}\nTransform {argument name=\"input\" default=\"the uploaded image/photo\"} into a {argument name=\"paper craft style\" default=\"layered paper-cut\"} style illustration.\n\nStyle definition:\n- Paper type: {argument name=\"technique\" default=\"layered paper-cut illustration, multiple stacked paper layers with depth shadows, handcrafted aesthetic\"}\n- Paper texture: {argument name=\"texture\" default=\"textured matte paper, visible grain, warm cream and soft pastel palette\"}\n- Layer structure: {argument name=\"layers\" default=\"foreground → midground → background, 3-5 layers with natural drop shadows creating depth\"}\n- Color palette: {argument name=\"colors\" default=\"soft pastels, low saturation, minimal bright accents\"}\n\nTechnical requirements:\n- All elements maintain paper's physical properties: slightly rough edges, fold marks, thickness\n- Realistic drop shadows between layers\n- Preserve the subject's core features and pose, reinterpreted in paper craft language\n- Clean composition with breathing room\n\n使用建议：\n- 分层纸雕：用 3-5 层结构，前景细节多、背景渐简，层间加深阴影\n- 折纸/低多边形：强调几何面片、锐利折线，减少曲线\n- 剪纸镂空：以黑色/深色纸为底，镂空部分透出下层色彩\n- 杂志拼贴：混合不同纸纹、撕边效果、手写字体元素\n- 毛毡微缩：用毛线/羊毛质感替代纸张，增加温暖手工感\n\n防坑指南：\n- 不要在一张图里混用太多纸艺类型，选一种保持统一\n- 阴影是立体感的关键——必须强调层间投影\n- 主体太复杂时纸艺会显得杂乱，建议适当简化细节\n- 色彩控制在 4-6 种以内，纸张风格不适合太鲜艳",
+    "useWhen": "需要将照片或视觉主体转换为纸艺风格插画，包括纸雕、折纸、剪纸、纸模拼贴等手工纸质媒介效果。适用于艺术插画创作、品牌视觉设计、文创产品和创意表达。",
+    "createdAt": "2026-05-31T21:04:04.423Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "TaoStudio Case Library · 插画与艺术/其他用例 · papercraft-style (8 cases analyzed)"
+  },
+  {
     "id": "derived-social-media-screenshot",
     "title": "社媒平台截图模拟器",
     "category": "UI 与界面",
