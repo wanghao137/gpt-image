@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-social-media-screenshot",
+    "title": "社媒平台截图模拟器",
+    "category": "UI 与界面",
+    "tags": [
+      "social-media",
+      "screenshot",
+      "mockup",
+      "livestream",
+      "UI"
+    ],
+    "description": "一键生成抖音直播、小红书帖子、朋友圈、快手、视频号等中国主流社交平台的逼真手机截图，适用于内容营销预览、社媒运营素材和创意整活。",
+    "cover": "/uploads/templatederived-social-media-screenshot.jpg",
+    "prompt": "[中文]\n生成一张 {argument name=\"平台名称\" default=\"抖音\"} {argument name=\"内容类型\" default=\"直播\"} 的手机截图，iPhone 尺寸，竖版 {argument name=\"画面比例\" default=\"9:16\"}。\n\n画面要求：\n- 状态栏：顶部显示真实 iOS 状态栏，包含时间（{argument name=\"时间\" default=\"21:37\"}）、电量、信号、WiFi 图标\n- 平台 UI：{argument name=\"平台 UI 元素\" default=\"抖音直播间：顶部主播头像+昵称、关注按钮、在线人数；底部弹幕输入框、礼物按钮、点赞爱心特效；右侧悬浮礼物排行榜\"} \n- 主体内容：{argument name=\"画面主体\" default=\"一位穿着时尚的年轻女主播在温馨的卧室直播间里微笑面对镜头\"}\n- 互动元素：{argument name=\"互动层\" default=\"飘过的弹幕评论，包含中文文字内容；底部点赞爱心特效\"}\n- 文字内容：所有界面文字必须清晰可读，使用中文\n- 整体风格：超写实手机截图风格，屏幕边缘有微妙的光线反射，与真实截图难以区分\n\n[English]\nGenerate a realistic {argument name=\"platform\" default=\"Douyin\"} {argument name=\"content type\" default=\"livestream\"} mobile screenshot, iPhone size, vertical {argument name=\"aspect ratio\" default=\"9:16\"}.\n\nRequirements:\n- Status bar: Realistic iOS status bar at top with time ({argument name=\"time\" default=\"21:37\"}), battery, signal, WiFi icons\n- Platform UI: {argument name=\"platform UI elements\" default=\"Douyin livestream: streamer avatar + nickname + follow button at top, viewer count; comment input bar, gift button, floating hearts at bottom; gift ranking sidebar on right\"}\n- Main content: {argument name=\"main subject\" default=\"A fashionable young female streamer smiling at camera in a cozy bedroom studio\"}\n- Interaction layer: {argument name=\"interaction elements\" default=\"Floating danmaku comments with Chinese text; heart animations at bottom\"}\n- Text: All UI text must be clearly readable in Chinese\n- Style: Hyper-realistic phone screenshot with subtle screen reflections, indistinguishable from real screenshots\n\n使用建议：\n- 抖音直播：设置\"直播\"内容类型，添加弹幕层和礼物特效\n- 小红书帖子：设置帖子内容类型，添加笔记标题、标签、点赞收藏\n- 朋友圈：设置朋友圈内容，添加点赞列表和评论\n- 快手直播：类似抖音但 UI 元素风格不同\n- 视频号：微信风格界面，绿色主题色\n\n防坑指南：\n- 必须指定具体平台名称，否则生成的 UI 不像任何平台\n- 文字内容必须给出具体文案，AI 编造的文字容易乱码\n- 主体人物描述要具体（服装、动作、场景），否则画面空洞\n- 弹幕/评论内容建议控制在 3-5 条，太多容易文字变形\n- 状态栏时间是细节加分项，但不是必须的",
+    "useWhen": "需要生成社交媒体平台的逼真手机截图，包括抖音直播、小红书帖子、朋友圈内容、快手直播、视频号等。适用于内容营销预览、社媒运营视觉素材、创意整活和概念验证。",
+    "createdAt": "2026-05-31T21:02:59.428Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "TaoStudio Case Library · UI 与界面 · social-media-screenshot (36 cases analyzed)"
+  },
+  {
     "id": "derived-evolution-infographic",
     "title": "万物发展史进程演化信息图",
     "category": "图表与信息图",
