@@ -73,16 +73,20 @@ export interface PromptCase {
   // ─── metadata ───
   source?: string;
   githubUrl?: string;
-  /** v2 1–5, derived from prompt complexity. */
-  difficulty: 1 | 2 | 3 | 4 | 5;
-  /** v2 commercial usage flag. */
-  commercialOk: CommercialFlag;
+  /** v2 1–5, derived from prompt complexity. Optional — not rendered in the UI. */
+  difficulty?: 1 | 2 | 3 | 4 | 5;
+  /** v2 commercial usage flag. Optional — not rendered in the UI. */
+  commercialOk?: CommercialFlag;
   /** v2 ISO timestamp. */
   createdAt: string;
 
   // ─── SEO ───
-  seoTitle: string;
-  seoDescription: string;
+  // NOTE: `seoTitle` / `seoDescription` are DERIVED at render time via
+  // `deriveCaseSeo()` (see src/lib/seo-url.mjs), NOT stored in cases.json.
+  // Keeping them out of the dataset trims ~160 KB raw from the data chunk that
+  // every page downloads. They remain optional here for legacy tolerance.
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export interface PromptTemplate {

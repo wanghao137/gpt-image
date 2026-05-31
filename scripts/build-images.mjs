@@ -84,7 +84,14 @@ const args = new Set(process.argv.slice(2));
 const FORCE = args.has("--force");
 const STRICT = args.has("--strict") || process.env.IMAGE_STRICT === "1";
 const CONCURRENCY_ARG = process.argv.indexOf("--concurrency");
-const CONCURRENCY = CONCURRENCY_ARG > -1 ? Number(process.argv[CONCURRENCY_ARG + 1]) : 8;
+const CONCURRENCY_RAW = CONCURRENCY_ARG > -1 ? Number(process.argv[CONCURRENCY_ARG + 1]) : 8;
+// Guard against a non-numeric / non-positive --concurrency value. Without this,
+// `Number("abc")` → NaN → `Math.min(NaN, len)` → NaN workers → the whole
+// pipeline silently processes nothing while reporting success.
+const CONCURRENCY =
+  Number.isFinite(CONCURRENCY_RAW) && CONCURRENCY_RAW >= 1
+    ? Math.floor(CONCURRENCY_RAW)
+    : 8;
 const MAX_WIDTH = Number(process.env.IMAGE_MAX_WIDTH || 1200);
 const QUALITY = Number(process.env.IMAGE_QUALITY || 80);
 const WEBP_Q = Number(process.env.IMAGE_WEBP_Q || 78);
@@ -95,7 +102,6 @@ const VARIANTS = (process.env.IMAGE_VARIANTS || "320,480,640,960")
   .sort((a, b) => a - b);
 const SKIP_NET = process.env.IMAGE_SKIP_NET === "1";
 const FETCH_RETRIES = Number(process.env.IMAGE_FETCH_RETRIES || 3);
-const PLACEHOLDER_PATH = "/images/image-unavailable.svg";
 
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(CACHE_DIR, { recursive: true });
@@ -167,6 +173,10 @@ async function fetchToBuffer(url) {
   if (SKIP_NET) throw new Error("skipped: IMAGE_SKIP_NET=1");
   let lastError;
   for (let attempt = 0; attempt <= FETCH_RETRIES; attempt += 1) {
+    // Per-attempt timeout so a stalled (non-erroring) connection trips the
+    // retry path instead of hanging a worker forever.
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
     try {
       const r = await fetch(url, {
         headers: {
@@ -175,6 +185,7 @@ async function fetchToBuffer(url) {
           accept: "image/*",
         },
         redirect: "follow",
+        signal: controller.signal,
       });
       if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
       return Buffer.from(await r.arrayBuffer());
@@ -182,6 +193,8 @@ async function fetchToBuffer(url) {
       lastError = err;
       if (attempt >= FETCH_RETRIES || !isRetriableImageFetchFailure(err)) break;
       await sleep(350 * (attempt + 1));
+    } finally {
+      clearTimeout(timer);
     }
   }
   throw lastError;
@@ -518,7 +531,6 @@ async function main() {
     cases,
     templates,
     results,
-    placeholderPath: PLACEHOLDER_PATH,
   });
 
   if (casesRewrites > 0) {

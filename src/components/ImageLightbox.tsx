@@ -78,20 +78,61 @@ function ImageLightboxImpl({
     repaint();
   }, [open, src, repaint]);
 
-  // Lock body scroll while open + close on Escape, switch on arrows.
+  // Lock body scroll while open + close on Escape, switch on arrows, and trap
+  // focus inside the dialog (move focus in on open, cycle Tab, restore on close).
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const container = containerRef.current;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    const focusable = () =>
+      container
+        ? Array.from(
+            container.querySelectorAll<HTMLElement>(
+              'a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])',
+            ),
+          ).filter((el) => el.offsetParent !== null)
+        : [];
+
+    // Move focus into the lightbox so Tab/Esc work and AT users land here.
+    const firstFocusable = focusable()[0];
+    if (firstFocusable) firstFocusable.focus();
+    else if (container) {
+      container.setAttribute("tabindex", "-1");
+      container.focus();
+    }
+
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       else if (e.key === "ArrowLeft" && onPrev) onPrev();
       else if (e.key === "ArrowRight" && onNext) onNext();
+      else if (e.key === "Tab" && container) {
+        const items = focusable();
+        if (items.length === 0) {
+          e.preventDefault();
+          return;
+        }
+        const firstEl = items[0];
+        const lastEl = items[items.length - 1];
+        const activeEl = document.activeElement as HTMLElement | null;
+        if (e.shiftKey && (activeEl === firstEl || !container.contains(activeEl))) {
+          e.preventDefault();
+          lastEl.focus();
+        } else if (!e.shiftKey && (activeEl === lastEl || !container.contains(activeEl))) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
+      if (previouslyFocused && document.contains(previouslyFocused)) {
+        previouslyFocused.focus();
+      }
     };
   }, [open, onClose, onPrev, onNext]);
 
@@ -419,7 +460,7 @@ function ImageLightboxImpl({
               type="button"
               onClick={onPrev}
               aria-label="上一个案例"
-              className="pointer-events-auto absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-3 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:inline-flex"
+              className="pointer-events-auto absolute left-3 top-1/2 z-10 inline-flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-2.5 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:left-4 sm:p-3"
             >
               <ArrowLeftIcon />
             </button>
@@ -430,7 +471,7 @@ function ImageLightboxImpl({
               type="button"
               onClick={onNext}
               aria-label="下一个案例"
-              className="pointer-events-auto absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-3 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:inline-flex"
+              className="pointer-events-auto absolute right-3 top-1/2 z-10 inline-flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-2.5 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:right-4 sm:p-3"
             >
               <ArrowRightIcon />
             </button>
@@ -487,7 +528,7 @@ function ImageLightboxImpl({
       >
         <span className="rounded-full border border-white/10 bg-ink-950/60 px-3 py-1 backdrop-blur">
           {onPrev || onNext
-            ? "双指缩放 · 双击放大 · ← → 切换案例 · ESC 关闭"
+            ? "双指缩放 · 双击放大 · ← → 或两侧按钮切换 · ESC 关闭"
             : "双指缩放 · 双击放大 · 点击空白关闭"}
         </span>
       </div>

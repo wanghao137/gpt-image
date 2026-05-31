@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, ReactNode } from "react";
 
 type ToastTone = "info" | "success" | "error";
 
@@ -20,13 +20,26 @@ export function useToast() {
 
 export function ToastHost({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<Toast[]>([]);
+  // Track pending dismiss timers so we can clear them on unmount (avoids a
+  // setState-after-unmount when the host tears down mid-toast).
+  const timersRef = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  useEffect(() => {
+    const timers = timersRef.current;
+    return () => {
+      timers.forEach((t) => clearTimeout(t));
+      timers.clear();
+    };
+  }, []);
 
   const push = useCallback((message: string, tone: ToastTone = "info") => {
     const id = Date.now() + Math.random();
     setItems((prev) => [...prev, { id, tone, message }]);
-    window.setTimeout(() => {
+    const timer = window.setTimeout(() => {
+      timersRef.current.delete(timer);
       setItems((prev) => prev.filter((t) => t.id !== id));
     }, 3500);
+    timersRef.current.add(timer);
   }, []);
 
   return (

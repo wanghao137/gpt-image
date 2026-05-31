@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const KEY = "gpt-image-gallery:favorites:v1";
 
@@ -20,9 +20,16 @@ function read(): Set<string> {
  */
 export function useFavorites() {
   const [ids, setIds] = useState<Set<string>>(() => new Set());
+  // Gate the persistence effect until the initial read has hydrated `ids`.
+  // Without this gate the write effect fires on the very first render with the
+  // empty initial set and clobbers any previously-stored favorites in
+  // localStorage *before* the read effect below restores them — a brief
+  // [] overwrite that races storage events across tabs.
+  const hydratedRef = useRef(false);
 
   useEffect(() => {
     setIds(read());
+    hydratedRef.current = true;
     const onStorage = (e: StorageEvent) => {
       if (e.key === KEY) setIds(read());
     };
@@ -32,6 +39,9 @@ export function useFavorites() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // Skip the write until we've hydrated from storage, so we never persist
+    // the empty initial set over real data.
+    if (!hydratedRef.current) return;
     window.localStorage.setItem(KEY, JSON.stringify(Array.from(ids)));
   }, [ids]);
 

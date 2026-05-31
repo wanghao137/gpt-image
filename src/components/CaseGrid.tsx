@@ -90,24 +90,36 @@ export function CaseGrid({
     if (!restoreId) restoredRef.current = null;
   }, [restoreId]);
 
+  const hasMore = paginate && visibleCount < cases.length;
+  // Load-more callback kept in a ref so the observer effect below can depend
+  // only on `hasMore` (a boolean) rather than `visibleCount`, avoiding an
+  // observer disconnect/reconnect on every pagination step.
+  const loadMoreRef = useRef<() => void>(() => {});
+  loadMoreRef.current = () => setVisibleCount((c) => Math.min(c + PAGE_SIZE, cases.length));
+
   useEffect(() => {
-    if (!paginate) return;
+    if (!hasMore) return;
     const el = sentinelRef.current;
     if (!el) return;
-    if (visibleCount >= cases.length) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisibleCount((c) => Math.min(c + PAGE_SIZE, cases.length));
-        }
+        if (entries.some((e) => e.isIntersecting)) loadMoreRef.current();
       },
       { rootMargin: "600px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [cases.length, visibleCount, paginate]);
+  }, [hasMore]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
+  // Stable boolean: is the scroll-restore target currently rendered? Depending
+  // on this instead of the `visible` array keeps the restore effect from
+  // tearing down and rebuilding its rAF + timer machinery on every
+  // "load more" pagination step.
+  const restoreTargetVisible = useMemo(
+    () => (restoreId ? visible.some((item) => item.id === restoreId) : false),
+    [restoreId, visible],
+  );
   const columns = useMemo(() => {
     const next = Array.from({ length: columnCount }, () => [] as Array<{ item: PromptCase; index: number }>);
     visible.forEach((item, index) => {
@@ -119,7 +131,7 @@ export function CaseGrid({
 
   useEffect(() => {
     if (!restoreId || restoredRef.current === restoreId) return;
-    if (!visible.some((item) => item.id === restoreId)) return;
+    if (!restoreTargetVisible) return;
 
     let firstFrame = 0;
     let secondFrame = 0;
@@ -175,7 +187,7 @@ export function CaseGrid({
       clearTimers();
       removeUserListeners();
     };
-  }, [onRestored, restoreId, visible]);
+  }, [onRestored, restoreId, restoreTargetVisible]);
 
   if (loading) {
     return (

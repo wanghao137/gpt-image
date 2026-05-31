@@ -56,6 +56,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   return (
     <>
       <article
+      role={expandable ? "button" : undefined}
       aria-expanded={expandable ? expanded : undefined}
       onMouseMove={handleSpotlight}
       onClick={toggleExpanded}

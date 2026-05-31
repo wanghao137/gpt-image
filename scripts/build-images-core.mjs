@@ -27,10 +27,12 @@ export function shouldProcessExistingVariants({ force, allVariantsExist, rec }) 
 export function isRetriableImageFetchFailure(error) {
   const message = error instanceof Error ? error.message : String(error ?? "");
   if (/^HTTP (408|425|429|5\d\d)\b/.test(message)) return true;
-  return /(fetch failed|network|ECONNRESET|ETIMEDOUT|EAI_AGAIN|UND_ERR)/i.test(message);
+  return /(fetch failed|network|ECONNRESET|ETIMEDOUT|EAI_AGAIN|UND_ERR|abort|timed?\s*out|The operation was aborted)/i.test(
+    message,
+  );
 }
 
-export function applyImageRewrites({ cases, templates, results, placeholderPath }) {
+export function applyImageRewrites({ cases, templates, results }) {
   const localByRecord = new Map();
 
   for (const result of results) {

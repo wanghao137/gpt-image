@@ -13,6 +13,7 @@ import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { rememberCaseReturn } from "../lib/caseReturn";
 import { createHeroSeed, selectHeroCases } from "../lib/home-hero";
 import { sortTemplatesForDisplay } from "../lib/templateSort";
+import { absoluteUrl } from "../lib/seo-url.mjs";
 import { BRAND } from "../lib/brand";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
 import type { PromptCase } from "../types";
@@ -94,7 +95,7 @@ export default function HomePage() {
       position: i + 1,
       url: `${SITE.url}/case/${c.slug}`,
       name: c.title,
-      image: c.imageUrl,
+      image: absoluteUrl(SITE.url, c.imageUrl),
     })),
   };
 
@@ -268,6 +269,7 @@ function HeroSolo({ item }: { item: PromptCase }) {
         widths={[480, 640, 960]}
         baseWidth={480}
         sizes="(min-width:640px) 70vw, 90vw"
+        media="(max-width: 1023px)"
         loading="eager"
         fetchPriority="high"
         className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-[1.02]"

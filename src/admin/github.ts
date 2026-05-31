@@ -11,6 +11,7 @@
  */
 
 import { base64ToUtf8, blobToBase64, utf8ToBase64 } from "./crypto";
+import { fetchWithTimeout } from "../lib/fetchWithTimeout";
 
 export interface RepoTarget {
   owner: string;
@@ -42,16 +43,37 @@ function authHeaders(token: string) {
   };
 }
 
+/**
+ * Encode a repo file path for the Contents API. Per-segment
+ * `encodeURIComponent` (preserving `/`) so chars like `?`, `#`, `&`, space are
+ * escaped — `encodeURI` left those intact, a latent path-injection gap.
+ */
+function encodePath(path: string): string {
+  return path
+    .split("/")
+    .map((seg) => encodeURIComponent(seg))
+    .join("/");
+}
+
+// Binary/large uploads can be slow on weak networks; allow more headroom than
+// the default 10s used for small JSON reads.
+const READ_TIMEOUT_MS = 12000;
+const WRITE_TIMEOUT_MS = 30000;
+
 /** Verify the token is valid and the repo is reachable. */
 export async function checkToken(target: RepoTarget, token: string): Promise<{
   login: string;
 }> {
-  const u = await fetch(`${API}/user`, { headers: authHeaders(token) });
+  const u = await fetchWithTimeout(`${API}/user`, {
+    headers: authHeaders(token),
+    timeoutMs: READ_TIMEOUT_MS,
+  });
   if (!u.ok) throw new GitHubError("Token invalid or expired", u.status);
   const user = (await u.json()) as { login: string };
 
-  const r = await fetch(`${API}/repos/${target.owner}/${target.repo}`, {
+  const r = await fetchWithTimeout(`${API}/repos/${target.owner}/${target.repo}`, {
     headers: authHeaders(token),
+    timeoutMs: READ_TIMEOUT_MS,
   });
   if (!r.ok) {
     if (r.status === 404)
@@ -67,10 +89,13 @@ export async function readTextFile(
   path: string,
   token: string,
 ): Promise<FileBlob | null> {
-  const url = `${API}/repos/${target.owner}/${target.repo}/contents/${encodeURI(
+  const url = `${API}/repos/${target.owner}/${target.repo}/contents/${encodePath(
     path,
   )}?ref=${encodeURIComponent(target.branch)}`;
-  const r = await fetch(url, { headers: authHeaders(token) });
+  const r = await fetchWithTimeout(url, {
+    headers: authHeaders(token),
+    timeoutMs: READ_TIMEOUT_MS,
+  });
   if (r.status === 404) return null;
   if (!r.ok)
     throw new GitHubError(`Read ${path} failed: ${r.statusText}`, r.status);
@@ -101,12 +126,13 @@ export async function writeTextFile(
     branch: target.branch,
   };
   if (opts.sha) body.sha = opts.sha;
-  const r = await fetch(
-    `${API}/repos/${target.owner}/${target.repo}/contents/${encodeURI(path)}`,
+  const r = await fetchWithTimeout(
+    `${API}/repos/${target.owner}/${target.repo}/contents/${encodePath(path)}`,
     {
       method: "PUT",
       headers: { ...authHeaders(token), "Content-Type": "application/json" },
       body: JSON.stringify(body),
+      timeoutMs: WRITE_TIMEOUT_MS,
     },
   );
   if (!r.ok) {
@@ -129,12 +155,13 @@ export async function writeBinaryFile(
   message: string,
 ): Promise<string> {
   const content = await blobToBase64(blob);
-  const r = await fetch(
-    `${API}/repos/${target.owner}/${target.repo}/contents/${encodeURI(path)}`,
+  const r = await fetchWithTimeout(
+    `${API}/repos/${target.owner}/${target.repo}/contents/${encodePath(path)}`,
     {
       method: "PUT",
       headers: { ...authHeaders(token), "Content-Type": "application/json" },
       body: JSON.stringify({ message, content, branch: target.branch }),
+      timeoutMs: WRITE_TIMEOUT_MS,
     },
   );
   if (!r.ok) {

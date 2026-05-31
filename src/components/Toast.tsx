@@ -10,8 +10,13 @@ import { useToastQueue, toast, type ToastItem } from "../hooks/useToast";
  *   - Desktop: bottom-right, stacked. Gives users glanceable feedback
  *     without yanking attention from the case grid.
  *
- * Animation: enter/exit via plain CSS keyframe `toastIn` / `toastOut`. No
- * dependencies. Reduce-motion preference flattens to instant fade.
+ * Animation: enter via plain CSS keyframe `toastIn` (exit is an instant
+ * unmount — there is no exit transition). No dependencies. Reduce-motion
+ * preference flattens to instant.
+ *
+ * Accessibility: the viewport container is the SINGLE `aria-live="polite"`
+ * region. Individual cards are NOT `role="status"` — nesting a live role
+ * inside a live region causes double announcements in some screen readers.
  *
  * Single instance: mount once at the root layout. The hook reads from a
  * module-level pub/sub so anywhere in the app can call `toast.success(...)`
@@ -60,7 +65,6 @@ function ToastCard({ item }: { item: ToastItem }) {
 
   return (
     <div
-      role="status"
       className="toast-card pointer-events-auto flex w-full max-w-sm items-start gap-3 overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-900/90 p-3 shadow-[0_18px_48px_-16px_rgba(0,0,0,0.7)] backdrop-blur-xl sm:w-80"
       style={{
         animation: "toastIn 240ms cubic-bezier(0.2, 0.8, 0.2, 1) both",

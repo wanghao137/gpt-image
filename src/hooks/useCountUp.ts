@@ -33,7 +33,6 @@ export function useCountUp(target: number, duration = 900): number {
 
     let raf = 0;
     let idleHandle: number | undefined;
-    let safetyTimer: number | undefined;
     let started = false;
 
     const start = () => {
@@ -63,7 +62,7 @@ export function useCountUp(target: number, duration = 900): number {
       // when a long task is in flight.
       idleHandle = host.requestIdleCallback(start, { timeout: 1500 });
     }
-    safetyTimer = window.setTimeout(start, 600);
+    const safetyTimer = window.setTimeout(start, 600);
 
     return () => {
       if (raf) cancelAnimationFrame(raf);

@@ -74,12 +74,22 @@ function absolutize(url) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: {
-      "user-agent": "gpt-image-gallery-sync/1.0",
-      accept: "application/json",
-    },
-  });
+  // Hard timeout so a hung CDN mirror fails fast and we fail over to the next
+  // origin instead of stalling the build indefinitely.
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  let response;
+  try {
+    response = await fetch(url, {
+      headers: {
+        "user-agent": "gpt-image-gallery-sync/1.0",
+        accept: "application/json",
+      },
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
   if (!response.ok) throw new Error(`fetch ${url} -> ${response.status}`);
   return response.json();
 }

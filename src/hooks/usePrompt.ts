@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { fetchWithTimeout } from "../lib/fetchWithTimeout";
 
 const cache = new Map<string, string>();
 const inflight = new Map<string, Promise<string>>();
@@ -8,7 +9,7 @@ async function load(id: string): Promise<string> {
   if (inflight.has(id)) return inflight.get(id) as Promise<string>;
 
   const url = `${import.meta.env.BASE_URL}data/prompts/${id}.json`;
-  const promise = fetch(url, { cache: "force-cache" })
+  const promise = fetchWithTimeout(url, { cache: "force-cache", timeoutMs: 10000 })
     .then((r) => {
       if (!r.ok) throw new Error(String(r.status));
       return r.json() as Promise<{ prompt: string }>;
@@ -25,6 +26,15 @@ async function load(id: string): Promise<string> {
 
   inflight.set(id, promise);
   return promise;
+}
+
+/**
+ * Load a prompt on demand, returning the cached value when available.
+ * Shared by `usePrompt` and imperative callers (e.g. CaseCard copy) so the
+ * timeout + de-dup + cache logic lives in one place. Throws on failure.
+ */
+export function loadPrompt(id: string): Promise<string> {
+  return load(id);
 }
 
 /** Warm the cache without subscribing to state. */

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { sceneLabel, styleLabel } from "../lib/labels";
 import { USER_CATEGORIES } from "../lib/userCategories";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 interface FilterBarProps {
   query: string;
@@ -87,6 +88,7 @@ export function FilterBar({
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerAxis, setDrawerAxis] = useState<AxisKey>("category");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const drawerRef = useFocusTrap<HTMLDivElement>(drawerOpen);
 
   // Debounce search input.
   useEffect(() => {
@@ -98,18 +100,21 @@ export function FilterBar({
     setDraft(query);
   }, [query]);
 
-  // ⌘K / Ctrl+K focuses search.
+  // ⌘K / Ctrl+K focuses search. Registered once; the drawer-close branch reads
+  // the latest open state via a ref so we don't re-bind the listener on toggle.
+  const drawerOpenRef = useRef(drawerOpen);
+  drawerOpenRef.current = drawerOpen;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         inputRef.current?.focus();
       }
-      if (e.key === "Escape" && drawerOpen) setDrawerOpen(false);
+      if (e.key === "Escape" && drawerOpenRef.current) setDrawerOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [drawerOpen]);
+  }, []);
 
   useEffect(() => {
     if (!drawerOpen) return;
@@ -368,6 +373,7 @@ export function FilterBar({
       {/* ────────── Mobile drawer (Phase 2 redesign) ────────── */}
       {drawerOpen && (
         <div
+          ref={drawerRef}
           role="dialog"
           aria-modal="true"
           aria-label="筛选条件"

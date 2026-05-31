@@ -5,7 +5,7 @@
  * GitHub helpers.
  */
 
-import { useCallback, useEffect, useMemo, useReducer } from "react";
+import { useCallback, useEffect, useMemo, useReducer, useRef } from "react";
 import { PATHS, REPO_TARGET } from "./config";
 import { readTextFile, writeTextFile } from "./github";
 import type { ManualCase, ManualTemplate, FileState } from "./types";
@@ -98,6 +98,11 @@ function safeParseArray<T>(text: string): T[] {
 
 export function useAdminStore(token: string) {
   const [state, dispatch] = useReducer(reducer, initial);
+  // Latest state in a ref so save callbacks can read current data without
+  // listing `state` as a dependency — otherwise every keystroke recreates the
+  // callbacks and the memoised store object, re-rendering all editor consumers.
+  const stateRef = useRef(state);
+  stateRef.current = state;
 
   const refresh = useCallback(async () => {
     if (!token) return;
@@ -145,8 +150,9 @@ export function useAdminStore(token: string) {
     async (message: string): Promise<void> => {
       dispatch({ type: "save:start" });
       try {
+        const current = stateRef.current.cases;
         // Pretty-print so commits are diff-friendly.
-        const text = JSON.stringify(state.cases.data, null, 2) + "\n";
+        const text = JSON.stringify(current.data, null, 2) + "\n";
         const sha = await writeTextFile(
           REPO_TARGET,
           PATHS.cases,
@@ -154,7 +160,7 @@ export function useAdminStore(token: string) {
           token,
           {
             message,
-            sha: state.cases.sha ?? undefined,
+            sha: current.sha ?? undefined,
           },
         );
         dispatch({ type: "save:done", kind: "cases", sha });
@@ -163,14 +169,15 @@ export function useAdminStore(token: string) {
         throw error;
       }
     },
-    [state.cases, token],
+    [token],
   );
 
   const saveTemplates = useCallback(
     async (message: string): Promise<void> => {
       dispatch({ type: "save:start" });
       try {
-        const text = JSON.stringify(state.templates.data, null, 2) + "\n";
+        const current = stateRef.current.templates;
+        const text = JSON.stringify(current.data, null, 2) + "\n";
         const sha = await writeTextFile(
           REPO_TARGET,
           PATHS.templates,
@@ -178,7 +185,7 @@ export function useAdminStore(token: string) {
           token,
           {
             message,
-            sha: state.templates.sha ?? undefined,
+            sha: current.sha ?? undefined,
           },
         );
         dispatch({ type: "save:done", kind: "templates", sha });
@@ -187,7 +194,7 @@ export function useAdminStore(token: string) {
         throw error;
       }
     },
-    [state.templates, token],
+    [token],
   );
 
   const dirty = state.cases.dirty || state.templates.dirty;

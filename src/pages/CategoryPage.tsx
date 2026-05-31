@@ -113,6 +113,7 @@ export default function CategoryPage() {
           cases={list}
           favoriteIds={ids}
           onToggleFavorite={toggle}
+          priorityCount={4}
           restoreId={restoreId}
           onRestored={onRestored}
         />

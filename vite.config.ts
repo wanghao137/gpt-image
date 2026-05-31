@@ -61,12 +61,11 @@ export default defineConfig(({ isSsrBuild }) => ({
     formatting: "minify",
     crittersOptions: false,
     dirStyle: "nested",
-    // Windows + lots of nested case/category dirs (~470 routes) hits an
-    // ENOENT race in vite-react-ssg's writer at the default concurrency
-    // of 20: a sibling page's mkdir hasn't finished by the time the
-    // current one tries to open its index.html for writing. Capping at 6
-    // is conservative but eliminates the race; CI on Linux is unaffected
-    // and would happily run higher.
-    concurrency: 6,
+    // SSG writer concurrency. On Windows + ~470 nested case/category dirs the
+    // default of 20 hits an ENOENT race in vite-react-ssg's writer (a sibling
+    // page's mkdir hasn't finished when the current one opens its index.html).
+    // Linux/CI doesn't exhibit this, so we only throttle on win32 and let CI
+    // run at full speed. Override with SSG_CONCURRENCY when debugging.
+    concurrency: Number(process.env.SSG_CONCURRENCY) || (process.platform === "win32" ? 6 : 20),
   } as Record<string, unknown>,
 }));

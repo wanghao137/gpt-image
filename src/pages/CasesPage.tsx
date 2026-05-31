@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ALL_CASES } from "../lib/data";
 import { CaseGrid } from "../components/CaseGrid";
@@ -44,16 +44,22 @@ export default function CasesPage() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const { restoreId, onRestored } = useCaseReturnRestore();
+  // Tracks the query string we ourselves last wrote, so the URL→state sync can
+  // distinguish "user pressed back/forward" (external) from "our own write".
+  const lastWrittenSearch = useRef<string | null>(null);
 
+  // URL → state. Runs on mount AND whenever the URL changes from outside
+  // (browser back/forward, shared link), but NOT for our own echoed writes.
   useEffect(() => {
+    const current = sp.toString();
+    if (current === lastWrittenSearch.current) return;
     setQuery(sp.get("q") ?? "");
     setActiveCategories(readSet(sp, "cat"));
     setActiveStyles(readSet(sp, "style"));
     setActiveScenes(readSet(sp, "scene"));
     setActivePlatforms(readSet(sp, "platform"));
     setHydrated(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sp]);
 
   // ── URL sync (one-way: state → URL) ──
   useEffect(() => {
@@ -66,6 +72,7 @@ export default function CasesPage() {
     writeSet(next, "scene", activeScenes);
     writeSet(next, "platform", activePlatforms);
     if (next.toString() !== sp.toString()) {
+      lastWrittenSearch.current = next.toString();
       setSp(next, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,6 +86,23 @@ export default function CasesPage() {
     if (showFavorites) return cases.filter((c) => favoriteIds.has(c.id));
     return cases;
   }, [cases, favoriteIds, showFavorites]);
+
+  // Precompute a lowercased search blob per case ONCE (keyed by id), so the
+  // debounced search doesn't rebuild a concatenated string for every case on
+  // every keystroke. Keyed map survives filter recompute.
+  const searchIndex = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const c of cases) {
+      map.set(
+        c.id,
+        [c.id, c.title, c.category, c.promptPreview, c.source, ...c.tags, ...c.styles, ...c.scenes]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase(),
+      );
+    }
+    return map;
+  }, [cases]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -104,22 +128,9 @@ export default function CasesPage() {
         if (!(c.platforms ?? []).some((p) => activePlatforms.has(p))) return false;
       }
       if (!q) return true;
-      const text = [
-        c.id,
-        c.title,
-        c.category,
-        c.promptPreview,
-        c.source,
-        ...c.tags,
-        ...c.styles,
-        ...c.scenes,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return text.includes(q);
+      return (searchIndex.get(c.id) ?? "").includes(q);
     });
-  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query]);
+  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query, searchIndex]);
 
   const hasActiveFilter =
     query.trim().length > 0 ||
@@ -209,6 +220,7 @@ export default function CasesPage() {
         favoriteIds={favoriteIds}
         onToggleFavorite={toggle}
         onResetFilters={resetFilters}
+        priorityCount={4}
         restoreId={restoreId}
         onRestored={onRestored}
       />

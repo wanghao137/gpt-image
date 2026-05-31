@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 export interface CardAction {
   key: string;
@@ -32,6 +33,8 @@ export function CardActionSheet({
   actions,
   onClose,
 }: CardActionSheetProps) {
+  const trapRef = useFocusTrap<HTMLDivElement>(open);
+
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -53,12 +56,19 @@ export function CardActionSheet({
       role="dialog"
       aria-modal="true"
       aria-label="卡片操作"
+      ref={trapRef}
       className="fixed inset-0 z-[55] flex items-end justify-center sm:items-center"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
     >
-      <div className="absolute inset-0 bg-transparent" />
+      {/* Backdrop — owns the dismiss-on-outside-tap. Previously a sibling
+          transparent inset-0 div intercepted these clicks, so tapping outside
+          never closed the sheet. */}
+      <button
+        type="button"
+        aria-label="关闭"
+        tabIndex={-1}
+        onClick={onClose}
+        className="absolute inset-0 cursor-default bg-transparent"
+      />
 
       {/* Sheet */}
       <div
@@ -152,10 +162,6 @@ export function CardActionSheet({
         </ul>
 
         <style>{`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-          }
           @keyframes sheetUp {
             from { opacity: 0; transform: translateY(28px); }
             to   { opacity: 1; transform: translateY(0); }

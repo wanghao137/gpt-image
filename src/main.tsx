@@ -11,8 +11,14 @@ import { routes } from "./routes";
  */
 export const createRoot = ViteReactSSG(
   { routes, basename: "/" },
-  // SSG-side hook: warmed once per page, useful for analytics etc.
-  () => {
-    /* noop for now */
+  // Runs on both server and client. On the client we dismiss the boot overlay
+  // the moment hydration is underway — the SSG'd HTML is already painted, so
+  // the overlay is purely a brand handoff and should not outlive interactivity.
+  ({ isClient }) => {
+    if (isClient && typeof window !== "undefined") {
+      requestAnimationFrame(() => {
+        (window as unknown as { __dismissBoot?: () => void }).__dismissBoot?.();
+      });
+    }
   },
 );

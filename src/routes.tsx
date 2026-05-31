@@ -39,6 +39,11 @@ export const routes: RouteRecord[] = [
       { path: "templates", Component: TemplatesPage, entry: "src/pages/TemplatesPage.tsx" },
       { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
       { path: "sitemap", Component: SitemapPage, entry: "src/pages/SitemapPage.tsx" },
+      // Pre-rendered so Vercel can serve a branded `dist/404.html` with a real
+      // 404 status for unmatched URLs (postbuild copies /404/index.html →
+      // 404.html). Without this, unknown URLs hit the client-side `*` route and
+      // render NotFound under an HTTP 200 — a "soft 404" that hurts SEO.
+      { path: "404", Component: NotFoundPage, entry: "src/pages/NotFoundPage.tsx" },
       { path: "*", Component: NotFoundPage },
     ],
   },

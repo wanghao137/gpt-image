@@ -5,12 +5,17 @@ import { ALL_CASES, ALL_TEMPLATES } from "../lib/data";
 import { USER_CATEGORIES } from "../lib/userCategories";
 
 const recentCases = ALL_CASES.slice(0, 24);
-const visibleCategories = USER_CATEGORIES.filter((item) =>
-  ALL_CASES.some(
-    (caseItem) =>
-      caseItem.userCategory === item.slug ||
-      (caseItem.userCategories ?? []).includes(item.slug as never),
-  ),
+
+// Precompute per-category case counts in ONE pass (instead of an O(n) scan per
+// category at render time).
+const categoryCounts: Record<string, number> = {};
+for (const c of ALL_CASES) {
+  const keys = new Set<string>([c.userCategory, ...((c.userCategories as string[]) ?? [])]);
+  for (const k of keys) categoryCounts[k] = (categoryCounts[k] ?? 0) + 1;
+}
+
+const visibleCategories = USER_CATEGORIES.filter(
+  (item) => (categoryCounts[item.slug] ?? 0) > 0,
 );
 
 export default function SitemapPage() {
@@ -58,7 +63,7 @@ export default function SitemapPage() {
                 key={item.slug}
                 to={`/category/${item.slug}`}
                 label={item.label}
-                detail={`${categoryCount(item.slug)} 个案例`}
+                detail={`${categoryCounts[item.slug] ?? 0} 个案例`}
               />
             ))}
           </div>
@@ -82,12 +87,6 @@ export default function SitemapPage() {
       </section>
     </>
   );
-}
-
-function categoryCount(slug: string) {
-  return ALL_CASES.filter(
-    (item) => item.userCategory === slug || (item.userCategories ?? []).includes(slug as never),
-  ).length;
 }
 
 function SitemapGroup({ title, children }: { title: string; children: React.ReactNode }) {
