@@ -91,6 +91,14 @@ Hermes 不需要 GitHub token，也不需要 clone 仓库。
 
 API 会参考 `src/admin/content-automation-core.mjs` 的 `inferTemplateFields` 做确定性补全。
 
+模板封面硬规则：
+
+- 如果 `cover` 是 `/uploads/...`，同一次 API 请求必须在 `uploads` 里提交对应的
+  `public/uploads/...` 文件，或者该文件必须已经存在于仓库。
+- 如果你给新模板生成了一张封面图，优先把图片放进 `uploads`，并让 `cover` 指向同一个文件；
+  不要只在 JSON 里填写一个尚未上传的路径。
+- 只有一个上传文件时可以省略 `cover`，API 会自动使用该上传文件作为模板封面。
+
 ## API 提交
 
 先 dry-run：

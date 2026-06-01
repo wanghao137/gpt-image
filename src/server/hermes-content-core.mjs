@@ -270,6 +270,19 @@ function uploadPathToPublicUrl(path) {
   return `/${path.replace(/^public\//, "")}`;
 }
 
+function uploadPublicUrlToPath(value) {
+  const raw = text(value);
+  if (!raw.startsWith("/uploads/")) return "";
+  return normalizeUploadPath(raw);
+}
+
+function collectMissingUploadAssetChecks({ kind, id, field, url, uploads }) {
+  const path = uploadPublicUrlToPath(url);
+  if (!path) return [];
+  if (uploads.some((upload) => upload.path === path)) return [];
+  return [{ kind, id, field, path, url }];
+}
+
 function optionalText(obj, field) {
   if (!obj) return undefined;
   const value = text(obj[field]);
@@ -313,7 +326,7 @@ function prepareCaseItem(input, cases, uploads) {
   return Object.fromEntries(Object.entries(next).filter(([, value]) => value !== undefined));
 }
 
-function prepareTemplateItem(input, templates) {
+function prepareTemplateItem(input, templates, uploads) {
   const item = requireObject(input, "item");
   const id = requireText(item, "id");
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
@@ -337,7 +350,7 @@ function prepareTemplateItem(input, templates) {
       category,
       tags: normalizeList(item.tags, "tags"),
       description: text(item.description),
-      cover: requireText(item, "cover"),
+      cover: text(item.cover) || (uploads.length === 1 ? uploadPathToPublicUrl(uploads[0].path) : ""),
       prompt: requireText(item, "prompt"),
       useWhen: text(item.useWhen),
       createdAt: templateCreatedAt,
@@ -348,6 +361,7 @@ function prepareTemplateItem(input, templates) {
     },
     { overwrite: false },
   );
+  if (!text(next.cover)) throw new HermesContentError(422, "cover is required");
 
   return Object.fromEntries(Object.entries(next).filter(([, value]) => value !== undefined));
 }
@@ -378,6 +392,13 @@ export function buildHermesContentUpdate({ body, casesText, templatesText }) {
         title: item.title || `hidden case ${item.id}`,
         changedFiles: [PATHS.cases, ...uploads.map((upload) => upload.path)],
       },
+      assetChecks: collectMissingUploadAssetChecks({
+        kind: "case",
+        id: item.id,
+        field: "imageUrl",
+        url: item.imageUrl,
+        uploads,
+      }),
       files: [
         { path: PATHS.cases, content: serializeArray(nextCases), encoding: "utf-8" },
         ...uploads,
@@ -385,7 +406,7 @@ export function buildHermesContentUpdate({ body, casesText, templatesText }) {
     };
   }
 
-  const item = prepareTemplateItem(request.item, templates);
+  const item = prepareTemplateItem(request.item, templates, uploads);
   const nextTemplates = upsertById(templates, item);
   return {
     summary: {
@@ -395,6 +416,13 @@ export function buildHermesContentUpdate({ body, casesText, templatesText }) {
       title: item.title,
       changedFiles: [PATHS.templates, ...uploads.map((upload) => upload.path)],
     },
+    assetChecks: collectMissingUploadAssetChecks({
+      kind: "template",
+      id: item.id,
+      field: "cover",
+      url: item.cover,
+      uploads,
+    }),
     files: [
       { path: PATHS.templates, content: serializeArray(nextTemplates), encoding: "utf-8" },
       ...uploads,
@@ -451,6 +479,49 @@ export async function readGitHubTextFile({
     throw new HermesContentError(500, `Unexpected GitHub encoding for ${path}`);
   }
   return Buffer.from(String(json.content || "").replace(/\s+/g, ""), "base64").toString("utf8");
+}
+
+async function assertGitHubUploadAssetsExist({
+  fetchImpl = fetch,
+  owner,
+  repo,
+  branch,
+  token,
+  checks = [],
+}) {
+  for (const check of checks) {
+    const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${encodeGitHubPath(
+      check.path,
+    )}?ref=${encodeURIComponent(branch)}`;
+    const response = await fetchImpl(url, { headers: githubHeaders(token) });
+    if (response.status === 404) {
+      const code = check.kind === "template" ? "TEMPLATE_COVER_MISSING" : "CASE_IMAGE_MISSING";
+      throw new HermesContentError(
+        422,
+        `${check.kind} ${check.id} ${check.field} points to ${check.url}, but no matching upload was included and the file does not exist in GitHub`,
+        code,
+        { path: check.path, url: check.url },
+      );
+    }
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      throw new HermesContentError(
+        response.status || 500,
+        `Validate ${check.path} failed: ${response.statusText || response.status}`,
+        "GITHUB_API_ERROR",
+        detail.slice(0, 500),
+      );
+    }
+    const json = await response.json().catch(() => ({}));
+    if (json.type && json.type !== "file") {
+      throw new HermesContentError(
+        422,
+        `${check.kind} ${check.id} ${check.field} points to ${check.url}, but GitHub path is not a file`,
+        check.kind === "template" ? "TEMPLATE_COVER_MISSING" : "CASE_IMAGE_MISSING",
+        { path: check.path, url: check.url },
+      );
+    }
+  }
 }
 
 export async function commitFilesToGitHub({
@@ -563,6 +634,11 @@ export async function handleHermesContentRequest({
     readGitHubTextFile({ fetchImpl, ...github, path: PATHS.templates }),
   ]);
   const update = buildHermesContentUpdate({ body, casesText, templatesText });
+  await assertGitHubUploadAssetsExist({
+    fetchImpl,
+    ...github,
+    checks: update.assetChecks,
+  });
   if (body?.dryRun) {
     return {
       ok: true,

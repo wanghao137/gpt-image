@@ -4,6 +4,7 @@ import {
   buildHermesContentUpdate,
   commitFilesToGitHub,
   getHermesApiKey,
+  handleHermesContentRequest,
   isAuthorizedHermesRequest,
   readGitHubTextFile,
 } from "../src/server/hermes-content-core.mjs";
@@ -159,6 +160,107 @@ test("buildHermesContentUpdate upserts a reusable template", () => {
     "适合需要快速复用「商家促销海报模板」结构的内容生产场景。",
   );
   assert.ok(templates[0].tags.includes("Poster"));
+});
+
+test("buildHermesContentUpdate derives a template cover from a single upload", () => {
+  const result = buildHermesContentUpdate({
+    body: {
+      kind: "template",
+      action: "upsert",
+      item: {
+        id: "paper-craft-style",
+        title: "纸艺风格模板",
+        category: "插画与艺术",
+        tags: ["papercraft"],
+        description: "纸艺风格转换模板",
+        prompt: "把上传主体转换为分层纸雕风格。",
+        useWhen: "需要纸艺风格转换时使用。",
+        sourceType: "manual",
+      },
+      uploads: [
+        {
+          path: "public/uploads/template-paper-craft-style.jpg",
+          contentBase64: Buffer.from("fake image").toString("base64"),
+        },
+      ],
+    },
+    casesText: emptyCases,
+    templatesText: emptyTemplates,
+  });
+
+  assert.deepEqual(result.summary.changedFiles, [
+    "data/manual/templates.json",
+    "public/uploads/template-paper-craft-style.jpg",
+  ]);
+
+  const templates = JSON.parse(result.files[0].content);
+  assert.equal(templates[0].cover, "/uploads/template-paper-craft-style.jpg");
+});
+
+test("handleHermesContentRequest rejects a new template cover that is missing from GitHub", async () => {
+  const encodedEmptyArray = Buffer.from("[]\n", "utf8").toString("base64");
+  const fetchImpl = async (url) => {
+    const value = String(url);
+    if (value.includes("/contents/data/manual/cases.json")) {
+      return {
+        ok: true,
+        status: 200,
+        statusText: "OK",
+        json: async () => ({ encoding: "base64", content: encodedEmptyArray }),
+        text: async () => "",
+      };
+    }
+    if (value.includes("/contents/data/manual/templates.json")) {
+      return {
+        ok: true,
+        status: 200,
+        statusText: "OK",
+        json: async () => ({ encoding: "base64", content: encodedEmptyArray }),
+        text: async () => "",
+      };
+    }
+    if (value.includes("/contents/public/uploads/missing-template-cover.jpg")) {
+      return {
+        ok: false,
+        status: 404,
+        statusText: "Not Found",
+        json: async () => ({}),
+        text: async () => "Not Found",
+      };
+    }
+    throw new Error(`unexpected fetch: ${value}`);
+  };
+
+  await assert.rejects(
+    () =>
+      handleHermesContentRequest({
+        fetchImpl,
+        env: {
+          HERMES_ADMIN_API_KEY: "secret-key",
+          HERMES_GITHUB_TOKEN: "github-token",
+          HERMES_REPO_OWNER: "wanghao137",
+          HERMES_REPO_NAME: "gpt-image",
+          HERMES_REPO_BRANCH: "main",
+        },
+        body: {
+          dryRun: true,
+          kind: "template",
+          action: "upsert",
+          item: {
+            id: "missing-template-cover",
+            title: "缺图模板",
+            category: "插画与艺术",
+            tags: ["missing"],
+            description: "应该被拒绝的模板",
+            cover: "/uploads/missing-template-cover.jpg",
+            prompt: "完整模板 Prompt",
+            useWhen: "验证缺图时使用。",
+            sourceType: "manual",
+          },
+        },
+      }),
+    (err) => err.code === "TEMPLATE_COVER_MISSING" && err.status === 422,
+  );
 });
 
 test("commitFilesToGitHub creates one commit with all changed files", async () => {

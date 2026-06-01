@@ -67,6 +67,8 @@ Create a template only when the pattern is reusable across multiple cases or hig
 3. Validate:
    - Prompt is not a copy of one single case.
    - Cover is accessible.
+   - If `cover` starts with `/uploads/`, the matching `public/uploads/...` file exists or is included in the same Hermes API request.
+   - When submitting one new template image through Hermes, omit `cover` or set it to the matching `/uploads/...` path; never invent the path without uploading the file.
    - ID does not collide.
 
 ## Category And Tag Hints

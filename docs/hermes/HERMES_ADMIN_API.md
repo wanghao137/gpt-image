@@ -97,6 +97,11 @@ X-Hermes-Api-Key: <HERMES_ADMIN_API_KEY>
 - 模板 `id` 必须是英文 kebab-case。
 - `category` 必须使用站点固定中文分类。
 - `cover` 必须是可访问图片路径。
+- 如果 `cover` 写 `/uploads/...`，必须满足二选一：同次请求的 `uploads[].path`
+  包含对应的 `public/uploads/...` 文件，或该文件已经存在于 GitHub `main`。
+- 如果模板请求只有一个上传文件且省略 `cover`，API 会自动把 `cover` 设为该上传文件的
+  `/uploads/...` 路径。
+- dry-run 也会校验本地上传文件是否存在；缺图会返回 `TEMPLATE_COVER_MISSING`，不要正式提交。
 - `prompt` 必须是模板结构，不是单个案例原文。
 
 ## Dry Run

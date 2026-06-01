@@ -110,8 +110,11 @@ function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
-function writeJson(path, data) {
-  writeFileWithRetry(path, JSON.stringify(data), "utf8");
+function writeJson(path, data, options = {}) {
+  const serialized = options.pretty
+    ? `${JSON.stringify(data, null, 2)}\n`
+    : JSON.stringify(data);
+  writeFileWithRetry(path, serialized, "utf8");
 }
 
 function sleepSync(ms) {
@@ -456,6 +459,19 @@ async function main() {
             localFile,
           });
         }
+      } else if (t.cover?.startsWith("/uploads/")) {
+        const localFile = resolve(PUBLIC_DIR, t.cover.replace(/^\/+/, ""));
+        if (existsSync(localFile)) {
+          tasks.push({
+            kind: "template",
+            targetKind: "template",
+            id: t.id,
+            url: t.cover,
+            localFile,
+          });
+        } else if (STRICT) {
+          throw new Error(`template ${t.id} cover points at missing upload: ${t.cover}`);
+        }
       }
     }
   }
@@ -538,7 +554,7 @@ async function main() {
     console.log(`  rewrote imageUrl on ${casesRewrites} cases -> ${CASES_PATH}`);
   }
   if (templatesRewrites > 0) {
-    writeJson(TEMPLATES_PATH, templates);
+    writeJson(TEMPLATES_PATH, templates, { pretty: true });
     console.log(`  rewrote cover on ${templatesRewrites} templates -> ${TEMPLATES_PATH}`);
   }
 

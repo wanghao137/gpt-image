@@ -13,6 +13,11 @@ function readJson(path) {
 function assertLocalImageAsset(src, label) {
   assert.notEqual(src, PLACEHOLDER_PATH, `${label} points at the unavailable placeholder`);
 
+  if (src.startsWith("/uploads/")) {
+    assert.ok(existsSync(join("public", src)), `${label} is missing ${src}`);
+    return;
+  }
+
   if (!src.startsWith("/images/")) return;
   assert.ok(existsSync(join("public", src)), `${label} is missing ${src}`);
 
@@ -33,6 +38,14 @@ test("published case and template images never point at missing local assets", (
 
   for (const item of templates) {
     assertLocalImageAsset(item.cover, `template#${item.id} ${item.title}`);
+  }
+});
+
+test("manual template upload covers exist before publishing", () => {
+  const templates = readJson("data/manual/templates.json");
+
+  for (const item of templates) {
+    assertLocalImageAsset(item.cover, `manual template#${item.id} ${item.title}`);
   }
 });
 
