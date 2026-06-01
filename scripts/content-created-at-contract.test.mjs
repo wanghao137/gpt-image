@@ -9,7 +9,7 @@ const publicTypes = readFileSync(new URL("../src/types.ts", import.meta.url), "u
 
 test("manual case and template timestamps survive the publishing pipeline", () => {
   assert.match(sync, /inferContentDate/);
-  assert.match(sync, /createdAt:\s*item\.createdAt/);
+  assert.match(sync, /createdAt:\s*inferContentDate\(item\)/);
   assert.match(sync, /createdAt:\s*c\.createdAt/);
   assert.match(sync, /sortTemplatesForDisplay/);
 });

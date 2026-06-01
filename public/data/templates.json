@@ -560,17 +560,17 @@
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
     "cover": "/images/templatederived-merchant-promo-poster.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Social / Brand / Portrait / Lifestyle / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100026 日式手写风格早餐日记社媒配图: 目标：创作一张温馨的早餐俯拍照片，配有手写日记风格的日文标注，营造出适合温暖清晨社交媒体帖子的氛围。画面应具有真实感、柔和的后期处理效果以及淡淡的怀旧气息。 画布：16:9 宽屏横向图片，尺…\n- #100005 把自拍变成动漫电影名场面教学: 轻小说封面风，电影感数位绘画，Starbucks咖啡馆内部。极低视角广角透视，镜头贴近地面，前景虚化。缩小版Q版公仔惊慌逃跑，双脚高速奔跑、头髮与(裙摆/长裤 )被速度带起，表情紧张可爱。主…\n- #100022 韩式咖啡馆饮品剪贴簿海报: 目标：为一款韩式咖啡馆饮品创作一张梦幻复古的剪贴簿海报，以分层冰开心果玫瑰拿铁为中心，采用浪漫的粉色与开心果绿配色，呈现 Pinterest 风格的咖啡馆日记美学及手写注释。 画布：2:3 …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Illustration / Commerce / Fashion / Food / Editorial / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #470 本地生活小店异形展架: 《餐饮异形展架/立牌物料》提示词： 请生成一张高完成度的「餐饮异形展架 / 立牌」设计图，用于展示餐饮门店的新品推荐、招牌产品、套餐促销或品牌活动信息。 【基础信息】 品牌名：【品牌名】 主…\n- #100026 日式手写风格早餐日记社媒配图: 目标：创作一张温馨的早餐俯拍照片，配有手写日记风格的日文标注，营造出适合温暖清晨社交媒体帖子的氛围。画面应具有真实感、柔和的后期处理效果以及淡淡的怀旧气息。 画布：16:9 宽屏横向图片，尺…\n- #454 旅行美食薯片广告海报: Ultra-detailed premium travel-food advertisement poster for [CITY/COUNTRY], vertical compositio…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "470",
       "100026",
-      "100005",
-      "100022",
-      "100021",
-      "100020"
+      "454",
+      "442",
+      "100005"
     ]
   },
   {
@@ -584,17 +584,17 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "/images/templatederived-ecommerce-detail-page.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100032 电影级品牌饮料餐馆场景广告海报: 目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈…\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100027 幼童时尚衣橱蜂巢概念设计板: 目标：创建一个高阶时尚角色衣橱概念项目，面向幼童，标题围绕 {argument name=\"section number\" default=\"SECTION 42\"}，具有冷静的博物馆目录/…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / UI / Realistic / Brand / Tech / Fashion / Studio / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #485 时尚目录电商拼贴: Stylish fashion catalog shoot blending streetwear and luxury branding. Female model wearing bur…\n- #100032 电影级品牌饮料餐馆场景广告海报: 目标：为 {argument name=\"brand name\" default=\"Dr Pepper\"} 创作一张超写实的电影级奢华汽水广告海报，营造迷人的夜间餐馆氛围，采用亮面红色调，呈…\n- #475 企鹅造型包装结构板: Using the attached image, create an illustration sheet of professional industrial design packag…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "485",
       "100032",
+      "475",
       "100031",
-      "100027",
-      "100024",
-      "100015"
+      "100027"
     ]
   },
   {
@@ -608,17 +608,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Realistic / Illustration / Editorial / Brand / Poster / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100039 四格漫画风跨次元叙事写真: 主题：{argument name=\"theme\" default=\"一个漫画风格的 4 格故事，讲述一名女孩在夏日午后从漫画世界步入现实\"} 人物/表情：{argument name=\"c…\n- #100037 波普艺术时尚编辑街拍: A full-body fashion editorial scene against a vibrant electric-blue studio background with laye…\n- #100036 电影感屋顶光影人像: Use the uploaded portrait only as the identity reference. Preserve the person’s real facial fea…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Tech / Fashion / Poster / Illustration / Commerce / Travel\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #488 屋顶球场日落人像: Ultra-realistic, high-quality portrait of a stylish young South Asian woman standing gracefully…\n- #486 RCB 冠军混合媒介海报: Ultra-detailed mixed-media sports poster featuring the SAME woman from the reference image, wea…\n- #484 霓虹涂鸦黑白人像: High-contrast black-and-white urban portrait of a curly-haired bearded man in a black leather j…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100039",
-      "100037",
-      "100036",
-      "100035",
-      "100034"
+      "488",
+      "486",
+      "484",
+      "483",
+      "482"
     ]
   },
   {
@@ -632,17 +632,17 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "/images/templatederived-travel-city-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Commerce / Tech / Brand / Portrait / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100008 涩谷裸眼3D大屏，把夏天的海风搬进城市: 提示词： 日式裸眼3D城市广告大屏，东京涩谷风格夜晚街头，巨型L型转角LED广告牌，玻璃大楼外立面，粉白色霓虹灯边框，高级旅行广告视觉。广告画面中是一位清新日系少女，长卷发，温柔自信的表情，…\n- #100013 电影极简主义旅行海报: [城市名称]的电影极简主义旅行海报 自动调整视觉语言以适应地点的地理、文化、建筑、气候和情感氛围。 灵感源自大韩航空《Morning Calm》机上杂志封面美学明亮、优雅、乐观的视觉氛围。 …\n- #474 四城极简旅行海报系列: Minimalist flat travel poster illustration series of iconic destinations around the world, clea…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Tech / Commerce / Story / UI / Realistic / Food\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #474 四城极简旅行海报系列: Minimalist flat travel poster illustration series of iconic destinations around the world, clea…\n- #464 高雄水彩拼贴旅行海报: Watercolor and collage travel poster for Kaohsiung, Taiwan, vertical layout, soft pastel and wa…\n- #461 家庭旅行纸雕拼贴: Adorable kawaii family travel collage, combining four different scenes in one composition, cute…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100008",
-      "100013",
       "474",
       "464",
-      "461"
+      "461",
+      "454",
+      "445"
     ]
   },
   {
@@ -750,16 +750,16 @@
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
     "cover": "/images/templatederived-3d-ip-mascot.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Studio / Realistic / Commerce / Product / Brand / Poster / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n- #100005 把自拍变成动漫电影名场面教学: 轻小说封面风，电影感数位绘画，Starbucks咖啡馆内部。极低视角广角透视，镜头贴近地面，前景虚化。缩小版Q版公仔惊慌逃跑，双脚高速奔跑、头髮与(裙摆/长裤 )被速度带起，表情紧张可爱。主…\n- #480 粉丝速写本角色页: Draw me as if an obsessed fan artist filled an entire sketchbook page - messy, overlapping, ful…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Character / Creative / Realistic / Tech / Commerce / Studio / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #480 粉丝速写本角色页: Draw me as if an obsessed fan artist filled an entire sketchbook page - messy, overlapping, ful…\n- #476 早安拿铁微缩女孩: Create ultra-fine highly detailed 3D realistic miniature chibi-like cute girl, wearing cream co…\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100031",
-      "100005",
       "480",
       "476",
+      "100031",
+      "100005",
       "378"
     ]
   },
@@ -774,17 +774,17 @@
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
     "cover": "/images/templatederived-storyboard-sequence.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / UI / Infographic / Poster / Tech / Commerce / Food / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #422 冬季生存惊悚 Storyboard: Cinematic Survival Thriller Storyboard Prompt Create a premium cinematic storyboard presentatio…\n- #419 可颂烘焙流程 Storyboard: Create a crisp, clean infographic storyboard poster for THE CROISSANT BAKER. Wide 16:9 layout, …\n- #413 当代舞现场 Storyboard: Create a raw contemporary dance performance storyboard focused on intense physical movement and…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / UI / Poster / Realistic / Tech / Commerce / Fashion / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #487 法式药妆商业分镜封面: 35mm anamorphic, 2.39:1, no flares. Ultra-realistic international French pharmacy skincare comm…\n- #422 冬季生存惊悚 Storyboard: Cinematic Survival Thriller Storyboard Prompt Create a premium cinematic storyboard presentatio…\n- #419 可颂烘焙流程 Storyboard: Create a crisp, clean infographic storyboard poster for THE CROISSANT BAKER. Wide 16:9 layout, …\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "487",
       "422",
       "419",
       "413",
-      "316",
-      "204"
+      "316"
     ]
   },
   {

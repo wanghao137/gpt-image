@@ -5,6 +5,13 @@ import {
   enrichUpstreamTemplate,
   mergeTemplateCollections,
 } from "./template-derivation.mjs";
+import {
+  applyUpstreamCaseTimestamps,
+  inferContentDate,
+  normalizedIsoDate,
+  sortCasesForDisplay,
+} from "./case-ordering.mjs";
+import { chooseBestUpstreamSnapshot } from "./sync-source-selection.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -30,6 +37,7 @@ const ORIGIN_LIST = ORIGINS.length > 0 ? ORIGINS : DEFAULT_ORIGINS;
 const OPTIONAL = process.argv.includes("--optional");
 const MANUAL_CASES_PATH = resolve(ROOT, "data/manual/cases.json");
 const MANUAL_TEMPLATES_PATH = resolve(ROOT, "data/manual/templates.json");
+const UPSTREAM_CASE_TIMES_PATH = resolve(ROOT, "data/upstream-case-times.json");
 
 const CATEGORY_LABELS = {
   "Architecture & Spaces": "建筑与空间",
@@ -101,6 +109,7 @@ async function fetchJson(url) {
  */
 async function fetchUpstream() {
   const errors = [];
+  const snapshots = [];
   for (const origin of ORIGIN_LIST) {
     try {
       const casesUrl = `${origin}/cases.json`;
@@ -109,15 +118,19 @@ async function fetchUpstream() {
       const casesPayload = await fetchJson(casesUrl);
       console.log(`fetching ${styleUrl} ...`);
       const stylePayload = await fetchJson(styleUrl);
-      activeOrigin = origin;
-      return { casesPayload, stylePayload, origin };
+      snapshots.push({ casesPayload, stylePayload, origin });
     } catch (error) {
       const reason = error instanceof Error ? error.message : String(error);
       console.warn(`! origin failed (${origin}): ${reason}`);
       errors.push(`${origin}: ${reason}`);
     }
   }
-  throw new Error(`all upstream origins failed:\n  ${errors.join("\n  ")}`);
+  if (snapshots.length === 0) {
+    throw new Error(`all upstream origins failed:\n  ${errors.join("\n  ")}`);
+  }
+  const selected = chooseBestUpstreamSnapshot(snapshots);
+  activeOrigin = selected.origin;
+  return selected;
 }
 
 function normalizeCase(item) {
@@ -136,6 +149,7 @@ function normalizeCase(item) {
     promptPreview: item.promptPreview || (item.prompt || "").slice(0, 220),
     source: item.sourceLabel || undefined,
     githubUrl: item.githubUrl || undefined,
+    createdAt: inferContentDate(item),
   };
 }
 
@@ -229,25 +243,6 @@ function readJsonSafe(absolutePath, fallback) {
   }
 }
 
-function normalizedIsoDate(value) {
-  if (!value) return undefined;
-  const time = Date.parse(String(value));
-  return Number.isFinite(time) ? new Date(time).toISOString() : undefined;
-}
-
-function inferContentDate(item) {
-  const explicit = normalizedIsoDate(item?.createdAt);
-  if (explicit) return explicit;
-
-  const candidates = [item?.imageUrl, item?.image, item?.cover].filter(Boolean);
-  for (const candidate of candidates) {
-    const match = String(candidate).match(/(?:^|\/)(20\d{2}-\d{2}-\d{2})(?:[-_/]|$)/);
-    if (match) return new Date(`${match[1]}T00:00:00.000Z`).toISOString();
-  }
-
-  return undefined;
-}
-
 function sortTemplatesForDisplay(templates) {
   return templates
     .map((item, index) => {
@@ -302,7 +297,7 @@ function normalizeManualCase(item) {
     promptPreview: item.promptPreview || prompt.slice(0, 220),
     source: item.source || undefined,
     githubUrl: item.githubUrl || undefined,
-    createdAt: item.createdAt || inferContentDate(item),
+    createdAt: inferContentDate(item),
     hidden: Boolean(item.hidden),
   };
 }
@@ -329,7 +324,7 @@ function normalizeManualTemplate(item) {
   if (!item?.id) return null;
   return {
     ...item,
-    createdAt: item.createdAt || inferContentDate(item),
+    createdAt: inferContentDate(item),
   };
 }
 
@@ -383,6 +378,14 @@ async function main() {
     }
   }
 
+  const upstreamCaseTimes = readJsonSafe(UPSTREAM_CASE_TIMES_PATH, {});
+  const timestampedUpstream = applyUpstreamCaseTimestamps(
+    upstreamCases,
+    upstreamCaseTimes,
+    { stampMissing: upstreamOk },
+  );
+  upstreamCases = timestampedUpstream.cases;
+
   // --- Merge in manually-authored content from data/manual/ ---
   const manualCases = loadManualCases();
   const manualTemplates = loadManualTemplates();
@@ -403,11 +406,10 @@ async function main() {
     }
     caseMap.set(c.id, c);
   }
-  // Sort numerically descending so newer/larger IDs (manual entries usually use
-  // 100000+) appear at the top of the gallery.
-  const fullCases = Array.from(caseMap.values()).sort(
-    (a, b) => Number(b.id) - Number(a.id),
-  );
+  // Sort by actual content recency across both sources. Upstream GitHub cases
+  // do not publish createdAt today, so `data/upstream-case-times.json` stores
+  // when each upstream id first appeared in our daily sync.
+  const fullCases = sortCasesForDisplay(Array.from(caseMap.values()));
 
   const templates = sortTemplatesForDisplay(
     mergeTemplateCollections({
@@ -442,6 +444,13 @@ async function main() {
 
   writeJson("public/data/cases.json", lite);
   console.log(`✓ wrote ${lite.length} lite records -> public/data/cases.json`);
+
+  if (upstreamOk) {
+    writeJson("data/upstream-case-times.json", timestampedUpstream.timestamps, { pretty: true });
+    console.log(
+      `✓ wrote ${Object.keys(timestampedUpstream.timestamps).length} upstream timestamps -> data/upstream-case-times.json`,
+    );
+  }
 
   writeJson("public/data/templates.json", templates, { pretty: true });
   console.log(`✓ wrote ${templates.length} templates -> public/data/templates.json`);
