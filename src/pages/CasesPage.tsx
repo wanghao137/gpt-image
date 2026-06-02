@@ -43,7 +43,7 @@ export default function CasesPage() {
   const [activePlatforms, setActivePlatforms] = useState<Set<string>>(() => new Set());
   const [showFavorites, setShowFavorites] = useState(false);
   const [hydrated, setHydrated] = useState(false);
-  const { restoreId, onRestored } = useCaseReturnRestore();
+  const { restoreId, restoreTarget, onRestored } = useCaseReturnRestore();
   // Tracks the query string we ourselves last wrote, so the URL→state sync can
   // distinguish "user pressed back/forward" (external) from "our own write".
   const lastWrittenSearch = useRef<string | null>(null);
@@ -222,6 +222,8 @@ export default function CasesPage() {
         onResetFilters={resetFilters}
         priorityCount={4}
         restoreId={restoreId}
+        restoreScrollY={restoreTarget?.scrollY}
+        restoreTargetTop={restoreTarget?.targetTop}
         onRestored={onRestored}
       />
     </>

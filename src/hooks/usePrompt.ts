@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchWithTimeout } from "../lib/fetchWithTimeout";
+import { readPromptResponse } from "./prompt-response-core.mjs";
 
 const cache = new Map<string, string>();
 const inflight = new Map<string, Promise<string>>();
@@ -10,14 +11,11 @@ async function load(id: string): Promise<string> {
 
   const url = `${import.meta.env.BASE_URL}data/prompts/${id}.json`;
   const promise = fetchWithTimeout(url, { cache: "force-cache", timeoutMs: 10000 })
-    .then((r) => {
-      if (!r.ok) throw new Error(String(r.status));
-      return r.json() as Promise<{ prompt: string }>;
-    })
-    .then((data) => {
-      cache.set(id, data.prompt);
+    .then((r) => readPromptResponse(r, url))
+    .then((prompt) => {
+      cache.set(id, prompt);
       inflight.delete(id);
-      return data.prompt;
+      return prompt;
     })
     .catch((err) => {
       inflight.delete(id);

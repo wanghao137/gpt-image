@@ -531,6 +531,16 @@
       content-visibility: auto;
       contain-intrinsic-size: 320px 460px;
     }
+    .case-grid-restoring {
+      overflow-anchor: none;
+    }
+    body.case-return-restoring {
+      overflow-anchor: none;
+    }
+    .case-grid-restoring .case-card {
+      content-visibility: visible;
+      contain-intrinsic-size: auto;
+    }
   }
 
   :root[data-theme="light"] .text-ink-950 {

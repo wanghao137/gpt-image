@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { CaseCard } from "./CaseCard";
 
@@ -18,6 +18,8 @@ interface CaseGridProps {
   priorityCount?: number;
   /** Case id to scroll back to after returning from the detail page. */
   restoreId?: string | null;
+  restoreScrollY?: number | null;
+  restoreTargetTop?: number | null;
   onRestored?: () => void;
   contained?: boolean;
 }
@@ -62,6 +64,8 @@ export function CaseGrid({
   paginate = true,
   priorityCount = 0,
   restoreId,
+  restoreScrollY,
+  restoreTargetTop,
   onRestored,
   contained = true,
 }: CaseGridProps) {
@@ -69,12 +73,30 @@ export function CaseGrid({
     countForRestore(cases, paginate, restoreId),
   );
   const [columnCount, setColumnCount] = useState(1);
+  const [restoreInProgress, setRestoreInProgress] = useState(false);
+  const [restoreLayoutLocked, setRestoreLayoutLocked] = useState(false);
+  const [restoreTargetLoaded, setRestoreTargetLoaded] = useState(false);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const restoredRef = useRef<string | null>(null);
+  const caseIdsKey = useMemo(() => cases.map((item) => item.id).join("\u0000"), [cases]);
+  const previousListRef = useRef({ caseIdsKey, paginate });
 
   useEffect(() => {
-    setVisibleCount(countForRestore(cases, paginate, restoreId));
-  }, [cases, paginate, restoreId]);
+    const listChanged =
+      previousListRef.current.caseIdsKey !== caseIdsKey ||
+      previousListRef.current.paginate !== paginate;
+    previousListRef.current = { caseIdsKey, paginate };
+
+    if (listChanged) {
+      setVisibleCount(countForRestore(cases, paginate, restoreId));
+      if (!restoreId) setRestoreLayoutLocked(false);
+      return;
+    }
+
+    if (restoreId) {
+      setVisibleCount((current) => Math.max(current, countForRestore(cases, paginate, restoreId)));
+    }
+  }, [caseIdsKey, cases, paginate, restoreId]);
 
   useEffect(() => {
     const updateColumnCount = () => {
@@ -87,10 +109,21 @@ export function CaseGrid({
   }, []);
 
   useEffect(() => {
-    if (!restoreId) restoredRef.current = null;
+    setRestoreTargetLoaded(false);
+    if (restoreId) {
+      setRestoreLayoutLocked(true);
+    }
+    if (!restoreId) {
+      restoredRef.current = null;
+      setRestoreInProgress(false);
+    }
   }, [restoreId]);
 
-  const hasMore = paginate && visibleCount < cases.length;
+  const handleRestoreTargetLoad = useCallback(() => {
+    setRestoreTargetLoaded(true);
+  }, []);
+
+  const hasMore = paginate && visibleCount < cases.length && !restoreId;
   // Load-more callback kept in a ref so the observer effect below can depend
   // only on `hasMore` (a boolean) rather than `visibleCount`, avoiding an
   // observer disconnect/reconnect on every pagination step.
@@ -127,21 +160,36 @@ export function CaseGrid({
     });
     return next;
   }, [columnCount, visible]);
-  const wrapperClassName = contained ? "container-narrow pb-20" : "pb-20";
+  const baseWrapperClassName = contained ? "container-narrow pb-20" : "pb-20";
+  const wrapperClassName = restoreInProgress || restoreLayoutLocked
+    ? `${baseWrapperClassName} case-grid-restoring`
+    : baseWrapperClassName;
+
+  useEffect(() => {
+    if (typeof document === "undefined" || !restoreInProgress) return;
+    document.body.classList.add("case-return-restoring");
+    return () => document.body.classList.remove("case-return-restoring");
+  }, [restoreInProgress]);
 
   useEffect(() => {
     if (!restoreId || restoredRef.current === restoreId) return;
     if (!restoreTargetVisible) return;
 
+    setRestoreInProgress(true);
     let firstFrame = 0;
     let secondFrame = 0;
     let settleTimer = 0;
     let cancelled = false;
+    let resizeObserver: ResizeObserver | null = null;
     const calibrationTimers: number[] = [];
     const userEvents = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
     const clearTimers = () => {
       calibrationTimers.forEach((timer) => window.clearTimeout(timer));
       window.clearTimeout(settleTimer);
+    };
+    const disconnectResizeObserver = () => {
+      resizeObserver?.disconnect();
+      resizeObserver = null;
     };
     const removeUserListeners = () => {
       userEvents.forEach((event) => window.removeEventListener(event, cancelCalibration));
@@ -149,11 +197,13 @@ export function CaseGrid({
     const finish = () => {
       if (restoredRef.current === restoreId) return;
       restoredRef.current = restoreId;
+      setRestoreInProgress(false);
       onRestored?.();
     };
     const cancelCalibration = () => {
       cancelled = true;
       clearTimers();
+      disconnectResizeObserver();
       removeUserListeners();
       finish();
     };
@@ -164,20 +214,51 @@ export function CaseGrid({
       if (cancelled) return false;
       const el = document.getElementById(`case-${restoreId}`);
       if (!el) return false;
-      el.scrollIntoView({ block: "center", behavior: "auto" });
+      const rect = el.getBoundingClientRect();
+      const maxScrollY = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight,
+      );
+      const targetScrollY =
+        typeof restoreTargetTop === "number"
+          ? window.scrollY + rect.top - restoreTargetTop
+          : typeof restoreScrollY === "number"
+            ? restoreScrollY
+            : null;
+      if (targetScrollY !== null && Number.isFinite(targetScrollY)) {
+        window.scrollTo({
+          top: Math.max(0, Math.min(maxScrollY, targetScrollY)),
+          behavior: "instant" as ScrollBehavior,
+        });
+      } else {
+        el.scrollIntoView({ block: "center", behavior: "auto" });
+      }
       return true;
+    };
+    const watchTargetSize = () => {
+      if (resizeObserver || typeof ResizeObserver === "undefined") return;
+      const el = document.getElementById(`case-${restoreId}`);
+      if (!el) return;
+      resizeObserver = new ResizeObserver(() => {
+        scrollToTarget();
+      });
+      resizeObserver.observe(el);
     };
     firstFrame = window.requestAnimationFrame(() => {
       secondFrame = window.requestAnimationFrame(() => {
-        if (scrollToTarget()) addUserListeners();
+        if (scrollToTarget()) {
+          addUserListeners();
+          watchTargetSize();
+        }
         [120, 350, 700, 1200, 1800, 2400].forEach((delay) => {
           calibrationTimers.push(window.setTimeout(scrollToTarget, delay));
         });
         settleTimer = window.setTimeout(() => {
           scrollToTarget();
+          disconnectResizeObserver();
           removeUserListeners();
           finish();
-        }, 2600);
+        }, restoreTargetLoaded ? 1800 : 3000);
       });
     });
     return () => {
@@ -185,9 +266,10 @@ export function CaseGrid({
       window.cancelAnimationFrame(firstFrame);
       window.cancelAnimationFrame(secondFrame);
       clearTimers();
+      disconnectResizeObserver();
       removeUserListeners();
     };
-  }, [onRestored, restoreId, restoreTargetVisible]);
+  }, [onRestored, restoreId, restoreScrollY, restoreTargetLoaded, restoreTargetTop, restoreTargetVisible]);
 
   if (loading) {
     return (
@@ -237,15 +319,19 @@ export function CaseGrid({
       <div className="masonry">
         {columns.map((column, columnIndex) => (
           <div key={columnIndex} className="masonry-column">
-            {column.map(({ item, index }) => (
-              <CaseCard
-                key={item.id}
-                data={item}
-                favorited={favoriteIds.has(item.id)}
-                onToggleFavorite={onToggleFavorite}
-                priority={index < priorityCount}
-              />
-            ))}
+            {column.map(({ item, index }) => {
+              const isRestoreTarget = restoreId === item.id;
+              return (
+                <CaseCard
+                  key={item.id}
+                  data={item}
+                  favorited={favoriteIds.has(item.id)}
+                  onToggleFavorite={onToggleFavorite}
+                  priority={index < priorityCount}
+                  onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
+                />
+              );
+            })}
           </div>
         ))}
       </div>

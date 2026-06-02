@@ -1,23 +1,23 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { caseReturnPath, clearCaseReturn, readCaseReturn } from "../lib/caseReturn";
+import { caseReturnPath, clearCaseReturn, readCaseReturn, type CaseReturnTarget } from "../lib/caseReturn";
 
 export function useCaseReturnRestore() {
   const location = useLocation();
-  const [restoreId, setRestoreId] = useState<string | null>(() => {
+  const [restoreTarget, setRestoreTarget] = useState<CaseReturnTarget | null>(() => {
     const target = readCaseReturn();
-    return target?.path === caseReturnPath(location) ? target.id : null;
+    return target?.path === caseReturnPath(location) ? target : null;
   });
 
   useEffect(() => {
     const target = readCaseReturn();
-    setRestoreId(target?.path === caseReturnPath(location) ? target.id : null);
+    setRestoreTarget(target?.path === caseReturnPath(location) ? target : null);
   }, [location]);
 
   const onRestored = useCallback(() => {
     clearCaseReturn();
-    setRestoreId(null);
+    setRestoreTarget(null);
   }, []);
 
-  return { restoreId, onRestored };
+  return { restoreId: restoreTarget?.id ?? null, restoreTarget, onRestored };
 }

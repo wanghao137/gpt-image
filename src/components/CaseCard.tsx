@@ -22,6 +22,7 @@ interface CaseCardProps {
    * with high priority instead of treating them as lazy below-the-fold.
    */
   priority?: boolean;
+  onImageLoad?: () => void;
 }
 
 const FALLBACK =
@@ -165,7 +166,13 @@ function FolderIcon() {
  *   - `priority` flag controls eager fetch + fetchpriority=high; flip on for
  *     above-the-fold cards only.
  */
-function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: CaseCardProps) {
+function CaseCardImpl({
+  data,
+  favorited,
+  onToggleFavorite,
+  priority = false,
+  onImageLoad,
+}: CaseCardProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { state, copy } = useCopy(1500, {
@@ -313,6 +320,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
                 alt={data.imageAlt || data.title}
                 width={640}
                 height={800}
+                onLoad={onImageLoad}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             ) : (
@@ -326,6 +334,7 @@ function CaseCardImpl({ data, favorited, onToggleFavorite, priority = false }: C
                 sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                 loading={priority ? "eager" : "lazy"}
                 fetchPriority={priority ? "high" : "auto"}
+                onLoad={onImageLoad}
                 onError={() => setImgErr(true)}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />

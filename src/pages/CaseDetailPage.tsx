@@ -19,7 +19,7 @@ import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
 import { tagLabel } from "../lib/labels";
-import { readCaseReturn, rememberCaseReturn } from "../lib/caseReturn";
+import { readCaseReturn, refreshCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
 import { absoluteUrl, deriveCaseSeo, imageDimensionsForRatio } from "../lib/seo-url.mjs";
 import NotFoundPage from "./NotFoundPage";
@@ -81,13 +81,13 @@ export default function CaseDetailPage() {
   useEffect(() => {
     if (!c) return;
     const saved = readCaseReturn();
-    if (saved) rememberCaseReturn(c.id, saved.path);
+    if (saved && saved.id !== c.id) refreshCaseReturn(c.id, saved.path);
   }, [c]);
 
   const closeDetail = useCallback(() => {
     const saved = readCaseReturn();
     const targetPath = saved?.path || "/cases";
-    if (c) rememberCaseReturn(c.id, targetPath);
+    if (c) refreshCaseReturn(c.id, targetPath);
     navigate(targetPath);
   }, [c, navigate]);
 
