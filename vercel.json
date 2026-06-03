@@ -20,6 +20,12 @@
       ]
     },
     {
+      "source": "/static-loader-data-manifest-(.*).json",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
       "source": "/uploads/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" },

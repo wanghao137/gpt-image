@@ -1,4 +1,5 @@
 import type { RouteRecord } from "vite-react-ssg";
+import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/HomePage";
 import CasesPage from "./pages/CasesPage";
@@ -21,6 +22,7 @@ export const routes: RouteRecord[] = [
   {
     path: "/",
     Component: RootLayout,
+    ErrorBoundary: AppErrorBoundary,
     children: [
       { index: true, Component: HomePage, entry: "src/pages/HomePage.tsx" },
       { path: "cases", Component: CasesPage, entry: "src/pages/CasesPage.tsx" },

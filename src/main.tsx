@@ -1,5 +1,6 @@
 import "./index.css";
 import { ViteReactSSG } from "vite-react-ssg";
+import { installStaticLoaderManifestGuard } from "./lib/static-loader-manifest-core.mjs";
 import { routes } from "./routes";
 
 /**
@@ -9,6 +10,8 @@ import { routes } from "./routes";
  *
  * Both code paths use the same `routes` table — no separate dev/prod entry.
  */
+installStaticLoaderManifestGuard();
+
 export const createRoot = ViteReactSSG(
   { routes, basename: "/" },
   // Runs on both server and client. On the client we dismiss the boot overlay
