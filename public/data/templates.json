@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-exploded-technical-diagram",
+    "title": "产品爆炸图技术海报",
+    "category": "其他用例",
+    "tags": [
+      "realistic",
+      "poster",
+      "industrial",
+      "technical"
+    ],
+    "description": "生成产品/机械爆炸图技术海报——以工程级精度展示内部结构与子系统，适用于汽车、电子产品、工业设备等场景。",
+    "cover": "/uploads/template-derived-exploded-technical-diagram.jpg",
+    "prompt": "Place the primary chassis or structural platform perfectly centered as the core spine, and position the main body shell separately (left or top), aligned parallel as a reference form while preserving accurate proportions, stance, and geometry of the real {argument name=\"product_name\" default=\"sports car\"}.\n\nDesign a multi-layered exploded system with components separated across depth (Z-axis) as well as planar spacing, using clear hierarchy: micro hardware (bolts, screws, washers) tightly grouped, functional assemblies moderately spaced, and major systems widely separated.\n\nOrganize parts into realistic subsystems depending on the product type, including {argument name=\"subsystems\" default=\"front assembly (suspension, steering, brakes), rear assembly (suspension, drivetrain, differential), chassis/structure (frame, monocoque, subframes), powertrain (engine or motor with slight internal exposure, transmission, intake, exhaust, cooling), electronics (battery, ECU, wiring harness with clean routing), and wheel systems (4 wheels symmetrically placed with tire, rim, and hub separation)\"}.\n\nEnsure engineering realism by preserving mechanical relationships, aligning shafts and rotational axes, maintaining symmetry across left/right systems, and grouping micro components logically near their assembly points in precise micro-grid arrangements. Avoid random placement.\n\nUse a refined, high-end aesthetic: soft neutral gradient background ({argument name=\"background\" default=\"white to light grey or warm beige\"}), studio-grade product lighting with soft top illumination, subtle directional shadows, and controlled reflections. Apply realistic materials such as {argument name=\"materials\" default=\"brushed metal, carbon fiber, rubber, and glass with slight wear\"} — avoid toy-like finishes. Maintain strong horizontal symmetry with controlled depth asymmetry for visual complexity, and ensure balanced negative space to avoid overcrowding.\n\nRender in ultra-realistic quality with razor-sharp edges, macro-level detail, subtle ambient occlusion, and ray-traced shadows. Output in {argument name=\"resolution\" default=\"2K or 4K\"} resolution, {argument name=\"aspect_ratio\" default=\"4:5\"} aspect ratio.\n\nNo text, no labels, no arrows, no branding overlays, no stylization, no perspective distortion. Style keywords: {argument name=\"style_keywords\" default=\"F1 engineering exploded diagram, luxury automotive technical poster, industrial design breakdown, Apple-style product visualization, ultra-precision mechanical layout, museum-grade presentation\"}.",
+    "useWhen": "需要展示产品/机械的内部结构爆炸图，适用于汽车、电子、工业设备、消费品等品类的技术海报或产品可视化。",
+    "createdAt": "2026-06-03T01:26:52.788Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Gallery · @Naiknelofar788 (91 likes, 425 favorites)"
+  },
+  {
     "id": "derived-papercraft-style-transfer",
     "title": "纸艺风格转换与立体纸雕",
     "category": "插画与艺术",
@@ -797,18 +815,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-05-30-case-100038-wooden-pagoda-section.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Poster / 3D Render / Editorial / Infographic / Cinematic / Lifestyle\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100038 古代木塔建造过程3D剖面建筑蓝图: 目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 …\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n- #395 骑士法师大战石像魔像: Create a cinematic dark fantasy action scene in a ruined cathedral hall: a {argument name=\"hero…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-04-case-100049-sci-fi-megastructure-cave.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / 3D Render / Editorial / Brand / Realistic / Poster / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100049 暗黑科幻巨型结构洞穴景观: 创作一个广阔的电影感暗黑科幻景观，展示巨大的外星巨型结构或洞穴内部，如同一个充满扭曲有机金属拱门和巨大肋状柱体的空心小行星大教堂。场景采用 16:9 宽屏构图，从结构深处向外俯瞰，镜头横跨多…\n- #100038 古代木塔建造过程3D剖面建筑蓝图: 目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 …\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100049",
       "100038",
       "100014",
       "395",
-      "391",
-      "381"
+      "391"
     ]
   },
   {
