@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-exploded-technical-diagram",
+    "title": "产品爆炸图技术海报",
+    "category": "其他用例",
+    "tags": [
+      "realistic",
+      "poster",
+      "industrial",
+      "technical"
+    ],
+    "description": "生成产品/机械爆炸图技术海报——以工程级精度展示内部结构与子系统，适用于汽车、电子产品、工业设备等场景。",
+    "cover": "/uploads/template-derived-exploded-technical-diagram.jpg",
+    "prompt": "Place the primary chassis or structural platform perfectly centered as the core spine, and position the main body shell separately (left or top), aligned parallel as a reference form while preserving accurate proportions, stance, and geometry of the real {argument name=\"product_name\" default=\"sports car\"}.\n\nDesign a multi-layered exploded system with components separated across depth (Z-axis) as well as planar spacing, using clear hierarchy: micro hardware (bolts, screws, washers) tightly grouped, functional assemblies moderately spaced, and major systems widely separated.\n\nOrganize parts into realistic subsystems depending on the product type, including {argument name=\"subsystems\" default=\"front assembly (suspension, steering, brakes), rear assembly (suspension, drivetrain, differential), chassis/structure (frame, monocoque, subframes), powertrain (engine or motor with slight internal exposure, transmission, intake, exhaust, cooling), electronics (battery, ECU, wiring harness with clean routing), and wheel systems (4 wheels symmetrically placed with tire, rim, and hub separation)\"}.\n\nEnsure engineering realism by preserving mechanical relationships, aligning shafts and rotational axes, maintaining symmetry across left/right systems, and grouping micro components logically near their assembly points in precise micro-grid arrangements. Avoid random placement.\n\nUse a refined, high-end aesthetic: soft neutral gradient background ({argument name=\"background\" default=\"white to light grey or warm beige\"}), studio-grade product lighting with soft top illumination, subtle directional shadows, and controlled reflections. Apply realistic materials such as {argument name=\"materials\" default=\"brushed metal, carbon fiber, rubber, and glass with slight wear\"} — avoid toy-like finishes. Maintain strong horizontal symmetry with controlled depth asymmetry for visual complexity, and ensure balanced negative space to avoid overcrowding.\n\nRender in ultra-realistic quality with razor-sharp edges, macro-level detail, subtle ambient occlusion, and ray-traced shadows. Output in {argument name=\"resolution\" default=\"2K or 4K\"} resolution, {argument name=\"aspect_ratio\" default=\"4:5\"} aspect ratio.\n\nNo text, no labels, no arrows, no branding overlays, no stylization, no perspective distortion. Style keywords: {argument name=\"style_keywords\" default=\"F1 engineering exploded diagram, luxury automotive technical poster, industrial design breakdown, Apple-style product visualization, ultra-precision mechanical layout, museum-grade presentation\"}.",
+    "useWhen": "需要展示产品/机械的内部结构爆炸图，适用于汽车、电子、工业设备、消费品等品类的技术海报或产品可视化。",
+    "createdAt": "2026-06-03T01:26:52.788Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Gallery · @Naiknelofar788 (91 likes, 425 favorites)"
+  },
+  {
     "id": "derived-papercraft-style-transfer",
     "title": "纸艺风格转换与立体纸雕",
     "category": "插画与艺术",
