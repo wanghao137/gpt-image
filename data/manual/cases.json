@@ -1,5 +1,32 @@
 [
   {
+    "id": "100053",
+    "title": "Nike运动鞋创意广告海报：空中姿态与字体融合",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Realistic"
+    ],
+    "scenes": [
+      "Commerce"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Social",
+      "Commerce",
+      "Brand",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-06-04-case-100029-nike-shoe-poster.jpg",
+    "imageAlt": "Nike运动鞋创意广告海报：空中姿态与字体融合",
+    "prompt": "Generate a perfectly graphic designed poster of Nike Shoe advertisement. The character (indian young funky girl_wearing headphones_curly hairs) should be in the Air with a pose that shows the neon green Big joggers with black nike logo(tick). white funky stylish shirt. The outfit should be modern baggie cool outfit and a Big text in beautiful Nike font (Just Do it) perfectly merged in the background and the some other texts about the shoes and the company.",
+    "promptPreview": "Generate a perfectly graphic designed poster of Nike Shoe advertisement. The character (indian young funky girl_wearing headphones_curly hairs) should be in the Air with a pose that shows the neon green Big joggers with…",
+    "source": "Community collected via @Strength04_X",
+    "githubUrl": "https://www.meigen.ai/prompt/2061729112339914819",
+    "createdAt": "2026-06-04T01:27:50.446Z"
+  },
+  {
     "id": "100052",
     "title": "Spotify音乐营销海报：排版为视觉主角",
     "category": "海报与排版",
