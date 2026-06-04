@@ -32,4 +32,7 @@ node_modules/.image-cache/
 
 # Playwright MCP browser-testing scratch output.
 .playwright-mcp/
+.omx/
+test-results/
 
+.env.local

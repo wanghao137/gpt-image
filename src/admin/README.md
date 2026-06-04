@@ -54,10 +54,35 @@ npm run admin:hash
 
 ## 能做什么
 
+- 查看「数据看板」：每日访客、页面浏览、热门页面、来源、设备、浏览器、系统、国家/地区
 - 增 / 删 / 改 `data/manual/cases.json` 里的案例（同 ID 覆盖上游、`hidden:true` 屏蔽上游）
 - 增 / 删 / 改 `data/manual/templates.json` 里的模板
 - 直接拖拽图片到 `public/uploads/`，自动 commit 并填回路径
 - 直接编辑原始 JSON（适合粘贴大段或定向修复）
+
+## 数据看板
+
+公开页面会同时接入：
+
+- Vercel Web Analytics：平台侧 PV / Visitors / Referrers / Geo / Device 等
+- Vercel Speed Insights：真实用户 Core Web Vitals
+- 站内轻量统计接口：`POST /api/analytics/collect` 聚合到 Redis，`GET /api/analytics/summary` 给 `/admin` 展示
+
+后台统计不采集 `/admin`、`/api` 和静态资源路径。访客数使用 `IP + UA + 日期 + salt` 的 SHA-256 哈希写入 Redis HyperLogLog，不保存原始 IP。
+
+生产环境需要接一个 Upstash / Vercel KV Redis，并在 Vercel Production 配置：
+
+```text
+ANALYTICS_KV_REST_API_URL=<Redis REST URL>
+ANALYTICS_KV_REST_API_TOKEN=<Redis REST token>
+ANALYTICS_ADMIN_TOKEN=<可选；不填则复用 HERMES_ADMIN_API_KEY>
+ANALYTICS_SALT=<可选；建议设置一个随机长字符串>
+```
+
+`/api/analytics/summary` 可以用两种方式授权：
+
+- `Authorization: Bearer <ANALYTICS_ADMIN_TOKEN 或 HERMES_ADMIN_API_KEY>`
+- `Authorization: Bearer <GitHub PAT>`，服务端会校验它是否能访问当前仓库。后台默认复用你登录时输入的 GitHub PAT。
 
 ## 安全模型
 
@@ -90,6 +115,7 @@ src/admin/
 ├── main.tsx             # 入口（挂载到 admin.html）
 ├── admin.css            # 仅 admin 用的样式
 ├── auth.ts              # 盐化 PBKDF2 密码网关 + sessionStorage token
+├── analytics-dashboard-core.mjs # 数据看板展示口径
 ├── crypto.ts            # base64 / PBKDF2 / sha256 helpers
 ├── github.ts            # GitHub Contents API 客户端
 ├── store.ts             # 状态机：load / edit / save
@@ -100,6 +126,7 @@ src/admin/
     ├── Lock.tsx         # 密码登录页
     ├── Connect.tsx      # PAT 输入页
     ├── Shell.tsx        # 主框架（侧边栏 + 顶栏 + 视图）
+    ├── AnalyticsDashboard.tsx # 访问统计看板
     ├── CaseEditor.tsx   # 案例 master/detail 编辑器
     ├── TemplateEditor.tsx
     ├── RawJson.tsx      # 原始 JSON 高级编辑

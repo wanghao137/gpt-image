@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { BackToTop } from "../components/BackToTop";
+import { Observability } from "../components/Observability";
 import { ToastViewport } from "../components/Toast";
 import { caseReturnPath, readCaseReturn } from "../lib/caseReturn";
 
@@ -43,6 +44,7 @@ export default function RootLayout() {
       <Footer />
       <BackToTop />
       <ToastViewport />
+      <Observability />
     </div>
   );
 }

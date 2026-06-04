@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { lock } from "../auth";
 import { REPO_TARGET } from "../config";
 import { CaseEditor } from "./CaseEditor";
+import { AnalyticsDashboard } from "./AnalyticsDashboard";
 import { TemplateEditor } from "./TemplateEditor";
 import { RawJson } from "./RawJson";
 import { useAdminStore } from "../store";
@@ -22,7 +23,7 @@ interface ShellProps {
   onSignOut: () => void;
 }
 
-type Tab = "cases" | "templates" | "raw-cases" | "raw-templates";
+type Tab = "analytics" | "cases" | "templates" | "raw-cases" | "raw-templates";
 
 interface TabDef {
   id: Tab;
@@ -32,6 +33,20 @@ interface TabDef {
 }
 
 const TABS: TabDef[] = [
+  {
+    id: "analytics",
+    label: "数据看板",
+    group: "manage",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+        <path d="M4 19V5" />
+        <path d="M4 19h16" />
+        <rect x="7" y="11" width="2.5" height="5" rx="1" />
+        <rect x="12" y="7" width="2.5" height="9" rx="1" />
+        <rect x="17" y="9" width="2.5" height="7" rx="1" />
+      </svg>
+    ),
+  },
   {
     id: "cases",
     label: "案例",
@@ -98,7 +113,7 @@ function initialThemeMode(): ThemeMode {
 
 export function Shell({ token, login, onSignOut }: ShellProps) {
   const store = useAdminStore(token);
-  const [tab, setTab] = useState<Tab>("cases");
+  const [tab, setTab] = useState<Tab>("analytics");
   const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
   const [systemTheme, setSystemTheme] = useState<EffectiveTheme>(() =>
     typeof window === "undefined" ? "dark" : getSystemTheme(),
@@ -175,7 +190,9 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
           templatesCount={store.templates.data.length}
         />
         <section className="flex-1 overflow-hidden p-4 sm:p-6 lg:p-8">
-          {store.loadError ? (
+          {tab === "analytics" ? (
+            <AnalyticsDashboard token={token} />
+          ) : store.loadError ? (
             <ErrorState message={store.loadError} onRetry={store.refresh} />
           ) : store.loading && store.cases.sha === null ? (
             <LoadingState />
@@ -277,7 +294,7 @@ function Sidebar({
           label="Manage"
           items={groupItems("manage").map((t) => ({
             ...t,
-            count: t.id === "cases" ? casesCount : templatesCount,
+            count: countForTab(t.id, casesCount, templatesCount),
           }))}
           active={active}
           onChange={onChange}
