@@ -1,5 +1,30 @@
 [
   {
+    "id": "100050",
+    "title": "高风格化3D卡通头像：夸张表情与光滑材质",
+    "category": "角色与人物",
+    "styles": [
+      "3D",
+      "Caricature"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "3D Render",
+      "Minimal",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-04-case-100026-3d-caricature.jpg",
+    "imageAlt": "高风格化3D卡通头像：夸张表情与光滑材质",
+    "prompt": "A highly stylized 3D caricature of [Character], with an oversized head, expressive facial features, and playful exaggeration. Rendered in a smooth, polished style with clean materials and soft ambient lighting. Minimal background to emphasize the character’s charm and presence.",
+    "promptPreview": "A highly stylized 3D caricature of [Character], with an oversized head, expressive facial features, and playful exaggeration. Rendered in a smooth, polished style with clean materials and soft ambient lighting. Minimal …",
+    "source": "Community collected via @azed_ai",
+    "githubUrl": "https://www.meigen.ai/prompt/2061764041115320755",
+    "createdAt": "2026-06-04T01:27:39.223Z"
+  },
+  {
     "id": "100049",
     "title": "暗黑科幻巨型结构洞穴景观",
     "category": "场景与叙事",
