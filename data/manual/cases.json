@@ -1,5 +1,33 @@
 [
   {
+    "id": "100051",
+    "title": "时尚大片：电影感编辑肖像与液态变形效果",
+    "category": "摄影与写实",
+    "styles": [
+      "Cinematic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait",
+      "Fashion"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-06-04-case-100027-editorial-portrait.jpg",
+    "imageAlt": "时尚大片：电影感编辑肖像与液态变形效果",
+    "prompt": "A cinematic editorial portrait of a stylish young woman standing in a confident yet soft dynamic pose, head slightly lowered with loose strands of hair falling across her face, creating a mysterious and elegant mood. She wears an oversized satin rust-orange shirt with soft flowing folds and relaxed ivory cargo pants, paired with chunky platform sneakers for a modern luxury streetwear vibe. The background features a clean minimal gradient of warm cream blending into muted sage green, creating a premium fashion-editorial atmosphere. Around her body, fluid motion blur streaks merge with artistic glitch-smear distortions and subtle liquid dripping paint effects, adding a surreal futuristic aesthetic. Dramatic studio lighting, soft cinematic shadows, glossy reflective floor, ultra-realistic skin texture, high contrast, fashion magazine style, luxury editorial photography, dreamy cinematic depth, 4K, hyper-detailed, razor-sharp focus, modern high-end fashion campaign vibe.",
+    "promptPreview": "A cinematic editorial portrait of a stylish young woman standing in a confident yet soft dynamic pose, head slightly lowered with loose strands of hair falling across her face, creating a mysterious and elegant mood. Sh…",
+    "source": "Community collected via @NoOneIsHere2603",
+    "githubUrl": "https://www.meigen.ai/prompt/2061429958229332181",
+    "createdAt": "2026-06-04T01:27:42.825Z"
+  },
+  {
     "id": "100050",
     "title": "高风格化3D卡通头像：夸张表情与光滑材质",
     "category": "角色与人物",
