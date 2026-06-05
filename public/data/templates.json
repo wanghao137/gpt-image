@@ -1,5 +1,39 @@
 [
   {
+    "id": "derived-visual-concept-ad",
+    "title": "国际广告级视觉概念大片",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Typography"
+    ],
+    "description": "将任意主体拉升到国际广告大奖级别的视觉概念大片。通过尺度反差、视觉隐喻、空间错觉和故事表达，创造过目难忘的超现实创意画面。适用于广告创意、品牌视觉和概念艺术。",
+    "cover": "/uploads/2025-06-06-template-derived-visual-concept-ad.jpg",
+    "prompt": "以【{argument name=\"主体\" default=\"25岁泳装日本少女\"}】为核心。  创造一个前所未见的视觉概念。  主体突破现实尺度与物理规则。  采用国际广告大奖级创意思维。  强调视觉隐喻、尺度反差、空间错觉与故事表达。  构图简洁但极具记忆点。  兼具艺术性、商业传播性与视觉冲击力。  令人过目难忘。  超高创意，超高审美。",
+    "useWhen": "适合需要快速复用「国际广告级视觉概念大片」结构的内容生产场景。",
+    "createdAt": "2026-06-05T16:31:27.432Z",
+    "sourceType": "manual",
+    "sourceLabel": "本项目手动模板"
+  },
+  {
+    "id": "derived-food-levitation-ad",
+    "title": "悬浮堆叠美食广告：高级食品广告悬浮拍摄",
+    "category": "产品与电商",
+    "tags": [
+      "food",
+      "advertising",
+      "product",
+      "commercial"
+    ],
+    "description": "高端食品广告悬浮拍摄模板，白色无缝背景 + 浮空堆叠构图，适合任何食品/饮料产品的商业广告图",
+    "cover": "/uploads/template-derived-food-levitation-ad.jpg",
+    "prompt": "{subject}, premium food advertising, white seamless background, high key studio lighting, floating stacked composition, levitating pieces, {ingredient_bits} scattered, clean minimal layout, crisp soft shadow on surface, ultra realistic, macro product photography, 100mm lens look, f/8 sharp focus, subtle texture detail, editorial commercial, 8k",
+    "useWhen": "需要为食品、饮料、零食等产品生成高级商业广告图，要求白底悬浮构图、极简干净的画面风格",
+    "createdAt": "2026-06-05T03:32:30.808Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Gallery · @azed_ai (731 likes, 85 favorites)"
+  },
+  {
     "id": "derived-exploded-technical-diagram",
     "title": "产品爆炸图技术海报",
     "category": "其他用例",
@@ -577,18 +611,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/uploads/2026-06-05-case-100054-dr-pepper-diner-ad.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Editorial / Cinematic / Commerce / Product / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100054 电影质感复古美式餐厅汽水广告海报: 目标：为 Dr Pepper 创作一张超写实的竖版电影质感汽水广告海报，采用高端商业饮料摄影风格，营造戏剧性的红色灯光和复古夜晚氛围。 画布：竖版 2:3 海报，高分辨率，光泽感商业质感，深…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n- #470 本地生活小店异形展架: 《餐饮异形展架/立牌物料》提示词： 请生成一张高完成度的「餐饮异形展架 / 立牌」设计图，用于展示餐饮门店的新品推荐、招牌产品、套餐促销或品牌活动信息。 【基础信息】 品牌名：【品牌名】 主…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-06-06-case-100060-vintage-newspaper.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / Cinematic / Minimal / Education / Brand / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100054 电影质感复古美式餐厅汽水广告海报: 目标：为 Dr Pepper 创作一张超写实的竖版电影质感汽水广告海报，采用高端商业饮料摄影风格，营造戏剧性的红色灯光和复古夜晚氛围。 画布：竖版 2:3 海报，高分辨率，光泽感商业质感，深…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100060",
       "100054",
       "100046",
       "470",
-      "100026",
-      "454"
+      "100026"
     ]
   },
   {
@@ -625,18 +659,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case493.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / UI / Poster / Realistic / Tech / Commerce / Travel / Fashion\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #493 东京旅行 13 格视频封面: Generate image of young female travel vlogger exploring Tokyo across multiple candid moments, e…\n- #492 黑色高定酒店套房写真: Create a hyper-realistic luxury fashion portrait inspired by premium fashion-week editorials. I…\n- #491 Y2K 高楼浴室镜面自拍: A moody late-night mirror selfie captured in a luxury high-rise bathroom overlooking a glowing …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case500.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Tech / Commerce / Fashion / Character / Illustration / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #500 梦幻花冠仙境肖像: Ultra-realistic ethereal fantasy portrait of a breathtaking young woman with delicate porcelain…\n- #499 极简精品店全身时尚写真: A full-body editorial fashion photograph of a beautiful young woman with the same appearance as…\n- #495 巴黎街头故事书插画: Portrait illustration in a storybook style featuring a young adult woman exploring the streets …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "493",
-      "492",
-      "491",
-      "490",
-      "100051"
+      "500",
+      "499",
+      "495",
+      "100056",
+      "493"
     ]
   },
   {
@@ -649,18 +683,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case493.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / UI / Realistic / Tech / Commerce / Illustration / Story / Food\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #493 东京旅行 13 格视频封面: Generate image of young female travel vlogger exploring Tokyo across multiple candid moments, e…\n- #489 城市地图微缩旅行海报: Create a highly detailed cinematic miniature tilt-shift travel scene of [CITY NAME] featuring a…\n- #474 四城极简旅行海报系列: Minimalist flat travel poster illustration series of iconic destinations around the world, clea…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case497.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / UI / Illustration / Tech / Commerce / Social / Realistic / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n- #100056 复古 CCD 卡片机风格·夏日乡间公路偶像旅拍: 复古 CCD 卡片机夏日旅行抓拍，一位20岁出头的年轻东亚女idol站在乡间公路边。黑棕色低位双马尾，细碎刘海，浅粉色发圈，淡妆，冷白皮，真实皮肤。白色无袖高领宽松连衣裙，轻薄棉质，右肩白色…\n- #493 东京旅行 13 格视频封面: Generate image of young female travel vlogger exploring Tokyo across multiple candid moments, e…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "497",
+      "100056",
       "493",
       "489",
-      "474",
-      "464",
-      "461"
+      "474"
     ]
   },
   {
@@ -815,18 +849,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-04-case-100049-sci-fi-megastructure-cave.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / 3D Render / Editorial / Brand / Realistic / Poster / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100049 暗黑科幻巨型结构洞穴景观: 创作一个广阔的电影感暗黑科幻景观，展示巨大的外星巨型结构或洞穴内部，如同一个充满扭曲有机金属拱门和巨大肋状柱体的空心小行星大教堂。场景采用 16:9 宽屏构图，从结构深处向外俯瞰，镜头横跨多…\n- #100038 古代木塔建造过程3D剖面建筑蓝图: 目标：创建一个高密度的中国建筑展示项目，展示古代木塔的建造过程示意图，中心为正在施工的 {argument name=\"building name\" default=\"应县木塔\"} 的逼真 …\n- #100014 夏日夜晚的小确幸 🍺✨ 室内微醺时光分享: 夏日夜晚室内氛围照，年轻亚洲女性，长黑发，穿白色丝质吊带，手持Cass啤酒瓶轻松微醺，坐在现代厨房餐桌旁。柔和灯光、自然阴影，皮肤微微高光，面颊带自然红晕，现代家居背景（含冰箱），慵懒自然的…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-06-case-100059-architectural-infographic.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Poster / 3D Render / Editorial / Cinematic / Minimal / Interior Design\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100059 高级建筑信息图设计手册页: Create a premium square \"reference-style architectural infographic\" centered around a luxurious…\n- #100058 高端室内设计情绪板：现代中古风卧室 Mood Board: 你是一名专业的室内设计 Mood Board 创作者。请基于用户提供的 [Space Type] 室内设计照片，生成一张竖版 3:4 的高端室内设计情绪板。整体视觉参考专业室内设计提案图，呈…\n- #100049 暗黑科幻巨型结构洞穴景观: 创作一个广阔的电影感暗黑科幻景观，展示巨大的外星巨型结构或洞穴内部，如同一个充满扭曲有机金属拱门和巨大肋状柱体的空心小行星大教堂。场景采用 16:9 宽屏构图，从结构深处向外俯瞰，镜头横跨多…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100059",
+      "100058",
       "100049",
       "100038",
-      "100014",
-      "395",
-      "391"
+      "100014"
     ]
   },
   {
@@ -839,18 +873,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case453.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Poster / Brand / Tech / Commerce / Story / Documents / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #453 企业级商用画册视觉系统: 请生成一套企业级商用画册视觉方案，主题为【品牌名称】的【行业 / 产品 / 解决方案】宣传画册。 整体风格：高端、专业、具有强视觉冲击力；避免传统 Word 排版感和普通 PPT 感。采用【…\n- #303 人教版三年级语文课本内页: [中文] 生成人教版小学三年级语文课本的一页 [English] Generate a page from the PEP (People's Education Press) primar…\n- #293 聚焦人工智能的校园日报: [中文] 生成一张校园日报，主题AI教育 [English] Generate a campus daily newspaper, theme AI education\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-06-case-100060-vintage-newspaper.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Cinematic / Minimal / Education / Brand / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #453 企业级商用画册视觉系统: 请生成一套企业级商用画册视觉方案，主题为【品牌名称】的【行业 / 产品 / 解决方案】宣传画册。 整体风格：高端、专业、具有强视觉冲击力；避免传统 Word 排版感和普通 PPT 感。采用【…\n- #303 人教版三年级语文课本内页: [中文] 生成人教版小学三年级语文课本的一页 [English] Generate a page from the PEP (People's Education Press) primar…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100060",
       "453",
       "303",
       "293",
-      "266",
-      "232"
+      "266"
     ]
   }
 ]
