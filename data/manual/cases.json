@@ -1,5 +1,30 @@
 [
   {
+    "id": "100059",
+    "title": "高级建筑信息图设计手册页",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-06-06-case-100059-architectural-infographic.jpg",
+    "imageAlt": "高级建筑信息图设计手册页",
+    "prompt": "Create a premium square \"reference-style architectural infographic\" centered around a luxurious {HOUSE_STYLE} modern house, designed as a beautifully curated architecture handbook page rather than a real-estate advertisement.\nThe composition should feel like a modern visual encyclopedia mixed with an elite architectural field guide and high-end editorial infographic system.\nVisual Direction:\n• 1:1 square composition\n• Soft light-toned architectural background with subtle blueprint textures and drafting schematics\n• Elegant muted palette using warm white, charcoal gray, natural wood tones, matte black, concrete gray, and soft steel blue accents\n• Refined editorial typography hierarchy\n• Rounded modular information cards with clean spacing\n• Gentle realistic shadows and premium UI-style dividers\n• Minimal architectural iconography\n• Extremely detailed central house render viewed in dramatic three-quarter exterior perspective during soft golden-hour lighting\n• Thin precision annotation lines pointing toward architectural systems and design features\n• Clean, organized \"knowledge-first\" layout with high information density but breathable spacing\nMain Subject Presentation:\nA stunning ultra-detailed realistic render of the {HOUSE_STYLE} modern house placed at the center, featuring premium architectural realism, floor-to-ceiling glass walls, realistic reflections, warm ambient lighting, natural landscaping, modern material textures, elegant geometry, and sophisticated contemporary detailing.\nSurround the house with scientific and architectural callouts explaining:\n• façade design\n• structural engineering\n• smart home systems\n• sustainable architecture\n• passive cooling systems\n• roof design\n• glazing and natural lighting\n• interior planning\n• landscaping integration\n• energy-efficient materials\nInclude modular infographic sections such as:\n• House Overview\n• Key Specifications\n• Floor Plan Overview\n• Structural & Material Breakdown\n• Smart Home Features\n• Sustainability Systems\n• Climate-Responsive Design\n• Interior Design Highlights\n• Kitchen & Bathroom Concepts\n• Area Distribution Charts\n• Construction Timeline\n• Cost Estimation (Indicative)\n• Advantages vs Considerations\n• Site Plan Layout\n• Sectional Architectural View\n• \"Top 5 Incredible Facts\" section\n• Ideal Locations & Usage Scenarios\nAdd small premium visualization modules like:\n• floor plan diagrams\n• section-cut architectural drawings\n• airflow & ventilation diagrams\n• sunlight direction graphics\n• smart-home workflow visuals\n• landscaping/site layout plans\n• material palette displays\n• sustainability performance charts\n• miniature blueprint elevation views\n• room distribution infographics\nStyle Keywords:\n\"premium architecture encyclopedia\"\n\"editorial architectural handbook\"\n\"high-end residential infographic\"\n\"museum-quality modern house reference page\"\n\"scientific architectural poster\"\n\"luxury home design editorial\"\n\"modular architectural knowledge system\"\n\"ultra-detailed architectural visualization\"\nAvoid:\n• generic real-estate flyer aesthetics\n• cluttered luxury brochure layouts\n• excessive cinematic effects\n• overly dark moody scenes\n• unrealistic futuristic sci-fi architecture\n• advertisement-heavy compositions\nThe final result should resemble a professionally published architectural reference-book page created for architects, interior designers, collectors, luxury home enthusiasts, and educational design archives.",
+    "promptPreview": "Create a premium square \"reference-style architectural infographic\" centered around a luxurious {HOUSE_STYLE} modern house, designed as a beautifully curated architecture handbook page rather than a real-estate advertis…",
+    "source": "Community collected via @mehvishs25",
+    "createdAt": "2026-06-05T20:03:59.993Z"
+  },
+  {
     "id": "100058",
     "title": "高端室内设计情绪板：现代中古风卧室 Mood Board",
     "category": "建筑与空间",
