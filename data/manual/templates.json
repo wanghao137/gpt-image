@@ -1,5 +1,20 @@
 [
   {
+    "id": "derived-visual-concept-ad",
+    "title": "国际广告级视觉概念大片",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Typography"
+    ],
+    "description": "将任意主体拉升到国际广告大奖级别的视觉概念大片。通过尺度反差、视觉隐喻、空间错觉和故事表达，创造过目难忘的超现实创意画面。适用于广告创意、品牌视觉和概念艺术。",
+    "cover": "/uploads/2025-06-06-template-derived-visual-concept-ad.jpg",
+    "prompt": "以【{argument name=\"主体\" default=\"25岁泳装日本少女\"}】为核心。  创造一个前所未见的视觉概念。  主体突破现实尺度与物理规则。  采用国际广告大奖级创意思维。  强调视觉隐喻、尺度反差、空间错觉与故事表达。  构图简洁但极具记忆点。  兼具艺术性、商业传播性与视觉冲击力。  令人过目难忘。  超高创意，超高审美。",
+    "useWhen": "适合需要快速复用「国际广告级视觉概念大片」结构的内容生产场景。",
+    "createdAt": "2026-06-05T16:31:27.432Z",
+    "sourceType": "derived-case"
+  },
+  {
     "id": "derived-food-levitation-ad",
     "title": "悬浮堆叠美食广告：高级食品广告悬浮拍摄",
     "category": "产品与电商",
