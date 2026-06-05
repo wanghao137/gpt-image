@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-food-levitation-ad",
+    "title": "悬浮堆叠美食广告：高级食品广告悬浮拍摄",
+    "category": "产品与电商",
+    "tags": [
+      "food",
+      "advertising",
+      "product",
+      "commercial"
+    ],
+    "description": "高端食品广告悬浮拍摄模板，白色无缝背景 + 浮空堆叠构图，适合任何食品/饮料产品的商业广告图",
+    "cover": "/uploads/template-derived-food-levitation-ad.jpg",
+    "prompt": "{subject}, premium food advertising, white seamless background, high key studio lighting, floating stacked composition, levitating pieces, {ingredient_bits} scattered, clean minimal layout, crisp soft shadow on surface, ultra realistic, macro product photography, 100mm lens look, f/8 sharp focus, subtle texture detail, editorial commercial, 8k",
+    "useWhen": "需要为食品、饮料、零食等产品生成高级商业广告图，要求白底悬浮构图、极简干净的画面风格",
+    "createdAt": "2026-06-05T03:32:30.808Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Gallery · @azed_ai (731 likes, 85 favorites)"
+  },
+  {
     "id": "derived-exploded-technical-diagram",
     "title": "产品爆炸图技术海报",
     "category": "其他用例",
