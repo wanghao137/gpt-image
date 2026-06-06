@@ -1,5 +1,31 @@
 [
   {
+    "id": "100061",
+    "title": "建筑蓝图与实景对照分割可视化",
+    "category": "建筑与空间",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Architecture",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-07-case-100061-arch-blueprint-split.jpg",
+    "imageAlt": "建筑蓝图与实景对照分割可视化",
+    "prompt": "{\n  \"objective\": \"Create a split architectural visualization where the top is a detailed dark-themed blueprint and the bottom is a photorealistic house that matches the blueprint EXACTLY\",\n\n  \"aspect_ratio\": \"3:4\",\n\n  \"composition\": {\n    \"layout\": \"vertical split\",\n    \"top_section\": \"blueprint\",\n    \"bottom_section\": \"realistic render\",\n    \"alignment\": \"perfect structural correspondence between both sections\"\n  },\n\n  \"top_section\": {\n    \"type\": \"architectural blueprint\",\n    \"style\": \"dark luxury blueprint\",\n\n    \"visual_style\": {\n      \"background\": \"deep navy / charcoal blue\",\n      \"lines\": \"thin glowing beige/gold lines\",\n      \"walls\": \"slightly extruded 3D effect\",\n      \"labels\": \"clean modern sans-serif\",\n      \"lighting\": \"soft ambient glow\"\n    },\n\n    \"content\": {\n      \"rooms\": [\n        \"3 bedrooms (left, right, bottom-right)\",\n        \"central living room\",\n        \"kitchen + dining (top center)\",\n        \"2 bathrooms\",\n        \"garage (left side connected)\",\n        \"front porch\",\n        \"backyard pool with deck\"\n      ],\n      \"details\": [\n        \"furniture outlines (beds, sofa, dining table)\",\n        \"door swings and openings\",\n        \"window placements\",\n        \"circulation paths\",\n        \"exact proportions and spacing\"\n      ]\n    }\n  },\n\n  \"bottom_section\": {\n    \"type\": \"photorealistic house render\",\n\n    \"constraint\": \"MUST MATCH THE BLUEPRINT EXACTLY — no added, removed, or shifted rooms\",\n\n    \"architecture\": {\n      \"style\": \"modern single-story house\",\n      \"roof\": \"flat layered roof\",\n      \"materials\": [\n        \"smooth concrete walls\",\n        \"wood panel accents\",\n        \"large glass windows\"\n      ]\n    },\n\n    \"layout_mapping_rules\": [\n      \"garage must be on the left side exactly as blueprint\",\n      \"main entrance aligned with living room\",\n      \"pool positioned in backyard matching blueprint dimensions\",\n      \"window placements correspond to each room location\",\n      \"bedroom volumes visible externally in correct positions\"\n    ],\n\n    \"environment\": {\n      \"setting\": \"suburban neighborhood\",\n      \"elements\": [\n        \"green lawn\",\n        \"minimal landscaping\",\n        \"clean driveway leading to garage\",\n        \"pool deck matching blueprint footprint\"\n      ]\n    },\n\n    \"lighting\": {\n      \"time\": \"golden hour\",\n      \"style\": \"soft natural light with realistic shadows\"\n    },\n\n    \"camera\": {\n      \"angle\": \"slightly elevated front perspective\",\n      \"lens\": \"35mm architectural view\"\n    }\n  },\n\n  \"consistency_rules\": [\n    \"room positions must be identical between blueprint and render\",\n    \"no extra structures added in render\",\n    \"all doors and windows must align logically\",\n    \"pool size and placement must match exactly\",\n    \"garage placement must match blueprint\"\n  ],\n\n  \"style\": {\n    \"top\": \"architectural visualization (dark premium)\",\n    \"bottom\": \"photorealistic modern house\",\n    \"overall\": \"clean, high-end architectural presentation\"\n  },\n\n  \"negative_constraints\": [\n    \"no mismatch between blueprint and render\",\n    \"no extra rooms\",\n    \"no fantasy elements\",\n    \"no unrealistic proportions\",\n    \"no cluttered environment\"\n  ]\n}",
+    "promptPreview": "{ \"objective\": \"Create a split architectural visualization where the top is a detailed dark-themed blueprint and the bottom is a photorealistic house that matches the blueprint EXACTLY\", \"aspect_ratio\": \"3:4\", \"composit…",
+    "source": "Community collected via @craftian_keskin",
+    "githubUrl": "https://www.meigen.ai/prompt/2040757362382798888",
+    "createdAt": "2026-06-06T20:04:16.853Z"
+  },
+  {
     "id": "100060",
     "title": "复古黑白报纸头版设计",
     "category": "文档与出版",
