@@ -1,5 +1,31 @@
 [
   {
+    "id": "100062",
+    "title": "复古报纸头版人物专题设计",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Education",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-07-case-100062-vintage-newspaper.jpg",
+    "imageAlt": "复古报纸头版人物专题设计",
+    "prompt": "Create the most realistic front page design of a vintage newspaper featuring the main character. The layout should be made in the style of a real printed newspaper with a cinematic black-and-white aesthetic.\nThe main photo should be prominently placed in the center, framed, like the image in the title of the article. The subject in the photo should remain unchanged and clearly distinguishable in natural light and slightly increased contrast in order to match the spectacular editorial style.\nCreate a bold, attention-grabbing headline at the top (create a unique title that matches the spirit of the photo - it can be romantic, mysterious, funny, or dramatic). Add a smaller subtitle under it, which will look like a real newspaper caption.\nAdd realistic newspaper elements:\nColumns of small text (in the style of lorem ipsum, but framed like real news)\nAt the top is the fictitious name of the publication (for example, \"The Daily Prompts\", \"AI Times\" or similar - think creatively, according to the picture)\nDate, issue number and location\nDecorative lines, dividers, and vintage typography\nSmall additional articles or captions to the main image\nOptional stamps, doodles, or editorial notes to add personality.\nStyle:\nBlack and white or slightly faded monochrome paper\nFine paper texture, grain, and ink defects\nSmall shadows and creases that mimic real printed paper\nThe aesthetics of a clean but slightly worn vintage newspaper\nMood: Give the design personality, expressiveness and plot, as if the plot is part of the main article.\nAspect ratio: 4:5 or 1:1\nHigh-detail, ultra-realistic hybrid of editorial photography and print design.",
+    "promptPreview": "Create the most realistic front page design of a vintage newspaper featuring the main character. The layout should be made in the style of a real printed newspaper with a cinematic black-and-white aesthetic. The main ph…",
+    "source": "Community collected via @Naiknelofar788",
+    "githubUrl": "https://www.meigen.ai/prompt/2047207812800147647",
+    "createdAt": "2026-06-06T20:04:50.946Z"
+  },
+  {
     "id": "100061",
     "title": "建筑蓝图与实景对照分割可视化",
     "category": "建筑与空间",
