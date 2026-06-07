@@ -1,5 +1,30 @@
 [
   {
+    "id": "100064",
+    "title": "经典木刻版画黑白肖像",
+    "category": "历史与古典",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-06-08-case-100064-woodcut-engraving-portrait.jpg",
+    "imageAlt": "经典木刻版画黑白肖像",
+    "prompt": "Black and white engraved portrait illustration of a person.\nDrawn in classic woodcut / linocut engraving style, high contrast black ink on textured off-white paper background. Fine cross-hatching and line shading to create depth and shadow, bold black ink shadows under chin and around hair, strong contour lines, traditional printmaking aesthetic.\nMinimal composition, centered portrait, no body visible, clean negative space, vintage editorial illustration style, ultra detailed linework, sharp crisp ink strokes, professional vector-ready engraving look, monochrome palette, dramatic contrast.\nNegative Prompt:\ncolor, watercolor, soft shading, blurred lines, low contrast, realistic photography, 3D render, anime style, cartoon style, messy sketch, thick uneven strokes, background objects, noisy texture, pixelated, distorted face, extra eyes, extra ears, bad anatomy, modern digital painting, glossy skin, overexposed highlights",
+    "promptPreview": "Black and white engraved portrait illustration of a person. Drawn in classic woodcut / linocut engraving style, high contrast black ink on textured off-white paper background. Fine cross-hatching and line shading to cre…",
+    "source": "Community collected via @Naiknelofar788",
+    "createdAt": "2026-06-07T20:05:52.779Z"
+  },
+  {
     "id": "100063",
     "title": "Film Noir 拳击四格电影叙事分镜",
     "category": "场景与叙事",
