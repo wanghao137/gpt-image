@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-handdrawn-city-food-map",
+    "title": "手绘城市美食地图",
+    "category": "建筑与空间",
+    "tags": [
+      "map",
+      "food",
+      "illustration",
+      "handdrawn",
+      "travel"
+    ],
+    "description": "以鸟瞰手绘风格绘制城市美食地图，标注当地特色美食地点的精致小插画，适用于美食博主、旅游宣传、城市文化推广等场景。",
+    "cover": "/uploads/template-derived-handdrawn-city-food-map.jpg",
+    "prompt": "一张手绘风格的{argument name=\"city\" default=\"成都\"}城市美食地图。\n\n整体风格：\n- {argument name=\"art_style\" default=\"水彩手绘风格，温暖的色调，可爱的手绘感\"}\n- 视角：鸟瞰视角的简化城市地图\n- 不追求精确比例，追求可爱的手绘质感\n- 底图标注主要道路、地标和水系，用淡色线条勾勒\n\n地图元素：\n- 标注{argument name=\"districts\" default=\"主要区域名称\"}和关键地标\n- 地图上分布 {argument name=\"spot_count\" default=\"10-12\"} 个美食地点的精致手绘小插画\n- 每个插画约占地图 5% 面积，旁边用手写体标注店名和一句推荐语\n\n美食地点示例格式（根据城市实际特色替换）：\n- {argument name=\"food_spots\" default=\"每个美食地点包含：店名/地名 + 一道代表菜的精致手绘小插画 + 手写体店名和推荐语\"}\n\n手绘小插画要求：\n- 每个美食插画都要有明确的辨识度（食材颜色、形状、蒸汽、光泽等细节）\n- 用水彩质感表现食物的诱人感\n- 蒸汽、飞溅、光泽等动态细节增加生动感\n\n文字与标注：\n- 城市名称用大号手写体在地图顶部\n- 地名用小号手写体标注\n- 推荐语用手写体，如\"凌晨两点还在排队的火锅\"\n- 路名用细线条手写标注\n\n画布：{argument name=\"canvas\" default=\"竖版 3:4，米白色纸张质感背景，边缘略带水彩晕染\"}\n氛围：温暖、可爱、让人看了就想吃的烟火气",
+    "useWhen": "需要制作城市美食地图、旅游美食攻略图、地方特色美食文化宣传图、餐厅探店地图等场景。适合美食博主、旅游博主、城市文化推广。",
+    "createdAt": "2026-06-07T21:05:28.178Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "TaoStudio cases (274, 331, 11) + MeiGen Gallery · city illustration (3+ cases analyzed, MeiGen top 268/287 likes)"
+  },
+  {
     "id": "derived-fashion-multi-pose-collage",
     "title": "时尚多姿态网格拼贴",
     "category": "摄影与写实",
