@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-fashion-multi-pose-collage",
+    "title": "时尚多姿态网格拼贴",
+    "category": "摄影与写实",
+    "tags": [
+      "fashion",
+      "collage",
+      "portrait",
+      "editorial",
+      "grid"
+    ],
+    "description": "同一人物多套造型/多角度姿态的网格拼贴写真，适用于偶像写真集、时尚画册、电商目录、穿搭展示等场景。",
+    "cover": "/uploads/template-derived-fashion-multi-pose-collage.jpg",
+    "prompt": "Create a {argument name=\"layout\" default=\"3×3 grid\"} photo collage featuring the same {argument name=\"subject\" default=\"young Asian woman\"} in {argument name=\"pose_count\" default=\"9\"} distinct poses and expressions, maintaining 100% consistent facial identity, proportions, and hairstyle across all frames.\n\nSubject Identity Lock:\n- Face: perfectly matched across all panels, identical bone structure, eye shape, skin texture\n- Hairstyle: {argument name=\"hairstyle\" default=\"long dark wavy hair, consistent volume and parting across all frames\"}\n- Skin: ultra-realistic texture, natural pores, subtle imperfections, no over-smoothing\n\nStyling:\n- Outfit: {argument name=\"outfit\" default=\"white shirt with minimalist styling, consistent wardrobe across all frames, or subtle variations\"}\n- Makeup: {argument name=\"makeup\" default=\"clean idol-style minimal makeup, soft glow, subtle blush\"}\n\nLayout & Composition:\n- Grid: {argument name=\"layout\" default=\"3×3 square grid\"} arrangement\n- Each panel: equal-sized, clean borders, consistent framing\n- Pose variety: {argument name=\"pose_style\" default=\"mix of close-up portraits, half-body, and full-body poses with natural candid expressions\"}\n- Expression range: confident, playful, dreamy, laughing, pensive — avoid monotony\n\nLighting & Background:\n- {argument name=\"lighting\" default=\"Soft warm studio lighting, gentle shadows, professional beauty lighting setup\"}\n- {argument name=\"background\" default=\"clean neutral studio backdrop in warm beige or soft white\"}\n\nQuality:\n- Resolution: ultra-high detail, 8K quality rendering\n- Photography style: premium fashion editorial / idol photobook aesthetic\n- No filters, no over-retouching, natural skin finish\n\nOutput: {argument name=\"aspect_ratio\" default=\"1:1 square\"} format, print-quality detail, no watermark.",
+    "useWhen": "需要制作偶像写真集、时尚画册、电商服装目录、社交媒体多角度展示图、穿搭拼贴等场景。适用同一人物多造型/多姿态的网格化展示。",
+    "createdAt": "2026-06-07T21:03:58.478Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "TaoStudio cases + MeiGen Gallery · fashion collage (12+ cases analyzed, MeiGen top likes 409/340/208)"
+  },
+  {
     "id": "derived-visual-concept-ad",
     "title": "国际广告级视觉概念大片",
     "category": "海报与排版",
