@@ -1,5 +1,43 @@
 [
   {
+    "id": "derived-handdrawn-city-food-map",
+    "title": "手绘城市美食地图",
+    "category": "建筑与空间",
+    "tags": [
+      "map",
+      "food",
+      "illustration",
+      "handdrawn",
+      "travel"
+    ],
+    "description": "以鸟瞰手绘风格绘制城市美食地图，标注当地特色美食地点的精致小插画，适用于美食博主、旅游宣传、城市文化推广等场景。",
+    "cover": "/uploads/template-derived-handdrawn-city-food-map.jpg",
+    "prompt": "一张手绘风格的{argument name=\"city\" default=\"成都\"}城市美食地图。\n\n整体风格：\n- {argument name=\"art_style\" default=\"水彩手绘风格，温暖的色调，可爱的手绘感\"}\n- 视角：鸟瞰视角的简化城市地图\n- 不追求精确比例，追求可爱的手绘质感\n- 底图标注主要道路、地标和水系，用淡色线条勾勒\n\n地图元素：\n- 标注{argument name=\"districts\" default=\"主要区域名称\"}和关键地标\n- 地图上分布 {argument name=\"spot_count\" default=\"10-12\"} 个美食地点的精致手绘小插画\n- 每个插画约占地图 5% 面积，旁边用手写体标注店名和一句推荐语\n\n美食地点示例格式（根据城市实际特色替换）：\n- {argument name=\"food_spots\" default=\"每个美食地点包含：店名/地名 + 一道代表菜的精致手绘小插画 + 手写体店名和推荐语\"}\n\n手绘小插画要求：\n- 每个美食插画都要有明确的辨识度（食材颜色、形状、蒸汽、光泽等细节）\n- 用水彩质感表现食物的诱人感\n- 蒸汽、飞溅、光泽等动态细节增加生动感\n\n文字与标注：\n- 城市名称用大号手写体在地图顶部\n- 地名用小号手写体标注\n- 推荐语用手写体，如\"凌晨两点还在排队的火锅\"\n- 路名用细线条手写标注\n\n画布：{argument name=\"canvas\" default=\"竖版 3:4，米白色纸张质感背景，边缘略带水彩晕染\"}\n氛围：温暖、可爱、让人看了就想吃的烟火气",
+    "useWhen": "需要制作城市美食地图、旅游美食攻略图、地方特色美食文化宣传图、餐厅探店地图等场景。适合美食博主、旅游博主、城市文化推广。",
+    "createdAt": "2026-06-07T21:05:28.178Z",
+    "sourceType": "manual",
+    "sourceLabel": "TaoStudio cases (274, 331, 11) + MeiGen Gallery · city illustration (3+ cases analyzed, MeiGen top 268/287 likes)"
+  },
+  {
+    "id": "derived-fashion-multi-pose-collage",
+    "title": "时尚多姿态网格拼贴",
+    "category": "摄影与写实",
+    "tags": [
+      "fashion",
+      "collage",
+      "portrait",
+      "editorial",
+      "grid"
+    ],
+    "description": "同一人物多套造型/多角度姿态的网格拼贴写真，适用于偶像写真集、时尚画册、电商目录、穿搭展示等场景。",
+    "cover": "/uploads/template-derived-fashion-multi-pose-collage.jpg",
+    "prompt": "Create a {argument name=\"layout\" default=\"3×3 grid\"} photo collage featuring the same {argument name=\"subject\" default=\"young Asian woman\"} in {argument name=\"pose_count\" default=\"9\"} distinct poses and expressions, maintaining 100% consistent facial identity, proportions, and hairstyle across all frames.\n\nSubject Identity Lock:\n- Face: perfectly matched across all panels, identical bone structure, eye shape, skin texture\n- Hairstyle: {argument name=\"hairstyle\" default=\"long dark wavy hair, consistent volume and parting across all frames\"}\n- Skin: ultra-realistic texture, natural pores, subtle imperfections, no over-smoothing\n\nStyling:\n- Outfit: {argument name=\"outfit\" default=\"white shirt with minimalist styling, consistent wardrobe across all frames, or subtle variations\"}\n- Makeup: {argument name=\"makeup\" default=\"clean idol-style minimal makeup, soft glow, subtle blush\"}\n\nLayout & Composition:\n- Grid: {argument name=\"layout\" default=\"3×3 square grid\"} arrangement\n- Each panel: equal-sized, clean borders, consistent framing\n- Pose variety: {argument name=\"pose_style\" default=\"mix of close-up portraits, half-body, and full-body poses with natural candid expressions\"}\n- Expression range: confident, playful, dreamy, laughing, pensive — avoid monotony\n\nLighting & Background:\n- {argument name=\"lighting\" default=\"Soft warm studio lighting, gentle shadows, professional beauty lighting setup\"}\n- {argument name=\"background\" default=\"clean neutral studio backdrop in warm beige or soft white\"}\n\nQuality:\n- Resolution: ultra-high detail, 8K quality rendering\n- Photography style: premium fashion editorial / idol photobook aesthetic\n- No filters, no over-retouching, natural skin finish\n\nOutput: {argument name=\"aspect_ratio\" default=\"1:1 square\"} format, print-quality detail, no watermark.",
+    "useWhen": "需要制作偶像写真集、时尚画册、电商服装目录、社交媒体多角度展示图、穿搭拼贴等场景。适用同一人物多造型/多姿态的网格化展示。",
+    "createdAt": "2026-06-07T21:03:58.478Z",
+    "sourceType": "manual",
+    "sourceLabel": "TaoStudio cases + MeiGen Gallery · fashion collage (12+ cases analyzed, MeiGen top likes 409/340/208)"
+  },
+  {
     "id": "derived-visual-concept-ad",
     "title": "国际广告级视觉概念大片",
     "category": "海报与排版",
@@ -659,18 +697,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case506.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Poster / Illustration / Brand / Travel / Realistic / Tech / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #506 可爱发卡图文人像海报: 围绕具体主题内容生成一张明亮清爽的图文合成视觉：画面以大面积高明度纯净色场承托主体，背景平整、通风、没有复杂景深，视觉重心由下方被大胆裁切的人像或真实主体建立，只露出最有记忆点的局部，使主体…\n- #505 夜间手机光沙发肖像: A young adult woman with soft refined features, thin metal glasses, and shoulder-length dark to…\n- #504 粗糙涂鸦人像改图: Turn this photo into a chaotic funny doodle illustration, intentionally messy and low-skill, as…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-08-case-100064-woodcut-engraving-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / 3D Render / Editorial / Minimal / Education / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100064 经典木刻版画黑白肖像: Black and white engraved portrait illustration of a person. Drawn in classic woodcut / linocut …\n- #506 可爱发卡图文人像海报: 围绕具体主题内容生成一张明亮清爽的图文合成视觉：画面以大面积高明度纯净色场承托主体，背景平整、通风、没有复杂景深，视觉重心由下方被大胆裁切的人像或真实主体建立，只露出最有记忆点的局部，使主体…\n- #505 夜间手机光沙发肖像: A young adult woman with soft refined features, thin metal glasses, and shoulder-length dark to…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100064",
       "506",
       "505",
       "504",
-      "501",
-      "500"
+      "501"
     ]
   },
   {
@@ -825,18 +863,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/uploads/2026-06-03-case-100046-cooking-storyboard.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Poster / Realistic / Illustration / Editorial / Cinematic / Social / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n- #487 法式药妆商业分镜封面: 35mm anamorphic, 2.39:1, no flares. Ultra-realistic international French pharmacy skincare comm…\n- #422 冬季生存惊悚 Storyboard: Cinematic Survival Thriller Storyboard Prompt Create a premium cinematic storyboard presentatio…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "/uploads/2026-06-08-case-100063-noir-boxing-storyboard.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Minimal / Brand / Tech / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n- #487 法式药妆商业分镜封面: 35mm anamorphic, 2.39:1, no flares. Ultra-realistic international French pharmacy skincare comm…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100063",
       "100046",
       "487",
       "422",
-      "419",
-      "413"
+      "419"
     ]
   },
   {
