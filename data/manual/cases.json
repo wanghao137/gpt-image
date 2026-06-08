@@ -1,5 +1,29 @@
 [
   {
+    "id": "100065",
+    "title": "历史事件软木板叙事拼图",
+    "category": "历史与古典",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Education"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Education",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-09-case-100065-historical-cork-board.jpg",
+    "imageAlt": "历史事件软木板叙事拼图",
+    "prompt": "1080x1080 cork-board layout telling the story of [HISTORICAL MOMENT]. At the very top of the board, include a pinned paper label with the title: \"HISTORICAL MOMENT\" in large handwritten letters. Below it, arrange 5–6 Polaroid photos pinned across the board in a loose chronological path. Each Polaroid shows a key moment from the story with a short handwritten caption beneath it. Connect characters and events with colored strings (red, blue, yellow). Warm nostalgic lighting, soft shadows. Include realistic details: coffee cup rings, paper clips, torn notes, arrows, scribbled hints, and thumbtacks. Vintage, textured, cozy detective-board aesthetic. Highly readable, high contrast, everything framed clearly for 1080x1080",
+    "promptPreview": "1080x1080 cork-board layout telling the story of [HISTORICAL MOMENT]. At the very top of the board, include a pinned paper label with the title: \"HISTORICAL MOMENT\" in large handwritten letters. Below it, arrange 5–6 Po…",
+    "source": "Community collected via @TechieBySA",
+    "createdAt": "2026-06-08T20:06:12.249Z"
+  },
+  {
     "id": "100064",
     "title": "经典木刻版画黑白肖像",
     "category": "历史与古典",
