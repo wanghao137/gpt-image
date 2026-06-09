@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-architecture-blueprint-reality-split",
+    "title": "建筑蓝图实景分割对照",
+    "category": "建筑与空间",
+    "tags": [
+      "architecture",
+      "blueprint",
+      "floorplan",
+      "visualization",
+      "split-view"
+    ],
+    "description": "上下分割：深色建筑蓝图平面图+对应实景渲染，严格结构对照，高端建筑展示风格",
+    "cover": "/uploads/template-derived-architecture-blueprint-reality-split.jpg",
+    "prompt": "Create a split architectural visualization where the top is a detailed dark-themed blueprint and the bottom is a photorealistic {argument name=\"building_type\" default=\"modern single-story house\"} that matches the blueprint EXACTLY.\n\nAspect ratio: {argument name=\"aspect\" default=\"3:4\"}\n\nComposition: vertical split — top section: blueprint, bottom section: realistic render, perfect structural correspondence between both sections.\n\nTop section — Architectural blueprint:\nStyle: {argument name=\"blueprint_style\" default=\"dark luxury blueprint, deep navy/charcoal blue background, thin glowing beige/gold lines, slightly extruded 3D wall effect, clean modern sans-serif labels, soft ambient glow\"}\n\nContent: {argument name=\"rooms\" default=\"3 bedrooms, central living room, kitchen+dining, 2 bathrooms, garage, front porch, backyard pool with deck\"}\nDetails: furniture outlines (beds, sofa, dining table), door swings and openings, window placements, circulation paths, exact proportions and spacing.\n\nBottom section — Photorealistic render:\nMUST MATCH THE BLUEPRINT EXACTLY — no added, removed, or shifted rooms.\nArchitecture style: {argument name=\"arch_style\" default=\"modern house, flat layered roof, smooth concrete walls, wood panel accents, large glass windows\"}\nLayout mapping: {argument name=\"mapping_rules\" default=\"garage on left, main entrance aligned with living room, pool in backyard matching blueprint, window placements correspond to each room\"}\nEnvironment: {argument name=\"environment\" default=\"suburban neighborhood, green lawn, minimal landscaping, clean driveway, golden hour soft natural light\"}\nCamera: {argument name=\"camera\" default=\"slightly elevated front perspective, 35mm architectural view\"}\n\nConsistency rules: room positions identical, no extra structures, doors/windows aligned logically, pool matches exactly.\nStyle: top = architectural visualization (dark premium), bottom = photorealistic, overall = clean high-end architectural presentation.\nNegative: no mismatch between blueprint and render, no extra rooms, no fantasy elements, no unrealistic proportions.",
+    "useWhen": "需要将建筑平面图与实景对照展示，适合房产营销、建筑设计提案、空间规划可视化",
+    "createdAt": "2026-06-09T03:28:52.159Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community · @craftian_keskin · Architecture (801 likes)"
+  },
+  {
     "id": "derived-film-noir-four-panel-storyboard",
     "title": "黑色电影四格分镜叙事",
     "category": "场景与叙事",
