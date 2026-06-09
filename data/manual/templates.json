@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-film-noir-four-panel-storyboard",
+    "title": "黑色电影四格分镜叙事",
+    "category": "场景与叙事",
+    "tags": [
+      "film noir",
+      "storyboard",
+      "cinematic",
+      "split-screen",
+      "narrative"
+    ],
+    "description": "电影四格分镜叙事，统一黑色电影光影风格，鸟瞰/特写/极特写/背影四种镜头叙事推进",
+    "cover": "/uploads/template-derived-film-noir-four-panel-storyboard.jpg",
+    "prompt": "Create a single film noir–style cinematic image divided into four horizontal panels, all depicting the same {argument name=\"character\" default=\"boxer\"} and the same {argument name=\"environment\" default=\"boxing ring\"} environment, unified by lighting, atmosphere, and narrative progression across four stages of {argument name=\"story\" default=\"a fight\"}.\n\nOverall style:\n{argument name=\"lighting_style\" default=\"Vintage Film Noir Lighting, Low Key Lighting, Hard Shadows Lighting, Split Lighting, moody and tense atmosphere, minimal fill light, deep blacks, sharp contrast, visible film grain, slight vignetting, subtle haze in the air from sweat and dust. Industrial warehouse setting, night atmosphere, light beams cutting through darkness\"}. Clean horizontal separation between panels, cinematic split-screen composition, consistent character identity across all panels.\n\nTop panel – {argument name=\"panel1_label\" default=\"ROUND 1\"}, {argument name=\"panel1_shot\" default=\"BIRD'S-EYE SHOT\"}:\n{argument name=\"panel1_desc\" default=\"Bird's Eye View of the ring. Stark top-down composition, ropes forming geometric frames. Two figures circling each other. Overhead spotlight creating strong geometric shadows. Light slicing through darkness, corners fading into black.\"}\n\nSecond panel – {argument name=\"panel2_label\" default=\"ROUND 2\"}, {argument name=\"panel2_shot\" default=\"SIDE CLOSE-UP SHOT\"}:\n{argument name=\"panel2_desc\" default=\"Side-profile close-up of the main subject mid-action. Intense expression, jaw clenched. One side of the face sharply lit by a hard key light, the other completely swallowed in shadow. Split Lighting carving the facial structure in classic noir sculpting.\"}\n\nThird panel – {argument name=\"panel3_label\" default=\"ROUND 3\"}, {argument name=\"panel3_shot\" default=\"EXTREME CLOSE-UP\"}:\n{argument name=\"panel3_desc\" default=\"Extreme Close-Up on a critical detail. Heavy shadow dominance. Light catching only key textures. Film grain pronounced. The rest of the frame nearly pure black.\"}\n\nBottom panel – {argument name=\"panel4_label\" default=\"FINAL ROUND\"}, {argument name=\"panel4_shot\" default=\"MEDIUM WIDE BACK SHOT\"}:\n{argument name=\"panel4_desc\" default=\"Medium Wide Shot from behind the subject. Standing alone after a decisive moment, shoulders rising with breath. Rim Lighting outlining the silhouette. Light haze in the air enhancing depth. The scene fading into darkness.\"}\n\nHigh detail, High Quality, Photorealism Style, cinematic composition, cohesive identity across all four panels, dramatic storytelling progression within a single unified noir frame.",
+    "useWhen": "需要用电影分镜方式讲述一个四幕叙事故事，统一视觉风格下呈现时间/剧情推进",
+    "createdAt": "2026-06-09T03:28:47.312Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community · @kaanakz · Scene Narrative (320 likes)"
+  },
+  {
     "id": "derived-woodcut-engraving-portrait",
     "title": "黑白木刻版画肖像",
     "category": "历史与古典",
