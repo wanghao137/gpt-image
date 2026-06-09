@@ -1,5 +1,79 @@
 [
   {
+    "id": "derived-aged-paper-origami-scene",
+    "title": "折纸旧纸上的记忆浮现",
+    "category": "历史与古典",
+    "tags": [
+      "vintage",
+      "paper",
+      "storytelling"
+    ],
+    "description": "在折皱旧纸的纹理中浮现出一个微型3D场景，使用纸张折痕和墨迹营造浮雕般的视觉叙事",
+    "cover": "/uploads/template-aged-paper-origami-scene.jpg",
+    "prompt": "Design a hyper-realistic close-up image of a folded sheet of aged paper. Within the paper's creases and surfaces, depict a {argument name=\"scene\" default=\"quiet village at dusk with warm lantern light\"} emerging naturally from the folds, like sculpted origami.\nThe environment and figures appear embossed or printed directly into the paper, using wrinkles, grain, and {argument name=\"ink_style\" default=\"sepia ink\"} textures to build the illusion. Include subtle shadows, curled edges, torn corners, and ink fading to enhance realism.\nSet the paper on a {argument name=\"surface\" default=\"worn wooden tabletop\"} with soft directional light from {argument name=\"light_direction\" default=\"the upper left\"}, casting gentle shadows and enhancing dimensional depth.\nPhotorealistic, emotional storytelling, handcrafted visual illusion, 8K ultra-detail, {argument name=\"aspect\" default=\"4:5\"} ratio.",
+    "useWhen": "需要将一个场景或记忆以浮雕纸艺风格呈现，适合历史叙事、怀旧主题、文学意象可视化",
+    "createdAt": "2026-06-09T10:51:49.231Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community · @Milo_Bahi_02 · Historical Classical (137 likes)"
+  },
+  {
+    "id": "derived-architecture-blueprint-reality-split",
+    "title": "建筑蓝图实景分割对照",
+    "category": "建筑与空间",
+    "tags": [
+      "architecture",
+      "blueprint",
+      "floorplan",
+      "visualization",
+      "split-view"
+    ],
+    "description": "上下分割：深色建筑蓝图平面图+对应实景渲染，严格结构对照，高端建筑展示风格",
+    "cover": "/uploads/template-derived-architecture-blueprint-reality-split.jpg",
+    "prompt": "Create a split architectural visualization where the top is a detailed dark-themed blueprint and the bottom is a photorealistic {argument name=\"building_type\" default=\"modern single-story house\"} that matches the blueprint EXACTLY.\n\nAspect ratio: {argument name=\"aspect\" default=\"3:4\"}\n\nComposition: vertical split — top section: blueprint, bottom section: realistic render, perfect structural correspondence between both sections.\n\nTop section — Architectural blueprint:\nStyle: {argument name=\"blueprint_style\" default=\"dark luxury blueprint, deep navy/charcoal blue background, thin glowing beige/gold lines, slightly extruded 3D wall effect, clean modern sans-serif labels, soft ambient glow\"}\n\nContent: {argument name=\"rooms\" default=\"3 bedrooms, central living room, kitchen+dining, 2 bathrooms, garage, front porch, backyard pool with deck\"}\nDetails: furniture outlines (beds, sofa, dining table), door swings and openings, window placements, circulation paths, exact proportions and spacing.\n\nBottom section — Photorealistic render:\nMUST MATCH THE BLUEPRINT EXACTLY — no added, removed, or shifted rooms.\nArchitecture style: {argument name=\"arch_style\" default=\"modern house, flat layered roof, smooth concrete walls, wood panel accents, large glass windows\"}\nLayout mapping: {argument name=\"mapping_rules\" default=\"garage on left, main entrance aligned with living room, pool in backyard matching blueprint, window placements correspond to each room\"}\nEnvironment: {argument name=\"environment\" default=\"suburban neighborhood, green lawn, minimal landscaping, clean driveway, golden hour soft natural light\"}\nCamera: {argument name=\"camera\" default=\"slightly elevated front perspective, 35mm architectural view\"}\n\nConsistency rules: room positions identical, no extra structures, doors/windows aligned logically, pool matches exactly.\nStyle: top = architectural visualization (dark premium), bottom = photorealistic, overall = clean high-end architectural presentation.\nNegative: no mismatch between blueprint and render, no extra rooms, no fantasy elements, no unrealistic proportions.",
+    "useWhen": "需要将建筑平面图与实景对照展示，适合房产营销、建筑设计提案、空间规划可视化",
+    "createdAt": "2026-06-09T03:28:52.159Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community · @craftian_keskin · Architecture (801 likes)"
+  },
+  {
+    "id": "derived-film-noir-four-panel-storyboard",
+    "title": "黑色电影四格分镜叙事",
+    "category": "场景与叙事",
+    "tags": [
+      "film noir",
+      "storyboard",
+      "cinematic",
+      "split-screen",
+      "narrative"
+    ],
+    "description": "电影四格分镜叙事，统一黑色电影光影风格，鸟瞰/特写/极特写/背影四种镜头叙事推进",
+    "cover": "/uploads/template-derived-film-noir-four-panel-storyboard.jpg",
+    "prompt": "Create a single film noir–style cinematic image divided into four horizontal panels, all depicting the same {argument name=\"character\" default=\"boxer\"} and the same {argument name=\"environment\" default=\"boxing ring\"} environment, unified by lighting, atmosphere, and narrative progression across four stages of {argument name=\"story\" default=\"a fight\"}.\n\nOverall style:\n{argument name=\"lighting_style\" default=\"Vintage Film Noir Lighting, Low Key Lighting, Hard Shadows Lighting, Split Lighting, moody and tense atmosphere, minimal fill light, deep blacks, sharp contrast, visible film grain, slight vignetting, subtle haze in the air from sweat and dust. Industrial warehouse setting, night atmosphere, light beams cutting through darkness\"}. Clean horizontal separation between panels, cinematic split-screen composition, consistent character identity across all panels.\n\nTop panel – {argument name=\"panel1_label\" default=\"ROUND 1\"}, {argument name=\"panel1_shot\" default=\"BIRD'S-EYE SHOT\"}:\n{argument name=\"panel1_desc\" default=\"Bird's Eye View of the ring. Stark top-down composition, ropes forming geometric frames. Two figures circling each other. Overhead spotlight creating strong geometric shadows. Light slicing through darkness, corners fading into black.\"}\n\nSecond panel – {argument name=\"panel2_label\" default=\"ROUND 2\"}, {argument name=\"panel2_shot\" default=\"SIDE CLOSE-UP SHOT\"}:\n{argument name=\"panel2_desc\" default=\"Side-profile close-up of the main subject mid-action. Intense expression, jaw clenched. One side of the face sharply lit by a hard key light, the other completely swallowed in shadow. Split Lighting carving the facial structure in classic noir sculpting.\"}\n\nThird panel – {argument name=\"panel3_label\" default=\"ROUND 3\"}, {argument name=\"panel3_shot\" default=\"EXTREME CLOSE-UP\"}:\n{argument name=\"panel3_desc\" default=\"Extreme Close-Up on a critical detail. Heavy shadow dominance. Light catching only key textures. Film grain pronounced. The rest of the frame nearly pure black.\"}\n\nBottom panel – {argument name=\"panel4_label\" default=\"FINAL ROUND\"}, {argument name=\"panel4_shot\" default=\"MEDIUM WIDE BACK SHOT\"}:\n{argument name=\"panel4_desc\" default=\"Medium Wide Shot from behind the subject. Standing alone after a decisive moment, shoulders rising with breath. Rim Lighting outlining the silhouette. Light haze in the air enhancing depth. The scene fading into darkness.\"}\n\nHigh detail, High Quality, Photorealism Style, cinematic composition, cohesive identity across all four panels, dramatic storytelling progression within a single unified noir frame.",
+    "useWhen": "需要用电影分镜方式讲述一个四幕叙事故事，统一视觉风格下呈现时间/剧情推进",
+    "createdAt": "2026-06-09T03:28:47.312Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community · @kaanakz · Scene Narrative (320 likes)"
+  },
+  {
+    "id": "derived-woodcut-engraving-portrait",
+    "title": "黑白木刻版画肖像",
+    "category": "历史与古典",
+    "tags": [
+      "vintage",
+      "engraving",
+      "portrait",
+      "woodcut",
+      "monochrome"
+    ],
+    "description": "经典木刻/油毡版画风格肖像，高对比黑白墨线，精细交叉排线，复古编辑插画质感",
+    "cover": "/uploads/template-derived-woodcut-engraving-portrait.jpg",
+    "prompt": "Black and white engraved portrait illustration of {argument name=\"subject\" default=\"a distinguished elderly man with weathered features and deep-set eyes\"}.\nDrawn in classic woodcut / linocut engraving style, high contrast black ink on textured off-white paper background. Fine cross-hatching and line shading to create depth and shadow, bold black ink shadows under chin and around hair, strong contour lines, traditional printmaking aesthetic.\n{argument name=\"composition\" default=\"Minimal composition, centered portrait, no body visible, clean negative space\"}, vintage editorial illustration style, ultra detailed linework, sharp crisp ink strokes, professional vector-ready engraving look, monochrome palette, dramatic contrast.\nNegative Prompt:\n{argument name=\"negative\" default=\"color, watercolor, soft shading, blurred lines, low contrast, realistic photography, 3D render, anime style, cartoon style, messy sketch, thick uneven strokes, background objects, noisy texture, pixelated, distorted face\"}",
+    "useWhen": "需要古典版画风格人像插图，书籍封面、编辑插画、复古品牌视觉时使用",
+    "createdAt": "2026-06-09T03:28:42.718Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community · @Naiknelofar788 · Historical Classical (645 likes)"
+  },
+  {
     "id": "derived-handdrawn-city-food-map",
     "title": "手绘城市美食地图",
     "category": "建筑与空间",
@@ -697,18 +771,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-08-case-100064-woodcut-engraving-portrait.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / 3D Render / Editorial / Minimal / Education / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100064 经典木刻版画黑白肖像: Black and white engraved portrait illustration of a person. Drawn in classic woodcut / linocut …\n- #506 可爱发卡图文人像海报: 围绕具体主题内容生成一张明亮清爽的图文合成视觉：画面以大面积高明度纯净色场承托主体，背景平整、通风、没有复杂景深，视觉重心由下方被大胆裁切的人像或真实主体建立，只露出最有记忆点的局部，使主体…\n- #505 夜间手机光沙发肖像: A young adult woman with soft refined features, thin metal glasses, and shoulder-length dark to…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-09-case-100067-fountain-pen-story.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Realistic / Cinematic / Education / Brand / Illustration / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n- #100064 经典木刻版画黑白肖像: Black and white engraved portrait illustration of a person. Drawn in classic woodcut / linocut …\n- #506 可爱发卡图文人像海报: 围绕具体主题内容生成一张明亮清爽的图文合成视觉：画面以大面积高明度纯净色场承托主体，背景平整、通风、没有复杂景深，视觉重心由下方被大胆裁切的人像或真实主体建立，只露出最有记忆点的局部，使主体…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100067",
       "100064",
       "506",
       "505",
-      "504",
-      "501"
+      "504"
     ]
   },
   {
@@ -887,18 +961,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-07-case-100061-arch-blueprint-split.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Editorial / Minimal / Brand / Poster / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100061 建筑蓝图与实景对照分割可视化: { \"objective\": \"Create a split architectural visualization where the top is a detailed dark-the…\n- #100059 高级建筑信息图设计手册页: Create a premium square \"reference-style architectural infographic\" centered around a luxurious…\n- #100058 高端室内设计情绪板：现代中古风卧室 Mood Board: 你是一名专业的室内设计 Mood Board 创作者。请基于用户提供的 [Space Type] 室内设计照片，生成一张竖版 3:4 的高端室内设计情绪板。整体视觉参考专业室内设计提案图，呈…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-10-case-100069-silhouette-narrative-poster.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / Poster / Realistic / Editorial / Minimal / Brand / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100069 经典名著剪影叙事史诗海报: 根据[红楼梦]自动生成一张 收藏版史诗叙事海报， 巨大优雅的{林黛玉}人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具…\n- #100068 建筑遗产测绘三栏信息图板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n- #100061 建筑蓝图与实景对照分割可视化: { \"objective\": \"Create a split architectural visualization where the top is a detailed dark-the…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100069",
+      "100068",
       "100061",
       "100059",
-      "100058",
-      "100049",
-      "100038"
+      "100058"
     ]
   },
   {
@@ -911,18 +985,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-06-07-case-100062-vintage-newspaper.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Cinematic / Minimal / Education / Brand / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #453 企业级商用画册视觉系统: 请生成一套企业级商用画册视觉方案，主题为【品牌名称】的【行业 / 产品 / 解决方案】宣传画册。 整体风格：高端、专业、具有强视觉冲击力；避免传统 Word 排版感和普通 PPT 感。采用【…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-09-case-100067-fountain-pen-story.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Cinematic / Education / Brand / Portrait / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100067",
       "100062",
       "100060",
       "453",
-      "303",
-      "293"
+      "303"
     ]
   }
 ]
