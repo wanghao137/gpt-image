@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-woodcut-engraving-portrait",
+    "title": "黑白木刻版画肖像",
+    "category": "历史与古典",
+    "tags": [
+      "vintage",
+      "engraving",
+      "portrait",
+      "woodcut",
+      "monochrome"
+    ],
+    "description": "经典木刻/油毡版画风格肖像，高对比黑白墨线，精细交叉排线，复古编辑插画质感",
+    "cover": "/uploads/template-derived-woodcut-engraving-portrait.jpg",
+    "prompt": "Black and white engraved portrait illustration of {argument name=\"subject\" default=\"a distinguished elderly man with weathered features and deep-set eyes\"}.\nDrawn in classic woodcut / linocut engraving style, high contrast black ink on textured off-white paper background. Fine cross-hatching and line shading to create depth and shadow, bold black ink shadows under chin and around hair, strong contour lines, traditional printmaking aesthetic.\n{argument name=\"composition\" default=\"Minimal composition, centered portrait, no body visible, clean negative space\"}, vintage editorial illustration style, ultra detailed linework, sharp crisp ink strokes, professional vector-ready engraving look, monochrome palette, dramatic contrast.\nNegative Prompt:\n{argument name=\"negative\" default=\"color, watercolor, soft shading, blurred lines, low contrast, realistic photography, 3D render, anime style, cartoon style, messy sketch, thick uneven strokes, background objects, noisy texture, pixelated, distorted face\"}",
+    "useWhen": "需要古典版画风格人像插图，书籍封面、编辑插画、复古品牌视觉时使用",
+    "createdAt": "2026-06-09T03:28:42.718Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community · @Naiknelofar788 · Historical Classical (645 likes)"
+  },
+  {
     "id": "derived-handdrawn-city-food-map",
     "title": "手绘城市美食地图",
     "category": "建筑与空间",
