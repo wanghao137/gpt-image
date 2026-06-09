@@ -1,5 +1,22 @@
 [
   {
+    "id": "derived-aged-paper-origami-scene",
+    "title": "折纸旧纸上的记忆浮现",
+    "category": "历史与古典",
+    "tags": [
+      "vintage",
+      "paper",
+      "storytelling"
+    ],
+    "description": "在折皱旧纸的纹理中浮现出一个微型3D场景，使用纸张折痕和墨迹营造浮雕般的视觉叙事",
+    "cover": "/uploads/template-aged-paper-origami-scene.jpg",
+    "prompt": "Design a hyper-realistic close-up image of a folded sheet of aged paper. Within the paper's creases and surfaces, depict a {argument name=\"scene\" default=\"quiet village at dusk with warm lantern light\"} emerging naturally from the folds, like sculpted origami.\nThe environment and figures appear embossed or printed directly into the paper, using wrinkles, grain, and {argument name=\"ink_style\" default=\"sepia ink\"} textures to build the illusion. Include subtle shadows, curled edges, torn corners, and ink fading to enhance realism.\nSet the paper on a {argument name=\"surface\" default=\"worn wooden tabletop\"} with soft directional light from {argument name=\"light_direction\" default=\"the upper left\"}, casting gentle shadows and enhancing dimensional depth.\nPhotorealistic, emotional storytelling, handcrafted visual illusion, 8K ultra-detail, {argument name=\"aspect\" default=\"4:5\"} ratio.",
+    "useWhen": "需要将一个场景或记忆以浮雕纸艺风格呈现，适合历史叙事、怀旧主题、文学意象可视化",
+    "createdAt": "2026-06-09T10:51:49.231Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community · @Milo_Bahi_02 · Historical Classical (137 likes)"
+  },
+  {
     "id": "derived-architecture-blueprint-reality-split",
     "title": "建筑蓝图实景分割对照",
     "category": "建筑与空间",
