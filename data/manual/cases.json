@@ -1,5 +1,30 @@
 [
   {
+    "id": "100070",
+    "title": "奢侈品杂志封面：产品悬浮光影大片",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Minimal",
+      "Studio",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-06-11-case-100070-luxury-magazine-cover.jpg",
+    "imageAlt": "奢侈品杂志封面：产品悬浮光影大片",
+    "prompt": "A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. The product floats center frame, lit like a fashion editorial — soft directional studio light with one dramatic color gel in [COLOR] casting a subtle wash. The masthead runs across the top in bold serif or condensed sans-serif typography, styled like Vogue, Time, or Esquire — replace the magazine name with the brand name in oversized letters. A bold cover line dominates the left or bottom third: one punchy headline about the product in large type, followed by 3–4 smaller teaser lines in thin elegant font mimicking real magazine callouts. Issue number, date, barcode, and price tag visible in small print. Background is a clean gradient or seamless studio paper in a tone that complements [COLOR]. The product has hyper-realistic texture and surface detail. Overall feel: if this product had its own magazine, this would be Issue 01. Shot on Hasselblad, photorealistic, print-ready quality.",
+    "promptPreview": "A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. The product floats center frame, lit like a fashion editorial — soft directional studio light with one dramatic color gel in […",
+    "source": "Community collected via @TechieBySA",
+    "createdAt": "2026-06-11T01:35:06.336Z"
+  },
+  {
     "id": "100069",
     "title": "经典名著剪影叙事史诗海报",
     "category": "场景与叙事",
