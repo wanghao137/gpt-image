@@ -1,23 +1,5 @@
 [
   {
-    "id": "derived-luxury-magazine-cover",
-    "title": "奢侈品杂志封面：产品主角光影大片",
-    "category": "文档与出版",
-    "tags": [
-      "magazine",
-      "cover",
-      "editorial",
-      "luxury"
-    ],
-    "description": "以顶级时尚杂志封面风格展示产品，包含品牌标题排版、戏剧化灯光、色彩凝胶效果和编辑式排版",
-    "cover": "/uploads/template-derived-luxury-magazine-cover.jpg",
-    "prompt": "A world-class luxury magazine cover, 4:5 ratio, featuring {argument name=\"brand\" default=\"PRESTIGE\"} as the cover star. The product floats center frame, lit like a fashion editorial — soft directional studio light with one dramatic color gel in {argument name=\"accent_color\" default=\"cobalt blue\"} casting a subtle wash. The masthead runs across the top in bold serif or condensed sans-serif typography, styled like Vogue, Time, or Esquire — replace the magazine name with the brand name in oversized letters. A bold cover line dominates the left or bottom third: one punchy headline about the product in large type, followed by 3–4 smaller teaser lines in thin elegant font mimicking real magazine callouts. Issue number, date, barcode, and price tag visible in small print. Background is a clean gradient or seamless studio paper in a tone that complements {argument name=\"accent_color\" default=\"cobalt blue\"}. The product has hyper-realistic texture and surface detail. Overall feel: if this product had its own magazine, this would be Issue 01. Shot on Hasselblad, photorealistic, print-ready quality.",
-    "useWhen": "需要将产品以高端杂志封面形式呈现，追求奢侈品广告视觉效果时使用",
-    "createdAt": "2026-06-11T01:38:19.766Z",
-    "sourceType": "derived-case",
-    "sourceLabel": "MeiGen · 文档与出版 (10 cases analyzed)"
-  },
-  {
     "id": "derived-floorplan-3d-rise",
     "title": "建筑平面图立体化：从图纸到微缩世界",
     "category": "建筑与空间",
