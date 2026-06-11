@@ -1,5 +1,30 @@
 [
   {
+    "id": "100071",
+    "title": "合成波复古未来主义音乐海报",
+    "category": "海报与排版",
+    "styles": [
+      "Poster"
+    ],
+    "scenes": [
+      "Music"
+    ],
+    "tags": [
+      "Poster",
+      "Minimal",
+      "Studio",
+      "Social",
+      "Brand",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-06-11-case-100075-synthwave-retro-futuristic-poster.jpg",
+    "imageAlt": "合成波复古未来主义音乐海报",
+    "prompt": "A stylized, retro-futuristic music poster in a synthwave aesthetic. The central focus is a woman in profile with a platinum blonde bob haircut, wearing oversized, chunky pink opaque visor sunglasses and a high-collar, extremely glossy pink vinyl jacket with visible zipper detail. Behind her, the word \"HEIS\" is written in massive, dark purple, condensed block typography, partially hidden by her head. The background is a clean gradient shifting from soft magenta to deep purple, overlaid with a subtle film grain texture. Lighting: Soft studio lighting with high-specular highlights on the glossy jacket and rim lighting on the hair. Color Palette: Dominant shades of bubblegum pink, deep violet, and lavender. Graphics: A small barcode on the left, a minimalist star logo in the bottom-left corner, and four lines of small sans-serif song lyrics in the bottom-right corner. Atmosphere: High-fashion, electronic dance music vibe, clean and polished composition.",
+    "promptPreview": "A stylized, retro-futuristic music poster in a synthwave aesthetic. The central focus is a woman in profile with a platinum blonde bob haircut, wearing oversized, chunky pink opaque visor sunglasses and a high-collar, e…",
+    "source": "Community collected via @rovvmut_",
+    "createdAt": "2026-06-11T02:12:08.683Z"
+  },
+  {
     "id": "100070",
     "title": "奢侈品杂志封面：产品悬浮光影大片",
     "category": "文档与出版",
