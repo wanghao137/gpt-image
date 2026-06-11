@@ -1,5 +1,28 @@
 [
   {
+    "id": "100074",
+    "title": "鲜艳表现力肖像：夸张色彩眼镜人像",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-11-case-100078-vibrant-expressive-portrait.jpg",
+    "imageAlt": "鲜艳表现力肖像：夸张色彩眼镜人像",
+    "prompt": "Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright orange-red glasses (glass light colour full shade). The face is sketched in dynamic black strokes on a textured newspaper background, enriched with splashes of vivid blue and orange paint. The composition blends realism and abstract expressionism, evoking innocence, hope, and creativity. Take full face of the attached picture.",
+    "promptPreview": "Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright orange-red glasses (glass light colour full shade). The face is sketched in dynamic black strokes on a textured newspaper backgr…",
+    "source": "Community collected via @Sheldon056",
+    "createdAt": "2026-06-11T02:13:03.108Z"
+  },
+  {
     "id": "100073",
     "title": "夸张大头收藏公仔：名人微缩雕像",
     "category": "角色与人物",
