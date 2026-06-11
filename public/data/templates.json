@@ -1,5 +1,41 @@
 [
   {
+    "id": "derived-creative-collage-poster",
+    "title": "创意人物拼贴海报：多层视觉混合媒体",
+    "category": "海报与排版",
+    "tags": [
+      "collage",
+      "poster",
+      "mixed-media",
+      "creative"
+    ],
+    "description": "将人物主体与多种视觉层（报纸拼贴、油漆飞溅、图形元素）混合，形成大胆创意的混合媒体海报风格",
+    "cover": "/uploads/template-derived-creative-collage-poster.jpg",
+    "prompt": "{argument name=\"main_subject\" default=\"a famous musician\"}\nthe most recognizable head, face outline, mask or outer outline of the figure is the large visual subject, forming a highly recognizable silhouette main shape; the middle and lower part is arranged with the complete figure as the second subject, showing a stable standing or slight movement posture, forming the visual core of the picture.Double exposure and collage narrative compositions inside and around the large outline, combining multiple scenes, images, small character relationships, auxiliary elements and environmental layers in clouds, ink, and whitening. The left and right side is equipped with an echoing side of the scene, which creates story tension and space changes. Link the main character, internal collage, and large outline above with a flow of clues across the screen to enhance integrity and vision guidance.The overall picture retains a large area of whiteness, and the edge is stained with ink and virtual broken, creating a real relationship and breath in the Oriental aesthetics. Overall style uniform, advanced and restrained, emphasizing layers, narrative, main visual impact and serialized poster language. Size: 9:16.",
+    "useWhen": "需要创作大胆、多层视觉混合的创意人物海报时使用，适合粉丝艺术、音乐海报、艺术展览宣传",
+    "createdAt": "2026-06-11T02:14:54.818Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen · 海报与排版 (860 likes, community curated)"
+  },
+  {
+    "id": "derived-floorplan-3d-rise",
+    "title": "建筑平面图立体化：从图纸到微缩世界",
+    "category": "建筑与空间",
+    "tags": [
+      "architecture",
+      "blueprint",
+      "3d",
+      "floor-plan"
+    ],
+    "description": "将建筑平面图转化为立体的微缩模型效果，房间逐渐升起变为可居住的立体空间，图纸线条与实体隔墙同时存在",
+    "cover": "/uploads/template-derived-floorplan-3d-rise.jpg",
+    "prompt": "An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces rising into inhabitable miniature. {ROOM_1} emerges with {FURNITURE_1} and {ACTIVITY_1} in progress, {ROOM_2} rises with {DESIGN_ELEMENT} and {HUMAN_MOMENT}, {ROOM_3} pushes up with {DETAIL_1} and {LIGHTING_1}. Walls exist as both lines and actual partitions simultaneously. Sight lines marked on the plan become actual views between spaces. The mechanical systems in the plan—HVAC, plumbing, electrical—pulse with invisible function. Human circulation patterns appear as ghosted movement trails. Architectural scale figures become actual tiny inhabitants living their tiny lives. Section cuts reveal vertical relationships. The architect's tools surround: scales, pencils, trace paper. Golden design studio light, the plan as promise and proof, 8K, architecture as life container.",
+    "useWhen": "需要将建筑平面图可视化从2D图纸升级为3D立体展示时使用",
+    "createdAt": "2026-06-11T01:38:12.501Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen · 建筑与空间 (10 cases analyzed)"
+  },
+  {
     "id": "derived-aged-paper-origami-scene",
     "title": "折纸旧纸上的记忆浮现",
     "category": "历史与古典",
@@ -771,18 +807,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-09-case-100067-fountain-pen-story.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Realistic / Cinematic / Education / Brand / Illustration / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n- #100064 经典木刻版画黑白肖像: Black and white engraved portrait illustration of a person. Drawn in classic woodcut / linocut …\n- #506 可爱发卡图文人像海报: 围绕具体主题内容生成一张明亮清爽的图文合成视觉：画面以大面积高明度纯净色场承托主体，背景平整、通风、没有复杂景深，视觉重心由下方被大胆裁切的人像或真实主体建立，只露出最有记忆点的局部，使主体…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-11-case-100078-vibrant-expressive-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Editorial / Brand / Poster / Realistic / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100074 鲜艳表现力肖像：夸张色彩眼镜人像: Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright oran…\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100074",
+      "100070",
       "100067",
       "100064",
-      "506",
-      "505",
-      "504"
+      "506"
     ]
   },
   {
@@ -795,18 +831,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case497.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / UI / Illustration / Tech / Commerce / Social / Realistic / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n- #100056 复古 CCD 卡片机风格·夏日乡间公路偶像旅拍: 复古 CCD 卡片机夏日旅行抓拍，一位20岁出头的年轻东亚女idol站在乡间公路边。黑棕色低位双马尾，细碎刘海，浅粉色发圈，淡妆，冷白皮，真实皮肤。白色无袖高领宽松连衣裙，轻薄棉质，右肩白色…\n- #493 东京旅行 13 格视频封面: Generate image of young female travel vlogger exploring Tokyo across multiple candid moments, e…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-12-case-100075-lineart-travel-poster.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal / UI / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n- #100056 复古 CCD 卡片机风格·夏日乡间公路偶像旅拍: 复古 CCD 卡片机夏日旅行抓拍，一位20岁出头的年轻东亚女idol站在乡间公路边。黑棕色低位双马尾，细碎刘海，浅粉色发圈，淡妆，冷白皮，真实皮肤。白色无袖高领宽松连衣裙，轻薄棉质，右肩白色…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100075",
       "497",
       "100056",
       "493",
-      "489",
-      "474"
+      "489"
     ]
   },
   {
@@ -913,18 +949,18 @@
       "Mascot"
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case480.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Character / Creative / Realistic / Tech / Commerce / Studio / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #480 粉丝速写本角色页: Draw me as if an obsessed fan artist filled an entire sketchbook page - messy, overlapping, ful…\n- #476 早安拿铁微缩女孩: Create ultra-fine highly detailed 3D realistic miniature chibi-like cute girl, wearing cream co…\n- #100031 日系Q版角色橡皮擦产品包装摄影: 请使用随附的角色设定图作为严格的设计参考。在任何情况下都不得更改面部、发型、眼睛形状或比例。 ■ 目的：将该角色完全商业化为日本“{argument name=\"product name\" …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "cover": "/uploads/2026-06-11-case-100077-caricature-bobblehead-figurine.jpg",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Illustration / Realistic / 3D Render / Cinematic / Studio / Portrait / Caricature\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100073 夸张大头收藏公仔：名人微缩雕像: Highly detailed caricature figurine of [SUBJECT] as a cute but intense bobblehead-style collect…\n- #100072 设计师收藏级艺术潮玩手办: Transform the input image into a premium designer collectible-art toy aesthetic. Preserve the s…\n- #480 粉丝速写本角色页: Draw me as if an obsessed fan artist filled an entire sketchbook page - messy, overlapping, ful…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100073",
+      "100072",
       "480",
       "476",
-      "100031",
-      "100005",
-      "378"
+      "100031"
     ]
   },
   {
@@ -985,18 +1021,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-06-09-case-100067-fountain-pen-story.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Cinematic / Education / Brand / Portrait / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-11-case-100070-luxury-magazine-cover.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Realistic / Minimal / Studio / Education / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100070",
       "100067",
       "100062",
       "100060",
-      "453",
-      "303"
+      "453"
     ]
   }
 ]
