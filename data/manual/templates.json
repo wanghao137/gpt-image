@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-floorplan-3d-rise",
+    "title": "建筑平面图立体化：从图纸到微缩世界",
+    "category": "建筑与空间",
+    "tags": [
+      "architecture",
+      "blueprint",
+      "3d",
+      "floor-plan"
+    ],
+    "description": "将建筑平面图转化为立体的微缩模型效果，房间逐渐升起变为可居住的立体空间，图纸线条与实体隔墙同时存在",
+    "cover": "/uploads/template-derived-floorplan-3d-rise.jpg",
+    "prompt": "An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces rising into inhabitable miniature. {ROOM_1} emerges with {FURNITURE_1} and {ACTIVITY_1} in progress, {ROOM_2} rises with {DESIGN_ELEMENT} and {HUMAN_MOMENT}, {ROOM_3} pushes up with {DETAIL_1} and {LIGHTING_1}. Walls exist as both lines and actual partitions simultaneously. Sight lines marked on the plan become actual views between spaces. The mechanical systems in the plan—HVAC, plumbing, electrical—pulse with invisible function. Human circulation patterns appear as ghosted movement trails. Architectural scale figures become actual tiny inhabitants living their tiny lives. Section cuts reveal vertical relationships. The architect's tools surround: scales, pencils, trace paper. Golden design studio light, the plan as promise and proof, 8K, architecture as life container.",
+    "useWhen": "需要将建筑平面图可视化从2D图纸升级为3D立体展示时使用",
+    "createdAt": "2026-06-11T01:38:12.501Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen · 建筑与空间 (10 cases analyzed)"
+  },
+  {
     "id": "derived-aged-paper-origami-scene",
     "title": "折纸旧纸上的记忆浮现",
     "category": "历史与古典",
