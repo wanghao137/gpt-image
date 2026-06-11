@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-creative-collage-poster",
+    "title": "创意人物拼贴海报：多层视觉混合媒体",
+    "category": "海报与排版",
+    "tags": [
+      "collage",
+      "poster",
+      "mixed-media",
+      "creative"
+    ],
+    "description": "将人物主体与多种视觉层（报纸拼贴、油漆飞溅、图形元素）混合，形成大胆创意的混合媒体海报风格",
+    "cover": "/uploads/template-derived-creative-collage-poster.jpg",
+    "prompt": "{argument name=\"main_subject\" default=\"a famous musician\"}\nthe most recognizable head, face outline, mask or outer outline of the figure is the large visual subject, forming a highly recognizable silhouette main shape; the middle and lower part is arranged with the complete figure as the second subject, showing a stable standing or slight movement posture, forming the visual core of the picture.Double exposure and collage narrative compositions inside and around the large outline, combining multiple scenes, images, small character relationships, auxiliary elements and environmental layers in clouds, ink, and whitening. The left and right side is equipped with an echoing side of the scene, which creates story tension and space changes. Link the main character, internal collage, and large outline above with a flow of clues across the screen to enhance integrity and vision guidance.The overall picture retains a large area of whiteness, and the edge is stained with ink and virtual broken, creating a real relationship and breath in the Oriental aesthetics. Overall style uniform, advanced and restrained, emphasizing layers, narrative, main visual impact and serialized poster language. Size: 9:16.",
+    "useWhen": "需要创作大胆、多层视觉混合的创意人物海报时使用，适合粉丝艺术、音乐海报、艺术展览宣传",
+    "createdAt": "2026-06-11T02:14:54.818Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen · 海报与排版 (860 likes, community curated)"
+  },
+  {
     "id": "derived-floorplan-3d-rise",
     "title": "建筑平面图立体化：从图纸到微缩世界",
     "category": "建筑与空间",
