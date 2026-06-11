@@ -1,5 +1,32 @@
 [
   {
+    "id": "100076",
+    "title": "田野笔记立体生态场景：纸上自然世界复活",
+    "category": "场景与叙事",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial",
+      "Nature"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Documentary"
+    ],
+    "imageUrl": "/uploads/2026-06-12-case-100076-field-journal-ecosystem.jpg",
+    "imageAlt": "田野笔记立体生态场景：纸上自然世界复活",
+    "prompt": "Epic 3D scene: a weathered field journal lies open on a naturalist's camp table, its pages erupting into the ecosystems they document. Hand-drawn botanical illustrations push upward into living specimens : [PLANT 1] unfurls actual petals, [PLANT 2] releases pollen that drifts across the spread. Pinned insect diagrams detach and take flight. Watercolor landscapes inflate into traversable terrain. Margin notes become tiny expedition camps. Pressed flowers resurrect in time-lapse bloom. A specimen jar on the page contains an actual swimming creature. Field sketches of [ANIMAL] step off the paper, leaving graphite footprints. Coffee-stained pages become amber pools. Canvas tent visible beyond, lantern light mixing with fireflies, the smell of pine and old paper, 8K, photorealistic documentary aesthetic",
+    "promptPreview": "Epic 3D scene: a weathered field journal lies open on a naturalist's camp table, its pages erupting into the ecosystems they document. Hand-drawn botanical illustrations push upward into living specimens : [PLANT 1] unf…",
+    "source": "Community collected via @AllaAisling",
+    "createdAt": "2026-06-11T20:07:10.149Z"
+  },
+  {
     "id": "100075",
     "title": "极简线稿城市旅行海报：瑞士现代主义风格",
     "category": "历史与古典",
