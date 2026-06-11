@@ -1,5 +1,29 @@
 [
   {
+    "id": "100074",
+    "title": "软木板历史叙事：宝丽来线索追踪图",
+    "category": "历史与古典",
+    "styles": [
+      "Collage"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Education",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-11-case-100074-corkboard-historical-moment.jpg",
+    "imageAlt": "软木板历史叙事：宝丽来线索追踪图",
+    "prompt": "1080x1080 cork-board layout telling the story of [HISTORICAL MOMENT]. At the very top of the board, include a pinned paper label with the title: \"HISTORICAL MOMENT\" in large handwritten letters. Below it, arrange 5–6 Polaroid photos pinned across the board in a loose chronological path. Each Polaroid shows a key moment from the story with a short handwritten caption beneath it. Connect characters and events with colored strings (red, blue, yellow). Warm nostalgic lighting, soft shadows. Include realistic details: coffee cup rings, paper clips, torn notes, arrows, scribbled hints, and thumbtacks. Vintage, textured, cozy detective-board aesthetic. Highly readable, high contrast, everything framed clearly for 1080x1080",
+    "promptPreview": "1080x1080 cork-board layout telling the story of [HISTORICAL MOMENT]. At the very top of the board, include a pinned paper label with the title: \"HISTORICAL MOMENT\" in large handwritten letters. Below it, arrange 5–6 Po…",
+    "source": "Community collected via @TechieBySA",
+    "createdAt": "2026-06-11T01:35:52.015Z"
+  },
+  {
     "id": "100073",
     "title": "历史建筑保护测绘板：剖面轴测解析",
     "category": "建筑与空间",
