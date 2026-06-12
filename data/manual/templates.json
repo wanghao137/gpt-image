@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-powder-explosion-food",
+    "title": "食物粉末爆炸高速摄影：暗背景粒子飞溅",
+    "category": "产品与电商",
+    "tags": [
+      "food",
+      "high-speed",
+      "product",
+      "photography"
+    ],
+    "description": "食物表面裹粉后拍打/坠落，捕捉粉末粒子瞬间爆炸飞溅的高速摄影效果，暗色对比背景突出质感",
+    "cover": "/uploads/template-derived-powder-explosion-food.jpg",
+    "prompt": "{argument name=\"食物\" default=\"strawberry\"} coated in {argument name=\"粉末\" default=\"powdered sugar\"} being dropped or tapped, causing a cloud of fine particles to explode outward, soft diffusion, studio lighting, high-speed photography, dark contrasting background, ultra-detailed textures.",
+    "useWhen": "需要食物裹粉/撒粉的动态爆炸瞬间效果，适用于美食广告、产品展示",
+    "createdAt": "2026-06-12T04:42:59.567Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen · @ZephyraLeigh · GPT Image 1"
+  },
+  {
     "id": "derived-creative-collage-poster",
     "title": "创意人物拼贴海报：多层视觉混合媒体",
     "category": "海报与排版",
