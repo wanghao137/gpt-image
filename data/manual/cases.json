@@ -1,5 +1,30 @@
 [
   {
+    "id": "100082",
+    "title": "高端护肤品牌全套VI九宫格展示板",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-06-13-case-100082-brand-identity-velora.jpg",
+    "imageAlt": "高端护肤品牌全套VI九宫格展示板",
+    "prompt": "Create a complete brand identity presentation for an original premium skincare brand called \"VELORA\". Show a cohesive 3x3 grid of nine tiles inside a portrait 2:3 canvas, with balanced margins around the grid. The overall style is elevated, clean, modern, minimal, luxurious, and ultra realistic, with a seamless light warm gray background, soft diffused studio lighting, subtle shadows, and high-end mockup photography. Use a consistent sophisticated color palette of cream, muted blush, dusty rose, warm taupe, and deep espresso. No people, no watermark, no readable real-world brand names.\n\nDesign the nine tiles as a full cohesive brand system:\nTile 1: primary logo lockup on a textured paper card, featuring the word \"VELORA\" with an elegant icon above it.\nTile 2: secondary logo marks and monogram variations, neatly arranged like a brand exploration sheet.\nTile 3: color palette swatches and a typography specimen poster, clearly showing the palette and elegant font pairings.\nTile 4: packaging mockup for a facial cleanser, premium tube and matching box.\nTile 5: hero product photo for a radiance serum, premium glass dropper bottle styled beautifully.\nTile 6: set of three moisturizer products in different sizes, matching jars or containers.\nTile 7: stationery mockups including business card, letterhead, and envelope.\nTile 8: social media post mockups and a phone screen UI preview for the brand.\nTile 9: a refined lifestyle scene featuring the facial cleanser with brand-matching props such as stone, ceramic, fabric, and subtle botanical elements.\n\nKeep every tile visually consistent and polished. Use realistic materials, tasteful typography, and premium packaging details. The composition should feel like a luxury brand identity board or portfolio presentation. Make the image portrait 2:3.",
+    "promptPreview": "Create a complete brand identity presentation for an original premium skincare brand called \"VELORA\". Show a cohesive 3x3 grid of nine tiles inside a portrait 2:3 canvas, with balanced margins around the grid. The overa…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-06-12T20:09:29.893Z"
+  },
+  {
     "id": "100081",
     "title": "FIFA世界杯2026官方风格宣传海报",
     "category": "海报与排版",
