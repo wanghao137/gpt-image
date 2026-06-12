@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-powder-explosion-food",
+    "title": "食物粉末爆炸高速摄影：暗背景粒子飞溅",
+    "category": "产品与电商",
+    "tags": [
+      "food",
+      "high-speed",
+      "product",
+      "photography"
+    ],
+    "description": "食物表面裹粉后拍打/坠落，捕捉粉末粒子瞬间爆炸飞溅的高速摄影效果，暗色对比背景突出质感",
+    "cover": "/uploads/template-derived-powder-explosion-food.jpg",
+    "prompt": "{argument name=\"食物\" default=\"strawberry\"} coated in {argument name=\"粉末\" default=\"powdered sugar\"} being dropped or tapped, causing a cloud of fine particles to explode outward, soft diffusion, studio lighting, high-speed photography, dark contrasting background, ultra-detailed textures.",
+    "useWhen": "需要食物裹粉/撒粉的动态爆炸瞬间效果，适用于美食广告、产品展示",
+    "createdAt": "2026-06-12T04:42:59.567Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen · @ZephyraLeigh · GPT Image 1"
+  },
+  {
     "id": "derived-creative-collage-poster",
     "title": "创意人物拼贴海报：多层视觉混合媒体",
     "category": "海报与排版",
@@ -807,18 +825,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-11-case-100078-vibrant-expressive-portrait.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Editorial / Brand / Poster / Realistic / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100074 鲜艳表现力肖像：夸张色彩眼镜人像: Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright oran…\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-13-case-100083-storyboard-motocross.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Realistic / Editorial / Brand / Tech / Poster / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100074 鲜艳表现力肖像：夸张色彩眼镜人像: Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright oran…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100083",
+      "100079",
       "100074",
       "100070",
-      "100067",
-      "100064",
-      "506"
+      "100067"
     ]
   },
   {
@@ -831,18 +849,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-12-case-100075-lineart-travel-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal / UI / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n- #100056 复古 CCD 卡片机风格·夏日乡间公路偶像旅拍: 复古 CCD 卡片机夏日旅行抓拍，一位20岁出头的年轻东亚女idol站在乡间公路边。黑棕色低位双马尾，细碎刘海，浅粉色发圈，淡妆，冷白皮，真实皮肤。白色无袖高领宽松连衣裙，轻薄棉质，右肩白色…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-12-case-100079-wc-double-exposure-portrait.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Cinematic / Social / Brand / Editorial / Artistic / Sports\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100079",
       "100075",
       "497",
       "100056",
-      "493",
-      "489"
+      "493"
     ]
   },
   {
@@ -877,18 +895,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case467.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Character / Commerce / UI / Social / Creative / Illustration / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n- #335 朋友圈截图生成: 原文未公开，重点展示 GPT-Image2 在高仿社交截图与中文排版场景中的能力。\n- #302 九位大师的机械键盘设计图鉴: [中文] 一个九宫格图片，展现九位当代知名设计师设计的同一组物体：机械键盘，包括设计师头像，设计师对于设计的中文文字解读和作品呈现。排版统一规则 [English] A nine-grid …\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/uploads/2026-06-13-case-100082-brand-identity-velora.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Editorial / Poster / Realistic / Cinematic / Minimal / Studio / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100082 高端护肤品牌全套VI九宫格展示板: Create a complete brand identity presentation for an original premium skincare brand called \"VE…\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n- #335 朋友圈截图生成: 原文未公开，重点展示 GPT-Image2 在高仿社交截图与中文排版场景中的能力。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100082",
       "467",
       "335",
       "302",
-      "274",
-      "267"
+      "274"
     ]
   },
   {
@@ -973,18 +991,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/uploads/2026-06-08-case-100063-noir-boxing-storyboard.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Minimal / Brand / Tech / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n- #487 法式药妆商业分镜封面: 35mm anamorphic, 2.39:1, no flares. Ultra-realistic international French pharmacy skincare comm…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "/uploads/2026-06-13-case-100083-storyboard-motocross.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Brand / Tech / Minimal / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100083",
       "100063",
       "100046",
       "487",
-      "422",
-      "419"
+      "422"
     ]
   },
   {
