@@ -1,5 +1,25 @@
 [
   {
+    "id": "derived-notion-mono-character",
+    "title": "Notion 风极简单色角色插画",
+    "category": "角色与人物",
+    "tags": [
+      "character",
+      "illustration",
+      "minimal",
+      "editorial",
+      "monochrome",
+      "notion"
+    ],
+    "description": "用极简黑白线稿生成 Notion 风格的角色插画，适合博客配图、产品演示和社媒头像。",
+    "cover": "/uploads/template-derived-notion-mono-character.jpg",
+    "prompt": "A simple black-and-white illustration of a {argument name=\"角色主体\" default=\"young professional woman\"} in {argument name=\"穿着\" default=\"a cozy sweater and jeans\"}, {argument name=\"动作\" default=\"holding a coffee cup\"}, with a {argument name=\"表情\" default=\"gentle smile\"} expression, in a Notion-style minimalist editorial aesthetic, clean line art, flat monochrome design, simple shapes, subtle hand-drawn feel, minimal detail, expressive posture, clean white background, neat modern layout, soft playful character style",
+    "useWhen": "博客配图、产品演示插图、社媒头像、知识库插画、极简风格角色设计",
+    "createdAt": "2026-06-14T21:06:28.068Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen 社区精选 · @azed_ai · 1353 likes"
+  },
+  {
     "id": "derived-premium-brand-kit-board",
     "title": "高端品牌视觉识别展示板",
     "category": "品牌与标志",
