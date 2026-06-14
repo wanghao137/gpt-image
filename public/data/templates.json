@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-premium-brand-kit-board",
+    "title": "高端品牌视觉识别展示板",
+    "category": "品牌与标志",
+    "tags": [
+      "brand identity",
+      "brand kit",
+      "logo",
+      "packaging"
+    ],
+    "description": "一键生成专业品牌视觉识别展示板，包含主副Logo、色彩方案、字体搭配、包装效果图和社交媒体应用",
+    "cover": "/uploads/template-derived-premium-brand-kit-board.jpg",
+    "prompt": "Create a premium brand kit board for {argument name=\"brand_name\" default=\"AURELIA\"}, presented like a professional branding studio slide. Show the existing brand identity in a clean, organized visual presentation. Include primary logo, secondary logo, icon, {argument name=\"color_palette\" default=\"warm earth tones with gold accents\"}, typography pairing, branded packaging or product mockups, social media mockup, and simple brand pattern elements. Style: {argument name=\"style\" default=\"minimalist luxury\"}. Use a clean editorial grid, realistic materials, strong hierarchy, and polished presentation. Text to include: \"{argument name=\"brand_name\" default=\"AURELIA\"}\"",
+    "useWhen": "需要为客户或概念品牌制作完整的品牌视觉识别展示板时使用",
+    "createdAt": "2026-06-14T12:44:36.282Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community · 品牌与标志 (1 case analyzed)"
+  },
+  {
     "id": "derived-powder-explosion-food",
     "title": "食物粉末爆炸高速摄影：暗背景粒子飞溅",
     "category": "产品与电商",
@@ -801,18 +819,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-06-05-case-100055-kawaii-snack-packaging.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Poster / Editorial / Cinematic / UI / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100055 卡哇伊日系角色联名零食包装设计: 请使用附件图片中的角色，创作一款超级可爱的虚构零食包装，使其看起来就像在日本便利店或杂货店中能找到的一样。该角色的名字是\"[名称]\"。请在图片的文字元素中自然地使用这个名字。观察角色的配色、…\n- #100054 电影质感复古美式餐厅汽水广告海报: 目标：为 Dr Pepper 创作一张超写实的竖版电影质感汽水广告海报，采用高端商业饮料摄影风格，营造戏剧性的红色灯光和复古夜晚氛围。 画布：竖版 2:3 海报，高分辨率，光泽感商业质感，深…\n- #100044 怀旧风零食市场广告海报: 目标：为 {argument name=\"product name\" default=\"Chicharrón\"} 创作一则温馨、怀旧的菲律宾零食广告，场景设定在热闹的露天市场，采用金色夕阳照…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2025-06-14-case-100086-premium-fastfood-ad-poster.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / 3D Render / Editorial / Minimal / Commercial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100090 高端快餐商业广告海报模板: A premium fast-food advertising poster promoting [PRODUCT TYPE / FOOD ITEM / FMCG PRODUCT] usin…\n- #100055 卡哇伊日系角色联名零食包装设计: 请使用附件图片中的角色，创作一款超级可爱的虚构零食包装，使其看起来就像在日本便利店或杂货店中能找到的一样。该角色的名字是\"[名称]\"。请在图片的文字元素中自然地使用这个名字。观察角色的配色、…\n- #100054 电影质感复古美式餐厅汽水广告海报: 目标：为 Dr Pepper 创作一张超写实的竖版电影质感汽水广告海报，采用高端商业饮料摄影风格，营造戏剧性的红色灯光和复古夜晚氛围。 画布：竖版 2:3 海报，高分辨率，光泽感商业质感，深…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100090",
       "100055",
       "100054",
       "100044",
-      "485",
-      "100032"
+      "485"
     ]
   },
   {
@@ -825,18 +843,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-13-case-100083-storyboard-motocross.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Realistic / Editorial / Brand / Tech / Poster / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100074 鲜艳表现力肖像：夸张色彩眼镜人像: Vibrant expressive portrait of a man looking upwards with wonder, wearing oversized bright oran…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2025-06-14-case-100085-cinematic-character-design-board.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Editorial / Minimal / Studio / Character Design / Realistic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100089 电影级角色设计展示板: Create a cinematic character design board for a premium drama film. A stunning female protagoni…\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100089",
       "100083",
       "100079",
       "100074",
-      "100070",
-      "100067"
+      "100070"
     ]
   },
   {
@@ -849,18 +867,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-12-case-100079-wc-double-exposure-portrait.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Cinematic / Social / Brand / Editorial / Artistic / Sports\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n- #497 单色水彩城市旅行海报: Minimalist vintage watercolor travel poster illustration of [CITY NAME], [COUNTRY], rendered en…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2025-06-14-case-100084-vintage-watercolor-travel-poster.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / 3D Render / Editorial / Cinematic / Watercolor / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100088 复古水彩旅行明信片海报: Vintage watercolor travel poster illustration, elegant European travel postcard aesthetic, soft…\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100088",
       "100079",
       "100075",
       "497",
-      "100056",
-      "493"
+      "100056"
     ]
   },
   {
