@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-premium-brand-kit-board",
+    "title": "高端品牌视觉识别展示板",
+    "category": "品牌与标志",
+    "tags": [
+      "brand identity",
+      "brand kit",
+      "logo",
+      "packaging"
+    ],
+    "description": "一键生成专业品牌视觉识别展示板，包含主副Logo、色彩方案、字体搭配、包装效果图和社交媒体应用",
+    "cover": "/uploads/template-derived-premium-brand-kit-board.jpg",
+    "prompt": "Create a premium brand kit board for {argument name=\"brand_name\" default=\"AURELIA\"}, presented like a professional branding studio slide. Show the existing brand identity in a clean, organized visual presentation. Include primary logo, secondary logo, icon, {argument name=\"color_palette\" default=\"warm earth tones with gold accents\"}, typography pairing, branded packaging or product mockups, social media mockup, and simple brand pattern elements. Style: {argument name=\"style\" default=\"minimalist luxury\"}. Use a clean editorial grid, realistic materials, strong hierarchy, and polished presentation. Text to include: \"{argument name=\"brand_name\" default=\"AURELIA\"}\"",
+    "useWhen": "需要为客户或概念品牌制作完整的品牌视觉识别展示板时使用",
+    "createdAt": "2026-06-14T12:44:36.282Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community · 品牌与标志 (1 case analyzed)"
+  },
+  {
     "id": "derived-powder-explosion-food",
     "title": "食物粉末爆炸高速摄影：暗背景粒子飞溅",
     "category": "产品与电商",
