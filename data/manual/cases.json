@@ -1,5 +1,33 @@
 [
   {
+    "id": "100092",
+    "title": "文艺复兴工坊：大理石雕塑生命觉醒",
+    "category": "历史与古典",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Artistic",
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Education",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-15-case-100092-renaissance-sculpture.jpg",
+    "imageAlt": "文艺复兴工坊：大理石雕塑生命觉醒",
+    "prompt": "A half-finished marble sculpture in a dusty Renaissance workshop, with the [SUBJECT] emerging from the raw stone block in a breathtaking moment of creation becoming conscious. The figure is rough chisel marks at the base, transitioning through refined carving into impossibly lifelike flesh at the extremities. [KEY FEATURES] have achieved full life while the torso remains trapped in stone, mid-escape. Marble dust swirls in shaft lighting as if the awakening itself is generating atmosphere. The [SUBJECT] reaches forward, fingers transitioning from carved to living. Sculptor's tools scattered on wooden platforms: chisels, mallets, calipers, clay maquettes. Unfinished companion pieces watch from the shadows. The Pygmalion moment frozen. Cathedral-height workshop windows casting dramatic god-rays, cool marble tones warming to flesh, 8K, Bernini meets cinema.",
+    "promptPreview": "A half-finished marble sculpture in a dusty Renaissance workshop, with the [SUBJECT] emerging from the raw stone block in a breathtaking moment of creation becoming conscious. The figure is rough chisel marks at the bas…",
+    "source": "Community collected via @AllaAisling",
+    "githubUrl": "https://www.meigen.ai/prompt/2010372126348284302",
+    "createdAt": "2026-06-14T20:07:35.813Z"
+  },
+  {
     "id": "100091",
     "title": "通用奢侈品牌身份展示板",
     "category": "品牌与标志",
