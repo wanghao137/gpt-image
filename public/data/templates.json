@@ -815,18 +815,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/uploads/2026-06-15-case-100093-floor-plan-miniature.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Studio / Architecture / Brand / Tech / Design\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100060 复古黑白报纸头版设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-06-17-case-100096-landmark-gouache.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Illustration / Realistic / 3D Render / Editorial / Minimal / Studio / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100096",
       "100093",
       "100062",
       "100060",
-      "100054",
-      "100046"
+      "100054"
     ]
   },
   {
@@ -887,18 +887,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2025-06-14-case-100084-vintage-watercolor-travel-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / 3D Render / Editorial / Cinematic / Watercolor / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100088 复古水彩旅行明信片海报: Vintage watercolor travel poster illustration, elegant European travel postcard aesthetic, soft…\n- #100079 双曝光球星城市地标融合海报: Create an epic double-exposure sports poster featuring a legendary football player as the centr…\n- #100075 极简线稿城市旅行海报：瑞士现代主义风格: Create an ultra-high-resolution minimalist line-art travel poster of [DESTINATION], portraying …\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-17-case-100097-popup-storybook.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Editorial / Realistic / Illustration / 3D Render / Cinematic / Minimal / Watercolor\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n- #100088 复古水彩旅行明信片海报: Vintage watercolor travel poster illustration, elegant European travel postcard aesthetic, soft…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100097",
+      "100096",
       "100088",
       "100079",
-      "100075",
-      "497",
-      "100056"
+      "100075"
     ]
   },
   {
@@ -1077,18 +1077,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-06-16-case-100094-editorial-whitespace.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Minimal / Education / Portrait / Lifestyle / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n- #100067 巨型钢笔在纸上书写书中世界: A colossal hand gripping an enormous vintage fountain pen, captured in vertical portrait format…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-17-case-100097-popup-storybook.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Realistic / Illustration / 3D Render / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100097",
       "100094",
       "100070",
       "100067",
-      "100062",
-      "100060"
+      "100062"
     ]
   }
 ]
