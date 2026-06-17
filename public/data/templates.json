@@ -1,5 +1,46 @@
 [
   {
+    "id": "derived-sports-legacy-poster",
+    "title": "体育传奇告别海报",
+    "category": "海报与排版",
+    "tags": [
+      "sports",
+      "poster",
+      "cinematic",
+      "legacy",
+      "football",
+      "selective color",
+      "editorial"
+    ],
+    "description": "生成黑白电影感体育海报，国旗色面部彩绘 + 选择性上色 + 大标题排版，致敬传奇运动员。",
+    "cover": "/uploads/2026-06-17-tpl-sports-legacy-poster.jpg",
+    "prompt": "Ultra-realistic {argument name=\"赛事名称\" default=\"FIFA World Cup 2026\"} poster, dramatic black-and-white cinematic portrait of {argument name=\"运动员描述\" default=\"a football player\"} staring directly into the camera, intense eyes glowing subtly, selective color effect with {argument name=\"国旗/队色\" default=\"national flag\"} paint streaks on both cheeks, fingers touching the face paint, hyper-detailed skin texture, sweat, pores, ultra-sharp facial features, dark stadium background fading into black, powerful emotional atmosphere, legacy and final tournament theme, high contrast monochrome grading, sports documentary style, ESPN x Netflix poster aesthetic, professional sports photography, centered symmetrical composition.\n\nMassive bold serif typography:\n\"{argument name=\"主标题\" default=\"THE LAST DANCE\"}\"\nlarge white cinematic title occupying lower half of poster.\n\nAbove title:\n\"{argument name=\"球员姓名\" default=\"[Player Name]\"}\"\nsmall elegant spacing typography.\n\nBelow title:\n\"{argument name=\"副标题\" default=\"ONE LAST TOURNAMENT. ONE LAST DREAM.\"}\"\n\"{argument name=\"赛事标识\" default=\"FIFA WORLD CUP 2026\"}\"\n\nFlag colors remain vibrant while everything else stays monochrome, dramatic rim lighting, deep shadows, iconic hero portrait, emotional farewell campaign, legendary athlete energy, award-winning sports poster design, luxury editorial finish, photorealistic, ultra detailed, 8K, masterpiece, poster art.\n\nStyle references: Netflix sports documentary, FIFA promotional artwork, cinematic athlete portrait, black and white selective color photography, high-end magazine cover, emotional legacy poster.",
+    "useWhen": "体育赛事宣传、运动员致敬海报、球队视觉、品牌体育营销、纪录片风格视觉",
+    "createdAt": "2026-06-17T10:17:23.443Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen 社区精选 · @Taaruk_ · GPT Image 1"
+  },
+  {
+    "id": "derived-ig-frame-3d-popout",
+    "title": "Instagram 相框 3D 突破人像",
+    "category": "摄影与写实",
+    "tags": [
+      "Instagram",
+      "3D",
+      "popout",
+      "fashion",
+      "portrait",
+      "social media"
+    ],
+    "description": "生成人物从 Instagram 帖子框中 3D 突破出来的超写实时尚人像，支持四种动作模式（抓握/飞吻/倚靠/动态）。",
+    "cover": "/uploads/2026-06-17-tpl-ig-frame-3d-popout.jpg",
+    "prompt": "A photorealistic fashion upper body shot of {argument name=\"人物描述与表情\" default=\"a confident young woman with a radiant smile\"} wearing {argument name=\"服装细节\" default=\"a vibrant red designer dress with gold accessories\"}. The subject is framed inside a central white Instagram-style post border.\n\nComposition & Spacing: The white frame is perfectly centered in the middle of the image, leaving balanced empty {argument name=\"背景色\" default=\"soft pink\"} space above and below the frame to match the theme.\n\nFrame Details: The top, left, and right white borders are very thin. The bottom white section is thicker to include UI elements. The bottom section features a red heart icon, comment bubble, share icon, and bookmark icon.\n\nText Details: Clearly visible text on the bottom panel: \"{argument name=\"点赞数\" default=\"12,847\"} likes\", username \"{argument name=\"用户名\" default=\"@fashion_icon\"}\", caption \"{argument name=\"文案\" default=\"Living my best life ✨ #fashion #ootd\"}... more\", and below that, \"View all comments\".\n\n3D Pop-Out Effect & Hand Pose: {argument name=\"动作模式(Grip/Kiss/Resting/Dynamic)\" default=\"Grip\"} — head and arms are physically popping out OVER the top and side thin borders. Hands are realistically gripping the outer edges of the thin side borders, appearing to hold the frame firmly.\n\nSubject Dimensionality & Texture: The subject must look like a solid, three-dimensional figure, not flat. Emphasize detailed fabric texture, facial contours, and realistic hair. Distinct depth separating subject from the flat background.\n\nLighting & Shadows: Professional studio lighting creating soft, realistic drop shadows cast by the physical frame and popping-out elements onto the solid flat background, enhancing dramatic depth. High definition, commercial photography.",
+    "useWhen": "社交媒体创意头像、时尚品牌宣传、个人 IP 形象、电商视觉营销",
+    "createdAt": "2026-06-17T10:17:19.692Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen 社区精选 · @Arminn_Ai · NanoBanana Pro"
+  },
+  {
     "id": "derived-notion-mono-character",
     "title": "Notion 风极简单色角色插画",
     "category": "角色与人物",
@@ -863,18 +904,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-16-case-100094-editorial-whitespace.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Poster / Minimal / Education / Lifestyle / Cinematic / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100089 电影级角色设计展示板: Create a cinematic character design board for a premium drama film. A stunning female protagoni…\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-18-case-100098-golden-frame-renaissance.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / Editorial / Cinematic / Education / Poster / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100098 美术馆金框中走出的文艺复兴佳人: A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100089 电影级角色设计展示板: Create a cinematic character design board for a premium drama film. A stunning female protagoni…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100098",
       "100094",
       "100089",
       "100083",
-      "100079",
-      "100074"
+      "100079"
     ]
   },
   {
