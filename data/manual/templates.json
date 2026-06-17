@@ -1,5 +1,25 @@
 [
   {
+    "id": "derived-ig-frame-3d-popout",
+    "title": "Instagram 相框 3D 突破人像",
+    "category": "摄影与写实",
+    "tags": [
+      "Instagram",
+      "3D",
+      "popout",
+      "fashion",
+      "portrait",
+      "social media"
+    ],
+    "description": "生成人物从 Instagram 帖子框中 3D 突破出来的超写实时尚人像，支持四种动作模式（抓握/飞吻/倚靠/动态）。",
+    "cover": "/uploads/2026-06-17-tpl-ig-frame-3d-popout.jpg",
+    "prompt": "A photorealistic fashion upper body shot of {argument name=\"人物描述与表情\" default=\"a confident young woman with a radiant smile\"} wearing {argument name=\"服装细节\" default=\"a vibrant red designer dress with gold accessories\"}. The subject is framed inside a central white Instagram-style post border.\n\nComposition & Spacing: The white frame is perfectly centered in the middle of the image, leaving balanced empty {argument name=\"背景色\" default=\"soft pink\"} space above and below the frame to match the theme.\n\nFrame Details: The top, left, and right white borders are very thin. The bottom white section is thicker to include UI elements. The bottom section features a red heart icon, comment bubble, share icon, and bookmark icon.\n\nText Details: Clearly visible text on the bottom panel: \"{argument name=\"点赞数\" default=\"12,847\"} likes\", username \"{argument name=\"用户名\" default=\"@fashion_icon\"}\", caption \"{argument name=\"文案\" default=\"Living my best life ✨ #fashion #ootd\"}... more\", and below that, \"View all comments\".\n\n3D Pop-Out Effect & Hand Pose: {argument name=\"动作模式(Grip/Kiss/Resting/Dynamic)\" default=\"Grip\"} — head and arms are physically popping out OVER the top and side thin borders. Hands are realistically gripping the outer edges of the thin side borders, appearing to hold the frame firmly.\n\nSubject Dimensionality & Texture: The subject must look like a solid, three-dimensional figure, not flat. Emphasize detailed fabric texture, facial contours, and realistic hair. Distinct depth separating subject from the flat background.\n\nLighting & Shadows: Professional studio lighting creating soft, realistic drop shadows cast by the physical frame and popping-out elements onto the solid flat background, enhancing dramatic depth. High definition, commercial photography.",
+    "useWhen": "社交媒体创意头像、时尚品牌宣传、个人 IP 形象、电商视觉营销",
+    "createdAt": "2026-06-17T10:17:19.692Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen 社区精选 · @Arminn_Ai · NanoBanana Pro"
+  },
+  {
     "id": "derived-notion-mono-character",
     "title": "Notion 风极简单色角色插画",
     "category": "角色与人物",
