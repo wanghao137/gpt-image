@@ -1,5 +1,32 @@
 [
   {
+    "id": "100098",
+    "title": "美术馆金框中走出的文艺复兴佳人",
+    "category": "历史与古典",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Education",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-18-case-100098-golden-frame-renaissance.jpg",
+    "imageAlt": "美术馆金框中走出的文艺复兴佳人",
+    "prompt": "A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame mounted on a deep blue gallery wall. She has soft auburn hair styled in an elegant updo, delicate features, and wears a richly detailed Renaissance-inspired dress with embroidered floral patterns and lace cuffs. Her chin rests thoughtfully on her hand as she gazes sideways with a pensive expression. Warm, cinematic lighting highlights her face and the gilded frame. The setting is an art gallery hallway with wooden parquet floors, framed paintings along the walls, and a softly blurred figure in the distance. Shallow depth of field, dramatic perspective, high detail, photorealistic, 8k resolution, painterly yet lifelike textures, golden hour tones",
+    "promptPreview": "A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame mounted on a deep blue gallery wall. She has soft auburn hair styled in an elegant updo, delicate features, and wears a rich…",
+    "source": "Community collected via @iamsofiaijaz",
+    "githubUrl": "https://www.meigen.ai/prompt/2023082481331904583",
+    "createdAt": "2026-06-17T20:04:52.547Z"
+  },
+  {
     "id": "100097",
     "title": "3D立体弹卡旅行故事书插画",
     "category": "文档与出版",
