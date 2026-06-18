@@ -1094,18 +1094,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-16-case-100095-architect-survey-board.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Editorial / Brand / Education / Tech / Studio / Design\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100095 建筑遗产测绘分析展示板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n- #100069 经典名著剪影叙事史诗海报: 根据[红楼梦]自动生成一张 收藏版史诗叙事海报， 巨大优雅的{林黛玉}人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-19-case-100099-room-exploded-view.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Portrait / Tech / Editorial / Brand / Education\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n- #100095 建筑遗产测绘分析展示板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100099",
       "100095",
       "100093",
       "100069",
-      "100068",
-      "100061"
+      "100068"
     ]
   },
   {
