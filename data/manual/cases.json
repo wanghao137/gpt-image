@@ -1,5 +1,30 @@
 [
   {
+    "id": "100099",
+    "title": "室内空间爆炸分解图：3D建筑拆解可视化",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Architecture",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-100099-room-exploded-view.jpg",
+    "imageAlt": "室内空间爆炸分解图：3D建筑拆解可视化",
+    "prompt": "[ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slightly separated. EXPLOSION: ceiling lifted, four walls sliding outward, floor dropped, furniture floating in place, objects orbiting their surfaces, light sources still emitting across the exploded void. The ghost of the room readable in the arrangement. Labels on architectural elements only: \"[SURFACE]\" / \"[MATERIAL]\" / \"[DIMENSION]\" LIGHTING: each element still lit by its original source, windows casting light across the gap, lamps throwing cones into empty space. BACKGROUND: deep dark, the room floats in void. TITLE: \"[ROOM NAME]\" / SUBTITLE: \"[BUILDING TYPE] [PERIOD]\" Mood: architectural model that became a universe. 4K, extraordinary spatial clarity, tack sharp.",
+    "promptPreview": "[ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slightly separated. EXPLOSION: ceiling lifted, four walls sliding outward, floor dropped, furniture floating in place, objects orb…",
+    "source": "Community collected via @AllaAisling",
+    "githubUrl": "https://www.meigen.ai/prompt/2035390729527378146",
+    "createdAt": "2026-06-18T20:06:50.197Z"
+  },
+  {
     "id": "100098",
     "title": "美术馆金框中走出的文艺复兴佳人",
     "category": "历史与古典",
