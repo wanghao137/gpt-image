@@ -1,5 +1,31 @@
 [
   {
+    "id": "100100",
+    "title": "经典汽车档案展示板：三栏历史文档设计",
+    "category": "历史与古典",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Education",
+      "Commerce",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-100100-vehicle-documentation-board.jpg",
+    "imageAlt": "经典汽车档案展示板：三栏历史文档设计",
+    "prompt": "A marque historian's documentation board for [VEHICLE] — [MODEL / VARIANT / YEAR]. Left section: factory documentation including original specification sheet, production line photographs, period advertising, and chassis number registry. Center section: technical illustration showing powertrain in phantom view, suspension geometry, aerodynamic annotations, and material callouts, surrounded by period racing results or ownership provenance. Right section: the vehicle in its defining environment, whether racing circuit, mountain pass, or boulevard, captured with period-appropriate color grading and motion. Visual style transitions from archival document cream through engineering-drawing precision to saturated automotive photography. Title block reading \"[VEHICLE NAME] — CHASSIS NO. [NUMBER], [PROVENANCE SUMMARY]\".",
+    "promptPreview": "A marque historian's documentation board for [VEHICLE] — [MODEL / VARIANT / YEAR]. Left section: factory documentation including original specification sheet, production line photographs, period advertising, and chassis…",
+    "source": "Community collected via @AllaAisling",
+    "githubUrl": "https://www.meigen.ai/prompt/2009284710862643206",
+    "createdAt": "2026-06-18T20:07:01.370Z"
+  },
+  {
     "id": "100099",
     "title": "室内空间爆炸分解图：3D建筑拆解可视化",
     "category": "建筑与空间",
