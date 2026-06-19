@@ -1,5 +1,31 @@
 [
   {
+    "id": "100104",
+    "title": "自然电影感花园人像：丝绸长裙写意",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Architecture",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-cinematic-garden-portrait.jpg",
+    "imageAlt": "自然电影感花园人像：丝绸长裙写意",
+    "prompt": "{\n  \"render_goal\": \"Natural cinematic garden portrait with timeless elegance\",\n  \"subject\": {\n    \"pose\": \"female standing naturally on a garden path, relaxed posture\",\n    \"expression\": \"calm composed confidence with a genuine soft smile\"\n  },\n  \"wardrobe\": \"elegant silk chiffon gown in muted sage or soft ivory, minimal drape, realistic fabric weight, subtle movement, no shimmer, no fantasy elements\",\n  \"environment\": {\n    \"location\": \"lush botanical garden in daylight\",\n    \"props\": \"realistic flowers and greenery, natural sunlight filtering through leaves, gentle shadows, earthy tones, organic depth of field\"\n  },\n  \"camera_style\": \"cinematic photography, 50mm lens look, shallow depth of field, natural skin texture, realistic color grading, film-like softness\"\n}",
+    "promptPreview": "{ \"render_goal\": \"Natural cinematic garden portrait with timeless elegance\", \"subject\": { \"pose\": \"female standing naturally on a garden path, relaxed posture\", \"expression\": \"calm composed confidence with a genuine sof…",
+    "source": "Community collected via @hoor_world06",
+    "createdAt": "2026-06-19T11:54:03.865Z"
+  },
+  {
     "id": "100103",
     "title": "真人照片转全页彩色漫画分镜叙事",
     "category": "场景与叙事",
