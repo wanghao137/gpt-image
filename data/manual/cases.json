@@ -1,5 +1,29 @@
 [
   {
+    "id": "100101",
+    "title": "奢华摄影画册跨页：时尚人像编辑排版",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Publication"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "Education",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-coffee-table-book.jpg",
+    "imageAlt": "奢华摄影画册跨页：时尚人像编辑排版",
+    "prompt": "Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrangement of editorial portraits.\n\nSome pages partially turned, creating movement.\n\nReference image  male appears throughout.\nModern fashion branding, premium printing texture, \n\nVogue-style photography, elegant color grading. bright image",
+    "promptPreview": "Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrangement of editorial portraits. Some pages partially turned, creating movement. Reference image male appears throughout. Modern…",
+    "source": "Community collected via @Mind_Boticni",
+    "createdAt": "2026-06-19T11:53:45.278Z"
+  },
+  {
     "id": "100100",
     "title": "经典汽车档案展示板：三栏历史文档设计",
     "category": "历史与古典",
