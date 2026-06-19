@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-weathered-map-diorama",
+    "title": "风化地图立体微缩世界生成模板",
+    "category": "历史与古典",
+    "tags": [
+      "map",
+      "cartography",
+      "diorama",
+      "infographic"
+    ],
+    "description": "在风化地图表面生成多个城市地标的立体微缩世界，支持地图类型、城市、地标、气候等参数化定制",
+    "cover": "/uploads/template-derived-weathered-map-diorama.jpg",
+    "prompt": "A weathered {MAP_TYPE} map spread across {SURFACE}, bursting with photorealistic miniature worlds erupting from marked locations. {CITY_1} explodes from {CONTINENT} as a living diorama—{LANDMARK_1} towers above {STREET_SCENE}, surrounded by {ATMOSPHERIC_EFFECT} and {MOVING_ELEMENT}. {CITY_2} rises from {CONTINENT} with {LANDMARK_2} emerging through {WEATHER_DRAMA}, tiny {LOCAL_ACTIVITY} frozen mid-motion. {CITY_3} materializes from {CONTINENT} where {LANDMARK_3} pierces through {LIGHTING_EFFECT}, {CULTURAL_DETAIL} spilling across miniature streets. Connecting routes glow as {VISUAL_ELEMENT}—miniature {VEHICLE_TYPE} suspended impossibly between worlds. The map's surface transitions from flat parchment to living terrain: oceans become actual churning water with {WATER_DETAIL}, deserts shimmer with real heat haze, forests sprout miniature trees. Each city exists in its own time: {LIGHTING_CONDITION_1} bathes one, {LIGHTING_CONDITION_2} illuminates another, {LIGHTING_CONDITION_3} glows over the third. {FOREGROUND_OBJECTS} scatter around the map edges. {PHOTOGRAPHY_STYLE}, {COLOR_PALETTE}, extreme depth of field, 8K, {ERA_AESTHETIC} meets magical realism.",
+    "useWhen": "需要生成具有探索感/旅行主题的多城市地标立体地图可视化，适合旅行海报、地理信息图、品牌全球布局展示",
+    "createdAt": "2026-06-19T11:54:10.009Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen curated · @AllaAisling (likes 202)"
+  },
+  {
     "id": "derived-sports-legacy-poster",
     "title": "体育传奇告别海报",
     "category": "海报与排版",
