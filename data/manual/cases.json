@@ -1,5 +1,31 @@
 [
   {
+    "id": "100106",
+    "title": "城市旅行票券微缩场景",
+    "category": "场景与叙事",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Travel"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100106-travel-ticket.jpg",
+    "imageAlt": "城市旅行票券微缩场景",
+    "prompt": "Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPECIFIC TICKET/PASS] in the foreground. The ticket acts as a portal to [CITY NAME], with a realistic miniature city scene emerging from the ticket.\n\nA signature transportation element ([CITY VEHICLE]) breaks out of the ticket frame in 3D perspective, extending toward the viewer. Behind the ticket, one iconic landmark ([HERO LANDMARK]) rises prominently and realistically, becoming the main architectural focal point.\n\nSurrounding the scene are only 3-4 clean hand-drawn doodle elements representing the city's identity, such as district names, local symbols, or famous locations. Use minimal doodles, lots of negative space, and avoid clutter.\n\nInclude tiny realistic people interacting with the scene, such as commuters, tourists, street vendors, cyclists, or photographers, scaled appropriately to create a miniature-world effect.\n\nStyle: photorealistic travel photography combined with elegant black-ink sketchbook doodles. Clean composition, premium editorial design, soft warm lighting, shallow depth of field, realistic textures, subtle shadows, Instagram-worthy travel artwork.\n\nComposition hierarchy:\n1. Emerging vehicle\n2. Hero landmark\n3. Ticket/pass\n4. Minimal doodle elements\n\nAvoid: crowded layouts, excessive text, too many landmarks, busy backgrounds, duplicated symbols, excessive arrows, stickers, or decorative icons.\n\nAspect ratio: 1:1 square.\nQuality: ultra-detailed, cinematic, sharp focus, professional travel poster aesthetic.",
+    "promptPreview": "Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPECIFIC TICKET/PASS] in the foreground. The ticket acts as a portal to [CITY NAME], with a realistic miniature city scene emerg…",
+    "source": "Community collected via @Naiknelofar788",
+    "githubUrl": "https://x.com/Naiknelofar788/status/2063084329778213111",
+    "createdAt": "2026-06-19T20:08:21.484Z"
+  },
+  {
     "id": "100105",
     "title": "建筑蓝图立体生长可视化",
     "category": "建筑与空间",
