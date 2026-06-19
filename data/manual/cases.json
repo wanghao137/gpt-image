@@ -1,5 +1,31 @@
 [
   {
+    "id": "100102",
+    "title": "地理地图3D微缩城市地标立体信息图",
+    "category": "历史与古典",
+    "styles": [
+      "Realistic",
+      "Minimal"
+    ],
+    "scenes": [
+      "Infographic"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-geographic-map-diorama.jpg",
+    "imageAlt": "地理地图3D微缩城市地标立体信息图",
+    "prompt": "A realistic, highly detailed geographic map viewed from above, accurately representing the region where [COUNTRY] is located. Rising from the map is a miniature 3D diorama of [CITY], precisely positioned at its real geographic location. The diorama features iconic architecture, natural landmarks, and cultural elements seamlessly emerging from the map surface. Ultra-realistic materials, fine textures, and depth of field. Soft studio lighting with subtle shadows, cinematic composition, premium macro photography style. Square 1:1 format, high detail, realistic scale.",
+    "promptPreview": "A realistic, highly detailed geographic map viewed from above, accurately representing the region where [COUNTRY] is located. Rising from the map is a miniature 3D diorama of [CITY], precisely positioned at its real geo…",
+    "source": "Community collected via @Kerroudjm",
+    "createdAt": "2026-06-19T11:53:51.380Z"
+  },
+  {
     "id": "100101",
     "title": "奢华摄影画册跨页：时尚人像编辑排版",
     "category": "文档与出版",
