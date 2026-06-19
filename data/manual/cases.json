@@ -1,5 +1,30 @@
 [
   {
+    "id": "100103",
+    "title": "真人照片转全页彩色漫画分镜叙事",
+    "category": "场景与叙事",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Illustration",
+      "Editorial",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-19-case-photo-to-manga-page.jpg",
+    "imageAlt": "真人照片转全页彩色漫画分镜叙事",
+    "prompt": "Create a full-page colored manga illustration based on the person in the reference photo. Use authentic manga page composition with 5–7 dynamic connected panels on a single page. Include cinematic storytelling, dramatic perspective, expressive emotions, dynamic poses, speed lines, impact frames, close-up shots, and intense visual flow.Add English comic-style sound effects, handwritten dialogue bubbles, ink splatter strokes, halftone textures, rough comic sketch lines, and graffiti-inspired brushwork. Blend vibrant colors with manga-style shading and strong contrast. Emphasize the character’s personality and aura with symbolic visual elements and atmospheric energy effects. Highly detailed, emotional, stylish, energetic, professional manga aesthetic with clean white negative space mixed with chaotic ink textures.Hand-drawn look, free-flowing lines, immersive composition, high quality. Aspect ratio 9:16 HD.",
+    "promptPreview": "Create a full-page colored manga illustration based on the person in the reference photo. Use authentic manga page composition with 5–7 dynamic connected panels on a single page. Include cinematic storytelling, dramatic…",
+    "source": "Community collected via @SimplyAnnisa",
+    "createdAt": "2026-06-19T11:53:57.502Z"
+  },
+  {
     "id": "100102",
     "title": "地理地图3D微缩城市地标立体信息图",
     "category": "历史与古典",
