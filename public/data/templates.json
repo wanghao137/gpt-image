@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-weathered-map-diorama",
+    "title": "风化地图立体微缩世界生成模板",
+    "category": "历史与古典",
+    "tags": [
+      "map",
+      "cartography",
+      "diorama",
+      "infographic"
+    ],
+    "description": "在风化地图表面生成多个城市地标的立体微缩世界，支持地图类型、城市、地标、气候等参数化定制",
+    "cover": "/uploads/template-derived-weathered-map-diorama.jpg",
+    "prompt": "A weathered {MAP_TYPE} map spread across {SURFACE}, bursting with photorealistic miniature worlds erupting from marked locations. {CITY_1} explodes from {CONTINENT} as a living diorama—{LANDMARK_1} towers above {STREET_SCENE}, surrounded by {ATMOSPHERIC_EFFECT} and {MOVING_ELEMENT}. {CITY_2} rises from {CONTINENT} with {LANDMARK_2} emerging through {WEATHER_DRAMA}, tiny {LOCAL_ACTIVITY} frozen mid-motion. {CITY_3} materializes from {CONTINENT} where {LANDMARK_3} pierces through {LIGHTING_EFFECT}, {CULTURAL_DETAIL} spilling across miniature streets. Connecting routes glow as {VISUAL_ELEMENT}—miniature {VEHICLE_TYPE} suspended impossibly between worlds. The map's surface transitions from flat parchment to living terrain: oceans become actual churning water with {WATER_DETAIL}, deserts shimmer with real heat haze, forests sprout miniature trees. Each city exists in its own time: {LIGHTING_CONDITION_1} bathes one, {LIGHTING_CONDITION_2} illuminates another, {LIGHTING_CONDITION_3} glows over the third. {FOREGROUND_OBJECTS} scatter around the map edges. {PHOTOGRAPHY_STYLE}, {COLOR_PALETTE}, extreme depth of field, 8K, {ERA_AESTHETIC} meets magical realism.",
+    "useWhen": "需要生成具有探索感/旅行主题的多城市地标立体地图可视化，适合旅行海报、地理信息图、品牌全球布局展示",
+    "createdAt": "2026-06-19T11:54:10.009Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen curated · @AllaAisling (likes 202)"
+  },
+  {
     "id": "derived-sports-legacy-poster",
     "title": "体育传奇告别海报",
     "category": "海报与排版",
@@ -904,18 +922,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-18-case-100098-golden-frame-renaissance.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / Editorial / Cinematic / Education / Poster / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100098 美术馆金框中走出的文艺复兴佳人: A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100089 电影级角色设计展示板: Create a cinematic character design board for a premium drama film. A stunning female protagoni…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-19-case-cinematic-garden-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / 3D Render / Cinematic / Minimal / Architecture / Brand / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100104 自然电影感花园人像：丝绸长裙写意: { \"render_goal\": \"Natural cinematic garden portrait with timeless elegance\", \"subject\": { \"pose…\n- #100101 奢华摄影画册跨页：时尚人像编辑排版: Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrange…\n- #100098 美术馆金框中走出的文艺复兴佳人: A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100104",
+      "100101",
       "100098",
       "100094",
-      "100089",
-      "100083",
-      "100079"
+      "100089"
     ]
   },
   {
@@ -928,18 +946,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-17-case-100097-popup-storybook.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Editorial / Realistic / Illustration / 3D Render / Cinematic / Minimal / Watercolor\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n- #100088 复古水彩旅行明信片海报: Vintage watercolor travel poster illustration, elegant European travel postcard aesthetic, soft…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-19-case-geographic-map-diorama.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / 3D Render / Cinematic / Minimal / Studio / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100102",
       "100097",
       "100096",
       "100088",
-      "100079",
-      "100075"
+      "100079"
     ]
   },
   {
@@ -1070,18 +1088,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/uploads/2026-06-13-case-100083-storyboard-motocross.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Brand / Tech / Minimal / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n- #100046 动画风烹饪视频分镜脚本: 目标：为一段关于 {argument name=\"dish theme\" default=\"黄金炒饭\"} 的 15 秒烹饪视频创作一张超高质量、细节丰富的动画风格分镜脚本页，按时间顺序展示完…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "/uploads/2026-06-19-case-photo-to-manga-page.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Illustration / Editorial / Minimal / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100103 真人照片转全页彩色漫画分镜叙事: Create a full-page colored manga illustration based on the person in the reference photo. Use a…\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100103",
       "100083",
       "100063",
       "100046",
-      "487",
-      "422"
+      "487"
     ]
   },
   {
@@ -1118,18 +1136,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-06-17-case-100097-popup-storybook.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Realistic / Illustration / 3D Render / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n- #100070 奢侈品杂志封面：产品悬浮光影大片: A world-class luxury magazine cover, 4:5 ratio, featuring [BRAND/PRODUCT] as the cover star. Th…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-19-case-coffee-table-book.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Education / Portrait / Tech / Publication / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100101 奢华摄影画册跨页：时尚人像编辑排版: Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrange…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100101",
       "100097",
       "100094",
       "100070",
-      "100067",
-      "100062"
+      "100067"
     ]
   }
 ]
