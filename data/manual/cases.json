@@ -1,5 +1,31 @@
 [
   {
+    "id": "100105",
+    "title": "建筑蓝图立体生长可视化",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Architecture",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100105-arch-blueprint.jpg",
+    "imageAlt": "建筑蓝图立体生长可视化",
+    "prompt": "Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting table, its ink lines rising off the paper into fully realized construction. Blue lines become steel beams mid-weld, floor plans inflate into furnished rooms, elevation drawings push outward into facades with working windows. Construction phases coexist simultaneously: foundation being poured in one corner while the penthouse is already inhabited in another. Tiny workers, cranes, and scaffolding swarm the rising structure. The flat drawing and the living building merge at impossible angles. Technical annotations float as dimensional signage. Architect's coffee cup sits at the edge, casting shadow across unbuilt sections. Extreme scale contrast, construction dust catching afternoon light, 8K, photorealistic.",
+    "promptPreview": "Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting table, its ink lines rising off the paper into fully realized construction. Blue lines become steel beams mid-weld, floor pla…",
+    "source": "Community collected via @AllaAisling",
+    "githubUrl": "https://x.com/AllaAisling/status/2010009737816162736",
+    "createdAt": "2026-06-19T20:08:07.463Z"
+  },
+  {
     "id": "100104",
     "title": "自然电影感花园人像：丝绸长裙写意",
     "category": "建筑与空间",
