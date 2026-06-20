@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-3d-paper-breakout",
+    "title": "3D突破纸面幻觉：角色从笔记本中走出",
+    "category": "插画与艺术",
+    "tags": [
+      "3d-illusion",
+      "paper-craft",
+      "mixed-media",
+      "character"
+    ],
+    "description": "角色从速写本/笔记本中突破而出的3D幻觉艺术，2D铅笔绘画与超写实3D角色无缝融合",
+    "cover": "/uploads/template-derived-3d-paper-breakout.jpg",
+    "prompt": "Create a stunning ultra-realistic 3D illusion artwork. A {argument name=\"角色描述\" default=\"cute young girl with vibrant hair\"} is emerging from the pages of a {argument name=\"载体\" default=\"spiral-bound sketchbook\"} lying on a {argument name=\"桌面材质\" default=\"wooden desk\"}.\n\nThe {argument name=\"载体\"} contains {argument name=\"纸张类型\" default=\"lined paper with pencil sketches\"} that transitions into a fully 3D photorealistic character. The character appears to be physically climbing, stepping, or breaking out of the page — torn paper edges, folded corners, and pencil shading create the illusion of depth.\n\nDetails:\n- The 2D drawing portion uses {argument name=\"绘画风格\" default=\"graphite pencil shading\"} \n- The 3D portion is hyper-realistic with natural skin textures, fabric folds, and dynamic lighting\n- Soft directional lighting from the upper left, casting realistic shadows across the desk surface\n- Depth of field with the desk slightly blurred in the background\n- The character's expression is {argument name=\"表情\" default=\"cheerful and excited\"}\n- {argument name=\"道具/配饰\" default=\"Colorful markers and art supplies scattered nearby\"}\n\nStyle: mixed-media art, 3D illusion, photorealistic character design, creative paper craft aesthetic, 9:16 vertical composition.",
+    "useWhen": "需要创意意境混合媒介、超现实3D角色突破纸面效果、创意艺术展示",
+    "createdAt": "2026-06-20T13:37:36.146Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community Gallery · 3D illusion (6 high-likes cases analyzed)"
+  },
+  {
     "id": "derived-weathered-map-diorama",
     "title": "风化地图立体微缩世界生成模板",
     "category": "历史与古典",
