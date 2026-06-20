@@ -1,5 +1,35 @@
 [
   {
+    "id": "100107",
+    "title": "日系少女户外写真",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Documentary"
+    ],
+    "scenes": [
+      "Portrait",
+      "Brand",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Documentary",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100100-case.jpg",
+    "imageAlt": "日系少女户外写真",
+    "prompt": "Beautiful young Japanese girl with long silky black hair and soft wispy bangs, large expressive dark eyes, fair glowing skin, delicate facial features, natural pink lips, subtle blush, and a calm innocent expression. Wearing a fitted black t-shirt and a red backpack over one shoulder. Standing outdoors beside a warm beige wall with green leaves casting soft shadows. Bright midday sunlight creating natural highlights on her hair and face, gentle breeze moving loose strands of hair, casual school-day aesthetic, Korean/Japanese street photography vibe, realistic skin texture, soft natural makeup, candid portrait, photorealistic, ultra-detailed, DSLR quality, shallow depth of field, clean composition, vibrant natural colors, youthful and dreamy atmosphere, 85mm lens, high-resolution editorial portrait, 8K.",
+    "promptPreview": "Beautiful young Japanese girl with long silky black hair and soft wispy bangs, large expressive dark eyes, fair glowing skin, delicate facial features, natural pink lips, subtle blush, and a calm innocent expression. We…",
+    "source": "Community collected via @saniaspeaks_",
+    "createdAt": "2026-06-20T13:31:45.577Z"
+  },
+  {
     "id": "100106",
     "title": "城市旅行票券微缩场景",
     "category": "场景与叙事",
