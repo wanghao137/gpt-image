@@ -1,5 +1,26 @@
 [
   {
+    "id": "100110",
+    "title": "2000年代韩风校园照片拼贴",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100103-2000.jpg",
+    "imageAlt": "2000年代韩风校园照片拼贴",
+    "prompt": "A vertical 3-panel college photo strip. The subject is a girl with long hair in a beige knit vest. Panel 1(top): close up of her resting chin on the school desk, looking bored. Panel 2(middle): her standing against a white class wall, holding a book, slightly motion blur. Panel 3(Bottom): sitting on the wooden floor, trying shoelace. Aesthetic: Korean 2000s phone -camera quality, s' arm tint, slightly low resolution ow handwritten doodle overlay, Harsh flash, messy i'm korean girl",
+    "promptPreview": "A vertical 3-panel college photo strip. The subject is a girl with long hair in a beige knit vest. Panel 1(top): close up of her resting chin on the school desk, looking bored. Panel 2(middle): her standing against a wh…",
+    "source": "Community collected via @Ciri_ai",
+    "createdAt": "2026-06-20T13:32:24.058Z"
+  },
+  {
     "id": "100109",
     "title": "智能手机时尚人像系列",
     "category": "摄影与写实",
