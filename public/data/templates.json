@@ -1,5 +1,42 @@
 [
   {
+    "id": "derived-yzk-retro-photo-strip",
+    "title": "YZK复古胶片三联拍照贴",
+    "category": "摄影与写实",
+    "tags": [
+      "yzk",
+      "retro",
+      "film-photography",
+      "photo-strip",
+      "collage"
+    ],
+    "description": "2000年代复古胶片风格垂直多联照片条，模拟一次性相机闪光灯 + 褪色暖调 + 胶片颗粒",
+    "cover": "/uploads/template-derived-yzk-retro-photo-strip.jpg",
+    "prompt": "A vertical {argument name=\"格数\" default=\"3-panel\"} photo strip in the aesthetic of early 2000s / Y2K vintage film photography. The subject is {argument name=\"人物描述\" default=\"a young woman with long dark hair\"}, using the uploaded selfie as the ONLY face reference.\n\nLayout: Vertical stacked panels, each capturing a different moment or angle:\n- {argument name=\"面板1\" default=\"Top panel: close-up of the subject resting chin on hand, soft smile\"}\n- {argument name=\"面板2\" default=\"Middle panel: half-body shot looking away, candid\"}\n- {argument name=\"面板3\" default=\"Bottom panel: full-body walking shot, motion blur\"}\n\nStyle details:\n- Camera: {argument name=\"相机\" default=\"disposable 35mm film camera, disposable flash aesthetic\"}\n- Color grading: {argument name=\"色调\" default=\"warm faded tones, slight green tint, low contrast, film grain\"}\n- Lighting: harsh on-camera flash with slight overexposure on skin\n- Vibe: {argument name=\"氛围\" default=\"nostalgic, dreamy, melancholic summer afternoon\"}\n- Each panel has a thin white border like a photo booth strip\n- Date stamp in the corner: {argument name=\"日期戳\" default=\"'03.07.2005'\"}\n\nAspect ratio: 9:16 vertical. Quality: photorealistic, amateur snapshot style, not professional.",
+    "useWhen": "复古写真、YZK风格照片、多联拍拼贴、越夏日记本风光、恋爱回忆感照片",
+    "createdAt": "2026-06-20T13:37:48.927Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community Gallery · YZK retro photo strip (5 high-likes cases analyzed)"
+  },
+  {
+    "id": "derived-3d-paper-breakout",
+    "title": "3D突破纸面幻觉：角色从笔记本中走出",
+    "category": "插画与艺术",
+    "tags": [
+      "3d-illusion",
+      "paper-craft",
+      "mixed-media",
+      "character"
+    ],
+    "description": "角色从速写本/笔记本中突破而出的3D幻觉艺术，2D铅笔绘画与超写实3D角色无缝融合",
+    "cover": "/uploads/template-derived-3d-paper-breakout.jpg",
+    "prompt": "Create a stunning ultra-realistic 3D illusion artwork. A {argument name=\"角色描述\" default=\"cute young girl with vibrant hair\"} is emerging from the pages of a {argument name=\"载体\" default=\"spiral-bound sketchbook\"} lying on a {argument name=\"桌面材质\" default=\"wooden desk\"}.\n\nThe {argument name=\"载体\"} contains {argument name=\"纸张类型\" default=\"lined paper with pencil sketches\"} that transitions into a fully 3D photorealistic character. The character appears to be physically climbing, stepping, or breaking out of the page — torn paper edges, folded corners, and pencil shading create the illusion of depth.\n\nDetails:\n- The 2D drawing portion uses {argument name=\"绘画风格\" default=\"graphite pencil shading\"} \n- The 3D portion is hyper-realistic with natural skin textures, fabric folds, and dynamic lighting\n- Soft directional lighting from the upper left, casting realistic shadows across the desk surface\n- Depth of field with the desk slightly blurred in the background\n- The character's expression is {argument name=\"表情\" default=\"cheerful and excited\"}\n- {argument name=\"道具/配饰\" default=\"Colorful markers and art supplies scattered nearby\"}\n\nStyle: mixed-media art, 3D illusion, photorealistic character design, creative paper craft aesthetic, 9:16 vertical composition.",
+    "useWhen": "需要创意意境混合媒介、超现实3D角色突破纸面效果、创意艺术展示",
+    "createdAt": "2026-06-20T13:37:36.146Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen Community Gallery · 3D illusion (6 high-likes cases analyzed)"
+  },
+  {
     "id": "derived-weathered-map-diorama",
     "title": "风化地图立体微缩世界生成模板",
     "category": "历史与古典",
@@ -922,18 +959,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-06-19-case-cinematic-garden-portrait.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / 3D Render / Cinematic / Minimal / Architecture / Brand / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100104 自然电影感花园人像：丝绸长裙写意: { \"render_goal\": \"Natural cinematic garden portrait with timeless elegance\", \"subject\": { \"pose…\n- #100101 奢华摄影画册跨页：时尚人像编辑排版: Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrange…\n- #100098 美术馆金框中走出的文艺复兴佳人: A surreal, ultra-realistic scene of a young woman emerging from an ornate golden picture frame …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case508.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Photography / Creative / Realistic / 3D Render / Cinematic / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #508 木漏日庭院俯拍猫咪人像: 俯拍镜头，高角度顶机位，自上而下俯瞰一位年轻的东亚裔女性，她有着精致的东亚五官和柔顺的黑发。她蹲在花园小径上，轻轻逗弄一只毛茸茸的橘猫。头顶密密的枝叶滤过阳光，形成灵动的“木漏日”效果——跃…\n- #100111 超可爱3D宝宝女孩渲染: Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of th…\n- #100110 2000年代韩风校园照片拼贴: A vertical 3-panel college photo strip. The subject is a girl with long hair in a beige knit ve…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100104",
-      "100101",
-      "100098",
-      "100094",
-      "100089"
+      "508",
+      "100111",
+      "100110",
+      "100109",
+      "100108"
     ]
   },
   {
@@ -946,18 +983,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-19-case-geographic-map-diorama.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / 3D Render / Cinematic / Minimal / Studio / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-20-case-100106-travel-ticket.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Cinematic / Realistic / Illustration / 3D Render / Editorial / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100106 城市旅行票券微缩场景: Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPEC…\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100106",
       "100102",
       "100097",
       "100096",
-      "100088",
-      "100079"
+      "100088"
     ]
   },
   {
@@ -1040,18 +1077,18 @@
       "Portrait"
     ],
     "description": "生成自然、温暖、身份稳定的儿童或全家福影像。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case452.jpg",
-    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Realistic / Illustration / Character / Tech / Commerce / Social / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n- #393 Y2K 金色时刻人像: candid portrait of a beautiful young blonde woman, 21 years old, glowing sun-kissed skin, weari…\n- #469 导览式科普绘本: 《导览式科普绘本》提示词： 请根据【主题】创作一张高完成度的「导览式科普绘本」风格插画。 这是一张结合“大型场景主视觉 + 导览路线 + 可爱导览 IP + 知识站点 + 儿童科普绘本质感”…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
+    "cover": "/uploads/2026-06-20-case-100104-3d.jpg",
+    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Realistic / 3D Render / Cinematic / Minimal / Studio / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100111 超可爱3D宝宝女孩渲染: Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of th…\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n- #393 Y2K 金色时刻人像: candid portrait of a beautiful young blonde woman, 21 years old, glowing sun-kissed skin, weari…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
     "useWhen": "用于亲子写真、儿童毕业照、节日合影和家庭记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100111",
       "452",
       "393",
       "469",
-      "461",
-      "297"
+      "461"
     ]
   },
   {
@@ -1064,18 +1101,18 @@
       "Mascot"
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
-    "cover": "/uploads/2026-06-11-case-100077-caricature-bobblehead-figurine.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Illustration / Realistic / 3D Render / Cinematic / Studio / Portrait / Caricature\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100073 夸张大头收藏公仔：名人微缩雕像: Highly detailed caricature figurine of [SUBJECT] as a cute but intense bobblehead-style collect…\n- #100072 设计师收藏级艺术潮玩手办: Transform the input image into a premium designer collectible-art toy aesthetic. Preserve the s…\n- #480 粉丝速写本角色页: Draw me as if an obsessed fan artist filled an entire sketchbook page - messy, overlapping, ful…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case507.jpg",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Character / Tech / Commerce / Illustration / Realistic / 3D Render / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #507 暖调钩织角色玩偶: A handcrafted crochet doll of a [subject], made with soft yarn textures and intricate knitted d…\n- #100073 夸张大头收藏公仔：名人微缩雕像: Highly detailed caricature figurine of [SUBJECT] as a cute but intense bobblehead-style collect…\n- #100072 设计师收藏级艺术潮玩手办: Transform the input image into a premium designer collectible-art toy aesthetic. Preserve the s…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "507",
       "100073",
       "100072",
       "480",
-      "476",
-      "100031"
+      "476"
     ]
   },
   {
@@ -1112,18 +1149,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-19-case-100099-room-exploded-view.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Portrait / Tech / Editorial / Brand / Education\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n- #100095 建筑遗产测绘分析展示板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-20-case-100105-arch-blueprint.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Cinematic / Brand / Tech / Portrait / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n- #100095 建筑遗产测绘分析展示板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100105",
       "100099",
       "100095",
       "100093",
-      "100069",
-      "100068"
+      "100069"
     ]
   },
   {
