@@ -1,5 +1,36 @@
 [
   {
+    "id": "100111",
+    "title": "超可爱3D宝宝女孩渲染",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "scenes": [
+      "Portrait",
+      "Brand",
+      "Tech"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100104-3d.jpg",
+    "imageAlt": "超可爱3D宝宝女孩渲染",
+    "prompt": "Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of the person in the provided reference photo.\n\nThe facial structure must strongly match the reference image. Accurately replicate the exact eye shape, eye color, skin tone, lip shape, nose structure, cheek fullness, eyebrow shape, and overall facial proportions. The toddler version should clearly resemble the same person at a younger age while maintaining realistic childlike softness and rounded features.\nIf any accessory (such as an earring or similar detail) appears in the reference image, replicate it accurately in size, colour, and placement.\nExpression:\n\nDistinctly grumpy and pouty. Chin resting on her left palm. One eye slightly squinted in mild annoyance. Eyebrows gently furrowed. Lips pushed forward in a stubborn pout. Expression must feel natural and emotionally believable, not exaggerated.\nHair:\n\nHairstyle should be adapted from the reference image while keeping it toddler-appropriate. Styled in a messy high bun with soft, natural baby hair strands framing the face.\nOutfit:\n\nWhite short-sleeve t-shirt under classic blue denim overalls with visible stitching and metal clasps.\nPose & Background:\n\nSitting cross-legged on a clean white studio background. Feet slightly angled toward the camera. Balanced composition with full body visible.\nStyle & Quality:\n\nUltra-detailed Pixar/Disney-inspired 3D animation aesthetic. Professional CGI rendering. 1:1 aspect ratio. 8K resolution. Sharp focus. Cinematic studio lighting with soft subsurface scattering on the skin. Smooth textures, realistic fabric physics, soft global illumination, and natural shadow falloff.",
+    "promptPreview": "Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of the person in the provided reference photo. The facial structure must strongly match the reference image. Accurately replicate…",
+    "source": "Community collected via @simeon-sanai (@Naiknelofar788)",
+    "createdAt": "2026-06-20T13:32:36.100Z"
+  },
+  {
     "id": "100110",
     "title": "2000年代韩风校园照片拼贴",
     "category": "摄影与写实",
