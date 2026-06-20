@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-yzk-retro-photo-strip",
+    "title": "YZK复古胶片三联拍照贴",
+    "category": "摄影与写实",
+    "tags": [
+      "yzk",
+      "retro",
+      "film-photography",
+      "photo-strip",
+      "collage"
+    ],
+    "description": "2000年代复古胶片风格垂直多联照片条，模拟一次性相机闪光灯 + 褪色暖调 + 胶片颗粒",
+    "cover": "/uploads/template-derived-yzk-retro-photo-strip.jpg",
+    "prompt": "A vertical {argument name=\"格数\" default=\"3-panel\"} photo strip in the aesthetic of early 2000s / Y2K vintage film photography. The subject is {argument name=\"人物描述\" default=\"a young woman with long dark hair\"}, using the uploaded selfie as the ONLY face reference.\n\nLayout: Vertical stacked panels, each capturing a different moment or angle:\n- {argument name=\"面板1\" default=\"Top panel: close-up of the subject resting chin on hand, soft smile\"}\n- {argument name=\"面板2\" default=\"Middle panel: half-body shot looking away, candid\"}\n- {argument name=\"面板3\" default=\"Bottom panel: full-body walking shot, motion blur\"}\n\nStyle details:\n- Camera: {argument name=\"相机\" default=\"disposable 35mm film camera, disposable flash aesthetic\"}\n- Color grading: {argument name=\"色调\" default=\"warm faded tones, slight green tint, low contrast, film grain\"}\n- Lighting: harsh on-camera flash with slight overexposure on skin\n- Vibe: {argument name=\"氛围\" default=\"nostalgic, dreamy, melancholic summer afternoon\"}\n- Each panel has a thin white border like a photo booth strip\n- Date stamp in the corner: {argument name=\"日期戳\" default=\"'03.07.2005'\"}\n\nAspect ratio: 9:16 vertical. Quality: photorealistic, amateur snapshot style, not professional.",
+    "useWhen": "复古写真、YZK风格照片、多联拍拼贴、越夏日记本风光、恋爱回忆感照片",
+    "createdAt": "2026-06-20T13:37:48.927Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen Community Gallery · YZK retro photo strip (5 high-likes cases analyzed)"
+  },
+  {
     "id": "derived-3d-paper-breakout",
     "title": "3D突破纸面幻觉：角色从笔记本中走出",
     "category": "插画与艺术",
