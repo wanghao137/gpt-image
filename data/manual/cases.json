@@ -1,5 +1,38 @@
 [
   {
+    "id": "100109",
+    "title": "智能手机时尚人像系列",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "scenes": [
+      "Portrait",
+      "Brand",
+      "Editorial",
+      "Tech"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100102-case.jpg",
+    "imageAlt": "智能手机时尚人像系列",
+    "prompt": "{\n  \"scene_type\": \"smartphone fashion portrait series\",\n  \"composition\": {\n    \"layout\": \"4-photo grid collage\",\n    \"camera\": \"smartphone photography\",\n    \"framing\": [\n      \"full body standing\",\n      \"leaning wall pose\",\n      \"casual seated pose\",\n      \"upper body close-up\"\n    ],\n    \"angle\": \"eye-level, natural candid perspective\",\n    \"aspect_ratio\": \"1:1 collage\"\n  },\n  \"subject\": {\n    \"gender\": \"female\",\n    \"age\": \"early 20s\",\n    \"aesthetic\": \"extremely beautiful, soft feminine street style\",\n    \"appearance\": {\n      \"skin_tone\": \"smooth fair complexion\",\n      \"face\": \"soft feminine features, delicate jawline, naturally pretty\",\n      \"expression\": \"confident, playful, relaxed\",\n      \"eyes\": \"expressive with soft gaze\",\n      \"hair\": {\n        \"color\": \"deep black\",\n        \"style\": \"long loose waves\",\n        \"texture\": \"silky with natural movement\"\n      },\n      \"makeup\": \"clean girl makeup, dewy skin, soft pink blush, glossy lips\"\n    },\n    \"outfit\": {\n      \"top\": \"dark denim asymmetrical ruched camisole top with thin straps and side drawstring detail\",\n      \"bottom\": \"light wash ultra baggy wide-leg jeans\",\n      \"shoes\": \"chunky white sneakers\",\n      \"style\": \"modern Korean-inspired casual streetwear, effortless denim-on-denim aesthetic\"\n    },\n    \"pose_style\": \"relaxed candid fashion poses with natural movement\",\n    \"body_language\": \"soft confidence, feminine energy, effortless cool-girl vibe\"\n  },\n  \"environment\": {\n    \"location\": \"minimal studio setup\",\n    \"background\": \"clean light gray seamless backdrop\",\n    \"floor\": \"neutral matte studio floor\",\n    \"lighting\": {\n      \"type\": \"soft diffused studio lighting\",\n      \"tone\": \"cool neutral\",\n      \"shadows\": \"soft realistic shadows\",\n      \"highlights\": \"gentle glow on skin and denim texture\"\n    }\n  },\n  \"style\": {\n    \"photography_type\": \"smartphone editorial fashion photography\",\n    \"visual_tone\": \"minimal, airy, trendy\",\n    \"mood\": \"fresh, stylish, youthful confidence\",\n    \"color_palette\": \"washed denim blue, soft gray, white\",\n    \"contrast\": \"low to medium\",\n    \"grain\": \"light natural grain\"\n  },\n  \"rendering\": {\n    \"realism\": \"ultra-realistic\",\n    \"detail_level\": \"high fabric and skin texture detail\",\n    \"sharpness\": \"high\",\n    \"depth_of_field\": \"natural smartphone depth\",\n    \"post_processing\": \"clean editing with slightly soft finish\"\n  },\n  \"atmosphere\": \"effortless Gen-Z fashion aesthetic, casual luxury streetwear energy, modern feminine charm\"\n}",
+    "promptPreview": "{ \"scene_type\": \"smartphone fashion portrait series\", \"composition\": { \"layout\": \"4-photo grid collage\", \"camera\": \"smartphone photography\", \"framing\": [ \"full body standing\", \"leaning wall pose\", \"casual seated pose\", …",
+    "source": "Community collected via @ZaraIrahh",
+    "createdAt": "2026-06-20T13:32:11.730Z"
+  },
+  {
     "id": "100108",
     "title": "3D卡通女孩笔记本奇遇",
     "category": "摄影与写实",
