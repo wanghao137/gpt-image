@@ -1,5 +1,33 @@
 [
   {
+    "id": "100113",
+    "title": "立体弹开式旅行故事书场景插画",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Illustration"
+    ],
+    "scenes": [
+      "Editorial",
+      "Narrative"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-06-21-case-100113-popup-storybook.jpg",
+    "imageAlt": "立体弹开式旅行故事书场景插画",
+    "prompt": "Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], presented inside a beautifully opened vintage book.\n\nThe scene should look like a premium collectible paper-engineered pop-up book where the entire destination rises from the pages in layered miniature diorama form.\n\nStyle: Hyper-detailed paper-craft artistry; intricate layered papercut construction; storybook fantasy aesthetic; vibrant travel-poster colors; handmade miniature world; premium children's book illustration; highly detailed 3D pop-up engineering; whimsical, magical, heartwarming atmosphere; crisp focus, museum-quality craftsmanship; ultra-realistic paper textures; editorial travel-poster composition.\n\nComposition: The open book fills the frame. A large decorative title banner emerges from the pages displaying \"[Destination]\" and \"[Tagline]\". The destination unfolds into a dense miniature world containing: most famous landmark, historic architecture, cultural icons, traditional streets, bridges, rivers, local transportation, native flowers and trees, local food stalls and cafés, tiny tourists exploring, seasonal decorations, regional wildlife, local festivals and traditions. Everything should emerge organically from the book pages as layered paper structures.\n\nBackground: Bright blue sky made from layered paper; puffy paper clouds; flying aircraft; hot-air balloons; birds; decorative paper sun; floating cultural ornaments.\n\nForeground Details: Tiny people interacting naturally; miniature markets; small boats; local shops; traditional costumes; decorative flowers spilling onto the pages; elegant page corners with gold embellishments; origami decorations; vintage travel-book aesthetics.\n\nLighting: Soft daylight; warm, cheerful atmosphere; subtle depth shadows between paper layers; highly dimensional; rich color contrast.\n\nQuality: Ultra detailed, masterpiece, 8K, professional travel illustration, collectible pop-up book, paper diorama, layered papercraft, magical storybook world, intricate miniature architecture, fantasy tourism poster, immersive handcrafted design.",
+    "promptPreview": "Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], presented inside a beautifully opened vintage book. The scene should look like a premium collectible paper-engineered pop-up…",
+    "source": "Community collected via @Naiknelofar788",
+    "githubUrl": "https://www.meigen.ai/prompt/2064166761583550562",
+    "createdAt": "2026-06-20T20:05:02.087Z"
+  },
+  {
     "id": "100112",
     "title": "手绘寻宝图三维探险叙事场景",
     "category": "历史与古典",
