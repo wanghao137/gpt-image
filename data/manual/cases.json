@@ -1,5 +1,30 @@
 [
   {
+    "id": "100108",
+    "title": "3D卡通女孩笔记本奇遇",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "3D Render"
+    ],
+    "scenes": [
+      "Portrait",
+      "Tech"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-06-20-case-100101-3d.jpg",
+    "imageAlt": "3D卡通女孩笔记本奇遇",
+    "prompt": "A creative 3D illusion artwork of a cute young girl stepping out of a spiral notebook page placed on a wooden desk. The notebook has lined paper with handwritten text at the top. The girl looks semi-realistic 3D cartoon style, soft wavy brown hair, natural makeup, sweet smile, wearing a pastel crop top and high-waisted light grey jeans with white sneakers. Her lower body appears sketched in pencil on the notebook while the upper body looks realistic and popping out of the page.",
+    "promptPreview": "A creative 3D illusion artwork of a cute young girl stepping out of a spiral notebook page placed on a wooden desk. The notebook has lined paper with handwritten text at the top. The girl looks semi-realistic 3D cartoon…",
+    "source": "Community collected via @Oogie (@oggii_0)",
+    "createdAt": "2026-06-20T13:31:58.395Z"
+  },
+  {
     "id": "100107",
     "title": "日系少女户外写真",
     "category": "摄影与写实",
