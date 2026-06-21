@@ -983,18 +983,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-20-case-100106-travel-ticket.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Cinematic / Realistic / Illustration / 3D Render / Editorial / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100106 城市旅行票券微缩场景: Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPEC…\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-21-case-100113-popup-storybook.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Cinematic / Realistic / Illustration / 3D Render / Editorial / Narrative / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100113 立体弹开式旅行故事书场景插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100106 城市旅行票券微缩场景: Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPEC…\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100113",
       "100106",
       "100102",
       "100097",
-      "100096",
-      "100088"
+      "100096"
     ]
   },
   {
