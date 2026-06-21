@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-encyclopedia-knowledge-card",
+    "title": "百科知识图鉴信息图卡片",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "education",
+      "encyclopedia",
+      "knowledge"
+    ],
+    "description": "输入任意主题，自动生成一张百科全书风格的知识图鉴信息图：模块化面板 + 主图特写 + 评分系统 + 分类解析，适合科普、教育、收藏分享。",
+    "cover": "/uploads/template-derived-encyclopedia-knowledge-card.jpg",
+    "prompt": "Based on {argument name=\"主题\" default=\"James Webb Space Telescope\"}, create a high-quality vertical \"encyclopedia-style educational infographic image.\"\n\nThis image should NOT look like a regular poster or a simple illustration. Instead, it should feel like a structured knowledge guide that combines:\n\nthe feeling of a collectible reference handbook\n\na modern encyclopedia page\n\na lifestyle knowledge card\n\nand a highly shareable social-media infographic\n\nThe overall style should resemble a premium natural-history guidebook mixed with modern editorial infographic design. Use {argument name=\"语言\" default=\"English with Chinese annotations\"} for all text labels.\n\nThe image should include:\n\nOne beautiful and highly detailed main subject image\n\nSeveral zoomed-in detail sections highlighting important features\n\nMultiple modular information panels with rounded corners\n\nClear title hierarchy and highlighted key labels\n\nConcise yet information-rich encyclopedia content\n\nVisual scoring systems, quick summaries, or \"Top 5\" modules\n\nThe information sections should automatically adapt to the topic. Select and combine relevant categories such as:\n\nBasic profile (name, type, origin, key specs)\n\nClassification / taxonomy\n\nPhysical characteristics\n\nBehavior / ecology / habits\n\nStructure or formation mechanisms\n\nGrowth conditions or usage methods\n\nCare, maintenance, or optimization tips\n\nRisks, warnings, and important notes\n\nSuitable users or application scenarios\n\nPros and cons comparison\n\nQuick rating tags or summary cards\n\nVisual requirements:\n\nClean light-colored background with {argument name=\"配色风格\" default=\"soft and elegant pastel palette\"}\n\nGentle shadows and small refined icons\n\nRounded information boxes\n\nOrganized editorial layout\n\nHigh information density without feeling crowded\n\nComfortable reading experience\n\nThe final result should feel like a real publishable encyclopedia knowledge card designed for reading, collecting, and creating as part of a consistent series — NOT like a commercial advertisement poster.\n\nThe image must strongly emphasize: \"knowledge integration + modular information design + handbook/reference-style presentation.\"",
+    "useWhen": "需要将一个主题（人物/物体/概念/生物/地点）制作成结构化、高信息密度的百科知识卡片，用于科普教育、社媒分享或收藏参考。",
+    "createdAt": "2026-06-21T21:05:33.660Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen · 图表与信息图 · 1589 likes tweet by @oggii_0 (JWST encyclopedia card) abstracted from pattern analysis"
+  },
+  {
     "id": "derived-yzk-retro-photo-strip",
     "title": "YZK复古胶片三联拍照贴",
     "category": "摄影与写实",
