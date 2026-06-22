@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-encyclopedia-knowledge-card",
+    "title": "百科知识图鉴信息图卡片",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "education",
+      "encyclopedia",
+      "knowledge"
+    ],
+    "description": "输入任意主题，自动生成一张百科全书风格的知识图鉴信息图：模块化面板 + 主图特写 + 评分系统 + 分类解析，适合科普、教育、收藏分享。",
+    "cover": "/uploads/template-derived-encyclopedia-knowledge-card.jpg",
+    "prompt": "Based on {argument name=\"主题\" default=\"James Webb Space Telescope\"}, create a high-quality vertical \"encyclopedia-style educational infographic image.\"\n\nThis image should NOT look like a regular poster or a simple illustration. Instead, it should feel like a structured knowledge guide that combines:\n\nthe feeling of a collectible reference handbook\n\na modern encyclopedia page\n\na lifestyle knowledge card\n\nand a highly shareable social-media infographic\n\nThe overall style should resemble a premium natural-history guidebook mixed with modern editorial infographic design. Use {argument name=\"语言\" default=\"English with Chinese annotations\"} for all text labels.\n\nThe image should include:\n\nOne beautiful and highly detailed main subject image\n\nSeveral zoomed-in detail sections highlighting important features\n\nMultiple modular information panels with rounded corners\n\nClear title hierarchy and highlighted key labels\n\nConcise yet information-rich encyclopedia content\n\nVisual scoring systems, quick summaries, or \"Top 5\" modules\n\nThe information sections should automatically adapt to the topic. Select and combine relevant categories such as:\n\nBasic profile (name, type, origin, key specs)\n\nClassification / taxonomy\n\nPhysical characteristics\n\nBehavior / ecology / habits\n\nStructure or formation mechanisms\n\nGrowth conditions or usage methods\n\nCare, maintenance, or optimization tips\n\nRisks, warnings, and important notes\n\nSuitable users or application scenarios\n\nPros and cons comparison\n\nQuick rating tags or summary cards\n\nVisual requirements:\n\nClean light-colored background with {argument name=\"配色风格\" default=\"soft and elegant pastel palette\"}\n\nGentle shadows and small refined icons\n\nRounded information boxes\n\nOrganized editorial layout\n\nHigh information density without feeling crowded\n\nComfortable reading experience\n\nThe final result should feel like a real publishable encyclopedia knowledge card designed for reading, collecting, and creating as part of a consistent series — NOT like a commercial advertisement poster.\n\nThe image must strongly emphasize: \"knowledge integration + modular information design + handbook/reference-style presentation.\"",
+    "useWhen": "需要将一个主题（人物/物体/概念/生物/地点）制作成结构化、高信息密度的百科知识卡片，用于科普教育、社媒分享或收藏参考。",
+    "createdAt": "2026-06-21T21:05:33.660Z",
+    "sourceType": "manual",
+    "sourceLabel": "MeiGen · 图表与信息图 · 1589 likes tweet by @oggii_0 (JWST encyclopedia card) abstracted from pattern analysis"
+  },
+  {
     "id": "derived-yzk-retro-photo-strip",
     "title": "YZK复古胶片三联拍照贴",
     "category": "摄影与写实",
@@ -911,18 +929,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/uploads/2026-06-17-case-100096-landmark-gouache.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Illustration / Realistic / 3D Render / Editorial / Minimal / Studio / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n- #100062 复古报纸头版人物专题设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-06-23-case-100116-vintage-newspaper.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / Cinematic / Minimal / Education / Brand / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100116 复古报纸头版人物头条设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100096 留白手绘风城市文化地标插画: A wide horizontal landscape hand-painted illustration of [Landmark Name] in [City Country] with…\n- #100093 建筑平面图微缩立体场景：图纸成真: An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100116",
       "100096",
       "100093",
       "100062",
-      "100060",
-      "100054"
+      "100060"
     ]
   },
   {
@@ -1173,18 +1191,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-06-19-case-coffee-table-book.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Education / Portrait / Tech / Publication / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100101 奢华摄影画册跨页：时尚人像编辑排版: Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrange…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100094 极简刊物编辑感留白版式设计: 围绕具体主题内容生成一张清透、安静、具有刊物编辑感的视觉画面。大面积高明度空白作为主要呼吸区，主体人物或主题物以近似写真质感出现，保持干净边缘和轻微透明雾化的下缘处理，让实体像从留白中浮现；…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-06-23-case-100116-vintage-newspaper.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Cinematic / Minimal / Education / Brand / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100116 复古报纸头版人物头条设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n- #100101 奢华摄影画册跨页：时尚人像编辑排版: Photorealistic luxury coffee-table book opened across two pages, displaying an artistic arrange…\n- #100097 3D立体弹卡旅行故事书插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100116",
       "100101",
       "100097",
       "100094",
-      "100070",
-      "100067"
+      "100070"
     ]
   }
 ]
