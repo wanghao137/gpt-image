@@ -977,18 +977,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case508.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Photography / Creative / Realistic / 3D Render / Cinematic / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #508 木漏日庭院俯拍猫咪人像: 俯拍镜头，高角度顶机位，自上而下俯瞰一位年轻的东亚裔女性，她有着精致的东亚五官和柔顺的黑发。她蹲在花园小径上，轻轻逗弄一只毛茸茸的橘猫。头顶密密的枝叶滤过阳光，形成灵动的“木漏日”效果——跃…\n- #100111 超可爱3D宝宝女孩渲染: Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of th…\n- #100110 2000年代韩风校园照片拼贴: A vertical 3-panel college photo strip. The subject is a girl with long hair in a beige knit ve…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-06-23-beauty-auqibhabib.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Illustration / Cinematic / Minimal / Documentary / Editorial / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100121 超写实东亚美女特写人像: Ultra realistic close-up portrait of a beautiful young East Asian woman with the exact facial s…\n- #100120 高级时尚杂志模特摄影: { \"prompt_configuration\": { \"type\": \"Ultra Photorealistic Editorial Portrait\", \"aspect_ratio\": …\n- #100119 光影氛围感女性艺术肖像: { \"prompt\": \"Use the uploaded reference image STRICTLY to preserve the same woman’s face, ident…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "508",
-      "100111",
-      "100110",
-      "100109",
-      "100108"
+      "100121",
+      "100120",
+      "100119",
+      "100118",
+      "100117"
     ]
   },
   {
@@ -1001,18 +1001,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-06-21-case-100113-popup-storybook.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Cinematic / Realistic / Illustration / 3D Render / Editorial / Narrative / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100113 立体弹开式旅行故事书场景插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100106 城市旅行票券微缩场景: Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPEC…\n- #100102 地理地图3D微缩城市地标立体信息图: A realistic, highly detailed geographic map viewed from above, accurately representing the regi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-06-24-case-100122-iso-landmark-diorama.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / 3D Render / Minimal / Studio / Architecture / Portrait / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n- #100113 立体弹开式旅行故事书场景插画: Create an ultra-detailed handcrafted 3D pop-up storybook travel illustration of [Destination], …\n- #100106 城市旅行票券微缩场景: Create a highly detailed, premium travel-art illustration featuring a hand holding a [CITY-SPEC…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100122",
       "100113",
       "100106",
       "100102",
-      "100097",
-      "100096"
+      "100097"
     ]
   },
   {
@@ -1026,7 +1026,7 @@
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
     "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case252.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV / Other Use Cases / Creative / Poster / Product / Tech / Commerce / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #252 五一劳动节手举牌创意设计集: [中文] 生成一系列五一劳动节的手举牌设计 [English] Generate a series of hand-held sign designs for May Day Labor D…\n- #139 主题海报版式设计: { \"type\": \"Japanese promotional landing page poster\", \"style\": \"hyper-energetic, explosive typo…\n- #100035 超写实混乱自拍节日场景: Ultra-realistic super cute chaotic Eid al-Adha selfie photograph in front of a dreamy pastel-to…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV / Other Use Cases / Creative / Poster / Product / Tech / Commerce / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #252 五一劳动节手举牌创意设计集: [中文] 生成一系列五一劳动节的手举牌设计 [English] Generate a series of hand-held sign designs for May Day Labor D…\n- #139 主题海报版式设计: { \"type\": \"Japanese promotional landing page poster\", \"style\": \"hyper-energetic, explosive typo…\n- #100118 东方美学商业人像摄影 2: 1. 宏观风格与媒介 - 核心媒介: 高清商业人像摄影 (High-end Commercial Photography) - 美学流派: 新中式美学 (New Chinese Style)…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -1034,6 +1034,7 @@
     "derivedFrom": [
       "252",
       "139",
+      "100118",
       "100035"
     ]
   },
@@ -1167,18 +1168,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-20-case-100105-arch-blueprint.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Cinematic / Brand / Tech / Portrait / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n- #100095 建筑遗产测绘分析展示板: A preservation architect's survey board for [BUILDING / STRUCTURE] — [STYLE / ARCHITECT / PERIO…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-24-case-100122-iso-landmark-diorama.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Minimal / Studio / Portrait / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100122",
       "100105",
       "100099",
       "100095",
-      "100093",
-      "100069"
+      "100093"
     ]
   },
   {
