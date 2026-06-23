@@ -1,5 +1,30 @@
 [
   {
+    "id": "100121",
+    "title": "超写实东亚美女特写人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Illustration",
+      "Cinematic",
+      "Minimal",
+      "Documentary",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-23-beauty-auqibhabib.jpg",
+    "imageAlt": "超写实东亚美女特写人像",
+    "prompt": "Ultra realistic close-up portrait of a beautiful young East Asian woman with the exact facial structure and soft feminine features from the reference image, natural glowing skin, subtle makeup, glossy peach lips, soft dimples, warm gentle smile, relaxed confident expression, medium-length dark brown wavy hair with natural volume and soft flyaways, direct eye contact with camera.\n\nKeep the exact composition, framing, pose, lighting, shadows, and cinematic mood from the original portrait reference. Warm golden hour sunlight hitting half of the face and body, dramatic soft shadows across the chest and background, dark blurred background with rich contrast and shallow depth of field.\n\nOutfit should be elegant minimal aesthetic fashion: cream ribbed knit top, soft beige wool overcoat casually draped over shoulders, delicate gold necklace, luxury clean-girl aesthetic, cozy premium fashion vibe.\n\nPhoto should feel natural and candid, not overposed. Preserve realistic skin texture, natural facial proportions, cinematic highlights, smooth warm color grading, luxury lifestyle photography look, ultra detailed, DSLR quality, 85mm lens, f/1.8 depth of field, high sharpness on eyes and face, soft background bokeh, premium Instagram aesthetic, realistic lighting, photorealistic, 4k.\n\nNegative prompt: cartoon, anime, exaggerated smile, oversaturated skin, plastic skin, distorted face, bad anatomy, low quality, blurry eyes, extra accessories, text, watermark, overediting, harsh HDR, duplicate features, unnatural pose, fake AI look, over sharpened skin.",
+    "promptPreview": "Ultra realistic close-up portrait of a beautiful young East Asian woman with the exact facial structure and soft feminine features from the reference image, natural glowing skin, subtle makeup, glossy peach lips, soft d…",
+    "source": "Community collected via @auqibhabib",
+    "createdAt": "2026-06-23T00:10:55.919Z"
+  },
+  {
     "id": "100120",
     "title": "高级时尚杂志模特摄影",
     "category": "摄影与写实",
