@@ -6,10 +6,11 @@ import CasesPage from "./pages/CasesPage";
 import CaseDetailPage from "./pages/CaseDetailPage";
 import CategoryPage from "./pages/CategoryPage";
 import TemplatesPage from "./pages/TemplatesPage";
+import TemplateDetailPage from "./pages/TemplateDetailPage";
 import AboutPage from "./pages/AboutPage";
 import SitemapPage from "./pages/SitemapPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { ALL_CASES } from "./lib/data";
+import { ALL_CASES, ALL_TEMPLATES } from "./lib/data";
 import { USER_CATEGORIES } from "./lib/userCategories";
 
 /**
@@ -39,6 +40,16 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => USER_CATEGORIES.map((c) => `/category/${c.slug}`),
       },
       { path: "templates", Component: TemplatesPage, entry: "src/pages/TemplatesPage.tsx" },
+      {
+        // Per-template detail page. The template's stable `id` doubles as the
+        // URL slug (e.g. /template/derived-exploded-technical-diagram), so we
+        // pre-render one HTML file per template for SEO + shareable links.
+        path: "template/:id",
+        Component: TemplateDetailPage,
+        entry: "src/pages/TemplateDetailPage.tsx",
+        getStaticPaths: () => ALL_TEMPLATES.map((t) => `/template/${t.id}`),
+      },
+      { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
       { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
       { path: "sitemap", Component: SitemapPage, entry: "src/pages/SitemapPage.tsx" },
       // Pre-rendered so Vercel can serve a branded `dist/404.html` with a real

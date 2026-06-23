@@ -5,7 +5,7 @@ import { useCopy } from "../hooks/useCopy";
 import { getCachedPrompt, loadPrompt, prefetchPrompt } from "../hooks/usePrompt";
 import { toast } from "../hooks/useToast";
 import { useLongPress } from "../hooks/useLongPress";
-import { tagLabel } from "../lib/labels";
+import { tagLabel, accessibleCaseLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
 import { pickLocalWebp } from "../lib/img";
 import { rememberCaseReturn } from "../lib/caseReturn";
@@ -311,7 +311,7 @@ function CaseCardImpl({
           to={detailHref}
           onClick={rememberReturn}
           className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
-          aria-label={`查看案例 ${data.title}`}
+          aria-label={`查看 ${accessibleCaseLabel(data)}`}
         >
           <div className="relative overflow-hidden bg-ink-850" style={aspectStyle(data.ratio)}>
             {imgErr ? (
@@ -355,7 +355,10 @@ function CaseCardImpl({
               }}
               aria-label={favorited ? "取消收藏" : "收藏"}
               className={
-                "absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
+                // Mobile: h-11 w-11 (44px) meets WCAG 2.5.5 target size. Desktop
+                // keeps the compact sm:h-8 since the heart is hover-revealed there
+                // (mouse precision is high and the action is secondary).
+                "absolute right-2.5 top-2.5 grid h-11 w-11 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
                 (favorited
                   ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
                   : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
@@ -438,7 +441,7 @@ function CaseCardImpl({
                 setMenuOpen(true);
               }}
               aria-label="更多操作"
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
             >
               <DotsIcon />
             </button>

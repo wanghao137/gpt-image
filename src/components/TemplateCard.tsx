@@ -1,4 +1,5 @@
 import { memo, useCallback, useState } from "react";
+import { Link } from "react-router-dom";
 import type { PromptTemplate } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { ImageLightbox } from "./ImageLightbox";
@@ -43,161 +44,136 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
     setExpanded((value) => !value);
   }, [expandable]);
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLElement>) => {
-      if (e.target !== e.currentTarget) return;
-      if (!expandable || (e.key !== "Enter" && e.key !== " ")) return;
-      e.preventDefault();
-      toggleExpanded();
-    },
-    [expandable, toggleExpanded],
-  );
-
   return (
     <>
+      <Link
+        to={`/template/${data.id}`}
+        className="group/card block focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950 rounded-2xl"
+        aria-label={`查看模板详情：${data.title}`}
+      >
       <article
-      role={expandable ? "button" : undefined}
-      aria-expanded={expandable ? expanded : undefined}
-      onMouseMove={handleSpotlight}
-      onClick={toggleExpanded}
-      onKeyDown={handleKeyDown}
-      tabIndex={expandable ? 0 : undefined}
-      className={
-        "card-spotlight group flex flex-col overflow-hidden rounded-2xl border bg-ink-900/60 transition duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 " +
-        (expandable ? "cursor-pointer " : "") +
-        (expanded ? "border-ember-500/35 shadow-ember" : "border-white/[0.06]")
-      }
-    >
-      <div className="relative aspect-[16/10] overflow-hidden bg-ink-850">
-        {!imgLoaded && (
-          <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
-        )}
-        <SmartImg
-          src={data.cover}
-          alt={data.title}
-          width={800}
-          height={500}
-          widths={[420, 640, 800]}
-          baseWidth={640}
-          sizes="(min-width:1280px) 25vw, (min-width:640px) 50vw, 100vw"
-          onLoad={() => setImgLoaded(true)}
-          className={
-            "absolute inset-0 h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +
-            (imgLoaded ? "opacity-95" : "opacity-0")
-          }
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
-        <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
-          TEMPLATE
-        </span>
-        <button
-          type="button"
-          aria-label="查看模板大图"
-          onClick={(e) => {
-            e.stopPropagation();
-            setLightboxOpen(true);
-          }}
-          className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-ink-950/70 text-ink-100 shadow-soft backdrop-blur transition hover:border-ember-400/45 hover:bg-ember-500/15 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4"
-            aria-hidden="true"
-          >
-            <path d="M15 3h6v6" />
-            <path d="M10 14 21 3" />
-            <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" />
-          </svg>
-        </button>
-      </div>
-
-      <div className="relative z-[2] flex flex-1 flex-col gap-3 p-5">
-        <div className="eyebrow">{data.category}</div>
-        <h3 className="text-[16px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200">
-          {data.title}
-        </h3>
-        <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
-
-        {visibleTags.length > 0 && (
-          <div className="template-capability-strip" aria-label="模板适用方向">
-            <span className="template-capability-label">适用方向</span>
-            <div className="template-capability-tags">
-              {visibleTags.map((tag) => (
-                <span key={`${data.id}-${tag}`} className="template-capability-tag" title={tag}>
-                  {tag}
-                </span>
-              ))}
-              {hiddenTagCount > 0 && (
-                <span className="template-capability-more" aria-label={`还有 ${hiddenTagCount} 个适用方向`}>
-                  +{hiddenTagCount}
-                </span>
-              )}
-            </div>
-          </div>
-        )}
-
-        <div className="mt-auto flex items-center gap-2 pt-2">
-          {expandable && (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleExpanded();
-              }}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100"
-              aria-label={expanded ? "收起模板内容" : "展开模板内容"}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={"h-4 w-4 transition duration-300 " + (expanded ? "rotate-180" : "")}
-                aria-hidden="true"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
+        onMouseMove={handleSpotlight}
+        className={
+          "card-spotlight group flex h-full flex-col overflow-hidden rounded-2xl border bg-ink-900/60 transition duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-soft " +
+          (expanded ? "border-ember-500/35 shadow-ember" : "border-white/[0.06]")
+        }
+      >
+        <div className="relative aspect-[16/10] overflow-hidden bg-ink-850">
+          {!imgLoaded && (
+            <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
           )}
+          <SmartImg
+            src={data.cover}
+            alt={data.title}
+            width={800}
+            height={500}
+            widths={[420, 640, 800]}
+            baseWidth={640}
+            sizes="(min-width:1280px) 25vw, (min-width:640px) 50vw, 100vw"
+            onLoad={() => setImgLoaded(true)}
+            className={
+              "absolute inset-0 h-full w-full object-cover transition duration-[1100ms] group-hover:scale-[1.05] " +
+              (imgLoaded ? "opacity-95" : "opacity-0")
+            }
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
+          <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
+            TEMPLATE
+          </span>
+          {/*
+            Icon buttons below use h-11 w-11 (44×44px) to meet the WCAG 2.5.5
+            target-size minimum on touch devices. Each calls stopPropagation so
+            the click doesn't bubble up to the wrapping <Link> and trigger a
+            detail-page navigation.
+          */}
           <button
             type="button"
+            aria-label="查看模板大图"
             onClick={(e) => {
+              e.preventDefault();
               e.stopPropagation();
-              copy(data.prompt);
+              setLightboxOpen(true);
             }}
-            className={
-              "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-[12.5px] font-medium transition " +
-              (state === "copied"
-                ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-200"
-                : "border-white/10 bg-white/[0.03] text-ink-100 hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100")
-            }
+            className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-ink-950/70 text-ink-100 shadow-soft backdrop-blur transition hover:border-ember-400/45 hover:bg-ember-500/15 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
           >
-            {state === "copied" ? (
-              <>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <path d="m5 12 5 5 9-11" />
-                </svg>
-                已复制
-              </>
-            ) : state === "error" ? (
-              "复制失败"
-            ) : (
-              <>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="relative z-[2] flex flex-1 flex-col gap-3 p-5">
+          <div className="eyebrow">{data.category}</div>
+          <h3 className="flex items-start gap-1 text-[16px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200">
+            <span className="flex-1">{data.title}</span>
+            {/* ↗ affordance: hints that the whole card links to a detail page */}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-500 opacity-0 transition group-hover:translate-x-0.5 group-hover:text-ember-300 group-hover:opacity-100"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </h3>
+          <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
+
+          {visibleTags.length > 0 && (
+            <div className="template-capability-strip" aria-label="模板适用方向">
+              <span className="template-capability-label">适用方向</span>
+              <div className="template-capability-tags">
+                {visibleTags.map((tag) => (
+                  <span key={`${data.id}-${tag}`} className="template-capability-tag" title={tag}>
+                    {tag}
+                  </span>
+                ))}
+                {hiddenTagCount > 0 && (
+                  <span className="template-capability-more" aria-label={`还有 ${hiddenTagCount} 个适用方向`}>
+                    +{hiddenTagCount}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-auto flex items-center gap-2 pt-2">
+            {expandable && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleExpanded();
+                }}
+                onKeyDown={(e) => {
+                  // Keep keyboard activation usable: space/enter toggles inline
+                  // expand without navigating. The wrapping <Link> still handles
+                  // Enter/Space for navigation when focus is on the card itself.
+                  if (e.key !== "Enter" && e.key !== " ") return;
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleExpanded();
+                }}
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+                aria-label={expanded ? "收起模板内容" : "展开模板内容"}
+                aria-expanded={expanded}
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -205,21 +181,71 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-4 w-4"
+                  className={"h-4 w-4 transition duration-300 " + (expanded ? "rotate-180" : "")}
+                  aria-hidden="true"
                 >
-                  <rect x="9" y="9" width="13" height="13" rx="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  <path d="m6 9 6 6 6-6" />
                 </svg>
-                复制模板
-              </>
+              </button>
             )}
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                copy(data.prompt);
+              }}
+              className={
+                "inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-xl border px-3 text-[12.5px] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 " +
+                (state === "copied"
+                  ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-200"
+                  : "border-white/10 bg-white/[0.03] text-ink-100 hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100")
+              }
+            >
+              {state === "copied" ? (
+                <>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                  >
+                    <path d="m5 12 5 5 9-11" />
+                  </svg>
+                  已复制
+                </>
+              ) : state === "error" ? (
+                "复制失败"
+              ) : (
+                <>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  复制模板
+                </>
+              )}
+            </button>
+          </div>
 
         {expandable && expanded && (
           <div
             className="mt-2 space-y-3 rounded-xl border border-white/[0.08] bg-ink-950/45 p-3"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
           >
             {data.useWhen && (
               <section>
@@ -244,6 +270,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
                   href={data.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="w-fit text-ember-300 transition hover:text-ember-200"
                 >
                   查看数据源
@@ -252,8 +279,9 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
             </div>
           </div>
         )}
-      </div>
+        </div>
       </article>
+      </Link>
       <ImageLightbox
         open={lightboxOpen}
         src={data.cover}

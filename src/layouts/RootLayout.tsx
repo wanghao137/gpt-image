@@ -37,8 +37,18 @@ export default function RootLayout() {
 
   return (
     <div id="top" className="min-h-full overflow-x-hidden font-sans text-ink-100">
+      {/*
+        Skip-link: visually hidden until focused. Lets keyboard / screen-reader
+        users jump straight to the main content past the header nav — a WCAG
+        2.4.1 requirement. `#main` matches the id on <main> below; the main
+        element is also focusable (tabIndex -1) so the focus actually moves
+        there rather than just scrolling.
+      */}
+      <a href="#main" className="skip-link">
+        跳到主内容
+      </a>
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Outlet />
       </main>
       <Footer />

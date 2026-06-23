@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { rememberCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp } from "../lib/img";
+import { accessibleCaseLabel } from "../lib/labels";
 
 interface HeroStripProps {
   cases: PromptCase[];
@@ -34,11 +36,23 @@ interface HeroStripProps {
  *      file (~25 KB), so a 12-tile rail downloads ~300 KB total. That's
  *      cheap, and bypassing the <picture> machinery keeps the rail
  *      lightweight.
- *   2. `loading="lazy"` + `decoding="async"` lets the browser stagger
- *      decoding work behind the hero LCP image.
+ *   2. `loading="eager"` + `decoding="async"` lets the browser start
+ *      fetching every tile immediately while staggering decode work
+ *      behind the hero LCP image. We deliberately do NOT use
+ *      `loading="lazy"` here: native lazy-loading is unreliable inside
+ *      horizontal `overflow-x:auto` snap containers, and tiles that sit
+ *      past the right edge of the viewport never receive an
+ *      intersection signal — so they stay blank forever. The strip is a
+ *      first-class above-the-fold showcase, so eager loading of ~300 KB
+ *      is the right trade-off (this was a real P0 bug: 5+ tiles rendered
+ *      as permanent empty boxes).
  */
 export function HeroStrip({ cases, limit = 12 }: HeroStripProps) {
   const items = cases.slice(0, limit);
+  // First N tiles are guaranteed visible in the initial viewport (before the
+  // user scrolls horizontally), so they get a fetchPriority hint to jump the
+  // network queue. The rest are still eager but auto priority.
+  const PRIORITY_COUNT = 6;
   if (items.length === 0) return null;
 
   return (
@@ -58,8 +72,8 @@ export function HeroStrip({ cases, limit = 12 }: HeroStripProps) {
             scrollPaddingInline: "1.25rem",
           }}
         >
-          {items.map((c) => (
-            <StripTile key={c.id} item={c} />
+          {items.map((c, i) => (
+            <StripTile key={c.id} item={c} priority={i < PRIORITY_COUNT} />
           ))}
         </div>
       </div>
@@ -67,7 +81,10 @@ export function HeroStrip({ cases, limit = 12 }: HeroStripProps) {
   );
 }
 
-function StripTile({ item }: { item: PromptCase }) {
+function StripTile({ item, priority }: { item: PromptCase; priority: boolean }) {
+  // onError guard: if a tile's image fails to load for any reason, swap to a
+  // subtle gradient so the rail never shows a permanent empty box.
+  const [failed, setFailed] = useState(false);
   return (
     <Link
       to={`/case/${item.slug}`}
@@ -79,20 +96,31 @@ function StripTile({ item }: { item: PromptCase }) {
         transition active:scale-[0.99] sm:hover:border-white/20
       "
       style={{ width: "8.5rem", height: "10.5rem" }}
-      aria-label={`${item.title} · 案例 ${item.id}`}
+      aria-label={accessibleCaseLabel(item)}
     >
-      <img
-        src={pickLocalWebp(item.imageUrl, 320)}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        width={272}
-        height={336}
-        className="
-          h-full w-full object-cover transition duration-500
-          group-hover:scale-[1.05]
-        "
-      />
+      {failed ? (
+        <div className="h-full w-full bg-gradient-to-br from-ink-800 to-ink-900" />
+      ) : (
+        <img
+          src={pickLocalWebp(item.imageUrl, 320)}
+          alt=""
+          loading="eager"
+          decoding="async"
+          // `fetchpriority` (lowercased) is the HTML-spec attribute name; React
+          // forwards it as-is. Priority hint jumps the network queue for tiles
+          // visible in the initial horizontal viewport.
+          {...({ fetchpriority: priority ? "high" : "auto" } as {
+            fetchpriority: "high" | "auto";
+          })}
+          onError={() => setFailed(true)}
+          width={272}
+          height={336}
+          className="
+            h-full w-full object-cover transition duration-500
+            group-hover:scale-[1.05]
+          "
+        />
+      )}
       {/*
         Subtle bottom gradient on hover only — keeps the rail looking
         clean at rest. The previous revision overlaid a `#NNN` ID badge

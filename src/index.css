@@ -583,3 +583,36 @@
     backface-visibility: hidden;
   }
 }
+
+/*
+  Skip-to-main-content link (WCAG 2.4.1). Hidden off-screen until focused,
+  then slides in as a high-contrast pill anchored to the top-left so keyboard
+  and screen-reader users can bypass the header nav. Stays out of the way for
+  mouse users entirely.
+*/
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--ember-500, #ff6b6b);
+  color: #1a1715;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 28px -10px rgba(0, 0, 0, 0.6);
+  transition: transform 160ms ease-out;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+/* When focus lands on #main via the skip-link, give it a visible ring. */
+#main:focus {
+  outline: none;
+}

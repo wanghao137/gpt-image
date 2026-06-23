@@ -24,6 +24,7 @@
 import casesJson from "../../public/data/cases.json";
 import templatesJson from "../../public/data/templates.json";
 import type { PromptCase, PromptTemplate, UserCategoryKey } from "../types";
+import { sortTemplatesForDisplay } from "./templateSort";
 
 const USER_CATEGORY_KEYS: ReadonlySet<string> = new Set<UserCategoryKey>([
   "xhs-cover",
@@ -153,5 +154,43 @@ export function caseNeighbors(c: PromptCase): {
   return {
     prev: i + 1 < ALL_CASES.length ? ALL_CASES[i + 1] : undefined, // older
     next: i > 0 ? ALL_CASES[i - 1] : undefined, // newer
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Template lookups. Mirrors the case pattern above so /template/:id detail
+// pages can resolve + navigate the same way /case/:slug does.
+//
+// The neighbor index is built from the SAME sort order the templates listing
+// page uses (sortTemplatesForDisplay), so "prev/next" on a detail page walks
+// the list in the exact order the user saw it.
+// ---------------------------------------------------------------------------
+
+const TEMPLATES_SORTED = sortTemplatesForDisplay(ALL_TEMPLATES);
+const TEMPLATE_BY_ID = new Map<string, PromptTemplate>(
+  TEMPLATES_SORTED.map((t) => [t.id, t]),
+);
+const TEMPLATE_INDEX = new Map<string, number>(
+  TEMPLATES_SORTED.map((t, i) => [t.id, i]),
+);
+
+export function getTemplateById(id: string): PromptTemplate | undefined {
+  return TEMPLATE_BY_ID.get(id);
+}
+
+/**
+ * Sequential prev/next within the display-sorted template list (for
+ * /template/:id nav). Order matches TemplatesPage so detail-page nav walks the
+ * same sequence the user browsed.
+ */
+export function templateNeighbors(t: PromptTemplate): {
+  prev?: PromptTemplate;
+  next?: PromptTemplate;
+} {
+  const i = TEMPLATE_INDEX.get(t.id);
+  if (i === undefined) return {};
+  return {
+    prev: i > 0 ? TEMPLATES_SORTED[i - 1] : undefined,
+    next: i + 1 < TEMPLATES_SORTED.length ? TEMPLATES_SORTED[i + 1] : undefined,
   };
 }

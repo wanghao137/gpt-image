@@ -11,6 +11,7 @@ import { useFavorites } from "../hooks/useFavorites";
 import { useCountUp } from "../hooks/useCountUp";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { rememberCaseReturn } from "../lib/caseReturn";
+import { accessibleCaseLabel } from "../lib/labels";
 import { createHeroSeed, selectHeroCases } from "../lib/home-hero";
 import { sortTemplatesForDisplay } from "../lib/templateSort";
 import { absoluteUrl } from "../lib/seo-url.mjs";
@@ -252,7 +253,7 @@ function HeroSolo({ item }: { item: PromptCase }) {
     <Link
       to={`/case/${item.slug}`}
       onClick={() => rememberCaseReturn(item.id)}
-      aria-label={item.title}
+      aria-label={accessibleCaseLabel(item)}
       className="
         group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl
         border border-white/[0.06] bg-ink-900/40
@@ -354,7 +355,7 @@ function HeroCard({
     <Link
       to={`/case/${item.slug}`}
       onClick={() => rememberCaseReturn(item.id)}
-      aria-label={item.title}
+      aria-label={accessibleCaseLabel(item)}
       className={`hero-card group block ${className}`}
       style={
         {

@@ -197,7 +197,9 @@ function HeaderImpl() {
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-200 md:hidden"
+            // h-11 w-11 (44px) on mobile meets WCAG 2.5.5; hidden on md+ where the
+            // pill nav takes over, so the desktop size is irrelevant.
+            className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-200 md:hidden"
             aria-label="打开菜单"
             aria-expanded={mobileOpen}
           >
