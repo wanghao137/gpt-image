@@ -1,5 +1,30 @@
 [
   {
+    "id": "100122",
+    "title": "等距视角地标建筑3D微缩立体模型",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Studio",
+      "Architecture",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-24-case-100122-iso-landmark-diorama.jpg",
+    "imageAlt": "等距视角地标建筑3D微缩立体模型",
+    "prompt": "A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-world structure and proportions, placed on a small floating base with subtle surrounding buildings and landscape elements inspired by [CITY / COUNTRY]. Realistic materials and natural textures, physically accurate stone, concrete, metal, and glass surfaces. True-to-life color palette based on the actual landmark, muted and realistic tones. Off-white studio background with soft, natural lighting, gentle shadows, and clean composition. High-detail, realistic yet refined 3D render, premium architectural model aesthetic, no people, no text.",
+    "promptPreview": "A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-world structure and proportions, placed on a small floating base with subtle surrounding buildings and landscape elements in…",
+    "source": "Community collected via @egeberkina",
+    "createdAt": "2026-06-23T20:03:24.233Z"
+  },
+  {
     "id": "100121",
     "title": "超写实东亚美女特写人像",
     "category": "摄影与写实",
