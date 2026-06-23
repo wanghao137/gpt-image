@@ -1,5 +1,30 @@
 [
   {
+    "id": "100119",
+    "title": "光影氛围感女性艺术肖像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-23-beauty-938767.jpg",
+    "imageAlt": "光影氛围感女性艺术肖像",
+    "prompt": "{\n  \"prompt\": \"Use the uploaded reference image STRICTLY to preserve the same woman’s face, identity, facial structure, proportions, and natural expression with 100% accuracy. No facial alteration, beautification, or identity change.\\n\\nCreate an ultra-realistic black-and-white soft editorial fashion portrait of an elegant woman in a minimalist setting. The composition feels intimate, calm, and timeless, inspired by classic Vogue and Harper’s Bazaar monochrome editorials.\\n\\nPose & Expression:\\nShe stands or leans gently against a neutral textured wall, body slightly angled. Posture is relaxed yet poised. Her expression is serene, introspective, and confident — soft eyes, relaxed lips, no exaggerated emotion. She may gaze slightly away from the camera or directly into the lens with quiet intensity.\\n\\nOutfit & Styling:\\nShe wears a refined, minimal outfit — a softly tailored white or ivory shirt/blouse with clean lines, paired with elegant neutral trousers or a flowing skirt. Fabric textures remain visible and natural, emphasizing realism. No logos, no loud fashion statements — pure quiet luxury.\\n\\nHair & Makeup:\\nHair is styled naturally — loose soft waves, a low bun, or a simple pulled-back look with realistic texture. Makeup is minimal editorial: natural skin, subtle highlights, light contour, soft lashes, and neutral lips. No glamour, no heavy styling.\\n\\nLighting & Mood:\\nSoft directional lighting creates gentle highlights and smooth shadows across the face and clothing. Contrast is controlled and elegant, preserving fine skin texture and fabric detail. Lighting feels organic, editorial, and emotionally calm.\\n\\nBlack & White Treatment:\\nClassic monochrome grading with rich blacks, soft whites, and smooth mid-tones. Film-inspired tonal range with subtle grain for authenticity. No harsh contrast, no crushed shadows.\\n\\nVisual Style:\\nHigh-end fashion editorial photography, timeless black-and-white aesthetic, understated luxury, emotional softness, and artistic restraint.\\n\\nCamera & Quality:\\nProfessional editorial photography, shallow depth of field, cinematic framing, ultra-realistic 8K resolution, sharp subject focus with soft background separation.\\n\\nOverall Feel:\\nQuiet confidence, feminine strength, timeless elegance — a refined black-and-white editorial portrait.\",\n  \n  \"style\": \"black-and-white soft editorial, cinematic realism\",\n  \"lighting\": \"soft directional light, gentle shadows\",\n  \"color_grade\": \"classic monochrome, film-inspired tones\",\n  \"background\": \"minimal neutral textured wall\",\n  \"quality\": \"ultra-realistic, 8K, editorial detail\",\n  \"camera\": \"professional fashion photography, shallow depth of field\",\n  \"mood\": \"calm, timeless, elegant, introspective\"\n}",
+    "promptPreview": "{ \"prompt\": \"Use the uploaded reference image STRICTLY to preserve the same woman’s face, identity, facial structure, proportions, and natural expression with 100% accuracy. No facial alteration, beautification, or iden…",
+    "source": "Community collected via @me_Aarvi",
+    "createdAt": "2026-06-23T00:02:39.277Z"
+  },
+  {
     "id": "100118",
     "title": "东方美学商业人像摄影 2",
     "category": "摄影与写实",
