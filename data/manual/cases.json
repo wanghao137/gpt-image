@@ -1,5 +1,30 @@
 [
   {
+    "id": "100117",
+    "title": "超写实电影感美女特写",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Illustration",
+      "Editorial",
+      "Cinematic",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-23-beauty-658936.jpg",
+    "imageAlt": "超写实电影感美女特写",
+    "prompt": "Ultra-realistic close-up portrait of a beautiful young woman, delicate facial features, mesmerizing light blue eyes, flawless fair skin, natural pink lips, soft makeup, elegant eyebrows, gentle neutral expression, looking directly at the camera. Hair styled in a loose romantic updo with soft wispy strands framing the face. Wearing a luxurious white dress with intricate floral lace embroidery on the shoulders and neckline, subtle vintage-inspired fashion. Soft natural daylight coming from a large window, creamy pastel interior background with elegant wall art, shallow depth of field, dreamy bokeh, cinematic lighting, high-end fashion photography, extremely detailed skin texture, realistic eyes, soft color grading, fine hair details, ethereal atmosphere, masterpiece, photorealistic, 85mm lens, f/1.4, ultra sharp focus, HDR, 8K quality, Vogue editorial style.\n\nNegative Prompt:\nlow quality, blurry, noisy, extra fingers, deformed face, asymmetrical eyes, bad anatomy, cartoon, anime, overexposed, oversaturated, watermark, text, logo, duplicate features, distorted body, ugly, pixelated, low resolution, harsh shadows, unrealistic skin, exaggerated makeup.",
+    "promptPreview": "Ultra-realistic close-up portrait of a beautiful young woman, delicate facial features, mesmerizing light blue eyes, flawless fair skin, natural pink lips, soft makeup, elegant eyebrows, gentle neutral expression, looki…",
+    "source": "Community collected via @noorlewisx",
+    "createdAt": "2026-06-23T00:02:26.157Z"
+  },
+  {
     "id": "100116",
     "title": "复古报纸头版人物头条设计",
     "category": "文档与出版",
