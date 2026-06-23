@@ -1,5 +1,30 @@
 [
   {
+    "id": "100123",
+    "title": "高端品牌视觉识别八宫格展示板",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-24-case-100123-brand-identity-grid.jpg",
+    "imageAlt": "高端品牌视觉识别八宫格展示板",
+    "prompt": "[BRAND NAME]. Act as a Senior AI Visual Strategist & Creative Director.\nGoal: Generate a grid-based brand identity showcase.\nPHASE 1: COMPOSITION & LAYOUT\nSet the scene on a deep, rich [BRAND PRIMARY COLOR] background. Implement an 8-module grid with rounded corners and thin separation lines.\n- Large Modules: Top Left and Bottom Right.\n- Small/Medium Modules: Fill the remaining space.\nPHASE 2: AUTONOMOUS BRAND LOGIC (THE CORE) [INSTRUCTIONS FOR IMAGEN]:\nAnalyze the name \"[BRAND NAME]\".\nDetermine the industry (e.g., Tech, Luxury, Eco, Automotive, Fashion).\nDo NOT default to sports/tennis unless the brand name explicitly requires it.\nAdapt all secondary elements (accessories, textures, model's activity) to match this industry.\nPHASE 3: MODULE CONTENT (DYNAMIC ADAPTATION)\n- MODULE 1 (Exterior): A flagship building facade. Use textured walls in [BRAND PRIMARY COLOR]. Feature a large [BRAND NAME] wordmark and a geometric abstract logo in a contrasting Cream/Beige.\n- MODULE 2 (Colors): A vertical swatch panel. Sequence: [BRAND PRIMARY COLOR], Cream, Deep Black, White. Satin finish.\n- MODULE 3 & 5 (Core Logo): Detailed close-ups of the brand's unique geometric icon.\n- MODULE 4 (Accessory): AUTONOMOUS CHOICE. If [BRAND NAME] is Tech, show a sleek device. If Luxury, show a watch or jewelry. If Eco, show sustainable packaging. Must be in brand colors.\n- MODULE 6 (Urban): A street-level mockup on a concrete wall. A person in an all-black outfit walks past a branded panel.\n- MODULE 7 (Editorial): A high-end lifestyle shot.\n  - Model: Professional, editorial style.\n  - Outfit: Premium sweatshirt in [BRAND PRIMARY COLOR] with brand logo.\n  - Prop: AUTONOMOUS CHOICE based on industry. (e.g., a leather briefcase for Finance, a camera for Media, a designer bag for Retail).\n- MODULE 8 (Specs): Top half: A complex repeating pattern based on the brand logo. Bottom half: Four lines of text \" [BRAND NAME] TYPOGRAPHY\" in a clean, high-end sans-serif.\nPHASE 4: LIGHTING & TEXTURES\n- High-End Editorial Photography. No \"AI-plastic\" look.\n- Cinematic soft-box lighting with Rembrandt shadows.\n- Micro-details: fabric weave, skin pores, concrete grit, leaf veins.\n- Subsurface scattering on organic materials.\nPHASE 5: TECH SPECS\n8K Resolution, Octane Render style, Ray Traced reflections, subtle film grain.",
+    "promptPreview": "[BRAND NAME]. Act as a Senior AI Visual Strategist & Creative Director. Goal: Generate a grid-based brand identity showcase. PHASE 1: COMPOSITION & LAYOUT Set the scene on a deep, rich [BRAND PRIMARY COLOR] background. …",
+    "source": "Community collected via @AmirMushich",
+    "createdAt": "2026-06-23T20:03:28.316Z"
+  },
+  {
     "id": "100122",
     "title": "等距视角地标建筑3D微缩立体模型",
     "category": "建筑与空间",
