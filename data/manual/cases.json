@@ -1,5 +1,30 @@
 [
   {
+    "id": "100125",
+    "title": "悬崖瀑布木屋梦幻微缩场景",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-25-case-100125-cottage-waterfall-cliff.jpg",
+    "imageAlt": "悬崖瀑布木屋梦幻微缩场景",
+    "prompt": "1079 ===\ndreamy surreal 3D illustration, vertical composition with a minimalist pale gray background and most elements arranged along the left side: a tiny white cottage with a steep shingled roof, small balcony, glowing warm windows, perched on a rocky cliff ledge. A narrow silky waterfall cascades down layered light-gray rocks into a calm reflective pool at the bottom. Tall green grasses and stems rise behind the house, with large white lilies and small delicate blossoms growing around the rocks in the foreground. Several white birds are flying across the open right side of the frame. A large soft sun glows low in the sky near the upper right, partially wrapped by fluffy pastel clouds, with warm peach light reflecting on the water. Soft atmospheric haze, clean negative space, elegant fantasy wall-art aesthetic, highly detailed miniature environment, smooth sculpted textures, subtle depth, soft diffused sunrise lighting, pastel palette of white, pale gray, sage green, and blush peach, serene and ethereal mood, polished high-resolution digital artwork, no text, no border.",
+    "promptPreview": "1079 === dreamy surreal 3D illustration, vertical composition with a minimalist pale gray background and most elements arranged along the left side: a tiny white cottage with a steep shingled roof, small balcony, glowin…",
+    "source": "Community collected via @churvikv",
+    "createdAt": "2026-06-24T20:04:48.441Z"
+  },
+  {
     "id": "100124",
     "title": "品牌产品九宫格提案展示板",
     "category": "品牌与标志",
