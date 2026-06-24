@@ -1,5 +1,30 @@
 [
   {
+    "id": "100124",
+    "title": "品牌产品九宫格提案展示板",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Studio",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-25-case-100124-brand-storyboard-grid.jpg",
+    "imageAlt": "品牌产品九宫格提案展示板",
+    "prompt": "2741 ===\nCreate ONE final image. \n\nA clean 3×3 [ratio] storyboard grid with nine equal [ratio] sized panels on [4:5] ratio. \n\nUse the reference image as the base product reference. Keep the same product, packaging design, branding, materials, colors, proportions and overall identity across all nine panels exactly as the reference. The product must remain clearly recognizable in every frame. The label, logo and proportions must stay exactly the same.\n\nThis storyboard is a high-end designer mockup presentation for a branding portfolio. The focus is on form, composition, materiality and visual rhythm rather than realism or lifestyle narrative. The overall look should feel curated, editorial and design-driven.\n\nFRAME 1:\nFront-facing hero shot of the product in a clean studio setup. Neutral background, balanced composition, calm and confident presentation of the product.\n\nFRAME 2:\nClose-up shot with the focus centered on the middle of the product. Focusing on surface texture, materials and print details.\n\nFRAME 3:\nShows the reference product placed in an environment that naturally fits the brand and product category. Studio setting inspired by the product design elements and colours. \n\nFRAME 4:\nProduct shown in use or interaction on a neutral studio background. Hands and interaction elements are minimal and restrained, the look matches the style of the package. \n\nFRAME 5:\nIsometric composition showing multiple products arranged in a precise geometric order from the top isometric angle. All products are placed at the same isometric top angle, evenly spaced, clean, structured and graphic.\n\nFRAME 6:\nProduct levitating slightly tilted on a neutral background that matches the reference image color palette. Floating position is angled and intentional, the product is floating naturally in space.\n\nFRAME 7:\nis an extreme close-up focusing on a specific detail of the label, edge, texture or material behavior.\n\nFRAME 8:\nThe product in an unexpected yet aesthetically strong setting that feels bold, editorial and visually striking.\nUnexpected but highly stylized setting. Studio-based, and designer-driven. Bold composition that elevates the brand.\n\nFRAME 9:\nWide composition showing the product in use, placed within a refined designer setup. Clean props, controlled styling, cohesive with the rest of the series.\n\nCAMERA & STYLE:\nUltra high-quality studio imagery with a real camera look. Different camera angles and framings across frames. Controlled depth of field, precise lighting, accurate materials and reflections. Lighting logic, color palette, mood and visual language must remain consistent across all nine panels as one cohesive series.\n\nOUTPUT:\nA clean 3×3 grid with no borders, no text, no captions and no watermarks.",
+    "promptPreview": "2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] sized panels on [4:5] ratio. Use the reference image as the base product reference. Keep the same product, packaging design, b…",
+    "source": "Community collected via @Dari_Designs",
+    "createdAt": "2026-06-24T20:04:44.406Z"
+  },
+  {
     "id": "100123",
     "title": "高端品牌视觉识别八宫格展示板",
     "category": "品牌与标志",
