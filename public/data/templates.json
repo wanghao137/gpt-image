@@ -1048,18 +1048,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "/uploads/2026-06-13-case-100082-brand-identity-velora.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Editorial / Poster / Realistic / Cinematic / Minimal / Studio / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100082 高端护肤品牌全套VI九宫格展示板: Create a complete brand identity presentation for an original premium skincare brand called \"VE…\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n- #335 朋友圈截图生成: 原文未公开，重点展示 GPT-Image2 在高仿社交截图与中文排版场景中的能力。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/uploads/2026-06-25-case-100124-brand-storyboard-grid.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Editorial / Realistic / Cinematic / Minimal / Studio / Brand / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n- #100082 高端护肤品牌全套VI九宫格展示板: Create a complete brand identity presentation for an original premium skincare brand called \"VE…\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100124",
       "100082",
       "467",
       "335",
-      "302",
-      "274"
+      "302"
     ]
   },
   {
@@ -1144,18 +1144,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/uploads/2026-06-19-case-photo-to-manga-page.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Illustration / Editorial / Minimal / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100103 真人照片转全页彩色漫画分镜叙事: Create a full-page colored manga illustration based on the person in the reference photo. Use a…\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n- #100063 Film Noir 拳击四格电影叙事分镜: Create a single film noir–style cinematic image divided into four horizontal panels, all depict…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "/uploads/2026-06-25-case-100124-brand-storyboard-grid.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Editorial / Realistic / Cinematic / Minimal / Studio / Brand / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n- #100103 真人照片转全页彩色漫画分镜叙事: Create a full-page colored manga illustration based on the person in the reference photo. Use a…\n- #100083 极限运动女子越野摩托十格电影分镜: Storyboard sequence, 10 cinematic frames: A stylish young woman relaxes in a modern desert-view…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100124",
       "100103",
       "100083",
       "100063",
-      "100046",
-      "487"
+      "100046"
     ]
   },
   {
