@@ -1,5 +1,31 @@
 [
   {
+    "id": "100127",
+    "title": "顶级图书品牌联名编辑设计海报",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand",
+      "Editorial"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-06-26-case-100127-luxury-book-editorial.jpg",
+    "imageAlt": "顶级图书品牌联名编辑设计海报",
+    "prompt": "Assouline × Timothée Chalamet — \"L'EDITION\"\nFORMAT: Ultra-Premium Book SMM Poster | 4:5 | Instagram Hero | Behance Front Page Quality\nCORE STRATEGY: Monolithic book-jacket grids. Bold spine lettering, clean borders, and premium canvas textures.CAMPAIGN: \"L'EDITION\"MASTER VISUAL: Monolithic bold serif ASSOULINE typography (75% canvas) in deep scarlet.\nHERO SUBJECT: Timothée Chalamet. Wears a black tailored blazer, gold ring, looking down.POSE: Leaning over a large open travel book on a mahogany table, hand resting on the page.\nCOLOR SYSTEM: Scarlet Red, Monolithic White, Mahogany Brown, Gold.BACKGROUND: Wood-paneled reading room with warm bookshelf backlighting.\n\nGRAPHIC SYSTEM: Clean red margins, catalog code tag, technical grid guides.\n\nPROMOTIONAL ELEMENTS: ASSOULINE TRAVEL SERIES | LUXURY COVERS | COLLECTION COMPLETETYPOGRAPHY: Top left logo mark | Center giant A S S O U L I N E | Title: L'EDITIONLIGHTING: Single warm overhead spotlight illuminating the book and his hands.\n\nCAMERA: ARRI Alexa Mini LF, 85mm Lens, rich paper textures and canvas weave.\n\nTaschen × Donald Glover — \"COLLECTOR EDITION\"\n\nFORMAT: Ultra-Premium Book SMM Poster | 4:5 | Instagram Hero | Behance Front Page Quality\nCORE STRATEGY: High-contrast art collection. Saturated colors, glossy page edges, and bold typography.CAMPAIGN: \"COLLECTOR EDITION\"MASTER VISUAL: Monolithic sans-serif TASCHEN typography (70% canvas) in deep charcoal.\nHERO SUBJECT: Donald Glover. Yellow silk shirt, holding a giant opened art catalog.POSE: Sitting in a modern lounge chair, holding the open book on his lap, looking up.\nCOLOR SYSTEM: Saturated Yellow, Charcoal, Pure White, Cobalt Blue.BACKGROUND: Clean, modern art gallery wall with a large colorful abstract painting.\nGRAPHIC SYSTEM: Layout grid margins, catalog tags, page dimension indicators.\n\nPROMOTIONAL ELEMENTS: TASCHEN COLLECTOR EDITION | MONUMENTAL SERIES | SHOP ONLINETYPOGRAPHY: Top center logo | Center giant T A S C H E N | Title: COLLECTOR EDITIONLIGHTING: Bright, clean museum-style lighting with soft diffused shadows.\n\nCAMERA: ARRI Alexa Mini LF, 75mm Lens, sharp focus on the book page textures.\n\nPhaidon × Zendaya — \"MINIMAL ARCH\"\nFORMAT: Ultra-Premium Book SMM Poster | 4:5 | Instagram Hero | Behance Front Page Quality\nCORE STRATEGY: Pure architectural minimalism. Solid layout blocks, thin lines, and catalog typography.CAMPAIGN: \"MINIMAL ARCH\"MASTER VISUAL: Classic sans-serif PHAIDON typography (75% canvas) in matte white.\nHERO SUBJECT: Zendaya. Minimalist slate-blue blazer dress, sleek high ponytail.POSE: Leaning against a white plaster wall, holding a thick Phaidon architecture book.\n\nCOLOR SYSTEM: Matte White, Slate Blue, Concrete Grey, Charcoal.BACKGROUND: Minimalist raw concrete structure with architectural skylight lines.\n\nGRAPHIC SYSTEM: Thin grid divisions, catalog page numbers, coordinate stamps.\n\nPROMOTIONAL ELEMENTS: PHAIDON ARCHITECTURE | MINIMAL DESIGN SERIES | AVAILABLE NOWTYPOGRAPHY: Top left wordmark | Center giant P H A I D O N | Title: MINIMAL ARCHLIGHTING: Cool overhead skylight casting sharp geometric shadows on the wall.\n\nCAMERA: ARRI Alexa Mini LF, 50mm Lens, clean lines, high contrast.\n\nRizzoli × Emma Watson — \"SALON FLORENCE\"\nFORMAT: Ultra-Premium Book SMM Poster | 4:5 | Instagram Hero | Behance Front Page Quality\nCORE STRATEGY: Renaissance art heritage. Sepia paper textures, elegant classic fonts, and warm study spaces.CAMPAIGN: \"SALON FLORENCE\"MASTER VISUAL: Elegant serif RIZZOLI typography (70% canvas) in deep gold foil.\nHERO SUBJECT: Emma Watson. Wearing a warm beige knit sweater, thin-frame gold glasses.POSE: Sitting at a library desk, flipping the pages of a Rizzoli Florence monograph, looking serene.\nCOLOR SYSTEM: Sepia Beige, Gold Foil, Mahogany, Ivory.BACKGROUND: Dark wood-paneled salon with old leather-bound books, slightly out of focus.\n\nGRAPHIC SYSTEM: Bookplate frames, publication catalog labels, thin divider lines.\n\nPROMOTIONAL ELEMENTS: RIZZOLI MONOGRAPHS | ART AND HISTORY | BUY IN STORETYPOGRAPHY: Top center monogram | Center giant R I Z Z O L I | Title: SALON FLORENCELIGHTING: Warm, soft desk lamp lighting highlighting the book pages and her profile.\nCAMERA: ARRI Alexa Mini LF, 85mm Lens, warm cinematic grading.",
+    "promptPreview": "Assouline × Timothée Chalamet — \"L'EDITION\" FORMAT: Ultra-Premium Book SMM Poster | 4:5 | Instagram Hero | Behance Front Page Quality CORE STRATEGY: Monolithic book-jacket grids. Bold spine lettering, clean borders, and…",
+    "source": "Community collected via @sebatheepan",
+    "createdAt": "2026-06-25T20:03:24.006Z"
+  },
+  {
     "id": "100126",
     "title": "酥脆番薯美食英雄镜头广告海报",
     "category": "产品与电商",
