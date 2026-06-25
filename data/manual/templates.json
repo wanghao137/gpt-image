@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-product-technical-infographic",
+    "title": "产品技术拆解信息图：工程注释风格产品解剖图",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "product",
+      "technical",
+      "editorial"
+    ],
+    "description": "输入任意产品/物体+品牌色，生成技术注释风格的拆解信息图：真实产品图+黑色工程线稿注释+品牌色高亮，适合产品展示、社媒分享、品牌物料",
+    "cover": "/uploads/2026-06-26-template-product-technical-infographic.jpg",
+    "prompt": "Create a branded technical infographic of {argument name=\"产品/物体\" default=\"a premium chocolate bar\"}, combining a realistic photograph or photoreal render of the product with technical annotation overlays placed directly on top. Use black ink-style line drawings with strategic {argument name=\"品牌强调色\" default=\"warm gold\"} accents (architectural sketch look) on a pure white studio background, including:\n\n- Key component labels\n- Internal cross-section showing structure, layering, or internal design\n- Measurements, dimensions, and specifications\n- Material callouts with composition and quantities\n- Arrows indicating function for primary features and structural integrity\n- Simple schematic or sectional diagram showing key mechanical or design elements\n- Sustainability callouts\n\nTitle placement: Inside a hand-drawn technical annotation box with accent border reading the product name in bold font, positioned in upper corner.\n\nStyle & layout rules:\n- The realistic product remains clearly visible\n- Annotations feel sketched, technical, and architectural\n- Accents used for highlight (20-30% of linework), black for primary technical lines (70-80%)\n- Clean composition with balanced negative space\n- Educational, {argument name=\"领域氛围\" default=\"food-engineering\"} vibe with premium branding\n- Include subtle brand logo mark in corner\n\nVisual style: Minimal technical illustration aesthetic, black linework with accents over realistic imagery, precise but slightly hand-drawn feel.\n\nColor palette: White background, black annotation lines/text, brand color for accents and key callouts only.\n\nOutput: {argument name=\"输出尺寸\" default=\"1080x1080 square, ultra-crisp, social-feed optimized\"}, no watermark",
+    "useWhen": "需要将食品、电子产品、日用品等实物做成技术拆解/工程注释风格的信息图，用于产品展示、社媒营销、品牌宣传时使用",
+    "createdAt": "2026-06-25T23:57:33.588Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "MeiGen · 图表与信息图 · 1005 likes tweet by @TechieBySA (snack technical annotation)"
+  },
+  {
     "id": "derived-minimal-daily-quote-poster",
     "title": "极简日签海报：一句金句 + 留白构图",
     "category": "海报与排版",
