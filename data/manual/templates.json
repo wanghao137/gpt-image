@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-minimal-daily-quote-poster",
+    "title": "极简日签海报：一句金句 + 留白构图",
+    "category": "海报与排版",
+    "tags": [
+      "editorial",
+      "minimal",
+      "typography",
+      "social"
+    ],
+    "description": "输入一句金句/名言/文案，生成极简留白风格的日签海报，适合朋友圈、公众号配图、每日打卡分享",
+    "cover": "/uploads/2026-06-26-template-minimal-daily-quote-poster.jpg",
+    "prompt": "围绕以下金句，创作一张极简日签海报。\n\n画面要求：\n- 大面积留白，背景为纯色或极淡渐变（米白/浅灰/暖白），干净不杂乱\n- 金句文字为核心视觉，用优雅的衬线体或手写体居中或偏上排列，字号大而克制\n- 可加一个极简的几何元素（细线、圆点、小色块）作为视觉点缀，但不能喧宾夺主\n- 底部小字排列日期/署名/来源，细体小号，低调克制\n- 整体气质：安静、高级、有呼吸感，像独立设计师工作室出品\n\n禁止：花哨装饰、满图插画、复杂背景、多种字体混排、廉价模板感\n\n金句内容：{argument name=\"金句文案\" default=\"生活不是等待暴风雨过去，而是学会在雨中跳舞\"}\n署名/来源：{argument name=\"署名\" default=\"— 每日日签\"}\n配色偏好：{argument name=\"配色\" default=\"暖白底 + 深灰文字 + 一点琥珀色点缀\"}\n画幅：{argument name=\"画幅\" default=\"竖版 3:4\"}",
+    "useWhen": "需要将一句话/金句/名言/文案做成极简留白风格的日签海报，用于朋友圈分享、公众号配图、每日打卡时使用",
+    "createdAt": "2026-06-25T23:52:16.748Z",
+    "sourceType": "manual",
+    "sourceLabel": "小精灵测试模板"
+  },
+  {
     "id": "derived-ceremony-invitation-visual",
     "title": "仪式邀请视觉：手写书法叠加影像邀请函",
     "category": "品牌与标志",
