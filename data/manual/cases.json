@@ -1,5 +1,30 @@
 [
   {
+    "id": "100128",
+    "title": "3D 等距建筑剖面微缩模型",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Studio",
+      "Architecture",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-06-27-case-100128-iso-building-diorama.jpg",
+    "imageAlt": "3D 等距建筑剖面微缩模型",
+    "prompt": "A clean, minimal 3D isometric diorama of a [BUILDING TYPE] section, featuring [INTERIOR / EXTERIOR ELEMENTS] visible in a [CUTAWAY / OPEN STYLE], simple [STRUCTURAL FRAME], subtle [INFORMATIONAL SIGNAGE], smooth [MATERIAL FINISH], soft studio lighting, realistic materials, rounded edges, miniature architectural model style, high detail, neutral background.",
+    "promptPreview": "A clean, minimal 3D isometric diorama of a [BUILDING TYPE] section, featuring [INTERIOR / EXTERIOR ELEMENTS] visible in a [CUTAWAY / OPEN STYLE], simple [STRUCTURAL FRAME], subtle [INFORMATIONAL SIGNAGE], smooth [MATERI…",
+    "source": "Community collected via @aleenaamiir",
+    "createdAt": "2026-06-26T20:16:27.263Z"
+  },
+  {
     "id": "100127",
     "title": "顶级图书品牌联名编辑设计海报",
     "category": "文档与出版",
