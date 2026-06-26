@@ -1,5 +1,30 @@
 [
   {
+    "id": "100129",
+    "title": "皮克斯风格 3D 角色表情贴纸套装",
+    "category": "其他用例",
+    "styles": [
+      "Cartoon"
+    ],
+    "scenes": [
+      "Character"
+    ],
+    "tags": [
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Brand",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-06-27-case-100129-pixar-sticker-set.jpg",
+    "imageAlt": "皮克斯风格 3D 角色表情贴纸套装",
+    "prompt": "Create a premium Pixar-style 3D character sticker set that is clearly recognizable as the same person. Use the uploaded image as the ONLY facial reference.\nOutput Requirements:\n3x3 grid layout (9 stickers total)\nFinal aspect ratio: 4:5\nUltra high resolution (8K)\nClean cream background\nEach sticker is separated with clear spacing\nAdd a subtle drop shadow under each sticker for depth\nCharacter Identity (VERY IMPORTANT):\nMUST preserve exact facial structure, hairstyle, grooming details, and unique features from the uploaded image\nMaintain high likeness accuracy\nDo NOT over beautify or alter identity beyond recognition\nStyle:\nPixar-style 3D animation\nGlossy, high-end rendering\nSoft global illumination\nSmooth shading\nHigh-detail facial textures\nFraming:\nAll stickers must be head and shoulders (portrait close-up) only\nNo full-body or mid-body shots allowed\nFocus tightly on face and upper shoulders to emphasize expressions\nOutfit:\nModern casual and slightly stylized clothing\nEach sticker must have a different outfit (no repetition at all)\nClean, minimal, and visually appealing for sticker use\nExpressions & Poses (9 variations):\n1. Happy smile\n2. Laughing\n3. Cool (with sunglasses)\n4. Angry/serious\n5. Surprised\n6. Thinking\n7. Wink\n8. Love (heart eyes and heart gesture)\n9. Thumbs up\nSticker Design:\nBold, clean outline\nSlightly exaggerated cartoon proportions\nStrong emphasis on facial expressions",
+    "promptPreview": "Create a premium Pixar-style 3D character sticker set that is clearly recognizable as the same person. Use the uploaded image as the ONLY facial reference. Output Requirements: 3x3 grid layout (9 stickers total) Final a…",
+    "source": "Community collected via @doctorwasif",
+    "createdAt": "2026-06-26T20:16:30.731Z"
+  },
+  {
     "id": "100128",
     "title": "3D 等距建筑剖面微缩模型",
     "category": "建筑与空间",
