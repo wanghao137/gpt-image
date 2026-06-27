@@ -1,5 +1,32 @@
 [
   {
+    "id": "100131",
+    "title": "黑场悬浮金属质感高端产品摄影",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-06-28-case-100131-levitating-product-hero.jpg",
+    "imageAlt": "黑场悬浮金属质感高端产品摄影",
+    "prompt": "{\n  \"image_generation_request\": {\n    \"subject\": {\n      \"placeholder\": \"[INSERT PRODUCT HERE]\",\n      \"position\": \"dead center, eye-level, perfectly centered in frame\",\n      \"presentation\": \"levitating, floating in a weightless void, no stands, no platforms, no pedestals, no visible supports\"\n    },\n    \"environment\": {\n      \"background\": \"absolute solid pitch black, hex code #000000, infinite void\",\n      \"lighting\": \"rim lighting, cinematic chiaroscuro, high-contrast glints on metallic edges, soft orange glow from internal recesses\"\n    },\n    \"aesthetic_style\": {\n      \"textures\": [\n        \"shot-blasted matte titanium\",\n        \"brushed aerospace-grade aluminum\",\n        \"anodized dark grey metal\",\n        \"ribbed industrial vertical cooling fins\"\n      ],\n      \"optical_effects\": \"viewed through vertical fluted reeded glass, subtle chromatic distortion, refractive glass warping, radial motion blur on outer edges\",\n      \"color_palette\": {\n        \"primary_background\": \"#000000\",\n        \"secondary_metal\": \"#8E8E8E\",\n        \"accent_glow\": \"#FF8C00\",\n        \"highlights\": \"#FFFFFF\"\n      }\n    },\n    \"composition_constraints\": {\n      \"framing\": \"ensure full product visibility, do not cut off edges, wide safety margins around the subject\",\n      \"elements_to_exclude\": [\"text\", \"logos\", \"watermarks\", \"softboxes\", \"light stands\", \"floor\", \"horizon line\", \"props\", \"human hands\", \"shadows on surfaces\"]\n    },\n    \"technical_specs\": {\n      \"focal_length\": \"85mm macro lens\",\n      \"depth_of_field\": \"deep focus on product, blurred refractive foreground glass\",\n      \"render_engine\": \"photorealistic octane render, 8k resolution, ray-traced reflections\"\n    }\n  }\n}",
+    "promptPreview": "{ \"image_generation_request\": { \"subject\": { \"placeholder\": \"[INSERT PRODUCT HERE]\", \"position\": \"dead center, eye-level, perfectly centered in frame\", \"presentation\": \"levitating, floating in a weightless void, no stan…",
+    "source": "Community collected via @lloydcreates",
+    "createdAt": "2026-06-27T20:05:08.966Z"
+  },
+  {
     "id": "100130",
     "title": "工业包装设计三视图技术参考图",
     "category": "其他用例",
