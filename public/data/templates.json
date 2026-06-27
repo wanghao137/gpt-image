@@ -1098,18 +1098,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "/uploads/2026-06-25-case-100124-brand-storyboard-grid.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Editorial / Realistic / Cinematic / Minimal / Studio / Brand / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n- #100082 高端护肤品牌全套VI九宫格展示板: Create a complete brand identity presentation for an original premium skincare brand called \"VE…\n- #467 泳装杂志九宫格广告页: 泳装时尚杂志广告页面，日本成熟模特，S型曲线。变换姿势和风格，九宫格展示，保持人物面部一致性\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/uploads/2026-06-27-case-100129-pixar-sticker-set.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / 3D Render / Editorial / Minimal / Brand / Portrait / Tech / Cartoon\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100129 皮克斯风格 3D 角色表情贴纸套装: Create a premium Pixar-style 3D character sticker set that is clearly recognizable as the same …\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n- #100082 高端护肤品牌全套VI九宫格展示板: Create a complete brand identity presentation for an original premium skincare brand called \"VE…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100129",
       "100124",
       "100082",
       "467",
-      "335",
-      "302"
+      "335"
     ]
   },
   {
@@ -1122,18 +1122,18 @@
       "Pack"
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
-    "cover": "/uploads/2026-06-04-case-100026-3d-caricature.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / Illustration / 3D Render / Minimal / Portrait / 3D / Caricature / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100050 高风格化3D卡通头像：夸张表情与光滑材质: A highly stylized 3D caricature of [Character], with an oversized head, expressive facial featu…\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n- #302 九位大师的机械键盘设计图鉴: [中文] 一个九宫格图片，展现九位当代知名设计师设计的同一组物体：机械键盘，包括设计师头像，设计师对于设计的中文文字解读和作品呈现。排版统一规则 [English] A nine-grid …\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "cover": "/uploads/2026-06-27-case-100129-pixar-sticker-set.jpg",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / 3D Render / Editorial / Minimal / Brand / Portrait / Tech / Cartoon\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100129 皮克斯风格 3D 角色表情贴纸套装: Create a premium Pixar-style 3D character sticker set that is clearly recognizable as the same …\n- #100050 高风格化3D卡通头像：夸张表情与光滑材质: A highly stylized 3D caricature of [Character], with an oversized head, expressive facial featu…\n- #378 高端 3D 收藏玩具头像: Transform the input photo into a high-end stylized 3D collectible figure. Large head, slightly …\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100129",
       "100050",
       "378",
       "302",
-      "188",
-      "44"
+      "188"
     ]
   },
   {
@@ -1170,18 +1170,18 @@
       "Mascot"
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case507.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Character / Tech / Commerce / Illustration / Realistic / 3D Render / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #507 暖调钩织角色玩偶: A handcrafted crochet doll of a [subject], made with soft yarn textures and intricate knitted d…\n- #100073 夸张大头收藏公仔：名人微缩雕像: Highly detailed caricature figurine of [SUBJECT] as a cute but intense bobblehead-style collect…\n- #100072 设计师收藏级艺术潮玩手办: Transform the input image into a premium designer collectible-art toy aesthetic. Preserve the s…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "cover": "/uploads/2026-06-27-case-100129-pixar-sticker-set.jpg",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / 3D Render / Editorial / Minimal / Brand / Portrait / Tech / Cartoon\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100129 皮克斯风格 3D 角色表情贴纸套装: Create a premium Pixar-style 3D character sticker set that is clearly recognizable as the same …\n- #507 暖调钩织角色玩偶: A handcrafted crochet doll of a [subject], made with soft yarn textures and intricate knitted d…\n- #100073 夸张大头收藏公仔：名人微缩雕像: Highly detailed caricature figurine of [SUBJECT] as a cute but intense bobblehead-style collect…\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100129",
       "507",
       "100073",
       "100072",
-      "480",
-      "476"
+      "480"
     ]
   },
   {
@@ -1218,18 +1218,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-24-case-100122-iso-landmark-diorama.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Minimal / Studio / Portrait / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n- #100099 室内空间爆炸分解图：3D建筑拆解可视化: [ROOM TYPE] pulled apart in 3D, every surface and object floating at its exact position, slight…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-06-27-case-100128-iso-building-diorama.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Minimal / Studio / Brand / Portrait / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100128 3D 等距建筑剖面微缩模型: A clean, minimal 3D isometric diorama of a [BUILDING TYPE] section, featuring [INTERIOR / EXTER…\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100128",
       "100122",
       "100105",
       "100099",
-      "100095",
-      "100093"
+      "100095"
     ]
   },
   {
