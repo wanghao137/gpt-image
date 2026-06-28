@@ -1,5 +1,22 @@
 [
   {
+    "id": "derived-palmistry-fortune-reading",
+    "title": "掌纹玄学算命分析海报",
+    "category": "其他用例",
+    "tags": [
+      "palmistry",
+      "fortune",
+      "mysticism"
+    ],
+    "description": "上传手掌正面照，AI 以易经玄学、指纹分析、中医理论标注关键线条并生成带十点分析的算命报告",
+    "cover": "/uploads/template-derived-palmistry-fortune-reading.jpg",
+    "prompt": "给你这个掌纹。请通过中国的玄学、指纹分析，以及一些中医学理论，顶级算命大师的技术帮我分析这个人的手纹。请用这种线条标记写明每个要点，能够对他的命运有所预示。要求如下：\n1. 采用{argument name=\"理论体系\" default=\"易经\"}或中医学理论分析，要有预警和精准分析，要让用户觉得准。\n2. 标明各个线条的关键点。\n3. 最少提供{argument name=\"分析点数\" default=\"十个\"}点的分析报告。\n\n用户补充信息/想了解的方向：{argument name=\"关注方向\" default=\"整体命运走势\"}",
+    "useWhen": "想用玄学、掌纹、中医理论分析命运时使用。上传一张手掌正面清晰照，AI 会在掌纹上标注关键点并给出详细解读与预警。",
+    "createdAt": "2026-06-28T21:07:01.180Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-vintage-newspaper-headline",
     "title": "复古做旧报纸头版恶搞海报",
     "category": "文档与出版",
