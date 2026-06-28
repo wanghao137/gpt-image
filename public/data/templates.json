@@ -1003,18 +1003,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-06-26-case-100126-sweet-potato-hero.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Editorial / Cinematic / Minimal / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n- #100090 高端快餐商业广告海报模板: A premium fast-food advertising poster promoting [PRODUCT TYPE / FOOD ITEM / FMCG PRODUCT] usin…\n- #100055 卡哇伊日系角色联名零食包装设计: 请使用附件图片中的角色，创作一款超级可爱的虚构零食包装，使其看起来就像在日本便利店或杂货店中能找到的一样。该角色的名字是\"[名称]\"。请在图片的文字元素中自然地使用这个名字。观察角色的配色、…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-06-28-case-100131-levitating-product-hero.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Cinematic / Illustration / Minimal / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100131 黑场悬浮金属质感高端产品摄影: { \"image_generation_request\": { \"subject\": { \"placeholder\": \"[INSERT PRODUCT HERE]\", \"position\"…\n- #100130 工业包装设计三视图技术参考图: Using the attached image, create an illustration sheet of professional industrial design packag…\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100131",
+      "100130",
       "100126",
       "100090",
-      "100055",
-      "100054",
-      "100044"
+      "100055"
     ]
   },
   {
