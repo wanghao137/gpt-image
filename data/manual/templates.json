@@ -1,5 +1,22 @@
 [
   {
+    "id": "derived-vintage-newspaper-headline",
+    "title": "复古做旧报纸头版恶搞海报",
+    "category": "文档与出版",
+    "tags": [
+      "newspaper",
+      "vintage",
+      "social"
+    ],
+    "description": "上传人物照片，生成带折痕泛黄颗粒质感的复古报纸头版头条恶搞海报",
+    "cover": "/uploads/template-derived-vintage-newspaper-headline.jpg",
+    "prompt": "生成一张报纸，根据这张照片可以编一个头版头条标题，像真实的摄影，甚至有不规则折痕，复古质感。\n\n参考角色图注意处理和保持质感相同，并给出角色相关新闻情境（典型性画面，一张，画质粗糙）。用户给出的图片仅作脸部参考，你可以更改服道化，适应新闻情境。只要出一张新闻图片。\n\n画面比例：{argument name=\"画面比例\" default=\"9:10\"}\n上报理由：{argument name=\"上报理由\" default=\"男子怕兄弟耽误婚礼报警谎称嫖娼\"}\n报刊名称：{argument name=\"报刊名称\" default=\"沙雕日报\"}",
+    "useWhen": "想把人物照片变成报纸头条、恶搞社会新闻或复古报刊封面时使用。上传一张正面照片即可生成以该人物为主角的做旧报纸头版。",
+    "createdAt": "2026-06-28T21:04:37.239Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-product-technical-infographic",
     "title": "产品技术拆解信息图：工程注释风格产品解剖图",
     "category": "图表与信息图",
