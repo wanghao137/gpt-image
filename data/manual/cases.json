@@ -1,5 +1,30 @@
 [
   {
+    "id": "100135",
+    "title": "Y2K剪贴簿多格拼贴粉丝海报",
+    "category": "其他用例",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Social"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Social",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-06-30-case-y2k-scrapbook-collage.jpg",
+    "imageAlt": "Y2K剪贴簿多格拼贴粉丝海报",
+    "prompt": "{\n\"art_style_description\": {\n      \"type\": \"Digital Scrapbook / Fan-Edit Collage.\",\n      \"aesthetic\": \"Y2K, Coquette, K-pop Idol Fan Art.\",\n      \"visual_structure\": \"Multiple photographic cutouts of the same subject arranged in a chaotic but cohesive layout on top of a vintage textured background. Each cutout has a thick white stroke/outline to resemble a sticker.\"\n    },\n    \"subject_details\": {\n      \"demographics\": \"Young Asian woman (K-pop idol aesthetic), fair skin, delicate features.\",\n      \"hair\": \"Long, voluminous, dark wavy hair with air bangs. In one panel, she wears a small white ribbon clip.\",\n      \"outfit\": \"Black sequined/embellished crop top (bralette style), dark denim jeans.\",\n      \"makeup\": \"Peach-toned blush, glossy lips, soft eyeliner.\"\n    },\n    \"pose_breakdown_panels\": {\n      \"panel_1_top_center\": \"Portrait shot. Subject looking straight ahead/slightly down with hand in hair, elbows raised. Background shows a blurred cityscape.\",\n      \"panel_2_bottom_right\": \"Seated/Reclining pose. Subject leaning back, one arm supporting weight, looking coolly at the camera. Wearing jeans.\",\n      \"panel_3_middle_right\": \"Over-the-shoulder shot. Subject looking back at the camera with a soft gaze, arm raised touching head.\",\n      \"panel_4_bottom_left\": \"Close-up portrait. Subject looking to the side, wearing a white bow hair clip.\",\n      \"panel_5_top_left\": \"Bust-up shot. Subject gazing off-camera with a dreamy expression.\"\n    },\n    \"graphic_elements_and_overlays\": {\n      \"background_texture\": \"Vintage newspaper print text (sepia/beige toned).\",\n      \"stickers\": {\n        \"text\": \"Ransom-note style text blocks reading 'iqrasaifiii', 'i swear she's an angel', and 'beyoutiful'.\",\n        \"objects\": \"A brown plush teddy bear sticker in the bottom left corner.\",\n        \"decor\": \"White daisy flower graphics, jagged torn paper edges.\"\n      }\n    },\n    \"camera_technical_values\": {\n      \"source_photo_style\": \"High-end fashion editorial photography.\",\n      \"lens\": \"85mm (Portrait telephoto).\",\n      \"lighting\": \"Natural Window Light (Soft, directional sunlight coming from the side).\",\n      \"color_grading\": \"Slightly desaturated source photos contrasted against the warm beige newspaper background.\",\n      \"resolution\": \"High fidelity cutouts.\"\n    },\n    \"composition\": \"Overlapping layers. The center and right photos are larger, while smaller details fill the corners.\"",
+    "promptPreview": "{ \"art_style_description\": { \"type\": \"Digital Scrapbook / Fan-Edit Collage.\", \"aesthetic\": \"Y2K, Coquette, K-pop Idol Fan Art.\", \"visual_structure\": \"Multiple photographic cutouts of the same subject arranged in a chaot…",
+    "source": "Community collected via @IqraSaifiii",
+    "createdAt": "2026-06-29T20:04:58.829Z"
+  },
+  {
     "id": "100134",
     "title": "极简半色调选框时尚杂志海报",
     "category": "文档与出版",
