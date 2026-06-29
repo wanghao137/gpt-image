@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BrandLogo } from "./BrandLogo";
 import { BRAND } from "../lib/brand";
+import { USER_CATEGORIES } from "../lib/userCategories";
 
 /**
  * Site-wide footer. Surfaces:
@@ -66,16 +67,25 @@ interface FooterColumn {
   links: FooterLink[];
 }
 
+// Footer showcases a curated subset of high-conversion categories. The slug
+// keys are sourced from `USER_CATEGORIES` (single source of truth) so a slug
+// rename can never silently 404 the footer — `cat(slug)` throws at build time
+// if a slug disappears. Labels come straight from the category table too, so
+// the footer never drifts out of sync with the category landing pages.
+const FOOTER_CATEGORY_SLUGS = ["xhs-cover", "merchant-poster", "portrait", "3d-ip"] as const;
+
+function cat(slug: string): { to: string; label: string } {
+  const meta = USER_CATEGORIES.find((c) => c.slug === slug);
+  if (!meta) throw new Error(`Footer references unknown category slug "${slug}"`);
+  return { to: `/category/${meta.slug}`, label: meta.label };
+}
+
+const FOOTER_CATEGORIES = FOOTER_CATEGORY_SLUGS.map(cat);
+
 const COLUMNS: FooterColumn[] = [
   {
     title: "案例",
-    links: [
-      { to: "/cases", label: "全部案例" },
-      { to: "/category/xhs-cover", label: "小红书封面" },
-      { to: "/category/merchant-poster", label: "商家海报" },
-      { to: "/category/portrait", label: "人像写真" },
-      { to: "/category/3d-ip", label: "3D · IP 形象" },
-    ],
+    links: [{ to: "/cases", label: "全部案例" }, ...FOOTER_CATEGORIES],
   },
   {
     title: "模板与工具",
@@ -98,10 +108,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 const QUICK_CHIPS: { to: string; label: string; primary?: boolean }[] = [
-  { to: "/category/xhs-cover", label: "小红书封面" },
-  { to: "/category/merchant-poster", label: "商家海报" },
-  { to: "/category/portrait", label: "人像写真" },
-  { to: "/category/3d-ip", label: "3D · IP" },
+  ...FOOTER_CATEGORIES,
   { to: "/cases", label: "全部案例 →", primary: true },
 ];
 
@@ -212,7 +219,7 @@ function MobileCol({ title, children }: { title: string; children: React.ReactNo
 function renderLink(link: FooterLink, variant: "desktop" | "mobile" = "desktop") {
   const baseClassName =
     variant === "mobile"
-      ? "block py-1.5 text-ink-300 transition hover:text-ink-50"
+      ? "block py-2 text-ink-300 transition hover:text-ink-50"
       : "footer-link";
   const accentClassName = link.accent
     ? variant === "mobile"

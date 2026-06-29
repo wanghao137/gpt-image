@@ -166,6 +166,7 @@ export default function CaseDetailPage() {
         path={`/case/${c.slug}`}
         image={ogImage}
         imageAlt={c.imageAlt || c.title}
+        type="article"
         jsonLd={[breadcrumbLd, creativeWorkLd, imageLd]}
         preloadFetch={[`${import.meta.env.BASE_URL}data/prompts/${c.id}.json`]}
       />

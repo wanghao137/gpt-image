@@ -168,7 +168,7 @@ export default function CasesPage() {
             onClick={() => setShowFavorites((v) => !v)}
             disabled={favoriteCount === 0}
             className={
-              "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
+              "inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
               (showFavorites
                 ? "border-ember-500/50 bg-ember-500/15 text-ember-100"
                 : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")

@@ -90,27 +90,48 @@ test("clipText collapses whitespace and truncates with ellipsis", () => {
   assert.equal(clipText(null, 10), "");
 });
 
-test("deriveCaseSeo builds the same title/description shape migrate-v2 used to bake", () => {
+test("deriveCaseSeo leads the description with the Chinese title + category", () => {
   const { seoTitle, seoDescription } = deriveCaseSeo(
     { title: "人像写真示例", promptPreview: "一张胶片感人像写真，柔和光线。" },
     "人像写真",
   );
   assert.equal(seoTitle, "人像写真示例 · GPT-Image 2 Prompt 案例 | 人像写真");
-  assert.ok(seoDescription.startsWith("一张胶片感人像写真，柔和光线。"));
-  assert.ok(seoDescription.endsWith("中英双语 Prompt，一键复制，快速复用。"));
+  // Title (zh) must lead — not the English prompt tail.
+  assert.ok(seoDescription.startsWith("人像写真示例｜人像写真案例。"));
+  // English prompt tail still present (for keyword coverage), clipped short.
+  assert.ok(seoDescription.includes("一张胶片感人像写真，柔和光线。"));
+  assert.ok(seoDescription.includes("中英双语 Prompt"));
 });
 
 test("deriveCaseSeo falls back to title when promptPreview is empty", () => {
   const { seoDescription } = deriveCaseSeo({ title: "无预览案例", promptPreview: "" }, "其他用例");
   assert.ok(seoDescription.startsWith("无预览案例"));
+  assert.ok(seoDescription.endsWith("快速复用。"));
 });
 
-test("deriveCaseSeo clips a long promptPreview to 110 chars + tail", () => {
+test("deriveCaseSeo clips a long promptPreview and stays under 160 chars", () => {
   const long = "字".repeat(300);
   const { seoDescription } = deriveCaseSeo({ title: "x", promptPreview: long }, "通用海报");
-  // head is clipped to 110 (109 chars + ellipsis), then the tail is appended.
-  assert.ok(seoDescription.includes("…——"));
+  // prompt tail is clipped (ellipsis survives), full description stays short.
+  assert.ok(seoDescription.includes("…"));
   assert.ok(seoDescription.length < 160);
+});
+
+test("deriveCaseSeo clips a long title and still stays under 160 chars", () => {
+  const { seoDescription } = deriveCaseSeo(
+    { title: "字".repeat(200), promptPreview: "x".repeat(200) },
+    "通用海报",
+  );
+  // Both title and prompt are clipped; total description must stay short.
+  assert.ok(seoDescription.includes("…"));
+  assert.ok(seoDescription.length < 160);
+});
+
+test("deriveCaseSeo never emits a dangling separator when title is empty", () => {
+  const { seoDescription } = deriveCaseSeo({ title: "", promptPreview: "some prompt" }, "其他用例");
+  // Must NOT start with the bare separator `｜`.
+  assert.ok(!seoDescription.startsWith("｜"));
+  assert.ok(seoDescription.startsWith("其他用例案例。"));
 });
 
 test("jsonLdSafeStringify escapes </script> breakout attempts", () => {

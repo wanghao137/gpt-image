@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
+import { USER_CATEGORIES } from "../lib/userCategories";
 
 export default function NotFoundPage() {
+  // A small curated subset of high-traffic categories, so the 404 page is a
+  //分流口 into real content rather than a dead end. Sourced from the single
+  // source of truth so a slug rename can never 404 the chip row.
+  const hotCategories = USER_CATEGORIES.filter((c) => c.pinnedHomepage).slice(0, 6);
+
   return (
     <>
       <SEO
@@ -26,6 +32,24 @@ export default function NotFoundPage() {
           <Link to="/cases" className="btn-ghost">
             浏览案例
           </Link>
+        </div>
+
+        {/* Hot categories — turn the 404 into a discovery entry point. */}
+        <div className="mt-12 w-full max-w-xl">
+          <p className="mb-4 text-[12px] font-medium uppercase tracking-wider text-ink-500">
+            热门分类
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {hotCategories.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/category/${c.slug}`}
+                className="chip chip-idle"
+              >
+                {c.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

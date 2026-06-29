@@ -115,7 +115,21 @@ export function deriveCaseSeo(promptCase, categoryLabel) {
   const title = String(promptCase?.title ?? "").trim();
   const label = categoryLabel || "GPT-Image 2";
   const seoTitle = `${title} · GPT-Image 2 Prompt 案例 | ${label}`;
-  const head = clipText(promptCase?.promptPreview || title, 110);
-  const seoDescription = `${head}—— 中英双语 Prompt，一键复制，快速复用。`;
+  // Lead with the Chinese title + category (search-relevance for zh-CN users),
+  // then a short English prompt tail so crawlers still see prompt keywords.
+  // Previously the head was the raw English promptPreview ("Masterpiece, best
+  // quality…") which produced low-clickability SERP snippets for 470+ cases.
+  //
+  // Total length is bounded: Google truncates SERP descriptions at ~155-160
+  // chars. We clip title (≤30) and prompt (≤50) and use a fixed Chinese tail,
+  // so the result stays under ~150 even with a long title. When the title is
+  // empty we fall back to the label so the leading `｜` never dangles.
+  const clippedTitle = clipText(title, 30);
+  const lead = clippedTitle ? `${clippedTitle}｜${label}案例。` : `${label}案例。`;
+  const tail = "中英双语 Prompt，一键复制，快速复用。";
+  const promptHead = clipText(promptCase?.promptPreview || "", 50);
+  const seoDescription = promptHead
+    ? `${lead}Prompt 摘要：${promptHead} ${tail}`
+    : `${lead}${tail}`;
   return { seoTitle, seoDescription };
 }

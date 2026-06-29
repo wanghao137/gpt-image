@@ -50,7 +50,6 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => ALL_TEMPLATES.map((t) => `/template/${t.id}`),
       },
       { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
-      { path: "about", Component: AboutPage, entry: "src/pages/AboutPage.tsx" },
       { path: "sitemap", Component: SitemapPage, entry: "src/pages/SitemapPage.tsx" },
       // Pre-rendered so Vercel can serve a branded `dist/404.html` with a real
       // 404 status for unmatched URLs (postbuild copies /404/index.html →

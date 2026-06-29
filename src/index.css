@@ -137,6 +137,23 @@
     color: #fff;
   }
 
+  /* WCAG 2.4.7 (Focus Visible, Level AA) — global keyboard-focus fallback.
+     `:where()` keeps specificity at 0 so component-level
+     `focus-visible:ring-*` (CaseCard/TemplateCard/...) still win where they
+     exist, while every previously-unstyled focusable element (Header nav,
+     Footer links, BackToTop, Lightbox controls, ...) now gets a visible ring.
+     Mouse clicks don't trigger `:focus-visible`, so click UX is unaffected.
+     We only set `outline` (+ offset) — never `border-radius`, because the
+     outline already follows the element's existing border-radius in modern
+     browsers, and forcing a radius here would visually distort pill-shaped
+     controls that don't define their own. */
+  :where(a, button, input, select, textarea, summary,
+         [tabindex]:not([tabindex="-1"]),
+         [role="button"], [role="link"], [role="radio"]):focus-visible {
+    outline: 2px solid rgb(var(--color-ember-400) / 0.9);
+    outline-offset: 2px;
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -212,7 +229,7 @@
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition;
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-medium transition;
   }
   .chip-idle {
     @apply border-white/10 bg-white/[0.03] text-ink-300 hover:border-white/25 hover:text-ink-50;
@@ -598,7 +615,7 @@
   transform: translateY(-150%);
   padding: 0.6rem 1rem;
   border-radius: 0.75rem;
-  background: var(--ember-500, #ff6b6b);
+  background: var(--color-ember-500, #d97757);
   color: #1a1715;
   font-size: 0.875rem;
   font-weight: 600;
@@ -612,7 +629,11 @@
   outline: 3px solid #fff;
   outline-offset: 2px;
 }
-/* When focus lands on #main via the skip-link, give it a visible ring. */
+/* #main receives focus programmatically (tabIndex={-1}) when the skip-link is
+   activated. We suppress the outline there because the scroll itself is the
+   affordance — the user lands on main content, not a control that needs a
+   ring. The element is not keyboard-focusable, so this never hides a ring
+   the user would otherwise see. */
 #main:focus {
   outline: none;
 }

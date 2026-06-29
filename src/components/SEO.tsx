@@ -13,6 +13,11 @@ interface SEOProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
   /**
+   * Open Graph object type. Defaults to "website"; detail pages (case /
+   * template) should pass "article" so social platforms render article cards.
+   */
+  type?: "website" | "article" | "profile";
+  /**
    * Same-origin URL(s) to `<link rel="preload" as="fetch">`. Used by the case
    * detail page to warm the per-case prompt JSON during HTML parse, so the
    * `usePrompt` fetch resolves from cache instead of adding a round-trip after
@@ -52,6 +57,7 @@ export function SEO({
   imageAlt,
   jsonLd,
   noindex,
+  type = "website",
   preloadFetch,
 }: SEOProps) {
   const fullUrl = path.startsWith("http") ? path : SITE_URL + path;
@@ -80,7 +86,7 @@ export function SEO({
 
         {/* Open Graph */}
         <meta property="og:site_name" content={SITE_NAME} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={type} />
         <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={fullUrl} />

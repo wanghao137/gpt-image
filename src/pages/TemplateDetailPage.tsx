@@ -88,6 +88,7 @@ export default function TemplateDetailPage() {
         path={`/template/${t.id}`}
         image={ogImage}
         imageAlt={t.title}
+        type="article"
         jsonLd={[breadcrumbLd, creativeWorkLd]}
       />
 

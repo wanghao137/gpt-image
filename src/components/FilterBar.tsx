@@ -208,7 +208,7 @@ export function FilterBar({
               type="button"
               onClick={() => onCategoriesChange(new Set())}
               className={
-                "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium transition " +
+                "shrink-0 rounded-full border px-3 py-2 text-[12.5px] font-medium transition " +
                 (activeCategories.size === 0
                   ? "border-ember-400/60 bg-ember-500 text-ink-950"
                   : "border-ink-800/70 bg-ink-900/80 text-ink-200")
@@ -224,7 +224,7 @@ export function FilterBar({
                   type="button"
                   onClick={() => toggle(activeCategories, c.slug, onCategoriesChange)}
                   className={
-                    "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium whitespace-nowrap transition " +
+                    "shrink-0 rounded-full border px-3 py-2 text-[12.5px] font-medium whitespace-nowrap transition " +
                     (active
                       ? "border-ember-400/60 bg-ember-500 text-ink-950"
                       : "border-ink-800/70 bg-ink-900/80 text-ink-200")
@@ -240,7 +240,7 @@ export function FilterBar({
                 setDrawerAxis("category");
                 setDrawerOpen(true);
               }}
-              className="shrink-0 rounded-full border border-ink-800/70 bg-ink-900/80 px-3 py-1.5 text-[12.5px] font-medium text-ink-200"
+              className="shrink-0 rounded-full border border-ink-800/70 bg-ink-900/80 px-3 py-2 text-[12.5px] font-medium text-ink-200"
               aria-label="更多筛选"
             >
               更多
