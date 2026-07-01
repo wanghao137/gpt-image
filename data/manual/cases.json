@@ -1,5 +1,30 @@
 [
   {
+    "id": "100138",
+    "title": "水墨禅意高级时尚杂志封面设计",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Cinematic",
+      "Minimal",
+      "Education",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-02-case-100138-zen-editorial-cover.jpg",
+    "imageAlt": "水墨禅意高级时尚杂志封面设计",
+    "prompt": "Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian model,\n\nbackground with ink wash gradients and abstract brush textures, light mist atmosphere,\n\nflowing fabric inspired by traditional garments, minimal and contemporary styling,\n\nsoft cinematic lighting, low contrast, gallery-level composition,\n\nink black, ivory, and muted gold palette,\n\nhigh fashion + contemporary art fusion, ultra refined, 8K --ar 2:3 --style raw",
+    "promptPreview": "Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian model, background with ink wash gradients and abstract brush textures, light mist atmosphere, flowing fabric inspired by tradit…",
+    "source": "Community collected via @aidavid125",
+    "createdAt": "2026-07-01T20:03:58.668Z"
+  },
+  {
     "id": "100137",
     "title": "珐琅彩琉璃西湖杭州纪念冰箱贴",
     "category": "历史与古典",
