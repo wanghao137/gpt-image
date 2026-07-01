@@ -1,5 +1,31 @@
 [
   {
+    "id": "100139",
+    "title": "电影感微缩橱窗超现实品牌广告场景",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic"
+    ],
+    "scenes": [
+      "Commerce",
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-07-02-case-100139-diorama-brand-ad.jpg",
+    "imageAlt": "电影感微缩橱窗超现实品牌广告场景",
+    "prompt": "ACT AS:\nA world-class luxury commercial art director, surreal product photographer, cinematic set designer, and premium AI advertising stylist creating hyper-detailed boxed-diorama brand ads for famous snack and candy brands.\n\nSTYLE DIRECTION:\nLuxury surrealism x editorial product photography x miniature cinematic world x modern premium advertising\n\nCORE CONCEPT:\nCreate a highly stylized premium advertisement for [BRAND NAME OR PRODUCT] designed entirely inside a cinematic shadow-box / miniature display box.\nThe product must feel like the hero object of a tiny surreal world filled with strange, playful, luxurious, and visually addictive storytelling details.\n\nVISUAL STYLE:\n- Matte color palette with ultra-rich vibrant tones\n- Dynamic contrasting colors\n- Deep cinematic shadows\n- Soft volumetric lighting\n- Hyper-detailed textures\n- Premium studio photography look\n- Sharp focus with subtle depth of field\n- Editorial-level composition\n- Clean but complex\n- Minimal text only\n- Every corner should contain visual storytelling\n\nCOMPOSITION:\n- Entire ad built inside a realistic boxed diorama\n- Product placed hero-center\n- Multiple tiny surreal objects surrounding the product\n- Add weird playful objects related to the brand theme\n- Include hidden storytelling details\n- Use layered depth and asymmetrical balance\n- Make the scene feel handcrafted and immersive\n\nLIGHTING:\n- Dramatic studio spotlight\n- Warm cinematic highlights\n- Matte reflections\n- Soft ambient glow\n- Rich shadows\n- Luxury commercial lighting\n\nTEXT:\n- Very minimal typography\n- One short slogan only\n- Integrated naturally into the environment\n\nQUALITY:\nUltra realistic, hyper detailed, cinematic, premium advertising quality, editorial product photography, surreal realism, 8K, extremely polished, visually addictive, modern luxury ad campaign aesthetic.",
+    "promptPreview": "ACT AS: A world-class luxury commercial art director, surreal product photographer, cinematic set designer, and premium AI advertising stylist creating hyper-detailed boxed-diorama brand ads for famous snack and candy b…",
+    "source": "Community collected via @miratechtool",
+    "createdAt": "2026-07-01T20:04:02.515Z"
+  },
+  {
     "id": "100138",
     "title": "水墨禅意高级时尚杂志封面设计",
     "category": "文档与出版",
