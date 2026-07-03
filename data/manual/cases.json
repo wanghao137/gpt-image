@@ -1,5 +1,32 @@
 [
   {
+    "id": "100142",
+    "title": "等距透视产品拆解技术信息图",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic",
+      "Technical"
+    ],
+    "scenes": [
+      "Education",
+      "Tech"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "3D Render",
+      "Infographic",
+      "Education",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-04-case-100142-isometric-cutaway-infographic.jpg",
+    "imageAlt": "等距透视产品拆解技术信息图",
+    "prompt": "Create a technical infographic of [OBJECT] with a 45-degree isometric 3D perspective showing the device slightly tilted to reveal depth and dimension.\n\nCombine a realistic photoreal render with black ink technical annotations on pure white background. Include:\n- Key component labels with color-coded callout boxes\n- Internal component visibility through transparent/cutaway sections\n- Measurements, dimensions, and precise scale markers\n- Material callouts and quantities\n- Color-coded arrows for function/flow: RED (power/battery), BLUE (data/connectivity), ORANGE (thermal/processor), GREEN (sensors/haptics)\n- Simple schematics or cross-sectional diagrams where relevant\n\nPlace \"OBJECT\" title in a hand-drawn technical box (top-left corner).\n\nStyle: Black linework (technical pen/architectural), sketched but precise. Object remains clearly visible. Educational museum-exhibit vibe. Clean composition, balanced negative space.\n\nPerspective: Isometric 3D angle—tilted to show depth, dimension, and internal architecture dramatically. Like a professional product teardown or engineering manual.\n\nColors: ~10-15% accent density. Black dominant. White background.\n\nOutput: 1080x1080, ultra-crisp, social-feed optimized.",
+    "promptPreview": "Create a technical infographic of [OBJECT] with a 45-degree isometric 3D perspective showing the device slightly tilted to reveal depth and dimension. Combine a realistic photoreal render with black ink technical annota…",
+    "source": "Community collected via @saidstetic",
+    "createdAt": "2026-07-03T20:06:05.997Z"
+  },
+  {
     "id": "100141",
     "title": "纸雕层叠城市建筑旅行海报",
     "category": "建筑与空间",
