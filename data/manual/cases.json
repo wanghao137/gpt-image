@@ -1,5 +1,32 @@
 [
   {
+    "id": "100143",
+    "title": "东京表参道城市速写旅行海报",
+    "category": "建筑与空间",
+    "styles": [
+      "Editorial",
+      "Watercolor"
+    ],
+    "scenes": [
+      "Architecture",
+      "Travel"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Illustration",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-04-case-100143-omotesando-travel-sketch.jpg",
+    "imageAlt": "东京表参道城市速写旅行海报",
+    "prompt": "Minimalist ultra-high-resolution travel sketch poster of Omotesando, Tokyo, on clean white sketchbook paper with subtle paper grain texture.\n\nStyle: refined pen drawing + loose watercolor sketch. Delicate black ink linework, airy watercolor washes, elegant urban details. Show a calm everyday Omotesando street scene — the iconic zelkova tree-lined avenue, chic boutiques and flagship stores, small stylish cafés, people walking with shopping bags, bicycles, crosswalks, low-rise modern architecture mixed with traditional touches, subtle Japanese signage (Japanese characters on shop signs), fashionable Tokyo pedestrians, soft morning light filtering through the trees.\n\nSpacious editorial composition with generous negative space.\n\nMood: calm, modern, sophisticated, poetic.\n\nTypography: \"[OMOTESANDO]\" \"Everyday Urban Rhythm\"\n\nPremium travel sketch aesthetic, minimal and stylish, ultra-realistic watercolor + ink travel journal style, ultra-high-resolution, 9:16.",
+    "promptPreview": "Minimalist ultra-high-resolution travel sketch poster of Omotesando, Tokyo, on clean white sketchbook paper with subtle paper grain texture. Style: refined pen drawing + loose watercolor sketch. Delicate black ink linew…",
+    "source": "Community collected via @kumiko_shiraki",
+    "createdAt": "2026-07-03T20:06:17.215Z"
+  },
+  {
     "id": "100142",
     "title": "等距透视产品拆解技术信息图",
     "category": "图表与信息图",
