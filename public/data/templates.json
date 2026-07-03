@@ -1085,18 +1085,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case513.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / UI / Realistic / Illustration / Tech / Commerce / Education / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #513 单色点缀旅行手账插画: Create a charming editorial travel illustration of {DESTINATION} in a simple hand-drawn doodled…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-07-03-paper-city-diorama.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Illustration / 3D Render / Editorial / Minimal / Architecture / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100141 纸雕层叠城市建筑旅行海报: Create a premium commercial-quality vertical 3:4 layered paper-cut collage illustration of [Cou…\n- #513 单色点缀旅行手账插画: Create a charming editorial travel illustration of {DESTINATION} in a simple hand-drawn doodled…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100141",
       "513",
       "511",
       "100122",
-      "100113",
-      "100106"
+      "100113"
     ]
   },
   {
@@ -1252,18 +1252,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/uploads/2026-06-27-case-100128-iso-building-diorama.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / 3D Render / Minimal / Studio / Brand / Portrait / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100128 3D 等距建筑剖面微缩模型: A clean, minimal 3D isometric diorama of a [BUILDING TYPE] section, featuring [INTERIOR / EXTER…\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n- #100105 建筑蓝图立体生长可视化: Epic 3D scene: a massive architectural blueprint of [BUILDING/STRUCTURE] pinned to a drafting t…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-07-03-paper-city-diorama.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Poster / Illustration / 3D Render / Editorial / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100141 纸雕层叠城市建筑旅行海报: Create a premium commercial-quality vertical 3:4 layered paper-cut collage illustration of [Cou…\n- #100128 3D 等距建筑剖面微缩模型: A clean, minimal 3D isometric diorama of a [BUILDING TYPE] section, featuring [INTERIOR / EXTER…\n- #100122 等距视角地标建筑3D微缩立体模型: A miniature isometric architectural diorama of [LANDMARK NAME], accurately reflecting its real-…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100141",
       "100128",
       "100122",
       "100105",
-      "100099",
-      "100095"
+      "100099"
     ]
   },
   {
