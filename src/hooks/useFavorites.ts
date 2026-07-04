@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { parseFavoriteIds } from "./favorites-core.mjs";
 
 const KEY = "gpt-image-gallery:favorites:v1";
 
@@ -6,7 +7,7 @@ function read(): Set<string> {
   if (typeof window === "undefined") return new Set();
   try {
     const raw = window.localStorage.getItem(KEY);
-    return new Set(raw ? (JSON.parse(raw) as string[]) : []);
+    return parseFavoriteIds(raw);
   } catch {
     return new Set();
   }

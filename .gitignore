@@ -35,4 +35,13 @@ node_modules/.image-cache/
 .omx/
 test-results/
 
+# Local Python/browser automation environments and QA scratch output.
+/Include/
+/Lib/
+/output/
+/test-shots/
+/work/
+/scripts/pip*.exe
+/scripts/playwright.exe
+
 .env.local

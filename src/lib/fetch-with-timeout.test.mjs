@@ -7,14 +7,21 @@ import assert from "node:assert/strict";
 async function fetchWithTimeout(fetchImpl, input, { timeoutMs = 10000, signal } = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let abortListener;
   if (signal) {
     if (signal.aborted) controller.abort();
-    else signal.addEventListener("abort", () => controller.abort(), { once: true });
+    else {
+      abortListener = () => controller.abort();
+      signal.addEventListener("abort", abortListener, { once: true });
+    }
   }
   try {
     return await fetchImpl(input, { signal: controller.signal });
   } finally {
     clearTimeout(timer);
+    if (signal && abortListener) {
+      signal.removeEventListener("abort", abortListener);
+    }
   }
 }
 
@@ -53,4 +60,29 @@ test("an external aborted signal aborts immediately", async () => {
     () => fetchWithTimeout(hangingFetch, "http://x", { timeoutMs: 5000, signal: ctrl.signal }),
     (err) => err.name === "AbortError",
   );
+});
+
+test("removes external abort listener after the request settles", async () => {
+  let added = 0;
+  let removed = 0;
+  let registeredListener;
+  const signal = {
+    aborted: false,
+    addEventListener(type, listener) {
+      assert.equal(type, "abort");
+      added += 1;
+      registeredListener = listener;
+    },
+    removeEventListener(type, listener) {
+      assert.equal(type, "abort");
+      if (listener === registeredListener) removed += 1;
+    },
+  };
+  const fastFetch = async () => ({ ok: true, status: 200 });
+
+  const res = await fetchWithTimeout(fastFetch, "http://x", { timeoutMs: 1000, signal });
+
+  assert.equal(res.ok, true);
+  assert.equal(added, 1);
+  assert.equal(removed, 1);
 });

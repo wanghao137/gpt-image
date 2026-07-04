@@ -5,5 +5,13 @@
 dist
 node_modules
 test-results
+.qa-report
+Include
+Lib
+output
+test-shots
+work
+scripts/pip*.exe
+scripts/playwright.exe
 *.local
 *.zip

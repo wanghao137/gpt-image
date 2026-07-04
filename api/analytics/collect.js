@@ -17,7 +17,10 @@ function sendJson(res, status, payload) {
 
 async function readJsonBody(req) {
   if (req.body != null) {
-    if (typeof req.body === "string") return JSON.parse(req.body || "{}");
+    if (typeof req.body === "string") {
+      if (Buffer.byteLength(req.body) > MAX_BODY_BYTES) throw new Error("BODY_TOO_LARGE");
+      return JSON.parse(req.body || "{}");
+    }
     return req.body;
   }
   const chunks = [];

@@ -22,17 +22,24 @@ export async function fetchWithTimeout(
 ): Promise<Response> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let abortListener: (() => void) | undefined;
 
   // If the caller passed their own signal, abort our controller when it fires
   // so external cancellation still works alongside the timeout.
   if (signal) {
     if (signal.aborted) controller.abort();
-    else signal.addEventListener("abort", () => controller.abort(), { once: true });
+    else {
+      abortListener = () => controller.abort();
+      signal.addEventListener("abort", abortListener, { once: true });
+    }
   }
 
   try {
     return await fetch(input, { ...init, signal: controller.signal });
   } finally {
     clearTimeout(timer);
+    if (signal && abortListener) {
+      signal.removeEventListener("abort", abortListener);
+    }
   }
 }
