@@ -1,5 +1,32 @@
 [
   {
+    "id": "100144",
+    "title": "概念产品包装设计：结构化卖点表达",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-05-case-100144-concept-packaging.jpg",
+    "imageAlt": "概念产品包装设计：结构化卖点表达",
+    "prompt": "Create a premium conceptual packaging design for [Product Name], a [Product Type] by [Brand Name]. Build the idea around one strong product truth: [Product Truth], and one human truth: [Human Truth]. Turn that into one instantly understandable packaging concept expressed through the packaging itself — using structure, transparent windows, illustration, die-cuts, folds, shape, or product interaction. The result should feel clever, simple, shelf-stopping, emotionally appealing, and realistically manufacturable. Use [Packaging Type] format, [Color Palette], [Style Direction], clean typography, strong hierarchy, realistic materials, and high-end commercial product-render quality. Avoid clutter, generic decoration, confusing mechanisms, and overdesigned luxury. Show the final pack as a clean hero product shot on a simple background.",
+    "promptPreview": "Create a premium conceptual packaging design for [Product Name], a [Product Type] by [Brand Name]. Build the idea around one strong product truth: [Product Truth], and one human truth: [Human Truth]. Turn that into one …",
+    "source": "Community collected via @jey_jey_Japa",
+    "createdAt": "2026-07-04T20:04:50.431Z"
+  },
+  {
     "id": "100143",
     "title": "东京表参道城市速写旅行海报",
     "category": "建筑与空间",
