@@ -1,5 +1,30 @@
 [
   {
+    "id": "100145",
+    "title": "折纸风格人物肖像：极简收藏艺术品",
+    "category": "角色与人物",
+    "styles": [
+      "Realistic",
+      "Minimal"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Minimal",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-05-case-100145-origami-portrait.jpg",
+    "imageAlt": "折纸风格人物肖像：极简收藏艺术品",
+    "prompt": "A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp, clean edges and a realistic paper texture. Intricate geometric folds capture the character's iconic shape and expressions. Use the same color palette as the reference photo (no black). Place it on a clean studio surface with soft, natural shadows. A minimalist collectible art aesthetic; ultra-photorealistic; 8k, 1080x1080 square.",
+    "promptPreview": "A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp, clean edges and a realistic paper texture. Intricate geometric folds capture the character's iconic shape and expressions. …",
+    "source": "Community collected via @YaseenK7212",
+    "createdAt": "2026-07-04T20:04:53.817Z"
+  },
+  {
     "id": "100144",
     "title": "概念产品包装设计：结构化卖点表达",
     "category": "产品与电商",
