@@ -1085,18 +1085,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-07-03-paper-city-diorama.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Illustration / 3D Render / Editorial / Minimal / Architecture / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100141 纸雕层叠城市建筑旅行海报: Create a premium commercial-quality vertical 3:4 layered paper-cut collage illustration of [Cou…\n- #513 单色点缀旅行手账插画: Create a charming editorial travel illustration of {DESTINATION} in a simple hand-drawn doodled…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-07-04-case-100143-omotesando-travel-sketch.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Illustration / Editorial / Cinematic / Minimal / Watercolor / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100143 东京表参道城市速写旅行海报: Minimalist ultra-high-resolution travel sketch poster of Omotesando, Tokyo, on clean white sket…\n- #100141 纸雕层叠城市建筑旅行海报: Create a premium commercial-quality vertical 3:4 layered paper-cut collage illustration of [Cou…\n- #513 单色点缀旅行手账插画: Create a charming editorial travel illustration of {DESTINATION} in a simple hand-drawn doodled…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100143",
       "100141",
       "513",
       "511",
-      "100122",
-      "100113"
+      "100122"
     ]
   },
   {
