@@ -1037,18 +1037,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-07-02-case-100139-diorama-brand-ad.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Cinematic / Poster / Realistic / Editorial / Minimal / Studio / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100139 电影感微缩橱窗超现实品牌广告场景: ACT AS: A world-class luxury commercial art director, surreal product photographer, cinematic s…\n- #100131 黑场悬浮金属质感高端产品摄影: { \"image_generation_request\": { \"subject\": { \"placeholder\": \"[INSERT PRODUCT HERE]\", \"position\"…\n- #100130 工业包装设计三视图技术参考图: Using the attached image, create an illustration sheet of professional industrial design packag…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-07-05-case-100144-concept-packaging.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Illustration / 3D Render / Minimal / Cinematic / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100144 概念产品包装设计：结构化卖点表达: Create a premium conceptual packaging design for [Product Name], a [Product Type] by [Brand Nam…\n- #100139 电影感微缩橱窗超现实品牌广告场景: ACT AS: A world-class luxury commercial art director, surreal product photographer, cinematic s…\n- #100131 黑场悬浮金属质感高端产品摄影: { \"image_generation_request\": { \"subject\": { \"placeholder\": \"[INSERT PRODUCT HERE]\", \"position\"…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100144",
       "100139",
       "100131",
       "100130",
-      "100126",
-      "100090"
+      "100126"
     ]
   },
   {
@@ -1061,18 +1061,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-07-02-case-100138-zen-editorial-cover.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Poster / Cinematic / Minimal / Education / 3D / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #514 硬边现代艺术人像: A striking piece of hard-edge modern art on matte archival paper, with visible screen-printing …\n- #509 涂鸦拉衣奔跑棚拍: A playful, high-key studio portrait of [subject] running joyfully across a seamless light gray …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-07-05-case-100145-origami-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / Minimal / Studio / Editorial / Poster / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100145 折纸风格人物肖像：极简收藏艺术品: A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp,…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #514 硬边现代艺术人像: A striking piece of hard-edge modern art on matte archival paper, with visible screen-printing …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100145",
       "100138",
       "514",
       "509",
-      "100136",
-      "100132"
+      "100136"
     ]
   },
   {
