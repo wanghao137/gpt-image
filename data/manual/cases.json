@@ -1,5 +1,32 @@
 [
   {
+    "id": "100147",
+    "title": "奢华高定高跟鞋时尚广告海报",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-100147-luxury-heels-fashion-ad.jpg",
+    "imageAlt": "奢华高定高跟鞋时尚广告海报",
+    "prompt": "Create an ultra-premium luxury fashion advertisement poster for designer high heels inspired by Vogue Arabia, Paris Fashion Week, and elite luxury editorials. Feature elegant glossy heels inside a cinematic luxury studio with reflective marble flooring, dramatic spotlight lighting, soft smoke atmosphere, and photorealistic reflections.\n\nAdd a modern luxury specification layout vertically on the left side with elegant typography and minimalist icons. Include a bold powerful quote and a large luxury brand logo with metallic chrome or gold reflections.\n\nUse a rich cinematic color palette of black, gold, silver, emerald green, burgundy, or monochrome tones with glossy reflections, floating particles, velvet textures, and premium editorial composition.\n\nStyle should feel hyper-realistic, dark luxurious, modern, cinematic, ultra-detailed, and professionally designed like a billion-dollar fashion campaign and luxury billboard advertisement, 8K masterpiece.",
+    "promptPreview": "Create an ultra-premium luxury fashion advertisement poster for designer high heels inspired by Vogue Arabia, Paris Fashion Week, and elite luxury editorials. Feature elegant glossy heels inside a cinematic luxury studi…",
+    "source": "Community collected via @obsidian_fr1",
+    "createdAt": "2026-07-05T20:08:31.468Z"
+  },
+  {
     "id": "100146",
     "title": "速写本中浮现的地标微缩立体模型",
     "category": "建筑与空间",
