@@ -1,5 +1,32 @@
 [
   {
+    "id": "100146",
+    "title": "速写本中浮现的地标微缩立体模型",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Architecture",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-100146-sketchbook-landmark-diorama.jpg",
+    "imageAlt": "速写本中浮现的地标微缩立体模型",
+    "prompt": "Create a hyper-realistic 3D miniature diorama of [LANDMARK OR LOCATION] rising magically from an open sketchbook placed on a detailed wooden desk. Tilted 45-degree isometric aerial view captured with professional tilt-shift macro photography, emphasizing the appearance of a handcrafted physical scale model.\n\nThe scene accurately recreates [PRIMARY LANDMARK FEATURES], surrounded by [SURROUNDING ENVIRONMENT]. Include tiny miniature people engaged in [HUMAN ACTIVITIES], miniature vehicles moving through [TRANSPORT ELEMENTS], and detailed urban or natural infrastructure reflecting the character of the location.\n\nLighting is [LIGHTING CONDITION], featuring [LIGHTING DETAILS] that create cinematic depth, realistic shadows, glowing highlights, and strong visual contrast. The environment seamlessly transitions from the fully detailed miniature world into the clean white sketchbook paper, creating a magical emergence effect.\n\nMaterials should appear physically constructed with realistic textures, micro-details, architectural accuracy, scale-model craftsmanship, and premium visual fidelity. Highly detailed vegetation, roads, water features, signage, and environmental elements should reinforce realism.\n\nUltra-detailed, hyper-realistic physical model appearance, depth-rich composition, realistic atmospheric perspective, professional architectural visualization, 8K resolution, masterpiece quality, intricate miniature craftsmanship, sharp focus on landmark details, aspect ratio 4:5.",
+    "promptPreview": "Create a hyper-realistic 3D miniature diorama of [LANDMARK OR LOCATION] rising magically from an open sketchbook placed on a detailed wooden desk. Tilted 45-degree isometric aerial view captured with professional tilt-s…",
+    "source": "Community collected via @yourPlugAI",
+    "createdAt": "2026-07-05T20:08:19.917Z"
+  },
+  {
     "id": "100145",
     "title": "折纸风格人物肖像：极简收藏艺术品",
     "category": "角色与人物",
