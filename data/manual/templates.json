@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-recipe-infographic-card",
+    "title": "极简现代食谱信息图卡片",
+    "category": "文档与出版",
+    "tags": [
+      "infographic",
+      "recipe",
+      "editorial",
+      "food"
+    ],
+    "description": "生成斯堪的纳维亚编辑风格的食谱信息图，含食材标注与步骤分解",
+    "cover": "/uploads/template-derived-recipe-infographic-card.jpg",
+    "prompt": "{argument name=\"菜品名称\" default=\"番茄意大利面\"}\n\n{\n  \"style\": \"Minimalist modern recipe infographic\",\n  \"visual_aesthetic\": {\n    \"photography_style\": \"Top-down / 3-quarter angle food photography\",\n    \"design_language\": \"Scandinavian, editorial cookbook layout\",\n    \"background\": \"Soft neutral beige / cream\",\n    \"lighting\": \"Soft diffused light with gentle shadows\",\n    \"detail_level\": \"Ultra-realistic, ultra-sharp, 8K resolution\"\n  },\n  \"layout\": {\n    \"composition\": \"Finished dish centered on a white ceramic plate or bowl\",\n    \"elements\": [\n      \"Floating ingredient icons in soft circular frames\",\n      \"Clean vector-style ingredient illustrations\",\n      \"Clear ingredient labels with quantities\",\n      \"Curved step-by-step flow with numbered cooking icons\"\n    ],\n    \"typography\": \"High readability, modern sans-serif\",\n    \"spacing\": \"Balanced, airy, uncluttered\"\n  },\n  \"recipes\": [\n    {\n      \"dish_name\": \"Traditional Polish Pierogi\",\n      \"dish_presentation\": \"Golden boiled dumplings filled with potato and cheese, lightly buttered and garnished with fresh chives\",\n      \"ingredients\": [\n        { \"name\": \"All-purpose flour\", \"quantity\": \"2.5 cups\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"3 medium\" },\n        { \"name\": \"Farmer cheese\", \"quantity\": \"200g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Butter\", \"quantity\": \"40g\" },\n        { \"name\": \"Salt\", \"quantity\": \"1 tsp\" },\n        { \"name\": \"Water\", \"quantity\": \"0.75 cups\" }\n      ],\n      \"steps\": [\n        \"Prepare dough\",\n        \"Cook and mash filling\",\n        \"Fill and shape pierogi\",\n        \"Boil until tender\",\n        \"Serve with butter\"\n      ],\n      \"meta\": {\n        \"calories\": \"270 kcal / serving\",\n        \"time\": \"70 min\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Vinaigrette Salad\",\n      \"dish_presentation\": \"Colorful diced vegetables mixed with light dressing, neatly molded and topped with fresh herbs\",\n      \"ingredients\": [\n        { \"name\": \"Beetroot\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Carrots\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Pickled cucumbers\", \"quantity\": \"2 pcs\" },\n        { \"name\": \"Green peas\", \"quantity\": \"1 cup\" },\n        { \"name\": \"Sunflower oil\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Fresh dill\", \"quantity\": \"1 bunch\" }\n      ],\n      \"steps\": [\n        \"Boil vegetables\",\n        \"Cool and dice\",\n        \"Mix ingredients\",\n        \"Dress salad\",\n        \"Chill and serve\"\n      ],\n      \"meta\": {\n        \"calories\": \"180 kcal / serving\",\n        \"time\": \"30 min + chill\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Solyanka Soup\",\n      \"dish_presentation\": \"Rich hearty soup with sliced meats, olives, lemon, and herbs, served steaming in a ceramic bowl\",\n      \"ingredients\": [\n        { \"name\": \"Mixed meats\", \"quantity\": \"400g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 large\" },\n        { \"name\": \"Pickles\", \"quantity\": \"3 pcs\" },\n        { \"name\": \"Tomato paste\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Olives\", \"quantity\": \"1/2 cup\" },\n        { \"name\": \"Garlic\", \"quantity\": \"2 cloves\" },\n        { \"name\": \"Bay leaf\", \"quantity\": \"1 pc\" },\n        { \"name\": \"Lemon\", \"quantity\": \"For serving\" }\n      ],\n      \"steps\": [\n        \"Simmer broth\",\n        \"Sauté aromatics\",\n        \"Add meats and pickles\",\n        \"Season and simmer\",\n        \"Serve with lemon\"\n      ],\n      \"meta\": {\n        \"calories\": \"320 kcal / serving\",\n        \"time\": \"90 min\",\n        \"servings\": 5\n      }\n    }\n  ]\n}",
+    "useWhen": "需要制作精美食谱信息图、美食编辑排版卡片时使用",
+    "createdAt": "2026-07-06T12:17:54.396Z",
+    "sourceType": "derived-case",
+    "sourceLabel": "@john_my07 GPT-Image-2 食谱信息图 (217 likes)"
+  },
+  {
     "id": "derived-restaurant-vi-matrix",
     "title": "餐饮品牌触点矩阵VI展示板",
     "category": "品牌与标志",
