@@ -1,5 +1,32 @@
 [
   {
+    "id": "100151",
+    "title": "高端产品Campaign英雄镜头海报",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-07-case-100151-premium-product-campaign.jpg",
+    "imageAlt": "高端产品Campaign英雄镜头海报",
+    "prompt": "Create a photorealistic premium product campaign poster in a 4:5 vertical aspect ratio.\n\nProduct: [PRODUCT NAME]\nBrand style: [BRAND / PREMIUM / LUXURY / TECH / BEAUTY / FOOD / DRINK]\nMain subject: A confident model holding or presenting the product close to the camera, with the product in sharp focus and the model slightly behind it. Use a strong perspective angle so the product feels powerful, premium, and hero-like.\n\nBackground:\nUse a clean studio background with a large rounded rectangle panel behind the subject. The panel color should match the product theme: [COLOR THEME]. Add subtle oversized typography or abstract product-related shapes in the background, softly blended and partially hidden behind the subject.\n\nLighting:\nCinematic softbox lighting, realistic shadows, premium commercial photography, glossy highlights on the product, clean reflections, sharp details, high-end advertising look.\n\nComposition:\nTop-left: small minimalist brand logo placeholder.\nTop-right: short tagline: \"[TAGLINE]\"\nMiddle-left: small glassmorphism label with product name: \"[PRODUCT NAME]\"\nBottom-right: short product description:\n\"[ONE-LINE BENEFIT 1]\n[ONE-LINE BENEFIT 2]\n[ONE-LINE BENEFIT 3]\"\n\nBottom section:\nAdd four clean feature cards with minimal black icons and short labels:\n1. [FEATURE 1]\n2. [FEATURE 2]\n3. [FEATURE 3]\n4. [FEATURE 4]\n\nStyle:\nPremium campaign poster, realistic product photography, minimalistic layout, modern typography, clean negative space, luxury branding, high detail, cinematic advertising, professional commercial poster, ultra-realistic, sharp focus, elegant shadows.\n\nAvoid:\nmessy text, extra logos, distorted product, wrong spelling, low-quality graphics, cartoon style, over-saturated colors.",
+    "promptPreview": "Create a photorealistic premium product campaign poster in a 4:5 vertical aspect ratio. Product: [PRODUCT NAME] Brand style: [BRAND / PREMIUM / LUXURY / TECH / BEAUTY / FOOD / DRINK] Main subject: A confident model hold…",
+    "source": "Community collected via @arghzq",
+    "createdAt": "2026-07-06T20:02:54.341Z"
+  },
+  {
     "id": "100150",
     "title": "照片融合蜡笔插画的北欧风生活美学海报",
     "category": "插画与艺术",
