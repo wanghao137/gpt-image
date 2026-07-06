@@ -1,5 +1,32 @@
 [
   {
+    "id": "100148",
+    "title": "趣味拟物产品包装盒设计",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Playful"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-packaging-azed.jpg",
+    "imageAlt": "趣味拟物产品包装盒设计",
+    "prompt": "Playful designer packaging for [product name], creative box shaped like the product, integrated cartoon face on the front panel, oversized die-cut window revealing the real contents as part of the character’s expression, smooth matte cardboard material, bold flat graphic design, modern minimalist branding, limited pastel color palette, rounded friendly shapes, clean typography, high-end 3D packaging mockup render, soft studio lighting, pure white background, subtle realistic contact shadow beneath, ultra-detailed, retail-ready presentation, 1:1 aspect ratio.",
+    "promptPreview": "Playful designer packaging for [product name], creative box shaped like the product, integrated cartoon face on the front panel, oversized die-cut window revealing the real contents as part of the character’s expression…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-07-06T12:17:37.319Z"
+  },
+  {
     "id": "100147",
     "title": "奢华高定高跟鞋时尚广告海报",
     "category": "产品与电商",
