@@ -1067,18 +1067,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case511.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / UI / Illustration / Tech / Commerce / Travel / Studio / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n- #100116 复古报纸头版人物头条设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-07-08-case-sindhuk-newspaper-room-photo.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Cinematic / Minimal / Portrait / UI / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100153 报纸全贴房间时尚摄影: Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camer…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100153",
       "511",
       "100126",
       "100116",
-      "100096",
-      "100093"
+      "100096"
     ]
   },
   {
@@ -1115,18 +1115,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-07-07-case-100150-crayon-lifestyle-poster.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Poster / Editorial / Tech / Lifestyle / Realistic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100150 照片融合蜡笔插画的北欧风生活美学海报: 【テーマ】 {ここにテーマを入力} 【写真】 {ここに使用する写真の内容を簡潔に入力} （例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など） 【タイトル】 {画像内に入れるタイトル…\n- #100145 折纸风格人物肖像：极简收藏艺术品: A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp,…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-07-08-case-synthesarah-underground-club-poster.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Poster / Realistic / Social / Brand / Editorial / Music / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100152 地下俱乐部风格音乐海报: Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition f…\n- #100150 照片融合蜡笔插画的北欧风生活美学海报: 【テーマ】 {ここにテーマを入力} 【写真】 {ここに使用する写真の内容を簡潔に入力} （例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など） 【タイトル】 {画像内に入れるタイトル…\n- #100145 折纸风格人物肖像：极简收藏艺术品: A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp,…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100152",
       "100150",
       "100145",
       "100138",
-      "514",
-      "509"
+      "514"
     ]
   },
   {
