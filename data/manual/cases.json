@@ -1,5 +1,30 @@
 [
   {
+    "id": "100153",
+    "title": "报纸全贴房间时尚摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-08-case-sindhuk-newspaper-room-photo.jpg",
+    "imageAlt": "报纸全贴房间时尚摄影",
+    "prompt": "Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camera, deep focus, and visible barrel distortion with curved room edges. A small rectangular room fully covered in real newspaper pages—walls, floor, and ceiling—showing crisp text, ink bleed, and paper texture.\nA woman sits cross-legged on the floor, hands pressed to her cheeks, mouth in a shocked \"O.\" Long wavy hair, natural skin texture with visible pores and subtle freckles. She wears red octagonal sunglasses, a black-and-white checkered harlequin jacket, vibrant red cargo pants, and matching chunky sneakers.\nSoft, diffuse frontal lighting, minimal shadows. Cinematic high-contrast color grade, mostly black and white with red as the only saturated accent, ultra-detailed, photorealistic fashion photography.",
+    "promptPreview": "Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camera, deep focus, and visible barrel distortion with curved room edges. A small rectangular room fully covered in real newspape…",
+    "source": "Community collected via @SindhuK66662473",
+    "createdAt": "2026-07-07T20:04:48.148Z"
+  },
+  {
     "id": "100152",
     "title": "地下俱乐部风格音乐海报",
     "category": "海报与排版",
