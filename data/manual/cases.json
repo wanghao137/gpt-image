@@ -1,5 +1,30 @@
 [
   {
+    "id": "100152",
+    "title": "地下俱乐部风格音乐海报",
+    "category": "海报与排版",
+    "styles": [
+      "Poster"
+    ],
+    "scenes": [
+      "Music"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Social",
+      "Brand",
+      "Editorial",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-08-case-synthesarah-underground-club-poster.jpg",
+    "imageAlt": "地下俱乐部风格音乐海报",
+    "prompt": "Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition features a monochrome portrait of a young woman from the chest up, shot from a slightly low angle for attitude and power. She wears large over-ear headphones and reflective round sunglasses with warm amber-gold lenses that stand out vividly against the black-and-white portrait. One hand is raised near her head, the other near her chin, creating a dynamic, expressive pose associated with music immersion. Behind her head is a large flat golden-yellow circular shape, like a spotlight, creating a strong focal point and visual contrast. The background is deep black with subtle grunge textures, dust, scratches, and poster-wear imperfections, giving it a raw, printed-flyer feel. Use 4:5 aspect ratio.",
+    "promptPreview": "Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition features a monochrome portrait of a young woman from the chest up, shot from a slightly low angle for attitude and power. She…",
+    "source": "Community collected via @SyntheSarah",
+    "createdAt": "2026-07-07T20:04:44.201Z"
+  },
+  {
     "id": "100151",
     "title": "高端产品Campaign英雄镜头海报",
     "category": "产品与电商",
