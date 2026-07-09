@@ -1,5 +1,32 @@
 [
   {
+    "id": "100157",
+    "title": "复古邮票收藏拼贴艺术海报",
+    "category": "历史与古典",
+    "styles": [
+      "Editorial",
+      "Minimal"
+    ],
+    "scenes": [
+      "Brand",
+      "Education"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-07-10-case-100157-vintage-stamp-collage.jpg",
+    "imageAlt": "复古邮票收藏拼贴艺术海报",
+    "prompt": "# PREMIUM VINTAGE STAMP COLLAGE GENERATOR\n# Museum-Quality Editorial Travel Collection\n\nCreate a premium vertical editorial artwork that tells the complete story of a city or country through a beautiful scattered collection of commemorative postage stamps.\n\nInstead of arranging the stamps in a perfect grid, compose them as if they were carefully scattered across an archival collector's desk. The layout must feel spontaneous, elegant, and naturally balanced, never messy. Every stamp should invite viewers to discover another piece of the destination's identity.\n\nVISUAL ANALYSIS:\nStudy the complete identity of the selected location. Automatically identify its most representative: historic landmarks, modern architecture, traditional architecture, religious landmarks, local cuisine, traditional drinks, historic personalities, cultural icons, native animals, native birds, native plants, national flowers, sports, festivals, traditional clothing, handicrafts, transportation, daily life, local products, mountains, rivers, desert, coastline, natural scenery, cultural symbols. Only include authentic elements. Avoid generic tourism clichés.\n\nSTAMP COLLECTION:\nCreate between 18 and 30 unique commemorative postage stamps. Each stamp should illustrate one unique subject. Every stamp must feature elegant perforated edges, vintage postal denomination, issue number, country name, fine engraved border, beautiful illustration, authentic philatelic aesthetics. No duplicate illustrations.\n\nCOMPOSITION:\nArrange the stamps in a naturally scattered composition. Some stamps should slightly overlap, rotate between -25 and +25 degrees, appear partially stacked, lean against one another, create organic visual flow. Maintain comfortable breathing space. Balance the entire composition without symmetry. The arrangement should resemble a real collector's desk rather than a printed sheet.\n\nEXTRA COLLECTOR DETAILS:\nEnhance realism with elegant philatelic accessories such as postal cancellation marks, air mail labels, vintage postal seals, travel stamps, collector labels, paper notes, small archive tags, vintage envelopes, passport stamps, travel memory labels, subtle handwritten notes, old postal markings. Use these elements sparingly to enrich the storytelling.\n\nART STYLE:\nPremium Editorial Illustration, Flat Vector, Vintage Philatelic Design, Mid-Century Modern, Swiss Graphic Design, Minimal Geometric Illustration, Collectible Travel Artwork, Museum Collection Quality, Luxury Editorial Poster.\n\nCOLOR PALETTE:\nUse approximately 6 to 10 harmonious colors inspired by the selected location. Flat colors only. Soft vintage printing tones. No gradients. No glossy effects. Subtle aged paper feeling.\n\nBACKGROUND:\nWarm archival paper. Soft paper grain. Vintage postcard texture. Minimal postal marks. Elegant negative space.\n\nOUTPUT:\nUltra-high resolution, Portrait orientation (9:16), Museum-quality, Collectible artwork, Premium editorial illustration, Flat vector appearance, Perfect visual balance, Natural scattered composition, Elegant typography, Print-ready.\n\nThe final artwork should feel like a rare vintage stamp collection carefully scattered across an archivist's table, inviting viewers to explore every individual stamp and discover the complete visual identity of the selected city or country.",
+    "promptPreview": "# PREMIUM VINTAGE STAMP COLLAGE GENERATOR # Museum-Quality Editorial Travel Collection Create a premium vertical editorial artwork that tells the complete story of a city or country through a beautiful scattered collect…",
+    "source": "Community collected via @Faisl_Alfaisal",
+    "createdAt": "2026-07-09T20:06:56.945Z"
+  },
+  {
     "id": "100156",
     "title": "3×3产品展示故事板网格设计",
     "category": "品牌与标志",
