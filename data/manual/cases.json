@@ -1,5 +1,30 @@
 [
   {
+    "id": "100159",
+    "title": "超现实前卫拼贴艺术肖像海报",
+    "category": "插画与艺术",
+    "styles": [
+      "Collage"
+    ],
+    "scenes": [
+      "Art"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Minimal",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-11-case-100159-avant-garde-collage.jpg",
+    "imageAlt": "超现实前卫拼贴艺术肖像海报",
+    "prompt": "[PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style of modern mixed media editorial illustration. The subject is composed of high-contrast black and white stippled halftone textures blended with vibrant neo-expressionist elements. Overlay details include bold geometric shapes, cyan and yellow risograph patterns, abstract graffiti scribbles, and digital glitch artifacts. A thick strip of pink or orange tape or a color block obscures part of the form for a deconstructed look. The texture is grainy, mimicking vintage poster paper. The composition is strictly centered with a very wide, clean, off-white cream paper background, ensuring the entire subject is fully contained within the frame with generous negative space on all sides, zero cropping, minimal chic aesthetic.",
+    "promptPreview": "[PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style of modern mixed media editorial illustration. The subject is composed of high-contrast black and white stippled halftone tex…",
+    "source": "Community collected via @youraipulse",
+    "createdAt": "2026-07-10T20:04:16.885Z"
+  },
+  {
     "id": "100158",
     "title": "奢华极繁主义天体杂志封面设计",
     "category": "文档与出版",
