@@ -1115,18 +1115,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-07-08-case-synthesarah-underground-club-poster.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Poster / Realistic / Social / Brand / Editorial / Music / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100152 地下俱乐部风格音乐海报: Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition f…\n- #100150 照片融合蜡笔插画的北欧风生活美学海报: 【テーマ】 {ここにテーマを入力} 【写真】 {ここに使用する写真の内容を簡潔に入力} （例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など） 【タイトル】 {画像内に入れるタイトル…\n- #100145 折纸风格人物肖像：极简收藏艺术品: A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp,…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-07-11-case-100159-avant-garde-collage.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Poster / Editorial / Minimal / Brand / Collage / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100159 超现实前卫拼贴艺术肖像海报: [PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style …\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100152 地下俱乐部风格音乐海报: Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition f…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100159",
+      "100158",
       "100152",
       "100150",
-      "100145",
-      "100138",
-      "514"
+      "100145"
     ]
   },
   {
@@ -1330,18 +1330,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-07-02-case-100138-zen-editorial-cover.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Cinematic / Minimal / Education / Portrait / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #100134 极简半色调选框时尚杂志海报: 生成一张竖版 9:16 的editorial 杂志海报。 画面逻辑： 这是一张极简时尚杂志海报。整张画面除胸部选框内部以外，必须是纯黑、白、灰的高反差 halftone 印刷效果。不要在框外…\n- #100127 顶级图书品牌联名编辑设计海报: Assouline × Timothée Chalamet — \"L'EDITION\" FORMAT: Ultra-Premium Book SMM Poster | 4:5 | Insta…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-07-11-case-100158-lunar-cosmos-magazine.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Illustration / Cinematic / Education / Commerce / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #100134 极简半色调选框时尚杂志海报: 生成一张竖版 9:16 的editorial 杂志海报。 画面逻辑： 这是一张极简时尚杂志海报。整张画面除胸部选框内部以外，必须是纯黑、白、灰的高反差 halftone 印刷效果。不要在框外…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100158",
       "100138",
       "100134",
       "100127",
-      "100116",
-      "100101"
+      "100116"
     ]
   }
 ]
