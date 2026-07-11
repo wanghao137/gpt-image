@@ -1,5 +1,31 @@
 [
   {
+    "id": "100161",
+    "title": "笔记本涂鸦手绘插画风格",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait",
+      "Art"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-12-case-notebook-doodle-art.jpg",
+    "imageAlt": "笔记本涂鸦手绘插画风格",
+    "prompt": "Use the uploaded image as an img-to-img reference, preserving full facial likeness and identity, and create artwork that appears drawn on lined notebook paper with ballpoint pen, ink, and neon markers, showing realistic ink absorption, layered pressure, smudges, stains, wrinkles, and worn edges. The style blends chaotic doodle art, comic annotations, and rough sketches with thick-thin line variation, loose strokes, messy marks, dynamic hatching, and an energetic, spontaneous, slightly chaotic mood, rendered in high detail at 4k with bold outer glow lighting and vibrant contrast.\n\nUse a portrait composition with a thick border around the head, surrounding the subject with arrows, stars, underlines, scribbles, speech bubbles, overlapping notes, checkboxes, playful icons (lightning bolts, lightbulbs, music notes, a small self-caricature), and handwritten comic sound effects.\n\nApply one style variation: Pop Bold (cyan and magenta), Neon Highlight (neon pink and yellow highlighter look), Electric Graffiti (electric blue and neon red graffiti outlines), or Dense Sketch (blue linework with red accents, dense and alive).",
+    "promptPreview": "Use the uploaded image as an img-to-img reference, preserving full facial likeness and identity, and create artwork that appears drawn on lined notebook paper with ballpoint pen, ink, and neon markers, showing realistic…",
+    "source": "Community collected via @Milo_Bahi_02",
+    "createdAt": "2026-07-11T20:13:11.257Z"
+  },
+  {
     "id": "100160",
     "title": "万能商品主图广告大片Prompt",
     "category": "产品与电商",
