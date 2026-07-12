@@ -20,6 +20,47 @@
 
 ---
 
+### Task 0: Establish an ignored isolated implementation worktree
+
+**Files:**
+
+- Modify: `.gitignore`
+- Modify: `docs/superpowers/plans/2026-07-12-cautious-quality-improvements.md`
+
+**Interfaces:**
+
+- Consumes: current committed `main` and Git's linked-worktree mechanism.
+- Produces: ignored path `.worktrees/cautious-quality-20260712` on branch `codex/cautious-quality-20260712`.
+
+- [ ] **Step 1: Ignore the project-local worktree directory**
+
+Add this entry beside the other local-tool directories in `.gitignore`:
+
+```gitignore
+/.worktrees/
+```
+
+- [ ] **Step 2: Verify the directory is ignored and commit the setup**
+
+```powershell
+git check-ignore -q .worktrees
+git add -- .gitignore docs/superpowers/plans/2026-07-12-cautious-quality-improvements.md
+git diff --cached --check
+git commit -m "chore: ignore local worktrees"
+```
+
+Expected: ignore verification and commit both exit 0; no generated data is staged.
+
+- [ ] **Step 3: Create and initialize the implementation worktree**
+
+```powershell
+git worktree add .worktrees/cautious-quality-20260712 -b codex/cautious-quality-20260712
+npm ci --prefix .worktrees/cautious-quality-20260712
+npm run check --prefix .worktrees/cautious-quality-20260712
+```
+
+Expected: the linked worktree is created from the current `HEAD`, dependencies install successfully, and all baseline checks pass before production-code edits begin.
+
 ### Task 1: Batch analytics Redis commands through one validated pipeline
 
 **Files:**

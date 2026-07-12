@@ -33,6 +33,7 @@ node_modules/.image-cache/
 # Playwright MCP browser-testing scratch output.
 .playwright-mcp/
 .omx/
+/.worktrees/
 test-results/
 
 # Local Python/browser automation environments and QA scratch output.
