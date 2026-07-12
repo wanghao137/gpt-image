@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { parseFavoriteIds } from "./favorites-core.mjs";
+import { parseFavoriteIds, persistFavoriteIds } from "./favorites-core.mjs";
 
 const KEY = "gpt-image-gallery:favorites:v1";
 
@@ -43,7 +43,10 @@ export function useFavorites() {
     // Skip the write until we've hydrated from storage, so we never persist
     // the empty initial set over real data.
     if (!hydratedRef.current) return;
-    window.localStorage.setItem(KEY, JSON.stringify(Array.from(ids)));
+    persistFavoriteIds(
+      (value) => window.localStorage.setItem(KEY, value),
+      ids,
+    );
   }, [ids]);
 
   const toggle = useCallback((id: string) => {

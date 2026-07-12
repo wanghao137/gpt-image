@@ -20,3 +20,12 @@ export function parseFavoriteIds(raw) {
   }
   return new Set(ids);
 }
+
+export function persistFavoriteIds(write, ids) {
+  try {
+    write(JSON.stringify(Array.from(ids)));
+    return true;
+  } catch {
+    return false;
+  }
+}

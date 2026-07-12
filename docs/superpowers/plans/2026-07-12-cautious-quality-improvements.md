@@ -425,6 +425,7 @@ git commit -m "fix(analytics): enforce parsed body size limit"
 **Files:**
 
 - Modify: `src/hooks/favorites-core.mjs:1-22`
+- Modify: `src/hooks/favorites-core.d.mts:1`
 - Modify: `src/hooks/favorites-core.test.mjs:1-18`
 - Modify: `src/hooks/useFavorites.ts:1-47`
 
@@ -483,6 +484,15 @@ export function persistFavoriteIds(write, ids) {
     return false;
   }
 }
+```
+
+Add the matching TypeScript declaration to `favorites-core.d.mts`:
+
+```ts
+export function persistFavoriteIds(
+  write: (value: string) => void,
+  ids: Iterable<string>,
+): boolean;
 ```
 
 Update the hook import:
