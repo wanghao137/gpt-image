@@ -25,3 +25,13 @@ test("analytics collect rejects oversized parser-provided string bodies", async 
   assert.equal(res.statusCode, 413);
   assert.equal(JSON.parse(res.body).error.code, "BODY_TOO_LARGE");
 });
+
+test("analytics collect rejects oversized parser-provided object bodies", async () => {
+  const res = createResponse();
+  const oversizedBody = { path: "/", extra: "x".repeat(16 * 1024) };
+
+  await collectHandler({ method: "POST", headers: {}, body: oversizedBody }, res);
+
+  assert.equal(res.statusCode, 413);
+  assert.equal(JSON.parse(res.body).error.code, "BODY_TOO_LARGE");
+});

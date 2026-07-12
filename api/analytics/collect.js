@@ -15,10 +15,17 @@ function sendJson(res, status, payload) {
   res.end(JSON.stringify(payload));
 }
 
+function assertBodyWithinLimit(body) {
+  const serialized = typeof body === "string" ? body : JSON.stringify(body);
+  if (Buffer.byteLength(serialized || "") > MAX_BODY_BYTES) {
+    throw new Error("BODY_TOO_LARGE");
+  }
+}
+
 async function readJsonBody(req) {
   if (req.body != null) {
+    assertBodyWithinLimit(req.body);
     if (typeof req.body === "string") {
-      if (Buffer.byteLength(req.body) > MAX_BODY_BYTES) throw new Error("BODY_TOO_LARGE");
       return JSON.parse(req.body || "{}");
     }
     return req.body;
