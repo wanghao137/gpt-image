@@ -209,20 +209,40 @@ export function analyticsKeys(prefix, date) {
   };
 }
 
-async function redisCommand(config, command, fetchImpl = fetch) {
-  const response = await fetchImpl(config.kvUrl, {
+async function redisPipeline(config, commands, fetchImpl = fetch) {
+  const response = await fetchImpl(`${config.kvUrl}/pipeline`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${config.kvToken}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(command),
+    body: JSON.stringify(commands),
   });
-  const payload = await response.json().catch(() => ({}));
-  if (!response.ok || payload.error) {
-    throw new Error(payload.error || `Redis command failed with ${response.status}`);
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) {
+    const detail =
+      payload && !Array.isArray(payload) && typeof payload === "object"
+        ? payload.error
+        : "";
+    throw new Error(detail || `Redis pipeline failed with ${response.status}`);
   }
-  return payload.result;
+  if (!Array.isArray(payload)) {
+    throw new Error("Redis pipeline returned a non-array response");
+  }
+  if (payload.length !== commands.length) {
+    throw new Error(
+      `Redis pipeline returned ${payload.length} results for ${commands.length} commands`,
+    );
+  }
+  return payload.map((item, index) => {
+    if (!item || typeof item !== "object") {
+      throw new Error(`Redis pipeline command ${index + 1} returned an invalid result`);
+    }
+    if (item.error) {
+      throw new Error(`Redis pipeline command ${index + 1} failed: ${item.error}`);
+    }
+    return item.result;
+  });
 }
 
 async function recordPageView(config, record, fetchImpl) {
@@ -246,7 +266,7 @@ async function recordPageView(config, record, fetchImpl) {
     ["EXPIRE", keys.os, expireSeconds],
     ["EXPIRE", keys.countries, expireSeconds],
   ];
-  await Promise.all(commands.map((command) => redisCommand(config, command, fetchImpl)));
+  await redisPipeline(config, commands, fetchImpl);
 }
 
 export async function handleCollectPageView({ body, headers, env, now = new Date(), fetchImpl = fetch }) {
@@ -266,27 +286,22 @@ export async function handleCollectPageView({ body, headers, env, now = new Date
   return { ok: true, skipped: false };
 }
 
-async function readDailySummary(config, date, fetchImpl) {
+function dailySummaryCommands(config, date) {
   const keys = analyticsKeys(config.keyPrefix, date);
-  const [
-    dayHash,
-    visitors,
-    pages,
-    referrers,
-    devices,
-    browsers,
-    os,
-    countries,
-  ] = await Promise.all([
-    redisCommand(config, ["HGETALL", keys.day], fetchImpl),
-    redisCommand(config, ["PFCOUNT", keys.visitors], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.pages, 0, 9, "WITHSCORES"], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.referrers, 0, 9, "WITHSCORES"], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.devices, 0, 9, "WITHSCORES"], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.browsers, 0, 9, "WITHSCORES"], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.os, 0, 9, "WITHSCORES"], fetchImpl),
-    redisCommand(config, ["ZREVRANGE", keys.countries, 0, 9, "WITHSCORES"], fetchImpl),
-  ]);
+  return [
+    ["HGETALL", keys.day],
+    ["PFCOUNT", keys.visitors],
+    ["ZREVRANGE", keys.pages, 0, 9, "WITHSCORES"],
+    ["ZREVRANGE", keys.referrers, 0, 9, "WITHSCORES"],
+    ["ZREVRANGE", keys.devices, 0, 9, "WITHSCORES"],
+    ["ZREVRANGE", keys.browsers, 0, 9, "WITHSCORES"],
+    ["ZREVRANGE", keys.os, 0, 9, "WITHSCORES"],
+    ["ZREVRANGE", keys.countries, 0, 9, "WITHSCORES"],
+  ];
+}
+
+function parseDailySummary(date, results) {
+  const [dayHash, visitors, pages, referrers, devices, browsers, os, countries] = results;
   const parsed = parseRedisHash(dayHash);
   return {
     date,
@@ -318,7 +333,11 @@ export async function handleAnalyticsSummary({ days = 30, env, now = new Date(),
   }
 
   const dates = buildSummaryDateKeys({ days, now, timeZone: config.timeZone });
-  const daily = await Promise.all(dates.map((date) => readDailySummary(config, date, fetchImpl)));
+  const commands = dates.flatMap((date) => dailySummaryCommands(config, date));
+  const results = await redisPipeline(config, commands, fetchImpl);
+  const daily = dates.map((date, index) =>
+    parseDailySummary(date, results.slice(index * 8, index * 8 + 8)),
+  );
   const totals = daily.reduce(
     (acc, item) => ({
       pageViews: acc.pageViews + item.pageViews,

@@ -6,10 +6,31 @@ import {
   buildPageViewRecord,
   buildSummaryDateKeys,
   getAnalyticsConfig,
+  handleAnalyticsSummary,
+  handleCollectPageView,
   isAuthorizedAnalyticsToken,
   parseRedisHash,
   parseRedisRankedPairs,
 } from "./site-analytics-core.mjs";
+
+const ANALYTICS_ENV = {
+  KV_REST_API_URL: "https://redis.example.com",
+  KV_REST_API_TOKEN: "kv-token",
+  ANALYTICS_ADMIN_TOKEN: "admin-token",
+};
+
+function collectTestPageView(fetchImpl) {
+  return handleCollectPageView({
+    body: { url: "https://taostudioai.com/cases", referrer: "" },
+    headers: {
+      "user-agent": "TaoStudio quality test",
+      "x-real-ip": "203.0.113.10",
+    },
+    env: ANALYTICS_ENV,
+    now: new Date("2026-06-04T04:00:00.000Z"),
+    fetchImpl,
+  });
+}
 
 test("reads analytics configuration from Vercel KV or dedicated env names", () => {
   const config = getAnalyticsConfig({
@@ -133,4 +154,155 @@ test("parses Redis REST hashes and ranked arrays", () => {
     { label: "/cases", value: 7 },
     { label: "/templates", value: 2 },
   ]);
+});
+
+test("batches one page view into one Redis pipeline request", async () => {
+  const calls = [];
+  const fetchImpl = async (url, init) => {
+    const commands = JSON.parse(init.body);
+    calls.push({ url, init, commands });
+    return {
+      ok: true,
+      status: 200,
+      json: async () => commands.map(() => ({ result: "OK" })),
+    };
+  };
+
+  const result = await handleCollectPageView({
+    body: {
+      url: "https://taostudioai.com/cases?utm_source=quality-test",
+      referrer: "",
+    },
+    headers: {
+      "user-agent": "TaoStudio quality test",
+      "x-real-ip": "203.0.113.10",
+      "x-vercel-ip-country": "CN",
+    },
+    env: ANALYTICS_ENV,
+    now: new Date("2026-06-04T04:00:00.000Z"),
+    fetchImpl,
+  });
+
+  assert.deepEqual(result, { ok: true, skipped: false });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, "https://redis.example.com/pipeline");
+  assert.equal(calls[0].init.headers.Authorization, "Bearer kv-token");
+  assert.equal(calls[0].commands.length, 16);
+  assert.deepEqual(calls[0].commands[0].slice(0, 2), [
+    "PFADD",
+    "taostudio:analytics:visitors:2026-06-04",
+  ]);
+  assert.deepEqual(calls[0].commands[1], [
+    "HINCRBY",
+    "taostudio:analytics:day:2026-06-04",
+    "pageViews",
+    1,
+  ]);
+});
+
+test("reads a multi-day summary through one Redis pipeline request", async () => {
+  const calls = [];
+  const fetchImpl = async (url, init) => {
+    const commands = JSON.parse(init.body);
+    calls.push({ url, commands });
+    const payload = commands.map((_command, index) => {
+      const day = Math.floor(index / 8) + 1;
+      switch (index % 8) {
+        case 0:
+          return { result: ["pageViews", String(day * 10)] };
+        case 1:
+          return { result: day * 3 };
+        case 2:
+          return { result: [`/page-${day}`, String(day * 5)] };
+        case 3:
+          return { result: ["Direct", String(day * 4)] };
+        case 4:
+          return { result: ["Mobile", String(day * 3)] };
+        case 5:
+          return { result: ["Chrome", String(day * 2)] };
+        case 6:
+          return { result: ["Windows", String(day)] };
+        default:
+          return { result: ["CN", String(day * 6)] };
+      }
+    });
+    return { ok: true, status: 200, json: async () => payload };
+  };
+
+  const summary = await handleAnalyticsSummary({
+    days: 2,
+    env: ANALYTICS_ENV,
+    now: new Date("2026-06-04T04:00:00.000Z"),
+    fetchImpl,
+  });
+
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, "https://redis.example.com/pipeline");
+  assert.equal(calls[0].commands.length, 16);
+  assert.deepEqual(summary.daily, [
+    { date: "2026-06-03", pageViews: 10, visitors: 3 },
+    { date: "2026-06-04", pageViews: 20, visitors: 6 },
+  ]);
+  assert.deepEqual(summary.totals, { pageViews: 30, visitors: 9 });
+  assert.deepEqual(summary.topPages, [
+    { label: "/page-2", value: 10 },
+    { label: "/page-1", value: 5 },
+  ]);
+});
+
+test("rejects a Redis pipeline response containing a command error", async () => {
+  const fetchImpl = async (_url, init) => {
+    const commands = JSON.parse(init.body);
+    const payload = commands.map(() => ({ result: "OK" }));
+    payload[3] = { error: "injected failure" };
+    return { ok: true, status: 200, json: async () => payload };
+  };
+
+  await assert.rejects(
+    () => collectTestPageView(fetchImpl),
+    /Redis pipeline command 4 failed: injected failure/,
+  );
+});
+
+test("rejects a non-array Redis pipeline response", async () => {
+  const fetchImpl = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ result: "OK" }),
+  });
+
+  await assert.rejects(
+    () => collectTestPageView(fetchImpl),
+    /Redis pipeline returned a non-array response/,
+  );
+});
+
+test("rejects a Redis pipeline response with the wrong result count", async () => {
+  const fetchImpl = async (_url, init) => {
+    const commands = JSON.parse(init.body);
+    return {
+      ok: true,
+      status: 200,
+      json: async () => commands.slice(1).map(() => ({ result: "OK" })),
+    };
+  };
+
+  await assert.rejects(
+    () => collectTestPageView(fetchImpl),
+    /Redis pipeline returned 15 results for 16 commands/,
+  );
+});
+
+test("rejects an invalid Redis pipeline result item", async () => {
+  const fetchImpl = async (_url, init) => {
+    const commands = JSON.parse(init.body);
+    const payload = commands.map(() => ({ result: "OK" }));
+    payload[2] = null;
+    return { ok: true, status: 200, json: async () => payload };
+  };
+
+  await assert.rejects(
+    () => collectTestPageView(fetchImpl),
+    /Redis pipeline command 3 returned an invalid result/,
+  );
 });
