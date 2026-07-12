@@ -1,5 +1,478 @@
 [
   {
+    "id": "100161",
+    "title": "笔记本涂鸦手绘插画风格",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait",
+      "Art"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-12-case-notebook-doodle-art.jpg",
+    "imageAlt": "笔记本涂鸦手绘插画风格",
+    "prompt": "Use the uploaded image as an img-to-img reference, preserving full facial likeness and identity, and create artwork that appears drawn on lined notebook paper with ballpoint pen, ink, and neon markers, showing realistic ink absorption, layered pressure, smudges, stains, wrinkles, and worn edges. The style blends chaotic doodle art, comic annotations, and rough sketches with thick-thin line variation, loose strokes, messy marks, dynamic hatching, and an energetic, spontaneous, slightly chaotic mood, rendered in high detail at 4k with bold outer glow lighting and vibrant contrast.\n\nUse a portrait composition with a thick border around the head, surrounding the subject with arrows, stars, underlines, scribbles, speech bubbles, overlapping notes, checkboxes, playful icons (lightning bolts, lightbulbs, music notes, a small self-caricature), and handwritten comic sound effects.\n\nApply one style variation: Pop Bold (cyan and magenta), Neon Highlight (neon pink and yellow highlighter look), Electric Graffiti (electric blue and neon red graffiti outlines), or Dense Sketch (blue linework with red accents, dense and alive).",
+    "promptPreview": "Use the uploaded image as an img-to-img reference, preserving full facial likeness and identity, and create artwork that appears drawn on lined notebook paper with ballpoint pen, ink, and neon markers, showing realistic…",
+    "source": "Community collected via @Milo_Bahi_02",
+    "createdAt": "2026-07-11T20:13:11.257Z"
+  },
+  {
+    "id": "100160",
+    "title": "万能商品主图广告大片Prompt",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-12-case-fmcg-hero-ad.jpg",
+    "imageAlt": "万能商品主图广告大片Prompt",
+    "prompt": "UNIVERSAL FMCG HERO AD PROMPT V2.0\n\nAct as a world-class Creative Director, Luxury Product Photographer, Apple-level Design Director, Brand Strategist, Swiss Typography Expert, Unreal Engine 5 & V-Ray Rendering Artist.\n\nINPUT\nUpload one product image only. Automatically detect any product category (electronics, FMCG, cosmetics, food, furniture, appliances, fashion, household items, etc.). No questions or manual settings.\n\nOBJECTIVE\nTransform the uploaded product into a premium hero advertisement suitable for Amazon, catalogs, websites, social media, packaging, print, billboards, and product launches.\n\nPreserve 100% of the original product:\n- Shape\n- Packaging\n- Branding\n- Logo\n- Colors\n- Labels\n- Materials\n- Texture\n- Proportions\n\nThe product must remain the main hero.\n\nBRANDING\nExtract the original logo from the product packaging and recreate it cleanly at the top-left. Never replace or redesign the brand.\n\nCOLOR\nAutomatically derive the background, gradients, accents, and lighting from the product's brand colors for a cohesive premium look.\n\nTEXT\nGenerate:\n- Premium headline\n- Short supporting sentence (max 2 lines)\n- Four text-only product features placed on the left (no icons).\n\nPRODUCT DISPLAY\nLarge hero product occupying about 70% of the layout with realistic shadows, subtle floor reflection, luxury perspective, and balanced composition.\n\nBOTTOM GALLERY\nInclude 4-5 clean product angles (Front, 45, Side, Back, Top/Close-up) with identical lighting.\n\nBACKGROUND\nApple-inspired minimal luxury studio with soft gradients, natural window shadows, editorial daylight, elegant negative space, subtle reflections, and no clutter, props, patterns, or decorative graphics.\n\nSTYLE\nSwiss typography (Helvetica Neue, SF Pro, Inter style), clean Apple-inspired layout, premium editorial spacing.\n\nCAMERA & LIGHTING\nARRI Alexa Mini LF, 85mm hero shot, 35mm gallery shots, commercial studio lighting, HDR, ray tracing, global illumination, soft reflections.\n\nQUALITY\nUltra-photorealistic 8K, V-Ray/Octane/Corona/UE5 quality, magazine-ready, catalog-ready, billboard-ready, luxury commercial product photography.\n\nSTRICT RULES\nNever redesign or modify the product, packaging, branding, logo, labels, or colors. No humans, icons, unnecessary graphics, or fake environments. Keep the product as the absolute hero. Place the original logo at top-left, headline and four features on the left, gallery at the bottom. Use a 4:5 portrait composition with Apple-level minimalism.",
+    "promptPreview": "UNIVERSAL FMCG HERO AD PROMPT V2.0 Act as a world-class Creative Director, Luxury Product Photographer, Apple-level Design Director, Brand Strategist, Swiss Typography Expert, Unreal Engine 5 & V-Ray Rendering Artist. I…",
+    "source": "Community collected via @im_shahid7",
+    "createdAt": "2026-07-11T20:13:04.839Z"
+  },
+  {
+    "id": "100159",
+    "title": "超现实前卫拼贴艺术肖像海报",
+    "category": "插画与艺术",
+    "styles": [
+      "Collage"
+    ],
+    "scenes": [
+      "Art"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Minimal",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-11-case-100159-avant-garde-collage.jpg",
+    "imageAlt": "超现实前卫拼贴艺术肖像海报",
+    "prompt": "[PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style of modern mixed media editorial illustration. The subject is composed of high-contrast black and white stippled halftone textures blended with vibrant neo-expressionist elements. Overlay details include bold geometric shapes, cyan and yellow risograph patterns, abstract graffiti scribbles, and digital glitch artifacts. A thick strip of pink or orange tape or a color block obscures part of the form for a deconstructed look. The texture is grainy, mimicking vintage poster paper. The composition is strictly centered with a very wide, clean, off-white cream paper background, ensuring the entire subject is fully contained within the frame with generous negative space on all sides, zero cropping, minimal chic aesthetic.",
+    "promptPreview": "[PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style of modern mixed media editorial illustration. The subject is composed of high-contrast black and white stippled halftone tex…",
+    "source": "Community collected via @youraipulse",
+    "createdAt": "2026-07-10T20:04:16.885Z"
+  },
+  {
+    "id": "100158",
+    "title": "奢华极繁主义天体杂志封面设计",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Commerce"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Illustration",
+      "Cinematic",
+      "Education",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-11-case-100158-lunar-cosmos-magazine.jpg",
+    "imageAlt": "奢华极繁主义天体杂志封面设计",
+    "prompt": "Create a luxury maximalist vector magazine cover in portrait format\nTheme: Queen of the Lunar Cosmos\n\nA celestial moon queen sits upon a floating crescent throne surrounded by glowing constellations, sacred deer, ethereal birds, floating temples, cosmic flowers, radiant relics, starlit skies, and dreamlike heavenly landscapes. The scene blends mythology, fantasy, and high fashion editorial design into a breathtaking celestial kingdom.\n\nStyle\nUltra-detailed vector illustration\nLuxury editorial magazine aesthetic\nRich layered composition\nOrnamental celestial elements\nSophisticated fashion-cover design\nPremium artistic quality\n\nColor Palette\nPearl ivory, lunar silver, soft lavender, midnight sapphire, champagne gold.\n\nTypography\nMain Headline: \"QUEEN OF THE LUNAR COSMOS\"\nSecondary Headline: \"Exploring the Infinite Kingdom Beyond the Stars\"\nIssue Number: \"#018\"\n\nDesign Elements\nElegant borders, editorial information panels, numbering systems, celestial diagrams, premium graphics, halftone textures, metallic print effects, and refined magazine layouts.\n\nRequirements\nEnglish typography only, professionally typeset, perfectly readable, no Chinese characters, no random text, no logos, no watermarks.",
+    "promptPreview": "Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar Cosmos A celestial moon queen sits upon a floating crescent throne surrounded by glowing constellations, sacred deer, etherea…",
+    "source": "Community collected via @Anishaa_writes",
+    "createdAt": "2026-07-10T20:04:12.093Z"
+  },
+  {
+    "id": "100157",
+    "title": "复古邮票收藏拼贴艺术海报",
+    "category": "历史与古典",
+    "styles": [
+      "Editorial",
+      "Minimal"
+    ],
+    "scenes": [
+      "Brand",
+      "Education"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-07-10-case-100157-vintage-stamp-collage.jpg",
+    "imageAlt": "复古邮票收藏拼贴艺术海报",
+    "prompt": "# PREMIUM VINTAGE STAMP COLLAGE GENERATOR\n# Museum-Quality Editorial Travel Collection\n\nCreate a premium vertical editorial artwork that tells the complete story of a city or country through a beautiful scattered collection of commemorative postage stamps.\n\nInstead of arranging the stamps in a perfect grid, compose them as if they were carefully scattered across an archival collector's desk. The layout must feel spontaneous, elegant, and naturally balanced, never messy. Every stamp should invite viewers to discover another piece of the destination's identity.\n\nVISUAL ANALYSIS:\nStudy the complete identity of the selected location. Automatically identify its most representative: historic landmarks, modern architecture, traditional architecture, religious landmarks, local cuisine, traditional drinks, historic personalities, cultural icons, native animals, native birds, native plants, national flowers, sports, festivals, traditional clothing, handicrafts, transportation, daily life, local products, mountains, rivers, desert, coastline, natural scenery, cultural symbols. Only include authentic elements. Avoid generic tourism clichés.\n\nSTAMP COLLECTION:\nCreate between 18 and 30 unique commemorative postage stamps. Each stamp should illustrate one unique subject. Every stamp must feature elegant perforated edges, vintage postal denomination, issue number, country name, fine engraved border, beautiful illustration, authentic philatelic aesthetics. No duplicate illustrations.\n\nCOMPOSITION:\nArrange the stamps in a naturally scattered composition. Some stamps should slightly overlap, rotate between -25 and +25 degrees, appear partially stacked, lean against one another, create organic visual flow. Maintain comfortable breathing space. Balance the entire composition without symmetry. The arrangement should resemble a real collector's desk rather than a printed sheet.\n\nEXTRA COLLECTOR DETAILS:\nEnhance realism with elegant philatelic accessories such as postal cancellation marks, air mail labels, vintage postal seals, travel stamps, collector labels, paper notes, small archive tags, vintage envelopes, passport stamps, travel memory labels, subtle handwritten notes, old postal markings. Use these elements sparingly to enrich the storytelling.\n\nART STYLE:\nPremium Editorial Illustration, Flat Vector, Vintage Philatelic Design, Mid-Century Modern, Swiss Graphic Design, Minimal Geometric Illustration, Collectible Travel Artwork, Museum Collection Quality, Luxury Editorial Poster.\n\nCOLOR PALETTE:\nUse approximately 6 to 10 harmonious colors inspired by the selected location. Flat colors only. Soft vintage printing tones. No gradients. No glossy effects. Subtle aged paper feeling.\n\nBACKGROUND:\nWarm archival paper. Soft paper grain. Vintage postcard texture. Minimal postal marks. Elegant negative space.\n\nOUTPUT:\nUltra-high resolution, Portrait orientation (9:16), Museum-quality, Collectible artwork, Premium editorial illustration, Flat vector appearance, Perfect visual balance, Natural scattered composition, Elegant typography, Print-ready.\n\nThe final artwork should feel like a rare vintage stamp collection carefully scattered across an archivist's table, inviting viewers to explore every individual stamp and discover the complete visual identity of the selected city or country.",
+    "promptPreview": "# PREMIUM VINTAGE STAMP COLLAGE GENERATOR # Museum-Quality Editorial Travel Collection Create a premium vertical editorial artwork that tells the complete story of a city or country through a beautiful scattered collect…",
+    "source": "Community collected via @Faisl_Alfaisal",
+    "createdAt": "2026-07-09T20:06:56.945Z"
+  },
+  {
+    "id": "100156",
+    "title": "3×3产品展示故事板网格设计",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial",
+      "Minimal"
+    ],
+    "scenes": [
+      "Brand",
+      "Commerce"
+    ],
+    "tags": [
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio",
+      "Brand",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-10-case-100156-product-storyboard-grid.jpg",
+    "imageAlt": "3×3产品展示故事板网格设计",
+    "prompt": "Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro de un formato total 4:5.\n\nUsa la imagen de referencia como base del producto. Mantén exactamente el mismo producto, diseño del packaging, branding, materiales, colores, proporciones e identidad general en los nueve paneles, tal como en la referencia. El producto debe ser claramente reconocible en cada frame. La etiqueta, el logo y las proporciones deben permanecer exactamente iguales.\n\nEste storyboard es una presentación mockup de alto nivel para un portfolio de branding. El enfoque está en la forma, la composición, la materialidad y el ritmo visual, más que en el realismo o una narrativa lifestyle. El resultado debe sentirse curado, editorial y orientado al diseño.\n\nFRAME 1: Plano frontal hero del producto en un entorno de estudio limpio. Fondo neutro, composición equilibrada, presentación calmada y segura del producto.\n\nFRAME 2: Primer plano con el enfoque centrado en la parte media del producto. Se destacan la textura de la superficie, los materiales y los detalles de impresión.\n\nFRAME 3: El producto de referencia colocado en un entorno que encaja naturalmente con la marca y la categoría del producto. Escenario de estudio inspirado en los elementos de diseño y colores del producto.\n\nFRAME 4: Producto mostrado en uso o en interacción sobre un fondo de estudio neutro. Las manos y los elementos de interacción son mínimos y discretos, manteniendo el estilo del packaging.\n\nFRAME 5: Composición isométrica que muestra varios productos organizados en un orden geométrico preciso desde un ángulo isométrico superior. Todos los productos están colocados con el mismo ángulo isométrico, espaciados de forma uniforme, limpios, estructurados y gráficos.\n\nFRAME 6: Producto levitando ligeramente, inclinado sobre un fondo neutro que coincida con la paleta de colores de la imagen de referencia. La posición flotante es intencional y natural en el espacio.\n\nFRAME 7: Primerísimo primer plano centrado en un detalle específico de la etiqueta, el borde, la textura o el comportamiento del material.\n\nFRAME 8: El producto en un entorno inesperado pero estéticamente potente, con un enfoque audaz, editorial y visualmente impactante. Escenario inesperado pero altamente estilizado, basado en estudio y dirigido por diseño. Composición fuerte que eleva la marca.\n\nFRAME 9: Composición amplia que muestra el producto en uso dentro de un setup de diseño refinado. Props limpios, estilismo controlado y coherente con el resto de la serie.\n\nCÁMARA Y ESTILO:\nImágenes de estudio de ultra alta calidad con apariencia de cámara real. Diferentes ángulos y encuadres en cada frame. Profundidad de campo controlada, iluminación precisa, materiales y reflejos realistas. La lógica de iluminación, la paleta de colores, el mood y el lenguaje visual deben mantenerse consistentes en los nueve paneles como una sola serie cohesionada.\n\nOUTPUT:\nUna cuadrícula limpia 3×3 sin bordes, sin texto, sin captions y sin marcas de agua.",
+    "promptPreview": "Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro de un formato total 4:5. Usa la imagen de referencia como base del producto. Mantén exactamente el mismo producto, diseño de…",
+    "source": "Community collected via @arceyul",
+    "createdAt": "2026-07-09T20:06:53.064Z"
+  },
+  {
+    "id": "100155",
+    "title": "工业级产品包装设计技术图纸",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Technical"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-09-case-100155-packaging-design-sheet.jpg",
+    "imageAlt": "工业级产品包装设计技术图纸",
+    "prompt": "Using the attached image, create an illustration sheet of professional industrial design packaging for the package (PACKAGE TYPE). A centered heroic 3D rendering with realistic materials, soft studio lighting and commercial quality finishes. Surrounded by technical views: front, side, top, bottom, oblique perspective and flat position. Include sketches of the frame structure, crease lines, seam details, and size arrows in millimeters. Show materials and finishes (matte, glossy print, plastic, paper, glass, etc.) in handwritten annotations. Add color swatches, realistic product illustrations, and subtle shadows. Clean sketchbook background, realistic rendering + pencil sketch style, modern design design, ultra-detailed, portfolio ready.",
+    "promptPreview": "Using the attached image, create an illustration sheet of professional industrial design packaging for the package (PACKAGE TYPE). A centered heroic 3D rendering with realistic materials, soft studio lighting and commer…",
+    "source": "Community collected via @gudanglifehack",
+    "createdAt": "2026-07-08T20:04:02.901Z"
+  },
+  {
+    "id": "100154",
+    "title": "高端加密金融交易后台仪表盘设计",
+    "category": "UI 与界面",
+    "styles": [
+      "UI",
+      "Dashboard"
+    ],
+    "scenes": [
+      "Tech",
+      "Finance"
+    ],
+    "tags": [
+      "Minimal",
+      "Illustration",
+      "Editorial",
+      "Tech",
+      "Commerce",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-07-09-case-100154-fintech-dashboard-ui.jpg",
+    "imageAlt": "高端加密金融交易后台仪表盘设计",
+    "prompt": "You are an experienced UI designer embracing modern, minimalistic design, shadows, glass, and soft colors.\n\nYour role is to create a professional, beautiful mockup that is ready for delivery based on these requirements: \n\n<requirements>\n## 1. Overall Style & Visual Language\nThis interface represents a premium, modern fintech / crypto trading dashboard using a dark theme.  \nThe visual language combines **soft neumorphism**, and **luxury Web3 aesthetics**.\n\nCore characteristics:\n- Warm gold/orange accent highlights\n- Monochromatic color palette with minimalistic effects and shadows\n- Card-based layout with depth and subtle backgrounds\n- Minimal borders, separation via shadows or light backgrounds\n\nTarget perception:\n- Secure\n- Professional\n- High-end / institutional-grade\n- Optimized for experienced traders\n\n---\n\n## 2. Layout Structure\n\n### Global Layout\n- Desktop-first dashboard\n- Output proportions: 3:2\n- Three main regions:\n  1. Top navigation bar (horizontal)\n  2. Left sidebar navigation (vertical)\n  3. Main content area (multi-column grid of cards)\n\nSpacing is generous, prioritizing clarity and visual breathing room.\n\n---\n\n## 3. Top Navigation Bar\n- Height: 72px\n- Left:\n  - Brand logo text \"Mevolut\"\n  - Stylized \"M\"\n  - Gold/orange accent\n- Center:\n  - Navigation links: Dashboard, Security, Referral, Trading Fees, API management\n- Right:\n  - Order link\n  - Primary CTA: “Deposit” (gold pill button)\n  - User avatar (circular)\n  - Theme toggle (moon icon)\n\nTypography:\n- Clean sans-serif\n- Medium weight\n- White primary text, muted gray inactive states\n\n---\n\n## 4. Left Sidebar Navigation\n- Width: 240px\n- Background: near-black\n- Vertical navigation items with icons:\n  - Dashboard (active)\n  - Security\n  - Referral\n  - Trading Fees\n  - API management\n- Bottom-aligned:\n  - Settings\n\nActive item:\n- Subtle background highlight\n- Slight background tint\n- Rounded container\n\nIcons:\n- Outline style\n- Gold accent on active state\n\n---\n\n## 5. Main Content Area\n\n### 5.1 User Overview Card\n- Large rounded card at top\n- Left:\n  - Circular avatar\n  - Greeting text (“Hello…”)\n  - User name\n- Inline info blocks:\n  - UID (copy icon)\n  - Identity verification status\n  - Security level\n  - Time zone\n  - Last login timestamp\n- Right:\n  - “Hide info” toggle\n\nStyle:\n- Subtle inner shadows\n\n---\n\n### 5.2 Deposit / Buy Card\n- Medium-sized card\n- Title text explaining deposit options\n- Two action rows:\n  - Deposit (dollars or crypto)\n  - Buy stocks (local currency)\n- Each row:\n  - Icon\n  - Label\n  - Arrow action button (gold accent)\n\n---\n\n### 5.3 Total Asset Card\n- Displays USD balance and USD equivalent\n- Large, faded Dollar symbol watermark in background\n- Action tabs:\n  - Buy stocks\n  - Deposit\n  - Withdraw\n- Numeric values are large\n\n---\n\n### 5.4 VIP Level Card\n- Shows current VIP level\n- Spot and futures fee rates\n- Progress bar for token holdings\n- “View more” link\n\nProgress bar:\n- Rounded\n- Dark background track\n\n---\n\n### 5.5 Current Holdings Table\n- Card containing a table layout\n- Columns:\n  - Coin (icon + name)\n  - Price\n  - 24h Change\n  - 4h Trend (sparkline)\n  - Actions (Deposit, Withdraw, Trade)\n\nSparklines:\n- Green for positive trend\n- Red for negative trend\n\nHover:\n- Subtle background highlight per row\n\n---\n\n### 5.6 Affiliate Program Card\n- Promotional card\n- Gold coin illustration\n- Short description and CTA button (“Apply now”)\n\n---\n\n### 5.7 Information / News Card\n- Vertical list of announcements\n- Headline + timestamp\n- “View more” link at top\n\n---\n\n## 6. Color Palette\n- Primary background: deep charcoal / black\n- Card surfaces: slightly lighter\n- Accent color: warm gold\n- Text hierarchy:\n  - White (primary)\n  - Muted gray (secondary)\n  - Dark gray (disabled)\n- Status colors:\n  - Green for positive\n  - Red for negative\n\n---\n\n## 7. Effects & Interaction\n- Rounded corners throughout (sm)\n\n# Design tokens:\n{\n  // Global theme definition\n  \"theme\": {\n    \"mode\": \"dark\",\n    \"style\": [\n      \"soft-neumorphism\",\n      \"premium-fintech\"\n    ]\n  },\n\n  // Layout measurements and structure\n  \"layout\": {\n    \"type\": \"desktop-dashboard\",\n    \"grid\": \"three-column\",\n    \"sidebarWidth\": 240,\n    \"topbarHeight\": 68,\n    \"contentPadding\": 24\n  },\n\n  // Color system\n  \"colors\": {\n    \"background\": \"#0B0D10\",        // Main app background\n    \"primaryAccent\": \"#F5A623\",     // Gold/orange highlight\n    \"secondaryAccent\": \"#FFB547\",\n    \"textPrimary\": \"#FFFFFF\",\n    \"textSecondary\": \"#B0B3B8\",\n    \"textMuted\": \"#6B6F76\",\n    \"success\": \"#22C55E\",\n    \"danger\": \"#EF4444\"\n  },\n\n  // Typography scale\n  \"typography\": {\n    \"fontFamily\": \"SF Pro, system-ui, sans-serif\",\n    \"weights\": {\n      \"heading\": 600,\n      \"body\": 400,\n      \"numeric\": 500\n    },\n    \"sizes\": {\n      \"h1\": 24,\n      \"h2\": 20,\n      \"h3\": 16,\n      \"body\": 14,\n      \"caption\": 12\n    }\n  },\n\n  // Core UI components\n  \"components\": {\n    \"card\": {\n      \"borderRadius\": 16,\n      \"shadow\": \"0 20px 40px rgba(0,0,0,0.4)\",\n      \"border\": \"none\",\n      \"background\": \"#14171C\",\n    },\n\n    \"button\": {\n      \"primary\": {\n        \"textColor\": \"#0B0D10\",\n        \"borderRadius\": 999,\n      },\n      \"secondary\": {\n        \"background\": \"transparent\",\n        \"textColor\": \"#F5A623\"\n      }\n    },\n\n    \"sidebar\": {\n      \"background\": \"#0E1014\",\n      \"itemRadius\": 12,\n      \"iconStyle\": \"outline\"\n    },\n\n    \"table\": {\n      \"rowHeight\": 56,\n      \"divider\": \"subtle\",\n      \"hoverHighlight\": true,\n      \"sparkline\": {\n        \"positiveColor\": \"#22C55E\",\n        \"negativeColor\": \"#EF4444\"\n      }\n    },\n\n    \"progressBar\": {\n      \"height\": 6,\n      \"radius\": 999,\n      \"fillColor\": \"#22C55E\",\n      \"backgroundColor\": \"#2A2E35\"\n    }\n  },\n\n  // Icon system\n  \"icons\": {\n    \"style\": \"outline\",\n    \"size\": 18,\n    \"colorInactive\": \"#6B6F76\",\n    \"colorActive\": \"#F5A623\"\n  }\n}\n</requirements>",
+    "promptPreview": "You are an experienced UI designer embracing modern, minimalistic design, shadows, glass, and soft colors. Your role is to create a professional, beautiful mockup that is ready for delivery based on these requirements: …",
+    "source": "Community collected via @d4m1n",
+    "createdAt": "2026-07-08T20:03:59.120Z"
+  },
+  {
+    "id": "100153",
+    "title": "报纸全贴房间时尚摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-08-case-sindhuk-newspaper-room-photo.jpg",
+    "imageAlt": "报纸全贴房间时尚摄影",
+    "prompt": "Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camera, deep focus, and visible barrel distortion with curved room edges. A small rectangular room fully covered in real newspaper pages—walls, floor, and ceiling—showing crisp text, ink bleed, and paper texture.\nA woman sits cross-legged on the floor, hands pressed to her cheeks, mouth in a shocked \"O.\" Long wavy hair, natural skin texture with visible pores and subtle freckles. She wears red octagonal sunglasses, a black-and-white checkered harlequin jacket, vibrant red cargo pants, and matching chunky sneakers.\nSoft, diffuse frontal lighting, minimal shadows. Cinematic high-contrast color grade, mostly black and white with red as the only saturated accent, ultra-detailed, photorealistic fashion photography.",
+    "promptPreview": "Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camera, deep focus, and visible barrel distortion with curved room edges. A small rectangular room fully covered in real newspape…",
+    "source": "Community collected via @SindhuK66662473",
+    "createdAt": "2026-07-07T20:04:48.148Z"
+  },
+  {
+    "id": "100152",
+    "title": "地下俱乐部风格音乐海报",
+    "category": "海报与排版",
+    "styles": [
+      "Poster"
+    ],
+    "scenes": [
+      "Music"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Social",
+      "Brand",
+      "Editorial",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-08-case-synthesarah-underground-club-poster.jpg",
+    "imageAlt": "地下俱乐部风格音乐海报",
+    "prompt": "Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition features a monochrome portrait of a young woman from the chest up, shot from a slightly low angle for attitude and power. She wears large over-ear headphones and reflective round sunglasses with warm amber-gold lenses that stand out vividly against the black-and-white portrait. One hand is raised near her head, the other near her chin, creating a dynamic, expressive pose associated with music immersion. Behind her head is a large flat golden-yellow circular shape, like a spotlight, creating a strong focal point and visual contrast. The background is deep black with subtle grunge textures, dust, scratches, and poster-wear imperfections, giving it a raw, printed-flyer feel. Use 4:5 aspect ratio.",
+    "promptPreview": "Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition features a monochrome portrait of a young woman from the chest up, shot from a slightly low angle for attitude and power. She…",
+    "source": "Community collected via @SyntheSarah",
+    "createdAt": "2026-07-07T20:04:44.201Z"
+  },
+  {
+    "id": "100151",
+    "title": "高端产品Campaign英雄镜头海报",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-07-case-100151-premium-product-campaign.jpg",
+    "imageAlt": "高端产品Campaign英雄镜头海报",
+    "prompt": "Create a photorealistic premium product campaign poster in a 4:5 vertical aspect ratio.\n\nProduct: [PRODUCT NAME]\nBrand style: [BRAND / PREMIUM / LUXURY / TECH / BEAUTY / FOOD / DRINK]\nMain subject: A confident model holding or presenting the product close to the camera, with the product in sharp focus and the model slightly behind it. Use a strong perspective angle so the product feels powerful, premium, and hero-like.\n\nBackground:\nUse a clean studio background with a large rounded rectangle panel behind the subject. The panel color should match the product theme: [COLOR THEME]. Add subtle oversized typography or abstract product-related shapes in the background, softly blended and partially hidden behind the subject.\n\nLighting:\nCinematic softbox lighting, realistic shadows, premium commercial photography, glossy highlights on the product, clean reflections, sharp details, high-end advertising look.\n\nComposition:\nTop-left: small minimalist brand logo placeholder.\nTop-right: short tagline: \"[TAGLINE]\"\nMiddle-left: small glassmorphism label with product name: \"[PRODUCT NAME]\"\nBottom-right: short product description:\n\"[ONE-LINE BENEFIT 1]\n[ONE-LINE BENEFIT 2]\n[ONE-LINE BENEFIT 3]\"\n\nBottom section:\nAdd four clean feature cards with minimal black icons and short labels:\n1. [FEATURE 1]\n2. [FEATURE 2]\n3. [FEATURE 3]\n4. [FEATURE 4]\n\nStyle:\nPremium campaign poster, realistic product photography, minimalistic layout, modern typography, clean negative space, luxury branding, high detail, cinematic advertising, professional commercial poster, ultra-realistic, sharp focus, elegant shadows.\n\nAvoid:\nmessy text, extra logos, distorted product, wrong spelling, low-quality graphics, cartoon style, over-saturated colors.",
+    "promptPreview": "Create a photorealistic premium product campaign poster in a 4:5 vertical aspect ratio. Product: [PRODUCT NAME] Brand style: [BRAND / PREMIUM / LUXURY / TECH / BEAUTY / FOOD / DRINK] Main subject: A confident model hold…",
+    "source": "Community collected via @arghzq",
+    "createdAt": "2026-07-06T20:02:54.341Z"
+  },
+  {
+    "id": "100150",
+    "title": "照片融合蜡笔插画的北欧风生活美学海报",
+    "category": "插画与艺术",
+    "styles": [
+      "Editorial",
+      "Illustration"
+    ],
+    "scenes": [
+      "Lifestyle"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-07-07-case-100150-crayon-lifestyle-poster.jpg",
+    "imageAlt": "照片融合蜡笔插画的北欧风生活美学海报",
+    "prompt": "【テーマ】\n{ここにテーマを入力}\n\n【写真】\n{ここに使用する写真の内容を簡潔に入力}\n（例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など）\n\n【タイトル】\n{画像内に入れるタイトルを入力}\n（例：こどもの日 / Happy Mother's Day / 春のはじまり など）\n\n---\n\nテーマ「{テーマ}」に基づいた、\n写真とクレヨンイラストを融合したライフスタイル系エディトリアルビジュアル。\n\n提供された写真をメインビジュアルとして使用する。\n\n■ シーン\n「{写真}」に合った自然な日常の瞬間。\n作り込みすぎないリアルな空気感、やわらかい自然光、\n人物の自然な動きや感情を重視。\n\n■ 構図\n人物を切り抜いたように配置し、\nざらっとした紙質のクラフト系背景\n（生成り、ベージュ、淡いグレー、ミルクティー）の上にレイアウト。\n\n・余白50%以上\n・左右非対称構図\n・抜け感のあるミニマルなエディトリアルデザイン\n\n■ イラスト（最重要）\nオイルパステル／クレヨンで描いたような、\nざらつきとかすれのある手描きイラストを重ねる。\n\n▼ルール\n・全体の30〜40%以内\n・線にムラとかすれ、紙のテクスチャが残る\n・力の入り具合で濃淡が変化（濃い部分・薄い部分が混在）\n・子どもが描いたような少し不器用なタッチ\n・影・立体表現は禁止（フラット）\n・人物の動きと連動させる（風・軌跡・流れ）\n\n▼モチーフ（テーマ連動）\n・{テーマ}を象徴する要素をクレヨンタッチで追加\n（例：こどもの日 → 鯉のぼり、風、空、草、雲、紙かぶと）\n・風の線、動きの線、小さなアイコン、太陽、雲、お花、ハート、星、ジグザグの動線\n・空気感をクレヨンの粗いストロークで演出\n\n■ タイトル文字（重要）\n画像内に「{タイトル}」を手描きクレヨン文字で配置する。\n・配置は左上または右上の余白部分\n・クレヨンで書いたようなざらつき・かすれのある文字\n・少し不器用で味のある手書き風\n・文字色はアースカラー（テラコッタ、マスタード、ダークブラウン）から選択\n・サイズは控えめでミニマルに（主役は写真）\n・装飾枠なし、フラット\n\n■ 色\nあたたかみのあるアースカラー、\nやわらかいくすみカラー\n（テラコッタ、マスタード、オリーブ、ミルクティー、淡いブルー）\n\n■ 雰囲気\nあたたかい、ノスタルジック、こども心、ハンドメイド感、\nやさしい、エモーショナル、ストーリー性のある日常\n\n■ スタイル\n絵本的ぬくもり × 北欧ミニマル × 上質なライフスタイル広告\n\n■ 品質\n高解像度、商用レベルのクオリティ",
+    "promptPreview": "【テーマ】 {ここにテーマを入力} 【写真】 {ここに使用する写真の内容を簡潔に入力} （例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など） 【タイトル】 {画像内に入れるタイトルを入力} （例：こどもの日 / Happy Mother's Day / 春のはじまり など） --- テーマ「{テーマ}」に基づいた、 写真とクレヨンイラストを融合したライフスタイル系エディトリアルビジュアル。 提供された写真をメインビジュアルと…",
+    "source": "Community collected via @konmari_tweet",
+    "createdAt": "2026-07-06T20:02:50.944Z"
+  },
+  {
+    "id": "100149",
+    "title": "景泰蓝收藏级城市地标冰箱贴",
+    "category": "其他用例",
+    "styles": [
+      "Realistic",
+      "Craft"
+    ],
+    "scenes": [
+      "Commerce",
+      "Collectible"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Commerce",
+      "Brand",
+      "Product",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-cloisonne-preda.jpg",
+    "imageAlt": "景泰蓝收藏级城市地标冰箱贴",
+    "prompt": "Ultra-premium cloisonné enamel collectible fridge magnet displayed inside a bright, high-end store window, vertical 9:16.\n\nText on the product:\n“[CITY NAME] · [COUNTRY]”\n\nShape:\n– custom silhouette based on [MAIN LANDMARK SHAPE]  \n– tall vertical composition to emphasize height  \n– polished metallic gold frame  \n\nFocal point:\n– [MAIN LANDMARK] dominating the composition (70–80% height)  \n– highly detailed and visually iconic  \n\nScene inside the magnet:\n– [MAIN RIVER / WATER ELEMENT] flowing at the base  \n– [ICONIC BUILDING 1] in the foreground  \n– [ICONIC BUILDING 2] or skyline behind  \n– [NATURAL ELEMENT e.g. mountain / ocean / desert] in the distance  \n– [CULTURAL ELEMENT e.g. temple / monument / bridge]  \n\nMiniature workers (key element):\n– tiny craftsmen painting the surface  \n– workers on ladders painting details  \n– one worker near the top of the main landmark  \n– small figures interacting with the environment  \n\nInteraction:\n– [FLOATING ELEMENT e.g. petals / leaves / dust / light particles]  \n– reflections interacting with surfaces  \n– slight imperfections for realism  \n\nMaterials:\n– cloisonné enamel (glossy translucent colors)  \n– embossed metallic outlines  \n– handcrafted texture  \n\nColor palette:\n– [PRIMARY COLOR]  \n– [SECONDARY COLOR]  \n– [ACCENT COLOR]  \n– subtle metallic highlights  \n\nEnvironment (important):\n– bright modern store interior  \n– light wood or marble surfaces  \n– glass reflections from display window  \n– blurred background with shelves and products  \n– optional: people in background slightly out of focus  \n\nLighting:\n– soft natural daylight  \n– warm indoor lighting mix  \n– realistic reflections and shadows  \n\nStyle:\n– hyper-realistic product photography  \n– miniature world feeling  \n– extremely rich in micro-details for zoom  \n– premium collectible  \n\nTechnical:\n– 85mm lens  \n– shallow depth of field  \n– 8K ultra-detailed  \n– highly shareable",
+    "promptPreview": "Ultra-premium cloisonné enamel collectible fridge magnet displayed inside a bright, high-end store window, vertical 9:16. Text on the product: “[CITY NAME] · [COUNTRY]” Shape: – custom silhouette based on [MAIN LANDMARK…",
+    "source": "Community collected via @Preda2005",
+    "createdAt": "2026-07-06T12:17:43.326Z"
+  },
+  {
+    "id": "100148",
+    "title": "趣味拟物产品包装盒设计",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Playful"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-packaging-azed.jpg",
+    "imageAlt": "趣味拟物产品包装盒设计",
+    "prompt": "Playful designer packaging for [product name], creative box shaped like the product, integrated cartoon face on the front panel, oversized die-cut window revealing the real contents as part of the character’s expression, smooth matte cardboard material, bold flat graphic design, modern minimalist branding, limited pastel color palette, rounded friendly shapes, clean typography, high-end 3D packaging mockup render, soft studio lighting, pure white background, subtle realistic contact shadow beneath, ultra-detailed, retail-ready presentation, 1:1 aspect ratio.",
+    "promptPreview": "Playful designer packaging for [product name], creative box shaped like the product, integrated cartoon face on the front panel, oversized die-cut window revealing the real contents as part of the character’s expression…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-07-06T12:17:37.319Z"
+  },
+  {
+    "id": "100147",
+    "title": "奢华高定高跟鞋时尚广告海报",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-100147-luxury-heels-fashion-ad.jpg",
+    "imageAlt": "奢华高定高跟鞋时尚广告海报",
+    "prompt": "Create an ultra-premium luxury fashion advertisement poster for designer high heels inspired by Vogue Arabia, Paris Fashion Week, and elite luxury editorials. Feature elegant glossy heels inside a cinematic luxury studio with reflective marble flooring, dramatic spotlight lighting, soft smoke atmosphere, and photorealistic reflections.\n\nAdd a modern luxury specification layout vertically on the left side with elegant typography and minimalist icons. Include a bold powerful quote and a large luxury brand logo with metallic chrome or gold reflections.\n\nUse a rich cinematic color palette of black, gold, silver, emerald green, burgundy, or monochrome tones with glossy reflections, floating particles, velvet textures, and premium editorial composition.\n\nStyle should feel hyper-realistic, dark luxurious, modern, cinematic, ultra-detailed, and professionally designed like a billion-dollar fashion campaign and luxury billboard advertisement, 8K masterpiece.",
+    "promptPreview": "Create an ultra-premium luxury fashion advertisement poster for designer high heels inspired by Vogue Arabia, Paris Fashion Week, and elite luxury editorials. Feature elegant glossy heels inside a cinematic luxury studi…",
+    "source": "Community collected via @obsidian_fr1",
+    "createdAt": "2026-07-05T20:08:31.468Z"
+  },
+  {
+    "id": "100146",
+    "title": "速写本中浮现的地标微缩立体模型",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Architecture",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-07-06-case-100146-sketchbook-landmark-diorama.jpg",
+    "imageAlt": "速写本中浮现的地标微缩立体模型",
+    "prompt": "Create a hyper-realistic 3D miniature diorama of [LANDMARK OR LOCATION] rising magically from an open sketchbook placed on a detailed wooden desk. Tilted 45-degree isometric aerial view captured with professional tilt-shift macro photography, emphasizing the appearance of a handcrafted physical scale model.\n\nThe scene accurately recreates [PRIMARY LANDMARK FEATURES], surrounded by [SURROUNDING ENVIRONMENT]. Include tiny miniature people engaged in [HUMAN ACTIVITIES], miniature vehicles moving through [TRANSPORT ELEMENTS], and detailed urban or natural infrastructure reflecting the character of the location.\n\nLighting is [LIGHTING CONDITION], featuring [LIGHTING DETAILS] that create cinematic depth, realistic shadows, glowing highlights, and strong visual contrast. The environment seamlessly transitions from the fully detailed miniature world into the clean white sketchbook paper, creating a magical emergence effect.\n\nMaterials should appear physically constructed with realistic textures, micro-details, architectural accuracy, scale-model craftsmanship, and premium visual fidelity. Highly detailed vegetation, roads, water features, signage, and environmental elements should reinforce realism.\n\nUltra-detailed, hyper-realistic physical model appearance, depth-rich composition, realistic atmospheric perspective, professional architectural visualization, 8K resolution, masterpiece quality, intricate miniature craftsmanship, sharp focus on landmark details, aspect ratio 4:5.",
+    "promptPreview": "Create a hyper-realistic 3D miniature diorama of [LANDMARK OR LOCATION] rising magically from an open sketchbook placed on a detailed wooden desk. Tilted 45-degree isometric aerial view captured with professional tilt-s…",
+    "source": "Community collected via @yourPlugAI",
+    "createdAt": "2026-07-05T20:08:19.917Z"
+  },
+  {
+    "id": "100145",
+    "title": "折纸风格人物肖像：极简收藏艺术品",
+    "category": "角色与人物",
+    "styles": [
+      "Realistic",
+      "Minimal"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Minimal",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-05-case-100145-origami-portrait.jpg",
+    "imageAlt": "折纸风格人物肖像：极简收藏艺术品",
+    "prompt": "A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp, clean edges and a realistic paper texture. Intricate geometric folds capture the character's iconic shape and expressions. Use the same color palette as the reference photo (no black). Place it on a clean studio surface with soft, natural shadows. A minimalist collectible art aesthetic; ultra-photorealistic; 8k, 1080x1080 square.",
+    "promptPreview": "A hyper-detailed, origami-style version of a person, folded from high-quality paper with crisp, clean edges and a realistic paper texture. Intricate geometric folds capture the character's iconic shape and expressions. …",
+    "source": "Community collected via @YaseenK7212",
+    "createdAt": "2026-07-04T20:04:53.817Z"
+  },
+  {
+    "id": "100144",
+    "title": "概念产品包装设计：结构化卖点表达",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-05-case-100144-concept-packaging.jpg",
+    "imageAlt": "概念产品包装设计：结构化卖点表达",
+    "prompt": "Create a premium conceptual packaging design for [Product Name], a [Product Type] by [Brand Name]. Build the idea around one strong product truth: [Product Truth], and one human truth: [Human Truth]. Turn that into one instantly understandable packaging concept expressed through the packaging itself — using structure, transparent windows, illustration, die-cuts, folds, shape, or product interaction. The result should feel clever, simple, shelf-stopping, emotionally appealing, and realistically manufacturable. Use [Packaging Type] format, [Color Palette], [Style Direction], clean typography, strong hierarchy, realistic materials, and high-end commercial product-render quality. Avoid clutter, generic decoration, confusing mechanisms, and overdesigned luxury. Show the final pack as a clean hero product shot on a simple background.",
+    "promptPreview": "Create a premium conceptual packaging design for [Product Name], a [Product Type] by [Brand Name]. Build the idea around one strong product truth: [Product Truth], and one human truth: [Human Truth]. Turn that into one …",
+    "source": "Community collected via @jey_jey_Japa",
+    "createdAt": "2026-07-04T20:04:50.431Z"
+  },
+  {
     "id": "100143",
     "title": "东京表参道城市速写旅行海报",
     "category": "建筑与空间",

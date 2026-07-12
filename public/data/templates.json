@@ -1,5 +1,59 @@
 [
   {
+    "id": "derived-recipe-infographic-card",
+    "title": "极简现代食谱信息图卡片",
+    "category": "文档与出版",
+    "tags": [
+      "infographic",
+      "recipe",
+      "editorial",
+      "food"
+    ],
+    "description": "生成斯堪的纳维亚编辑风格的食谱信息图，含食材标注与步骤分解",
+    "cover": "/uploads/template-derived-recipe-infographic-card.jpg",
+    "prompt": "{argument name=\"菜品名称\" default=\"番茄意大利面\"}\n\n{\n  \"style\": \"Minimalist modern recipe infographic\",\n  \"visual_aesthetic\": {\n    \"photography_style\": \"Top-down / 3-quarter angle food photography\",\n    \"design_language\": \"Scandinavian, editorial cookbook layout\",\n    \"background\": \"Soft neutral beige / cream\",\n    \"lighting\": \"Soft diffused light with gentle shadows\",\n    \"detail_level\": \"Ultra-realistic, ultra-sharp, 8K resolution\"\n  },\n  \"layout\": {\n    \"composition\": \"Finished dish centered on a white ceramic plate or bowl\",\n    \"elements\": [\n      \"Floating ingredient icons in soft circular frames\",\n      \"Clean vector-style ingredient illustrations\",\n      \"Clear ingredient labels with quantities\",\n      \"Curved step-by-step flow with numbered cooking icons\"\n    ],\n    \"typography\": \"High readability, modern sans-serif\",\n    \"spacing\": \"Balanced, airy, uncluttered\"\n  },\n  \"recipes\": [\n    {\n      \"dish_name\": \"Traditional Polish Pierogi\",\n      \"dish_presentation\": \"Golden boiled dumplings filled with potato and cheese, lightly buttered and garnished with fresh chives\",\n      \"ingredients\": [\n        { \"name\": \"All-purpose flour\", \"quantity\": \"2.5 cups\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"3 medium\" },\n        { \"name\": \"Farmer cheese\", \"quantity\": \"200g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Butter\", \"quantity\": \"40g\" },\n        { \"name\": \"Salt\", \"quantity\": \"1 tsp\" },\n        { \"name\": \"Water\", \"quantity\": \"0.75 cups\" }\n      ],\n      \"steps\": [\n        \"Prepare dough\",\n        \"Cook and mash filling\",\n        \"Fill and shape pierogi\",\n        \"Boil until tender\",\n        \"Serve with butter\"\n      ],\n      \"meta\": {\n        \"calories\": \"270 kcal / serving\",\n        \"time\": \"70 min\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Vinaigrette Salad\",\n      \"dish_presentation\": \"Colorful diced vegetables mixed with light dressing, neatly molded and topped with fresh herbs\",\n      \"ingredients\": [\n        { \"name\": \"Beetroot\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Carrots\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Pickled cucumbers\", \"quantity\": \"2 pcs\" },\n        { \"name\": \"Green peas\", \"quantity\": \"1 cup\" },\n        { \"name\": \"Sunflower oil\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Fresh dill\", \"quantity\": \"1 bunch\" }\n      ],\n      \"steps\": [\n        \"Boil vegetables\",\n        \"Cool and dice\",\n        \"Mix ingredients\",\n        \"Dress salad\",\n        \"Chill and serve\"\n      ],\n      \"meta\": {\n        \"calories\": \"180 kcal / serving\",\n        \"time\": \"30 min + chill\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Solyanka Soup\",\n      \"dish_presentation\": \"Rich hearty soup with sliced meats, olives, lemon, and herbs, served steaming in a ceramic bowl\",\n      \"ingredients\": [\n        { \"name\": \"Mixed meats\", \"quantity\": \"400g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 large\" },\n        { \"name\": \"Pickles\", \"quantity\": \"3 pcs\" },\n        { \"name\": \"Tomato paste\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Olives\", \"quantity\": \"1/2 cup\" },\n        { \"name\": \"Garlic\", \"quantity\": \"2 cloves\" },\n        { \"name\": \"Bay leaf\", \"quantity\": \"1 pc\" },\n        { \"name\": \"Lemon\", \"quantity\": \"For serving\" }\n      ],\n      \"steps\": [\n        \"Simmer broth\",\n        \"Sauté aromatics\",\n        \"Add meats and pickles\",\n        \"Season and simmer\",\n        \"Serve with lemon\"\n      ],\n      \"meta\": {\n        \"calories\": \"320 kcal / serving\",\n        \"time\": \"90 min\",\n        \"servings\": 5\n      }\n    }\n  ]\n}",
+    "useWhen": "需要制作精美食谱信息图、美食编辑排版卡片时使用",
+    "createdAt": "2026-07-06T12:17:54.396Z",
+    "sourceType": "manual",
+    "sourceLabel": "@john_my07 GPT-Image-2 食谱信息图 (217 likes)"
+  },
+  {
+    "id": "derived-restaurant-vi-matrix",
+    "title": "餐饮品牌触点矩阵VI展示板",
+    "category": "品牌与标志",
+    "tags": [
+      "brand",
+      "vi",
+      "packaging",
+      "restaurant"
+    ],
+    "description": "一键生成完整餐饮品牌视觉系统展示图，含包装、菜单、周边物料矩阵",
+    "cover": "/uploads/template-derived-restaurant-vi-matrix.jpg",
+    "prompt": "生成一张[餐饮品牌触点矩阵]系列视觉图，用于展示一个完整的餐饮品牌视觉系统与包装应用方案。\n\n这是一个面向餐饮行业的品牌VI样机展示板 / 包装系统陈列图 / 品牌提案页。画面不是单张宣传海报，而是将品牌主视觉、主打产品、包装物料、菜单信息、促销内容与小型延展物料整合成一张系统化品牌展示图。\n\n【用户输入信息】\n- 品牌名：{argument name=\"品牌名\" default=\"茶悦\"}\n- 经营类目：{argument name=\"经营类目\" default=\"新中式茶饮\"}\n\n【可选补充信息】\n- 主打产品：[主打产品]\n- 品牌口号：[品牌口号]\n- 风格方向：[风格方向]\n- 主色调：[主色调]\n- 辅助色：[辅助色]\n- 客群定位：[客群定位]\n- 价格定位：[价格定位]\n- 地域风格：[地域风格]\n- 画幅比例：{argument name=\"画幅比例\" default=\"9:16\"}\n\n【自动补全规则】\n如果用户没有提供完整品牌信息，请根据【品牌名】与【经营类目】自动推导并完成最优组合，包括：\n1. 判断品牌调性（年轻、亲和、国潮、复古、清新、治愈、精致、快餐感等）\n2. 匹配适合该类目的视觉风格\n3. 自动设定合理的主色、辅助色与点缀色\n4. 自动补全主打产品与辅助产品\n5. 自动生成适合餐饮传播的品牌口号、卖点文案、价格信息与推荐标签\n6. 自动匹配合适的餐饮物料类型与展示内容\n\n【画面内容要求】\n画面中应围绕【品牌名】构建一整套餐饮品牌物料系统，包含但不限于以下内容：\n- 核心包装：手提袋、外卖袋、包装盒、打包盒、纸袋、塑料袋\n- 饮品 / 食品容器：纸杯、杯套、碗、餐盒、封口贴、标签\n- 信息传播物料：菜单、促销海报、价格牌、桌牌、立牌、小卡片\n- 小型品牌延展：贴纸、徽章、纸巾、餐具、包装封条、吊牌\n- 产品表现：主打餐品照片、单品主视觉、食物特写、切面图、推荐组合图\n\n【构图与版式要求】\n采用竖版【画幅比例】构图，整体为白色、米白色或浅灰色背景，以品牌提案板 / 样机矩阵板的方式组织画面。\n通过大中小物料混排形成视觉层级：\n- 大型包装和主视觉物料作为视觉锚点\n- 中型菜单、海报和价格模块负责信息传达\n- 小型贴纸、餐具、标签与周边物料增强系统完整度\n\n整体构图应具有明确秩序感，接近品牌方案展示页、作品集陈列页、包装提案页的视觉效果。元素要排列整齐但不呆板，丰富但不杂乱，具有模块化与可阅读性。\n\n【风格与质感要求】\n整体风格应符合【经营类目】与【品牌名】气质，具有明显的餐饮品牌感、商业传播感、样机展示感与系统设计感。\n可融合以下风格倾向：现代简洁、国潮趣味、轻复古、生活方式感、快消感、温暖治愈感、年轻化传播感。\n材质真实，包含纸张、塑料、布袋、包装盒、杯体、贴纸、餐具等真实物料质感；光影柔和统一，像在干净摄影棚环境中拍摄的品牌物料合集。\n\n【文字与图形要求】\n所有物料上应统一出现品牌名、Logo、品牌符号、主色块、口号或卖点文案。\n文案可为中文或中英混排，但要符合餐饮传播表达，简洁直接，具备商品售卖感。\n图形系统可以根据品牌调性选择简洁插画、几何图形、卡通吉祥物、符号化图标或辅助纹样，用于增强品牌记忆点。\n\n【输出目标】\n最终生成一张完整的【品牌名】餐饮品牌视觉系统展示图，像设计团队为该餐饮品牌制作的整套品牌提案样机板。\n要求画面统一、精致、具备商业落地感与作品集展示质量，并能清楚体现品牌风格、主打类目与多触点包装延展能力。\n\nMake the aspect ratio 9:16",
+    "useWhen": "需要为餐饮品牌制作包含包装/菜单/物料的完整VI提案板时使用",
+    "createdAt": "2026-07-06T12:17:48.869Z",
+    "sourceType": "manual",
+    "sourceLabel": "@MrLarus GPT-Image-2 餐饮品牌VI (1100 likes)"
+  },
+  {
+    "id": "derived-oriental-festival-memo-page",
+    "title": "清透东方节令主题纪念页",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "editorial",
+      "oriental",
+      "festival"
+    ],
+    "description": "围绕任意主题生成清透、有仪式感的图文视觉，东方节令画册与当代信息排版结合，产出可收藏的主题纪念页，支持批量 10 张生成。",
+    "cover": "/uploads/template-derived-oriental-festival-memo-page.jpg",
+    "prompt": "围绕任意主题对象生成一张清透、有仪式感的图文视觉：画面先以大面积高明度留白建立呼吸感，背景分成上下两个轻微明度差的平静色场，带细腻纸面颗粒但保持干净通风。主题对象不做满铺，而以精细手绘主形体进入画面下方视觉重心，局部被放大、枝蔓式延展或由主题材料自然伸出，让主体像从信息版面里生长出来；再设置一个较小的方向性符号悬停在上方或侧上方，与淡化圆形色块形成轻微压叠，制造从静态信息到轻盈动势的第一眼转折。文字是画面骨架：一组大号中文纵向主标题承担最重视觉重量，另一组较粗的主题名或日期信息在相对空处形成庄重停顿，细小说明文字以窄行距、竖排或紧凑短行穿插其间，底部可放极简索引式信息条，所有文字保持克制、疏朗、可读，不喧宾夺主。色彩从主题自身的季节、材质、情绪与文化信号中提取，映射为明亮底色、柔和主体色、清晰结构深色、低饱和支撑色和少量醒目强调色；保持高明度、清透、温暖有生气的情绪，强调色只用于最关键的视觉节点，深色主要服务文字和细线结构，纹理与阴影轻薄透明，避免脏灰、厚重复古或浑浊滤镜。整体质感是东方节令画册与当代信息排版的结合，插画精细、边缘清楚、层次轻，留白让文字和图形彼此牵引，最终效果应像一张可收藏的主题纪念页，而不是普通插画拼贴。\n\n————\n本次主题：{argument name=\"主题\" default=\"小暑节气，融合夏日荷花、蝉鸣、瓜果等节气元素\"}\n\n连续生成10张图片，每张都是不同的主题变体、插画逻辑，还有金句逻辑，还有配色和排版逻辑\n\n类似于ppt，生成10张，确保彼此的排版差异\n比例{argument name=\"比例\" default=\"16:9\"}",
+    "useWhen": "需要为节气、节日、文化主题、知识卡片、PPT 章节页、公众号题图生成清透有仪式感的图文纪念页时使用。支持一次输出 10 张排版各异的变体。",
+    "createdAt": "2026-07-05T21:04:58.227Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-palmistry-fortune-reading",
     "title": "掌纹玄学算命分析海报",
     "category": "其他用例",
@@ -1013,18 +1067,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/images/case511.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / UI / Illustration / Tech / Commerce / Travel / Studio / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n- #100116 复古报纸头版人物头条设计: Create the most realistic front page design of a vintage newspaper featuring the main character…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-07-08-case-sindhuk-newspaper-room-photo.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Cinematic / Minimal / Portrait / UI / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100153 报纸全贴房间时尚摄影: Hyper-realistic editorial photo shot at eye level with a 12mm ultra-wide lens, full-frame camer…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n- #100126 酥脆番薯美食英雄镜头广告海报: FORMATO: Póster social premium 4:5 vertical para Instagram, ultra alta resolución, 8K, nitidez …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100153",
       "511",
       "100126",
       "100116",
-      "100096",
-      "100093"
+      "100096"
     ]
   },
   {
@@ -1037,18 +1091,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-07-02-case-100139-diorama-brand-ad.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Cinematic / Poster / Realistic / Editorial / Minimal / Studio / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100139 电影感微缩橱窗超现实品牌广告场景: ACT AS: A world-class luxury commercial art director, surreal product photographer, cinematic s…\n- #100131 黑场悬浮金属质感高端产品摄影: { \"image_generation_request\": { \"subject\": { \"placeholder\": \"[INSERT PRODUCT HERE]\", \"position\"…\n- #100130 工业包装设计三视图技术参考图: Using the attached image, create an illustration sheet of professional industrial design packag…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-07-10-case-100156-product-storyboard-grid.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Editorial / Cinematic / Minimal / Studio / Brand / Realistic / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100156 3×3产品展示故事板网格设计: Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro …\n- #100155 工业级产品包装设计技术图纸: Using the attached image, create an illustration sheet of professional industrial design packag…\n- #100151 高端产品Campaign英雄镜头海报: Create a photorealistic premium product campaign poster in a 4:5 vertical aspect ratio. Product…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100139",
-      "100131",
-      "100130",
-      "100126",
-      "100090"
+      "100156",
+      "100155",
+      "100151",
+      "100148",
+      "100147"
     ]
   },
   {
@@ -1061,18 +1115,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-07-02-case-100138-zen-editorial-cover.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Poster / Cinematic / Minimal / Education / 3D / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #514 硬边现代艺术人像: A striking piece of hard-edge modern art on matte archival paper, with visible screen-printing …\n- #509 涂鸦拉衣奔跑棚拍: A playful, high-key studio portrait of [subject] running joyfully across a seamless light gray …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-07-11-case-100159-avant-garde-collage.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Poster / Editorial / Minimal / Brand / Collage / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100159 超现实前卫拼贴艺术肖像海报: [PERSON \\ BRAND] visualized as the central masterpiece of a surreal avant-garde collage, style …\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100152 地下俱乐部风格音乐海报: Create a dark, high-contrast poster with a moody, underground club aesthetic. The composition f…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "100138",
-      "514",
-      "509",
-      "100136",
-      "100132"
+      "100159",
+      "100158",
+      "100152",
+      "100150",
+      "100145"
     ]
   },
   {
@@ -1085,18 +1139,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/uploads/2026-07-03-paper-city-diorama.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Illustration / 3D Render / Editorial / Minimal / Architecture / UI\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100141 纸雕层叠城市建筑旅行海报: Create a premium commercial-quality vertical 3:4 layered paper-cut collage illustration of [Cou…\n- #513 单色点缀旅行手账插画: Create a charming editorial travel illustration of {DESTINATION} in a simple hand-drawn doodled…\n- #511 城市名地标排版旅行海报: Create a clean, modern typographic travel poster where the city name itself becomes the composi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-07-06-case-cloisonne-preda.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Cinematic / Commerce / Brand / Product / Architecture / Craft\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100149 景泰蓝收藏级城市地标冰箱贴: Ultra-premium cloisonné enamel collectible fridge magnet displayed inside a bright, high-end st…\n- #100146 速写本中浮现的地标微缩立体模型: Create a hyper-realistic 3D miniature diorama of [LANDMARK OR LOCATION] rising magically from a…\n- #100143 东京表参道城市速写旅行海报: Minimalist ultra-high-resolution travel sketch poster of Omotesando, Tokyo, on clean white sket…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100149",
+      "100146",
+      "100143",
       "100141",
-      "513",
-      "511",
-      "100122",
-      "100113"
+      "513"
     ]
   },
   {
@@ -1180,18 +1234,18 @@
       "Portrait"
     ],
     "description": "生成自然、温暖、身份稳定的儿童或全家福影像。",
-    "cover": "/uploads/2026-06-20-case-100104-3d.jpg",
-    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Realistic / 3D Render / Cinematic / Minimal / Studio / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100111 超可爱3D宝宝女孩渲染: Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of th…\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n- #393 Y2K 金色时刻人像: candid portrait of a beautiful young blonde woman, 21 years old, glowing sun-kissed skin, weari…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
+    "cover": "/uploads/2026-07-07-case-100150-crayon-lifestyle-poster.jpg",
+    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait / Illustration / Poster / Editorial / Tech / Lifestyle / Realistic / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100150 照片融合蜡笔插画的北欧风生活美学海报: 【テーマ】 {ここにテーマを入力} 【写真】 {ここに使用する写真の内容を簡潔に入力} （例：公園で遊ぶ子ども / 親子の笑顔 / 走る子ども など） 【タイトル】 {画像内に入れるタイトル…\n- #100111 超可爱3D宝宝女孩渲染: Create a super cute, hyper-realistic 3D render of a toddler girl who is a younger version of th…\n- #452 极简童话手绘儿童插画: Transform the photo into a delicate minimalist hand-drawn children’s illustration with a soft w…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
     "useWhen": "用于亲子写真、儿童毕业照、节日合影和家庭记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100150",
       "100111",
       "452",
       "393",
-      "469",
-      "461"
+      "469"
     ]
   },
   {
@@ -1228,18 +1282,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "/uploads/2026-06-29-case-anime-manga-character.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Illustration / Poster / Editorial / Cinematic / Portrait / Brand / Anime\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100132 镜片倒映漫画分镜的热血角色海报: 超高细节二次元热血漫画风角色海报，少年死神角色正面半身特写，橙色炸毛短发，琥珀色眼睛，佩戴黑色圆框复古墨镜，冷峻严肃表情，正中央对称构图，镜头直视观众，强烈压迫感。 眼镜镜片中倒映大量黑白漫…\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n- #100103 真人照片转全页彩色漫画分镜叙事: Create a full-page colored manga illustration based on the person in the reference photo. Use a…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "/uploads/2026-07-10-case-100156-product-storyboard-grid.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Editorial / Cinematic / Minimal / Studio / Brand / Commerce / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100156 3×3产品展示故事板网格设计: Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro …\n- #100132 镜片倒映漫画分镜的热血角色海报: 超高细节二次元热血漫画风角色海报，少年死神角色正面半身特写，橙色炸毛短发，琥珀色眼睛，佩戴黑色圆框复古墨镜，冷峻严肃表情，正中央对称构图，镜头直视观众，强烈压迫感。 眼镜镜片中倒映大量黑白漫…\n- #100124 品牌产品九宫格提案展示板: 2741 === Create ONE final image. A clean 3×3 [ratio] storyboard grid with nine equal [ratio] si…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100156",
       "100132",
       "100124",
       "100103",
-      "100083",
-      "100063"
+      "100083"
     ]
   },
   {
@@ -1276,18 +1330,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-07-02-case-100138-zen-editorial-cover.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Cinematic / Minimal / Education / Portrait / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #100134 极简半色调选框时尚杂志海报: 生成一张竖版 9:16 的editorial 杂志海报。 画面逻辑： 这是一张极简时尚杂志海报。整张画面除胸部选框内部以外，必须是纯黑、白、灰的高反差 halftone 印刷效果。不要在框外…\n- #100127 顶级图书品牌联名编辑设计海报: Assouline × Timothée Chalamet — \"L'EDITION\" FORMAT: Ultra-Premium Book SMM Poster | 4:5 | Insta…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-07-11-case-100158-lunar-cosmos-magazine.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Illustration / Cinematic / Education / Commerce / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n- #100134 极简半色调选框时尚杂志海报: 生成一张竖版 9:16 的editorial 杂志海报。 画面逻辑： 这是一张极简时尚杂志海报。整张画面除胸部选框内部以外，必须是纯黑、白、灰的高反差 halftone 印刷效果。不要在框外…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100158",
       "100138",
       "100134",
       "100127",
-      "100116",
-      "100101"
+      "100116"
     ]
   }
 ]
