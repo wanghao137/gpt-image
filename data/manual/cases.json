@@ -1,5 +1,31 @@
 [
   {
+    "id": "100163",
+    "title": "高端UGC动态广告大片商品主图",
+    "category": "产品与电商",
+    "styles": [
+      "Studio"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-13-case-ugc-ad-product-poster.jpg",
+    "imageAlt": "高端UGC动态广告大片商品主图",
+    "prompt": "Create a premium UGC-style advertising poster for [Product] by [Brand]. Use the product as the clear hero of the image and preserve the product shape, packaging, logo, label, colors, proportions, and readable text with strong visual accuracy.\n\nDesign the image as a powerful commercial poster with a bold editorial feel and a high-impact visual hook. The scene should feel like a real viral UGC moment elevated into a luxury campaign. Show a human hand naturally interacting with the product in a dynamic action moment such as grabbing it, tossing it, spraying it, opening it, pouring it, unboxing it, or pushing it toward the camera. Capture the exact split second of action with strong cinematic tension and scroll-stopping energy.\n\nAdd product-related action effects that enhance the visual hook, such as frozen splashes, flying particles, dust bursts, liquid trails, mist, shattered texture bursts, energetic motion blur, glow accents, or floating ingredients depending on the product category. The action should feel bold, intentional, premium, and visually irresistible.\n\nMake the product the sharpest and most dominant subject in the frame. The composition should feel like a polished advertising poster, not just a casual photo. Use dramatic editorial lighting, clean rim light, realistic reflections, crisp focus, shallow depth of field, premium contrast, cinematic color grading, and a refined luxury commercial finish.\n\nInclude the brand logo clearly and tastefully as part of the poster design, either on the product packaging and/or as a clean design element in the composition. Also include one strong advertising slogan made of exactly 3 words:\n\"[Slogan]\"\n\nThe slogan must feel bold, memorable, premium, and campaign-worthy. Place it in a visually powerful way, using clean high-end typography and a layout that supports the product without overpowering it.\n\nComposition: vertical poster, 4:5 or 9:16, dynamic close-up or medium-close framing, product large in the foreground, partial human presence, strong negative space, premium ad layout, viral commercial energy.\n\nMood: bold, premium, modern, playful, energetic, stylish, addictive, visually striking.\n\nNo fake branding, no distorted logo, no unreadable packaging, no messy anatomy, no cheap CGI, no cluttered layout, no weak composition, no duplicated product, no watermark.",
+    "promptPreview": "Create a premium UGC-style advertising poster for [Product] by [Brand]. Use the product as the clear hero of the image and preserve the product shape, packaging, logo, label, colors, proportions, and readable text with …",
+    "source": "Community collected via @aziz4ai",
+    "createdAt": "2026-07-12T20:04:53.327Z"
+  },
+  {
     "id": "100162",
     "title": "博物馆级果树种植科普信息展板",
     "category": "图表与信息图",
