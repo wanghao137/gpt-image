@@ -1,5 +1,21 @@
 [
   {
+    "id": "derived-modular-staircase-infographic",
+    "title": "模块阶梯纵深高密度信息图",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "editorial"
+    ],
+    "description": "将任意主题拆解为层层推进的细长结构模块，阶梯纵深+印刷信息质感，适合自媒体深度内容封面与文化信息图",
+    "cover": "/uploads/template-derived-modular-staircase-infographic.jpg",
+    "prompt": "围绕任意主题对象生成一张信息密度高、秩序感强的视觉作品：把主题转化为大量平行、错位、层层推进的细长结构模块，模块像阶梯、切片或脊线一样从画面边缘向中心斜向铺展，近处局部放大并被边缘裁切，远处逐渐变细变密，形成建筑般的纵深、节奏和压迫感。主题主形体不以单个完整物件呈现，而是被拆解成连续阵列、透明叠层和细密纹理，局部有网点、轻微颗粒和长向拖影，让结构既像实体又像印刷信息。将标题文字作为第二主角嵌入结构之间，使用极大的高反差主字组与细窄辅助字列形成尺度冲突，文字可旋转、穿插、靠边或被结构遮挡，读感先看到巨大的信息重量，再看到密集说明层；字体气质清瘦、克制、庄重，排布有明确轴线和宽窄节奏。色彩从主题自身的材质、文化气质和情绪中提取，保留大面积明亮干净的底色、中等面积的主题结构色、少量高明度信息色与更深的透明阴影纹理，维持清晰色阶、受控饱和度和温暖有仪式感的情绪；即使主题需要更深色，也保持光学洁净、通风感和透明层次，避免浑浊、陈旧或烟尘感。整体应像经过严密编排的文化信息系统，画面有强烈的层叠记忆点、清楚的阅读路径和精细的印刷完成度。\n\n——————\n\n主题：{argument name=\"主题\" default=\"苏联到底有多强大\"}\n\n用途：{argument name=\"用途\" default=\"自媒体B站的封面\"}\n\n比例{argument name=\"比例\" default=\"16:9\"}",
+    "useWhen": "需要高信息密度、秩序感强的视觉作品时使用，尤其适合B站/自媒体深度内容封面、文化信息图、知识科普图",
+    "createdAt": "2026-07-12T21:07:56.670Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-recipe-infographic-card",
     "title": "极简现代食谱信息图卡片",
     "category": "文档与出版",
@@ -1091,18 +1107,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-07-12-case-fmcg-hero-ad.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Editorial / Minimal / Cinematic / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100160 万能商品主图广告大片Prompt: UNIVERSAL FMCG HERO AD PROMPT V2.0 Act as a world-class Creative Director, Luxury Product Photo…\n- #100156 3×3产品展示故事板网格设计: Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro …\n- #100155 工业级产品包装设计技术图纸: Using the attached image, create an illustration sheet of professional industrial design packag…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-07-13-case-ugc-ad-product-poster.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Editorial / Cinematic / Minimal / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100163 高端UGC动态广告大片商品主图: Create a premium UGC-style advertising poster for [Product] by [Brand]. Use the product as the …\n- #100160 万能商品主图广告大片Prompt: UNIVERSAL FMCG HERO AD PROMPT V2.0 Act as a world-class Creative Director, Luxury Product Photo…\n- #100156 3×3产品展示故事板网格设计: Un storyboard limpio en cuadrícula 3×3 con nueve paneles iguales en proporción [ratio], dentro …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100163",
       "100160",
       "100156",
       "100155",
-      "100151",
-      "100148"
+      "100151"
     ]
   },
   {
