@@ -1,5 +1,31 @@
 [
   {
+    "id": "100164",
+    "title": "多格漫画英雄动态海报设计",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Social"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-07-14-case-100164-comic-panel-hero.jpg",
+    "imageAlt": "多格漫画英雄动态海报设计",
+    "prompt": "Portrait-oriented, dynamic comic-book poster composed of multiple panels featuring the same young man in different poses and moods, hyper-detailed inked outlines and halftone shading, rich saturated colors and dramatic contrast. Central large panel: three-quarter portrait of a confident, thoughtful man with short tousled dark hair and light stubble, medium skin tone, wearing a burgundy button-up with sleeves rolled, hand to chin, subtle smirk, strong rim lighting and textured painterly skin detail. Surrounding panels: close-up of a polished silver wristwatch on his wrist, small inset of him crossing arms smiling by colorful balloons, contemplative seated pose with thought bubbles, action frame of him running through smoke and debris with explosive motion lines, a comic-style \"POW!\" burst in bright yellow and red, a skyline at sunset with purple and orange clouds. Use varied panel shapes with white gutters and black borders, dynamic speed lines, explosion effects, ink splatters, halftone dots, and gritty paper texture. Cinematic low-angle full-body pose in one panel with arms crossed, dramatic backlight and fiery orange bursts. Emphasize bold typography for sound effects, high-detail facial expressions, realistic fabrics and watch reflections, stylized yet semi-realistic rendering, 3D depth, vivid contrasts, poster-quality resolution.",
+    "promptPreview": "Portrait-oriented, dynamic comic-book poster composed of multiple panels featuring the same young man in different poses and moods, hyper-detailed inked outlines and halftone shading, rich saturated colors and dramatic …",
+    "source": "Community collected via @heyakash_ai",
+    "createdAt": "2026-07-13T20:05:59.141Z"
+  },
+  {
     "id": "100163",
     "title": "高端UGC动态广告大片商品主图",
     "category": "产品与电商",
