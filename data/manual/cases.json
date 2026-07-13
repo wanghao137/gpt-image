@@ -1,5 +1,31 @@
 [
   {
+    "id": "100165",
+    "title": "电影感高对比眼部特写海报",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Social",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-07-14-case-100165-cinematic-eyes-poster.jpg",
+    "imageAlt": "电影感高对比眼部特写海报",
+    "prompt": "A cinematic poster-style artwork featuring an intense close-up of a man's eyes centered horizontally across the frame. Only the eyes and part of the face are visible through a narrow horizontal strip, surrounded by deep black negative space above and below. The face is illustrated in a high-contrast, graphic-novel style with bold red, black, and orange tones, dramatic shadows, sharp highlights, and a gritty, intense mood. The eyes look fierce, emotional, and determined, with slightly messy hair. Use the provided image for eye reference. The composition emphasizes the horizontal band of the face against a vast black background, creating a dramatic and minimal cinematic poster feel. The artwork should evoke tension, mystery, and psychological intensity through the extreme crop and color contrast.",
+    "promptPreview": "A cinematic poster-style artwork featuring an intense close-up of a man's eyes centered horizontally across the frame. Only the eyes and part of the face are visible through a narrow horizontal strip, surrounded by deep…",
+    "source": "Community collected via @Abhiew_",
+    "createdAt": "2026-07-13T20:06:02.513Z"
+  },
+  {
     "id": "100164",
     "title": "多格漫画英雄动态海报设计",
     "category": "场景与叙事",
