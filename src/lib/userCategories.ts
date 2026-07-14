@@ -167,6 +167,14 @@ export const USER_CATEGORIES: UserCategoryMeta[] = [
     pinnedHomepage: false,
   },
   {
+    key: "game-asset",
+    slug: "game-asset",
+    label: "游戏资产 · 角色卡",
+    tagline: "角色设定、三视图、卡牌、机甲、像素画",
+    defaultRatio: "4:5",
+    pinnedHomepage: false,
+  },
+  {
     key: "other",
     slug: "other",
     label: "其他用例",

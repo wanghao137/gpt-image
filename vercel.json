@@ -4,6 +4,12 @@
   "framework": null,
   "trailingSlash": false,
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/case/:slug*",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/images/(.*)",

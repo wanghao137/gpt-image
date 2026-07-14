@@ -45,6 +45,7 @@ const USER_CATEGORY_KEYS: ReadonlySet<string> = new Set<UserCategoryKey>([
   "classical",
   "storyboard",
   "architecture",
+  "game-asset",
   "other",
 ]);
 
@@ -134,12 +135,12 @@ export function relatedCases(c: PromptCase, n = 6): PromptCase[] {
   );
   if (sameBucket.length >= n) return sameBucket.slice(0, n);
 
-  const tagSet = new Set([...c.tags, ...c.styles, ...c.scenes]);
+  const tagSet = new Set([...(c.tags ?? []), ...(c.styles ?? []), ...(c.scenes ?? [])]);
   const byTag = ALL_CASES.filter(
     (other) =>
       other.id !== c.id &&
       other.userCategory !== c.userCategory &&
-      [...other.tags, ...other.styles, ...other.scenes].some((t) => tagSet.has(t)),
+      [...(other.tags ?? []), ...(other.styles ?? []), ...(other.scenes ?? [])].some((t) => tagSet.has(t)),
   );
   return [...sameBucket, ...byTag].slice(0, n);
 }

@@ -79,8 +79,8 @@ export default function CasesPage() {
   }, [hydrated, query, activeCategories, activeStyles, activeScenes, activePlatforms]);
 
   // ── derived filter option lists ──
-  const styleOptions = useMemo(() => uniqueValues(cases.map((c) => c.styles)), [cases]);
-  const sceneOptions = useMemo(() => uniqueValues(cases.map((c) => c.scenes)), [cases]);
+  const styleOptions = useMemo(() => uniqueValues(cases.map((c) => c.styles ?? [])), [cases]);
+  const sceneOptions = useMemo(() => uniqueValues(cases.map((c) => c.scenes ?? [])), [cases]);
 
   const baseList = useMemo(() => {
     if (showFavorites) return cases.filter((c) => favoriteIds.has(c.id));
@@ -95,7 +95,7 @@ export default function CasesPage() {
     for (const c of cases) {
       map.set(
         c.id,
-        [c.id, c.title, c.category, c.promptPreview, c.source, ...c.tags, ...c.styles, ...c.scenes]
+        [c.id, c.title, c.category, c.promptPreview, c.source, ...(c.tags ?? []), ...(c.styles ?? []), ...(c.scenes ?? [])]
           .filter(Boolean)
           .join(" ")
           .toLowerCase(),
@@ -119,10 +119,10 @@ export default function CasesPage() {
         if (!any) return false;
       }
       if (activeStyles.size > 0) {
-        if (!c.styles.some((s) => activeStyles.has(s))) return false;
+        if (!(c.styles ?? []).some((s) => activeStyles.has(s))) return false;
       }
       if (activeScenes.size > 0) {
-        if (!c.scenes.some((s) => activeScenes.has(s))) return false;
+        if (!(c.scenes ?? []).some((s) => activeScenes.has(s))) return false;
       }
       if (activePlatforms.size > 0) {
         if (!(c.platforms ?? []).some((p) => activePlatforms.has(p))) return false;

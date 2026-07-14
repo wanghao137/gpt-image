@@ -77,6 +77,25 @@ const PUBLIC_DIR = resolve(ROOT, "public");
 const OUT_DIR = resolve(PUBLIC_DIR, "images");
 const CACHE_DIR = resolve(ROOT, "node_modules/.image-cache");
 const UPLOADS_DIR = resolve(PUBLIC_DIR, "uploads");
+
+/**
+ * Remote CDN hosts whose images we intentionally do NOT localise. The YouMind
+ * upstream serves images from cms-assets.youmind.com — with 12K+ prompts that's
+ * 50K+ variants to download + encode per build, which is impractical (and
+ * unnecessary since the CDN is fast and globally distributed). We leave these
+ * URLs untouched so the browser loads them directly.
+ */
+const SKIP_LOCALISE_HOSTS = ["cms-assets.youmind.com"];
+
+function shouldSkipLocalise(url) {
+  if (!url || typeof url !== "string") return false;
+  try {
+    const host = new URL(url).hostname;
+    return SKIP_LOCALISE_HOSTS.some((h) => host === h || host.endsWith(`.${h}`));
+  } catch {
+    return false;
+  }
+}
 const CASES_PATH = resolve(PUBLIC_DIR, "data/cases.json");
 const TEMPLATES_PATH = resolve(PUBLIC_DIR, "data/templates.json");
 
@@ -410,6 +429,10 @@ async function main() {
     cases = readJson(CASES_PATH);
     for (const c of cases) {
       if (c.imageUrl && /^https?:\/\//i.test(c.imageUrl)) {
+        if (shouldSkipLocalise(c.imageUrl)) {
+          // Remote CDN we don't localise (e.g. YouMind) — leave as-is.
+          continue;
+        }
         // Remote upstream URL (first build, or new case from sync).
         tasks.push({ kind: "case", targetKind: "case", id: c.id, url: c.imageUrl });
       } else if (c.imageUrl?.startsWith("/uploads/")) {
@@ -447,6 +470,7 @@ async function main() {
     templates = readJson(TEMPLATES_PATH);
     for (const t of templates) {
       if (t.cover && /^https?:\/\//i.test(t.cover)) {
+        if (shouldSkipLocalise(t.cover)) continue;
         tasks.push({ kind: "template", targetKind: "template", id: t.id, url: t.cover });
       } else if (t.cover?.startsWith("/images/")) {
         const localFile = resolve(PUBLIC_DIR, t.cover.replace(/^\/+/, ""));

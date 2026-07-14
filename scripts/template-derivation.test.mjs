@@ -9,7 +9,7 @@ import {
 } from "./template-derivation.mjs";
 
 const SOURCE_URL =
-  "https://cdn.jsdelivr.net/gh/freestylefly/awesome-gpt-image-2@main/data/style-library.json";
+  "https://cdn.jsdelivr.net/gh/YouMind-OpenLab/gpt-image-2-prompts-search@main/references/manifest.json";
 const DERIVED_SOURCE_URL = "/data/cases.json";
 
 function template(id, extra = {}) {
@@ -54,7 +54,7 @@ test("enrichUpstreamTemplate adds stable upstream source metadata", () => {
   const result = enrichUpstreamTemplate(template("poster-layout-system"), SOURCE_URL);
 
   assert.equal(result.sourceType, "upstream-style");
-  assert.equal(result.sourceLabel, "awesome-gpt-image-2 · style-library");
+  assert.equal(result.sourceLabel, "YouMind GPT Image 2 Prompts");
   assert.equal(result.sourceUrl, SOURCE_URL);
   assert.equal(result.id, "poster-layout-system");
 });

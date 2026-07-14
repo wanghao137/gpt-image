@@ -98,7 +98,7 @@ const COLUMNS: FooterColumn[] = [
     links: [
       { to: "/about", label: "关于" },
       {
-        href: "https://github.com/freestylefly/awesome-gpt-image-2",
+        href: "https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search",
         external: true,
         label: "GitHub 数据源",
       },
@@ -130,7 +130,7 @@ function BrandBlock() {
         © {new Date().getFullYear()} {BRAND.name} · 部分素材来源
         <a
           className="ml-1 underline-offset-2 hover:text-ink-300 hover:underline"
-          href="https://github.com/freestylefly/awesome-gpt-image-2"
+          href="https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search"
           target="_blank"
           rel="noreferrer"
         >

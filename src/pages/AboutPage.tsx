@@ -36,12 +36,12 @@ export default function AboutPage() {
           <p className="mt-3 text-[14px] leading-relaxed text-ink-300">
             数据来自社区精选，主要源自{" "}
             <a
-              href="https://github.com/freestylefly/awesome-gpt-image-2"
+              href="https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search"
               target="_blank"
               rel="noreferrer"
               className="text-ember-300 hover:text-ember-200"
             >
-              awesome-gpt-image-2
+              YouMind GPT Image 2 Prompts
             </a>{" "}
             等公开整理仓库。每条案例都附原作者署名与原始链接。
           </p>

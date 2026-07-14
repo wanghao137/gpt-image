@@ -27,6 +27,12 @@ const adminPretty = {
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), adminPretty],
+  // Inline JSON as a string rather than an AST object graph. With 12K+ cases
+  // the parsed-object form balloons the main chunk; `stringify` keeps it as a
+  // compact quoted string that is JSON.parse'd at runtime (fast and small).
+  json: {
+    stringify: true,
+  },
   build: {
     target: "es2020",
     cssCodeSplit: true,
@@ -67,5 +73,25 @@ export default defineConfig(({ isSsrBuild }) => ({
     // Linux/CI doesn't exhibit this, so we only throttle on win32 and let CI
     // run at full speed. Override with SSG_CONCURRENCY when debugging.
     concurrency: Number(process.env.SSG_CONCURRENCY) || (process.platform === "win32" ? 6 : 20),
+    // With 12K+ cases, pre-rendering every case detail page takes 15+ minutes
+    // and risks Vercel build timeout. We cap case SSG to the most recent
+    // SSG_CASE_LIMIT cases (by createdAt desc) — the rest fall back to
+    // client-side rendering via the SPA wildcard route. Category, template,
+    // and structural pages are always pre-rendered.
+    includedRoutes: (paths) => {
+      const limit = Number(process.env.SSG_CASE_LIMIT) || 800;
+      const casePaths = paths.filter((p) => p.startsWith("/case/"));
+      const nonCasePaths = paths.filter((p) => !p.startsWith("/case/"));
+      // Sort case paths is not meaningful (they're slugs, not dates), but the
+      // getStaticPaths in routes.tsx already returns them in cases.json order
+      // (newest first via sortCasesForDisplay), so slicing preserves recency.
+      const kept = casePaths.slice(0, limit);
+      const result = [...nonCasePaths, ...kept];
+      console.log(
+        `[ssg] Pre-rendering ${kept.length}/${casePaths.length} case pages ` +
+        `(limit ${limit}) + ${nonCasePaths.length} structural pages = ${result.length} total`,
+      );
+      return result;
+    },
   } as Record<string, unknown>,
 }));

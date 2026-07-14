@@ -30,6 +30,7 @@ export type UserCategoryKey =
   | "classical"
   | "storyboard"
   | "architecture"
+  | "game-asset"
   | "other";
 
 export type Platform = "xiaohongshu" | "wechat" | "douyin" | "ec" | "offline";

@@ -22,7 +22,7 @@ export default function TemplatesPage() {
           每套模板都从真实案例中提炼，包含结构、约束与防坑指南，适合直接复制后替换主体、场景、品牌和限制条件。
         </p>
         <p className="mt-2 max-w-2xl text-[12.5px] leading-relaxed text-ink-500 sm:text-[13px]">
-          模板来自 awesome-gpt-image-2 上游模板库，并由本项目基于合并案例库自动派生补全。
+          模板由本项目基于合并案例库自动派生，并辅以手动维护的精选模板。
         </p>
       </section>
 

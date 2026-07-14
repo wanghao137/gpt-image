@@ -45,7 +45,8 @@ function aspectStyle(ratio: string): React.CSSProperties {
 
 function tagsOf(data: PromptCase) {
   // Only 2 tags visible by default — keeps the card's footer breathing.
-  return Array.from(new Set([...data.styles, ...data.scenes])).slice(0, 2);
+  // Arrays may be absent (omitted from lite data when empty).
+  return Array.from(new Set([...(data.styles ?? []), ...(data.scenes ?? [])])).slice(0, 2);
 }
 
 function HeartIcon({ filled }: { filled: boolean }) {

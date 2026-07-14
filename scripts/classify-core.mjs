@@ -53,6 +53,7 @@ export const USER_CATEGORY_LABEL = {
   classical: "历史 · 古风",
   storyboard: "场景 · 分镜",
   architecture: "建筑 · 空间",
+  "game-asset": "游戏资产 · 角色卡",
   other: "其他用例",
 };
 
@@ -87,6 +88,7 @@ const PRIORITY = [
   "3d-ip",
   "xhs-cover",
   "sticker",
+  "game-asset",
   "merchant-poster",
   "ecommerce",
   "travel-poster",
@@ -131,6 +133,7 @@ const CATEGORY_TIER = {
   festival: "intent",
   "xhs-cover": "intent",
   sticker: "intent",
+  "game-asset": "intent",
   "merchant-poster": "intent",
   ecommerce: "intent",
   "travel-poster": "intent",
@@ -171,6 +174,12 @@ const SIGNALS = {
     [/3d\s*(ip|character|toy|figure|figurine|mascot)|figurine|blind\s*box|\bchibi\b|q\s*版/, STRONG],
     [/pixar\s+style|cute\s+3d\s+character|收藏\s*玩具/, MEDIUM],
   ],
+  "game-asset": [
+    [/角色设定|三视图|角色卡|卡牌游戏|抽卡|游戏素材/, STRONG],
+    [/character\s+(sheet|reference|concept|turnaround|design|card|art)|reference\s+sheet|concept\s+(art|sheet|design)|turnaround\s+sheet|three[\s-]?view|outfit\s+card|gacha|collectible\s+card|fantasy\s+card/, STRONG],
+    [/\bvoxel\b|\bsprite\b|\bjrpg\b|\brpg\b|pixel[\s-]?art|game\s+(asset|thumbnail|icon|art|environment|scene|background|ui|character)|mecha\s+design|robot\s+(design|concept|protagonist)|角色概念/, STRONG],
+    [/anime\s+(character|girl|boy|heroine|protagonist|fantasy)|fantasy\s+(character|heroine|hero|artwork)|gaming|roblox|minecraft|游戏/, MEDIUM],
+  ],
   "xhs-cover": [
     [/小红书|小红薯|xiaohongshu|\bxhs\b|redbook|red\s*book|rednote/, STRONG],
   ],
@@ -181,10 +190,11 @@ const SIGNALS = {
   ],
   "merchant-poster": [
     [/餐饮|奶茶|饮品|咖啡馆|咖啡店|烧烤|火锅|外卖|美食|甜品|烘焙|餐厅|菜单/, STRONG],
-    [/coffee\s+shop|restaurant|cafe|menu(?!\s*bar)|bakery|food\s+(poster|stall)/, STRONG],
+    [/coffee\s+shop|restaurant|cafe|menu(?!\s*bar)|bakery|food\s+(poster|stall|commercial|ad|advertisement)/, STRONG],
+    [/\bfood\s+(ad|commercial|photography|shot|advertising)|macro\s+(advertising|ad|food)|product\s+(commercial|ad\s+shot)|beverage\s+(commercial|ad)|coffee\s+(commercial|ad\s+shot)/, STRONG],
     [/美业|美容|美甲|理发|美发|spa|nail\s+salon|hair\s+salon|skincare\s+(shop|store)/, STRONG],
     [/促销|大促|甩卖|限时|团购|清仓|开业|店庆|周年庆|招生|公开课|培训\s*海报|课程\s*海报/, STRONG],
-    [/商家|店铺|门店|线下\s*海报|印刷品|billboard|shop\s+window|promo(tion)?\s+(poster|banner)|discount\s+poster|sale\s+poster/, MEDIUM],
+    [/商家|店铺|门店|线下\s*海报|印刷品|billboard|shop\s+window|promo(tion)?\s+(poster|banner)|discount\s+poster|sale\s+poster|landing\s+page\s+hero|ad\s+banner/, MEDIUM],
   ],
   ecommerce: [
     [/电商|淘宝|天猫|京东|拼多多|主图|详情页|带货|种草/, STRONG],
@@ -233,7 +243,7 @@ const SIGNALS = {
   illustration: [
     [/插画|绘本|童话|手绘|水彩|剪贴簿|拼贴|纸雕|盐田/, STRONG],
     [/illustration|illustrated|watercolor|scrapbook|sketchbook|hand[\s-]?drawn|crayon|paper[\s-]?(cut|craft)|gouache/, STRONG],
-    [/anime\s+(art|style|illustration)|comic\s+illustration|flat\s+(vector\s+)?illustration|漫画风|矢量插画/, MEDIUM],
+    [/anime\s+(art|style|illustration|scene|girl|boy)|comic\s+illustration|flat\s+(vector\s+)?illustration|漫画风|矢量插画|manga|cartoon\s+(art|style|scene|character)|fantasy\s+(artwork|art|scene|illustration)|collage\s+(art|effect|style)|torn[\s-]?paper/, MEDIUM],
   ],
   "brand-kv": [
     [/品牌\s*(kv|主视觉|vi|身份|系统|形象|识别|概念|手册|提案)|主视觉|视觉识别|品牌触点|套\s*vi|品牌与标志/, STRONG],
@@ -244,6 +254,7 @@ const SIGNALS = {
   "ui-screenshot": [
     [/界面设计|交互设计|仪表盘|网页设计|样机|手机截图|系统状态栏|聊天界面|app\s*界面/, STRONG],
     [/screenshot|dashboard|interface\s+(design|mockup)|app\s+(ui|screen|mockup)|web(\s+page)?\s+(mockup|design)|ui\s+(kit|mockup)|livestream\s+ui|live\s+stream\s+ui/, STRONG],
+    [/app\s+icon|phone\s+wallpaper|mobile\s+wallpaper|home\s+screen|feature\s+icon|neumorphic|frosted\s+glass|streaming\s+(platform|site)\s+(homepage|ui)|video\s+streaming\s+(homepage|ui)|netflix\s+(homepage|ui)/, STRONG],
     [/mobile\s+(app|ui)|landing\s+page|wireframe|figma/, MEDIUM],
   ],
   "poster-general": [
@@ -257,9 +268,13 @@ const SIGNALS = {
  * descriptive of the actual image (a cosplay portrait can carry the title
  * "建筑空间场景图"), so when the title matches one of these we don't let it
  * vote — the prompt content + tags decide instead.
+ *
+ * NOTE: These patterns targeted the previous upstream (freestylefly) which
+ * auto-generated Chinese stock titles. The current YouMind upstream uses
+ * descriptive English titles, so the regex is emptied — but the mechanism is
+ * retained in case a future upstream reintroduces stock titles.
  */
-const GENERIC_TITLE_RE =
-  /^(信息图可视化设计|主题海报版式设计|插画艺术(风格)?创作图?|插画艺术风格创作|建筑空间场景图|室内空间渲染图|人像写实摄影图?|人像写实摄影|写实摄影风格(创作|图)|界面交互设计图|直播界面设计图|综合应用场景图|漫画分镜叙事设计|电商商品展示设计|人物角色设定图|品牌徽标设计图|科普百科图|古风历史题材图|应用界面样机图|界面交互设计图?)$/;
+const GENERIC_TITLE_RE = /(?!.*)/;
 
 function fieldText(value) {
   if (Array.isArray(value)) return value.join(" ");

@@ -53,14 +53,31 @@ function isLocalImage(src: string): boolean {
 }
 
 /**
- * Default image URL. Identity for local /images/* paths and for /assets/*
- * Vite bundles. Anything else (rare — would mean the build pipeline missed
- * a source) goes through wsrv as a runtime safety net.
+ * CDN hosts we trust to serve images directly (no wsrv proxy). These are
+ * globally distributed CDNs that are fast enough on their own — proxying
+ * through wsrv just adds a hop and a single point of failure.
+ */
+const DIRECT_CDN_HOSTS = ["cms-assets.youmind.com"];
+
+function isDirectCdn(src: string): boolean {
+  try {
+    const host = new URL(src).hostname;
+    return DIRECT_CDN_HOSTS.some((h) => host === h || host.endsWith(`.${h}`));
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Default image URL. Identity for local /images/* paths, /assets/* Vite
+ * bundles, and trusted CDN hosts. Anything else goes through wsrv as a
+ * runtime safety net.
  */
 export function transformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
   if (isLocalImage(src)) return src;
   if (src.startsWith("/assets/")) return src;
+  if (isDirectCdn(src)) return src;
   return rawTransformUrl(src, opts);
 }
 

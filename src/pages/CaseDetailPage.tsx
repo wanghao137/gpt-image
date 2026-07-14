@@ -96,7 +96,7 @@ export default function CaseDetailPage() {
   const charCount = promptText.length;
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
 
-  const tags = Array.from(new Set([...c.styles, ...c.scenes, ...c.tags])).slice(0, 8);
+  const tags = Array.from(new Set([...(c.styles ?? []), ...(c.scenes ?? []), ...(c.tags ?? [])])).slice(0, 8);
   // OG / share card image. The baked 1200px JPEG is same-origin and already
   // optimised, so we serve it directly (no third-party dependency). `transformUrl`
   // returns the local /images/* path unchanged; `absoluteUrl` promotes it to a
@@ -137,7 +137,7 @@ export default function CaseDetailPage() {
     inLanguage: "zh-CN",
     image: imageAbs,
     url: `${SITE.url}/case/${c.slug}`,
-    keywords: [...c.tags, ...c.styles, ...c.scenes].join(","),
+    keywords: [...(c.tags ?? []), ...(c.styles ?? []), ...(c.scenes ?? [])].join(","),
     dateCreated: c.createdAt,
     isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
     isBasedOn: c.githubUrl,
@@ -262,7 +262,7 @@ export default function CaseDetailPage() {
 
           {/* Meta chips: scenarios + platforms only — ratio/difficulty already in stat strip */}
           <div className="mt-5 flex flex-wrap gap-1.5">
-            {c.platforms.map((p) => (
+            {(c.platforms ?? []).map((p) => (
               <Chip key={p} label={platformLabel(p)} />
             ))}
             {tags.slice(0, 5).map((t) => (

@@ -1,6 +1,6 @@
 export const TARGET_TEMPLATE_COUNT = 36;
 
-const UPSTREAM_SOURCE_LABEL = "awesome-gpt-image-2 · style-library";
+const UPSTREAM_SOURCE_LABEL = "YouMind GPT Image 2 Prompts";
 const MANUAL_SOURCE_LABEL = "本项目手动模板";
 const DERIVED_SOURCE_LABEL = "基于合并案例库自动派生";
 
@@ -136,6 +136,20 @@ const BLUEPRINTS = [
       isBucket(c, "3d-ip") || hasText(c, /3d|ip|吉祥物|玩偶|手办|盲盒|潮玩|mascot|toy|figurine/),
     focus: "角色轮廓、材质、表情、道具、比例和商业化展示角度",
     guardrails: "避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+  },
+  {
+    id: "derived-game-character-sheet",
+    bucket: "game-asset",
+    title: "游戏角色设定表",
+    category: "角色与人物",
+    tags: ["Game", "Character", "Sheet"],
+    description: "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
+    useWhen: "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
+    match: (c) =>
+      isBucket(c, "game-asset") ||
+      hasText(c, /角色设定|三视图|卡牌|game\s*(asset|character|art)|character\s*(sheet|concept|card)|gacha|mecha|voxel|jrpg|pixel\s*art/),
+    focus: "角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架",
+    guardrails: "避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
   },
   {
     id: "derived-brand-kv-system",

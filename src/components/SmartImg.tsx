@@ -111,12 +111,14 @@ function SmartImgImpl({
   const retryDelayRef = useRef<number | null>(null);
 
   // Decide the request URL. Local /images/* and /assets/* render as-is —
-  // they're already optimised on disk. Anything else (an http URL the
-  // build pipeline didn't get to rewrite) goes through wsrv with a single
+  // they're already optimised on disk. Trusted CDN hosts (cms-assets.youmind.com)
+  // also serve directly. Anything else goes through wsrv with a single
   // size-targeted request.
   const isLocalImg = /^\/images\//i.test(src);
   const isOtherSameOrigin =
     src.startsWith("/assets/") || src.startsWith("/uploads/");
+  // YouMind CDN images are served directly — no wsrv proxy needed.
+  const isDirectCdn = /^https?:\/\/cms-assets\.youmind\.com\//i.test(src);
 
   const baseW =
     baseWidth ??
@@ -125,10 +127,11 @@ function SmartImgImpl({
   // ── Source resolution ──
   // For local /images/* we want the responsive <picture> path. For
   // /assets/ + /uploads/ we use the original src as-is (no variants on
-  // disk for those). For external URLs we proxy through wsrv.
+  // disk for those). For trusted CDN URLs we also serve directly. For
+  // other external URLs we proxy through wsrv.
   const fallbackSrc = isLocalImg
     ? pickLocalWebp(src, baseW) // small WebP if the canonical .jpg has variants
-    : isOtherSameOrigin
+    : isOtherSameOrigin || isDirectCdn
       ? src
       : rawTransformUrl(src, { width: baseW, quality });
 
@@ -138,10 +141,11 @@ function SmartImgImpl({
 
   // JPEG fallback srcset. For local images right now this is just the
   // canonical 1200 px JPEG; for external defensive fallbacks we generate
-  // real wsrv-transformed widths.
+  // real wsrv-transformed widths. Trusted CDN images have no srcset
+  // (the CDN serves a single resolution).
   const jpegSrcSet = isLocalImg
     ? localJpegSrcSet(src)
-    : isOtherSameOrigin || !widths || widths.length === 0
+    : isOtherSameOrigin || isDirectCdn || !widths || widths.length === 0
       ? undefined
       : widths
           .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)

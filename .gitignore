@@ -46,3 +46,8 @@ test-results/
 /scripts/playwright.exe
 
 .env.local
+
+# Agent skills and QA report artifacts — local tooling, not project content.
+.agents/
+.qa-report/
+.zcode/
