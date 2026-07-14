@@ -1,4 +1,4 @@
-export const TARGET_TEMPLATE_COUNT = 36;
+export const TARGET_TEMPLATE_COUNT = 60;
 
 const UPSTREAM_SOURCE_LABEL = "YouMind GPT Image 2 Prompts";
 const MANUAL_SOURCE_LABEL = "本项目手动模板";
@@ -201,6 +201,72 @@ const BLUEPRINTS = [
     match: (c) => isBucket(c, "document-publishing") || hasText(c, /文档|出版|document|publishing|report|magazine|手册|报告|简历/),
     focus: "标题层级、栏目网格、图文比例、页码标识和阅读顺序",
     guardrails: "避免正文过长、字号过小、装饰过多和随机乱码文字。",
+  },
+  {
+    id: "derived-anime-scene-illustration",
+    bucket: "illustration",
+    title: "动漫场景插画",
+    category: "插画与艺术",
+    tags: ["Anime", "Scene", "Illustration"],
+    description: "生成有故事感和氛围感的动漫风格场景插画。",
+    useWhen: "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
+    match: (c) =>
+      isBucket(c, "illustration") ||
+      hasText(c, /anime\s+(scene|illustration|girl|boy|art)|manga|cartoon\s+scene|fantasy\s+(artwork|scene|illustration)|动漫/),
+    focus: "角色风格统一、场景氛围、光影情绪、日式/韩式美学细节",
+    guardrails: "避免角色比例失调、风格混杂和背景与主体抢戏。",
+  },
+  {
+    id: "derived-food-product-ad",
+    bucket: "merchant-poster",
+    title: "食品产品广告大片",
+    category: "产品与电商",
+    tags: ["Food", "Ad", "Commercial"],
+    description: "生成高端食品/饮品的商业广告级视觉。",
+    useWhen: "用于食品广告、饮品宣传、餐饮营销和电商主图。",
+    match: (c) =>
+      hasText(c, /food\s+(ad|commercial|photography|shot|advertising)|macro\s+(advertising|food)|beverage\s+(commercial|ad)|coffee\s+commercial|splash|food\s+poster|美食|饮品广告/),
+    focus: "食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感",
+    guardrails: "避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+  },
+  {
+    id: "derived-fantasy-environment",
+    bucket: "architecture",
+    title: "奇幻世界观场景",
+    category: "建筑与空间",
+    tags: ["Fantasy", "Environment", "Worldbuilding"],
+    description: "为游戏、影视或故事生成沉浸式的奇幻世界观场景。",
+    useWhen: "用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。",
+    match: (c) =>
+      hasText(c, /fantasy\s+(cityscape|city|landscape|environment|world|temple)|epic\s+(fantasy|world|landscape)|sci-?fi\s+city|megacity|futuristic\s+city|temple|worldbuilding/),
+    focus: "世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力",
+    guardrails: "避免元素堆砌、比例失真和风格不统一。",
+  },
+  {
+    id: "derived-double-exposure-art",
+    bucket: "illustration",
+    title: "双重曝光艺术",
+    category: "插画与艺术",
+    tags: ["Double", "Exposure", "Art"],
+    description: "用双重曝光手法融合人物与场景的创意视觉。",
+    useWhen: "用于创意海报、艺术头像、社媒封面和概念视觉。",
+    match: (c) =>
+      hasText(c, /double\s+exposure|surreal\s+(artwork|portrait|scene)|collage\s+(art|effect)|mixed\s+media/),
+    focus: "图层融合、轮廓保留、色彩协调和叙事隐喻",
+    guardrails: "避免图层混乱、主体不清晰和过度叠加。",
+  },
+  {
+    id: "derived-vintage-retro-photo",
+    bucket: "portrait",
+    title: "复古怀旧摄影",
+    category: "摄影与写实",
+    tags: ["Vintage", "Retro", "Photo"],
+    description: "模拟胶片、拍立得或年代感摄影的怀旧风格。",
+    useWhen: "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
+    match: (c) =>
+      hasText(c, /vintage\s+(photo|photograph|style|fashion)|retro\s+(photo|style|film)|film\s+photograph|polaroid|nostalgic|胶片|复古/),
+    focus: "胶片颗粒、年代色调、自然光影和怀旧情绪",
+    guardrails: "避免过度滤镜化、色彩失真和失去真实质感。",
   },
 ];
 const BLUEPRINT_IDS = new Set(BLUEPRINTS.map((blueprint) => blueprint.id));

@@ -1,5 +1,21 @@
 [
   {
+    "id": "derived-modular-staircase-infographic",
+    "title": "模块阶梯纵深高密度信息图",
+    "category": "图表与信息图",
+    "tags": [
+      "infographic",
+      "editorial"
+    ],
+    "description": "将任意主题拆解为层层推进的细长结构模块，阶梯纵深+印刷信息质感，适合自媒体深度内容封面与文化信息图",
+    "cover": "/images/templatederived-modular-staircase-infographic.jpg",
+    "prompt": "围绕任意主题对象生成一张信息密度高、秩序感强的视觉作品：把主题转化为大量平行、错位、层层推进的细长结构模块，模块像阶梯、切片或脊线一样从画面边缘向中心斜向铺展，近处局部放大并被边缘裁切，远处逐渐变细变密，形成建筑般的纵深、节奏和压迫感。主题主形体不以单个完整物件呈现，而是被拆解成连续阵列、透明叠层和细密纹理，局部有网点、轻微颗粒和长向拖影，让结构既像实体又像印刷信息。将标题文字作为第二主角嵌入结构之间，使用极大的高反差主字组与细窄辅助字列形成尺度冲突，文字可旋转、穿插、靠边或被结构遮挡，读感先看到巨大的信息重量，再看到密集说明层；字体气质清瘦、克制、庄重，排布有明确轴线和宽窄节奏。色彩从主题自身的材质、文化气质和情绪中提取，保留大面积明亮干净的底色、中等面积的主题结构色、少量高明度信息色与更深的透明阴影纹理，维持清晰色阶、受控饱和度和温暖有仪式感的情绪；即使主题需要更深色，也保持光学洁净、通风感和透明层次，避免浑浊、陈旧或烟尘感。整体应像经过严密编排的文化信息系统，画面有强烈的层叠记忆点、清楚的阅读路径和精细的印刷完成度。\n\n——————\n\n主题：{argument name=\"主题\" default=\"苏联到底有多强大\"}\n\n用途：{argument name=\"用途\" default=\"自媒体B站的封面\"}\n\n比例{argument name=\"比例\" default=\"16:9\"}",
+    "useWhen": "需要高信息密度、秩序感强的视觉作品时使用，尤其适合B站/自媒体深度内容封面、文化信息图、知识科普图",
+    "createdAt": "2026-07-12T21:07:56.670Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-recipe-infographic-card",
     "title": "极简现代食谱信息图卡片",
     "category": "文档与出版",
@@ -993,6 +1009,126 @@
       "100134",
       "100127",
       "100116"
+    ]
+  },
+  {
+    "id": "derived-anime-scene-illustration",
+    "title": "动漫场景插画",
+    "category": "插画与艺术",
+    "tags": [
+      "Anime",
+      "Scene",
+      "Illustration"
+    ],
+    "description": "生成有故事感和氛围感的动漫风格场景插画。",
+    "cover": "https://cms-assets.youmind.com/media/1783932971416_dnnw0s_HM_5vlpaEAA2DHn.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28555 Birthday Puppies Party Scene: A vertical 3D animated birthday illustration featuring two cute puppies with a cake, balloons, …\n- #28550 Monochrome Manga Hamster Dialogue Page: Generates a five-panel black-and-white Japanese manga page featuring an elegant young man discu…\n- #28545 Magical Girls Dessert Café Scene: Generates a cheerful wide anime café group illustration of five color-themed magical girls shar…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "28555",
+      "28550",
+      "28545",
+      "28544",
+      "28543"
+    ]
+  },
+  {
+    "id": "derived-food-product-ad",
+    "title": "食品产品广告大片",
+    "category": "产品与电商",
+    "tags": [
+      "Food",
+      "Ad",
+      "Commercial"
+    ],
+    "description": "生成高端食品/饮品的商业广告级视觉。",
+    "cover": "https://cms-assets.youmind.com/media/1783759582798_v2pz0p_HM23yWJawAAdaKv.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28220 Levitating Food Layer Photography: A series of detailed prompts for generating levitating food shots featuring layered desserts li…\n- #28167 Refreshing Citrus Coconut Cloud Ice Poster: A vertical minimalist beverage advertising poster featuring a translucent iced lime-coconut dri…\n- #28141 Premium Food Commercial Photoshoot: A sophisticated prompt designed to transform standard food or beverage photos into high-end, st…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "28220",
+      "28167",
+      "28141",
+      "28086",
+      "27985"
+    ]
+  },
+  {
+    "id": "derived-fantasy-environment",
+    "title": "奇幻世界观场景",
+    "category": "建筑与空间",
+    "tags": [
+      "Fantasy",
+      "Environment",
+      "Worldbuilding"
+    ],
+    "description": "为游戏、影视或故事生成沉浸式的奇幻世界观场景。",
+    "cover": "https://cms-assets.youmind.com/media/1783759651649_71p1jh_HM27dVgXEAAYfvW.jpg",
+    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28320 Ancient Temple Interior Contact Sheet: Transforms a Blender blockout reference into a textured cinematic ancient temple hall shown fro…\n- #27599 Futuristic Starry Skyscraper Wallpaper: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n- #22694 Futuristic Worldbuilding Concept Kit: A prompt for building cohesive visual kits for fictional worlds, covering architecture, clothin…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
+    "useWhen": "用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "28320",
+      "27599",
+      "22694",
+      "21930",
+      "19708"
+    ]
+  },
+  {
+    "id": "derived-double-exposure-art",
+    "title": "双重曝光艺术",
+    "category": "插画与艺术",
+    "tags": [
+      "Double",
+      "Exposure",
+      "Art"
+    ],
+    "description": "用双重曝光手法融合人物与场景的创意视觉。",
+    "cover": "https://cms-assets.youmind.com/media/1783415071897_3dvaej_HMguml7bcAAO2wA.jpg",
+    "prompt": "模板：双重曝光艺术\n用途：用于创意海报、艺术头像、社媒封面和概念视觉。\n视觉方向：Double / Exposure / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「图层融合、轮廓保留、色彩协调和叙事隐喻」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #27761 Urban Mixed Media Collage: A stylish mixed media fashion collage set in New York, featuring neon accents and torn paper te…\n- #26580 Doodle-Style Mixed Media Advertising: A creative advertising prompt that combines a real product photo with playful hand-drawn doodle…\n- #25781 Torn Paper Editorial Magazine Cover: A high-fashion magazine cover prompt utilizing a torn paper collage effect to reveal a secondar…\n\n使用建议：\n- 先锁定 图层融合、轮廓保留、色彩协调和叙事隐喻。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免图层混乱、主体不清晰和过度叠加。",
+    "useWhen": "用于创意海报、艺术头像、社媒封面和概念视觉。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "27761",
+      "26580",
+      "25781",
+      "25479",
+      "23971"
+    ]
+  },
+  {
+    "id": "derived-vintage-retro-photo",
+    "title": "复古怀旧摄影",
+    "category": "摄影与写实",
+    "tags": [
+      "Vintage",
+      "Retro",
+      "Photo"
+    ],
+    "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
+    "cover": "https://cms-assets.youmind.com/media/1783932938553_vnqyyh_HM03QwibcAAs5IV.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28509 Summer Railway Fisheye Portrait: A detailed fisheye lens prompt capturing a nostalgic Japanese summer scene. It features a woman…\n- #28390 Japanese Atelier Indoor Portrait: A detailed prompt for creating a nostalgic, vintage-style indoor portrait of a woman in a Japan…\n- #28375 Vintage Polaroid Portrait: A vintage Polaroid-style photograph of a Japanese woman, capturing a raw and unposed moment wit…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "28509",
+      "28390",
+      "28375",
+      "28371",
+      "28252"
     ]
   }
 ]

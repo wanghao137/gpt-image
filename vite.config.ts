@@ -27,12 +27,6 @@ const adminPretty = {
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), adminPretty],
-  // Inline JSON as a string rather than an AST object graph. With 12K+ cases
-  // the parsed-object form balloons the main chunk; `stringify` keeps it as a
-  // compact quoted string that is JSON.parse'd at runtime (fast and small).
-  json: {
-    stringify: true,
-  },
   build: {
     target: "es2020",
     cssCodeSplit: true,
@@ -53,8 +47,20 @@ export default defineConfig(({ isSsrBuild }) => ({
             // Client-only chunking: SSR build externalises react, so manualChunks
             // there would explode. Splitting react vendor saves ~200KB on the
             // home page on first load.
-            manualChunks: {
-              react: ["react", "react-dom", "react-router-dom"],
+            manualChunks(id) {
+              // React vendor chunk — shared across all pages.
+              if (id.includes("node_modules/react-dom") || id.includes("node_modules/react-router")) {
+                return "react";
+              }
+              if (id.includes("node_modules/react/")) {
+                return "react";
+              }
+              // Force the 5+ MB cases.json into its own chunk so it doesn't
+              // bloat the main entry. The browser loads it in parallel with
+              // the small main chunk, and it's cached independently.
+              if (id.includes("public/data/cases.json")) {
+                return "cases-data";
+              }
             },
           },
     },

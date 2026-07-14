@@ -51,3 +51,4 @@ test-results/
 .agents/
 .qa-report/
 .zcode/
+.playwright-cli/

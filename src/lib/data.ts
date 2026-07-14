@@ -1,11 +1,11 @@
 /**
  * Single source of truth for case + template data inside the React tree.
  *
- * On SSG (build time) we statically import the JSON so every detail/category
- * page has the data available without a fetch — that's what makes the static
- * HTML output meaningful for SEO. The same import works at runtime in the
- * browser; Vite inlines the JSON into a hashed chunk that's downloaded once
- * and cached, shared across all routes.
+ * SSG build: statically import the JSON so every detail/category page has the
+ * data available without a fetch — that's what makes the static HTML output
+ * meaningful for SEO. The same import works at runtime in the browser; Vite
+ * inlines the JSON into a hashed chunk that's downloaded once and cached,
+ * shared across all routes.
  *
  * The dataset is kept lean on purpose: `seoTitle`/`seoDescription` are derived
  * at render time (see src/lib/seo-url.mjs) rather than stored, and unused
