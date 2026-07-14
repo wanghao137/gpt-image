@@ -52,7 +52,7 @@ function ImageLightboxImpl({
   src,
   alt,
   caption,
-  ratio,
+  ratio: _ratio,
   onCopy,
   copyState = "idle",
   onPrev,
@@ -355,15 +355,6 @@ function ImageLightboxImpl({
       .join(", ");
   }, [isLocalImage, src]);
 
-  // Compute aspect ratio for the stage box so the initial scale-1 frame
-  // matches the case's true ratio (avoids letterboxing on portrait images).
-  const aspect = useMemo(() => {
-    if (!ratio) return undefined;
-    const [w, h] = ratio.split(":").map(Number);
-    if (!w || !h) return undefined;
-    return `${w} / ${h}`;
-  }, [ratio]);
-
   if (!open) return null;
 
   return (
@@ -479,21 +470,19 @@ function ImageLightboxImpl({
         </>
       )}
 
-      {/* Stage — the image lives inside this. We size it to the viewport
-          and let the inner <img> use object-contain to keep its true
-          aspect ratio without letterboxing the lightbox itself. */}
+      {/* Stage — fills the available viewport so object-contain can size the
+          image to its true aspect ratio without being clipped by a wrong
+          aspect-ratio box. The previous version locked the stage to the
+          case's `ratio` field, but that field is inferred from prompt text
+          and frequently wrong for YouMind upstream data (e.g. a 16:9 image
+          locked into a 4:5 box renders at 40% viewport width). */}
       <div
         ref={stageRef}
-        className="relative max-h-[92vh] max-w-[96vw] select-none"
+        className="relative h-[92vh] w-[96vw] select-none"
         style={{
-          aspectRatio: aspect,
           transformOrigin: "center center",
           willChange: "transform",
           transition: "transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1)",
-          // No LQIP background — local /images/* paths come back fast
-          // enough that an inline blur preview hurts more than it helps
-          // (always-visible smudge on slow connections that gets confused
-          // for the real image).
         }}
       >
         <img
