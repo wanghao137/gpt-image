@@ -106,19 +106,20 @@ function SmartImgImpl({
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
+  // After wsrv proxy fails twice, try the original CDN URL directly as a
+  // last-resort fallback. This catches cases where wsrv is down but the
+  // origin CDN is reachable.
+  const [directFallback, setDirectFallback] = useState(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const signaledSrcRef = useRef<string | null>(null);
   const retryDelayRef = useRef<number | null>(null);
 
   // Decide the request URL. Local /images/* and /assets/* render as-is —
-  // they're already optimised on disk. Trusted CDN hosts (cms-assets.youmind.com)
-  // also serve directly. Anything else goes through wsrv with a single
-  // size-targeted request.
+  // they're already optimised on disk. Upstream CDN images (YouMind) go
+  // through wsrv for resize + WebP transcoding + better reachability in CN.
   const isLocalImg = /^\/images\//i.test(src);
   const isOtherSameOrigin =
     src.startsWith("/assets/") || src.startsWith("/uploads/");
-  // YouMind CDN images are served directly — no wsrv proxy needed.
-  const isDirectCdn = /^https?:\/\/cms-assets\.youmind\.com\//i.test(src);
 
   const baseW =
     baseWidth ??
@@ -127,11 +128,13 @@ function SmartImgImpl({
   // ── Source resolution ──
   // For local /images/* we want the responsive <picture> path. For
   // /assets/ + /uploads/ we use the original src as-is (no variants on
-  // disk for those). For trusted CDN URLs we also serve directly. For
-  // other external URLs we proxy through wsrv.
+  // disk for those). For external CDN URLs we proxy through wsrv with
+  // responsive widths. When directFallback is active (wsrv failed twice),
+  // we try the original CDN URL directly.
+  const useDirect = directFallback && /^https?:\/\//i.test(src);
   const fallbackSrc = isLocalImg
     ? pickLocalWebp(src, baseW) // small WebP if the canonical .jpg has variants
-    : isOtherSameOrigin || isDirectCdn
+    : isOtherSameOrigin || useDirect
       ? src
       : rawTransformUrl(src, { width: baseW, quality });
 
@@ -140,12 +143,11 @@ function SmartImgImpl({
   const webpSrcSet = isLocalImg ? localWebpSrcSet(src, widths) : "";
 
   // JPEG fallback srcset. For local images right now this is just the
-  // canonical 1200 px JPEG; for external defensive fallbacks we generate
-  // real wsrv-transformed widths. Trusted CDN images have no srcset
-  // (the CDN serves a single resolution).
+  // canonical 1200 px JPEG; for external URLs we generate real wsrv-transformed
+  // widths so the browser picks the right size.
   const jpegSrcSet = isLocalImg
     ? localJpegSrcSet(src)
-    : isOtherSameOrigin || isDirectCdn || !widths || widths.length === 0
+    : isOtherSameOrigin || useDirect || !widths || widths.length === 0
       ? undefined
       : widths
           .map((w) => `${rawTransformUrl(src, { width: w, quality })} ${w}w`)
@@ -178,11 +180,22 @@ function SmartImgImpl({
 
   const markErrored = () => {
     if (retryToken === 0) {
+      // First failure — retry the same (wsrv-proxied) URL after a short delay.
       clearRetryDelay();
       retryDelayRef.current = window.setTimeout(() => {
         retryDelayRef.current = null;
         setRetryToken((current) => (current === 0 ? 1 : current));
       }, IMAGE_RETRY_DELAY_MS);
+      return;
+    }
+
+    // Second failure on the proxied URL. If the source is an external CDN
+    // URL that we proxied through wsrv, try the ORIGINAL direct URL as a
+    // last resort before giving up. This catches wsrv outages.
+    if (!directFallback && /^https?:\/\//i.test(src) && !isOtherSameOrigin) {
+      setDirectFallback(true);
+      setLoaded(false);
+      setErrored(false);
       return;
     }
 
@@ -199,12 +212,13 @@ function SmartImgImpl({
     setLoaded(false);
     setErrored(false);
     setRetryToken(0);
+    setDirectFallback(false);
     clearRetryDelay();
 
     return clearRetryDelay;
-    // Reset only when the source family changes; the retry token itself is
-    // allowed to trigger a second request without clearing this state.
-  }, [fallbackSrc]);
+    // Reset only when the ORIGINAL source changes (not when directFallback
+    // toggles, which would cause a reset loop).
+  }, [src]);
 
   useEffect(() => {
     setLoaded(false);
