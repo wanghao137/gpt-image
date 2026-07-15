@@ -20,6 +20,10 @@
 import type { PromptCase, PromptTemplate, UserCategoryKey } from "../types";
 import { sortTemplatesForDisplay } from "./templateSort";
 import { fetchWithTimeout } from "./fetchWithTimeout";
+// Templates are small (~134KB raw / ~48KB gzip) — safe to statically import
+// in BOTH SSG and client bundles. Unlike cases.json (7.4MB), templates don't
+// need sharding.
+import templatesJson from "../../public/data/templates.json";
 
 const USER_CATEGORY_KEYS: ReadonlySet<string> = new Set<UserCategoryKey>([
   "xhs-cover",
@@ -48,14 +52,12 @@ const USER_CATEGORY_KEYS: ReadonlySet<string> = new Set<UserCategoryKey>([
 // data-ssg.ts is imported synchronously. Vite's SSR build bundles it; the
 // client build never reaches this code because import.meta.env.SSR is false.
 let SSG_CASES: PromptCase[] = [];
-let SSG_TEMPLATES: PromptTemplate[] = [];
 
 if (import.meta.env.SSR) {
   // Dynamic import resolved at SSR build time. Vite externalizes node:fs in
   // SSR mode. The client build sees `if (false)` and eliminates this block.
   const ssg = await import("./data-ssg");
   SSG_CASES = ssg.SSG_ALL_CASES;
-  SSG_TEMPLATES = ssg.SSG_ALL_TEMPLATES;
 }
 
 // ── SSG validation ────────────────────────────────────────────────────
@@ -111,7 +113,7 @@ export const ALL_CASES: PromptCase[] = shouldValidate
   ? validateCases(SSG_CASES)
   : SSG_CASES;
 
-export const ALL_TEMPLATES: PromptTemplate[] = SSG_TEMPLATES;
+export const ALL_TEMPLATES: PromptTemplate[] = templatesJson as PromptTemplate[];
 
 // ── SSG-mode indexes ──────────────────────────────────────────────────
 

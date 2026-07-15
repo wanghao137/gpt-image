@@ -1,18 +1,14 @@
 /**
- * SSG-only data access. This module statically imports the full cases.json
- * and templates.json. It is ONLY imported on the server side:
+ * SSG-only data access for the full cases.json. This module statically imports
+ * the 7+ MB cases.json and is ONLY loaded on the server side:
  *
- *   1. data.ts async-imports it inside `if (import.meta.env.SSR)` — which is
- *      dead code in the client build, so Rollup never includes this module.
- *   2. routes.tsx may import it inside getStaticPaths (server-only function).
+ *   data.ts async-imports it inside `if (import.meta.env.SSR)` — which is
+ *   dead code in the client build, so Rollup never includes this module.
  *
- * Vite guarantees: `import.meta.env.SSR` is statically replaced at build time.
- * In the client build it's `false`, so any code path importing this module
- * is unreachable and tree-shaken away.
+ * Templates are NOT loaded here — they're small enough to be statically
+ * imported directly in data.ts for both SSG and client.
  */
 import casesJson from "../../public/data/cases.json";
-import templatesJson from "../../public/data/templates.json";
-import type { PromptCase, PromptTemplate } from "../types";
+import type { PromptCase } from "../types";
 
 export const SSG_ALL_CASES: PromptCase[] = casesJson as PromptCase[];
-export const SSG_ALL_TEMPLATES: PromptTemplate[] = templatesJson as PromptTemplate[];
