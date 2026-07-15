@@ -1,5 +1,30 @@
 [
   {
+    "id": "100169",
+    "title": "Vogue风格奢华咖啡桌画册摄影",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "Education",
+      "Brand",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-07-16-case-100169-luxury-coffee-table-book.jpg",
+    "imageAlt": "Vogue风格奢华咖啡桌画册摄影",
+    "prompt": "Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition of editorial portraits. Some pages are partially open, creating a sense of movement.\n\nThe accompanying reference image appears throughout the book.\n\nModern brand design, high-quality print texture, Vogue-style photography, elegant color gradation, and a vibrant image.\n\nar. 9:16.",
+    "promptPreview": "Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition of editorial portraits. Some pages are partially open, creating a sense of movement. The accompanying reference image appear…",
+    "source": "Community collected via @MissDelulu9",
+    "createdAt": "2026-07-15T20:03:54.428Z"
+  },
+  {
     "id": "100168",
     "title": "水彩手绘咖啡店少女插画",
     "category": "插画与艺术",
