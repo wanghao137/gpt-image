@@ -1,5 +1,16 @@
 import { Link } from "react-router-dom";
-import { pickLocalWebp } from "../lib/img";
+import { pickLocalWebp, transformUrl } from "../lib/img";
+
+/**
+ * Resolve a cover image URL that works for both local /images/* paths and
+ * external CDN URLs (YouMind). Local paths get the on-disk WebP variant;
+ * external URLs go through wsrv.nl for resize + WebP + CN reachability.
+ */
+function coverUrl(src: string | undefined, width: number): string | undefined {
+  if (!src) return undefined;
+  if (/^\/images\//i.test(src)) return pickLocalWebp(src, width);
+  return transformUrl(src, { width });
+}
 
 interface TileData {
   slug: string;
@@ -56,7 +67,7 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
               >
                 {tile.cover && (
                   <img
-                    src={pickLocalWebp(tile.cover, 168)}
+                    src={coverUrl(tile.cover, 168)}
                     alt=""
                     width={56}
                     height={56}
@@ -109,7 +120,7 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
                 aria-hidden="true"
                 className="absolute inset-0 opacity-30 transition duration-700 group-hover:scale-105 group-hover:opacity-55"
                 style={{
-                  backgroundImage: `url(${pickLocalWebp(tile.cover, 480)})`,
+                  backgroundImage: `url(${coverUrl(tile.cover, 480)})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

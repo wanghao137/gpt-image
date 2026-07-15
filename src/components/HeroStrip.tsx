@@ -2,8 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { rememberCaseReturn } from "../lib/caseReturn";
-import { pickLocalWebp } from "../lib/img";
+import { pickLocalWebp, transformUrl } from "../lib/img";
 import { accessibleCaseLabel } from "../lib/labels";
+
+/**
+ * Resolve a thumbnail URL that works for both local /images/* paths and
+ * external CDN URLs (YouMind). Local paths get the on-disk WebP variant;
+ * external URLs go through wsrv.nl for resize + WebP + CN reachability.
+ */
+function thumbUrl(src: string, width: number): string {
+  if (!src) return src;
+  if (/^\/images\//i.test(src)) return pickLocalWebp(src, width);
+  return transformUrl(src, { width });
+}
 
 interface HeroStripProps {
   cases: PromptCase[];
@@ -102,7 +113,7 @@ function StripTile({ item, priority }: { item: PromptCase; priority: boolean }) 
         <div className="h-full w-full bg-gradient-to-br from-ink-800 to-ink-900" />
       ) : (
         <img
-          src={pickLocalWebp(item.imageUrl, 320)}
+          src={thumbUrl(item.imageUrl, 320)}
           alt=""
           loading="eager"
           decoding="async"

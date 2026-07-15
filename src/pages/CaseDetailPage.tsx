@@ -493,7 +493,7 @@ function NavCard({
     >
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-ink-850">
         <img
-          src={pickLocalWebp(target.imageUrl, 160)}
+          src={/^\/images\//i.test(target.imageUrl) ? pickLocalWebp(target.imageUrl, 160) : transformUrl(target.imageUrl, { width: 160 })}
           alt=""
           loading="lazy"
           decoding="async"

@@ -7,7 +7,7 @@ import { toast } from "../hooks/useToast";
 import { useLongPress } from "../hooks/useLongPress";
 import { tagLabel, accessibleCaseLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
-import { pickLocalWebp } from "../lib/img";
+import { pickLocalWebp, transformUrl } from "../lib/img";
 import { rememberCaseReturn } from "../lib/caseReturn";
 import { SmartImg } from "./SmartImg";
 import { CardActionSheet, type CardAction } from "./CardActionSheet";
@@ -528,7 +528,7 @@ function CaseCardImpl({
         open={menuOpen}
         title={data.title}
         caption={userCategoryLabel(data.userCategory)}
-        image={pickLocalWebp(data.imageUrl, 168)}
+        image={/^\/images\//i.test(data.imageUrl) ? pickLocalWebp(data.imageUrl, 168) : transformUrl(data.imageUrl, { width: 168 })}
         actions={sheetActions}
         onClose={() => setMenuOpen(false)}
       />
