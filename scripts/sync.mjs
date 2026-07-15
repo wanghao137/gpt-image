@@ -10,6 +10,7 @@ import {
   normalizedIsoDate,
   sortCasesForDisplay,
 } from "./case-ordering.mjs";
+import { translateTitle } from "./translate-title.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -185,15 +186,21 @@ function normalizeCase(item) {
   // Use the first category slug the prompt appeared under as the primary
   // category signal for the classifier.
   const slug = Array.isArray(item.categorySlugs) ? item.categorySlugs[0] : item.category;
+  // YouMind's public data only has English titles. Translate to Chinese for
+  // display. The original English title is kept in titleEn for reference.
+  // If translation fails (< 30% Chinese), the original English is kept.
+  const rawTitle = item.title || `案例 ${item.id}`;
+  const titleZh = translateTitle(rawTitle);
   return {
     id: String(item.id),
-    title: item.title || `案例 ${item.id}`,
+    title: titleZh,
+    titleEn: titleZh !== rawTitle ? rawTitle : undefined,
     category: localizeCategory(slug),
     tags: [],
     styles: [],
     scenes: [],
     imageUrl,
-    imageAlt: item.title || `案例 ${item.id}`,
+    imageAlt: titleZh,
     prompt,
     promptPreview,
     source: "YouMind",
