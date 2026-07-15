@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   caseNeighbors,
-  getCaseBySlug,
   relatedCases,
 } from "../lib/data";
 import {
@@ -18,6 +17,7 @@ import { ImageLightbox } from "../components/ImageLightbox";
 import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
+import { useCaseDetail } from "../hooks/useCaseDetail";
 import { tagLabel } from "../lib/labels";
 import { readCaseReturn, refreshCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
@@ -50,7 +50,7 @@ function ratioStyle(ratio: string): React.CSSProperties {
 export default function CaseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const c = slug ? getCaseBySlug(slug) : undefined;
+  const { caseData: c, loading } = useCaseDetail(slug);
   const { has, toggle } = useFavorites();
   const fetched = usePrompt(c?.id ?? null);
   const { state: copyState, copy } = useCopy(1500, {
@@ -91,7 +91,18 @@ export default function CaseDetailPage() {
     navigate(targetPath);
   }, [c, navigate]);
 
-  if (!c) return <NotFoundPage />;
+  // SSG: if c is undefined on the server, the slug doesn't exist → 404.
+  // Client SPA: show a brief loading state (SSG'd HTML stays visible under it)
+  // before resolving from the shard. Only show 404 if loading is done and no case.
+  if (!c) {
+    if (loading && !import.meta.env.SSR) {
+      // Client-side loading: keep the SSG'd content visible by rendering
+      // nothing (React preserves the existing DOM during hydration). The
+      // case will resolve from the shard shortly.
+      return null;
+    }
+    return <NotFoundPage />;
+  }
 
   const charCount = promptText.length;
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;

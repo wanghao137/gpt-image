@@ -453,32 +453,58 @@ async function main() {
 
   // Per-case prompts — fetched on demand when a user opens a case modal or copies.
   //
-  // When upstream is healthy: regenerate the entire prompts directory.
-  // When upstream is down: keep the existing prompts directory intact (so cached
-  // upstream prompts still resolve) but clean out any stale manual-range
-  // prompt files — those follow the manual cases and need to track renames /
-  // deletes that happen through the admin.
+  // INCREMENTAL UPDATE: instead of nuking the whole prompts/ directory on every
+  // sync (which caused massive git diffs from 12K+ file mtime churn), we now:
+  //   1. Build a map of id→prompt from the current full cases.
+  //   2. Compare against existing files on disk — only write when content changed.
+  //   3. Delete orphaned files (id no longer in the current case set).
+  // This keeps the prompts/ directory byte-stable across daily syncs when the
+  // upstream only adds a few new prompts, avoiding git repo bloat.
   const promptsDir = resolve(ROOT, "public/data/prompts");
-  if (upstreamOk) {
-    if (existsSync(promptsDir)) rmSync(promptsDir, { recursive: true, force: true });
-  } else if (existsSync(promptsDir)) {
+  mkdirSync(promptsDir, { recursive: true });
+
+  // Build the authoritative id→prompt map from current cases.
+  const promptMap = new Map();
+  for (const c of fullCases) {
+    if (c.prompt) promptMap.set(c.id, c.prompt);
+  }
+
+  // Sweep existing files: update changed, delete orphans.
+  let writtenPrompts = 0;
+  let unchangedPrompts = 0;
+  let deletedPrompts = 0;
+  if (existsSync(promptsDir)) {
     for (const file of readdirSync(promptsDir)) {
       const id = file.replace(/\.json$/i, "");
-      if (Number(id) >= 100000) {
-        rmSync(resolve(promptsDir, file), { force: true });
+      const filePath = resolve(promptsDir, file);
+      if (!promptMap.has(id)) {
+        // Orphaned file — case was removed from upstream or manual hidden.
+        rmSync(filePath, { force: true });
+        deletedPrompts += 1;
+        continue;
+      }
+      // Check if content changed before writing.
+      const expected = JSON.stringify({ id, prompt: promptMap.get(id) });
+      try {
+        const existing = readFileSync(filePath, "utf8");
+        if (existing === expected) {
+          unchangedPrompts += 1;
+          promptMap.delete(id); // already up-to-date, skip re-write
+        }
+      } catch {
+        // Read error — will be overwritten below.
       }
     }
   }
-  mkdirSync(promptsDir, { recursive: true });
 
-  let writtenPrompts = 0;
-  for (const c of fullCases) {
-    if (!c.prompt) continue; // lite-only fallback rows have no prompt
-    writeJson(`public/data/prompts/${c.id}.json`, { id: c.id, prompt: c.prompt });
+  // Write only new or changed prompts.
+  for (const [id, prompt] of promptMap) {
+    writeJson(`public/data/prompts/${id}.json`, { id, prompt });
     writtenPrompts += 1;
   }
   console.log(
-    `✓ wrote ${writtenPrompts} per-case prompt files -> public/data/prompts/${upstreamOk ? "" : " (manual only — upstream offline)"}`,
+    `✓ prompts: ${writtenPrompts} written, ${unchangedPrompts} unchanged, ${deletedPrompts} deleted ` +
+      `-> public/data/prompts/${upstreamOk ? "" : " (manual only — upstream offline)"}`,
   );
 
   console.log(

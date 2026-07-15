@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ALL_CASES, casesByUserCategory } from "../lib/data";
+import { casesByUserCategory, loadShard, getCachedShard } from "../lib/data";
 import { getUserCategoryBySlug, USER_CATEGORIES } from "../lib/userCategories";
+import type { PromptCase } from "../types";
 import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
 import { BRAND } from "../lib/brand";
@@ -11,16 +12,54 @@ import NotFoundPage from "./NotFoundPage";
 
 /**
  * /category/:slug — landing page for one user-intent bucket.
- * Pre-rendered at build time for every slug in USER_CATEGORIES, so each
- * bucket has its own SEO surface (e.g. "小红书封面 案例库" can rank).
+ *
+ * SSG: pre-rendered for every slug in USER_CATEGORIES using the full dataset
+ * (casesByUserCategory). The HTML contains the complete case grid.
+ *
+ * Client hydration: fetches the category shard (cases-<key>.json) to
+ * repopulate interactive state. The SSG'd HTML stays visible during the
+ * brief fetch (the grid renders skeletons only if the shard hasn't arrived
+ * by the time the user scrolls).
  */
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const meta = slug ? getUserCategoryBySlug(slug) : undefined;
-  const list = useMemo(
+
+  // SSG mode: casesByUserCategory returns the full list from ALL_CASES.
+  // Client mode: returns []. We supplement with the shard on the client.
+  const ssgList = useMemo(
     () => (meta ? casesByUserCategory(meta.key) : []),
     [meta],
   );
+
+  // Client-side shard loading for hydration + interaction.
+  const [clientList, setClientList] = useState<PromptCase[]>(() =>
+    meta ? (getCachedShard(meta.key) ?? []) : [],
+  );
+
+  useEffect(() => {
+    if (!meta) return;
+    const cached = getCachedShard(meta.key);
+    if (cached) {
+      setClientList(cached);
+      return;
+    }
+    let cancelled = false;
+    loadShard(meta.key)
+      .then((data) => {
+        if (!cancelled) setClientList(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [meta]);
+
+  // Use SSG list during server render + initial hydration (matches HTML).
+  // After the shard loads, switch to the client list for interaction.
+  const isSSR = import.meta.env.SSR;
+  const list = isSSR || clientList.length === 0 ? ssgList : clientList;
+
   const { ids, toggle } = useFavorites();
   const { restoreId, onRestored } = useCaseReturnRestore();
 
@@ -91,7 +130,7 @@ export default function CategoryPage() {
             className="chip chip-idle"
             aria-label="所有案例"
           >
-            全部 {ALL_CASES.length}
+            全部案例
           </Link>
           {USER_CATEGORIES.map((c) => {
             const isActive = c.key === meta.key;

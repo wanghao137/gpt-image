@@ -7,9 +7,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs",
+    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs && node scripts/split-data.mjs",
     "dev": "vite-react-ssg dev",
-    "prebuild": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict",
+    "prebuild": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict && node scripts/split-data.mjs",
     "build": "tsc -b && vite-react-ssg build",
     "check": "tsc -b && npm run test",
     "lint": "eslint .",

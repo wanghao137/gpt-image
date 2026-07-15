@@ -52,6 +52,18 @@
       ]
     },
     {
+      "source": "/data/cases-(.*).json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/data/filter-options.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
       "source": "/favicon.svg",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }

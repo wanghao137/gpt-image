@@ -1,18 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ALL_CASES } from "../lib/data";
+import { ALL_CASES, loadShard } from "../lib/data";
+import type { PromptCase } from "../types";
 import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
 import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
-
-function uniqueValues(items: string[][]): string[] {
-  return Array.from(new Set(items.flat())).sort((a, b) =>
-    a.localeCompare(b, "zh-Hans-CN"),
-  );
-}
+import { useSearchData } from "../hooks/useSearchIndex";
+import { HOME_DATA } from "../hooks/useHomeData";
 
 function readSet(sp: URLSearchParams, key: string): Set<string> {
   const raw = sp.get(key);
@@ -26,14 +23,17 @@ function writeSet(sp: URLSearchParams, key: string, set: Set<string>) {
 }
 
 /**
- * Full case library. Filter / search / favorite state is mirrored to the URL
- * so links to "/cases?cat=portrait,xhs-cover&platform=xiaohongshu" are
- * shareable and survive refresh — important for SEO long tail and for
- * "send this filtered view to a client" kind of flows.
+ * Full case library. Filter / search / favorite state is mirrored to the URL.
+ *
+ * SSG: pre-rendered with ALL_CASES (server has the full dataset). The initial
+ * HTML shows the featured cases from cases-home.json.
+ *
+ * Client hydration: loads the search index (cases-search.json) for search.
+ * Category filter → loads the relevant shard. Style/scene/platform filter →
+ * searches across the index, then loads shards containing matches.
  */
 export default function CasesPage() {
   const [sp, setSp] = useSearchParams();
-  const cases = ALL_CASES;
   const { ids: favoriteIds, toggle } = useFavorites();
 
   const [query, setQuery] = useState("");
@@ -44,12 +44,12 @@ export default function CasesPage() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const { restoreId, restoreTarget, onRestored } = useCaseReturnRestore();
-  // Tracks the query string we ourselves last wrote, so the URL→state sync can
-  // distinguish "user pressed back/forward" (external) from "our own write".
   const lastWrittenSearch = useRef<string | null>(null);
 
-  // URL → state. Runs on mount AND whenever the URL changes from outside
-  // (browser back/forward, shared link), but NOT for our own echoed writes.
+  // Load search index + filter options on the client.
+  const { filterOptions } = useSearchData();
+
+  // URL → state sync.
   useEffect(() => {
     const current = sp.toString();
     if (current === lastWrittenSearch.current) return;
@@ -61,7 +61,7 @@ export default function CasesPage() {
     setHydrated(true);
   }, [sp]);
 
-  // ── URL sync (one-way: state → URL) ──
+  // State → URL sync.
   useEffect(() => {
     if (!hydrated) return;
     const next = new URLSearchParams(sp);
@@ -78,21 +78,81 @@ export default function CasesPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated, query, activeCategories, activeStyles, activeScenes, activePlatforms]);
 
-  // ── derived filter option lists ──
-  const styleOptions = useMemo(() => uniqueValues(cases.map((c) => c.styles ?? [])), [cases]);
-  const sceneOptions = useMemo(() => uniqueValues(cases.map((c) => c.scenes ?? [])), [cases]);
+  const styleOptions = filterOptions?.styles ?? [];
+  const sceneOptions = filterOptions?.scenes ?? [];
 
-  const baseList = useMemo(() => {
-    if (showFavorites) return cases.filter((c) => favoriteIds.has(c.id));
-    return cases;
-  }, [cases, favoriteIds, showFavorites]);
+  // ── Case data loading ──
+  // SSG mode: use ALL_CASES directly.
+  // Client mode: load shards based on active filters.
+  const isSSR = import.meta.env.SSR;
 
-  // Precompute a lowercased search blob per case ONCE (keyed by id), so the
-  // debounced search doesn't rebuild a concatenated string for every case on
-  // every keystroke. Keyed map survives filter recompute.
-  const searchIndex = useMemo(() => {
+  // Determine which categories we need to load.
+  const neededCategories = useMemo(() => {
+    if (isSSR) return new Set<string>();
+    if (activeCategories.size > 0) return activeCategories;
+    // No category filter: we need all categories (or at least the first few
+    // for the default view). For the "browse all" experience, load shards
+    // incrementally starting from the largest categories.
+    return null; // null = "all"
+  }, [activeCategories, isSSR]);
+
+  // Client-side shard state.
+  const [shardCases, setShardCases] = useState<PromptCase[]>([]);
+  const [shardsLoading, setShardsLoading] = useState(!isSSR);
+
+  useEffect(() => {
+    if (isSSR) return;
+
+    // If a category filter is active, load those shards.
+    if (neededCategories) {
+      let cancelled = false;
+      setShardsLoading(true);
+      Promise.all(Array.from(neededCategories).map((cat) => loadShard(cat)))
+        .then((results) => {
+          if (!cancelled) {
+            setShardCases(results.flat());
+            setShardsLoading(false);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) setShardsLoading(false);
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    // No category filter: load shards incrementally (portrait first, then
+    // others) for the "browse all" default view. Start with the top categories.
+    let cancelled = false;
+    setShardsLoading(true);
+    const priorityCats = ["portrait", "poster-general", "illustration", "storyboard", "infographic"];
+    Promise.all(priorityCats.map((cat) => loadShard(cat)))
+      .then((results) => {
+        if (!cancelled) {
+          setShardCases(results.flat());
+          setShardsLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setShardsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [neededCategories, isSSR]);
+
+  // The base case list for rendering.
+  const baseList = useMemo<PromptCase[]>(() => {
+    if (isSSR) return ALL_CASES as unknown as PromptCase[];
+    if (showFavorites) return shardCases.filter((c) => favoriteIds.has(c.id));
+    return shardCases;
+  }, [isSSR, shardCases, showFavorites, favoriteIds]);
+
+  // Build search index from the loaded shard data (client-side).
+  const searchBlobMap = useMemo(() => {
     const map = new Map<string, string>();
-    for (const c of cases) {
+    for (const c of baseList) {
       map.set(
         c.id,
         [c.id, c.title, c.category, c.promptPreview, c.source, ...(c.tags ?? []), ...(c.styles ?? []), ...(c.scenes ?? [])]
@@ -102,7 +162,7 @@ export default function CasesPage() {
       );
     }
     return map;
-  }, [cases]);
+  }, [baseList]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -128,9 +188,9 @@ export default function CasesPage() {
         if (!(c.platforms ?? []).some((p) => activePlatforms.has(p))) return false;
       }
       if (!q) return true;
-      return (searchIndex.get(c.id) ?? "").includes(q);
+      return (searchBlobMap.get(c.id) ?? "").includes(q);
     });
-  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query, searchIndex]);
+  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query, searchBlobMap]);
 
   const hasActiveFilter =
     query.trim().length > 0 ||
@@ -148,11 +208,12 @@ export default function CasesPage() {
   }, []);
 
   const favoriteCount = favoriteIds.size;
+  const totalCount = isSSR ? (ALL_CASES as unknown as { length: number }).length : HOME_DATA.totalCount;
 
   return (
     <>
       <SEO
-        title={`全部案例 · ${cases.length}+ GPT-Image 2 真实案例`}
+        title={`全部案例 · ${totalCount}+ GPT-Image 2 真实案例`}
         description={`${BRAND.name}按用例、风格、场景、平台筛选 GPT-Image 2 真实案例。一键复制 Prompt，免费用作灵感来源。`}
         path="/cases"
       />
@@ -161,7 +222,7 @@ export default function CasesPage() {
         <p className="eyebrow">All Cases</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
-            按场景筛选 {cases.length} 个 GPT-Image 2 案例
+            按场景筛选 {totalCount} 个 GPT-Image 2 案例
           </h1>
           <button
             type="button"
@@ -225,6 +286,7 @@ export default function CasesPage() {
         restoreScrollY={restoreTarget?.scrollY}
         restoreTargetTop={restoreTarget?.targetTop}
         onRestored={onRestored}
+        loading={shardsLoading}
       />
     </>
   );

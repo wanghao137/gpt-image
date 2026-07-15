@@ -28,7 +28,9 @@ const adminPretty = {
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), adminPretty],
   build: {
-    target: "es2020",
+    // SSR build needs top-level await (used in data.ts for conditional data
+    // loading). Client build stays at es2020 for broader browser compat.
+    target: isSsrBuild ? "esnext" : "es2020",
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",
@@ -55,12 +57,8 @@ export default defineConfig(({ isSsrBuild }) => ({
               if (id.includes("node_modules/react/")) {
                 return "react";
               }
-              // Force the 5+ MB cases.json into its own chunk so it doesn't
-              // bloat the main entry. The browser loads it in parallel with
-              // the small main chunk, and it's cached independently.
-              if (id.includes("public/data/cases.json")) {
-                return "cases-data";
-              }
+              // NOTE: cases.json is no longer in the client bundle — it's
+              // loaded via data-ssg.ts (SSR-only) and shards (client fetch).
             },
           },
     },

@@ -1,24 +1,43 @@
 import { Link } from "react-router-dom";
 import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
-import { ALL_CASES, ALL_TEMPLATES } from "../lib/data";
+import { ALL_TEMPLATES } from "../lib/data";
 import { USER_CATEGORIES } from "../lib/userCategories";
+import { HOME_DATA } from "../hooks/useHomeData";
+import { loadCaseIndex, getCachedCaseIndex, type CaseIndexEntry } from "../lib/data";
+import { useEffect, useState } from "react";
 
-const recentCases = ALL_CASES.slice(0, 24);
-
-// Precompute per-category case counts in ONE pass (instead of an O(n) scan per
-// category at render time).
-const categoryCounts: Record<string, number> = {};
-for (const c of ALL_CASES) {
-  const keys = new Set<string>([c.userCategory, ...((c.userCategories as string[]) ?? [])]);
-  for (const k of keys) categoryCounts[k] = (categoryCounts[k] ?? 0) + 1;
-}
-
-const visibleCategories = USER_CATEGORIES.filter(
-  (item) => (categoryCounts[item.slug] ?? 0) > 0,
-);
-
+/**
+ * Sitemap page — uses the lightweight cases-index.json for case listings
+ * instead of the full ALL_CASES array.
+ *
+ * SSG: pre-rendered with the case index for the "recent cases" section.
+ * Client: loads the index shard if not already cached.
+ */
 export default function SitemapPage() {
+  const [caseIndex, setCaseIndex] = useState<CaseIndexEntry[]>(
+    () => getCachedCaseIndex() ?? [],
+  );
+
+  useEffect(() => {
+    if (!getCachedCaseIndex()) {
+      loadCaseIndex().then(setCaseIndex).catch(() => {});
+    }
+  }, []);
+
+  // Compute category counts from the index.
+  const categoryCounts: Record<string, number> = {};
+  for (const c of caseIndex) {
+    categoryCounts[c.uc] = (categoryCounts[c.uc] ?? 0) + 1;
+  }
+
+  const visibleCategories = USER_CATEGORIES.filter(
+    (item) => (categoryCounts[item.slug] ?? 0) > 0,
+  );
+
+  const recentCases = caseIndex.slice(0, 24);
+  const totalCount = caseIndex.length || HOME_DATA.totalCount;
+
   return (
     <>
       <SEO
@@ -51,7 +70,7 @@ export default function SitemapPage() {
       <section className="container-narrow grid gap-5 py-8 sm:py-10 lg:grid-cols-[0.9fr_1.1fr]">
         <SitemapGroup title="核心页面">
           <SitemapLink to="/" label="首页" detail="最新案例、精选模板与场景入口" />
-          <SitemapLink to="/cases" label="全部案例" detail={`${ALL_CASES.length} 个案例`} />
+          <SitemapLink to="/cases" label="全部案例" detail={`${totalCount} 个案例`} />
           <SitemapLink to="/templates" label="模板库" detail={`${ALL_TEMPLATES.length} 套模板`} />
           <SitemapLink to="/about" label="关于" detail="项目说明与数据来源" />
         </SitemapGroup>
@@ -74,7 +93,7 @@ export default function SitemapPage() {
         <SitemapGroup title="近期案例">
           <div className="grid gap-2 sm:grid-cols-2">
             {recentCases.map((item) => (
-              <SitemapLink key={item.id} to={`/case/${item.slug}`} label={item.title} detail={item.ratio} />
+              <SitemapLink key={item.id} to={`/case/${item.slug}`} label={`案例 ${item.id}`} detail={item.r} />
             ))}
           </div>
         </SitemapGroup>

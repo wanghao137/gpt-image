@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ALL_CASES, ALL_TEMPLATES } from "../lib/data";
+import { ALL_TEMPLATES } from "../lib/data";
+import { HOME_DATA } from "../hooks/useHomeData";
 import { SmartImg } from "../components/SmartImg";
 import { CategoryShowcase } from "../components/CategoryShowcase";
 import { CaseGrid } from "../components/CaseGrid";
@@ -23,19 +24,14 @@ const HOME_TITLE = BRAND.siteTitle;
 const HOME_DESC = BRAND.description;
 
 /**
- * Home — restored to the hero + collage + featured layout that performed
- * well visually. Differences from the previous incarnation:
- *   - The "代做 / 定制" ghost CTA pointed to `/services`; that route is
- *     gone, so the hero now ships with a single primary CTA.
- *   - The `<WeChatCTA />` block between the templates teaser and the
- *     long-tail category chip rail is removed for the same reason.
- * Everything else (hero deck, metric trio, category showcase, featured 12,
- * templates teaser, bottom chip rail) matches the design we had before.
+ * Home — uses the pre-computed HOME_DATA shard (cases-home.json, ~3KB gzip)
+ * instead of the full ALL_CASES array. This shard contains only the cases
+ * the homepage renders: 5 hero + 14 strip + 12 featured + category tile stats.
+ * Both SSG and client import the same file, so hydration is consistent.
  */
 export default function HomePage() {
-  const cases = ALL_CASES;
-  const templates = sortTemplatesForDisplay(ALL_TEMPLATES);
-  const animCases = useCountUp(cases.length, 900);
+  const totalCount = HOME_DATA.totalCount;
+  const animCases = useCountUp(totalCount, 900);
   const [heroSeed, setHeroSeed] = useState(0);
   const [recentCount, setRecentCount] = useState<number | null>(null);
 
@@ -47,28 +43,29 @@ export default function HomePage() {
     const now = Date.now();
     const cutoff = now - 48 * 60 * 60 * 1000;
     setRecentCount(
-      cases.reduce((n, c) => {
+      HOME_DATA.featured.reduce((n, c) => {
         const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
         return Number.isFinite(t) && t >= cutoff && t <= now ? n + 1 : n;
       }, 0),
     );
-  }, [cases]);
+  }, []);
 
-  // Hero deck — 5 floating cards, modelled on canghe's right-rail collage.
+  // Hero deck — re-randomize from the pre-selected hero pool on the client.
   // The zero seed keeps SSG/hydration stable; the client seed randomizes it
   // after mount without adding network work or heavier first-paint markup.
   const heroCases = useMemo(
-    () => selectHeroCases(cases, { limit: 5, seed: heroSeed }),
-    [cases, heroSeed],
+    () => selectHeroCases(HOME_DATA.hero, { limit: 5, seed: heroSeed }),
+    [heroSeed],
   );
   const heroCaseIds = useMemo(() => new Set(heroCases.map((item) => item.id)), [heroCases]);
-  // Strip below the hero. Avoid repeating whichever cases the randomized
-  // deck picked so the first viewport still feels varied.
+  // Strip below the hero. Use the pre-selected strip, filtered to avoid
+  // repeating whichever cases the randomized deck picked.
   const stripCases = useMemo(
-    () => cases.filter((item) => !heroCaseIds.has(item.id)).slice(0, 14),
-    [cases, heroCaseIds],
+    () => HOME_DATA.strip.filter((item) => !heroCaseIds.has(item.id)).slice(0, 14),
+    [heroCaseIds],
   );
-  const featured = useMemo(() => cases.slice(0, 12), [cases]);
+  const featured = HOME_DATA.featured;
+  const templates = sortTemplatesForDisplay(ALL_TEMPLATES);
   const { ids: favoriteIds, toggle } = useFavorites();
   const { restoreId, onRestored } = useCaseReturnRestore();
 
@@ -126,13 +123,13 @@ export default function HomePage() {
 
           <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
             <Link to="/cases" className="btn-primary justify-center">
-              浏览全部 {animCases || cases.length} 个案例
+              浏览全部 {animCases || totalCount} 个案例
               <ArrowRightIcon />
             </Link>
           </div>
 
           <div className="mt-6 grid max-w-md grid-cols-3 gap-2 text-center sm:mt-8">
-            <Metric value={`${cases.length}+`} label="真实案例" />
+            <Metric value={`${totalCount}+`} label="真实案例" />
             <Metric value={`${HOMEPAGE_USER_CATEGORIES.length}`} label="使用场景" />
             <Metric value={`${templates.length}`} label="工业模板" />
           </div>
@@ -143,7 +140,7 @@ export default function HomePage() {
 
       <HeroStrip cases={stripCases} />
 
-      <CategoryShowcase cases={cases} />
+      <CategoryShowcase tiles={HOME_DATA.tiles} totalCount={totalCount} />
 
       <section className="container-narrow scroll-mt-20 pt-10 sm:pt-14" id="featured">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
