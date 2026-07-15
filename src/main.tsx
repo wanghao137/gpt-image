@@ -1,4 +1,7 @@
 import "./index.css";
+import { createRoot as createClientRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { ViteReactSSG } from "vite-react-ssg";
 import { installStaticLoaderManifestGuard } from "./lib/static-loader-manifest-core.mjs";
 import { routes } from "./routes";
@@ -12,16 +15,35 @@ import { routes } from "./routes";
  */
 installStaticLoaderManifestGuard();
 
-export const createRoot = ViteReactSSG(
-  { routes, basename: "/" },
-  // Runs on both server and client. On the client we dismiss the boot overlay
-  // the moment hydration is underway — the SSG'd HTML is already painted, so
-  // the overlay is purely a brand handoff and should not outlive interactivity.
-  ({ isClient }) => {
-    if (isClient && typeof window !== "undefined") {
-      requestAnimationFrame(() => {
-        (window as unknown as { __dismissBoot?: () => void }).__dismissBoot?.();
-      });
-    }
-  },
-);
+function dismissBootOverlay() {
+  requestAnimationFrame(() => {
+    (window as unknown as { __dismissBoot?: () => void }).__dismissBoot?.();
+  });
+}
+
+function mountClientOnlyApp() {
+  const container = document.getElementById("root");
+  if (!container) throw new Error("Root container not found");
+
+  const router = createBrowserRouter(routes, { basename: "/" });
+  createClientRoot(container).render(
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>,
+  );
+  dismissBootOverlay();
+}
+
+const isClientOnlyShell =
+  typeof document !== "undefined" && document.querySelector("[data-server-rendered=true]") === null;
+
+export const createRoot = isClientOnlyShell
+  ? mountClientOnlyApp()
+  : ViteReactSSG(
+      { routes, basename: "/" },
+      // On hydrated SSG pages the HTML is already painted, so the overlay is
+      // only a short brand handoff and should not outlive interactivity.
+      ({ isClient }) => {
+        if (isClient && typeof window !== "undefined") dismissBootOverlay();
+      },
+    );
