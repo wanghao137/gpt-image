@@ -124,6 +124,7 @@ function stripLite(cases) {
       userCategory: c.userCategory,
       ratio: c.ratio,
     };
+    if (c.titleEn) row.titleEn = c.titleEn;
     if (c.tags?.length) row.tags = c.tags;
     if (c.styles?.length) row.styles = c.styles;
     if (c.scenes?.length) row.scenes = c.scenes;

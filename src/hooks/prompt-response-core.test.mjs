@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { parsePromptPayload, readPromptResponse } from "./prompt-response-core.mjs";
+import {
+  parsePromptBundle,
+  parsePromptPayload,
+  readPromptResponse,
+} from "./prompt-response-core.mjs";
 
 const usePromptSource = readFileSync(new URL("./usePrompt.ts", import.meta.url), "utf8");
 
@@ -14,6 +18,23 @@ test("parsePromptPayload rejects HTML fallback before JSON parsing", () => {
 
 test("parsePromptPayload returns prompt from valid JSON", () => {
   assert.equal(parsePromptPayload(JSON.stringify({ id: "403", prompt: "hello" })), "hello");
+});
+
+test("parsePromptBundle exposes official bilingual prompt fields", () => {
+  assert.deepEqual(
+    parsePromptBundle(
+      JSON.stringify({ id: "403", prompt: "hello", promptEn: "hello", promptZh: "你好" }),
+    ),
+    { prompt: "hello", promptEn: "hello", promptZh: "你好" },
+  );
+});
+
+test("parsePromptBundle keeps legacy prompt files compatible", () => {
+  assert.deepEqual(parsePromptBundle(JSON.stringify({ id: "403", prompt: "hello" })), {
+    prompt: "hello",
+    promptEn: "hello",
+    promptZh: "",
+  });
 });
 
 test("readPromptResponse rejects non-JSON content types", async () => {
@@ -29,6 +50,6 @@ test("readPromptResponse rejects non-JSON content types", async () => {
 });
 
 test("usePrompt routes prompt fetches through the guarded response reader", () => {
-  assert.match(usePromptSource, /readPromptResponse/);
+  assert.match(usePromptSource, /readPromptBundleResponse/);
   assert.doesNotMatch(usePromptSource, /\.json\(\)\s+as\s+Promise<\{ prompt: string \}>/);
 });

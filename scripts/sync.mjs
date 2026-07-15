@@ -10,7 +10,11 @@ import {
   normalizedIsoDate,
   sortCasesForDisplay,
 } from "./case-ordering.mjs";
-import { translateTitle } from "./translate-title.mjs";
+import {
+  mergePromptLocales,
+  promptLocaleMapFromObject,
+  promptLocaleMapToObject,
+} from "./upstream-locales.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -35,10 +39,16 @@ const ORIGINS = (process.env.DATA_ORIGINS || process.env.DATA_ORIGIN || "")
   .filter(Boolean);
 const ORIGIN_LIST = ORIGINS.length > 0 ? ORIGINS : DEFAULT_ORIGINS;
 
+const LOCALE_ORIGINS = [
+  "https://cdn.jsdelivr.net/gh/YouMind-OpenLab/awesome-gpt-image-2@main",
+  "https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main",
+];
+
 const OPTIONAL = process.argv.includes("--optional");
 const MANUAL_CASES_PATH = resolve(ROOT, "data/manual/cases.json");
 const MANUAL_TEMPLATES_PATH = resolve(ROOT, "data/manual/templates.json");
 const UPSTREAM_CASE_TIMES_PATH = resolve(ROOT, "data/upstream-case-times.json");
+const OFFICIAL_LOCALES_PATH = resolve(ROOT, "data/upstream-locales.json");
 
 // YouMind category slugs → Chinese labels. Used to populate the `category`
 // field and feed the classifier (classify-core.mjs) as a scoring signal.
@@ -99,6 +109,44 @@ async function fetchJson(url) {
   return response.json();
 }
 
+async function fetchText(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 60000);
+  let response;
+  try {
+    response = await fetch(url, {
+      headers: {
+        "user-agent": "gpt-image-gallery-sync/1.0",
+        accept: "text/plain,text/markdown;q=0.9,*/*;q=0.1",
+      },
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+  if (!response.ok) throw new Error(`fetch ${url} -> ${response.status}`);
+  return response.text();
+}
+
+async function fetchOfficialLocales() {
+  const errors = [];
+  for (const origin of LOCALE_ORIGINS) {
+    try {
+      const [english, chinese] = await Promise.all([
+        fetchText(`${origin}/README.md`),
+        fetchText(`${origin}/README_zh.md`),
+      ]);
+      const locales = mergePromptLocales(english, chinese);
+      console.log(`loaded ${locales.size} official bilingual prompts from ${origin}`);
+      return locales;
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      errors.push(`${origin}: ${reason}`);
+    }
+  }
+  throw new Error(`all official locale origins failed:\n  ${errors.join("\n  ")}`);
+}
+
 /**
  * Try each origin in order; return merged data from the first origin that
  * successfully serves the manifest. The YouMind upstream is organized as one
@@ -121,7 +169,6 @@ async function fetchUpstream() {
 
       // Fetch every category file concurrently. Each file is a flat array of
       // prompt records tagged with this category's slug.
-      const allRecords = [];
       const categorySlugs = [];
       for (const cat of manifest.categories) {
         const slug = cat.slug || cat.file?.replace(/\.json$/, "");
@@ -174,34 +221,41 @@ async function fetchUpstream() {
   throw new Error(`all upstream origins failed:\n  ${errors.join("\n  ")}`);
 }
 
-function normalizeCase(item) {
+function normalizeCase(item, officialLocales) {
   // YouMind fields: id (number), content (full prompt with {argument} tags),
   // title, description, sourceMedia (array of absolute URLs), needReferenceImages.
   // categorySlugs is injected by fetchUpstream during merge.
-  const prompt = cleanPromptContent(item.content || "");
-  const description = item.description || "";
-  const promptPreview = (description || prompt).slice(0, 100);
+  const official = officialLocales.get(String(item.id));
+  const promptEn = cleanPromptContent(official?.en?.prompt || item.content || "");
+  const promptZh = official?.zh?.prompt
+    ? cleanPromptContent(official.zh.prompt)
+    : undefined;
+  const description = official?.zh?.description || item.description || "";
+  const promptPreview = (description || promptZh || promptEn).slice(0, 100);
   const media = Array.isArray(item.sourceMedia) ? item.sourceMedia : [];
   const imageUrl = media.find((u) => typeof u === "string" && u) || "";
   // Use the first category slug the prompt appeared under as the primary
   // category signal for the classifier.
   const slug = Array.isArray(item.categorySlugs) ? item.categorySlugs[0] : item.category;
-  // YouMind's public data only has English titles. Translate to Chinese for
-  // display. The original English title is kept in titleEn for reference.
-  // If translation fails (< 30% Chinese), the original English is kept.
+  // Use YouMind's own locale output when available. The generated README files
+  // are built from the same CMS locale fields as the public bilingual page, so
+  // we avoid lossy word-by-word translation. Cases not present in that curated
+  // locale export keep their original English title instead of mixed Chinglish.
   const rawTitle = item.title || `案例 ${item.id}`;
-  const titleZh = translateTitle(rawTitle);
+  const titleZh = official?.zh?.title;
   return {
     id: String(item.id),
-    title: titleZh,
-    titleEn: titleZh !== rawTitle ? rawTitle : undefined,
+    title: titleZh || rawTitle,
+    titleEn: titleZh ? rawTitle : undefined,
     category: localizeCategory(slug),
     tags: [],
     styles: [],
     scenes: [],
     imageUrl,
-    imageAlt: titleZh,
-    prompt,
+    imageAlt: titleZh || rawTitle,
+    prompt: promptEn,
+    promptEn,
+    promptZh,
     promptPreview,
     source: "YouMind",
     githubUrl: undefined,
@@ -338,11 +392,39 @@ function normalizeManualTemplate(item) {
 async function main() {
   let upstreamCases = [];
   let upstreamOk = true;
+  const cachedCasesBeforeSync = readJsonSafe(resolve(ROOT, "public/data/cases.json"), []);
+  const cachedCaseById = new Map(
+    (Array.isArray(cachedCasesBeforeSync) ? cachedCasesBeforeSync : []).map((item) => [
+      String(item.id),
+      item,
+    ]),
+  );
+  let officialLocales = promptLocaleMapFromObject(
+    readJsonSafe(OFFICIAL_LOCALES_PATH, {}),
+  );
+
+  try {
+    officialLocales = await fetchOfficialLocales();
+    writeJson(
+      "data/upstream-locales.json",
+      promptLocaleMapToObject(officialLocales),
+      { pretty: true },
+    );
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    if (officialLocales.size > 0) {
+      console.warn(
+        `! official bilingual refresh unavailable; using ${officialLocales.size} cached prompts: ${reason}`,
+      );
+    } else {
+      console.warn(`! official bilingual content unavailable; keeping original English: ${reason}`);
+    }
+  }
 
   try {
     const { casesPayload } = await fetchUpstream();
     upstreamCases = (casesPayload.cases || [])
-      .map(normalizeCase)
+      .map((item) => normalizeCase(item, officialLocales))
       .filter((item) => item.imageUrl && item.prompt);
   } catch (error) {
     upstreamOk = false;
@@ -428,6 +510,7 @@ async function main() {
   // Empty tag/style/scene arrays are omitted to avoid the `"tags":[]` overhead
   // across 12K+ records where 98% are empty.
   const lite = fullCases.map((c) => {
+    const cached = cachedCaseById.get(String(c.id));
     const row = {
       id: c.id,
       title: c.title,
@@ -437,6 +520,10 @@ async function main() {
       source: c.source,
       createdAt: c.createdAt,
     };
+    // Slugs are permanent URLs. A title/translation refresh must never rewrite
+    // thousands of existing links; only new cases let migrate-v2 create one.
+    if (c.slug || cached?.slug) row.slug = c.slug || cached.slug;
+    if (c.titleEn) row.titleEn = c.titleEn;
     // Only include arrays when they have content.
     if (c.tags?.length) row.tags = c.tags;
     if (c.styles?.length) row.styles = c.styles;
@@ -470,10 +557,17 @@ async function main() {
   const promptsDir = resolve(ROOT, "public/data/prompts");
   mkdirSync(promptsDir, { recursive: true });
 
-  // Build the authoritative id→prompt map from current cases.
+  // Build the authoritative id→prompt payload map from current cases.
   const promptMap = new Map();
   for (const c of fullCases) {
-    if (c.prompt) promptMap.set(c.id, c.prompt);
+    const prompt = c.promptEn || c.prompt;
+    if (!prompt) continue;
+    const payload = { id: c.id, prompt };
+    if (c.promptZh) {
+      payload.promptEn = prompt;
+      payload.promptZh = c.promptZh;
+    }
+    promptMap.set(c.id, payload);
   }
 
   // Sweep existing files: update changed, delete orphans.
@@ -485,13 +579,17 @@ async function main() {
       const id = file.replace(/\.json$/i, "");
       const filePath = resolve(promptsDir, file);
       if (!promptMap.has(id)) {
+        if (!upstreamOk && Number(id) < 100000) {
+          unchangedPrompts += 1;
+          continue;
+        }
         // Orphaned file — case was removed from upstream or manual hidden.
         rmSync(filePath, { force: true });
         deletedPrompts += 1;
         continue;
       }
       // Check if content changed before writing.
-      const expected = JSON.stringify({ id, prompt: promptMap.get(id) });
+      const expected = JSON.stringify(promptMap.get(id));
       try {
         const existing = readFileSync(filePath, "utf8");
         if (existing === expected) {
@@ -505,8 +603,8 @@ async function main() {
   }
 
   // Write only new or changed prompts.
-  for (const [id, prompt] of promptMap) {
-    writeJson(`public/data/prompts/${id}.json`, { id, prompt });
+  for (const [id, payload] of promptMap) {
+    writeJson(`public/data/prompts/${id}.json`, payload);
     writtenPrompts += 1;
   }
   console.log(

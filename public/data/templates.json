@@ -686,7 +686,7 @@
     ],
     "description": "把标题、主体和高点击信息层组织成小红书封面。",
     "cover": "https://cms-assets.youmind.com/media/1783674291314_0ylvyt_HMxMXenaoAATIcF.jpg",
-    "prompt": "模板：小红书爆款封面\n用途：用于小红书笔记封面、种草图、合集封面和教程首图。\n视觉方向：XHS / Cover / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「高点击标题、主体识别、封面层级、留白和移动端可读性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28157 女孩 Bursting Phone 屏幕: A cinematic 3D social-media fantasy scene of a fashionable girl breaking through a Xiaohongshu-…\n- #26897 Giza Pyramid 中国 封面 海报: Generates a cinematic Xiaohongshu-style travel cover featuring the Giza Pyramid, bold Chinese h…\n- #26677 Xiaohongshu 情绪化 肖像 封面: A cinematic prompt for gpt-image-2 to generate a moody, relatable portrait of a young person in…\n\n使用建议：\n- 先锁定 高点击标题、主体识别、封面层级、留白和移动端可读性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免长段正文、错误标题、平台 UI 标识和过多装饰贴纸。",
+    "prompt": "模板：小红书爆款封面\n用途：用于小红书笔记封面、种草图、合集封面和教程首图。\n视觉方向：XHS / Cover / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「高点击标题、主体识别、封面层级、留白和移动端可读性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28157 Girl Bursting From Phone Screen: A cinematic 3D social-media fantasy scene of a fashionable girl breaking through a Xiaohongshu-…\n- #26897 Giza Pyramid Chinese Cover Poster: Generates a cinematic Xiaohongshu-style travel cover featuring the Giza Pyramid, bold Chinese h…\n- #26677 Xiaohongshu Moody Portrait Cover: A cinematic prompt for gpt-image-2 to generate a moody, relatable portrait of a young person in…\n\n使用建议：\n- 先锁定 高点击标题、主体识别、封面层级、留白和移动端可读性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免长段正文、错误标题、平台 UI 标识和过多装饰贴纸。",
     "useWhen": "用于小红书笔记封面、种草图、合集封面和教程首图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -709,18 +709,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1784018454104_ur1sxo_HNFMyV7bIAA5nCQ.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28591 反光 都市 咖啡厅 Window 肖像: An artistic portrait prompt captured through a reflective cafe window, creating a dreamy urban …\n- #28554 Mental Peace 表 Music 海报: A bold Spanish social media poster contrasting generic playlists with classical sheet music for…\n- #28496 Five-分镜 饮品 Marketing 活动: A complex prompt for generating a unified 5-panel marketing banner system for a beverage brand …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "https://cms-assets.youmind.com/media/1784018504533_obwqpv_HNHJqDybMAAcLSH.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28650 奇幻 Cosplay 酒馆聚会: 一张写实的奇幻 Cosplay 群像，描绘了四位冒险者角色在温馨的中世纪旅店中共享美食与饮品的场景。\n- #28625 韩系奶油风室内人像: 一张写实风格的竖版生活人像，展示了一位年轻东亚女性在柔和的奶油色极简主义室内咖啡馆或公寓中的姿态。\n- #28591 Reflective Urban Cafe Window Portrait: An artistic portrait prompt captured through a reflective cafe window, creating a dreamy urban …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "28650",
+      "28625",
       "28591",
       "28554",
-      "28496",
-      "28423",
-      "28323"
+      "28501"
     ]
   },
   {
@@ -734,7 +734,7 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "https://cms-assets.youmind.com/media/1783932947075_wtmj0m_HNCjzUTXAAAQyKf.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28518 Reverse The Damage Product Ad Collage: A four-panel premium commercial visual showing laundry, vacuum, haircare, and skincare products…\n- #28491 奢华 Product 活动 Advertising 海报: A professional-grade prompt for creating premium product advertisements with high photorealism,…\n- #28480 未来感 智能手机 Product 广告: A technical and high-end product photography prompt for a futuristic smartphone advertisement, …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28518 Reverse The Damage Product Ad Collage: A four-panel premium commercial visual showing laundry, vacuum, haircare, and skincare products…\n- #28491 Luxury Product Campaign Advertising Poster: A professional-grade prompt for creating premium product advertisements with high photorealism,…\n- #28480 Futuristic Smartphone Product Advertisement: A technical and high-end product photography prompt for a futuristic smartphone advertisement, …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -758,7 +758,7 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "https://cms-assets.youmind.com/media/1784018510529_vk5oc6_HNDfWV-bEAAbHXv.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28658 Rooftop 奶油色 穿搭 肖像: Generates a realistic vertical rooftop fashion portrait of a friendly young woman in a cream la…\n- #28655 Waterfront 鼠尾草色 连衣裙 肖像: A realistic vertical editorial portrait of a woman in a fitted sage dress seated by a misty coa…\n- #28653 暮色 沙漠 时尚 肖像: A photorealistic editorial fashion portrait of a woman in a flowing ivory gown posed against a …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28658 Rooftop Cream Outfit Portrait: Generates a realistic vertical rooftop fashion portrait of a friendly young woman in a cream la…\n- #28655 水岸鼠尾草绿裙装肖像: 一张写实的竖版时尚肖像，描绘了一位身着修身鼠尾草绿裙装的女性坐在雾气缭绕的海湾边，适用于生活方式或时尚类图像。\n- #28653 暮色沙漠时尚人像: 一张照片级逼真的时尚杂志风格人像，一位身着象牙白飘逸长裙的女性，以暮色沙漠和山峦为背景。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -782,7 +782,7 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "https://cms-assets.youmind.com/media/1784018469494_nmboii_HNHFrc4aUAEZs1R.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28609 Risography 风格 Dubai 旅行 海报: A stylized travel poster prompt for Dubai inspired by risography printing, featuring bold color…\n- #28606 80s Thriller 风格 城市 海报: Generates a cinematic 80s thriller movie poster for a specific city, emphasizing atmosphere thr…\n- #28579 Dubai Risography 旅行 海报: A vibrant, multi-layered risographic travel poster prompt for Dubai, featuring playful geometri…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28609 Risography Style Dubai Travel Poster: A stylized travel poster prompt for Dubai inspired by risography printing, featuring bold color…\n- #28606 80s Thriller Style City Poster: Generates a cinematic 80s thriller movie poster for a specific city, emphasizing atmosphere thr…\n- #28579 Dubai Risography Travel Poster: A vibrant, multi-layered risographic travel poster prompt for Dubai, featuring playful geometri…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -791,8 +791,8 @@
       "28609",
       "28606",
       "28579",
-      "28473",
-      "28434"
+      "28434",
+      "28283"
     ]
   },
   {
@@ -806,7 +806,7 @@
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
     "cover": "https://cms-assets.youmind.com/media/1781341271616_rtmohm_HKorcSlb0AALv3I.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #25394 Guangzhou 春节 双重曝光 海报: A vertical promotional poster for Guangzhou featuring double exposure effects, red silk transit…\n- #24144 情人节's 白天 Disco Glamour: A structural prompt for a high-fashion Valentine's themed photoshoot with mirrored surfaces and…\n- #22311 中国 新年 祝福 肖像 网格: A detailed JSON-formatted prompt for generating a consistent 3x3 grid of Chinese New Year portr…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #25394 Guangzhou Spring Festival Double Exposure Poster: A vertical promotional poster for Guangzhou featuring double exposure effects, red silk transit…\n- #24144 Valentine's Day Disco Glamour: A structural prompt for a high-fashion Valentine's themed photoshoot with mirrored surfaces and…\n- #22311 Chinese New Year Blessing Portrait Grid: A detailed JSON-formatted prompt for generating a consistent 3x3 grid of Chinese New Year portr…\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -815,8 +815,8 @@
       "25394",
       "24144",
       "22311",
-      "17973",
-      "15368"
+      "18622",
+      "17973"
     ]
   },
   {
@@ -829,18 +829,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "https://cms-assets.youmind.com/media/1784018446497_0vo4p8_HNFzaIWagAABI9P.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28575 极简 单色 时尚 拼贴: A detailed prompt for creating a 3x3 grid contact sheet featuring minimalist Scandinavian fashi…\n- #28481 电影感 Countryside 道路 Stop 胶片 Still 网格: A cinematic 3x3 grid prompt capturing various angles of a couple at a countryside road stop dur…\n- #27051 极简 工作室 时尚 肖像 网格: A sophisticated fashion editorial prompt for a 3x3 grid layout, featuring varied poses in a min…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "https://cms-assets.youmind.com/media/1783932915109_y2qt55_HNBvrbDaoAAQf__.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28481 Cinematic Countryside Road Stop Film Still Grid: A cinematic 3x3 grid prompt capturing various angles of a couple at a countryside road stop dur…\n- #25514 Lifestyle Photo Dump Grid Collage: A prompt for a 3x3 grid collage capturing spontaneous and diverse moods of a girl in a Korean-i…\n- #24603 Gen Z Summer Photo Dump Collage: An ultra-detailed prompt for creating a viral Gen Z summer collage with a 3x3 grid layout, play…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28575",
       "28481",
-      "27051",
       "25514",
-      "24603"
+      "24603",
+      "24158",
+      "23809"
     ]
   },
   {
@@ -854,7 +854,7 @@
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
     "cover": "https://cms-assets.youmind.com/media/1784018502981_4omq6x_HNJFw9VaIAAxxrm.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28647 动漫 西装 角色 扩音器: Generates a bold vertical manga-style character portrait suitable for social posts, character a…\n- #28635 Glossy Lips Beauty Close-Up: A photorealistic macro beauty portrait emphasizing dewy skin texture and intensely glossy plump…\n- #28628 Neon Kitsune Shrine Maiden: A richly detailed vertical anime fantasy illustration of a kimono-clad shrine maiden with a kit…\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28647 身穿西装、手持扩音器的动漫角色: 生成一张醒目的垂直漫画风格角色肖像，适用于社交媒体帖子、角色艺术或宣传视觉图。\n- #28635 Glossy Lips Beauty Close-Up: A photorealistic macro beauty portrait emphasizing dewy skin texture and intensely glossy plump…\n- #28628 Neon Kitsune Shrine Maiden: A richly detailed vertical anime fantasy illustration of a kimono-clad shrine maiden with a kit…\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -878,17 +878,17 @@
     ],
     "description": "生成自然、温暖、身份稳定的儿童或全家福影像。",
     "cover": "https://cms-assets.youmind.com/media/1783759614279_5b3v77_HM1WZvPaIAEGrbi.jpg",
-    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28264 Sporty Feminine 休闲 夏天 穿搭: A prompt for generating sporty yet feminine summer outfits, including a white baby tee, periwin…\n- #28257 Mirror 倒影 Inner 儿童 肖像: A creative editorial fashion photography prompt depicting a woman high-fiving a child version o…\n- #28031 复古 Name 龙 故事书 海报: Creates a whimsical fantasy children's book cover with ornate lettering, a baby dragon, a girl,…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
+    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28264 运动风女性休闲夏季穿搭: 用于生成运动风兼具女性气质夏季穿搭的提示词，包含白色 baby tee、长春花蓝迷你裙和运动鞋。\n- #28031 Vintage Name Dragon Storybook Poster: Creates a whimsical fantasy children's book cover with ornate lettering, a baby dragon, a girl,…\n- #27466 Smiling Baby With Five Kittens: A vertical cute pet wallpaper scene featuring a happy baby in pink animal pajamas surrounded by…\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
     "useWhen": "用于亲子写真、儿童毕业照、节日合影和家庭记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "28264",
-      "28257",
       "28031",
       "27466",
-      "27411"
+      "27411",
+      "27270"
     ]
   },
   {
@@ -902,7 +902,7 @@
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
     "cover": "https://cms-assets.youmind.com/media/1784018485941_4vn0js_HNFj_OFbEAAhzEd.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28626 蓝色 黑色 猫-女孩 Q版: Generates a soft anime chibi cat-girl illustration with blue accents, glasses, headphones, and …\n- #28544 Q版 Gyoza 漫画 分镜: Generates a cute square manga panel of a chibi girl eating gyoza with customizable Japanese spe…\n- #28512 日系 Nendoroid 风格 微缩 Figure: Transform photos of people into adorable Japanese Nendoroid-style miniature figures with chibi …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28626 蓝黑配色猫娘 Q 版: 生成一张柔和的动漫风格 Q 版猫娘插画，带有蓝色点缀、眼镜、耳机以及舒适的抱枕姿势。\n- #28544 Chibi Gyoza Manga Panel: Generates a cute square manga panel of a chibi girl eating gyoza with customizable Japanese spe…\n- #28512 Japanese Nendoroid Style Miniature Figure: Transform photos of people into adorable Japanese Nendoroid-style miniature figures with chibi …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -925,18 +925,18 @@
       "Sheet"
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
-    "cover": "https://cms-assets.youmind.com/media/1784018509259_6h580o_HNFuPFVbwAA35iz.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28656 白色-发色 狮鹫 骑手 草地 飞行: A cinematic anime fantasy scene of a joyful white-haired warrior girl riding a white griffin ov…\n- #28652 英雄 英国 球员 概念设计: A vertical character-development poster of a heroic England footballer in a white national kit …\n- #28647 动漫 西装 角色 扩音器: Generates a bold vertical manga-style character portrait suitable for social posts, character a…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "cover": "https://cms-assets.youmind.com/media/1784018506316_05ofk6_HNI24_9XsAAqBlR.jpg",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28652 英格兰足球英雄概念艺术: 一张垂直的人物设定海报，描绘了一位身穿白色国家队队服的英格兰足球英雄，周围环绕着红蓝色的笔触能量。\n- #28641 Voxel AI 网站搭建信息图: 一张方形的日式 Voxel 风格信息图，展示了 AI 网站搭建的工作流程，包含弃用工具、必备工具以及最小化输入功能卡片。\n- #28628 Neon Kitsune Shrine Maiden: A richly detailed vertical anime fantasy illustration of a kimono-clad shrine maiden with a kit…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28656",
       "28652",
-      "28647",
-      "28639",
-      "28638"
+      "28641",
+      "28628",
+      "28618",
+      "28557"
     ]
   },
   {
@@ -950,7 +950,7 @@
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
     "cover": "https://cms-assets.youmind.com/media/1784018512019_c7du2d_HNGpuIdWUAEw1l8.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28659 地下 Parking 追逐 Storyboard: Generates a cinematic ultra-wide annotated storyboard for planning a one-take underground parki…\n- #28657 地铁 逃脱 Storyboard 路线: Generates an ultra-wide cinematic subway action storyboard with route arrows, numbered movement…\n- #28656 白色-发色 狮鹫 骑手 草地 飞行: A cinematic anime fantasy scene of a joyful white-haired warrior girl riding a white griffin ov…\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28659 地下停车场追逐分镜脚本: 生成一张电影级超宽标注分镜脚本，用于规划地下停车场的“一镜到底”追逐戏。\n- #28657 Subway Escape Storyboard Route: Generates an ultra-wide cinematic subway action storyboard with route arrows, numbered movement…\n- #28656 白发狮鹫骑士草甸飞行: 一幅电影感动漫奇幻场景，描绘了一位快乐的白发女战士骑着白色狮鹫飞越金色野花山谷。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -973,18 +973,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/images/templatederived-architecture-concept-board.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Editorial / Cinematic / Minimal / Brand / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100166 城市微缩立体地图 · 等距摄影质感: { \"description\": \"Create a highly detailed, photorealistic miniature diorama style isometric ma…\n- #28321 Intimate Secular Requiem Scene: A cinematic surreal living-room memorial scene with coffee, vinyl, sheet music, and a cathedral…\n- #28320 古代 寺庙 室内 Contact 表: Transforms a Blender blockout reference into a textured cinematic ancient temple hall shown fro…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "https://cms-assets.youmind.com/media/1784018476967_og938p_HNGkH_WbMAAm0D_.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Editorial / Cinematic / Minimal / Brand / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28615 高端办公家具商业项目: 专为高端办公家具系列设计的专业电影级项目提示词，聚焦于超高端工作空间设计与建筑美学。\n- #28580 黄金时刻建筑人像: 一套以现代建筑为背景、在黄金时刻拍摄的高级时尚人像提示词，强调自然光影与精致质感。\n- #28577 高端男士生活方式肖像: 一份关于高端男士生活方式肖像的详细提示词，包含黄金时刻光影、电影感阴影以及极简主义奢华室内设计。\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "28615",
+      "28580",
+      "28577",
       "100166",
-      "28321",
-      "28320",
-      "28196",
-      "28158"
+      "28321"
     ]
   },
   {
@@ -1021,18 +1021,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1784018509259_6h580o_HNFuPFVbwAA35iz.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28656 白色-发色 狮鹫 骑手 草地 飞行: A cinematic anime fantasy scene of a joyful white-haired warrior girl riding a white griffin ov…\n- #28651 爱 Is 加油站 站 日出 海报: A humorous romantic illustrated poster of a couple embracing at sunrise beside a Rosneft gas st…\n- #28646 仓鼠 召唤 太阳 漫画 页面: A detailed prompt for generating a five-panel black-and-white Japanese manga page where a hamst…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "https://cms-assets.youmind.com/media/1784018505238_vjqjji_HNF4VOcWYAAya9L.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28651 Love Is Gas Station Sunrise Poster: A humorous romantic illustrated poster of a couple embracing at sunrise beside a Rosneft gas st…\n- #28647 身穿西装、手持扩音器的动漫角色: 生成一张醒目的垂直漫画风格角色肖像，适用于社交媒体帖子、角色艺术或宣传视觉图。\n- #28645 被猫咪包围的动漫少女: 一幅温馨的电影感动漫插画，描绘了一位被成群猫咪簇拥的快乐少女，非常适合猫咪主题艺术展或海报。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28656",
       "28651",
-      "28646",
+      "28647",
       "28645",
-      "28639"
+      "28638",
+      "28629"
     ]
   },
   {
@@ -1045,18 +1045,18 @@
       "Commercial"
     ],
     "description": "生成高端食品/饮品的商业广告级视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1783759582798_v2pz0p_HM23yWJawAAdaKv.jpg",
-    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28220 Levitating 美食 图层 摄影: A series of detailed prompts for generating levitating food shots featuring layered desserts li…\n- #28167 Refreshing Citrus Coconut Cloud Ice Poster: A vertical minimalist beverage advertising poster featuring a translucent iced lime-coconut dri…\n- #28141 高级 美食 Commercial Photoshoot: A sophisticated prompt designed to transform standard food or beverage photos into high-end, st…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "cover": "https://cms-assets.youmind.com/media/1784018504533_obwqpv_HNHJqDybMAAcLSH.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28650 奇幻 Cosplay 酒馆聚会: 一张写实的奇幻 Cosplay 群像，描绘了四位冒险者角色在温馨的中世纪旅店中共享美食与饮品的场景。\n- #28220 悬浮分层美食摄影: 一系列用于生成悬浮美食摄影的详细提示词，包含草莓奶油蛋糕和松饼等分层甜点，并带有戏剧性的光影效果。\n- #28172 淡桃荔枝玫瑰芭菲: 生成一张优雅的淡色系美食摄影图，适用于甜点菜单、社交媒体帖子或生活方式视觉展示，呈现层层叠叠的花香芭菲。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
     "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "28650",
       "28220",
+      "28172",
       "28167",
-      "28141",
-      "27985",
-      "27431"
+      "28086"
     ]
   },
   {
@@ -1070,7 +1070,7 @@
     ],
     "description": "为游戏、影视或故事生成沉浸式的奇幻世界观场景。",
     "cover": "https://cms-assets.youmind.com/media/1783759651649_71p1jh_HM27dVgXEAAYfvW.jpg",
-    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28320 古代 寺庙 室内 Contact 表: Transforms a Blender blockout reference into a textured cinematic ancient temple hall shown fro…\n- #27599 未来感 Starry Skyscraper 壁纸: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n- #22694 未来感 Worldbuilding 概念 套件: A prompt for building cohesive visual kits for fictional worlds, covering architecture, clothin…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
+    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28320 Ancient Temple Interior Contact Sheet: Transforms a Blender blockout reference into a textured cinematic ancient temple hall shown fro…\n- #27599 Futuristic Starry Skyscraper Wallpaper: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n- #22694 Futuristic Worldbuilding Concept Kit: A prompt for building cohesive visual kits for fictional worlds, covering architecture, clothin…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
     "useWhen": "用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -1093,17 +1093,17 @@
       "Art"
     ],
     "description": "用双重曝光手法融合人物与场景的创意视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1783500612140_arv7y8_HMludQRbIAAcrsP.jpg",
-    "prompt": "模板：双重曝光艺术\n用途：用于创意海报、艺术头像、社媒封面和概念视觉。\n视觉方向：Double / Exposure / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「图层融合、轮廓保留、色彩协调和叙事隐喻」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #27868 现代 混合 媒介 时尚 拼贴: A photorealistic mixed media fashion collage of a young woman in a New York urban setting with …\n- #27761 都市 混合 媒介 拼贴: A stylish mixed media fashion collage set in New York, featuring neon accents and torn paper te…\n- #26772 都市 混合 媒介 拼贴: A vibrant mixed media collage featuring a woman walking through New York City, blending realist…\n\n使用建议：\n- 先锁定 图层融合、轮廓保留、色彩协调和叙事隐喻。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免图层混乱、主体不清晰和过度叠加。",
+    "cover": "https://cms-assets.youmind.com/media/1783415071897_3dvaej_HMguml7bcAAO2wA.jpg",
+    "prompt": "模板：双重曝光艺术\n用途：用于创意海报、艺术头像、社媒封面和概念视觉。\n视觉方向：Double / Exposure / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「图层融合、轮廓保留、色彩协调和叙事隐喻」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #27761 Urban Mixed Media Collage: A stylish mixed media fashion collage set in New York, featuring neon accents and torn paper te…\n- #26580 Doodle-Style Mixed Media Advertising: A creative advertising prompt that combines a real product photo with playful hand-drawn doodle…\n- #25781 Torn Paper Editorial Magazine Cover: A high-fashion magazine cover prompt utilizing a torn paper collage effect to reveal a secondar…\n\n使用建议：\n- 先锁定 图层融合、轮廓保留、色彩协调和叙事隐喻。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免图层混乱、主体不清晰和过度叠加。",
     "useWhen": "用于创意海报、艺术头像、社媒封面和概念视觉。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "27868",
       "27761",
-      "26772",
+      "26580",
       "25781",
+      "25479",
       "23971"
     ]
   },
@@ -1117,18 +1117,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1784018459444_gdu9p2_HNGtLPFaUAAeS2C.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28597 电影感 Drone 摄影 复古 Soviet 汽车: A detailed drone-view prompt for generating a realistic cinematic scene of a young woman standi…\n- #28513 复古 奢华 Mansion 时尚 肖像: A high-fashion photography prompt for a woman in a vintage luxury mansion, emphasizing realisti…\n- #28509 夏天 Railway Fisheye 肖像: A detailed fisheye lens prompt capturing a nostalgic Japanese summer scene. It features a woman…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "https://cms-assets.youmind.com/media/1784018469800_3gchal_HM19WH5aUAAjjis.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28607 日式夏日树影肖像: 这是一个高度描述性的提示词，用于在日式住宅背景下生成夏日主题肖像，重点呈现柔和阳光、树影斑驳以及自然胶片质感的审美。\n- #28509 Summer Railway Fisheye Portrait: A detailed fisheye lens prompt capturing a nostalgic Japanese summer scene. It features a woman…\n- #28390 Japanese Atelier Indoor Portrait: A detailed prompt for creating a nostalgic, vintage-style indoor portrait of a woman in a Japan…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28597",
-      "28513",
+      "28607",
       "28509",
-      "28506",
-      "28448"
+      "28390",
+      "28375",
+      "28371"
     ]
   }
 ]

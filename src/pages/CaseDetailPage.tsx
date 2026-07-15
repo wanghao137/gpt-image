@@ -18,6 +18,11 @@ import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
 import { useCaseDetail } from "../hooks/useCaseDetail";
+import {
+  CASE_HYDRATION_ELEMENT_ID,
+  parseCaseHydrationData,
+  serializeCaseHydrationData,
+} from "../hooks/case-hydration-core.mjs";
 import { tagLabel } from "../lib/labels";
 import { readCaseReturn, refreshCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
@@ -62,8 +67,14 @@ export default function CaseDetailPage() {
     },
   });
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [promptLanguage, setPromptLanguage] = useState<"zh" | "en">("zh");
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
+  const hydratedPage = useMemo(() => {
+    if (!slug || typeof document === "undefined") return undefined;
+    const text = document.getElementById(CASE_HYDRATION_ELEMENT_ID)?.textContent;
+    return parseCaseHydrationData(text, slug);
+  }, [slug]);
   // SEO title/description are DERIVED, not stored (they used to bloat the
   // shared data chunk that every page downloads). On this SSG'd page the
   // result is baked into the static HTML at build time, so crawlers still see
@@ -71,18 +82,36 @@ export default function CaseDetailPage() {
   const seo = c
     ? deriveCaseSeo(c, meta?.label ?? userCategoryLabel(c.userCategory))
     : { seoTitle: "", seoDescription: "" };
-  const related = useMemo(() => (c ? relatedCases(c, 6) : []), [c]);
-  const { prev, next } = useMemo(
-    () => (c ? caseNeighbors(c) : { prev: undefined, next: undefined }),
-    [c],
-  );
-  const promptText = fetched.prompt || c?.promptPreview || "";
+  const related = useMemo(() => {
+    const computed = c ? relatedCases(c, 6) : [];
+    return computed.length > 0 ? computed : (hydratedPage?.related ?? []);
+  }, [c, hydratedPage]);
+  const { prev, next } = useMemo(() => {
+    const computed = c ? caseNeighbors(c) : { prev: undefined, next: undefined };
+    return computed.prev || computed.next
+      ? computed
+      : { prev: hydratedPage?.prev, next: hydratedPage?.next };
+  }, [c, hydratedPage]);
+  const promptEn = fetched.promptEn || fetched.prompt;
+  const promptText =
+    promptLanguage === "zh" && fetched.promptZh
+      ? fetched.promptZh
+      : promptEn || c?.promptPreview || "";
 
   useEffect(() => {
     if (!c) return;
     const saved = readCaseReturn();
     if (saved && saved.id !== c.id) refreshCaseReturn(c.id, saved.path);
   }, [c]);
+
+  useEffect(() => {
+    setPromptLanguage("zh");
+  }, [c?.id]);
+
+  useEffect(() => {
+    if (!c || !slug || c.slug === slug) return;
+    navigate(`/case/${c.slug}`, { replace: true });
+  }, [c, navigate, slug]);
 
   const closeDetail = useCallback(() => {
     const saved = readCaseReturn();
@@ -171,6 +200,13 @@ export default function CaseDetailPage() {
 
   return (
     <>
+      <script
+        id={CASE_HYDRATION_ELEMENT_ID}
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: serializeCaseHydrationData({ caseData: c, related, prev, next }),
+        }}
+      />
       <SEO
         title={seo.seoTitle}
         description={seo.seoDescription}
@@ -270,6 +306,9 @@ export default function CaseDetailPage() {
           <h1 className="mt-2 text-[24px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[40px]">
             {c.title}
           </h1>
+          {c.titleEn && c.titleEn !== c.title && (
+            <p className="mt-2 text-[13px] leading-relaxed text-ink-400">{c.titleEn}</p>
+          )}
 
           {/* Meta chips: scenarios + platforms only — ratio/difficulty already in stat strip */}
           <div className="mt-5 flex flex-wrap gap-1.5">
@@ -295,6 +334,33 @@ export default function CaseDetailPage() {
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">
                     Prompt
                   </h2>
+                  {fetched.promptZh && (
+                    <div
+                      className="inline-flex rounded-full border border-white/[0.08] bg-ink-900/70 p-0.5"
+                      role="group"
+                      aria-label="Prompt 语言"
+                    >
+                      {(["zh", "en"] as const).map((language) => {
+                        const active = promptLanguage === language;
+                        return (
+                          <button
+                            key={language}
+                            type="button"
+                            aria-pressed={active}
+                            onClick={() => setPromptLanguage(language)}
+                            className={
+                              "rounded-full px-2 py-1 text-[10.5px] font-medium transition " +
+                              (active
+                                ? "bg-ember-500 text-ink-950"
+                                : "text-ink-400 hover:text-ink-100")
+                            }
+                          >
+                            {language === "zh" ? "中文" : "English"}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center gap-2">
                   {!fetched.loading && promptText && (

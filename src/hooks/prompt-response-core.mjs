@@ -1,4 +1,4 @@
-export function parsePromptPayload(text) {
+export function parsePromptBundle(text) {
   const body = String(text ?? "");
   const trimmed = body.trimStart();
   if (/^<(?:!doctype|html|\w+)/i.test(trimmed)) {
@@ -16,10 +16,18 @@ export function parsePromptPayload(text) {
     throw new Error("Prompt JSON is missing prompt");
   }
 
-  return data.prompt;
+  return {
+    prompt: data.prompt,
+    promptEn: typeof data.promptEn === "string" && data.promptEn ? data.promptEn : data.prompt,
+    promptZh: typeof data.promptZh === "string" && data.promptZh ? data.promptZh : "",
+  };
 }
 
-export async function readPromptResponse(response, url = "Prompt") {
+export function parsePromptPayload(text) {
+  return parsePromptBundle(text).prompt;
+}
+
+export async function readPromptBundleResponse(response, url = "Prompt") {
   if (!response.ok) throw new Error(`Prompt load failed: HTTP ${response.status}`);
 
   const contentType = response.headers?.get?.("content-type") ?? "";
@@ -29,9 +37,13 @@ export async function readPromptResponse(response, url = "Prompt") {
 
   const text = await response.text();
   try {
-    return parsePromptPayload(text);
+    return parsePromptBundle(text);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Prompt load failed";
     throw new Error(`${message}: ${url}`);
   }
+}
+
+export async function readPromptResponse(response, url = "Prompt") {
+  return (await readPromptBundleResponse(response, url)).prompt;
 }

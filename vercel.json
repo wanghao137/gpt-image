@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/case/:slug*",
-      "destination": "/index.html"
+      "destination": "/spa"
     }
   ],
   "headers": [

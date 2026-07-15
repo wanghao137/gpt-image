@@ -12,11 +12,21 @@ import { resolve } from "node:path";
  * Sitemap generation lives in `scripts/build-sitemap.mjs` (run as `postbuild`)
  * because the SSG step hasn't run by the time this Vite plugin closes.
  */
-const adminPretty = {
-  name: "admin-pretty-url",
+const staticEntryCopies = {
+  name: "static-entry-copies",
   apply: "build" as const,
   closeBundle() {
     const dist = resolve(__dirname, "dist");
+    const indexHtml = resolve(dist, "index.html");
+    if (existsSync(indexHtml)) {
+      // Keep the client build's empty root before SSG replaces index.html with
+      // homepage markup. Non-prerendered /case/* requests need a true SPA shell
+      // or React will try to hydrate a case route against the homepage DOM.
+      const spaDir = resolve(dist, "spa");
+      mkdirSync(spaDir, { recursive: true });
+      copyFileSync(indexHtml, resolve(spaDir, "index.html"));
+    }
+
     const adminHtml = resolve(dist, "admin.html");
     if (!existsSync(adminHtml)) return;
     const dir = resolve(dist, "admin");
@@ -26,7 +36,7 @@ const adminPretty = {
 };
 
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), adminPretty],
+  plugins: [react(), staticEntryCopies],
   build: {
     // SSR build needs top-level await (used in data.ts for conditional data
     // loading). Client build stays at es2020 for broader browser compat.
@@ -67,7 +77,10 @@ export default defineConfig(({ isSsrBuild }) => ({
     legalComments: "none",
   },
   ssgOptions: {
-    script: "async",
+    // Hydration must wait until the full SSG DOM (including per-case embedded
+    // data) has been parsed. An async module can execute while the root markup
+    // is still streaming and cause React to hydrate against incomplete HTML.
+    script: "defer",
     formatting: "minify",
     crittersOptions: false,
     dirStyle: "nested",

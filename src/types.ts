@@ -45,6 +45,8 @@ export interface PromptCase {
   /** SEO-friendly URL piece, e.g. `ren-wu-fa-xing-she-ji-100004`. */
   slug: string;
   title: string;
+  /** Original English title when an official localized title is available. */
+  titleEn?: string;
   category: string;
 
   // ─── classification ───

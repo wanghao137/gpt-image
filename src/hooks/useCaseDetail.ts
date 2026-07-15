@@ -1,6 +1,20 @@
 import { useEffect, useState } from "react";
 import type { PromptCase } from "../types";
 import { getCaseBySlug, loadCaseIndex, loadShard, getCachedShard } from "../lib/data";
+import {
+  findCaseIndexEntry,
+  findCaseInShard,
+} from "./case-detail-resolution-core.mjs";
+import {
+  CASE_HYDRATION_ELEMENT_ID,
+  parseCaseHydrationData,
+} from "./case-hydration-core.mjs";
+
+function readHydratedCase(slug: string): PromptCase | undefined {
+  if (typeof document === "undefined") return undefined;
+  const text = document.getElementById(CASE_HYDRATION_ELEMENT_ID)?.textContent;
+  return parseCaseHydrationData(text, slug)?.caseData;
+}
 
 /**
  * Resolve a single case by slug for the detail page.
@@ -21,7 +35,7 @@ export function useCaseDetail(slug: string | undefined): {
 } {
   // SSR or SSG hydration: use synchronous lookup.
   const isSSR = import.meta.env.SSR;
-  const ssgCase = slug ? getCaseBySlug(slug) : undefined;
+  const ssgCase = slug ? getCaseBySlug(slug) ?? readHydratedCase(slug) : undefined;
 
   const [caseData, setCaseData] = useState<PromptCase | undefined>(ssgCase);
   const [loading, setLoading] = useState(!isSSR && !ssgCase);
@@ -48,22 +62,23 @@ export function useCaseDetail(slug: string | undefined): {
     loadCaseIndex()
       .then((index) => {
         if (cancelled) return;
-        const entry = index.find((e) => e.slug === slug);
+        const entry = findCaseIndexEntry(index, slug);
         if (!entry) {
+          setCaseData(undefined);
           setLoading(false);
           return;
         }
         // Check if shard is already cached.
         const cached = getCachedShard(entry.uc);
         if (cached) {
-          const found = cached.find((c) => c.slug === slug);
+          const found = findCaseInShard(cached, slug, entry.id);
           setCaseData(found);
           setLoading(false);
           return;
         }
         return loadShard(entry.uc).then((shard) => {
           if (cancelled) return;
-          const found = shard.find((c) => c.slug === slug);
+          const found = findCaseInShard(shard, slug, entry.id);
           setCaseData(found);
           setLoading(false);
         });
