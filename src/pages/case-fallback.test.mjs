@@ -9,7 +9,9 @@ const vercelConfig = JSON.parse(
 
 test("client build preserves an empty SPA shell for non-prerendered case routes", () => {
   assert.match(viteConfig, /const spaDir = resolve\(dist, "spa"\)/);
-  assert.match(viteConfig, /copyFileSync\(indexHtml, resolve\(spaDir, "index\.html"\)\)/);
+  assert.match(viteConfig, /<!--app-html-->/);
+  assert.match(viteConfig, /'<div id="root"><\/div>'/);
+  assert.match(viteConfig, /writeFileSync\(resolve\(spaDir, "index\.html"\), spaHtml\)/);
 });
 
 test("SSG hydration waits for embedded case data to be parsed", () => {

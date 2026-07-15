@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { copyFileSync, mkdirSync, existsSync } from "node:fs";
+import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 /**
@@ -24,7 +24,11 @@ const staticEntryCopies = {
       // or React will try to hydrate a case route against the homepage DOM.
       const spaDir = resolve(dist, "spa");
       mkdirSync(spaDir, { recursive: true });
-      copyFileSync(indexHtml, resolve(spaDir, "index.html"));
+      const spaHtml = readFileSync(indexHtml, "utf8").replace(
+        /<div id="root">\s*<!--app-html-->\s*<\/div>/,
+        '<div id="root"></div>',
+      );
+      writeFileSync(resolve(spaDir, "index.html"), spaHtml);
     }
 
     const adminHtml = resolve(dist, "admin.html");
