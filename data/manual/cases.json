@@ -1,5 +1,30 @@
 [
   {
+    "id": "100168",
+    "title": "水彩手绘咖啡店少女插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-16-case-100168-watercolor-cafe.jpg",
+    "imageAlt": "水彩手绘咖啡店少女插画",
+    "prompt": "{\n  \"style\": \"minimal watercolor ink illustration, soft anime realism, hand-drawn sketch aesthetic, cozy café editorial art\",\n  \"scene\": {\n    \"location\": \"minimal modern café table\",\n    \"mood\": \"warm, intimate, calm, aesthetic, cozy\",\n    \"composition\": \"medium portrait shot from slightly elevated angle\",\n    \"background\": \"clean white background with sparse ink splashes, handwritten typography, tiny doodles, and soft brush textures\"\n  },\n  \"subject\": {\n    \"gender\": \"young woman\",\n    \"appearance\": {\n      \"hair\": \"short layered black hair with soft messy strands\",\n      \"skin\": \"fair glowing skin\",\n      \"expression\": \"gentle smile with relaxed eyes\",\n      \"body_type\": \"slim\"\n    },\n    \"outfit\": {\n      \"top\": \"cream embroidered sleeveless dress with delicate lace details\",\n      \"style\": \"soft feminine café fashion\"\n    },\n    \"pose\": \"sitting naturally at a café table holding a fork while resting one hand beside a glass bottle\"\n  },\n  \"table_objects\": [\n    {\"item\": \"small berry cheesecake\", \"placement\": \"center plate\"},\n    {\"item\": \"minimal ceramic coffee cup\", \"placement\": \"left side\"},\n    {\"item\": \"transparent glass bottle with tiny plant stem\", \"placement\": \"right side\"}\n  ],\n  \"decor_elements\": [\n    \"hanging industrial café lamp\", \"tiny heart doodles\",\n    \"minimal botanical sketch\", \"soft watercolor stains\",\n    \"small sparkles\", \"handwritten quotes\"\n  ],\n  \"text_elements\": [\"Simple days are the best\", \"Small pleasures, big smiles\"],\n  \"lighting\": {\"type\": \"soft warm ambient café lighting\", \"effect\": \"gentle highlights with subtle shadows\"},\n  \"color_palette\": [\"warm beige\", \"cream\", \"soft brown\", \"light sepia\", \"muted black\"],\n  \"render_details\": {\n    \"linework\": \"fine sketch ink outlines\",\n    \"texture\": \"watercolor paper texture\",\n    \"detail_level\": \"medium-high\",\n    \"quality\": \"highly polished illustration\"\n  },\n  \"camera\": {\n    \"angle\": \"slightly top-down portrait framing\",\n    \"focus\": \"sharp focus on girl and table items\",\n    \"depth_of_field\": \"soft shallow depth\"\n  },\n  \"negative_prompt\": [\n    \"cluttered background\", \"heavy saturation\", \"3D render look\",\n    \"photorealism\", \"low quality\", \"extra limbs\",\n    \"messy composition\", \"dark lighting\", \"crowded table\"\n  ],\n  \"aspect_ratio\": \"9:13\"\n}",
+    "promptPreview": "{ \"style\": \"minimal watercolor ink illustration, soft anime realism, hand-drawn sketch aesthetic, cozy café editorial art\", \"scene\": { \"location\": \"minimal modern café table\", \"mood\": \"warm, intimate, calm, aesthetic, c…",
+    "source": "Community collected via @Maercihh",
+    "createdAt": "2026-07-15T20:03:51.192Z"
+  },
+  {
     "id": "100167",
     "title": "C罗3D卡通收藏贴纸 · 活力互动贴纸页",
     "category": "角色与人物",
