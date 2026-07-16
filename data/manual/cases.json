@@ -1,5 +1,31 @@
 [
   {
+    "id": "100171",
+    "title": "印尼美食悬浮分解信息图设计",
+    "category": "图表与信息图",
+    "styles": [
+      "Minimal"
+    ],
+    "scenes": [
+      "Infographic",
+      "Food"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Studio",
+      "Infographic"
+    ],
+    "imageUrl": "/uploads/2026-07-17-case-100171-indonesian-culinary-infographic.jpg",
+    "imageAlt": "印尼美食悬浮分解信息图设计",
+    "prompt": "{\n  \"image_prompt\": {\n    \"type\": \"Ultra-realistic culinary infographic\",\n    \"subject\": {\n      \"cuisine\": \"Indonesian\",\n      \"base_element\": \"A traditional serving bowl holding a steaming hot dish\",\n      \"levitating_ingredients\": [\n        \"Tender meat pieces\",\n        \"Golden crispy tofu\",\n        \"Rich sauce droplets in mid-air\",\n        \"Fresh green herbs\",\n        \"Red chilies\",\n        \"Sliced lime\",\n        \"Crushed garlic\",\n        \"Crispy fried shallots\"\n      ]\n    },\n    \"composition\": {\n      \"layout\": \"Minimal, vertically stacked layout\",\n      \"arrangement\": \"Ingredients floating naturally as if suspended in motion\",\n      \"background\": \"Textured rustic wooden tabletop\",\n      \"visual_hierarchy\": \"The bowl remains grounded at the base, with ingredients ascending above it\"\n    },\n    \"graphic_design_elements\": {\n      \"labels\": \"Clean Indonesian-language annotations\",\n      \"lines\": \"Fine white connector lines\",\n      \"style\": \"High-end editorial food infographic, magazine-quality design\"\n    },\n    \"lighting_and_mood\": {\n      \"lighting\": \"Controlled cinematic studio lighting\",\n      \"color_palette\": \"Warm, appetizing color tones\",\n      \"effects\": \"Visible steam and frozen-action food elements\"\n    },\n    \"technical_specs\": {\n      \"camera_settings\": \"Shallow depth of field with crisp focal detail, DSLR-style capture\",\n      \"details\": \"Extremely detailed surface textures\",\n      \"resolution\": \"8K, photorealistic finish\"\n    }\n  }\n}",
+    "promptPreview": "{ \"image_prompt\": { \"type\": \"Ultra-realistic culinary infographic\", \"subject\": { \"cuisine\": \"Indonesian\", \"base_element\": \"A traditional serving bowl holding a steaming hot dish\", \"levitating_ingredients\": [ \"Tender mea…",
+    "source": "Community collected via @john_my07",
+    "createdAt": "2026-07-16T20:04:18.413Z"
+  },
+  {
     "id": "100170",
     "title": "未来主义解构主义编辑混合媒介肖像",
     "category": "插画与艺术",
