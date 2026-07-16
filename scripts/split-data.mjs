@@ -82,6 +82,7 @@ function buildHomePayload(cases, now = Date.now()) {
   const heroIds = new Set(heroCases.map((c) => c.id));
   const stripCases = sorted.filter((c) => !heroIds.has(c.id)).slice(0, 14);
   const featured = sorted.slice(0, 12);
+  const initialCases = sorted.slice(0, 48);
 
   // Tile stats for CategoryShowcase — pre-computed so the homepage doesn't
   // need the full dataset just to count per-category.
@@ -106,6 +107,7 @@ function buildHomePayload(cases, now = Date.now()) {
     hero: stripLite(heroCases),
     strip: stripLite(stripCases),
     featured: stripLite(featured),
+    initial: stripLite(initialCases),
     tiles,
     totalCount: sorted.length,
     recentCount: sorted.filter((item) => {

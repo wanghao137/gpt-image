@@ -107,8 +107,10 @@ export default function CasesPage() {
   }, [activeCategories, isSSR]);
 
   // Client-side shard state.
-  const [shardCases, setShardCases] = useState<PromptCase[]>([]);
-  const [shardsLoading, setShardsLoading] = useState(!isSSR);
+  const [shardCases, setShardCases] = useState<PromptCase[]>(() =>
+    isSSR ? [] : HOME_DATA.initial,
+  );
+  const [shardsLoading, setShardsLoading] = useState(false);
 
   useEffect(() => {
     if (isSSR) return;
@@ -117,6 +119,7 @@ export default function CasesPage() {
     if (neededCategories) {
       let cancelled = false;
       setShardsLoading(true);
+      setShardCases([]);
       Promise.all(Array.from(neededCategories).map((cat) => loadShard(cat)))
         .then((results) => {
           if (!cancelled) {
@@ -155,7 +158,9 @@ export default function CasesPage() {
 
   // The base case list for rendering.
   const baseList = useMemo<PromptCase[]>(() => {
-    if (isSSR) return ALL_CASES as unknown as PromptCase[];
+    // Render the same first batch on the server and during client hydration.
+    // The full total remains available separately for headings and counters.
+    if (isSSR) return HOME_DATA.initial;
     if (showFavorites) return shardCases.filter((c) => favoriteIds.has(c.id));
     return shardCases;
   }, [isSSR, shardCases, showFavorites, favoriteIds]);
@@ -209,6 +214,9 @@ export default function CasesPage() {
     activeStyles.size > 0 ||
     activeScenes.size > 0 ||
     activePlatforms.size > 0;
+  const totalCount = isSSR ? (ALL_CASES as unknown as { length: number }).length : HOME_DATA.totalCount;
+  const displayedMatchCount =
+    !hydrated || (shardsLoading && !hasActiveFilter) ? totalCount : filtered.length;
 
   const resetFilters = useCallback(() => {
     setQuery("");
@@ -219,7 +227,6 @@ export default function CasesPage() {
   }, []);
 
   const favoriteCount = favoriteIds.size;
-  const totalCount = isSSR ? (ALL_CASES as unknown as { length: number }).length : HOME_DATA.totalCount;
 
   return (
     <>
@@ -281,8 +288,8 @@ export default function CasesPage() {
         onScenesChange={setActiveScenes}
         activePlatforms={activePlatforms}
         onPlatformsChange={setActivePlatforms}
-        total={baseList.length}
-        matched={filtered.length}
+        total={totalCount}
+        matched={displayedMatchCount}
         hasActiveFilter={hasActiveFilter}
         onReset={resetFilters}
       />
@@ -297,7 +304,7 @@ export default function CasesPage() {
         restoreScrollY={restoreTarget?.scrollY}
         restoreTargetTop={restoreTarget?.targetTop}
         onRestored={onRestored}
-        loading={shardsLoading}
+        loading={shardsLoading && shardCases.length === 0}
       />
     </>
   );

@@ -22,6 +22,8 @@ export interface HomeData {
   hero: PromptCase[];
   strip: PromptCase[];
   featured: PromptCase[];
+  /** First CasesPage batch, shared by SSG and the initial client render. */
+  initial: PromptCase[];
   tiles: HomeTile[];
   totalCount: number;
   recentCount: number;
