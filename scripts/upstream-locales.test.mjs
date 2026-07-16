@@ -3,10 +3,12 @@ import test from "node:test";
 
 import {
   mergePromptLocales,
+  mergePromptLocaleMaps,
   parseGeneratedPromptMarkdown,
   promptLocaleMapFromObject,
   promptLocaleMapToObject,
   stripGeneratedCategoryPrefix,
+  summarizePromptLocales,
 } from "./upstream-locales.mjs";
 
 const en = `### No. 72: Comic / Storyboard - Underground Parking Chase Storyboard
@@ -47,6 +49,17 @@ test("generated README parsing extracts official localized content", () => {
     description: "中文描述。",
     prompt: "中文提示词",
   });
+});
+
+test("locale cache merging preserves old entries while preferring refreshed fields", () => {
+  const merged = mergePromptLocaleMaps(
+    new Map([["1", { en: { title: "Old English", prompt: "old" }, zh: { title: "旧标题", prompt: "旧提示" } }]]),
+    new Map([["1", { en: { title: "New English", prompt: "new" } }], ["2", { zh: { title: "新增", prompt: "新增提示" } }]]),
+  );
+  assert.equal(merged.get("1").en.title, "New English");
+  assert.equal(merged.get("1").zh.prompt, "旧提示");
+  assert.equal(merged.get("2").zh.title, "新增");
+  assert.deepEqual(summarizePromptLocales(merged), { total: 2, bilingual: 1, chinese: 2 });
 });
 
 test("locale merging keeps matching English and Chinese records", () => {

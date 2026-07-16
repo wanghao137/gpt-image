@@ -11,10 +11,13 @@ import {
   sortCasesForDisplay,
 } from "./case-ordering.mjs";
 import {
+  mergePromptLocaleMaps,
   mergePromptLocales,
   promptLocaleMapFromObject,
   promptLocaleMapToObject,
+  summarizePromptLocales,
 } from "./upstream-locales.mjs";
+import { repairRecentPromptLocales } from "./upstream-localized-pages.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -39,10 +42,10 @@ const ORIGINS = (process.env.DATA_ORIGINS || process.env.DATA_ORIGIN || "")
   .filter(Boolean);
 const ORIGIN_LIST = ORIGINS.length > 0 ? ORIGINS : DEFAULT_ORIGINS;
 
-const LOCALE_ORIGINS = [
-  "https://cdn.jsdelivr.net/gh/YouMind-OpenLab/awesome-gpt-image-2@main",
-  "https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2/main",
-];
+const LOCALE_REPOSITORY_API =
+  "https://api.github.com/repos/YouMind-OpenLab/awesome-gpt-image-2/commits/main";
+const LOCALE_REPOSITORY_RAW =
+  "https://raw.githubusercontent.com/YouMind-OpenLab/awesome-gpt-image-2";
 
 const OPTIONAL = process.argv.includes("--optional");
 const MANUAL_CASES_PATH = resolve(ROOT, "data/manual/cases.json");
@@ -129,22 +132,27 @@ async function fetchText(url) {
 }
 
 async function fetchOfficialLocales() {
-  const errors = [];
-  for (const origin of LOCALE_ORIGINS) {
-    try {
-      const [english, chinese] = await Promise.all([
-        fetchText(`${origin}/README.md`),
-        fetchText(`${origin}/README_zh.md`),
-      ]);
-      const locales = mergePromptLocales(english, chinese);
-      console.log(`loaded ${locales.size} official bilingual prompts from ${origin}`);
-      return locales;
-    } catch (error) {
-      const reason = error instanceof Error ? error.message : String(error);
-      errors.push(`${origin}: ${reason}`);
-    }
+  // Resolve main once, then pin both README requests to the exact same commit.
+  // Reading mutable @main CDN files in parallel can mix two revisions and make
+  // the English and Chinese ID windows disagree during an upstream update.
+  const revisionPayload = await fetchJson(LOCALE_REPOSITORY_API);
+  const revision = String(revisionPayload?.sha || "").trim();
+  if (!/^[0-9a-f]{40}$/i.test(revision)) {
+    throw new Error("awesome-gpt-image-2 main revision was unavailable");
   }
-  throw new Error(`all official locale origins failed:\n  ${errors.join("\n  ")}`);
+  const origin = `${LOCALE_REPOSITORY_RAW}/${revision}`;
+  const [english, chinese] = await Promise.all([
+    fetchText(`${origin}/README.md`),
+    fetchText(`${origin}/README_zh.md`),
+  ]);
+  const locales = mergePromptLocales(english, chinese);
+  const summary = summarizePromptLocales(locales);
+  if (summary.chinese === 0) throw new Error(`no Chinese prompts parsed at ${revision}`);
+  console.log(
+    `loaded ${summary.bilingual}/${summary.total} pinned bilingual prompts ` +
+    `from awesome-gpt-image-2@${revision.slice(0, 12)}`,
+  );
+  return locales;
 }
 
 /**
@@ -399,16 +407,15 @@ async function main() {
       item,
     ]),
   );
-  let officialLocales = promptLocaleMapFromObject(
+  const cachedOfficialLocales = promptLocaleMapFromObject(
     readJsonSafe(OFFICIAL_LOCALES_PATH, {}),
   );
+  let officialLocales = new Map(cachedOfficialLocales);
 
   try {
-    officialLocales = await fetchOfficialLocales();
-    writeJson(
-      "data/upstream-locales.json",
-      promptLocaleMapToObject(officialLocales),
-      { pretty: true },
+    officialLocales = mergePromptLocaleMaps(
+      cachedOfficialLocales,
+      await fetchOfficialLocales(),
     );
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
@@ -423,7 +430,31 @@ async function main() {
 
   try {
     const { casesPayload } = await fetchUpstream();
-    upstreamCases = (casesPayload.cases || [])
+    const rawUpstreamCases = casesPayload.cases || [];
+    const repaired = await repairRecentPromptLocales(rawUpstreamCases, officialLocales, {
+      origin: process.env.YOUMIND_LOCALE_DETAIL_ORIGIN,
+      windowSize: process.env.LOCALE_REPAIR_WINDOW,
+      limit: process.env.LOCALE_REPAIR_LIMIT,
+      concurrency: process.env.LOCALE_REPAIR_CONCURRENCY,
+      timeoutMs: process.env.LOCALE_REPAIR_TIMEOUT_MS,
+    });
+    officialLocales = repaired.locales;
+    if (repaired.repaired > 0) {
+      console.log(
+        `recovered ${repaired.repaired}/${repaired.attempted} recent Chinese prompts ` +
+        `from public YouMind detail pages`,
+      );
+    } else if (repaired.error) {
+      console.warn(
+        `! public YouMind locale recovery unavailable; skipped ${repaired.skipped}: ${repaired.error}`,
+      );
+    }
+    writeJson(
+      "data/upstream-locales.json",
+      promptLocaleMapToObject(officialLocales),
+      { pretty: true },
+    );
+    upstreamCases = rawUpstreamCases
       .map((item) => normalizeCase(item, officialLocales))
       .filter((item) => item.imageUrl && item.prompt);
   } catch (error) {

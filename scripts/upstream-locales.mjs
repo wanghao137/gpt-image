@@ -62,6 +62,31 @@ export function mergePromptLocales(englishMarkdown, chineseMarkdown) {
   return new Map([...ids].map((id) => [id, { en: en.get(id), zh: zh.get(id) }]));
 }
 
+export function mergePromptLocaleMaps(...sources) {
+  const result = new Map();
+  for (const source of sources) {
+    if (!(source instanceof Map)) continue;
+    for (const [id, locales] of source) {
+      const current = result.get(id) || {};
+      result.set(id, {
+        ...current,
+        ...(locales?.en ? { en: { ...(current.en || {}), ...locales.en } } : {}),
+        ...(locales?.zh ? { zh: { ...(current.zh || {}), ...locales.zh } } : {}),
+      });
+    }
+  }
+  return result;
+}
+
+export function summarizePromptLocales(locales) {
+  const values = locales instanceof Map ? [...locales.values()] : [];
+  return {
+    total: values.length,
+    bilingual: values.filter((item) => item?.en?.prompt && item?.zh?.prompt).length,
+    chinese: values.filter((item) => item?.zh?.prompt).length,
+  };
+}
+
 export function promptLocaleMapFromObject(value) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return new Map();
   return new Map(

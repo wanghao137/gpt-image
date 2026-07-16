@@ -1,6 +1,7 @@
 name: Daily Upstream Sync
 
-# Runs `npm run sync` once a day, then commits any changes to public/data/*.
+# Runs `npm run sync` once a day, then commits generated data and the durable
+# upstream locale cache used when the public translation sources are delayed.
 # A push to main triggers the live Vercel deployment automatically (and the
 # GH Pages fallback workflow), so this single workflow keeps both surfaces
 # fresh without needing platform-specific deploy hooks or secrets.
@@ -66,12 +67,12 @@ jobs:
       - name: Detect changes
         id: diff
         run: |
-          if [ -z "$(git status --porcelain -- public/data data/manual data/upstream-case-times.json)" ]; then
+          if [ -z "$(git status --porcelain -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No data changes — skipping commit."
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            git diff --stat -- public/data data/manual data/upstream-case-times.json
+            git diff --stat -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json
           fi
 
       - name: Commit and push
@@ -79,10 +80,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data data/manual data/upstream-case-times.json
+          git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
           # Pull a one-line summary for the commit body so the history is
           # actually scannable instead of a wall of "auto sync" entries.
-          summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json | tail -n 1 | sed 's/^ *//')
+          summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
           git commit -m "data(sync): daily upstream refresh" \
             -m "Triggered by ${GITHUB_EVENT_NAME} on $(date -u +%Y-%m-%d) UTC" \
             -m "Changes: ${summary}"
