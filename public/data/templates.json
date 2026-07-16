@@ -8,7 +8,7 @@
       "editorial"
     ],
     "description": "将任意主题拆解为层层推进的细长结构模块，阶梯纵深+印刷信息质感，适合自媒体深度内容封面与文化信息图",
-    "cover": "/images/templatederived-modular-staircase-infographic.jpg",
+    "cover": "/uploads/template-derived-modular-staircase-infographic.jpg",
     "prompt": "围绕任意主题对象生成一张信息密度高、秩序感强的视觉作品：把主题转化为大量平行、错位、层层推进的细长结构模块，模块像阶梯、切片或脊线一样从画面边缘向中心斜向铺展，近处局部放大并被边缘裁切，远处逐渐变细变密，形成建筑般的纵深、节奏和压迫感。主题主形体不以单个完整物件呈现，而是被拆解成连续阵列、透明叠层和细密纹理，局部有网点、轻微颗粒和长向拖影，让结构既像实体又像印刷信息。将标题文字作为第二主角嵌入结构之间，使用极大的高反差主字组与细窄辅助字列形成尺度冲突，文字可旋转、穿插、靠边或被结构遮挡，读感先看到巨大的信息重量，再看到密集说明层；字体气质清瘦、克制、庄重，排布有明确轴线和宽窄节奏。色彩从主题自身的材质、文化气质和情绪中提取，保留大面积明亮干净的底色、中等面积的主题结构色、少量高明度信息色与更深的透明阴影纹理，维持清晰色阶、受控饱和度和温暖有仪式感的情绪；即使主题需要更深色，也保持光学洁净、通风感和透明层次，避免浑浊、陈旧或烟尘感。整体应像经过严密编排的文化信息系统，画面有强烈的层叠记忆点、清楚的阅读路径和精细的印刷完成度。\n\n——————\n\n主题：{argument name=\"主题\" default=\"苏联到底有多强大\"}\n\n用途：{argument name=\"用途\" default=\"自媒体B站的封面\"}\n\n比例{argument name=\"比例\" default=\"16:9\"}",
     "useWhen": "需要高信息密度、秩序感强的视觉作品时使用，尤其适合B站/自媒体深度内容封面、文化信息图、知识科普图",
     "createdAt": "2026-07-12T21:07:56.670Z",
@@ -26,7 +26,7 @@
       "food"
     ],
     "description": "生成斯堪的纳维亚编辑风格的食谱信息图，含食材标注与步骤分解",
-    "cover": "/images/templatederived-recipe-infographic-card.jpg",
+    "cover": "/uploads/template-derived-recipe-infographic-card.jpg",
     "prompt": "{argument name=\"菜品名称\" default=\"番茄意大利面\"}\n\n{\n  \"style\": \"Minimalist modern recipe infographic\",\n  \"visual_aesthetic\": {\n    \"photography_style\": \"Top-down / 3-quarter angle food photography\",\n    \"design_language\": \"Scandinavian, editorial cookbook layout\",\n    \"background\": \"Soft neutral beige / cream\",\n    \"lighting\": \"Soft diffused light with gentle shadows\",\n    \"detail_level\": \"Ultra-realistic, ultra-sharp, 8K resolution\"\n  },\n  \"layout\": {\n    \"composition\": \"Finished dish centered on a white ceramic plate or bowl\",\n    \"elements\": [\n      \"Floating ingredient icons in soft circular frames\",\n      \"Clean vector-style ingredient illustrations\",\n      \"Clear ingredient labels with quantities\",\n      \"Curved step-by-step flow with numbered cooking icons\"\n    ],\n    \"typography\": \"High readability, modern sans-serif\",\n    \"spacing\": \"Balanced, airy, uncluttered\"\n  },\n  \"recipes\": [\n    {\n      \"dish_name\": \"Traditional Polish Pierogi\",\n      \"dish_presentation\": \"Golden boiled dumplings filled with potato and cheese, lightly buttered and garnished with fresh chives\",\n      \"ingredients\": [\n        { \"name\": \"All-purpose flour\", \"quantity\": \"2.5 cups\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"3 medium\" },\n        { \"name\": \"Farmer cheese\", \"quantity\": \"200g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Butter\", \"quantity\": \"40g\" },\n        { \"name\": \"Salt\", \"quantity\": \"1 tsp\" },\n        { \"name\": \"Water\", \"quantity\": \"0.75 cups\" }\n      ],\n      \"steps\": [\n        \"Prepare dough\",\n        \"Cook and mash filling\",\n        \"Fill and shape pierogi\",\n        \"Boil until tender\",\n        \"Serve with butter\"\n      ],\n      \"meta\": {\n        \"calories\": \"270 kcal / serving\",\n        \"time\": \"70 min\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Vinaigrette Salad\",\n      \"dish_presentation\": \"Colorful diced vegetables mixed with light dressing, neatly molded and topped with fresh herbs\",\n      \"ingredients\": [\n        { \"name\": \"Beetroot\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Potatoes\", \"quantity\": \"2 medium\" },\n        { \"name\": \"Carrots\", \"quantity\": \"1 medium\" },\n        { \"name\": \"Pickled cucumbers\", \"quantity\": \"2 pcs\" },\n        { \"name\": \"Green peas\", \"quantity\": \"1 cup\" },\n        { \"name\": \"Sunflower oil\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Fresh dill\", \"quantity\": \"1 bunch\" }\n      ],\n      \"steps\": [\n        \"Boil vegetables\",\n        \"Cool and dice\",\n        \"Mix ingredients\",\n        \"Dress salad\",\n        \"Chill and serve\"\n      ],\n      \"meta\": {\n        \"calories\": \"180 kcal / serving\",\n        \"time\": \"30 min + chill\",\n        \"servings\": 4\n      }\n    },\n    {\n      \"dish_name\": \"Solyanka Soup\",\n      \"dish_presentation\": \"Rich hearty soup with sliced meats, olives, lemon, and herbs, served steaming in a ceramic bowl\",\n      \"ingredients\": [\n        { \"name\": \"Mixed meats\", \"quantity\": \"400g\" },\n        { \"name\": \"Onion\", \"quantity\": \"1 large\" },\n        { \"name\": \"Pickles\", \"quantity\": \"3 pcs\" },\n        { \"name\": \"Tomato paste\", \"quantity\": \"2 tbsp\" },\n        { \"name\": \"Olives\", \"quantity\": \"1/2 cup\" },\n        { \"name\": \"Garlic\", \"quantity\": \"2 cloves\" },\n        { \"name\": \"Bay leaf\", \"quantity\": \"1 pc\" },\n        { \"name\": \"Lemon\", \"quantity\": \"For serving\" }\n      ],\n      \"steps\": [\n        \"Simmer broth\",\n        \"Sauté aromatics\",\n        \"Add meats and pickles\",\n        \"Season and simmer\",\n        \"Serve with lemon\"\n      ],\n      \"meta\": {\n        \"calories\": \"320 kcal / serving\",\n        \"time\": \"90 min\",\n        \"servings\": 5\n      }\n    }\n  ]\n}",
     "useWhen": "需要制作精美食谱信息图、美食编辑排版卡片时使用",
     "createdAt": "2026-07-06T12:17:54.396Z",
@@ -44,7 +44,7 @@
       "restaurant"
     ],
     "description": "一键生成完整餐饮品牌视觉系统展示图，含包装、菜单、周边物料矩阵",
-    "cover": "/images/templatederived-restaurant-vi-matrix.jpg",
+    "cover": "/uploads/template-derived-restaurant-vi-matrix.jpg",
     "prompt": "生成一张[餐饮品牌触点矩阵]系列视觉图，用于展示一个完整的餐饮品牌视觉系统与包装应用方案。\n\n这是一个面向餐饮行业的品牌VI样机展示板 / 包装系统陈列图 / 品牌提案页。画面不是单张宣传海报，而是将品牌主视觉、主打产品、包装物料、菜单信息、促销内容与小型延展物料整合成一张系统化品牌展示图。\n\n【用户输入信息】\n- 品牌名：{argument name=\"品牌名\" default=\"茶悦\"}\n- 经营类目：{argument name=\"经营类目\" default=\"新中式茶饮\"}\n\n【可选补充信息】\n- 主打产品：[主打产品]\n- 品牌口号：[品牌口号]\n- 风格方向：[风格方向]\n- 主色调：[主色调]\n- 辅助色：[辅助色]\n- 客群定位：[客群定位]\n- 价格定位：[价格定位]\n- 地域风格：[地域风格]\n- 画幅比例：{argument name=\"画幅比例\" default=\"9:16\"}\n\n【自动补全规则】\n如果用户没有提供完整品牌信息，请根据【品牌名】与【经营类目】自动推导并完成最优组合，包括：\n1. 判断品牌调性（年轻、亲和、国潮、复古、清新、治愈、精致、快餐感等）\n2. 匹配适合该类目的视觉风格\n3. 自动设定合理的主色、辅助色与点缀色\n4. 自动补全主打产品与辅助产品\n5. 自动生成适合餐饮传播的品牌口号、卖点文案、价格信息与推荐标签\n6. 自动匹配合适的餐饮物料类型与展示内容\n\n【画面内容要求】\n画面中应围绕【品牌名】构建一整套餐饮品牌物料系统，包含但不限于以下内容：\n- 核心包装：手提袋、外卖袋、包装盒、打包盒、纸袋、塑料袋\n- 饮品 / 食品容器：纸杯、杯套、碗、餐盒、封口贴、标签\n- 信息传播物料：菜单、促销海报、价格牌、桌牌、立牌、小卡片\n- 小型品牌延展：贴纸、徽章、纸巾、餐具、包装封条、吊牌\n- 产品表现：主打餐品照片、单品主视觉、食物特写、切面图、推荐组合图\n\n【构图与版式要求】\n采用竖版【画幅比例】构图，整体为白色、米白色或浅灰色背景，以品牌提案板 / 样机矩阵板的方式组织画面。\n通过大中小物料混排形成视觉层级：\n- 大型包装和主视觉物料作为视觉锚点\n- 中型菜单、海报和价格模块负责信息传达\n- 小型贴纸、餐具、标签与周边物料增强系统完整度\n\n整体构图应具有明确秩序感，接近品牌方案展示页、作品集陈列页、包装提案页的视觉效果。元素要排列整齐但不呆板，丰富但不杂乱，具有模块化与可阅读性。\n\n【风格与质感要求】\n整体风格应符合【经营类目】与【品牌名】气质，具有明显的餐饮品牌感、商业传播感、样机展示感与系统设计感。\n可融合以下风格倾向：现代简洁、国潮趣味、轻复古、生活方式感、快消感、温暖治愈感、年轻化传播感。\n材质真实，包含纸张、塑料、布袋、包装盒、杯体、贴纸、餐具等真实物料质感；光影柔和统一，像在干净摄影棚环境中拍摄的品牌物料合集。\n\n【文字与图形要求】\n所有物料上应统一出现品牌名、Logo、品牌符号、主色块、口号或卖点文案。\n文案可为中文或中英混排，但要符合餐饮传播表达，简洁直接，具备商品售卖感。\n图形系统可以根据品牌调性选择简洁插画、几何图形、卡通吉祥物、符号化图标或辅助纹样，用于增强品牌记忆点。\n\n【输出目标】\n最终生成一张完整的【品牌名】餐饮品牌视觉系统展示图，像设计团队为该餐饮品牌制作的整套品牌提案样机板。\n要求画面统一、精致、具备商业落地感与作品集展示质量，并能清楚体现品牌风格、主打类目与多触点包装延展能力。\n\nMake the aspect ratio 9:16",
     "useWhen": "需要为餐饮品牌制作包含包装/菜单/物料的完整VI提案板时使用",
     "createdAt": "2026-07-06T12:17:48.869Z",
@@ -62,7 +62,7 @@
       "festival"
     ],
     "description": "围绕任意主题生成清透、有仪式感的图文视觉，东方节令画册与当代信息排版结合，产出可收藏的主题纪念页，支持批量 10 张生成。",
-    "cover": "/images/templatederived-oriental-festival-memo-page.jpg",
+    "cover": "/uploads/template-derived-oriental-festival-memo-page.jpg",
     "prompt": "围绕任意主题对象生成一张清透、有仪式感的图文视觉：画面先以大面积高明度留白建立呼吸感，背景分成上下两个轻微明度差的平静色场，带细腻纸面颗粒但保持干净通风。主题对象不做满铺，而以精细手绘主形体进入画面下方视觉重心，局部被放大、枝蔓式延展或由主题材料自然伸出，让主体像从信息版面里生长出来；再设置一个较小的方向性符号悬停在上方或侧上方，与淡化圆形色块形成轻微压叠，制造从静态信息到轻盈动势的第一眼转折。文字是画面骨架：一组大号中文纵向主标题承担最重视觉重量，另一组较粗的主题名或日期信息在相对空处形成庄重停顿，细小说明文字以窄行距、竖排或紧凑短行穿插其间，底部可放极简索引式信息条，所有文字保持克制、疏朗、可读，不喧宾夺主。色彩从主题自身的季节、材质、情绪与文化信号中提取，映射为明亮底色、柔和主体色、清晰结构深色、低饱和支撑色和少量醒目强调色；保持高明度、清透、温暖有生气的情绪，强调色只用于最关键的视觉节点，深色主要服务文字和细线结构，纹理与阴影轻薄透明，避免脏灰、厚重复古或浑浊滤镜。整体质感是东方节令画册与当代信息排版的结合，插画精细、边缘清楚、层次轻，留白让文字和图形彼此牵引，最终效果应像一张可收藏的主题纪念页，而不是普通插画拼贴。\n\n————\n本次主题：{argument name=\"主题\" default=\"小暑节气，融合夏日荷花、蝉鸣、瓜果等节气元素\"}\n\n连续生成10张图片，每张都是不同的主题变体、插画逻辑，还有金句逻辑，还有配色和排版逻辑\n\n类似于ppt，生成10张，确保彼此的排版差异\n比例{argument name=\"比例\" default=\"16:9\"}",
     "useWhen": "需要为节气、节日、文化主题、知识卡片、PPT 章节页、公众号题图生成清透有仪式感的图文纪念页时使用。支持一次输出 10 张排版各异的变体。",
     "createdAt": "2026-07-05T21:04:58.227Z",
@@ -79,7 +79,7 @@
       "mysticism"
     ],
     "description": "上传手掌正面照，AI 以易经玄学、指纹分析、中医理论标注关键线条并生成带十点分析的算命报告",
-    "cover": "/images/templatederived-palmistry-fortune-reading.jpg",
+    "cover": "/uploads/template-derived-palmistry-fortune-reading.jpg",
     "prompt": "给你这个掌纹。请通过中国的玄学、指纹分析，以及一些中医学理论，顶级算命大师的技术帮我分析这个人的手纹。请用这种线条标记写明每个要点，能够对他的命运有所预示。要求如下：\n1. 采用{argument name=\"理论体系\" default=\"易经\"}或中医学理论分析，要有预警和精准分析，要让用户觉得准。\n2. 标明各个线条的关键点。\n3. 最少提供{argument name=\"分析点数\" default=\"十个\"}点的分析报告。\n\n用户补充信息/想了解的方向：{argument name=\"关注方向\" default=\"整体命运走势\"}",
     "useWhen": "想用玄学、掌纹、中医理论分析命运时使用。上传一张手掌正面清晰照，AI 会在掌纹上标注关键点并给出详细解读与预警。",
     "createdAt": "2026-06-28T21:07:01.180Z",
@@ -96,7 +96,7 @@
       "social"
     ],
     "description": "上传人物照片，生成带折痕泛黄颗粒质感的复古报纸头版头条恶搞海报",
-    "cover": "/images/templatederived-vintage-newspaper-headline.jpg",
+    "cover": "/uploads/template-derived-vintage-newspaper-headline.jpg",
     "prompt": "生成一张报纸，根据这张照片可以编一个头版头条标题，像真实的摄影，甚至有不规则折痕，复古质感。\n\n参考角色图注意处理和保持质感相同，并给出角色相关新闻情境（典型性画面，一张，画质粗糙）。用户给出的图片仅作脸部参考，你可以更改服道化，适应新闻情境。只要出一张新闻图片。\n\n画面比例：{argument name=\"画面比例\" default=\"9:10\"}\n上报理由：{argument name=\"上报理由\" default=\"男子怕兄弟耽误婚礼报警谎称嫖娼\"}\n报刊名称：{argument name=\"报刊名称\" default=\"沙雕日报\"}",
     "useWhen": "想把人物照片变成报纸头条、恶搞社会新闻或复古报刊封面时使用。上传一张正面照片即可生成以该人物为主角的做旧报纸头版。",
     "createdAt": "2026-06-28T21:04:37.239Z",
@@ -114,7 +114,7 @@
       "editorial"
     ],
     "description": "输入任意产品/物体+品牌色，生成技术注释风格的拆解信息图：真实产品图+黑色工程线稿注释+品牌色高亮，适合产品展示、社媒分享、品牌物料",
-    "cover": "/images/templatederived-product-technical-infographic.jpg",
+    "cover": "/uploads/2026-06-26-template-product-technical-infographic.jpg",
     "prompt": "Create a branded technical infographic of {argument name=\"产品/物体\" default=\"a premium chocolate bar\"}, combining a realistic photograph or photoreal render of the product with technical annotation overlays placed directly on top. Use black ink-style line drawings with strategic {argument name=\"品牌强调色\" default=\"warm gold\"} accents (architectural sketch look) on a pure white studio background, including:\n\n- Key component labels\n- Internal cross-section showing structure, layering, or internal design\n- Measurements, dimensions, and specifications\n- Material callouts with composition and quantities\n- Arrows indicating function for primary features and structural integrity\n- Simple schematic or sectional diagram showing key mechanical or design elements\n- Sustainability callouts\n\nTitle placement: Inside a hand-drawn technical annotation box with accent border reading the product name in bold font, positioned in upper corner.\n\nStyle & layout rules:\n- The realistic product remains clearly visible\n- Annotations feel sketched, technical, and architectural\n- Accents used for highlight (20-30% of linework), black for primary technical lines (70-80%)\n- Clean composition with balanced negative space\n- Educational, {argument name=\"领域氛围\" default=\"food-engineering\"} vibe with premium branding\n- Include subtle brand logo mark in corner\n\nVisual style: Minimal technical illustration aesthetic, black linework with accents over realistic imagery, precise but slightly hand-drawn feel.\n\nColor palette: White background, black annotation lines/text, brand color for accents and key callouts only.\n\nOutput: {argument name=\"输出尺寸\" default=\"1080x1080 square, ultra-crisp, social-feed optimized\"}, no watermark",
     "useWhen": "需要将食品、电子产品、日用品等实物做成技术拆解/工程注释风格的信息图，用于产品展示、社媒营销、品牌宣传时使用",
     "createdAt": "2026-06-25T23:57:33.588Z",
@@ -130,7 +130,7 @@
       "brand"
     ],
     "description": "输入场景/用途/比例，生成手写大字+影像层+叙事人物的仪式邀请视觉，适合婚礼/典礼/活动邀请",
-    "cover": "/images/templatederived-ceremony-invitation-visual.jpg",
+    "cover": "/uploads/template-derived-ceremony-invitation-visual.jpg",
     "prompt": "围绕具体主题内容生成一张仪式邀请视觉：画面先由超大手写主标题占据上方视觉重量，笔触厚白、边缘微糙、行笔有速度感，长横与下坠笔画跨过背景空间，像把情绪直接写进场景；其下保留一片开阔、安静、可呼吸的主题场域，远处水平层次清楚，中轴有一条通向深处的路径或视觉引导线。中部嵌入一块边界干净的矩形影像层，内容与主题主叙事形成时间或记忆的回看，像一帧被放置在现实场景中的片段；下方安排较小的主题人物、物件或象征角色从背面进入画面，成为尺度与叙事入口。信息文字保持克制：右上用细字排出时间地点类信息并以短线或箭头建立阅读停顿，底部用优雅衬线或细体字、细横线和姓名/主题名形成典礼感，文字不是说明牌，而是和影像共同构成节奏。色彩从主题自身的环境、材质、季节与情绪中提取，保留大面积清透低饱和背景、少量高明度白色书写信息、清晰深色结构和局部温度差，整体清透安静、带冷静通风感；即使主题需要更深颜色，也要保持干净色阶、清晰边缘和透明层次，避免浑浊旧化。最终质感应像真实摄影与手写书法叠合，层次分明、留白有呼吸、仪式感强，第一眼读到巨大手写情绪，第二眼进入中部影像和下方叙事。\n\n——————\n画面方向: {argument name=\"场景描述\" default=\"海边婚礼邀请函，保留远海、堤岸通向深处和手写欢迎语的仪式感\"}\n发朋友圈用: {argument name=\"用途/文字\" default=\"新人婚礼预告和宾客邀请，信息保持时间、地点、姓名三类即可\"}\n尺寸: {argument name=\"画幅比例\" default=\"竖版 3:4\"}",
     "useWhen": "需要将婚礼、典礼、活动等场景转化为具有仪式感和手写美学的邀请视觉时使用",
     "createdAt": "2026-06-25T00:47:41.367Z",
@@ -146,7 +146,7 @@
       "editorial"
     ],
     "description": "输入任意名著/主题名，生成国风水墨淡彩收藏版书卷海报，人物侧脸剪影内嵌叙事场景",
-    "cover": "/images/templatederived-eastern-narrative-poster.jpg",
+    "cover": "/uploads/template-derived-eastern-narrative-poster.jpg",
     "prompt": "请围绕最后输入的【主题 / 灵感 / 作品要求】，创作一张具有收藏价值的东方叙事手绘海报。整体风格必须接近高级国风纸本插画、东方水墨淡彩叙事绘画、收藏版书卷海报的质感，而不是写实电影概念海报，不是 CG 场景图，不是摄影式写实插画，也不是普通双重曝光拼贴。\n\n画面主体为一个巨大、完整、优雅、极具识别度的人物侧脸剪影，但这个侧脸不是机械容器，也不是简单轮廓模板，而应像一笔气韵连贯的主形，轮廓与内部世界自然相生。剪影内部不是把元素塞满，而是从主题中提炼最核心、最有代表性的叙事场景、角色关系、象征符号、建筑、生物、道具与氛围线索，让它们像山海云气般自然浮现、层层展开，形成卷轴式、章节式、由上而下或由远及近的东方叙事节奏。整体结构要像同一位顶级插画师在同一张纸上统一构思、统一经营、统一绘制完成，不能像 photobash 合成，也不能像西式 montage 海报。\n\n整体绘画语言必须偏东方手绘、半写意、非写实。重点不是逼真的体积和材质，而是气韵、虚实、留白、层次和诗性。山石、云雾、建筑、人物、神怪、路径与场景关系可以清晰，但不应过分写实，不应像电影分镜设定图。应保留明显的手绘概括感：有些地方精细，有些地方轻轻带过；有些地方轮廓明确，有些地方融入云气与纸面；让画面呈现\"可读、可看、可品\"的东方叙事绘画质感。\n\n质感必须是纸本手绘感，而不是表面滤镜感。允许出现淡墨晕染、赭石淡彩、干刷痕迹、边缘飞白、轻微渗化、柔和颗粒、云烟化开的笔意、旧纸般的轻微底纹，但这些都必须克制，并服务于结构、空间、气氛和叙事节奏，不能均匀覆盖全图，不能做成廉价假水彩特效。整张画面要像高手画在高级宣纸、旧纸或手工纸上的成品海报，有真实的手绘呼吸感和高级完成度。\n\n色彩系统必须高度克制，并从具体主题中提炼，而不是套用通用奇幻海报配色。整体以低饱和、纸本感、东方古意为主，可采用米白、淡墨灰、赭石、灰棕、烟金、浅雾色等为基础主调，再根据主题加入极少量点睛色。色彩关系应安静、统一、含蓄、雅致，像从旧卷轴和古画中生长出来。不要高饱和电影配色，不要紫蓝金奇幻模板，不要强烈商业 CG 光效。\n\n版式必须具有明显的收藏版书卷海报气质。画面应保留大面积自然留白，主体与留白共同构成呼吸感。文字排版必须是整体设计的一部分，而不是后加贴字。标题可采用竖排中文书法或题签式排版，位置克制，具有古典书卷气；辅助文字可以极少量、小尺寸、细长排布，像书页边注或收藏版说明；可加入小型印章、题记或编号式装饰，但必须低调、精致、统一。整体版式应安静、讲究、克制，像一张可装裱的东方收藏版海报，而不是现代商业广告版面。\n\n必须明确避免：写实摄影感、3D 渲染感、欧美奇幻概念图感、过度细节堆砌、强材质真实感、商业电影海报光效、机械双重曝光拼贴、现代潮流字体、杂乱信息排布、廉价水彩滤镜、满图刷痕、假纸纹覆盖。\n\n最终效果应让人一眼感受到：这不是一张写实场景图，而是一张具有东方书卷气、纸本手绘感、半写意叙事性、收藏级版式审美的顶级插画海报。\n\n最后输入变量：\n【主题 / 灵感 / 作品要求】：{argument name=\"主题/作品名\" default=\"红楼梦\"}",
     "useWhen": "需要将文学作品、历史故事、品牌故事转化为具有东方美学的收藏级插画海报时使用",
     "createdAt": "2026-06-25T00:25:15.164Z",
@@ -164,7 +164,7 @@
       "knowledge"
     ],
     "description": "输入任意主题，自动生成一张百科全书风格的知识图鉴信息图：模块化面板 + 主图特写 + 评分系统 + 分类解析，适合科普、教育、收藏分享。",
-    "cover": "/images/templatederived-encyclopedia-knowledge-card.jpg",
+    "cover": "/uploads/template-derived-encyclopedia-knowledge-card.jpg",
     "prompt": "Based on {argument name=\"主题\" default=\"James Webb Space Telescope\"}, create a high-quality vertical \"encyclopedia-style educational infographic image.\"\n\nThis image should NOT look like a regular poster or a simple illustration. Instead, it should feel like a structured knowledge guide that combines:\n\nthe feeling of a collectible reference handbook\n\na modern encyclopedia page\n\na lifestyle knowledge card\n\nand a highly shareable social-media infographic\n\nThe overall style should resemble a premium natural-history guidebook mixed with modern editorial infographic design. Use {argument name=\"语言\" default=\"English with Chinese annotations\"} for all text labels.\n\nThe image should include:\n\nOne beautiful and highly detailed main subject image\n\nSeveral zoomed-in detail sections highlighting important features\n\nMultiple modular information panels with rounded corners\n\nClear title hierarchy and highlighted key labels\n\nConcise yet information-rich encyclopedia content\n\nVisual scoring systems, quick summaries, or \"Top 5\" modules\n\nThe information sections should automatically adapt to the topic. Select and combine relevant categories such as:\n\nBasic profile (name, type, origin, key specs)\n\nClassification / taxonomy\n\nPhysical characteristics\n\nBehavior / ecology / habits\n\nStructure or formation mechanisms\n\nGrowth conditions or usage methods\n\nCare, maintenance, or optimization tips\n\nRisks, warnings, and important notes\n\nSuitable users or application scenarios\n\nPros and cons comparison\n\nQuick rating tags or summary cards\n\nVisual requirements:\n\nClean light-colored background with {argument name=\"配色风格\" default=\"soft and elegant pastel palette\"}\n\nGentle shadows and small refined icons\n\nRounded information boxes\n\nOrganized editorial layout\n\nHigh information density without feeling crowded\n\nComfortable reading experience\n\nThe final result should feel like a real publishable encyclopedia knowledge card designed for reading, collecting, and creating as part of a consistent series — NOT like a commercial advertisement poster.\n\nThe image must strongly emphasize: \"knowledge integration + modular information design + handbook/reference-style presentation.\"",
     "useWhen": "需要将一个主题（人物/物体/概念/生物/地点）制作成结构化、高信息密度的百科知识卡片，用于科普教育、社媒分享或收藏参考。",
     "createdAt": "2026-06-21T21:05:33.660Z",
@@ -183,7 +183,7 @@
       "collage"
     ],
     "description": "2000年代复古胶片风格垂直多联照片条，模拟一次性相机闪光灯 + 褪色暖调 + 胶片颗粒",
-    "cover": "/images/templatederived-yzk-retro-photo-strip.jpg",
+    "cover": "/uploads/template-derived-yzk-retro-photo-strip.jpg",
     "prompt": "A vertical {argument name=\"格数\" default=\"3-panel\"} photo strip in the aesthetic of early 2000s / Y2K vintage film photography. The subject is {argument name=\"人物描述\" default=\"a young woman with long dark hair\"}, using the uploaded selfie as the ONLY face reference.\n\nLayout: Vertical stacked panels, each capturing a different moment or angle:\n- {argument name=\"面板1\" default=\"Top panel: close-up of the subject resting chin on hand, soft smile\"}\n- {argument name=\"面板2\" default=\"Middle panel: half-body shot looking away, candid\"}\n- {argument name=\"面板3\" default=\"Bottom panel: full-body walking shot, motion blur\"}\n\nStyle details:\n- Camera: {argument name=\"相机\" default=\"disposable 35mm film camera, disposable flash aesthetic\"}\n- Color grading: {argument name=\"色调\" default=\"warm faded tones, slight green tint, low contrast, film grain\"}\n- Lighting: harsh on-camera flash with slight overexposure on skin\n- Vibe: {argument name=\"氛围\" default=\"nostalgic, dreamy, melancholic summer afternoon\"}\n- Each panel has a thin white border like a photo booth strip\n- Date stamp in the corner: {argument name=\"日期戳\" default=\"'03.07.2005'\"}\n\nAspect ratio: 9:16 vertical. Quality: photorealistic, amateur snapshot style, not professional.",
     "useWhen": "复古写真、YZK风格照片、多联拍拼贴、越夏日记本风光、恋爱回忆感照片",
     "createdAt": "2026-06-20T13:37:48.927Z",
@@ -201,7 +201,7 @@
       "character"
     ],
     "description": "角色从速写本/笔记本中突破而出的3D幻觉艺术，2D铅笔绘画与超写实3D角色无缝融合",
-    "cover": "/images/templatederived-3d-paper-breakout.jpg",
+    "cover": "/uploads/template-derived-3d-paper-breakout.jpg",
     "prompt": "Create a stunning ultra-realistic 3D illusion artwork. A {argument name=\"角色描述\" default=\"cute young girl with vibrant hair\"} is emerging from the pages of a {argument name=\"载体\" default=\"spiral-bound sketchbook\"} lying on a {argument name=\"桌面材质\" default=\"wooden desk\"}.\n\nThe {argument name=\"载体\"} contains {argument name=\"纸张类型\" default=\"lined paper with pencil sketches\"} that transitions into a fully 3D photorealistic character. The character appears to be physically climbing, stepping, or breaking out of the page — torn paper edges, folded corners, and pencil shading create the illusion of depth.\n\nDetails:\n- The 2D drawing portion uses {argument name=\"绘画风格\" default=\"graphite pencil shading\"} \n- The 3D portion is hyper-realistic with natural skin textures, fabric folds, and dynamic lighting\n- Soft directional lighting from the upper left, casting realistic shadows across the desk surface\n- Depth of field with the desk slightly blurred in the background\n- The character's expression is {argument name=\"表情\" default=\"cheerful and excited\"}\n- {argument name=\"道具/配饰\" default=\"Colorful markers and art supplies scattered nearby\"}\n\nStyle: mixed-media art, 3D illusion, photorealistic character design, creative paper craft aesthetic, 9:16 vertical composition.",
     "useWhen": "需要创意意境混合媒介、超现实3D角色突破纸面效果、创意艺术展示",
     "createdAt": "2026-06-20T13:37:36.146Z",
@@ -219,7 +219,7 @@
       "infographic"
     ],
     "description": "在风化地图表面生成多个城市地标的立体微缩世界，支持地图类型、城市、地标、气候等参数化定制",
-    "cover": "/images/templatederived-weathered-map-diorama.jpg",
+    "cover": "/uploads/template-derived-weathered-map-diorama.jpg",
     "prompt": "A weathered {MAP_TYPE} map spread across {SURFACE}, bursting with photorealistic miniature worlds erupting from marked locations. {CITY_1} explodes from {CONTINENT} as a living diorama—{LANDMARK_1} towers above {STREET_SCENE}, surrounded by {ATMOSPHERIC_EFFECT} and {MOVING_ELEMENT}. {CITY_2} rises from {CONTINENT} with {LANDMARK_2} emerging through {WEATHER_DRAMA}, tiny {LOCAL_ACTIVITY} frozen mid-motion. {CITY_3} materializes from {CONTINENT} where {LANDMARK_3} pierces through {LIGHTING_EFFECT}, {CULTURAL_DETAIL} spilling across miniature streets. Connecting routes glow as {VISUAL_ELEMENT}—miniature {VEHICLE_TYPE} suspended impossibly between worlds. The map's surface transitions from flat parchment to living terrain: oceans become actual churning water with {WATER_DETAIL}, deserts shimmer with real heat haze, forests sprout miniature trees. Each city exists in its own time: {LIGHTING_CONDITION_1} bathes one, {LIGHTING_CONDITION_2} illuminates another, {LIGHTING_CONDITION_3} glows over the third. {FOREGROUND_OBJECTS} scatter around the map edges. {PHOTOGRAPHY_STYLE}, {COLOR_PALETTE}, extreme depth of field, 8K, {ERA_AESTHETIC} meets magical realism.",
     "useWhen": "需要生成具有探索感/旅行主题的多城市地标立体地图可视化，适合旅行海报、地理信息图、品牌全球布局展示",
     "createdAt": "2026-06-19T11:54:10.009Z",
@@ -240,7 +240,7 @@
       "editorial"
     ],
     "description": "生成黑白电影感体育海报，国旗色面部彩绘 + 选择性上色 + 大标题排版，致敬传奇运动员。",
-    "cover": "/images/templatederived-sports-legacy-poster.jpg",
+    "cover": "/uploads/2026-06-17-tpl-sports-legacy-poster.jpg",
     "prompt": "Ultra-realistic {argument name=\"赛事名称\" default=\"FIFA World Cup 2026\"} poster, dramatic black-and-white cinematic portrait of {argument name=\"运动员描述\" default=\"a football player\"} staring directly into the camera, intense eyes glowing subtly, selective color effect with {argument name=\"国旗/队色\" default=\"national flag\"} paint streaks on both cheeks, fingers touching the face paint, hyper-detailed skin texture, sweat, pores, ultra-sharp facial features, dark stadium background fading into black, powerful emotional atmosphere, legacy and final tournament theme, high contrast monochrome grading, sports documentary style, ESPN x Netflix poster aesthetic, professional sports photography, centered symmetrical composition.\n\nMassive bold serif typography:\n\"{argument name=\"主标题\" default=\"THE LAST DANCE\"}\"\nlarge white cinematic title occupying lower half of poster.\n\nAbove title:\n\"{argument name=\"球员姓名\" default=\"[Player Name]\"}\"\nsmall elegant spacing typography.\n\nBelow title:\n\"{argument name=\"副标题\" default=\"ONE LAST TOURNAMENT. ONE LAST DREAM.\"}\"\n\"{argument name=\"赛事标识\" default=\"FIFA WORLD CUP 2026\"}\"\n\nFlag colors remain vibrant while everything else stays monochrome, dramatic rim lighting, deep shadows, iconic hero portrait, emotional farewell campaign, legendary athlete energy, award-winning sports poster design, luxury editorial finish, photorealistic, ultra detailed, 8K, masterpiece, poster art.\n\nStyle references: Netflix sports documentary, FIFA promotional artwork, cinematic athlete portrait, black and white selective color photography, high-end magazine cover, emotional legacy poster.",
     "useWhen": "体育赛事宣传、运动员致敬海报、球队视觉、品牌体育营销、纪录片风格视觉",
     "createdAt": "2026-06-17T10:17:23.443Z",
@@ -260,7 +260,7 @@
       "social media"
     ],
     "description": "生成人物从 Instagram 帖子框中 3D 突破出来的超写实时尚人像，支持四种动作模式（抓握/飞吻/倚靠/动态）。",
-    "cover": "/images/templatederived-ig-frame-3d-popout.jpg",
+    "cover": "/uploads/2026-06-17-tpl-ig-frame-3d-popout.jpg",
     "prompt": "A photorealistic fashion upper body shot of {argument name=\"人物描述与表情\" default=\"a confident young woman with a radiant smile\"} wearing {argument name=\"服装细节\" default=\"a vibrant red designer dress with gold accessories\"}. The subject is framed inside a central white Instagram-style post border.\n\nComposition & Spacing: The white frame is perfectly centered in the middle of the image, leaving balanced empty {argument name=\"背景色\" default=\"soft pink\"} space above and below the frame to match the theme.\n\nFrame Details: The top, left, and right white borders are very thin. The bottom white section is thicker to include UI elements. The bottom section features a red heart icon, comment bubble, share icon, and bookmark icon.\n\nText Details: Clearly visible text on the bottom panel: \"{argument name=\"点赞数\" default=\"12,847\"} likes\", username \"{argument name=\"用户名\" default=\"@fashion_icon\"}\", caption \"{argument name=\"文案\" default=\"Living my best life ✨ #fashion #ootd\"}... more\", and below that, \"View all comments\".\n\n3D Pop-Out Effect & Hand Pose: {argument name=\"动作模式(Grip/Kiss/Resting/Dynamic)\" default=\"Grip\"} — head and arms are physically popping out OVER the top and side thin borders. Hands are realistically gripping the outer edges of the thin side borders, appearing to hold the frame firmly.\n\nSubject Dimensionality & Texture: The subject must look like a solid, three-dimensional figure, not flat. Emphasize detailed fabric texture, facial contours, and realistic hair. Distinct depth separating subject from the flat background.\n\nLighting & Shadows: Professional studio lighting creating soft, realistic drop shadows cast by the physical frame and popping-out elements onto the solid flat background, enhancing dramatic depth. High definition, commercial photography.",
     "useWhen": "社交媒体创意头像、时尚品牌宣传、个人 IP 形象、电商视觉营销",
     "createdAt": "2026-06-17T10:17:19.692Z",
@@ -280,7 +280,7 @@
       "notion"
     ],
     "description": "用极简黑白线稿生成 Notion 风格的角色插画，适合博客配图、产品演示和社媒头像。",
-    "cover": "/images/templatederived-notion-mono-character.jpg",
+    "cover": "/uploads/template-derived-notion-mono-character.jpg",
     "prompt": "A simple black-and-white illustration of a {argument name=\"角色主体\" default=\"young professional woman\"} in {argument name=\"穿着\" default=\"a cozy sweater and jeans\"}, {argument name=\"动作\" default=\"holding a coffee cup\"}, with a {argument name=\"表情\" default=\"gentle smile\"} expression, in a Notion-style minimalist editorial aesthetic, clean line art, flat monochrome design, simple shapes, subtle hand-drawn feel, minimal detail, expressive posture, clean white background, neat modern layout, soft playful character style",
     "useWhen": "博客配图、产品演示插图、社媒头像、知识库插画、极简风格角色设计",
     "createdAt": "2026-06-14T21:06:28.068Z",
@@ -298,7 +298,7 @@
       "packaging"
     ],
     "description": "一键生成专业品牌视觉识别展示板，包含主副Logo、色彩方案、字体搭配、包装效果图和社交媒体应用",
-    "cover": "/images/templatederived-premium-brand-kit-board.jpg",
+    "cover": "/uploads/template-derived-premium-brand-kit-board.jpg",
     "prompt": "Create a premium brand kit board for {argument name=\"brand_name\" default=\"AURELIA\"}, presented like a professional branding studio slide. Show the existing brand identity in a clean, organized visual presentation. Include primary logo, secondary logo, icon, {argument name=\"color_palette\" default=\"warm earth tones with gold accents\"}, typography pairing, branded packaging or product mockups, social media mockup, and simple brand pattern elements. Style: {argument name=\"style\" default=\"minimalist luxury\"}. Use a clean editorial grid, realistic materials, strong hierarchy, and polished presentation. Text to include: \"{argument name=\"brand_name\" default=\"AURELIA\"}\"",
     "useWhen": "需要为客户或概念品牌制作完整的品牌视觉识别展示板时使用",
     "createdAt": "2026-06-14T12:44:36.282Z",
@@ -316,7 +316,7 @@
       "photography"
     ],
     "description": "食物表面裹粉后拍打/坠落，捕捉粉末粒子瞬间爆炸飞溅的高速摄影效果，暗色对比背景突出质感",
-    "cover": "/images/templatederived-powder-explosion-food.jpg",
+    "cover": "/uploads/template-derived-powder-explosion-food.jpg",
     "prompt": "{argument name=\"食物\" default=\"strawberry\"} coated in {argument name=\"粉末\" default=\"powdered sugar\"} being dropped or tapped, causing a cloud of fine particles to explode outward, soft diffusion, studio lighting, high-speed photography, dark contrasting background, ultra-detailed textures.",
     "useWhen": "需要食物裹粉/撒粉的动态爆炸瞬间效果，适用于美食广告、产品展示",
     "createdAt": "2026-06-12T04:42:59.567Z",
@@ -334,7 +334,7 @@
       "creative"
     ],
     "description": "将人物主体与多种视觉层（报纸拼贴、油漆飞溅、图形元素）混合，形成大胆创意的混合媒体海报风格",
-    "cover": "/images/templatederived-creative-collage-poster.jpg",
+    "cover": "/uploads/template-derived-creative-collage-poster.jpg",
     "prompt": "{argument name=\"main_subject\" default=\"a famous musician\"}\nthe most recognizable head, face outline, mask or outer outline of the figure is the large visual subject, forming a highly recognizable silhouette main shape; the middle and lower part is arranged with the complete figure as the second subject, showing a stable standing or slight movement posture, forming the visual core of the picture.Double exposure and collage narrative compositions inside and around the large outline, combining multiple scenes, images, small character relationships, auxiliary elements and environmental layers in clouds, ink, and whitening. The left and right side is equipped with an echoing side of the scene, which creates story tension and space changes. Link the main character, internal collage, and large outline above with a flow of clues across the screen to enhance integrity and vision guidance.The overall picture retains a large area of whiteness, and the edge is stained with ink and virtual broken, creating a real relationship and breath in the Oriental aesthetics. Overall style uniform, advanced and restrained, emphasizing layers, narrative, main visual impact and serialized poster language. Size: 9:16.",
     "useWhen": "需要创作大胆、多层视觉混合的创意人物海报时使用，适合粉丝艺术、音乐海报、艺术展览宣传",
     "createdAt": "2026-06-11T02:14:54.818Z",
@@ -352,7 +352,7 @@
       "floor-plan"
     ],
     "description": "将建筑平面图转化为立体的微缩模型效果，房间逐渐升起变为可居住的立体空间，图纸线条与实体隔墙同时存在",
-    "cover": "/images/templatederived-floorplan-3d-rise.jpg",
+    "cover": "/uploads/template-derived-floorplan-3d-rise.jpg",
     "prompt": "An architectural floor plan of {BUILDING_TYPE} spread across a drafting table, with the spaces rising into inhabitable miniature. {ROOM_1} emerges with {FURNITURE_1} and {ACTIVITY_1} in progress, {ROOM_2} rises with {DESIGN_ELEMENT} and {HUMAN_MOMENT}, {ROOM_3} pushes up with {DETAIL_1} and {LIGHTING_1}. Walls exist as both lines and actual partitions simultaneously. Sight lines marked on the plan become actual views between spaces. The mechanical systems in the plan—HVAC, plumbing, electrical—pulse with invisible function. Human circulation patterns appear as ghosted movement trails. Architectural scale figures become actual tiny inhabitants living their tiny lives. Section cuts reveal vertical relationships. The architect's tools surround: scales, pencils, trace paper. Golden design studio light, the plan as promise and proof, 8K, architecture as life container.",
     "useWhen": "需要将建筑平面图可视化从2D图纸升级为3D立体展示时使用",
     "createdAt": "2026-06-11T01:38:12.501Z",
@@ -369,7 +369,7 @@
       "storytelling"
     ],
     "description": "在折皱旧纸的纹理中浮现出一个微型3D场景，使用纸张折痕和墨迹营造浮雕般的视觉叙事",
-    "cover": "/images/templatederived-aged-paper-origami-scene.jpg",
+    "cover": "/uploads/template-aged-paper-origami-scene.jpg",
     "prompt": "Design a hyper-realistic close-up image of a folded sheet of aged paper. Within the paper's creases and surfaces, depict a {argument name=\"scene\" default=\"quiet village at dusk with warm lantern light\"} emerging naturally from the folds, like sculpted origami.\nThe environment and figures appear embossed or printed directly into the paper, using wrinkles, grain, and {argument name=\"ink_style\" default=\"sepia ink\"} textures to build the illusion. Include subtle shadows, curled edges, torn corners, and ink fading to enhance realism.\nSet the paper on a {argument name=\"surface\" default=\"worn wooden tabletop\"} with soft directional light from {argument name=\"light_direction\" default=\"the upper left\"}, casting gentle shadows and enhancing dimensional depth.\nPhotorealistic, emotional storytelling, handcrafted visual illusion, 8K ultra-detail, {argument name=\"aspect\" default=\"4:5\"} ratio.",
     "useWhen": "需要将一个场景或记忆以浮雕纸艺风格呈现，适合历史叙事、怀旧主题、文学意象可视化",
     "createdAt": "2026-06-09T10:51:49.231Z",
@@ -388,7 +388,7 @@
       "split-view"
     ],
     "description": "上下分割：深色建筑蓝图平面图+对应实景渲染，严格结构对照，高端建筑展示风格",
-    "cover": "/images/templatederived-architecture-blueprint-reality-split.jpg",
+    "cover": "/uploads/template-derived-architecture-blueprint-reality-split.jpg",
     "prompt": "Create a split architectural visualization where the top is a detailed dark-themed blueprint and the bottom is a photorealistic {argument name=\"building_type\" default=\"modern single-story house\"} that matches the blueprint EXACTLY.\n\nAspect ratio: {argument name=\"aspect\" default=\"3:4\"}\n\nComposition: vertical split — top section: blueprint, bottom section: realistic render, perfect structural correspondence between both sections.\n\nTop section — Architectural blueprint:\nStyle: {argument name=\"blueprint_style\" default=\"dark luxury blueprint, deep navy/charcoal blue background, thin glowing beige/gold lines, slightly extruded 3D wall effect, clean modern sans-serif labels, soft ambient glow\"}\n\nContent: {argument name=\"rooms\" default=\"3 bedrooms, central living room, kitchen+dining, 2 bathrooms, garage, front porch, backyard pool with deck\"}\nDetails: furniture outlines (beds, sofa, dining table), door swings and openings, window placements, circulation paths, exact proportions and spacing.\n\nBottom section — Photorealistic render:\nMUST MATCH THE BLUEPRINT EXACTLY — no added, removed, or shifted rooms.\nArchitecture style: {argument name=\"arch_style\" default=\"modern house, flat layered roof, smooth concrete walls, wood panel accents, large glass windows\"}\nLayout mapping: {argument name=\"mapping_rules\" default=\"garage on left, main entrance aligned with living room, pool in backyard matching blueprint, window placements correspond to each room\"}\nEnvironment: {argument name=\"environment\" default=\"suburban neighborhood, green lawn, minimal landscaping, clean driveway, golden hour soft natural light\"}\nCamera: {argument name=\"camera\" default=\"slightly elevated front perspective, 35mm architectural view\"}\n\nConsistency rules: room positions identical, no extra structures, doors/windows aligned logically, pool matches exactly.\nStyle: top = architectural visualization (dark premium), bottom = photorealistic, overall = clean high-end architectural presentation.\nNegative: no mismatch between blueprint and render, no extra rooms, no fantasy elements, no unrealistic proportions.",
     "useWhen": "需要将建筑平面图与实景对照展示，适合房产营销、建筑设计提案、空间规划可视化",
     "createdAt": "2026-06-09T03:28:52.159Z",
@@ -407,7 +407,7 @@
       "narrative"
     ],
     "description": "电影四格分镜叙事，统一黑色电影光影风格，鸟瞰/特写/极特写/背影四种镜头叙事推进",
-    "cover": "/images/templatederived-film-noir-four-panel-storyboard.jpg",
+    "cover": "/uploads/template-derived-film-noir-four-panel-storyboard.jpg",
     "prompt": "Create a single film noir–style cinematic image divided into four horizontal panels, all depicting the same {argument name=\"character\" default=\"boxer\"} and the same {argument name=\"environment\" default=\"boxing ring\"} environment, unified by lighting, atmosphere, and narrative progression across four stages of {argument name=\"story\" default=\"a fight\"}.\n\nOverall style:\n{argument name=\"lighting_style\" default=\"Vintage Film Noir Lighting, Low Key Lighting, Hard Shadows Lighting, Split Lighting, moody and tense atmosphere, minimal fill light, deep blacks, sharp contrast, visible film grain, slight vignetting, subtle haze in the air from sweat and dust. Industrial warehouse setting, night atmosphere, light beams cutting through darkness\"}. Clean horizontal separation between panels, cinematic split-screen composition, consistent character identity across all panels.\n\nTop panel – {argument name=\"panel1_label\" default=\"ROUND 1\"}, {argument name=\"panel1_shot\" default=\"BIRD'S-EYE SHOT\"}:\n{argument name=\"panel1_desc\" default=\"Bird's Eye View of the ring. Stark top-down composition, ropes forming geometric frames. Two figures circling each other. Overhead spotlight creating strong geometric shadows. Light slicing through darkness, corners fading into black.\"}\n\nSecond panel – {argument name=\"panel2_label\" default=\"ROUND 2\"}, {argument name=\"panel2_shot\" default=\"SIDE CLOSE-UP SHOT\"}:\n{argument name=\"panel2_desc\" default=\"Side-profile close-up of the main subject mid-action. Intense expression, jaw clenched. One side of the face sharply lit by a hard key light, the other completely swallowed in shadow. Split Lighting carving the facial structure in classic noir sculpting.\"}\n\nThird panel – {argument name=\"panel3_label\" default=\"ROUND 3\"}, {argument name=\"panel3_shot\" default=\"EXTREME CLOSE-UP\"}:\n{argument name=\"panel3_desc\" default=\"Extreme Close-Up on a critical detail. Heavy shadow dominance. Light catching only key textures. Film grain pronounced. The rest of the frame nearly pure black.\"}\n\nBottom panel – {argument name=\"panel4_label\" default=\"FINAL ROUND\"}, {argument name=\"panel4_shot\" default=\"MEDIUM WIDE BACK SHOT\"}:\n{argument name=\"panel4_desc\" default=\"Medium Wide Shot from behind the subject. Standing alone after a decisive moment, shoulders rising with breath. Rim Lighting outlining the silhouette. Light haze in the air enhancing depth. The scene fading into darkness.\"}\n\nHigh detail, High Quality, Photorealism Style, cinematic composition, cohesive identity across all four panels, dramatic storytelling progression within a single unified noir frame.",
     "useWhen": "需要用电影分镜方式讲述一个四幕叙事故事，统一视觉风格下呈现时间/剧情推进",
     "createdAt": "2026-06-09T03:28:47.312Z",
@@ -426,7 +426,7 @@
       "monochrome"
     ],
     "description": "经典木刻/油毡版画风格肖像，高对比黑白墨线，精细交叉排线，复古编辑插画质感",
-    "cover": "/images/templatederived-woodcut-engraving-portrait.jpg",
+    "cover": "/uploads/template-derived-woodcut-engraving-portrait.jpg",
     "prompt": "Black and white engraved portrait illustration of {argument name=\"subject\" default=\"a distinguished elderly man with weathered features and deep-set eyes\"}.\nDrawn in classic woodcut / linocut engraving style, high contrast black ink on textured off-white paper background. Fine cross-hatching and line shading to create depth and shadow, bold black ink shadows under chin and around hair, strong contour lines, traditional printmaking aesthetic.\n{argument name=\"composition\" default=\"Minimal composition, centered portrait, no body visible, clean negative space\"}, vintage editorial illustration style, ultra detailed linework, sharp crisp ink strokes, professional vector-ready engraving look, monochrome palette, dramatic contrast.\nNegative Prompt:\n{argument name=\"negative\" default=\"color, watercolor, soft shading, blurred lines, low contrast, realistic photography, 3D render, anime style, cartoon style, messy sketch, thick uneven strokes, background objects, noisy texture, pixelated, distorted face\"}",
     "useWhen": "需要古典版画风格人像插图，书籍封面、编辑插画、复古品牌视觉时使用",
     "createdAt": "2026-06-09T03:28:42.718Z",
@@ -445,7 +445,7 @@
       "travel"
     ],
     "description": "以鸟瞰手绘风格绘制城市美食地图，标注当地特色美食地点的精致小插画，适用于美食博主、旅游宣传、城市文化推广等场景。",
-    "cover": "/images/templatederived-handdrawn-city-food-map.jpg",
+    "cover": "/uploads/template-derived-handdrawn-city-food-map.jpg",
     "prompt": "一张手绘风格的{argument name=\"city\" default=\"成都\"}城市美食地图。\n\n整体风格：\n- {argument name=\"art_style\" default=\"水彩手绘风格，温暖的色调，可爱的手绘感\"}\n- 视角：鸟瞰视角的简化城市地图\n- 不追求精确比例，追求可爱的手绘质感\n- 底图标注主要道路、地标和水系，用淡色线条勾勒\n\n地图元素：\n- 标注{argument name=\"districts\" default=\"主要区域名称\"}和关键地标\n- 地图上分布 {argument name=\"spot_count\" default=\"10-12\"} 个美食地点的精致手绘小插画\n- 每个插画约占地图 5% 面积，旁边用手写体标注店名和一句推荐语\n\n美食地点示例格式（根据城市实际特色替换）：\n- {argument name=\"food_spots\" default=\"每个美食地点包含：店名/地名 + 一道代表菜的精致手绘小插画 + 手写体店名和推荐语\"}\n\n手绘小插画要求：\n- 每个美食插画都要有明确的辨识度（食材颜色、形状、蒸汽、光泽等细节）\n- 用水彩质感表现食物的诱人感\n- 蒸汽、飞溅、光泽等动态细节增加生动感\n\n文字与标注：\n- 城市名称用大号手写体在地图顶部\n- 地名用小号手写体标注\n- 推荐语用手写体，如\"凌晨两点还在排队的火锅\"\n- 路名用细线条手写标注\n\n画布：{argument name=\"canvas\" default=\"竖版 3:4，米白色纸张质感背景，边缘略带水彩晕染\"}\n氛围：温暖、可爱、让人看了就想吃的烟火气",
     "useWhen": "需要制作城市美食地图、旅游美食攻略图、地方特色美食文化宣传图、餐厅探店地图等场景。适合美食博主、旅游博主、城市文化推广。",
     "createdAt": "2026-06-07T21:05:28.178Z",
@@ -464,7 +464,7 @@
       "grid"
     ],
     "description": "同一人物多套造型/多角度姿态的网格拼贴写真，适用于偶像写真集、时尚画册、电商目录、穿搭展示等场景。",
-    "cover": "/images/templatederived-fashion-multi-pose-collage.jpg",
+    "cover": "/uploads/template-derived-fashion-multi-pose-collage.jpg",
     "prompt": "Create a {argument name=\"layout\" default=\"3×3 grid\"} photo collage featuring the same {argument name=\"subject\" default=\"young Asian woman\"} in {argument name=\"pose_count\" default=\"9\"} distinct poses and expressions, maintaining 100% consistent facial identity, proportions, and hairstyle across all frames.\n\nSubject Identity Lock:\n- Face: perfectly matched across all panels, identical bone structure, eye shape, skin texture\n- Hairstyle: {argument name=\"hairstyle\" default=\"long dark wavy hair, consistent volume and parting across all frames\"}\n- Skin: ultra-realistic texture, natural pores, subtle imperfections, no over-smoothing\n\nStyling:\n- Outfit: {argument name=\"outfit\" default=\"white shirt with minimalist styling, consistent wardrobe across all frames, or subtle variations\"}\n- Makeup: {argument name=\"makeup\" default=\"clean idol-style minimal makeup, soft glow, subtle blush\"}\n\nLayout & Composition:\n- Grid: {argument name=\"layout\" default=\"3×3 square grid\"} arrangement\n- Each panel: equal-sized, clean borders, consistent framing\n- Pose variety: {argument name=\"pose_style\" default=\"mix of close-up portraits, half-body, and full-body poses with natural candid expressions\"}\n- Expression range: confident, playful, dreamy, laughing, pensive — avoid monotony\n\nLighting & Background:\n- {argument name=\"lighting\" default=\"Soft warm studio lighting, gentle shadows, professional beauty lighting setup\"}\n- {argument name=\"background\" default=\"clean neutral studio backdrop in warm beige or soft white\"}\n\nQuality:\n- Resolution: ultra-high detail, 8K quality rendering\n- Photography style: premium fashion editorial / idol photobook aesthetic\n- No filters, no over-retouching, natural skin finish\n\nOutput: {argument name=\"aspect_ratio\" default=\"1:1 square\"} format, print-quality detail, no watermark.",
     "useWhen": "需要制作偶像写真集、时尚画册、电商服装目录、社交媒体多角度展示图、穿搭拼贴等场景。适用同一人物多造型/多姿态的网格化展示。",
     "createdAt": "2026-06-07T21:03:58.478Z",
@@ -480,7 +480,7 @@
       "Typography"
     ],
     "description": "将任意主体拉升到国际广告大奖级别的视觉概念大片。通过尺度反差、视觉隐喻、空间错觉和故事表达，创造过目难忘的超现实创意画面。适用于广告创意、品牌视觉和概念艺术。",
-    "cover": "/images/templatederived-visual-concept-ad.jpg",
+    "cover": "/uploads/2025-06-06-template-derived-visual-concept-ad.jpg",
     "prompt": "以【{argument name=\"主体\" default=\"25岁泳装日本少女\"}】为核心。  创造一个前所未见的视觉概念。  主体突破现实尺度与物理规则。  采用国际广告大奖级创意思维。  强调视觉隐喻、尺度反差、空间错觉与故事表达。  构图简洁但极具记忆点。  兼具艺术性、商业传播性与视觉冲击力。  令人过目难忘。  超高创意，超高审美。",
     "useWhen": "适合需要快速复用「国际广告级视觉概念大片」结构的内容生产场景。",
     "createdAt": "2026-06-05T16:31:27.432Z",
@@ -498,7 +498,7 @@
       "commercial"
     ],
     "description": "高端食品广告悬浮拍摄模板，白色无缝背景 + 浮空堆叠构图，适合任何食品/饮料产品的商业广告图",
-    "cover": "/images/templatederived-food-levitation-ad.jpg",
+    "cover": "/uploads/template-derived-food-levitation-ad.jpg",
     "prompt": "{subject}, premium food advertising, white seamless background, high key studio lighting, floating stacked composition, levitating pieces, {ingredient_bits} scattered, clean minimal layout, crisp soft shadow on surface, ultra realistic, macro product photography, 100mm lens look, f/8 sharp focus, subtle texture detail, editorial commercial, 8k",
     "useWhen": "需要为食品、饮料、零食等产品生成高级商业广告图，要求白底悬浮构图、极简干净的画面风格",
     "createdAt": "2026-06-05T03:32:30.808Z",
@@ -516,7 +516,7 @@
       "technical"
     ],
     "description": "生成产品/机械爆炸图技术海报——以工程级精度展示内部结构与子系统，适用于汽车、电子产品、工业设备等场景。",
-    "cover": "/images/templatederived-exploded-technical-diagram.jpg",
+    "cover": "/uploads/template-derived-exploded-technical-diagram.jpg",
     "prompt": "Place the primary chassis or structural platform perfectly centered as the core spine, and position the main body shell separately (left or top), aligned parallel as a reference form while preserving accurate proportions, stance, and geometry of the real {argument name=\"product_name\" default=\"sports car\"}.\n\nDesign a multi-layered exploded system with components separated across depth (Z-axis) as well as planar spacing, using clear hierarchy: micro hardware (bolts, screws, washers) tightly grouped, functional assemblies moderately spaced, and major systems widely separated.\n\nOrganize parts into realistic subsystems depending on the product type, including {argument name=\"subsystems\" default=\"front assembly (suspension, steering, brakes), rear assembly (suspension, drivetrain, differential), chassis/structure (frame, monocoque, subframes), powertrain (engine or motor with slight internal exposure, transmission, intake, exhaust, cooling), electronics (battery, ECU, wiring harness with clean routing), and wheel systems (4 wheels symmetrically placed with tire, rim, and hub separation)\"}.\n\nEnsure engineering realism by preserving mechanical relationships, aligning shafts and rotational axes, maintaining symmetry across left/right systems, and grouping micro components logically near their assembly points in precise micro-grid arrangements. Avoid random placement.\n\nUse a refined, high-end aesthetic: soft neutral gradient background ({argument name=\"background\" default=\"white to light grey or warm beige\"}), studio-grade product lighting with soft top illumination, subtle directional shadows, and controlled reflections. Apply realistic materials such as {argument name=\"materials\" default=\"brushed metal, carbon fiber, rubber, and glass with slight wear\"} — avoid toy-like finishes. Maintain strong horizontal symmetry with controlled depth asymmetry for visual complexity, and ensure balanced negative space to avoid overcrowding.\n\nRender in ultra-realistic quality with razor-sharp edges, macro-level detail, subtle ambient occlusion, and ray-traced shadows. Output in {argument name=\"resolution\" default=\"2K or 4K\"} resolution, {argument name=\"aspect_ratio\" default=\"4:5\"} aspect ratio.\n\nNo text, no labels, no arrows, no branding overlays, no stylization, no perspective distortion. Style keywords: {argument name=\"style_keywords\" default=\"F1 engineering exploded diagram, luxury automotive technical poster, industrial design breakdown, Apple-style product visualization, ultra-precision mechanical layout, museum-grade presentation\"}.",
     "useWhen": "需要展示产品/机械的内部结构爆炸图，适用于汽车、电子、工业设备、消费品等品类的技术海报或产品可视化。",
     "createdAt": "2026-06-03T01:26:52.788Z",
@@ -535,7 +535,7 @@
       "illustration"
     ],
     "description": "将照片/主体转换为纸艺风格——包括层叠纸雕、折纸雕塑、剪纸镂空、低多边形纸模等多种纸质媒介，适用于艺术插画、品牌视觉和创意设计。",
-    "cover": "/images/templatederived-papercraft-style-transfer.jpg",
+    "cover": "/uploads/templatederived-papercraft-style-transfer.jpg",
     "prompt": "{argument name=\"语言\" default=\"[中文]\"} \n将 {argument name=\"输入素材\" default=\"上传的图片/照片\"} 转换为 {argument name=\"纸艺风格\" default=\"分层纸雕\"} 风格的插画。\n\n风格定义：\n- 纸艺类型：{argument name=\"具体技法\" default=\"layered paper-cut illustration, multiple stacked paper layers with depth shadows, handcrafted aesthetic\"}\n- 纸质材质：{argument name=\"纸张质感\" default=\"textured matte paper, visible grain, warm cream and soft pastel palette\"}\n- 层次结构：{argument name=\"层次设计\" default=\"前景→中景→背景 3-5 层，每层之间有自然阴影营造纵深感\"}\n- 色彩方案：{argument name=\"色彩\" default=\"柔和粉彩配色，低饱和度，少量亮色点缀\"}\n\n技法要求：\n- 所有元素保持纸张的物理特性：边缘略带毛边、折痕、厚度感\n- 层与层之间有真实的投影阴影\n- 保留主体的核心特征和姿态，用纸艺语言重新诠释细节\n- 整体构图干净，留有呼吸感\n\n{argument name=\"语言2\" default=\"[English]\"}\nTransform {argument name=\"input\" default=\"the uploaded image/photo\"} into a {argument name=\"paper craft style\" default=\"layered paper-cut\"} style illustration.\n\nStyle definition:\n- Paper type: {argument name=\"technique\" default=\"layered paper-cut illustration, multiple stacked paper layers with depth shadows, handcrafted aesthetic\"}\n- Paper texture: {argument name=\"texture\" default=\"textured matte paper, visible grain, warm cream and soft pastel palette\"}\n- Layer structure: {argument name=\"layers\" default=\"foreground → midground → background, 3-5 layers with natural drop shadows creating depth\"}\n- Color palette: {argument name=\"colors\" default=\"soft pastels, low saturation, minimal bright accents\"}\n\nTechnical requirements:\n- All elements maintain paper's physical properties: slightly rough edges, fold marks, thickness\n- Realistic drop shadows between layers\n- Preserve the subject's core features and pose, reinterpreted in paper craft language\n- Clean composition with breathing room\n\n使用建议：\n- 分层纸雕：用 3-5 层结构，前景细节多、背景渐简，层间加深阴影\n- 折纸/低多边形：强调几何面片、锐利折线，减少曲线\n- 剪纸镂空：以黑色/深色纸为底，镂空部分透出下层色彩\n- 杂志拼贴：混合不同纸纹、撕边效果、手写字体元素\n- 毛毡微缩：用毛线/羊毛质感替代纸张，增加温暖手工感\n\n防坑指南：\n- 不要在一张图里混用太多纸艺类型，选一种保持统一\n- 阴影是立体感的关键——必须强调层间投影\n- 主体太复杂时纸艺会显得杂乱，建议适当简化细节\n- 色彩控制在 4-6 种以内，纸张风格不适合太鲜艳",
     "useWhen": "需要将照片或视觉主体转换为纸艺风格插画，包括纸雕、折纸、剪纸、纸模拼贴等手工纸质媒介效果。适用于艺术插画创作、品牌视觉设计、文创产品和创意表达。",
     "createdAt": "2026-05-31T21:04:04.423Z",
@@ -554,7 +554,7 @@
       "UI"
     ],
     "description": "一键生成抖音直播、小红书帖子、朋友圈、快手、视频号等中国主流社交平台的逼真手机截图，适用于内容营销预览、社媒运营素材和创意整活。",
-    "cover": "/images/templatederived-social-media-screenshot.jpg",
+    "cover": "/uploads/templatederived-social-media-screenshot.jpg",
     "prompt": "[中文]\n生成一张 {argument name=\"平台名称\" default=\"抖音\"} {argument name=\"内容类型\" default=\"直播\"} 的手机截图，iPhone 尺寸，竖版 {argument name=\"画面比例\" default=\"9:16\"}。\n\n画面要求：\n- 状态栏：顶部显示真实 iOS 状态栏，包含时间（{argument name=\"时间\" default=\"21:37\"}）、电量、信号、WiFi 图标\n- 平台 UI：{argument name=\"平台 UI 元素\" default=\"抖音直播间：顶部主播头像+昵称、关注按钮、在线人数；底部弹幕输入框、礼物按钮、点赞爱心特效；右侧悬浮礼物排行榜\"} \n- 主体内容：{argument name=\"画面主体\" default=\"一位穿着时尚的年轻女主播在温馨的卧室直播间里微笑面对镜头\"}\n- 互动元素：{argument name=\"互动层\" default=\"飘过的弹幕评论，包含中文文字内容；底部点赞爱心特效\"}\n- 文字内容：所有界面文字必须清晰可读，使用中文\n- 整体风格：超写实手机截图风格，屏幕边缘有微妙的光线反射，与真实截图难以区分\n\n[English]\nGenerate a realistic {argument name=\"platform\" default=\"Douyin\"} {argument name=\"content type\" default=\"livestream\"} mobile screenshot, iPhone size, vertical {argument name=\"aspect ratio\" default=\"9:16\"}.\n\nRequirements:\n- Status bar: Realistic iOS status bar at top with time ({argument name=\"time\" default=\"21:37\"}), battery, signal, WiFi icons\n- Platform UI: {argument name=\"platform UI elements\" default=\"Douyin livestream: streamer avatar + nickname + follow button at top, viewer count; comment input bar, gift button, floating hearts at bottom; gift ranking sidebar on right\"}\n- Main content: {argument name=\"main subject\" default=\"A fashionable young female streamer smiling at camera in a cozy bedroom studio\"}\n- Interaction layer: {argument name=\"interaction elements\" default=\"Floating danmaku comments with Chinese text; heart animations at bottom\"}\n- Text: All UI text must be clearly readable in Chinese\n- Style: Hyper-realistic phone screenshot with subtle screen reflections, indistinguishable from real screenshots\n\n使用建议：\n- 抖音直播：设置\"直播\"内容类型，添加弹幕层和礼物特效\n- 小红书帖子：设置帖子内容类型，添加笔记标题、标签、点赞收藏\n- 朋友圈：设置朋友圈内容，添加点赞列表和评论\n- 快手直播：类似抖音但 UI 元素风格不同\n- 视频号：微信风格界面，绿色主题色\n\n防坑指南：\n- 必须指定具体平台名称，否则生成的 UI 不像任何平台\n- 文字内容必须给出具体文案，AI 编造的文字容易乱码\n- 主体人物描述要具体（服装、动作、场景），否则画面空洞\n- 弹幕/评论内容建议控制在 3-5 条，太多容易文字变形\n- 状态栏时间是细节加分项，但不是必须的",
     "useWhen": "需要生成社交媒体平台的逼真手机截图，包括抖音直播、小红书帖子、朋友圈内容、快手直播、视频号等。适用于内容营销预览、社媒运营视觉素材、创意整活和概念验证。",
     "createdAt": "2026-05-31T21:02:59.428Z",
@@ -573,7 +573,7 @@
       "knowledge"
     ],
     "description": "输入任意主题，自动生成高完成度进化史信息图。19条创作原则驱动，智能适配深浅色模式、配色系统、排版节奏与视觉对象。适用文明史、产品演化、技术发展、物种进化等一切可时间线化的主题。",
-    "cover": "/images/templatederived-evolution-infographic.jpg",
+    "cover": "/uploads/template-derived-evolution-infographic.jpg",
     "prompt": "你要生成的不是普通插画，也不是把信息机械排成一列的时间轴，而是一张\"高完成度、强组织性、强阅读价值、兼具知识含量与高级审美的进程演化信息图海报\"。\n\n核心任务：\n用户只会提供一个主题、概念、命题、对象、类别，或一个需要被梳理的方向。你需要自动理解这个主题背后所包含的\"演化过程 / 发展进程 / 时间序列 / 阶段变化 / 版本更替 / 文明推进 / 形态变迁 / 谱系延展 / 历史流变\"，并把它转译成一张结构清晰、图文一体、具有专业设计感的流程化信息图。\n\n这张图必须具备如下能力：\n当用户只输入一个主题时，你要自动沿着该主题延展出完整的阶段结构、关键节点、代表性视觉对象、时间分段、核心说明与整体叙事逻辑。不要要求用户提供大量细节。你要主动补全最合理、最有知识性、最有可视化价值的内容，并将其转化为一张完整、优雅、可信、耐看的信息图。\n\n适用范围必须非常广：\n可以用于文明史、产品演化史、技术发展史、朝代更替、帝王谱系、物种进化、器物演变、服饰演变、饮食演变、品牌发展、某一物件的形态变迁、某一制度或思想的发展过程、某一行业的阶段性变化，或任何可以被整理成\"阶段推进\"的主题。\n无论用户输入的是严肃学术主题，还是日常消费品主题，还是带趣味性的生活主题，你都要以同样专业、优雅、清晰、富有美感的方式，把它梳理成一张完整的信息图。\n\n请严格遵守以下创作原则：\n\n第一原则：先理解主题，再决定进程结构\n在开始生成前，你必须先智能判断这个主题最适合被梳理成什么样的\"演进结构\"。\n如果它是历史主题，就梳理其年代推进、关键时期、代表节点与典型物证。\n如果它是产品品类，就梳理其形态、结构、材料、工艺、使用方式、审美风格、社会功能的演化。\n如果它是生物或自然主题，就梳理其进化链条、关键分支、典型形态与核心特征。\n如果它是抽象命题，就梳理它在时间、认知、制度、媒介、社会语境中的发展阶段。\n总之，你必须自动找到这个主题最适合被呈现为\"进程\"的逻辑，而不是机械套模板。\n\n第二原则：画面不是简单时间轴，而是\"被空间化的进程\"\n整体构图优先采用具有强烈秩序感和视觉记忆点的\"递进式台阶 / 阶梯式平台 / 斜向推进路径 / 分层式结构 / 展陈式轨迹 / 版块式进化路径\"。\n这个结构要像一条被实体化的演进路径，带有明确的起点、阶段节点、递进节奏与终点。\n路径不应只是画一条线，而应具有平台感、层级感、空间感，让每个阶段都像站在一个清晰的知识台阶或展陈单元上。\n但不要固化为同一种造型。你必须根据主题决定更适合用\"阶梯、坡道、时间地层、谱系展开、版本阶层、器物陈列台、年代阶板、进化路径\"等哪一种形式。重点是强组织性，而不是形式重复。\n\n第三原则：信息图必须兼具知识性与审美性\n这不是普通科普图，也不是纯装饰海报，而是一张\"有内容密度、有知识价值、有设计美感\"的高级信息图。\n观者看完应该有\"学到了东西\"的满足感，同时也被优雅的组织方式打动。\n画面必须体现出：内容被高度梳理、信息被优雅安放、视觉被克制组织、阅读路径非常清楚。\n\n第四原则：整体视觉语言要高级、克制、优雅、专业\n画面审美参考高端展览信息设计、博物馆展板、视觉百科、现代知识型海报、编辑设计系统、精致图录。\n整体风格必须简洁、沉稳、理性、克制，不要网红化，不要廉价卡通化，不要花哨拼贴，不要过度装饰，不要俗气配色。\n即使主题本身很日常，也必须被提升成一种优雅、专业、可收藏的视觉呈现。\n\n第五原则：视觉方案必须根据主题智能变化，不能千篇一律\n不要让所有主题都长得一样。\n你需要根据用户输入的主题，智能决定：\n应该强调年代，还是强调结构变化；\n应该突出实物，还是突出人物、器官、服装、工具、器皿、产品、图标、轮廓、谱系分支；\n应该更偏博物馆考古感，还是更偏现代工业设计感，还是更偏自然科学图鉴感，还是更偏时尚编辑感；\n应该采用更严谨的纪年表达，还是阶段命名表达，还是世代版本表达；\n应该做得厚重、理性、冷静，还是轻盈、诗性、柔和，还是锐利、现代、未来感。\n每次都要重新建立视觉规则，不允许形成固定套路。\n\n第六原则：配色必须真正跟随主题，不允许固定色板\n配色必须根据主题语义、情绪气质、时代属性、材料属性、文化背景、行业特征、使用场景、用户指定偏好来智能决定。\n绝对不要默认永远使用同一种暖棕、米白、博物馆色调。只有当主题本身确实适合这种气质时，才可以使用。\n你必须为每个主题重新思考以下问题：\n这个主题更适合浅色模式还是深色模式；\n背景应该是纸感、石感、雾感、金属感、科技感、纤维感、自然感、夜色感还是极简纯色感；\n主色应该传达什么气质；\n辅助色如何区分阶段；\n强调色应该突出哪些关键节点；\n整体色域是克制单色系、低饱和多色系、冷暖对照系，还是高端中性色加一枚强强调色。\n配色必须体现\"因题而变\"的智能性。\n\n第七原则：深色模式与浅色模式要有明确判断逻辑\n如果用户指定深色或浅色模式，必须严格遵守。\n如果用户没有指定，你要根据主题智能判断：\n偏考古、文献、教育、器物、历史、自然图录、生活方式、服饰演变等，通常更适合浅底高级配色，但不是绝对；\n偏科技、宇宙、未来、电子、夜间场景、数字系统、赛博工业、深海、生物解剖等，通常更适合深色模式，但仍要以主题匹配为准；\n偏时尚、奢侈品、品牌演化、潮流器物，也可能采用深浅双系统中的任一种，但必须有明确设计理由。\n无论深色还是浅色，信息都必须清楚、层级明确、对比得当、阅读舒适。\n背景色必须参与叙事，而不是简单填充。\n\n第八原则：建立\"主题驱动的配色系统\"\n每张图都必须构建一个完整的配色系统，而不是随便选几个颜色。\n这个系统通常包括：\n背景色；结构色；主标题色；副标题与说明文字色；阶段标签色；时间标签色；强调节点色；引线或注释系统色；必要时的分组色。\n颜色之间必须有逻辑、有层级、有秩序。\n可以控制在少量精炼颜色中完成，也可以做低饱和层次扩展，但必须高级、耐看、统一。\n不要颜色过多，不要脏，不要杂，不要俗。\n对于不同主题，应尽量呈现出不同的色彩人格，让人一看就知道这是为这个主题专门定制的，而不是拿模板换词。\n\n第九原则：字体与排版不能过于中规中矩，要有\"克制的创新\"\n文字排版不能只是把标题居中放上去、把说明整齐排成一列。你需要在保持清晰可读的前提下，进行有分寸的创新。\n可以做的创新包括但不限于：\n主标题与副标题形成更有节奏的比例关系；\n主标题可以采用更有姿态的断行、错位、穿插、留白、纵横组合、局部叠压、局部嵌入结构；\n大年份、大数字、大阶段编号可以成为画面的一部分，而不只是说明文字；\n部分文字可以顺应路径、平台、引线、空间方向排布；\n文字块可以像展签、目录条、标签、铭牌、注释条、信息胶囊那样被整合进画面；\n中英文、数字、符号、年代信息之间可以有层级节奏，而不是一律同质；\n字距、行距、对齐方式、留白、大小反差要体现编辑设计意识。\n但这种创新必须是\"微妙而聪明\"的，不是哗众取宠。不能为了设计感而损害清晰度与可读性。\n\n第十原则：字体气质必须根据主题智能匹配\n如果主题偏历史、文明、考古、传统文化，可采用更有文化气息、展览气质、碑帖感或书卷气的标题处理，但仍需现代设计化，不可陈旧土气。\n如果主题偏科技、工业、未来、产品演化，可采用更利落、理性、现代、精密的字体气质。\n如果主题偏时尚、生活方式、消费品、服饰，可采用更编辑化、更时尚、更克制的字形秩序。\n如果主题偏自然科学、图鉴、百科，可采用更清晰、严谨、学术化但不呆板的排版风格。\n总之，字体是内容气质的一部分，不可以永远是同一种感觉。\n\n第十一原则：版式结构必须非常强\n整张图必须有清晰、成熟、专业的排版组织。建议包含但不限于以下模块：\n顶部主标题：直接点明用户主题；\n副标题：对主题的进程逻辑做简洁概括，例如\"演化路径 / 发展脉络 / 进程总览 / 形态变迁 / 文明推进 / 谱系展开 / 时间纵览\"等，但具体措辞要根据主题智能匹配；\n主体路径：以台阶、层级平台、斜向递进结构或其他空间化系统承载时间与阶段；\n阶段节点：每个阶段要清晰可辨，有对应的时间标记、阶段名称、代表性对象与简短说明；\n注释系统：通过引线、点位、标签、小标题、年份、小注、区域说明等方式，把信息优雅展开；\n底部或末端收束：以终点、当代阶段、总结性阶段或未来延展节点形成完整闭环。\n\n第十二原则：时间与阶段必须清楚\n如果主题适合做年代型信息图，就要明确标出关键年份、世纪、年代段、时代名称或阶段范围。\n如果主题不需要精确年份，也要以\"阶段一、阶段二、阶段三\"这种清晰的结构来组织。\n任何情况下都要让观者能看出进程的先后顺序与演变关系。\n阶段数量通常控制在 5 到 12 个左右，具体根据主题复杂度智能调整。不要太少而显得空洞，也不要过多而拥挤失控。\n\n第十三原则：每个阶段都要有\"代表性视觉对象\"\n每个阶段应配一个或多个最具辨识度、最能说明该阶段特征的视觉对象。\n这些对象可以是器物、产品、人物形象、服饰形态、化石、物种形态、结构剖面、工具、文物、轮廓图、标本、部件、容器、造型特征等。\n对象必须足够典型，能让观众通过图像直观感知\"这个阶段的差异是什么\"。\n每个对象都应尽量精致、清晰、质感良好，像被 carefully curated 的展品一样陈列在对应阶段。\n\n第十四原则：文本说明要少而准\n文字不是越多越好，而是要精准、简洁、清晰、有知识点。\n每个阶段附近可以放：阶段标题、时间标签、一句话特征说明、必要时加一个更小的补充说明。\n文字必须简练，不堆砌，不长篇大论，但要让人感觉专业而有收获。\n\n第十五原则：图文关系要真正融合\n所有文字、对象、节点、引线、标签、时间标记、阶段说明，都必须自然依附于主路径结构。\n它们应共同组成一个整体，而不是\"背景一张图，上面再贴几行字\"。\n图与文应该彼此解释、彼此支撑、彼此增强，让整张图成为一个完整的知识可视化系统。\n\n第十六原则：阅读体验必须层层递进\n观众第一眼先看到主标题与整体结构；第二眼看到清晰的进程路径；第三眼看到不同阶段的代表性对象；第四眼逐步阅读每个阶段的说明；第五眼能通过细节标签获得更细的知识点。\n\n第十七原则：重点避免的问题\n不要生成普通 PPT 感；不要做成廉价百科图；不要把所有主题都做成相同的米白棕色模板；不要颜色逻辑僵化；不要把标题和文字排得过于保守；不要使用杂乱无章的箭头堆叠；不要把所有信息铺满整个页面导致失去呼吸感；不要把图像和文字割裂成两个系统；不要为了装饰而装饰；不要出现与主题无关的花纹、图标或填充元素；不要过度卡通化；不要让阶段之间差异不明显；不要让观众看不出进程方向。\n\n第十八原则：智能细化内容\n当用户输入主题后，请你自动完成以下工作并反映到画面中：判断起点与终点、梳理关键阶段、匹配代表性视觉对象、总结核心变化、决定深浅色模式、建立配色系统、决定字体气质与排版节奏、决定副标题与注释语言、控制信息与视觉密度。\n\n第十九原则：最终输出的感觉\n最终画面应该像一张\"高端、优雅、极具知识含量、图文深度融合、配色与字体都因主题而生\"的演化进程信息图海报。\n\n现在请基于用户输入的主题：\n\"{argument name=\"主题\" default=\"咖啡豆进化史\"}\"\n自动完成内容梳理、视觉策略、配色策略、字体排版策略与信息图设计，生成一张高完成度、高美学水准、高信息组织能力、真正因主题而异的\"进程演化信息图\"。\n{argument name=\"视觉模式\" default=\"\"}",
     "useWhen": "需要将任意主题的演化历程/发展进程/历史变迁可视化为高质量信息图海报时使用。特别适合：进化史、发展史、技术迭代、品牌历程、物种变迁、文化演变等场景。",
     "createdAt": "2026-05-31T05:55:53.777Z",
@@ -592,7 +592,7 @@
       "cgi"
     ],
     "description": "将品牌Logo以浮雕形式呈现在金属/哑光表面上，模拟硬币、纪念章或奢侈品牌压印效果，适用于品牌展示、VI物料、高端视觉识别系统",
-    "cover": "/images/templatederived-brand-logo-materialization.jpg",
+    "cover": "/uploads/templatederived-brand-logo-materialization.jpg",
     "prompt": "{argument name=\"品牌名称\" default=\"LUXORA\"} + {argument name=\"金属色调\" default=\"玫瑰金\"}\nAct as a Senior CGI Artist and Brand Identity Director specializing in premium logo materializations. Your reference aesthetic: a logo mark that appears to have been pushed outward from behind a {argument name=\"表面材质\" default=\"拉丝金属\"} surface — like a relief stamp pressed from the reverse side of a metal sheet, a hallmark embossed on luxury packaging, or a raised seal on official documents. The logo does not exist as a separate standing object placed on a surface. It exists as a raised relief, an outward protrusion that is part of the surface itself.\n\nBRAND INTELLIGENCE SYSTEM\nBefore executing any phase, resolve these parameters:\n(1) LOGO GEOMETRY — identify {品牌名称}'s primary icon mark in its simplest most reduced form — the mark that works at any scale.\n(2) COLOR PALETTE — based on {金属色调}, build the full tonal system from the lightest specular highlight to the deepest shadow tone.\n(3) SURFACE MATERIAL — based on {金属色调}: silver/grey → brushed or circular-grain steel; gold/champagne → warm brushed metal with radial grain; black → anodized aluminum or matte carbon fiber; white → matte ceramic or chalk plaster; saturated hue → anodized colored metal.\n(4) LIGHT DIRECTION — determine the most flattering single light angle to reveal the emboss topography.\n\nPHASE 1: SURFACE & ATMOSPHERE\nThe entire image is one single continuous material surface — not a background with an object placed on it, but one unified physical plane filling the entire canvas. This surface is made of the SURFACE MATERIAL resolved above. The surface has a subtle radial gradient in its lighting — brighter near the center where the embossed logo sits, gradually darkening toward all four edges. Apply fine uniform grain texture across the entire surface at ISO 800 equivalent.\n\nPHASE 2: THE EMBOSS — CRITICAL\nThe {品牌名称} logo mark is rendered as a full bas-relief — think of a coin, a commemorative medal, or a luxury brand stamp. The ENTIRE logo shape rises as one unified solid mass from the surface — every filled area, every curve, every solid region pushes outward as one piece, at a uniform height above the surrounding flat surface. The top face of this raised form is slightly convex — gently domed — so it catches the key light across its full width. The transition from flat surface to raised form follows a smooth beveled wall — curved, not sharp — like the edge of a coin. Negative spaces WITHIN the logo are recessed back to the flat surface level, creating clean negative voids.\n\nPHASE 3: LIGHTING & FINISH\nOne primary soft area light from {argument name=\"光源方位\" default=\"左上10-11点钟\"} — broad and diffused, wrapping around the curved walls to create highlight peak at the top and gradual shadow descent on the far wall. {argument name=\"后期处理\" default=\"微妙电影级颗粒感, 微光反射, 无文字, 无水印\"}",
     "useWhen": "需要将品牌Logo做高端材质化呈现时使用，如品牌手册封面、VI系统展示、社交媒体品牌视觉、高端产品包装预览",
     "createdAt": "2026-05-28T02:02:49.741Z",
@@ -611,7 +611,7 @@
       "masking"
     ],
     "description": "文字蒙版 + 人物写真合成的高时尚编辑排版海报。大字作为镂空蒙版揭示下方人物照片，适合品牌宣言、时尚杂志、Campaign 视觉。",
-    "cover": "/images/templatederived-fashion-typo-mask-poster.jpg",
+    "cover": "/uploads/templatederived-fashion-typo-mask-poster.jpg",
     "prompt": "Style & Composition: High-fashion editorial typography poster with a strict 1:2 composition split. Layout & Ratio: The frame is divided so that the right two-thirds show the full subject and background, while the left one-third is reserved for the typography masking section.\n\nTypography Masking: A massive, ultra-bold, vertical word \"{argument name=\\\"蒙版文字\\\" default=\\\"ELEVATE\\\"}\" is placed on the left third. The text is strictly full-bleed, stretching perfectly and touching the absolute top and absolute bottom edges of the frame with zero vertical padding, gaps, or margins. This typography acts as a stencil mask: the letters reveal the underlying character, while the space to the far left of the letters is a solid, clean white.\n\nSubject Details & Positioning: An upper-body shot of {argument name=\\\"人物描述\\\" default=\\\"a young woman in haute couture, porcelain skin, bold red lipstick, sleek pulled-back hair\\\"}. The model is positioned so that only her left-most side is visible through the letters, while the rest of her body is fully visible and contained on the right side against a solid {argument name=\\\"主题色\\\" default=\\\"red\\\"} background, ensuring no part of the subject is cropped by the right edge of the frame. Pose: {argument name=\\\"姿势描述\\\" default=\\\"gazing slightly upward with serene confidence\\\"}, ensuring the silhouette remains within the center of the right two-thirds area.\n\nSecondary Text: In the top right corner, add the text: \"{argument name=\\\"副标题\\\" default=\\\"SS26 COLLECTION\\\"}\". Use a small, sophisticated, white \"Helvetica Condensed\" style font with wide letter spacing (kerning) for a premium, minimalist look. Color Palette: A strict monochromatic {argument name=\\\"主题色\\\" default=\\\"red\\\"} theme, sharply contrasted by the crisp white negative space on the left. 8k resolution, photorealistic textures, sharp studio lighting, high contrast, clean graphic design aesthetic.",
     "useWhen": "需要生成文字镂空蒙版 + 人物写真合成的高端时尚海报、品牌宣言视觉、杂志封面风格设计时使用。支持替换蒙版文字、人物描述、姿势、主题色和副标题。",
     "createdAt": "2026-05-27T01:44:00.026Z",
@@ -630,7 +630,7 @@
       "crypto"
     ],
     "description": "暗色系高端数据仪表板 UI 模板，适用于金融/加密/数据分析类产品。基于 Design Token JSON 参数化结构，支持品牌色、布局、组件一键替换。",
-    "cover": "/images/templatederived-premium-dark-dashboard.jpg",
+    "cover": "/uploads/templatederived-premium-dark-dashboard.jpg",
     "prompt": "You are an experienced UI designer embracing modern, minimalistic design, shadows, glass, and soft colors.\n\nYour role is to create a professional, beautiful mockup that is ready for delivery based on these requirements:\n\n<requirements>\n## 1. Overall Style & Visual Language\nThis interface represents a premium, modern {argument name=\"行业类型\" default=\"fintech / crypto trading\"} dashboard using a {argument name=\"主题模式\" default=\"dark\"} theme.\nThe visual language combines **soft neumorphism**, and **luxury Web3 aesthetics**.\n\nCore characteristics:\n- {argument name=\"强调色\" default=\"Warm gold/orange\"} accent highlights\n- Monochromatic color palette with minimalistic effects and shadows\n- Card-based layout with depth and subtle backgrounds\n- Minimal borders, separation via shadows or light backgrounds\n\nTarget perception:\n- Secure\n- Professional\n- High-end / institutional-grade\n- Optimized for experienced {argument name=\"目标用户\" default=\"traders\"}\n\n---\n\n## 2. Layout Structure\n\n### Global Layout\n- Desktop-first dashboard\n- Output proportions: {argument name=\"画布比例\" default=\"3:2\"}\n- Three main regions:\n  1. Top navigation bar (horizontal)\n  2. Left sidebar navigation (vertical)\n  3. Main content area (multi-column grid of cards)\n\nSpacing is generous, prioritizing clarity and visual breathing room.\n\n---\n\n## 3. Top Navigation Bar\n- Height: 72px\n- Left:\n  - Brand logo text \"{argument name=\"品牌名\" default=\"Mevolut\"}\"\n  - Stylized first letter\n  - Accent color\n- Center:\n  - Navigation links: {argument name=\"导航菜单\" default=\"Dashboard, Security, Referral, Trading Fees, API management\"}\n- Right:\n  - Primary CTA: \"{argument name=\"主按钮文字\" default=\"Deposit\"}\" (accent pill button)\n  - User avatar (circular)\n  - Theme toggle\n\n---\n\n## 4. Left Sidebar Navigation\n- Width: 240px\n- Background: near-black\n- Vertical navigation items with icons\n- Bottom-aligned: Settings\n- Active item: subtle background highlight, accent color icon\n- Icons: outline style\n\n---\n\n## 5. Main Content Area\n\n### 5.1 {argument name=\"卡片1\" default=\"User Overview Card\"}\n- Large rounded card at top\n- User greeting, identity info, verification status\n\n### 5.2 {argument name=\"卡片2\" default=\"Deposit / Buy Card\"}\n- Medium-sized card with action rows\n- Each row: icon + label + arrow action button (accent color)\n\n### 5.3 {argument name=\"卡片3\" default=\"Total Asset Card\"}\n- Large faded watermark symbol in background\n- Action tabs\n- Numeric values are large\n\n### 5.4 {argument name=\"卡片4\" default=\"VIP Level / Progress Card\"}\n- Progress bar for holdings/usage\n- Fee rates display\n\n### 5.5 {argument name=\"卡片5\" default=\"Holdings / Data Table\"}\n- Card containing a table layout\n- Columns with sparklines (green positive, red negative)\n- Hover: subtle background highlight per row\n\n---\n\n## 6. Color Palette\n- Primary background: deep charcoal / black\n- Card surfaces: slightly lighter\n- Accent color: {argument name=\"强调色\" default=\"warm gold\"}\n- Text hierarchy: White (primary), Muted gray (secondary), Dark gray (disabled)\n- Status colors: Green for positive, Red for negative\n\n---\n\n## 7. Design Tokens\n{\n  \"theme\": {\n    \"mode\": \"{argument name=\\\"主题模式\\\" default=\\\"dark\\\"}\",\n    \"style\": [\"soft-neumorphism\", \"premium-{argument name=\\\"行业类型\\\" default=\\\"fintech\\\"}\"]\n  },\n  \"layout\": {\n    \"type\": \"desktop-dashboard\",\n    \"grid\": \"three-column\",\n    \"sidebarWidth\": 240,\n    \"topbarHeight\": 68,\n    \"contentPadding\": 24\n  },\n  \"colors\": {\n    \"background\": \"{argument name=\\\"背景色\\\" default=\\\"#0B0D10\\\"}\",\n    \"primaryAccent\": \"{argument name=\\\"强调色Hex\\\" default=\\\"#F5A623\\\"}\",\n    \"textPrimary\": \"#FFFFFF\",\n    \"textSecondary\": \"#B0B3B8\",\n    \"success\": \"22C55E\",\n    \"danger\": \"#EF4444\"\n  },\n  \"typography\": {\n    \"fontFamily\": \"SF Pro, system-ui, sans-serif\",\n    \"sizes\": { \"h1\": 24, \"h2\": 20, \"h3\": 16, \"body\": 14, \"caption\": 12 }\n  },\n  \"components\": {\n    \"card\": { \"borderRadius\": 16, \"shadow\": \"0 20px 40px rgba(0,0,0,0.4)\", \"background\": \"#14171C\" },\n    \"button\": { \"primary\": { \"borderRadius\": 999 } },\n    \"sidebar\": { \"background\": \"#0E1014\", \"iconStyle\": \"outline\" },\n    \"table\": { \"sparkline\": { \"positiveColor\": \"#22C55E\", \"negativeColor\": \"#EF4444\" } }\n  }\n}\n</requirements>",
     "useWhen": "需要生成暗色系高端数据仪表板、金融/加密交易后台、数据分析平台 UI 时使用。支持替换品牌名、强调色、行业类型、导航菜单和卡片内容。",
     "createdAt": "2026-05-25T04:28:49.000Z",
@@ -649,7 +649,7 @@
       "Campaign"
     ],
     "description": "生成高质量产品英雄镜头、电商主图和商业推广海报，覆盖饮品美妆科技等多品类。",
-    "cover": "/images/templatederived-product-hero-shot.jpg",
+    "cover": "/images/templateproduct-commerce-visual.jpg",
     "prompt": "模板：产品英雄镜头与商业海报\n用途：生成产品推广英雄镜头、电商主图、品牌 Campaign 海报，覆盖食品饮料、美妆个护、科技电子、时尚服饰等多品类。\n\n视觉方向：Product / Commerce / Photography / Brand / Campaign\n\n基于以下结构生成可直接用于 GPT Image 2 的 Prompt：\n\n1. 目标\n明确创作目的——是单品英雄镜头、产品使用场景、品牌 Campaign 海报还是电商详情页主图。\n示例：\"为 {argument name=\"品牌名\" default=\"品牌\"} 的 {argument name=\"产品名\" default=\"产品\"} 创作一张 {argument name=\"画面类型\" default=\"英雄镜头\"}，呈现 {argument name=\"视觉调性\" default=\"高端、精致、具有强烈购买欲\"} 的视觉效果。\"\n\n2. 画布\n定义比例与背景环境。\n示例：\"{argument name=\"画布比例\" default=\"4:5 竖版\"}，{argument name=\"背景\" default=\"无缝纯色背景\"}，{argument name=\"光线\" default=\"摄影棚柔光，强调产品质感\"}。\"\n\n3. 主体\n描述产品本身——材质、颜色、标签细节、液体质感等。\n示例：\"{argument name=\"产品描述\" default=\"产品居中放置，展现精细的包装纹理、品牌标签、液体光泽\"}，{argument name=\"装饰元素\" default=\"飞溅的水珠、环绕的新鲜水果切片\"}。\"\n\n4. 布局与构图\n定义视觉层次和空间关系。\n示例：\"{argument name=\"构图\" default=\"居中对称，产品占画面 60%\"}，{argument name=\"层次\" default=\"前景产品清晰，背景柔焦虚化\"}。\"\n\n5. 排版（如适用）\n如果需要文字，定义字体风格与位置。\n示例：\"{argument name=\"文字\" default=\"产品名大字居上，品牌 slogan 底部\"}，{argument name=\"字体风格\" default=\"无衬线粗体，白色或金属质感\"}。\"\n\n6. 风格与约束\n定义渲染质量和禁忌。\n示例：\"{argument name=\"渲染风格\" default=\"超写实产品摄影，8K，浅景深，焦点清晰\"}。禁止：模糊的产品边缘、不自然的阴影、变形的文字。\"\n\n使用建议：\n- 饮品/美妆：重点写液体质感、光泽、飞溅/凝结水珠\n- 科技产品：强调金属/玻璃材质、屏幕反光、精密感\n- 食品：突出食材新鲜度、蒸汽/温度感、色彩饱和度\n- 时尚：用模特穿着场景代替纯产品照\n\n防坑指南：\n- 产品主体必须清晰锐利，不能被装饰元素遮挡\n- 文字拼写必须准确，尤其是品牌名\n- 避免产品比例失真（如饮料瓶变形）\n- 深色产品注意轮廓与背景的分离度",
     "useWhen": "用于产品英雄镜头、电商主图、品牌推广海报、单品详情页视觉。",
     "createdAt": "2026-05-24T13:56:38.000Z",
@@ -709,7 +709,7 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/images/templatederived-merchant-promo-poster.jpg",
+    "cover": "/uploads/2026-07-16-case-100168-watercolor-cafe.jpg",
     "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100168 水彩手绘咖啡店少女插画: { \"style\": \"minimal watercolor ink illustration, soft anime realism, hand-drawn sketch aestheti…\n- #28755 漂浮在太空中的芝士汉堡: 这是一幅超现实的写实 CGI 场景，描绘了一个双层芝士汉堡漂浮在繁星点点的银河背景中，适用于幽默的科幻美食视觉效果。\n- #28673 奢华咖啡广告摄影: 一个专业的广告提示词，用于在奢华咖啡馆场景中创作超写实的卡布奇诺产品摄影图。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
@@ -733,18 +733,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1783932947075_wtmj0m_HNCjzUTXAAAQyKf.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28518 Reverse The Damage Product Ad Collage: A four-panel premium commercial visual showing laundry, vacuum, haircare, and skincare products…\n- #28491 Luxury Product Campaign Advertising Poster: A professional-grade prompt for creating premium product advertisements with high photorealism,…\n- #28480 Futuristic Smartphone Product Advertisement: A technical and high-end product photography prompt for a futuristic smartphone advertisement, …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1783932905695_9f8it5_HNBHgi_acAAyqcE.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28466 高端摄影棚产品拍摄: 一款专业级提示词，适用于高端电商产品摄影，包含无缝背景、商业照明及照片级真实细节。\n- #28255 高端笔记本电脑包装概念项目: 一份用于设计专业电子产品包装项目的综合提示词，包含技术注释和结构细节。\n- #28231 Minimalist Oreo Commercial Ad: A clean, minimalist commercial advertisement prompt featuring an oversized product and a model,…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28518",
-      "28491",
-      "28480",
-      "28472",
-      "28466"
+      "28466",
+      "28255",
+      "28231",
+      "28147",
+      "28086"
     ]
   },
   {
@@ -757,7 +757,7 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/images/templatederived-portrait-photo-series.jpg",
+    "cover": "/uploads/2026-07-16-case-100169-luxury-coffee-table-book.jpg",
     "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Realistic / Education / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100169 Vogue风格奢华咖啡桌画册摄影: Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition …\n- #28782 奢华时尚杂志风肖像: 生成一张高端时尚广告肖像，展示一位时尚男士在极简主义博物馆内景中的形象，并配有优雅的衬线字体标题。\n- #28780 动漫夏夜烟花拼贴画: 创作一张梦幻般的竖版动漫拼贴画，描绘一位穿着睡衣的粉发女孩在舒适的卧室里观看夏夜烟花。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
@@ -782,7 +782,7 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "https://cms-assets.youmind.com/media/1784104897747_c7a3a9_HNKUZN-aEAAo3WI.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28692 超现实时代广场自拍: 一个照片级真实的旅行自拍提示词，包含超现实元素：一列地铁被困在时代广场上空的巨大蜘蛛网中，同时保留人物的身份特征。\n- #28609 Risography Style Dubai Travel Poster: A stylized travel poster prompt for Dubai inspired by risography printing, featuring bold color…\n- #28606 80s Thriller Style City Poster: Generates a cinematic 80s thriller movie poster for a specific city, emphasizing atmosphere thr…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28692 超现实时代广场自拍: 一个照片级真实的旅行自拍提示词，包含超现实元素：一列地铁被困在时代广场上空的巨大蜘蛛网中，同时保留人物的身份特征。\n- #28609 Risography 风格迪拜旅行海报: 一款受 Risography 印刷启发、具有迪拜特色的旅行海报提示词，包含大胆的色彩、颗粒感和扁平几何图形。\n- #28606 80 年代惊悚风格城市海报: 为特定城市生成电影质感的 80 年代惊悚片海报，通过雨水、山丘和经典的砖砌建筑来营造氛围。\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -791,8 +791,8 @@
       "28692",
       "28609",
       "28606",
-      "28579",
-      "28434"
+      "28590",
+      "28579"
     ]
   },
   {
@@ -829,18 +829,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "https://cms-assets.youmind.com/media/1783932915109_y2qt55_HNBvrbDaoAAQf__.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28481 Cinematic Countryside Road Stop Film Still Grid: A cinematic 3x3 grid prompt capturing various angles of a couple at a countryside road stop dur…\n- #25514 Lifestyle Photo Dump Grid Collage: A prompt for a 3x3 grid collage capturing spontaneous and diverse moods of a girl in a Korean-i…\n- #24603 Gen Z Summer Photo Dump Collage: An ultra-detailed prompt for creating a viral Gen Z summer collage with a 3x3 grid layout, play…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "https://cms-assets.youmind.com/media/1781427851682_psvapj_HKsT5h3bEAAfTVc.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #25514 Lifestyle Photo Dump Grid Collage: A prompt for a 3x3 grid collage capturing spontaneous and diverse moods of a girl in a Korean-i…\n- #24603 Gen Z Summer Photo Dump Collage: An ultra-detailed prompt for creating a viral Gen Z summer collage with a 3x3 grid layout, play…\n- #24158 Korean Idol Photocard Grid Collage: A detailed prompt for creating a 3x3 grid of consistent Korean idol portrait photoshoots with a…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "28481",
       "25514",
       "24603",
       "24158",
-      "23809"
+      "23809",
+      "23459"
     ]
   },
   {
@@ -888,7 +888,7 @@
       "28698",
       "28695",
       "28674",
-      "28264"
+      "28523"
     ]
   },
   {
@@ -902,7 +902,7 @@
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
     "cover": "https://cms-assets.youmind.com/media/1784018485941_4vn0js_HNFj_OFbEAAhzEd.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28626 蓝黑配色猫娘 Q 版: 生成一张柔和的动漫风格 Q 版猫娘插画，带有蓝色点缀、眼镜、耳机以及舒适的抱枕姿势。\n- #28544 Chibi Gyoza Manga Panel: Generates a cute square manga panel of a chibi girl eating gyoza with customizable Japanese spe…\n- #28512 Japanese Nendoroid Style Miniature Figure: Transform photos of people into adorable Japanese Nendoroid-style miniature figures with chibi …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28626 蓝黑配色猫娘 Q 版: 生成一张柔和的动漫风格 Q 版猫娘插画，带有蓝色点缀、眼镜、耳机以及舒适的抱枕姿势。\n- #28544 Q 版饺子漫画分镜: 生成一张可爱的方形漫画分镜，描绘一位 Q 版女孩正在吃饺子，并支持自定义日文对话气泡和拟声词。\n- #28526 Shark Plush Tavern Waltz 封面: 一份详细的提示词，用于生成一张充满奇幻色彩的正方形专辑封面，描绘猫咪和鲨鱼玩偶在舒适的蒸汽朋克飞艇酒馆中跳华尔兹的场景。\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -910,9 +910,9 @@
     "derivedFrom": [
       "28626",
       "28544",
+      "28526",
       "28512",
-      "28325",
-      "28300"
+      "28325"
     ]
   },
   {
@@ -974,7 +974,7 @@
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
     "cover": "https://cms-assets.youmind.com/media/1784104956820_fsetjr_HNKtaqeb0AA-cRc.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Editorial / Cinematic / Minimal / Brand / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28781 奢华男装广告大片: 一张照片级真实的奢华时尚广告，展示了一位身着米色剪裁西装的优雅男士，背景为温暖的现代别墅室内。\n- #28615 高端办公家具商业项目: 专为高端办公家具系列设计的专业电影级项目提示词，聚焦于超高端工作空间设计与建筑美学。\n- #28580 黄金时刻建筑人像: 一套以现代建筑为背景、在黄金时刻拍摄的高级时尚人像提示词，强调自然光影与精致质感。\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28781 奢华男装广告大片: 一张照片级真实的奢华时尚广告，展示了一位身着米色剪裁西装的优雅男士，背景为温暖的现代别墅室内。\n- #28615 高端办公家具商业项目: 专为高端办公家具系列设计的专业电影级项目提示词，聚焦于超高端工作空间设计与建筑美学。\n- #28606 80 年代惊悚风格城市海报: 为特定城市生成电影质感的 80 年代惊悚片海报，通过雨水、山丘和经典的砖砌建筑来营造氛围。\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
@@ -982,9 +982,9 @@
     "derivedFrom": [
       "28781",
       "28615",
+      "28606",
       "28580",
-      "28577",
-      "100166"
+      "28577"
     ]
   },
   {
@@ -997,7 +997,7 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/images/templatederived-document-layout-brief.jpg",
+    "cover": "/uploads/2026-07-16-case-100169-luxury-coffee-table-book.jpg",
     "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Education / Brand / Portrait / Tech / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100169 Vogue风格奢华咖啡桌画册摄影: Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition …\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
@@ -1021,7 +1021,7 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "/images/templatederived-anime-scene-illustration.jpg",
+    "cover": "/uploads/2026-07-16-case-100168-watercolor-cafe.jpg",
     "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100168 水彩手绘咖啡店少女插画: { \"style\": \"minimal watercolor ink illustration, soft anime realism, hand-drawn sketch aestheti…\n- #28780 动漫夏夜烟花拼贴画: 创作一张梦幻般的竖版动漫拼贴画，描绘一位穿着睡衣的粉发女孩在舒适的卧室里观看夏夜烟花。\n- #28773 彩虹公主湖泊奇幻: 生成一张充满活力的竖版动漫奇幻插画，描绘了一位佩戴珠宝的彩虹公主在彩虹天空下的魔法湖泊上行走。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
@@ -1128,7 +1128,7 @@
       "28701",
       "28696",
       "28687",
-      "28607"
+      "28608"
     ]
   }
 ]
