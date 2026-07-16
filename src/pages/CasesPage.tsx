@@ -10,6 +10,16 @@ import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { useSearchData } from "../hooks/useSearchIndex";
 import { HOME_DATA } from "../hooks/useHomeData";
+import { USER_CATEGORIES } from "../lib/userCategories";
+
+function uniqueCases(cases: PromptCase[]): PromptCase[] {
+  const seen = new Set<string>();
+  return cases.filter((item) => {
+    if (seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+}
 
 function readSet(sp: URLSearchParams, key: string): Set<string> {
   const raw = sp.get(key);
@@ -110,7 +120,7 @@ export default function CasesPage() {
       Promise.all(Array.from(neededCategories).map((cat) => loadShard(cat)))
         .then((results) => {
           if (!cancelled) {
-            setShardCases(results.flat());
+            setShardCases(uniqueCases(results.flat()));
             setShardsLoading(false);
           }
         })
@@ -122,15 +132,16 @@ export default function CasesPage() {
       };
     }
 
-    // No category filter: load shards incrementally (portrait first, then
-    // others) for the "browse all" default view. Start with the top categories.
+    // No category filter: load every category shard and de-duplicate cases
+    // that belong to both a primary and secondary category. The previous
+    // implementation stopped after five priority shards, so the UI showed a
+    // partial, duplicate-inflated count (10K+) instead of the real library.
     let cancelled = false;
     setShardsLoading(true);
-    const priorityCats = ["portrait", "poster-general", "illustration", "storyboard", "infographic"];
-    Promise.all(priorityCats.map((cat) => loadShard(cat)))
+    Promise.all(USER_CATEGORIES.map((category) => loadShard(category.slug)))
       .then((results) => {
         if (!cancelled) {
-          setShardCases(results.flat());
+          setShardCases(uniqueCases(results.flat()));
           setShardsLoading(false);
         }
       })

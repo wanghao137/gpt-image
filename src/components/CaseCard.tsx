@@ -1,4 +1,4 @@
-import { memo, useCallback, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
@@ -185,11 +185,16 @@ function CaseCardImpl({
     },
   });
   const [imgErr, setImgErr] = useState(false);
+  const [naturalAspectRatio, setNaturalAspectRatio] = useState<string | null>(null);
   const [copying, setCopying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
+
+  useEffect(() => {
+    setNaturalAspectRatio(null);
+  }, [data.imageUrl]);
   const rememberReturn = useCallback(() => {
     rememberCaseReturn(
       data.id,
@@ -314,7 +319,10 @@ function CaseCardImpl({
           className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
           aria-label={`查看 ${accessibleCaseLabel(data)}`}
         >
-          <div className="relative overflow-hidden bg-ink-850" style={aspectStyle(data.ratio)}>
+          <div
+            className="relative overflow-hidden bg-ink-850"
+            style={naturalAspectRatio ? { aspectRatio: naturalAspectRatio } : aspectStyle(data.ratio)}
+          >
             {imgErr ? (
               <img
                 src={FALLBACK}
@@ -336,6 +344,9 @@ function CaseCardImpl({
                 loading={priority ? "eager" : "lazy"}
                 fetchPriority={priority ? "high" : "auto"}
                 onLoad={onImageLoad}
+                onNaturalSize={(width, height) => {
+                  setNaturalAspectRatio(`${width} / ${height}`);
+                }}
                 onError={() => setImgErr(true)}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />

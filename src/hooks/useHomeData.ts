@@ -24,6 +24,7 @@ export interface HomeData {
   featured: PromptCase[];
   tiles: HomeTile[];
   totalCount: number;
+  recentCount: number;
 }
 
 export const HOME_DATA: HomeData = homeData as HomeData;

@@ -33,21 +33,10 @@ export default function HomePage() {
   const totalCount = HOME_DATA.totalCount;
   const animCases = useCountUp(totalCount, 900);
   const [heroSeed, setHeroSeed] = useState(0);
-  const [recentCount, setRecentCount] = useState<number | null>(null);
+  const recentCount = HOME_DATA.recentCount;
 
   useEffect(() => {
     setHeroSeed(createHeroSeed());
-  }, []);
-
-  useEffect(() => {
-    const now = Date.now();
-    const cutoff = now - 48 * 60 * 60 * 1000;
-    setRecentCount(
-      HOME_DATA.featured.reduce((n, c) => {
-        const t = c.createdAt ? Date.parse(c.createdAt) : NaN;
-        return Number.isFinite(t) && t >= cutoff && t <= now ? n + 1 : n;
-      }, 0),
-    );
   }, []);
 
   // Hero deck — re-randomize from the pre-selected hero pool on the client.
@@ -106,7 +95,7 @@ export default function HomePage() {
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
             <span>
-              {recentCount !== null && recentCount > 0
+              {recentCount > 0
                 ? `近 48h 新增 ${recentCount} 个案例`
                 : "每周更新真实案例"}
             </span>

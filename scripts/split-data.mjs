@@ -69,8 +69,14 @@ const HOMEPAGE_TILES = [
  * hydration via createHeroSeed(), but the initial SSG render uses this seed.
  */
 const STABLE_HERO_SEED = 42;
+const RECENT_WINDOW_MS = 48 * 60 * 60 * 1000;
+// Timestamp tracking was bootstrapped with the existing 12K-case catalogue at
+// this instant. Those baseline records were not genuinely new, so exclude the
+// bootstrap cohort from the temporary 48h metric. Once the rolling cutoff
+// passes this instant, the normal 48h rule takes over automatically.
+const RECENT_TRACKING_BASELINE = Date.parse("2026-07-14T10:32:42.018Z");
 
-function buildHomePayload(cases) {
+function buildHomePayload(cases, now = Date.now()) {
   const sorted = sortCasesForDisplay(cases);
   const heroCases = selectHeroCases(sorted, { limit: 5, seed: STABLE_HERO_SEED });
   const heroIds = new Set(heroCases.map((c) => c.id));
@@ -102,6 +108,11 @@ function buildHomePayload(cases) {
     featured: stripLite(featured),
     tiles,
     totalCount: sorted.length,
+    recentCount: sorted.filter((item) => {
+      const createdAt = Date.parse(item.createdAt);
+      const cutoff = Math.max(now - RECENT_WINDOW_MS, RECENT_TRACKING_BASELINE);
+      return Number.isFinite(createdAt) && createdAt > cutoff && createdAt <= now;
+    }).length,
   };
 }
 

@@ -27,6 +27,9 @@ interface SmartImgProps {
   decoding?: "sync" | "async" | "auto";
   quality?: number;
   onLoad?: () => void;
+  /** Reports the decoded image's real dimensions so callers can correct
+   * stale or inferred aspect-ratio metadata without cropping the asset. */
+  onNaturalSize?: (width: number, height: number) => void;
   onError?: () => void;
   /** No-ops, kept for API compatibility with existing call sites. */
   lqip?: boolean;
@@ -101,6 +104,7 @@ function SmartImgImpl({
   decoding = "async",
   quality,
   onLoad,
+  onNaturalSize,
   onError,
 }: SmartImgProps) {
   const [loaded, setLoaded] = useState(false);
@@ -174,6 +178,10 @@ function SmartImgImpl({
     setErrored(false);
     if (signaledSrcRef.current !== retrySrc) {
       signaledSrcRef.current = retrySrc;
+      const img = imgRef.current;
+      if (img && img.naturalWidth > 0 && img.naturalHeight > 0) {
+        onNaturalSize?.(img.naturalWidth, img.naturalHeight);
+      }
       onLoad?.();
     }
   };
