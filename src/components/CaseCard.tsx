@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { PromptCase } from "../types";
 import { useCopy } from "../hooks/useCopy";
@@ -185,16 +185,17 @@ function CaseCardImpl({
     },
   });
   const [imgErr, setImgErr] = useState(false);
-  const [naturalAspectRatio, setNaturalAspectRatio] = useState<string | null>(null);
+  const [naturalImageRatio, setNaturalImageRatio] = useState<{
+    caseId: string;
+    imageUrl: string;
+    aspectRatio: string;
+  } | null>(null);
   const [copying, setCopying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
 
-  useEffect(() => {
-    setNaturalAspectRatio(null);
-  }, [data.imageUrl]);
   const rememberReturn = useCallback(() => {
     rememberCaseReturn(
       data.id,
@@ -321,7 +322,11 @@ function CaseCardImpl({
         >
           <div
             className="relative overflow-hidden bg-ink-850"
-            style={naturalAspectRatio ? { aspectRatio: naturalAspectRatio } : aspectStyle(data.ratio)}
+            style={
+              naturalImageRatio?.caseId === data.id && naturalImageRatio.imageUrl === data.imageUrl
+                ? { aspectRatio: naturalImageRatio.aspectRatio }
+                : aspectStyle(data.ratio)
+            }
           >
             {imgErr ? (
               <img
@@ -345,7 +350,11 @@ function CaseCardImpl({
                 fetchPriority={priority ? "high" : "auto"}
                 onLoad={onImageLoad}
                 onNaturalSize={(width, height) => {
-                  setNaturalAspectRatio(`${width} / ${height}`);
+                  setNaturalImageRatio({
+                    caseId: data.id,
+                    imageUrl: data.imageUrl,
+                    aspectRatio: `${width} / ${height}`,
+                  });
                 }}
                 onError={() => setImgErr(true)}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"

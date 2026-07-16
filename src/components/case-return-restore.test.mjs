@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const caseGrid = readFileSync(new URL("./CaseGrid.tsx", import.meta.url), "utf8");
+const caseCard = readFileSync(new URL("./CaseCard.tsx", import.meta.url), "utf8");
 const css = readFileSync(new URL("../index.css", import.meta.url), "utf8");
 
 test("case return restore marks the grid while restoration is active", () => {
@@ -39,4 +40,11 @@ test("case return restore uses the captured viewport position before falling bac
   assert.match(caseGrid, /restoreTargetTop/);
   assert.match(caseGrid, /window\.scrollTo/);
   assert.match(caseGrid, /Math\.max\(0,\s*Math\.min/);
+});
+
+test("cached images keep their decoded ratio when a card remounts after detail navigation", () => {
+  assert.match(caseCard, /naturalImageRatio\?\.caseId === data\.id/);
+  assert.match(caseCard, /naturalImageRatio\.imageUrl === data\.imageUrl/);
+  assert.match(caseCard, /aspectRatio: naturalImageRatio\.aspectRatio/);
+  assert.doesNotMatch(caseCard, /setNaturalAspectRatio\(null\)/);
 });
