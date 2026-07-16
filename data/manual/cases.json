@@ -1,5 +1,30 @@
 [
   {
+    "id": "100170",
+    "title": "未来主义解构主义编辑混合媒介肖像",
+    "category": "插画与艺术",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Art"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic"
+    ],
+    "imageUrl": "/uploads/2026-07-17-case-100170-futuristic-deconstructed-editorial-portrait.jpg",
+    "imageAlt": "未来主义解构主义编辑混合媒介肖像",
+    "prompt": "Ultra-detailed futuristic editorial mixed-media portrait blending hyper-realistic digital collage aesthetics with precision geometric concept painting and avant-garde magazine design. Anatomically accurate semi-realistic human portrait rendered with ultra-sharp facial detail, visible skin texture, pores, subtle imperfections, and smooth luminous tonal gradation. Face illuminated with clean studio-style lighting and soft cinematic shadows, contrasted against fragmented architectural collage structures and layered graphic editorial elements.\nComposition built from overlapping geometric segmentation, sliced polygonal planes, magazine cut-outs, newspaper textures, multilingual typography, technical annotations, blueprint-inspired drafting marks, and abstract deconstructed fragments. Facial structure remains coherent while surrounding forms shift, overlap, and dissolve into controlled cubist fragmentation and cyberpunk editorial collage language.\nSurface treatment combines polished painterly rendering with ultra-fine monoline engineering sketches, schematic contours, technical hatching, delicate architectural construction lines, halftone textures, print grain, ink overlays, and subtle compression artifacts. Fine linear drafting details are embedded organically into facial anatomy, especially around eyes, cheekbones, jawline, neck, and upper body, gradually transitioning into expressive translucent painterly sweeps and layered abstract collage textures.\nTypography integrated directly into the composition using bold editorial sans-serif layouts, dense newspaper-style microtext, vertical typographic arrangements, fragmented data blocks, blueprint notes, faint handwritten formulas, and diagrammatic symbols. Text elements function as structural design components rather than readable focal points.\nColor palette is sophisticated and cinematic: grayscale and neutral skin foundations enhanced with disciplined vibrant accents including cobalt blue, mustard yellow, golden orange, deep red, muted teal, charcoal black, ivory, warm beige, and layered brown tonal modulation. Accent colors appear strategically within geometric planes, reflective surfaces, collage fragments, and typographic structures, creating strong visual rhythm without overwhelming the portrait.\nEdges alternate between razor-sharp vector precision, clean polygonal segmentation, glossy reflective transitions, and rough torn-paper collage textures. Lighting remains refined and editorial, balancing realistic skin reflections with flatter print-inspired illumination across graphic components.\nBackground designed as a complex yet elegant abstract mosaic of blueprint aesthetics, cyberpunk editorial collage, technical diagrams, translucent geometric overlays, layered paper textures, atmospheric gradients, and controlled mixed-media abstraction. No chaotic clutter — every fragment is intentional, clean, and compositionally balanced.\nOverall aesthetic merges high-fashion editorial photography, futuristic concept art, precision engineering illustration, contemporary digital collage, cubist abstraction, and luxury avant-garde magazine poster design. Extremely intricate, cinematic, polished, experimental, and visually intelligent with a refined deconstructed identity.",
+    "promptPreview": "Ultra-detailed futuristic editorial mixed-media portrait blending hyper-realistic digital collage aesthetics with precision geometric concept painting and avant-garde magazine design. Anatomically accurate semi-realisti…",
+    "source": "Community collected via @HustleXR",
+    "createdAt": "2026-07-16T20:04:14.638Z"
+  },
+  {
     "id": "100169",
     "title": "Vogue风格奢华咖啡桌画册摄影",
     "category": "文档与出版",
