@@ -68,6 +68,10 @@ export default function CaseDetailPage() {
   });
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [promptLanguage, setPromptLanguage] = useState<"zh" | "en">("zh");
+  const [naturalImageRatio, setNaturalImageRatio] = useState<{
+    caseId: string;
+    aspectRatio: string;
+  } | null>(null);
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
   const hydratedPage = useMemo(() => {
@@ -274,7 +278,11 @@ export default function CaseDetailPage() {
             >
               <figure
                 className="relative cursor-zoom-in overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 transition group-hover:border-white/[0.14]"
-                style={ratioStyle(c.ratio)}
+                style={
+                  naturalImageRatio?.caseId === c.id
+                    ? { aspectRatio: naturalImageRatio.aspectRatio }
+                    : ratioStyle(c.ratio)
+                }
               >
                 <SmartImg
                   src={c.imageUrl}
@@ -287,7 +295,14 @@ export default function CaseDetailPage() {
                   loading="eager"
                   fetchPriority="high"
                   quality={85}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  objectFit="contain"
+                  onNaturalSize={(width, height) => {
+                    setNaturalImageRatio({
+                      caseId: c.id,
+                      aspectRatio: `${width} / ${height}`,
+                    });
+                  }}
+                  className="absolute inset-0 h-full w-full"
                 />
                 {/* Zoom-in affordance — appears on hover (desktop) and is
                     permanently visible on touch devices via the `cursor-zoom-in`
