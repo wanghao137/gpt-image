@@ -2,9 +2,9 @@ name: Daily Upstream Sync
 
 # Runs `npm run sync` once a day, then commits generated data and the durable
 # upstream locale cache used when the public translation sources are delayed.
-# A push to main triggers the live Vercel deployment automatically (and the
-# GH Pages fallback workflow), so this single workflow keeps both surfaces
-# fresh without needing platform-specific deploy hooks or secrets.
+# A push to main triggers the live Vercel deployment automatically. Pushes
+# created with GITHUB_TOKEN do not trigger other GitHub Actions workflows, so
+# this workflow explicitly dispatches the GH Pages fallback after a data commit.
 #
 # Why a separate workflow:
 #   - The old all-in-one `deploy.yml` cron only rebuilt the GH Pages mirror
@@ -21,6 +21,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -88,6 +89,12 @@ jobs:
             -m "Triggered by ${GITHUB_EVENT_NAME} on $(date -u +%Y-%m-%d) UTC" \
             -m "Changes: ${summary}"
           git push origin HEAD:main
+
+      - name: Trigger GitHub Pages deployment
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
 
       - name: Summary
         run: |
