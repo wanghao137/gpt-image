@@ -11,6 +11,7 @@ import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { useSearchData } from "../hooks/useSearchIndex";
 import { HOME_DATA } from "../hooks/useHomeData";
 import { USER_CATEGORIES } from "../lib/userCategories";
+import { sortCasesForDisplay } from "../lib/caseSort";
 
 function uniqueCases(cases: PromptCase[]): PromptCase[] {
   const seen = new Set<string>();
@@ -160,9 +161,12 @@ export default function CasesPage() {
   const baseList = useMemo<PromptCase[]>(() => {
     // Render the same first batch on the server and during client hydration.
     // The full total remains available separately for headings and counters.
-    if (isSSR) return HOME_DATA.initial;
-    if (showFavorites) return shardCases.filter((c) => favoriteIds.has(c.id));
-    return shardCases;
+    const candidates = isSSR
+      ? HOME_DATA.initial
+      : showFavorites
+        ? shardCases.filter((c) => favoriteIds.has(c.id))
+        : shardCases;
+    return sortCasesForDisplay(candidates);
   }, [isSSR, shardCases, showFavorites, favoriteIds]);
 
   // Build search index from the loaded shard data (client-side).
