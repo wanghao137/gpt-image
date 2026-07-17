@@ -363,9 +363,7 @@ export default function CasesPage() {
     ? "正在搜索完整案例库…"
     : filteredLoading
       ? "正在加载匹配案例…"
-      : browseLoading
-        ? "正在加载更多案例…"
-        : null;
+      : null;
 
   return (
     <>

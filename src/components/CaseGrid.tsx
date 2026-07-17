@@ -360,7 +360,12 @@ export function CaseGrid({
       </div>
 
       {paginate && canLoadMore && (
-        <div ref={sentinelRef} className="mt-8 flex flex-col items-center justify-center gap-3">
+        <div
+          ref={sentinelRef}
+          className="mt-8 flex flex-col items-center justify-center gap-3"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           <button
             type="button"
             onClick={loadMoreRef.current}
