@@ -55,7 +55,8 @@ test("brand surfaces use the high-fidelity peach raster mark", () => {
 
   assert.match(brandLogo, /\/brand\/taostudio-peach-logo-256\.png/);
   assert.match(brandLogo, /\/brand\/taostudio-peach-logo-512\.png/);
-  assert.match(index, /\/brand\/taostudio-peach-logo-128\.png/);
+  assert.match(index, /<div id="root"><!--app-html--><\/div>/);
+  assert.doesNotMatch(index, /boot-overlay/);
   assert.match(admin, /\/brand\/taostudio-peach-logo-128\.png/);
   assert.match(og, /\/brand\/taostudio-peach-logo-512\.png/);
 });

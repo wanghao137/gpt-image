@@ -89,3 +89,21 @@ Phase 4 passed functional and responsive review while preserving the existing pe
 - Dev SSR console: 0 application errors/warnings. Current production baseline `/cases` and `/templates`: 0 errors/warnings. Local `vite preview` continues to emit its environment-specific hydration/analytics noise even when Phase 4 initial DOM is removed; it was not used as the application-runtime verdict.
 
 final result: passed
+
+## Phase 5 QA addendum
+
+Phase 5 passed accessibility, trust, performance, and responsive verification.
+
+- Route changes move keyboard focus to `#main` and announce the loaded route without stealing focus during query-only filter updates or case-return restoration.
+- The mobile navigation moves focus to its first link, closes on Escape, and restores focus to the menu trigger.
+- Case filters, hot searches, favorites, and mobile filter axes expose selected state; core buttons and chips now meet the 44px mobile target baseline.
+- Meaningful SSG content is visible immediately because the boot overlay and its inline script were removed. The generated entry HTML fell from 11.48 KB to 6.13 KB.
+- Homepage eager/high-priority images were reduced to four true first-viewport candidates at desktop width.
+- Root-relative `/uploads/*` imagery remains same-origin across SSR and hydration, eliminating the local host-dependent wsrv mismatch.
+- About now accurately separates editorial metadata from original rights, documents source/licensing checks, and explains privacy-preserving analytics and browser-local favorites.
+- Source labels normalize URL/domain and community-handle formats while preserving intentional editorial labels. Case structured data uses the normalized creator label.
+- Browser evidence: `output/playwright/product-design-audit-2026-07-17/phase5/01-home-desktop.png`, `02-mobile-menu-open.png`, and `03-about-mobile.png`.
+- Browser interaction result: boot overlay 0; eager/high-priority images 4/4; route focus `MAIN#main`; mobile menu open/close/focus restoration passed; source and privacy sections found; console errors 0.
+- Regression suite: 220/220 tests, TypeScript passed, lint 0 errors with 2 pre-existing Fast Refresh warnings, generated-data check 13,048 cases / 20 shards, deterministic production SSG build passed.
+
+final result: passed

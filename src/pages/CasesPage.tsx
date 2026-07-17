@@ -80,6 +80,7 @@ export default function CasesPage() {
   const [hydrated, setHydrated] = useState(false);
   const { restoreId, restoreTarget, onRestored } = useCaseReturnRestore();
   const lastWrittenSearch = useRef<string | null>(null);
+  const searchParamsKey = sp.toString();
 
   const initialBrowse = useRef<ReturnType<typeof cachedBrowseCases> | null>(null);
   if (!initialBrowse.current) initialBrowse.current = cachedBrowseCases();
@@ -97,31 +98,39 @@ export default function CasesPage() {
   const browseLoadingRef = useRef(false);
 
   useEffect(() => {
-    const current = sp.toString();
-    if (current === lastWrittenSearch.current) return;
-    setQuery(sp.get("q") ?? "");
-    setActiveCategories(readSet(sp, "cat"));
-    setActiveStyles(readSet(sp, "style"));
-    setActiveScenes(readSet(sp, "scene"));
-    setActivePlatforms(readSet(sp, "platform"));
+    if (searchParamsKey === lastWrittenSearch.current) return;
+    const current = new URLSearchParams(searchParamsKey);
+    setQuery(current.get("q") ?? "");
+    setActiveCategories(readSet(current, "cat"));
+    setActiveStyles(readSet(current, "style"));
+    setActiveScenes(readSet(current, "scene"));
+    setActivePlatforms(readSet(current, "platform"));
     setHydrated(true);
-  }, [sp]);
+  }, [searchParamsKey]);
 
   useEffect(() => {
     if (!hydrated) return;
-    const next = new URLSearchParams(sp);
+    const next = new URLSearchParams(searchParamsKey);
     if (query) next.set("q", query);
     else next.delete("q");
     writeSet(next, "cat", activeCategories);
     writeSet(next, "style", activeStyles);
     writeSet(next, "scene", activeScenes);
     writeSet(next, "platform", activePlatforms);
-    if (next.toString() !== sp.toString()) {
+    if (next.toString() !== searchParamsKey) {
       lastWrittenSearch.current = next.toString();
       setSp(next, { replace: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hydrated, query, activeCategories, activeStyles, activeScenes, activePlatforms]);
+  }, [
+    hydrated,
+    query,
+    activeCategories,
+    activeStyles,
+    activeScenes,
+    activePlatforms,
+    searchParamsKey,
+    setSp,
+  ]);
 
   const hasActiveFilter =
     query.trim().length > 0 ||
@@ -418,7 +427,7 @@ export default function CasesPage() {
                 onClick={() => applyHotSearch(item)}
                 aria-pressed={active}
                 className={
-                  "min-h-9 rounded-full border px-3 py-1.5 text-[12px] transition " +
+                  "min-h-11 rounded-full border px-3 py-1.5 text-[12px] transition " +
                   (active
                     ? "border-ember-400/45 bg-ember-400/12 text-ember-100"
                     : "border-white/[0.08] bg-white/[0.025] text-ink-400 hover:border-white/20 hover:text-ink-100")

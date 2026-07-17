@@ -116,7 +116,7 @@ export default function TemplatesPage() {
               <button
                 type="button"
                 onClick={reset}
-                className="text-[12.5px] font-medium text-ember-300 transition hover:text-ember-200"
+                className="inline-flex min-h-11 items-center text-[12.5px] font-medium text-ember-300 transition hover:text-ember-200"
               >
                 清除筛选
               </button>

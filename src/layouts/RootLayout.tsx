@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -6,6 +6,7 @@ import { BackToTop } from "../components/BackToTop";
 import { Observability } from "../components/Observability";
 import { ToastViewport } from "../components/Toast";
 import { caseReturnPath, readCaseReturn } from "../lib/caseReturn";
+import { routeAnnouncement } from "../lib/route-accessibility.mjs";
 
 /**
  * Wraps every route. Lives outside individual pages so that:
@@ -17,6 +18,10 @@ import { caseReturnPath, readCaseReturn } from "../lib/caseReturn";
  */
 export default function RootLayout() {
   const location = useLocation();
+  const firstRouteRef = useRef(true);
+  const previousPathRef = useRef(location.pathname);
+  const [routeStatus, setRouteStatus] = useState("");
+  const currentRoutePath = caseReturnPath(location);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("scrollRestoration" in window.history)) return;
@@ -35,6 +40,25 @@ export default function RootLayout() {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location]);
 
+  useEffect(() => {
+    if (firstRouteRef.current) {
+      firstRouteRef.current = false;
+      return;
+    }
+    const pathChanged = previousPathRef.current !== location.pathname;
+    previousPathRef.current = location.pathname;
+    if (!pathChanged) return;
+    if (location.hash || typeof document === "undefined") return;
+    const target = readCaseReturn();
+    if (target?.path === currentRoutePath) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById("main")?.focus({ preventScroll: true });
+      setRouteStatus(`${routeAnnouncement(location.pathname)}：${document.title}`);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.hash, currentRoutePath]);
+
   return (
     <div id="top" className="min-h-full overflow-x-hidden font-sans text-ink-100">
       {/*
@@ -51,6 +75,9 @@ export default function RootLayout() {
       <main id="main" tabIndex={-1}>
         <Outlet />
       </main>
+      <p id="route-announcer" className="sr-only" aria-live="polite" aria-atomic="true">
+        {routeStatus}
+      </p>
       <Footer />
       <BackToTop />
       <ToastViewport />

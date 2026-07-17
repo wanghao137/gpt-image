@@ -47,23 +47,16 @@ interface HeroStripProps {
  *      file (~25 KB), so a 12-tile rail downloads ~300 KB total. That's
  *      cheap, and bypassing the <picture> machinery keeps the rail
  *      lightweight.
- *   2. `loading="eager"` + `decoding="async"` lets the browser start
- *      fetching every tile immediately while staggering decode work
- *      behind the hero LCP image. We deliberately do NOT use
- *      `loading="lazy"` here: native lazy-loading is unreliable inside
- *      horizontal `overflow-x:auto` snap containers, and tiles that sit
- *      past the right edge of the viewport never receive an
- *      intersection signal — so they stay blank forever. The strip is a
- *      first-class above-the-fold showcase, so eager loading of ~300 KB
- *      is the right trade-off (this was a real P0 bug: 5+ tiles rendered
- *      as permanent empty boxes).
+ *   2. Only the tiles visible in the initial viewport are eager/high priority.
+ *      Off-screen rail items stay in the DOM but use native lazy loading and
+ *      low fetch priority so they do not compete with the hero LCP image.
  */
 export function HeroStrip({ cases, limit = 12 }: HeroStripProps) {
   const items = cases.slice(0, limit);
   // First N tiles are guaranteed visible in the initial viewport (before the
   // user scrolls horizontally), so they get a fetchPriority hint to jump the
   // network queue. The rest are still eager but auto priority.
-  const PRIORITY_COUNT = 6;
+  const PRIORITY_COUNT = 2;
   if (items.length === 0) return null;
 
   return (
@@ -115,13 +108,13 @@ function StripTile({ item, priority }: { item: PromptCase; priority: boolean }) 
         <img
           src={thumbUrl(item.imageUrl, 320)}
           alt=""
-          loading="eager"
+          loading={priority ? "eager" : "lazy"}
           decoding="async"
           // `fetchpriority` (lowercased) is the HTML-spec attribute name; React
           // forwards it as-is. Priority hint jumps the network queue for tiles
           // visible in the initial horizontal viewport.
-          {...({ fetchpriority: priority ? "high" : "auto" } as {
-            fetchpriority: "high" | "auto";
+          {...({ fetchpriority: priority ? "high" : "low" } as {
+            fetchpriority: "high" | "low";
           })}
           onError={() => setFailed(true)}
           width={272}

@@ -9,6 +9,7 @@ import { tagLabel, accessibleCaseLabel } from "../lib/labels";
 import { userCategoryLabel } from "../lib/userCategories";
 import { pickLocalWebp, transformUrl } from "../lib/img";
 import { rememberCaseReturn } from "../lib/caseReturn";
+import { sourceDisplayLabel } from "../lib/source-label.mjs";
 import { SmartImg } from "./SmartImg";
 import { CardActionSheet, type CardAction } from "./CardActionSheet";
 
@@ -175,6 +176,7 @@ function CaseCardImpl({
 }: CaseCardProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const sourceLabel = sourceDisplayLabel(data.source, data.githubUrl);
   const { state, copy } = useCopy(1500, {
     successTitle: "Prompt 已复制",
     successDescription: "去 ChatGPT 粘贴出图",
@@ -368,7 +370,7 @@ function CaseCardImpl({
               <div className="min-w-0 flex-1 text-[11px] text-ink-200">
                 {data.source && (
                   <span className="truncate align-middle text-[11px] text-ink-300">
-                    {data.source}
+                    {sourceLabel}
                   </span>
                 )}
               </div>
@@ -409,7 +411,7 @@ function CaseCardImpl({
             <div className="flex items-center justify-between gap-2 text-[11.5px] text-ink-300">
               <span className="inline-flex min-w-0 items-center gap-1">
                 <SourceDot />
-                <span className="truncate">{data.source || userCategoryLabel(data.userCategory)}</span>
+                <span className="truncate">{data.source ? sourceLabel : userCategoryLabel(data.userCategory)}</span>
               </span>
               <span className="shrink-0 text-ink-400">{userCategoryLabel(data.userCategory)}</span>
             </div>
@@ -492,7 +494,7 @@ function CaseCardImpl({
                 <>
                   <span className="inline-flex items-center gap-1 truncate text-ink-300">
                     <SourceDot />
-                    {data.source}
+                    {sourceLabel}
                   </span>
                   <span className="text-ink-600">·</span>
                 </>

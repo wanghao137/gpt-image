@@ -8,6 +8,7 @@ import {
   derivedCaseSearchHref,
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
+import { sourceDisplayLabel } from "../lib/source-label.mjs";
 
 interface TemplateCardProps {
   data: PromptTemplate;
@@ -32,13 +33,15 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   const variables = extractTemplateVariables(data.prompt);
   const derivedCaseIds = data.derivedFrom?.slice(0, 5) ?? [];
   const detailHref = `/template/${data.id}`;
-  const sourceLabel =
+  const sourceLabel = sourceDisplayLabel(
     data.sourceLabel ||
-    (data.sourceType === "derived-case"
-      ? "基于合并案例库自动派生"
-      : data.sourceType === "manual"
-        ? "本项目手动模板"
-        : "上游模板库");
+      (data.sourceType === "derived-case"
+        ? "基于合并案例库自动派生"
+        : data.sourceType === "manual"
+          ? "本项目手动模板"
+          : "上游模板库"),
+    data.sourceUrl,
+  );
 
   const handleSpotlight = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();

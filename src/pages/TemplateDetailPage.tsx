@@ -10,6 +10,7 @@ import {
   derivedCaseSearchHref,
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
+import { sourceDisplayLabel } from "../lib/source-label.mjs";
 import NotFoundPage from "./NotFoundPage";
 
 /**
@@ -53,13 +54,15 @@ export default function TemplateDetailPage() {
   const variables = extractTemplateVariables(t.prompt);
   const derivedCaseIds = t.derivedFrom?.slice(0, 8) ?? [];
 
-  const sourceLabel =
+  const sourceLabel = sourceDisplayLabel(
     t.sourceLabel ||
-    (t.sourceType === "derived-case"
-      ? "基于合并案例库自动派生"
-      : t.sourceType === "manual"
-        ? "本项目手动模板"
-        : "上游模板库");
+      (t.sourceType === "derived-case"
+        ? "基于合并案例库自动派生"
+        : t.sourceType === "manual"
+          ? "本项目手动模板"
+          : "上游模板库"),
+    t.sourceUrl,
+  );
 
   const ogImage = absoluteUrl(SITE.url, t.cover);
   const canonical = `${SITE.url}/template/${t.id}`;

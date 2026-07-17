@@ -44,7 +44,7 @@ test("SmartImg retries image candidates once with a cache-busting query before s
 
 test("homepage keeps the hero strip dense while limiting high-priority images to visible hero work", () => {
   assert.match(homePage, /<HeroStrip cases=\{stripCases\} \/>/);
-  assert.match(homePage, /priorityCount=\{1\}/);
+  assert.match(homePage, /priorityCount=\{0\}/);
   assert.doesNotMatch(homePage, /priorityCount=\{4\}/);
   assert.match(homePage, /priority:\s*true/);
   assert.match(homePage, /loading="eager"/);

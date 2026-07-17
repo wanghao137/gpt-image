@@ -195,7 +195,7 @@ export default function HomePage() {
           favoriteIds={favoriteIds}
           onToggleFavorite={toggle}
           paginate={false}
-          priorityCount={1}
+          priorityCount={0}
           restoreId={restoreId}
           onRestored={onRestored}
           contained={false}
@@ -230,7 +230,7 @@ export default function HomePage() {
             <Link
               key={c.slug}
               to={`/category/${c.slug}`}
-              className="chip chip-idle"
+              className="chip chip-idle min-h-11"
               aria-label={`${c.label} 分类`}
             >
               {c.label}
@@ -337,7 +337,7 @@ function HeroFloatingDeck({ items }: { items: PromptCase[] }) {
     priority?: boolean;
   }> = [
     { pos: "left-[2.5rem] top-[1.5rem]",      size: "w-[16rem] h-[20rem]",        tilt: "-5deg", delay: "0s",    baseW: 480, priority: true },
-    { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480, priority: true },
+    { pos: "right-[0.5rem] top-0",            size: "w-[14rem] h-[18rem]",        tilt: "4deg",  delay: "-1.2s", baseW: 480 },
     { pos: "left-0 top-[17rem]",              size: "w-[13rem] h-[14.5rem]",      tilt: "5deg",  delay: "-2.3s", baseW: 320 },
     { pos: "right-[1.5rem] top-[16.5rem]",    size: "w-[17.25rem] h-[15.25rem]",  tilt: "-3deg", delay: "-3.4s", baseW: 480 },
     { pos: "left-[10.5rem] top-[11rem]",      size: "w-[12.75rem] h-[15rem]",     tilt: "2deg",  delay: "-4.2s", baseW: 320 },
@@ -403,8 +403,8 @@ function HeroCard({
         baseWidth={baseW}
         sizes={`(min-width:1024px) ${baseW}px, ${Math.round(baseW * 0.75)}px`}
         media="(min-width: 1024px)"
-        loading="eager"
-        fetchPriority={priority ? "high" : "auto"}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "low"}
         className="absolute inset-0 h-full w-full"
       />
       {/* Bottom gradient + caption: only the title, no IDs (per design feedback). */}

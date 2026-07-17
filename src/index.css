@@ -11,8 +11,8 @@
     --color-ink-800: 31 28 25;
     --color-ink-700: 42 38 34;
     --color-ink-600: 61 55 51;
-    --color-ink-500: 90 84 78;
-    --color-ink-400: 122 116 108;
+    --color-ink-500: 124 117 109;
+    --color-ink-400: 151 144 135;
     --color-ink-300: 168 162 154;
     --color-ink-200: 212 207 199;
     --color-ink-100: 236 232 225;
@@ -211,7 +211,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full bg-ember-500 px-5 py-2.5 text-sm font-medium text-ink-950 transition;
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full bg-ember-500 px-5 py-2.5 text-sm font-medium text-ink-950 transition;
     box-shadow:
       0 14px 36px -16px rgba(217, 119, 87, 0.6),
       inset 0 1px 0 rgba(255, 255, 255, 0.18);
@@ -225,11 +225,11 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-ink-100 transition hover:border-white/25 hover:bg-white/[0.08];
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-ink-100 transition hover:border-white/25 hover:bg-white/[0.08];
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-medium transition;
+    @apply inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-medium transition;
   }
   .chip-idle {
     @apply border-white/10 bg-white/[0.03] text-ink-300 hover:border-white/25 hover:text-ink-50;

@@ -10,6 +10,7 @@ import {
 } from "../lib/theme";
 import { BRAND } from "../lib/brand";
 import type { EffectiveTheme, ThemeMode } from "../lib/theme";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 interface NavItem {
   to: string;
@@ -42,6 +43,7 @@ const THEME_OPTIONS: Array<{ mode: ThemeMode; label: string }> = [
 function HeaderImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileNavRef = useFocusTrap<HTMLElement>(mobileOpen);
   // Theme hydration gate. The server/SSG render has no localStorage or
   // matchMedia, so it always produces themeMode="system" + systemTheme="dark".
   // Reading localStorage on the FIRST client render would make the theme toggle
@@ -112,6 +114,15 @@ function HeaderImpl() {
     return () => {
       document.body.style.overflow = prev;
     };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
 
   return (
@@ -202,6 +213,8 @@ function HeaderImpl() {
             className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-200 md:hidden"
             aria-label="打开菜单"
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            aria-haspopup="true"
           >
             <svg
               viewBox="0 0 24 24"
@@ -229,6 +242,8 @@ function HeaderImpl() {
 
       {mobileOpen && (
         <nav
+          id="mobile-navigation"
+          ref={mobileNavRef}
           className="border-t border-white/[0.06] bg-ink-950/95 backdrop-blur-xl md:hidden"
           aria-label="移动端导航"
         >

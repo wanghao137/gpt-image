@@ -15,12 +15,6 @@ import { routes } from "./routes";
  */
 installStaticLoaderManifestGuard();
 
-function dismissBootOverlay() {
-  requestAnimationFrame(() => {
-    (window as unknown as { __dismissBoot?: () => void }).__dismissBoot?.();
-  });
-}
-
 function mountClientOnlyApp() {
   const container = document.getElementById("root");
   if (!container) throw new Error("Root container not found");
@@ -31,7 +25,6 @@ function mountClientOnlyApp() {
       <RouterProvider router={router} />
     </HelmetProvider>,
   );
-  dismissBootOverlay();
 }
 
 const isClientOnlyShell =
@@ -39,11 +32,4 @@ const isClientOnlyShell =
 
 export const createRoot = isClientOnlyShell
   ? mountClientOnlyApp()
-  : ViteReactSSG(
-      { routes, basename: "/" },
-      // On hydrated SSG pages the HTML is already painted, so the overlay is
-      // only a short brand handoff and should not outlive interactivity.
-      ({ isClient }) => {
-        if (isClient && typeof window !== "undefined") dismissBootOverlay();
-      },
-    );
+  : ViteReactSSG({ routes, basename: "/" });

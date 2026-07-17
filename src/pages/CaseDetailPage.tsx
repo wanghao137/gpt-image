@@ -27,6 +27,7 @@ import { tagLabel } from "../lib/labels";
 import { readCaseReturn, refreshCaseReturn } from "../lib/caseReturn";
 import { pickLocalWebp, transformUrl } from "../lib/img";
 import { absoluteUrl, deriveCaseSeo, imageDimensionsForRatio } from "../lib/seo-url.mjs";
+import { sourceDisplayLabel } from "../lib/source-label.mjs";
 import NotFoundPage from "./NotFoundPage";
 
 /** Map "9:16" → CSS aspectRatio. */
@@ -139,6 +140,7 @@ export default function CaseDetailPage() {
 
   const charCount = promptText.length;
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
+  const sourceLabel = sourceDisplayLabel(c.source, c.githubUrl);
 
   const tags = Array.from(new Set([...(c.styles ?? []), ...(c.scenes ?? []), ...(c.tags ?? [])])).slice(0, 8);
   // OG / share card image. The baked 1200px JPEG is same-origin and already
@@ -185,7 +187,7 @@ export default function CaseDetailPage() {
     dateCreated: c.createdAt,
     isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
     isBasedOn: c.githubUrl,
-    creator: c.source ? { "@type": "Person", name: c.source } : undefined,
+    creator: c.source ? { "@type": "Person", name: sourceLabel } : undefined,
   };
 
   const imageLd = {
@@ -252,7 +254,7 @@ export default function CaseDetailPage() {
             <>
               <span className="text-ink-700">·</span>
               <span className="text-ink-400">
-                来源 <span className="text-ink-200">{c.source}</span>
+                来源 <span className="text-ink-200">{sourceLabel}</span>
               </span>
             </>
           )}

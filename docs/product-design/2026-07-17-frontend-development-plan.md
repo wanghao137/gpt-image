@@ -141,6 +141,8 @@ Implementation status: completed on 2026-07-17.
 
 ## Phase 5 — Accessibility, trust, and performance polish
 
+Implementation status: completed on 2026-07-17.
+
 ### Work
 
 - Add route-change focus management and result-count announcements.
@@ -158,7 +160,7 @@ Implementation status: completed on 2026-07-17.
 
 This run will implement Phases 1–3 first because they directly address incorrect content, false search behavior, hydration failures, and the most visible mobile friction.
 
-Phases 1-4 are complete. Phase 5 remains the next implementation stage.
+Phases 1-5 are complete. Any further work should start from a fresh production audit rather than extending this plan by default.
 
 ## Verification matrix
 

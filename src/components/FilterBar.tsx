@@ -207,6 +207,7 @@ export function FilterBar({
             <button
               type="button"
               onClick={() => onCategoriesChange(new Set())}
+              aria-pressed={activeCategories.size === 0}
               className={
                 "shrink-0 rounded-full border px-3 py-2 text-[12.5px] font-medium transition " +
                 (activeCategories.size === 0
@@ -223,6 +224,7 @@ export function FilterBar({
                   key={c.slug}
                   type="button"
                   onClick={() => toggle(activeCategories, c.slug, onCategoriesChange)}
+                  aria-pressed={active}
                   className={
                     "shrink-0 rounded-full border px-3 py-2 text-[12.5px] font-medium whitespace-nowrap transition " +
                     (active
@@ -401,7 +403,7 @@ export function FilterBar({
                 type="button"
                 onClick={() => setDrawerOpen(false)}
                 aria-label="关闭"
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-300 hover:text-ink-50"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-ink-300 hover:text-ink-50"
               >
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
                   <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
@@ -419,6 +421,7 @@ export function FilterBar({
                       key={a.key}
                       type="button"
                       onClick={() => setDrawerAxis(a.key)}
+                      aria-pressed={active}
                       className={
                         "relative flex flex-col items-center justify-center gap-0.5 rounded-xl py-2 text-[12.5px] font-medium transition " +
                         (active
@@ -454,6 +457,7 @@ export function FilterBar({
                       key={`${s.axis}-${s.key}`}
                       type="button"
                       onClick={s.remove}
+                      aria-label={`移除筛选：${s.label}`}
                       className="inline-flex items-center gap-1 rounded-full border border-ember-500/60 bg-ember-500/15 px-2.5 py-1 text-[11.5px] font-medium text-ember-100"
                     >
                       {s.label}
@@ -482,6 +486,7 @@ export function FilterBar({
                             key={opt.key}
                             type="button"
                             onClick={() => a.toggle(opt.key)}
+                            aria-pressed={active}
                             className={`chip ${active ? "chip-active" : "chip-idle"}`}
                           >
                             {opt.label}
@@ -578,6 +583,7 @@ function ChipRow({
               key={opt.key}
               type="button"
               onClick={() => onToggle(opt.key)}
+              aria-pressed={active}
               className={`chip ${active ? "chip-active" : "chip-idle"}`}
             >
               {opt.label}
@@ -596,6 +602,7 @@ function ChipRow({
               key={`sec-${opt.key}`}
               type="button"
               onClick={() => onToggle(opt.key)}
+              aria-pressed={active}
               className={`chip ${active ? "chip-active" : "chip-idle"}`}
             >
               {opt.label}

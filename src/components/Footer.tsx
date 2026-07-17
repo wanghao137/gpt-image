@@ -97,6 +97,8 @@ const COLUMNS: FooterColumn[] = [
     title: "其他",
     links: [
       { to: "/about", label: "关于" },
+      { to: "/about#sources", label: "来源与授权" },
+      { to: "/about#privacy", label: "隐私说明" },
       {
         href: "https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search",
         external: true,
@@ -155,7 +157,7 @@ function QuickChips() {
             key={c.to}
             to={c.to}
             className={
-              "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium whitespace-nowrap transition " +
+              "inline-flex min-h-11 shrink-0 items-center rounded-full border px-3 py-1.5 text-[12.5px] font-medium whitespace-nowrap transition " +
               (c.primary
                 ? "border-ember-500/60 bg-ember-500/15 text-ember-100"
                 : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")
@@ -219,7 +221,7 @@ function MobileCol({ title, children }: { title: string; children: React.ReactNo
 function renderLink(link: FooterLink, variant: "desktop" | "mobile" = "desktop") {
   const baseClassName =
     variant === "mobile"
-      ? "block py-2 text-ink-300 transition hover:text-ink-50"
+      ? "flex min-h-11 items-center py-2 text-ink-300 transition hover:text-ink-50"
       : "footer-link";
   const accentClassName = link.accent
     ? variant === "mobile"
