@@ -4,6 +4,10 @@ import type { PromptTemplate } from "../types";
 import { useCopy } from "../hooks/useCopy";
 import { ImageLightbox } from "./ImageLightbox";
 import { SmartImg } from "./SmartImg";
+import {
+  derivedCaseSearchHref,
+  extractTemplateVariables,
+} from "../lib/template-discovery.mjs";
 
 interface TemplateCardProps {
   data: PromptTemplate;
@@ -25,6 +29,8 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const visibleTags = data.tags.slice(0, 3);
   const hiddenTagCount = Math.max(0, data.tags.length - visibleTags.length);
+  const variables = extractTemplateVariables(data.prompt);
+  const derivedCaseIds = data.derivedFrom?.slice(0, 5) ?? [];
   const detailHref = `/template/${data.id}`;
   const sourceLabel =
     data.sourceLabel ||
@@ -124,6 +130,15 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
             </Link>
           </h3>
           <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
+
+          {variables.length > 0 && (
+            <div className="flex items-center gap-2 text-[11.5px] text-ink-400">
+              <span className="rounded-full border border-ember-400/20 bg-ember-400/[0.07] px-2 py-1 text-ember-200">
+                {variables.length} 个可替换变量
+              </span>
+              <span>展开后逐项填写</span>
+            </div>
+          )}
 
           {visibleTags.length > 0 && (
             <div className="template-capability-strip" aria-label="模板适用方向">
@@ -233,6 +248,32 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
                 </section>
               )}
 
+              {variables.length > 0 && (
+                <section>
+                  <div className="mb-2 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
+                    先替换这些变量
+                  </div>
+                  <div className="grid gap-1.5">
+                    {variables.slice(0, 8).map((variable) => (
+                      <div
+                        key={`${data.id}-${variable.name}`}
+                        className="flex items-start justify-between gap-3 rounded-lg border border-white/[0.06] bg-white/[0.025] px-2.5 py-2 text-[11.5px]"
+                      >
+                        <strong className="shrink-0 font-medium text-ink-200">{variable.name}</strong>
+                        <span className="line-clamp-2 text-right text-ink-500">
+                          {variable.defaultValue || "按任务填写"}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {variables.length > 8 && (
+                    <p className="mt-1.5 text-[11px] text-ink-500">
+                      另有 {variables.length - 8} 个变量，可在完整 Prompt 中继续替换。
+                    </p>
+                  )}
+                </section>
+              )}
+
               <section>
                 <div className="mb-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
                   Prompt
@@ -253,6 +294,25 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
                   </a>
                 )}
               </div>
+
+              {derivedCaseIds.length > 0 && (
+                <section className="border-t border-white/[0.06] pt-3">
+                  <div className="mb-2 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
+                    派生参考案例
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {derivedCaseIds.map((caseId) => (
+                      <Link
+                        key={`${data.id}-${caseId}`}
+                        to={derivedCaseSearchHref(caseId)}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-2 py-1 text-[11px] text-ink-300 transition hover:border-ember-400/35 hover:text-ember-200"
+                      >
+                        案例 #{caseId}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           )}
         </div>

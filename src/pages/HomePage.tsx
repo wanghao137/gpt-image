@@ -18,6 +18,7 @@ import { sortTemplatesForDisplay } from "../lib/templateSort";
 import { absoluteUrl } from "../lib/seo-url.mjs";
 import { BRAND } from "../lib/brand";
 import { HOMEPAGE_USER_CATEGORIES } from "../lib/userCategories";
+import { AUDIENCE_TASK_ENTRIES } from "../lib/product-navigation.mjs";
 import type { PromptCase } from "../types";
 
 const HOME_TITLE = BRAND.siteTitle;
@@ -128,6 +129,49 @@ export default function HomePage() {
       </section>
 
       <HeroStrip cases={stripCases} />
+
+      <section className="container-narrow pt-10 sm:pt-14" aria-labelledby="audience-tasks-title">
+        <div className="mb-5 max-w-3xl sm:mb-6">
+          <p className="eyebrow">Start With Your Task · 从任务开始</p>
+          <h2
+            id="audience-tasks-title"
+            className="serif-display mt-2 text-[25px] leading-tight text-ink-50 sm:text-4xl lg:text-[42px]"
+          >
+            不用先学提示词，先选你今天要完成的工作。
+          </h2>
+        </div>
+        <div className="grid gap-3 lg:grid-cols-3">
+          {AUDIENCE_TASK_ENTRIES.map((entry, index) => (
+            <Link
+              key={entry.id}
+              to={entry.href}
+              className="group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-900/55 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-ember-400/35 hover:bg-ink-900/80 hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 sm:p-6"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-ember-300">
+                  0{index + 1} · {entry.eyebrow}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-300 transition group-hover:border-ember-400/35 group-hover:text-ember-200"
+                >
+                  <ArrowRightIcon />
+                </span>
+              </div>
+              <h3 className="mt-5 text-[18px] font-semibold leading-snug text-ink-50 sm:text-[19px]">
+                {entry.title}
+              </h3>
+              <p className="mt-2 text-[13px] leading-relaxed text-ink-400 sm:text-[13.5px]">
+                {entry.description}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ember-300">
+                {entry.action}
+                <ArrowRightIcon />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <CategoryShowcase tiles={HOME_DATA.tiles} totalCount={totalCount} />
 

@@ -75,7 +75,17 @@ Post-fix evidence: browser search returned `1 / 13048 匹配`; the recorded requ
 
 ## Follow-up polish
 
-- Phase 4: task-led homepage entry points and template search/category/sort.
 - Phase 5: route focus management, live result announcements, complete menu focus trapping, source/privacy/licensing normalization, and long-tail social metadata.
+
+## Phase 4 QA addendum
+
+Phase 4 passed functional and responsive review while preserving the existing peach editorial system.
+
+- Homepage: three task-led entries for content creators, brands/merchants, and designers use existing multi-category case URLs. Featured categories now lead with Xiaohongshu covers, ecommerce imagery, and merchant posters. Evidence: `phase4/01-home-task-entry-desktop.png`.
+- Templates: keyword search, category filtering, result counts, and curated/newest/title sorting work at desktop and mobile widths. Variable counts are visible on cards; expanded cards show parsed names and defaults. Evidence: `phase4/02-templates-mobile.png`.
+- Template provenance: generated templates expose real `derivedFrom` IDs as case-library links on cards and detail pages; `/template/derived-xhs-cover` showed five traceable cases.
+- Cases: hot-search chips replace conflicting filters, synchronize the `q` URL, and use the full search index. Case cards expand a readable Prompt preview with a separate full-detail link. Evidence: `phase4/03-cases-mobile.png`.
+- Browser interaction checks covered audience-route navigation, hot search, Prompt preview, template keyword/category/sort controls, variable guidance, and derived-case links.
+- Dev SSR console: 0 application errors/warnings. Current production baseline `/cases` and `/templates`: 0 errors/warnings. Local `vite preview` continues to emit its environment-specific hydration/analytics noise even when Phase 4 initial DOM is removed; it was not used as the application-runtime verdict.
 
 final result: passed

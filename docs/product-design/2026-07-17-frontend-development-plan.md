@@ -4,13 +4,14 @@ Date: 2026-07-17
 
 Status: Approved for implementation by the user
 
-Implementation status (2026-07-17): Phases 1-3 completed and browser-verified. Phase 4 and the remaining Phase 5 items are retained as follow-on work.
+Implementation status (2026-07-17): Phases 1-4 completed and browser-verified. The remaining Phase 5 accessibility, trust, and performance items are retained as follow-on work.
 
 ## Completed in this development run
 
 - Phase 1: generated-data ID-set validation, stale-shard cleanup, hydration-stable totals, admin template required-field validation, and regression coverage.
 - Phase 2: lazy full-index loading, staged category-shard browsing, explicit loading/error/retry states, full-index matching, and content-hash cache invalidation for generated search/filter/shard/index files.
 - Phase 3: mobile 4:5 case previews with overlaid identity/actions, title-first mobile case details, independent template actions, valid card semantics, and CSS-column DOM order.
+- Phase 4: audience-led homepage task entry points, high-value category ordering, template search/category/sort/result counts, template variable guidance, derived-case traceability, hot searches, and in-card Prompt preview.
 - Final evidence: 13,048 canonical cases, full test/check pass, zero lint errors, successful production SSG build, and desktop/mobile browser screenshots under `output/playwright/product-design-audit-2026-07-17/`.
 
 ## Objective
@@ -113,6 +114,8 @@ The first release must prioritize correctness and task completion over adding ne
 
 ## Phase 4 — Product navigation and templates
 
+Implementation status: completed on 2026-07-17.
+
 ### Work
 
 - Add homepage task entry points for creators, merchants, and designers using existing categories and URLs.
@@ -126,6 +129,15 @@ The first release must prioritize correctness and task completion over adding ne
 - Each audience entry leads to a useful pre-filtered route.
 - Users can reduce the template list by category and keyword.
 - Template expansion, detail navigation, and copy actions are visually and semantically distinct.
+
+### Verification evidence
+
+- Audience task links resolve to real multi-category `/cases?cat=...` routes for creators, merchants, and designers.
+- Template keyword search reduced 56 templates to 20 for `品牌`; adding `品牌与标志` reduced the list to 5; title sorting changed the visible order deterministically.
+- Expanded template cards expose parsed variable names/defaults, and generated template details link back to real source case IDs through `/cases?q=<id>`.
+- Hot search `产品海报` updated the URL and full-library query to one matching case; the case card exposed and expanded its Prompt preview without changing the copy/detail actions.
+- Regression suite: 217/217 tests, TypeScript passed, lint 0 errors with 2 pre-existing Fast Refresh warnings, generated-data check 13,048 cases / 20 shards, deterministic production SSG build passed.
+- Browser evidence: `output/playwright/product-design-audit-2026-07-17/phase4/`.
 
 ## Phase 5 — Accessibility, trust, and performance polish
 
@@ -146,7 +158,7 @@ The first release must prioritize correctness and task completion over adding ne
 
 This run will implement Phases 1–3 first because they directly address incorrect content, false search behavior, hydration failures, and the most visible mobile friction.
 
-Phase 4 and the broader Phase 5 product expansion remain documented follow-on work unless they are required to complete or verify Phases 1–3 safely.
+Phases 1-4 are complete. Phase 5 remains the next implementation stage.
 
 ## Verification matrix
 

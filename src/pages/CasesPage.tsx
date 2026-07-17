@@ -16,6 +16,7 @@ import {
   categoriesForSearchEntries,
   filterCaseSearchEntries,
 } from "../lib/case-search-core.mjs";
+import { HOT_CASE_SEARCHES } from "../lib/case-discovery.mjs";
 
 const BROWSE_BATCH_SIZE = 1;
 const BROWSE_PRIORITY = [
@@ -330,6 +331,15 @@ export default function CasesPage() {
     setShowFavorites(false);
   }, []);
 
+  const applyHotSearch = useCallback((value: string) => {
+    setQuery(value);
+    setActiveCategories(new Set());
+    setActiveStyles(new Set());
+    setActiveScenes(new Set());
+    setActivePlatforms(new Set());
+    setShowFavorites(false);
+  }, []);
+
   const retryLoads = useCallback(() => {
     setLoadError(null);
     if (searchError) retrySearch();
@@ -393,6 +403,33 @@ export default function CasesPage() {
           </button>
         </div>
       </section>
+
+      <div className="container-narrow pb-3">
+        <div className="flex flex-wrap items-center gap-2" aria-label="热门搜索">
+          <span className="mr-1 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
+            热门搜索
+          </span>
+          {HOT_CASE_SEARCHES.map((item) => {
+            const active = query.trim() === item;
+            return (
+              <button
+                key={item}
+                type="button"
+                onClick={() => applyHotSearch(item)}
+                aria-pressed={active}
+                className={
+                  "min-h-9 rounded-full border px-3 py-1.5 text-[12px] transition " +
+                  (active
+                    ? "border-ember-400/45 bg-ember-400/12 text-ember-100"
+                    : "border-white/[0.08] bg-white/[0.025] text-ink-400 hover:border-white/20 hover:text-ink-100")
+                }
+              >
+                {item}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       <FilterBar
         query={query}

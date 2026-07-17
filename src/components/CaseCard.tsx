@@ -191,6 +191,7 @@ function CaseCardImpl({
   } | null>(null);
   const [copying, setCopying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
@@ -445,6 +446,21 @@ function CaseCardImpl({
                 </>
               )}
             </button>
+            {data.promptPreview && (
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setPreviewOpen((value) => !value);
+                }}
+                aria-expanded={previewOpen}
+                aria-controls={`prompt-preview-${data.id}`}
+                className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl border border-ink-800/70 bg-ink-900/80 px-3 text-[12px] font-medium text-ink-200 active:bg-ink-850/80"
+              >
+                {previewOpen ? "收起" : "预览"}
+              </button>
+            )}
             <button
               type="button"
               onClick={(e) => {
@@ -498,6 +514,23 @@ function CaseCardImpl({
             </div>
           </div>
 
+          {data.promptPreview && (
+            <button
+              type="button"
+              data-no-longpress
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setPreviewOpen((value) => !value);
+              }}
+              aria-expanded={previewOpen}
+              aria-controls={`prompt-preview-${data.id}`}
+              className="inline-flex h-8 shrink-0 items-center rounded-lg border border-white/10 bg-white/[0.03] px-2.5 text-[12px] font-medium text-ink-300 transition hover:border-ember-500/40 hover:text-ember-100"
+            >
+              {previewOpen ? "收起预览" : "预览 Prompt"}
+            </button>
+          )}
+
           <button
             type="button"
             data-no-longpress
@@ -534,6 +567,30 @@ function CaseCardImpl({
             )}
           </button>
         </div>
+
+        {data.promptPreview && previewOpen && (
+          <section
+            id={`prompt-preview-${data.id}`}
+            className="border-t border-white/[0.06] bg-ink-950/45 px-3.5 py-3 sm:px-4"
+            data-no-longpress
+          >
+            <div className="mb-1.5 flex items-center justify-between gap-3">
+              <span className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-ink-500">
+                Prompt Preview
+              </span>
+              <Link
+                to={detailHref}
+                onClick={rememberReturn}
+                className="text-[11.5px] font-medium text-ember-300 transition hover:text-ember-200"
+              >
+                查看完整 Prompt
+              </Link>
+            </div>
+            <p className="line-clamp-5 text-[12px] leading-relaxed text-ink-300">
+              {data.promptPreview}
+            </p>
+          </section>
+        )}
       </article>
 
       <CardActionSheet

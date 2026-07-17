@@ -6,6 +6,10 @@ import { ImageLightbox } from "../components/ImageLightbox";
 import { SEO, SITE } from "../components/SEO";
 import { useCopy } from "../hooks/useCopy";
 import { absoluteUrl } from "../lib/seo-url.mjs";
+import {
+  derivedCaseSearchHref,
+  extractTemplateVariables,
+} from "../lib/template-discovery.mjs";
 import NotFoundPage from "./NotFoundPage";
 
 /**
@@ -46,6 +50,8 @@ export default function TemplateDetailPage() {
 
   const charCount = t.prompt.length;
   const promptLines = t.prompt.split(/\r?\n/).length;
+  const variables = extractTemplateVariables(t.prompt);
+  const derivedCaseIds = t.derivedFrom?.slice(0, 8) ?? [];
 
   const sourceLabel =
     t.sourceLabel ||
@@ -180,6 +186,30 @@ export default function TemplateDetailPage() {
               </section>
             )}
 
+            {variables.length > 0 && (
+              <section className="mt-4 rounded-xl border border-ember-400/15 bg-ember-400/[0.045] p-4">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-ember-300">
+                    Variables · 使用前替换
+                  </div>
+                  <p className="text-[11.5px] text-ink-500">共 {variables.length} 项，保留模板结构，只修改任务变量</p>
+                </div>
+                <dl className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {variables.map((variable) => (
+                    <div
+                      key={`${t.id}-${variable.name}`}
+                      className="rounded-lg border border-white/[0.06] bg-ink-950/35 px-3 py-2.5"
+                    >
+                      <dt className="text-[12px] font-medium text-ink-100">{variable.name}</dt>
+                      <dd className="mt-0.5 line-clamp-2 text-[11.5px] leading-relaxed text-ink-500">
+                        默认：{variable.defaultValue || "按当前任务填写"}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
+
             {/* Prompt block */}
             <section className="mt-6 overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-950/50">
               <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-3">
@@ -273,6 +303,28 @@ export default function TemplateDetailPage() {
                 </a>
               )}
             </div>
+
+            {derivedCaseIds.length > 0 && (
+              <section className="mt-4 rounded-xl border border-white/[0.07] bg-ink-900/35 p-4">
+                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
+                  Derived From · 派生参考案例
+                </div>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-400">
+                  这套模板从以下真实案例的共同结构中提炼，可回到案例库核对画面与 Prompt。
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {derivedCaseIds.map((caseId) => (
+                    <Link
+                      key={`${t.id}-${caseId}`}
+                      to={derivedCaseSearchHref(caseId)}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1.5 text-[11.5px] text-ink-300 transition hover:border-ember-400/35 hover:text-ember-200"
+                    >
+                      查看案例 #{caseId}
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
 
