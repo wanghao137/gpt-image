@@ -12,10 +12,10 @@ test("case return restore marks the grid while restoration is active", () => {
   assert.match(caseGrid, /onImageLoad=\{isRestoreTarget \? handleRestoreTargetLoad : undefined\}/);
 });
 
-test("restoring case grids disable content-visibility height estimation", () => {
-  assert.match(css, /\.case-grid-restoring\s+\.case-card/);
-  assert.match(css, /content-visibility:\s*visible/);
-  assert.match(css, /contain-intrinsic-size:\s*auto/);
+test("restoring case grids disable scroll anchoring while coordinates settle", () => {
+  assert.match(css, /\.case-grid-restoring/);
+  assert.match(css, /body\.case-return-restoring/);
+  assert.match(css, /overflow-anchor:\s*none/);
 });
 
 test("case return restore keeps the grid layout locked after active restoration finishes", () => {
@@ -42,11 +42,10 @@ test("case return restore uses the captured viewport position before falling bac
   assert.match(caseGrid, /Math\.max\(0,\s*Math\.min/);
 });
 
-test("cached images keep their decoded ratio when a card remounts after detail navigation", () => {
-  assert.match(caseCard, /naturalImageRatio\?\.caseId === data\.id/);
-  assert.match(caseCard, /naturalImageRatio\.imageUrl === data\.imageUrl/);
-  assert.match(caseCard, /\? naturalImageRatio\.aspectRatio/);
+test("case cards keep their declared ratio stable while images decode", () => {
+  assert.match(caseCard, /const mediaRatio = String\(aspectStyle\(data\.ratio\)/);
   assert.match(caseCard, /--case-media-ratio/);
   assert.match(css, /aspect-ratio:\s*var\(--case-media-ratio/);
-  assert.doesNotMatch(caseCard, /setNaturalAspectRatio\(null\)/);
+  assert.doesNotMatch(caseCard, /naturalImageRatio/);
+  assert.doesNotMatch(caseCard, /onNaturalSize=/);
 });

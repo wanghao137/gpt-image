@@ -216,25 +216,27 @@ export default function CasesPage() {
     setLoadError(null);
     const results = await Promise.allSettled(nextCategories.map((category) => loadShard(category)));
     const loaded = new Set(browseLoadedCategories);
-    const cases = [...shardCases];
+    const appendedCases: PromptCase[] = [];
     const failed: string[] = [];
     results.forEach((result, index) => {
       const category = nextCategories[index];
       if (result.status === "fulfilled") {
         loaded.add(category);
-        cases.push(...result.value);
+        appendedCases.push(...result.value);
       } else {
         failed.push(category);
       }
     });
     setBrowseLoadedCategories(loaded);
-    setShardCases(uniqueCases(cases));
+    if (appendedCases.length > 0) {
+      setShardCases((current) => uniqueCases([...current, ...appendedCases]));
+    }
     if (failed.length > 0) {
       setLoadError(`部分案例加载失败：${failed.join("、")}`);
     }
     browseLoadingRef.current = false;
     setBrowseLoading(false);
-  }, [browseLoadedCategories, isSSR, shardCases]);
+  }, [browseLoadedCategories, isSSR]);
 
   useEffect(() => {
     if (isSSR || !browseMode) return;

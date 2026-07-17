@@ -75,17 +75,33 @@ export function CaseGrid({
   const [restoreTargetLoaded, setRestoreTargetLoaded] = useState(false);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const restoredRef = useRef<string | null>(null);
-  const caseIdsKey = useMemo(() => cases.map((item) => item.id).join("\u0000"), [cases]);
-  const previousListRef = useRef({ caseIdsKey, paginate });
+  const caseIds = useMemo(() => cases.map((item) => item.id), [cases]);
+  const caseIdsKey = useMemo(() => caseIds.join("\u0000"), [caseIds]);
+  const previousListRef = useRef({ caseIds, caseIdsKey, paginate });
 
   useEffect(() => {
     const listChanged =
       previousListRef.current.caseIdsKey !== caseIdsKey ||
       previousListRef.current.paginate !== paginate;
-    previousListRef.current = { caseIdsKey, paginate };
+    const previous = previousListRef.current;
+    const appendOnly =
+      previous.paginate === paginate &&
+      previous.caseIds.length <= caseIds.length &&
+      previous.caseIds.every((id, index) => caseIds[index] === id);
+    previousListRef.current = { caseIds, caseIdsKey, paginate };
 
     if (listChanged) {
-      setVisibleCount(countForRestore(cases, paginate, restoreId));
+      setVisibleCount((current) =>
+        appendOnly
+          ? Math.min(
+              cases.length,
+              Math.max(
+                current >= previous.caseIds.length ? current + PAGE_SIZE : current,
+                countForRestore(cases, paginate, restoreId),
+              ),
+            )
+          : countForRestore(cases, paginate, restoreId),
+      );
       if (!restoreId) setRestoreLayoutLocked(false);
       return;
     }
@@ -93,7 +109,7 @@ export function CaseGrid({
     if (restoreId) {
       setVisibleCount((current) => Math.max(current, countForRestore(cases, paginate, restoreId)));
     }
-  }, [caseIdsKey, cases, paginate, restoreId]);
+  }, [caseIds, caseIdsKey, cases, paginate, restoreId]);
 
   useEffect(() => {
     setRestoreTargetLoaded(false);
@@ -128,17 +144,35 @@ export function CaseGrid({
     if (!hasMore) return;
     const el = sentinelRef.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) loadMoreRef.current();
-      },
-      { rootMargin: "600px 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [hasMore]);
+    let frame = 0;
+    const checkDistance = () => {
+      frame = 0;
+      if (el.getBoundingClientRect().top <= window.innerHeight + 600) {
+        loadMoreRef.current();
+      }
+    };
+    const scheduleCheck = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(checkDistance);
+    };
+    window.addEventListener("scroll", scheduleCheck, { passive: true });
+    window.addEventListener("resize", scheduleCheck, { passive: true });
+    scheduleCheck();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleCheck);
+      window.removeEventListener("resize", scheduleCheck);
+    };
+  }, [cases.length, hasMore, visibleCount]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
+  const visiblePages = useMemo(() => {
+    const pages: PromptCase[][] = [];
+    for (let index = 0; index < visible.length; index += PAGE_SIZE) {
+      pages.push(visible.slice(index, index + PAGE_SIZE));
+    }
+    return pages;
+  }, [visible]);
   // Stable boolean: is the scroll-restore target currently rendered? Depending
   // on this instead of the `visible` array keeps the restore effect from
   // tearing down and rebuilding its rAF + timer machinery on every
@@ -304,20 +338,25 @@ export function CaseGrid({
 
   return (
     <div className={wrapperClassName}>
-      <div className="masonry">
-        {visible.map((item, index) => {
-          const isRestoreTarget = restoreId === item.id;
-          return (
-            <CaseCard
-              key={item.id}
-              data={item}
-              favorited={favoriteIds.has(item.id)}
-              onToggleFavorite={onToggleFavorite}
-              priority={index < priorityCount}
-              onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
-            />
-          );
-        })}
+      <div className="masonry-feed">
+        {visiblePages.map((page, pageIndex) => (
+          <div className="masonry masonry-page" key={page[0]?.id ?? pageIndex}>
+            {page.map((item, itemIndex) => {
+              const index = pageIndex * PAGE_SIZE + itemIndex;
+              const isRestoreTarget = restoreId === item.id;
+              return (
+                <CaseCard
+                  key={item.id}
+                  data={item}
+                  favorited={favoriteIds.has(item.id)}
+                  onToggleFavorite={onToggleFavorite}
+                  priority={index < priorityCount}
+                  onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
+                />
+              );
+            })}
+          </div>
+        ))}
       </div>
 
       {paginate && canLoadMore && (

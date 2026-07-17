@@ -186,21 +186,13 @@ function CaseCardImpl({
     },
   });
   const [imgErr, setImgErr] = useState(false);
-  const [naturalImageRatio, setNaturalImageRatio] = useState<{
-    caseId: string;
-    imageUrl: string;
-    aspectRatio: string;
-  } | null>(null);
   const [copying, setCopying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
-  const mediaRatio =
-    naturalImageRatio?.caseId === data.id && naturalImageRatio.imageUrl === data.imageUrl
-      ? naturalImageRatio.aspectRatio
-      : String(aspectStyle(data.ratio).aspectRatio ?? "4 / 5");
+  const mediaRatio = String(aspectStyle(data.ratio).aspectRatio ?? "4 / 5");
 
   const rememberReturn = useCallback(() => {
     rememberCaseReturn(
@@ -351,13 +343,6 @@ function CaseCardImpl({
                 loading={priority ? "eager" : "lazy"}
                 fetchPriority={priority ? "high" : "auto"}
                 onLoad={onImageLoad}
-                onNaturalSize={(width, height) => {
-                  setNaturalImageRatio({
-                    caseId: data.id,
-                    imageUrl: data.imageUrl,
-                    aspectRatio: `${width} / ${height}`,
-                  });
-                }}
                 onError={() => setImgErr(true)}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />
@@ -480,16 +465,17 @@ function CaseCardImpl({
         </div>
 
         {/* DESKTOP FOOTER — title + author/category meta + always-on copy button */}
-        <div className="hidden items-center gap-2 px-3 pb-3 pt-2.5 sm:flex sm:px-3.5 sm:pt-3">
-          <div className="min-w-0 flex-1">
-            <Link
-              to={detailHref}
-              onClick={rememberReturn}
-              className="block text-[13.5px] font-semibold leading-snug text-ink-100 transition group-hover:text-ember-200"
-            >
-              <span className="line-clamp-1">{data.title}</span>
-            </Link>
-            <div className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-400">
+        <div className="hidden gap-2 px-3 pb-3 pt-2.5 sm:flex sm:flex-col sm:px-3.5 sm:pt-3">
+          <Link
+            to={detailHref}
+            onClick={rememberReturn}
+            className="block min-w-0 text-[13.5px] font-semibold leading-snug text-ink-100 transition group-hover:text-ember-200"
+          >
+            <span className="line-clamp-1">{data.title}</span>
+          </Link>
+
+          <div className="flex min-w-0 items-center gap-2">
+            <div className="flex min-w-0 flex-1 items-center gap-1.5 text-[11px] text-ink-400">
               {data.source && (
                 <>
                   <span className="inline-flex items-center gap-1 truncate text-ink-300">
@@ -514,60 +500,61 @@ function CaseCardImpl({
                 </span>
               ))}
             </div>
-          </div>
 
-          {data.promptPreview && (
+            {data.promptPreview && (
+              <button
+                type="button"
+                data-no-longpress
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setPreviewOpen((value) => !value);
+                }}
+                aria-expanded={previewOpen}
+                aria-controls={`prompt-preview-${data.id}`}
+                aria-label={previewOpen ? "收起 Prompt 预览" : "预览 Prompt"}
+                className="inline-flex h-8 shrink-0 items-center rounded-lg border border-white/10 bg-white/[0.03] px-2.5 text-[12px] font-medium text-ink-300 transition hover:border-ember-500/40 hover:text-ember-100"
+              >
+                {previewOpen ? "收起" : "预览"}
+              </button>
+            )}
+
             <button
               type="button"
               data-no-longpress
-              onClick={(event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                setPreviewOpen((value) => !value);
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleCopy();
               }}
-              aria-expanded={previewOpen}
-              aria-controls={`prompt-preview-${data.id}`}
-              className="inline-flex h-8 shrink-0 items-center rounded-lg border border-white/10 bg-white/[0.03] px-2.5 text-[12px] font-medium text-ink-300 transition hover:border-ember-500/40 hover:text-ember-100"
+              disabled={copying}
+              aria-label="复制 Prompt"
+              className={
+                "inline-flex h-8 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 " +
+                (state === "copied"
+                  ? "border-emerald-400/40 bg-emerald-400/15 text-emerald-200"
+                  : state === "error"
+                    ? "border-rose-400/40 bg-rose-400/15 text-rose-200"
+                    : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-ember-500/50 hover:bg-ember-500/10 hover:text-ember-100")
+              }
             >
-              {previewOpen ? "收起预览" : "预览 Prompt"}
+              {copying ? (
+                <span className="text-[11px]">…</span>
+              ) : state === "copied" ? (
+                <>
+                  <CheckIcon />
+                  <span>已复制</span>
+                </>
+              ) : state === "error" ? (
+                <span className="text-[11px]">失败</span>
+              ) : (
+                <>
+                  <CopyIcon />
+                  <span>复制 Prompt</span>
+                </>
+              )}
             </button>
-          )}
-
-          <button
-            type="button"
-            data-no-longpress
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleCopy();
-            }}
-            disabled={copying}
-            aria-label="复制 Prompt"
-            className={
-              "inline-flex h-8 shrink-0 items-center gap-1 rounded-lg border px-2.5 text-[12px] font-semibold transition disabled:opacity-60 " +
-              (state === "copied"
-                ? "border-emerald-400/40 bg-emerald-400/15 text-emerald-200"
-                : state === "error"
-                  ? "border-rose-400/40 bg-rose-400/15 text-rose-200"
-                  : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-ember-500/50 hover:bg-ember-500/10 hover:text-ember-100")
-            }
-          >
-            {copying ? (
-              <span className="text-[11px]">…</span>
-            ) : state === "copied" ? (
-              <>
-                <CheckIcon />
-                <span>已复制</span>
-              </>
-            ) : state === "error" ? (
-              <span className="text-[11px]">失败</span>
-            ) : (
-              <>
-                <CopyIcon />
-                <span>复制 Prompt</span>
-              </>
-            )}
-          </button>
+          </div>
         </div>
 
         {data.promptPreview && previewOpen && (

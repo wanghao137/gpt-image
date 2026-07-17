@@ -28,7 +28,7 @@
     --color-ember-800: 111 51 34;
     --page-bg: #0c0a09;
     --page-fg: #ece8e1;
-    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.22), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(99, 60, 145, 0.08), transparent 65%), linear-gradient(180deg, #0c0a09 0%, #0a0807 60%, #0e0b0a 100%);
+    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.20), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.08), transparent 60%), var(--page-bg);
     --noise-dot: rgba(255, 255, 255, 0.04);
     --accent-text: #0c0a09;
     --smart-img-skeleton: #1a1715;
@@ -59,7 +59,7 @@
     --color-ember-800: 252 232 221;
     --page-bg: #fffaf2;
     --page-fg: #211b16;
-    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.16), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.10), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255, 226, 196, 0.55), transparent 65%), linear-gradient(180deg, #fffaf2 0%, #f8efe3 60%, #fff7ee 100%);
+    --page-gradient: radial-gradient(ellipse 70% 50% at 12% -8%, rgba(217, 119, 87, 0.14), transparent 60%), radial-gradient(ellipse 55% 45% at 90% 6%, rgba(217, 119, 87, 0.08), transparent 60%), var(--page-bg);
     --noise-dot: rgba(57, 43, 30, 0.05);
     --accent-text: #1b130f;
     --smart-img-skeleton: rgb(var(--color-ink-850));
@@ -543,19 +543,11 @@
     .case-card-media {
       aspect-ratio: var(--case-media-ratio, 4 / 5);
     }
-    .case-card {
-      content-visibility: auto;
-      contain-intrinsic-size: 320px 460px;
-    }
     .case-grid-restoring {
       overflow-anchor: none;
     }
     body.case-return-restoring {
       overflow-anchor: none;
-    }
-    .case-grid-restoring .case-card {
-      content-visibility: visible;
-      contain-intrinsic-size: auto;
     }
   }
 
