@@ -502,48 +502,47 @@
     .ken-burns > img { animation: none; }
   }
 
-  /*
-   * Masonry layout shell for the case grid. React assigns cards into fixed
-   * columns; CSS only controls the responsive column tracks and gaps. Keeping
-   * column ownership out of CSS multi-column prevents scroll-time rebalancing
-   * when late image decodes or font metrics settle.
-   */
+  /* Masonry keeps source/keyboard order aligned with the visible column flow. */
   .masonry {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-    align-items: start;
+    column-count: 1;
+    column-gap: 1.25rem;
   }
   @media (min-width: 640px) {
-    .masonry { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .masonry { column-count: 2; }
   }
   @media (min-width: 1024px) {
-    .masonry { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .masonry { column-count: 3; }
   }
   @media (min-width: 1280px) {
-    .masonry { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .masonry { column-count: 4; }
   }
   .masonry > * {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    break-inside: avoid;
     min-width: 0;
     transform: translateZ(0);
   }
-  .masonry-column {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
   @media (max-width: 639px) {
-    .masonry,
-    .masonry-column {
-      gap: 0.875rem;
+    .masonry {
+      column-gap: 0.875rem;
+    }
+    .masonry > * {
+      margin-bottom: 0.875rem;
     }
   }
 
   .case-card {
     -webkit-tap-highlight-color: transparent;
   }
+  .case-card-media {
+    aspect-ratio: 4 / 5;
+  }
   @media (min-width: 640px) {
+    .case-card-media {
+      aspect-ratio: var(--case-media-ratio, 4 / 5);
+    }
     .case-card {
       content-visibility: auto;
       contain-intrinsic-size: 320px 460px;

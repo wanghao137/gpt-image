@@ -26,10 +26,12 @@ test("template pages use the shared newest-first template sort", () => {
   assert.match(homePage, /sortTemplatesForDisplay\(ALL_TEMPLATES\)/);
 });
 
-test("template cards expose an image lightbox without toggling prompt expansion", () => {
+test("template cards expose independent detail, lightbox, and prompt controls", () => {
   assert.match(templateCard, /ImageLightbox/);
   assert.match(templateCard, /lightboxOpen/);
   assert.match(templateCard, /setLightboxOpen\(true\)/);
-  assert.match(templateCard, /e\.stopPropagation\(\)/);
-  assert.match(templateCard, /aria-label="查看模板大图"/);
+  assert.match(templateCard, /to=\{detailHref\}/);
+  assert.match(templateCard, /aria-expanded=\{expanded\}/);
+  assert.match(templateCard, /type="button"\s+aria-label=/);
+  assert.doesNotMatch(templateCard, /<Link[^>]*>\s*<article/);
 });

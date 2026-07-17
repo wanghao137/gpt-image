@@ -11,3 +11,9 @@ test("prebuild runs the image pipeline in strict mode", () => {
 test("check runs the regression test suite", () => {
   assert.match(pkg.scripts.check, /npm run test/);
 });
+
+test("Vercel builds from committed generated data without running external sync", () => {
+  assert.match(pkg.scripts["vercel-build"], /vite-react-ssg build/);
+  assert.match(pkg.scripts["vercel-build"], /npm run postbuild/);
+  assert.doesNotMatch(pkg.scripts["vercel-build"], /scripts\/sync\.mjs/);
+});

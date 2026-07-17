@@ -21,10 +21,23 @@
  * But it's no longer imported by the client bundle, so it never enters the
  * browser's download.
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  readdirSync,
+  unlinkSync,
+} from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 import { sortCasesForDisplay } from "./case-ordering.mjs";
+import {
+  isCategoryShardFilename,
+  validateGeneratedDataDirectory,
+} from "./data-consistency-core.mjs";
+import { createCaseSearchEntry } from "../src/lib/case-search-core.mjs";
 import { selectHeroCases } from "../src/lib/home-hero-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -78,6 +91,10 @@ const RECENT_TRACKING_BASELINE = Date.parse("2026-07-14T10:32:42.018Z");
 
 function buildHomePayload(cases, now = Date.now()) {
   const sorted = sortCasesForDisplay(cases);
+  const revision = createHash("sha256")
+    .update(JSON.stringify(sorted))
+    .digest("hex")
+    .slice(0, 12);
   const heroCases = selectHeroCases(sorted, { limit: 5, seed: STABLE_HERO_SEED });
   const heroIds = new Set(heroCases.map((c) => c.id));
   const stripCases = sorted.filter((c) => !heroIds.has(c.id)).slice(0, 14);
@@ -109,6 +126,7 @@ function buildHomePayload(cases, now = Date.now()) {
     featured: stripLite(featured),
     initial: stripLite(initialCases),
     tiles,
+    revision,
     totalCount: sorted.length,
     recentCount: sorted.filter((item) => {
       const createdAt = Date.parse(item.createdAt);
@@ -149,15 +167,7 @@ function stripLite(cases) {
 }
 
 function buildSearchIndex(cases) {
-  return cases.map((c) => ({
-    id: c.id,
-    t: c.title,
-    c: c.category,
-    uc: c.userCategory,
-    s: c.styles ?? [],
-    sc: c.scenes ?? [],
-    p: c.platforms ?? [],
-  }));
+  return cases.map(createCaseSearchEntry);
 }
 
 function buildIndex(cases) {
@@ -241,6 +251,16 @@ function main() {
     }
   }
 
+  const expectedShardFiles = new Set(
+    Array.from(byCategory.keys(), (category) => `cases-${category}.json`),
+  );
+  for (const name of readdirSync(DATA_DIR)) {
+    if (isCategoryShardFilename(name) && !expectedShardFiles.has(name)) {
+      unlinkSync(resolve(DATA_DIR, name));
+      console.log(`✓ removed stale category shard ${name}`);
+    }
+  }
+
   let totalShardSize = 0;
   for (const [category, items] of byCategory) {
     const sorted = sortCasesForDisplay(items);
@@ -251,6 +271,12 @@ function main() {
   console.log(
     `✓ ${byCategory.size} category shards written ` +
       `(raw total: ${Math.round(totalShardSize / 1024)} KB)`,
+  );
+
+  const validation = validateGeneratedDataDirectory(DATA_DIR);
+  console.log(
+    `✓ data consistency: ${validation.caseCount} canonical cases across ` +
+      `${validation.categoryShardCount} category shards`,
   );
 
   console.log("split-data: done.");

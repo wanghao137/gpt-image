@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ALL_CASES, loadShard } from "../lib/data";
+import { ALL_CASES, getCachedShard, loadShard } from "../lib/data";
 import type { PromptCase } from "../types";
 import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
@@ -8,10 +8,30 @@ import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
 import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
-import { useSearchData } from "../hooks/useSearchIndex";
+import { useFilterOptions, useSearchIndex } from "../hooks/useSearchIndex";
 import { HOME_DATA } from "../hooks/useHomeData";
 import { USER_CATEGORIES } from "../lib/userCategories";
 import { sortCasesForDisplay } from "../lib/caseSort";
+import {
+  categoriesForSearchEntries,
+  filterCaseSearchEntries,
+} from "../lib/case-search-core.mjs";
+
+const BROWSE_BATCH_SIZE = 1;
+const BROWSE_PRIORITY = [
+  "xhs-cover",
+  "merchant-poster",
+  "ecommerce",
+  "portrait",
+  "brand-kv",
+  "poster-general",
+];
+const BROWSE_CATEGORY_ORDER = [
+  ...BROWSE_PRIORITY,
+  ...USER_CATEGORIES.map((category) => category.slug).filter(
+    (category) => !BROWSE_PRIORITY.includes(category),
+  ),
+];
 
 function uniqueCases(cases: PromptCase[]): PromptCase[] {
   const seen = new Set<string>();
@@ -20,6 +40,18 @@ function uniqueCases(cases: PromptCase[]): PromptCase[] {
     seen.add(item.id);
     return true;
   });
+}
+
+function cachedBrowseCases(): { cases: PromptCase[]; categories: Set<string> } {
+  const categories = new Set<string>();
+  const cases = [...HOME_DATA.initial];
+  for (const category of BROWSE_CATEGORY_ORDER) {
+    const cached = getCachedShard(category);
+    if (!cached) continue;
+    categories.add(category);
+    cases.push(...cached);
+  }
+  return { cases: uniqueCases(cases), categories };
 }
 
 function readSet(sp: URLSearchParams, key: string): Set<string> {
@@ -33,19 +65,10 @@ function writeSet(sp: URLSearchParams, key: string, set: Set<string>) {
   else sp.set(key, Array.from(set).join(","));
 }
 
-/**
- * Full case library. Filter / search / favorite state is mirrored to the URL.
- *
- * SSG: pre-rendered with ALL_CASES (server has the full dataset). The initial
- * HTML shows the featured cases from cases-home.json.
- *
- * Client hydration: loads the search index (cases-search.json) for search.
- * Category filter → loads the relevant shard. Style/scene/platform filter →
- * searches across the index, then loads shards containing matches.
- */
 export default function CasesPage() {
   const [sp, setSp] = useSearchParams();
   const { ids: favoriteIds, toggle } = useFavorites();
+  const isSSR = import.meta.env.SSR;
 
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState<Set<string>>(() => new Set());
@@ -57,10 +80,21 @@ export default function CasesPage() {
   const { restoreId, restoreTarget, onRestored } = useCaseReturnRestore();
   const lastWrittenSearch = useRef<string | null>(null);
 
-  // Load search index + filter options on the client.
-  const { filterOptions } = useSearchData();
+  const initialBrowse = useRef<ReturnType<typeof cachedBrowseCases> | null>(null);
+  if (!initialBrowse.current) initialBrowse.current = cachedBrowseCases();
 
-  // URL → state sync.
+  const [shardCases, setShardCases] = useState<PromptCase[]>(() =>
+    isSSR ? [] : initialBrowse.current!.cases,
+  );
+  const [browseLoadedCategories, setBrowseLoadedCategories] = useState<Set<string>>(
+    () => (isSSR ? new Set() : initialBrowse.current!.categories),
+  );
+  const [browseLoading, setBrowseLoading] = useState(false);
+  const [filteredLoading, setFilteredLoading] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
+  const browseLoadingRef = useRef(false);
+
   useEffect(() => {
     const current = sp.toString();
     if (current === lastWrittenSearch.current) return;
@@ -72,7 +106,6 @@ export default function CasesPage() {
     setHydrated(true);
   }, [sp]);
 
-  // State → URL sync.
   useEffect(() => {
     if (!hydrated) return;
     const next = new URLSearchParams(sp);
@@ -89,138 +122,204 @@ export default function CasesPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated, query, activeCategories, activeStyles, activeScenes, activePlatforms]);
 
-  const styleOptions = filterOptions?.styles ?? [];
-  const sceneOptions = filterOptions?.scenes ?? [];
-
-  // ── Case data loading ──
-  // SSG mode: use ALL_CASES directly.
-  // Client mode: load shards based on active filters.
-  const isSSR = import.meta.env.SSR;
-
-  // Determine which categories we need to load.
-  const neededCategories = useMemo(() => {
-    if (isSSR) return new Set<string>();
-    if (activeCategories.size > 0) return activeCategories;
-    // No category filter: we need all categories (or at least the first few
-    // for the default view). For the "browse all" experience, load shards
-    // incrementally starting from the largest categories.
-    return null; // null = "all"
-  }, [activeCategories, isSSR]);
-
-  // Client-side shard state.
-  const [shardCases, setShardCases] = useState<PromptCase[]>(() =>
-    isSSR ? [] : HOME_DATA.initial,
-  );
-  const [shardsLoading, setShardsLoading] = useState(false);
-
-  useEffect(() => {
-    if (isSSR) return;
-
-    // If a category filter is active, load those shards.
-    if (neededCategories) {
-      let cancelled = false;
-      setShardsLoading(true);
-      setShardCases([]);
-      Promise.all(Array.from(neededCategories).map((cat) => loadShard(cat)))
-        .then((results) => {
-          if (!cancelled) {
-            setShardCases(uniqueCases(results.flat()));
-            setShardsLoading(false);
-          }
-        })
-        .catch(() => {
-          if (!cancelled) setShardsLoading(false);
-        });
-      return () => {
-        cancelled = true;
-      };
-    }
-
-    // No category filter: load every category shard and de-duplicate cases
-    // that belong to both a primary and secondary category. The previous
-    // implementation stopped after five priority shards, so the UI showed a
-    // partial, duplicate-inflated count (10K+) instead of the real library.
-    let cancelled = false;
-    setShardsLoading(true);
-    Promise.all(USER_CATEGORIES.map((category) => loadShard(category.slug)))
-      .then((results) => {
-        if (!cancelled) {
-          setShardCases(uniqueCases(results.flat()));
-          setShardsLoading(false);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setShardsLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [neededCategories, isSSR]);
-
-  // The base case list for rendering.
-  const baseList = useMemo<PromptCase[]>(() => {
-    // Render the same first batch on the server and during client hydration.
-    // The full total remains available separately for headings and counters.
-    const candidates = isSSR
-      ? HOME_DATA.initial
-      : showFavorites
-        ? shardCases.filter((c) => favoriteIds.has(c.id))
-        : shardCases;
-    return sortCasesForDisplay(candidates);
-  }, [isSSR, shardCases, showFavorites, favoriteIds]);
-
-  // Build search index from the loaded shard data (client-side).
-  const searchBlobMap = useMemo(() => {
-    const map = new Map<string, string>();
-    for (const c of baseList) {
-      map.set(
-        c.id,
-        [c.id, c.title, c.category, c.promptPreview, c.source, ...(c.tags ?? []), ...(c.styles ?? []), ...(c.scenes ?? [])]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase(),
-      );
-    }
-    return map;
-  }, [baseList]);
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return baseList.filter((c) => {
-      if (activeCategories.size > 0) {
-        const all = new Set([c.userCategory, ...(c.userCategories ?? [])]);
-        let any = false;
-        for (const k of activeCategories) {
-          if (all.has(k as never)) {
-            any = true;
-            break;
-          }
-        }
-        if (!any) return false;
-      }
-      if (activeStyles.size > 0) {
-        if (!(c.styles ?? []).some((s) => activeStyles.has(s))) return false;
-      }
-      if (activeScenes.size > 0) {
-        if (!(c.scenes ?? []).some((s) => activeScenes.has(s))) return false;
-      }
-      if (activePlatforms.size > 0) {
-        if (!(c.platforms ?? []).some((p) => activePlatforms.has(p))) return false;
-      }
-      if (!q) return true;
-      return (searchBlobMap.get(c.id) ?? "").includes(q);
-    });
-  }, [baseList, activeCategories, activeStyles, activeScenes, activePlatforms, query, searchBlobMap]);
-
   const hasActiveFilter =
     query.trim().length > 0 ||
     activeCategories.size > 0 ||
     activeStyles.size > 0 ||
     activeScenes.size > 0 ||
     activePlatforms.size > 0;
-  const totalCount = isSSR ? (ALL_CASES as unknown as { length: number }).length : HOME_DATA.totalCount;
-  const displayedMatchCount =
-    !hydrated || (shardsLoading && !hasActiveFilter) ? totalCount : filtered.length;
+  const needsSearchIndex =
+    query.trim().length > 0 ||
+    activeStyles.size > 0 ||
+    activeScenes.size > 0 ||
+    activePlatforms.size > 0 ||
+    showFavorites;
+  const browseMode = !hasActiveFilter && !showFavorites;
+
+  const { data: filterOptions } = useFilterOptions();
+  const {
+    data: searchIndex,
+    loading: searchLoading,
+    error: searchError,
+    retry: retrySearch,
+  } = useSearchIndex(needsSearchIndex);
+
+  const matchingEntries = useMemo(() => {
+    if (!needsSearchIndex || !searchIndex) return [];
+    return filterCaseSearchEntries(searchIndex, {
+      query,
+      categories: activeCategories,
+      styles: activeStyles,
+      scenes: activeScenes,
+      platforms: activePlatforms,
+      favoriteIds: showFavorites ? favoriteIds : null,
+    });
+  }, [
+    activeCategories,
+    activePlatforms,
+    activeScenes,
+    activeStyles,
+    favoriteIds,
+    needsSearchIndex,
+    query,
+    searchIndex,
+    showFavorites,
+  ]);
+
+  const matchingIds = useMemo(
+    () =>
+      needsSearchIndex && searchIndex
+        ? new Set(matchingEntries.map((entry) => entry.id))
+        : null,
+    [matchingEntries, needsSearchIndex, searchIndex],
+  );
+
+  const requiredCategories = useMemo<Set<string> | null>(() => {
+    if (browseMode) return null;
+    if (needsSearchIndex && !searchIndex) return new Set();
+    if (activeCategories.size > 0) return new Set(activeCategories);
+    return categoriesForSearchEntries(matchingEntries);
+  }, [activeCategories, browseMode, matchingEntries, needsSearchIndex, searchIndex]);
+  const requiredCategoryKey = useMemo(
+    () => Array.from(requiredCategories ?? []).sort().join("\u0000"),
+    [requiredCategories],
+  );
+
+  const rebuildBrowseCasesFromCache = useCallback((categories: Set<string>) => {
+    const cases = [...HOME_DATA.initial];
+    for (const category of categories) {
+      const cached = getCachedShard(category);
+      if (cached) cases.push(...cached);
+    }
+    setShardCases(uniqueCases(cases));
+  }, []);
+
+  const loadMoreBrowse = useCallback(async () => {
+    if (isSSR || browseLoadingRef.current) return;
+    const nextCategories = BROWSE_CATEGORY_ORDER.filter(
+      (category) => !browseLoadedCategories.has(category),
+    ).slice(0, BROWSE_BATCH_SIZE);
+    if (nextCategories.length === 0) return;
+
+    browseLoadingRef.current = true;
+    setBrowseLoading(true);
+    setLoadError(null);
+    const results = await Promise.allSettled(nextCategories.map((category) => loadShard(category)));
+    const loaded = new Set(browseLoadedCategories);
+    const cases = [...shardCases];
+    const failed: string[] = [];
+    results.forEach((result, index) => {
+      const category = nextCategories[index];
+      if (result.status === "fulfilled") {
+        loaded.add(category);
+        cases.push(...result.value);
+      } else {
+        failed.push(category);
+      }
+    });
+    setBrowseLoadedCategories(loaded);
+    setShardCases(uniqueCases(cases));
+    if (failed.length > 0) {
+      setLoadError(`部分案例加载失败：${failed.join("、")}`);
+    }
+    browseLoadingRef.current = false;
+    setBrowseLoading(false);
+  }, [browseLoadedCategories, isSSR, shardCases]);
+
+  useEffect(() => {
+    if (isSSR || !browseMode) return;
+    rebuildBrowseCasesFromCache(browseLoadedCategories);
+    if (browseLoadedCategories.size === 0) void loadMoreBrowse();
+  }, [
+    browseLoadedCategories,
+    browseMode,
+    isSSR,
+    loadMoreBrowse,
+    rebuildBrowseCasesFromCache,
+  ]);
+
+  useEffect(() => {
+    if (isSSR || browseMode) return;
+    if (needsSearchIndex && (searchLoading || !searchIndex)) {
+      setFilteredLoading(true);
+      return;
+    }
+
+    const categories = requiredCategoryKey ? requiredCategoryKey.split("\u0000") : [];
+    if (categories.length === 0) {
+      setShardCases([]);
+      setFilteredLoading(false);
+      setLoadError(null);
+      return;
+    }
+
+    let cancelled = false;
+    setFilteredLoading(true);
+    setLoadError(null);
+    Promise.all(categories.map((category) => loadShard(category)))
+      .then((results) => {
+        if (!cancelled) setShardCases(uniqueCases(results.flat()));
+      })
+      .catch((reason: unknown) => {
+        if (!cancelled) {
+          setLoadError(reason instanceof Error ? reason.message : "案例加载失败");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setFilteredLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    browseMode,
+    isSSR,
+    loadAttempt,
+    needsSearchIndex,
+    requiredCategoryKey,
+    searchIndex,
+    searchLoading,
+  ]);
+
+  const baseList = useMemo<PromptCase[]>(() => {
+    const candidates = isSSR ? HOME_DATA.initial : shardCases;
+    return sortCasesForDisplay(candidates);
+  }, [isSSR, shardCases]);
+
+  const filtered = useMemo(() => {
+    if (needsSearchIndex && !matchingIds) return [];
+    return baseList.filter((item) => {
+      if (matchingIds && !matchingIds.has(item.id)) return false;
+      if (showFavorites && !favoriteIds.has(item.id)) return false;
+      if (activeCategories.size > 0) {
+        const categories = new Set([item.userCategory, ...(item.userCategories ?? [])]);
+        if (!Array.from(activeCategories).some((category) => categories.has(category as never))) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }, [
+    activeCategories,
+    baseList,
+    favoriteIds,
+    matchingIds,
+    needsSearchIndex,
+    showFavorites,
+  ]);
+
+  const totalCount = isSSR ? ALL_CASES.length : HOME_DATA.totalCount;
+  const displayedMatchCount = !hydrated
+    ? totalCount
+    : needsSearchIndex
+      ? searchIndex
+        ? matchingEntries.length
+        : totalCount
+      : activeCategories.size > 0
+        ? filteredLoading
+          ? totalCount
+          : filtered.length
+        : totalCount;
 
   const resetFilters = useCallback(() => {
     setQuery("");
@@ -228,9 +327,24 @@ export default function CasesPage() {
     setActiveStyles(new Set());
     setActiveScenes(new Set());
     setActivePlatforms(new Set());
+    setShowFavorites(false);
   }, []);
 
+  const retryLoads = useCallback(() => {
+    setLoadError(null);
+    if (searchError) retrySearch();
+    if (browseMode) void loadMoreBrowse();
+    else setLoadAttempt((value) => value + 1);
+  }, [browseMode, loadMoreBrowse, retrySearch, searchError]);
+
   const favoriteCount = favoriteIds.size;
+  const statusMessage = searchLoading
+    ? "正在搜索完整案例库…"
+    : filteredLoading
+      ? "正在加载匹配案例…"
+      : browseLoading
+        ? "正在加载更多案例…"
+        : null;
 
   return (
     <>
@@ -248,10 +362,11 @@ export default function CasesPage() {
           </h1>
           <button
             type="button"
-            onClick={() => setShowFavorites((v) => !v)}
+            onClick={() => setShowFavorites((value) => !value)}
             disabled={favoriteCount === 0}
+            aria-pressed={showFavorites}
             className={
-              "inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
+              "inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
               (showFavorites
                 ? "border-ember-500/50 bg-ember-500/15 text-ember-100"
                 : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")
@@ -284,19 +399,34 @@ export default function CasesPage() {
         onQueryChange={setQuery}
         activeCategories={activeCategories}
         onCategoriesChange={setActiveCategories}
-        styles={styleOptions}
+        styles={filterOptions?.styles ?? []}
         activeStyles={activeStyles}
         onStylesChange={setActiveStyles}
-        scenes={sceneOptions}
+        scenes={filterOptions?.scenes ?? []}
         activeScenes={activeScenes}
         onScenesChange={setActiveScenes}
         activePlatforms={activePlatforms}
         onPlatformsChange={setActivePlatforms}
         total={totalCount}
         matched={displayedMatchCount}
-        hasActiveFilter={hasActiveFilter}
+        hasActiveFilter={hasActiveFilter || showFavorites}
         onReset={resetFilters}
       />
+
+      <div className="container-narrow" aria-live="polite" aria-atomic="true">
+        {statusMessage && <p className="pb-3 text-sm text-ink-300">{statusMessage}</p>}
+        {(loadError || searchError) && (
+          <div
+            role="alert"
+            className="mb-4 flex flex-col gap-3 rounded-2xl border border-ember-500/25 bg-ember-500/10 px-4 py-3 text-sm text-ink-100 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span>案例库暂时没有加载完整，请重试。</span>
+            <button type="button" onClick={retryLoads} className="btn-ghost shrink-0">
+              重新加载
+            </button>
+          </div>
+        )}
+      </div>
 
       <CaseGrid
         cases={filtered}
@@ -308,7 +438,10 @@ export default function CasesPage() {
         restoreScrollY={restoreTarget?.scrollY}
         restoreTargetTop={restoreTarget?.targetTop}
         onRestored={onRestored}
-        loading={shardsLoading && shardCases.length === 0}
+        loading={(searchLoading || filteredLoading) && filtered.length === 0}
+        loadingMore={browseLoading}
+        hasMoreData={browseMode && browseLoadedCategories.size < BROWSE_CATEGORY_ORDER.length}
+        onLoadMoreData={loadMoreBrowse}
       />
     </>
   );

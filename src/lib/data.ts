@@ -24,6 +24,9 @@ import { fetchWithTimeout } from "./fetchWithTimeout";
 // in BOTH SSG and client bundles. Unlike cases.json (7.4MB), templates don't
 // need sharding.
 import templatesJson from "../../public/data/templates.json";
+import homeData from "../../public/data/cases-home.json";
+
+const DATA_REVISION = (homeData as { revision: string }).revision;
 
 const USER_CATEGORY_KEYS: ReadonlySet<string> = new Set<UserCategoryKey>([
   "xhs-cover",
@@ -204,7 +207,7 @@ export function loadShard(category: string): Promise<PromptCase[]> {
   if (shardCache.has(category)) return Promise.resolve(shardCache.get(category)!);
   if (shardInflight.has(category)) return shardInflight.get(category)!;
 
-  const url = `${import.meta.env.BASE_URL}data/cases-${category}.json`;
+  const url = `${import.meta.env.BASE_URL}data/cases-${category}.json?v=${DATA_REVISION}`;
   const promise = fetchWithTimeout(url, { cache: "force-cache", timeoutMs: 10000 })
     .then((r) => {
       if (!r.ok) throw new Error(`shard ${category}: ${r.status}`);
@@ -246,7 +249,7 @@ export function loadCaseIndex(): Promise<CaseIndexEntry[]> {
   if (caseIndexCache) return Promise.resolve(caseIndexCache);
   if (caseIndexInflight) return caseIndexInflight;
 
-  const url = `${import.meta.env.BASE_URL}data/cases-index.json`;
+  const url = `${import.meta.env.BASE_URL}data/cases-index.json?v=${DATA_REVISION}`;
   caseIndexInflight = fetchWithTimeout(url, { cache: "force-cache", timeoutMs: 10000 })
     .then((r) => {
       if (!r.ok) throw new Error(`cases-index: ${r.status}`);

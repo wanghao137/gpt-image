@@ -7,6 +7,9 @@ interface CaseGridProps {
   favoriteIds: Set<string>;
   onToggleFavorite: (id: string) => void;
   loading?: boolean;
+  loadingMore?: boolean;
+  hasMoreData?: boolean;
+  onLoadMoreData?: () => void;
   onResetFilters?: () => void;
   /** Disable infinite scroll and render all at once. */
   paginate?: boolean;
@@ -26,14 +29,6 @@ interface CaseGridProps {
 
 const PAGE_SIZE = 24;
 
-function getColumnCount() {
-  if (typeof window === "undefined") return 1;
-  if (window.matchMedia("(min-width: 1280px)").matches) return 4;
-  if (window.matchMedia("(min-width: 1024px)").matches) return 3;
-  if (window.matchMedia("(min-width: 640px)").matches) return 2;
-  return 1;
-}
-
 function countForRestore(cases: PromptCase[], paginate: boolean, restoreId?: string | null) {
   if (!paginate) return cases.length;
   if (!restoreId) return PAGE_SIZE;
@@ -44,7 +39,7 @@ function countForRestore(cases: PromptCase[], paginate: boolean, restoreId?: str
 
 function SkeletonCard() {
   return (
-    <div className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40">
+    <div className="break-inside-avoid overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40">
       <div className="aspect-[4/5] animate-pulse bg-gradient-to-br from-ink-850 to-ink-800" />
       <div className="space-y-3 p-4">
         <div className="h-3 w-1/3 animate-pulse rounded bg-ink-800" />
@@ -60,6 +55,9 @@ export function CaseGrid({
   favoriteIds,
   onToggleFavorite,
   loading,
+  loadingMore = false,
+  hasMoreData = false,
+  onLoadMoreData,
   onResetFilters,
   paginate = true,
   priorityCount = 0,
@@ -72,7 +70,6 @@ export function CaseGrid({
   const [visibleCount, setVisibleCount] = useState(() =>
     countForRestore(cases, paginate, restoreId),
   );
-  const [columnCount, setColumnCount] = useState(1);
   const [restoreInProgress, setRestoreInProgress] = useState(false);
   const [restoreLayoutLocked, setRestoreLayoutLocked] = useState(false);
   const [restoreTargetLoaded, setRestoreTargetLoaded] = useState(false);
@@ -99,16 +96,6 @@ export function CaseGrid({
   }, [caseIdsKey, cases, paginate, restoreId]);
 
   useEffect(() => {
-    const updateColumnCount = () => {
-      const next = getColumnCount();
-      setColumnCount((current) => (current === next ? current : next));
-    };
-    updateColumnCount();
-    window.addEventListener("resize", updateColumnCount);
-    return () => window.removeEventListener("resize", updateColumnCount);
-  }, []);
-
-  useEffect(() => {
     setRestoreTargetLoaded(false);
     if (restoreId) {
       setRestoreLayoutLocked(true);
@@ -123,12 +110,19 @@ export function CaseGrid({
     setRestoreTargetLoaded(true);
   }, []);
 
-  const hasMore = paginate && visibleCount < cases.length && !restoreId;
+  const hasMore =
+    paginate && (visibleCount < cases.length || hasMoreData) && !restoreId;
   // Load-more callback kept in a ref so the observer effect below can depend
   // only on `hasMore` (a boolean) rather than `visibleCount`, avoiding an
   // observer disconnect/reconnect on every pagination step.
   const loadMoreRef = useRef<() => void>(() => {});
-  loadMoreRef.current = () => setVisibleCount((c) => Math.min(c + PAGE_SIZE, cases.length));
+  loadMoreRef.current = () => {
+    if (hasMoreData && !loadingMore) onLoadMoreData?.();
+    if (visibleCount < cases.length) {
+      setVisibleCount((count) => Math.min(count + PAGE_SIZE, cases.length));
+      return;
+    }
+  };
 
   useEffect(() => {
     if (!hasMore) return;
@@ -153,13 +147,6 @@ export function CaseGrid({
     () => (restoreId ? visible.some((item) => item.id === restoreId) : false),
     [restoreId, visible],
   );
-  const columns = useMemo(() => {
-    const next = Array.from({ length: columnCount }, () => [] as Array<{ item: PromptCase; index: number }>);
-    visible.forEach((item, index) => {
-      next[index % columnCount].push({ item, index });
-    });
-    return next;
-  }, [columnCount, visible]);
   const baseWrapperClassName = contained ? "container-narrow pb-20" : "pb-20";
   const wrapperClassName = restoreInProgress || restoreLayoutLocked
     ? `${baseWrapperClassName} case-grid-restoring`
@@ -312,44 +299,42 @@ export function CaseGrid({
     );
   }
 
-  const remaining = cases.length - visibleCount;
+  const remaining = Math.max(0, cases.length - visibleCount);
+  const canLoadMore = remaining > 0 || hasMoreData;
 
   return (
     <div className={wrapperClassName}>
       <div className="masonry">
-        {columns.map((column, columnIndex) => (
-          <div key={columnIndex} className="masonry-column">
-            {column.map(({ item, index }) => {
-              const isRestoreTarget = restoreId === item.id;
-              return (
-                <CaseCard
-                  key={item.id}
-                  data={item}
-                  favorited={favoriteIds.has(item.id)}
-                  onToggleFavorite={onToggleFavorite}
-                  priority={index < priorityCount}
-                  onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
-                />
-              );
-            })}
-          </div>
-        ))}
+        {visible.map((item, index) => {
+          const isRestoreTarget = restoreId === item.id;
+          return (
+            <CaseCard
+              key={item.id}
+              data={item}
+              favorited={favoriteIds.has(item.id)}
+              onToggleFavorite={onToggleFavorite}
+              priority={index < priorityCount}
+              onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
+            />
+          );
+        })}
       </div>
 
-      {paginate && remaining > 0 && (
+      {paginate && canLoadMore && (
         <div ref={sentinelRef} className="mt-8 flex flex-col items-center justify-center gap-3">
           <button
             type="button"
-            onClick={() => setVisibleCount((c) => Math.min(c + PAGE_SIZE, cases.length))}
+            onClick={loadMoreRef.current}
+            disabled={loadingMore}
             className="btn-ghost"
           >
-            加载更多
-            <span className="text-ink-400">· 还剩 {remaining}</span>
+            {loadingMore ? "正在加载更多案例…" : "加载更多"}
+            {remaining > 0 && <span className="text-ink-400">· 还剩 {remaining}</span>}
           </button>
         </div>
       )}
 
-      {paginate && remaining === 0 && cases.length > PAGE_SIZE && (
+      {paginate && !canLoadMore && cases.length > PAGE_SIZE && (
         <p className="mt-10 text-center text-xs text-ink-500">已显示全部 {cases.length} 个案例</p>
       )}
     </div>

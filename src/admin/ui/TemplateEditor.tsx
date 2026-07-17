@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { ManualTemplate } from "../types";
 import { CATEGORIES } from "../config";
-import { collides, formatContentDate, summarize } from "../utils";
+import { formatContentDate, summarize } from "../utils";
 import { inferTemplateFields } from "../content-automation-core.mjs";
+import { validateManualTemplates } from "../template-validation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
 import { ImageDrop } from "./ImageDrop";
@@ -65,21 +66,14 @@ export function TemplateEditor({
     setActiveIdx(Math.min(activeIdx, next.length - 1));
   };
 
-  const collisions = useMemo(
-    () =>
-      templates.map((t, i) => (t.id ? collides(templates, t.id, i) : false)),
-    [templates],
-  );
-
   const handleSave = async () => {
-    const issues: string[] = [];
-    templates.forEach((t, i) => {
-      if (!t.id.trim()) issues.push(`第 ${i + 1} 条缺少 id`);
-      if (!t.title.trim()) issues.push(`#${t.id || i + 1} 缺少 title`);
-      if (collisions[i]) issues.push(`#${t.id} ID 重复`);
-    });
+    const issues = validateManualTemplates(templates);
     if (issues.length > 0) {
-      toast.push(`保存被阻止：${issues[0]}`, "error");
+      setActiveIdx(issues[0].index);
+      toast.push(
+        `保存被阻止：${issues[0].message}${issues.length > 1 ? `（另有 ${issues.length - 1} 项）` : ""}`,
+        "error",
+      );
       return;
     }
     const summary = active ? summarize(active.title || active.id) : "manual templates";

@@ -25,6 +25,8 @@ export interface HomeData {
   /** First CasesPage batch, shared by SSG and the initial client render. */
   initial: PromptCase[];
   tiles: HomeTile[];
+  /** Content hash used to invalidate browser-cached generated data files. */
+  revision: string;
   totalCount: number;
   recentCount: number;
 }

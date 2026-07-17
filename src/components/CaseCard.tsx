@@ -147,10 +147,9 @@ function FolderIcon() {
  * Editorial-grade case card.
  *
  * Layout:
- *   - Mobile: image → title (one line) → primary action row (Copy + Favorite).
- *     The category/tag eyebrow that used to live on the card is now reachable
- *     via long-press menu — fewer touch targets fighting for the user's
- *     thumb, and no "I tapped the title but landed on a category" surprises.
+ *   - Mobile: controlled preview image with title/source/actions overlaid at
+ *     the bottom, so identity + Copy Prompt are visible before the user scrolls
+ *     through the full image height. Full uncropped media remains in detail.
  *   - Desktop: same image, but the secondary metadata row (category · tags)
  *     stays visible. Pointer precision is fine, info density is welcome.
  *
@@ -195,6 +194,10 @@ function CaseCardImpl({
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
+  const mediaRatio =
+    naturalImageRatio?.caseId === data.id && naturalImageRatio.imageUrl === data.imageUrl
+      ? naturalImageRatio.aspectRatio
+      : String(aspectStyle(data.ratio).aspectRatio ?? "4 / 5");
 
   const rememberReturn = useCallback(() => {
     rememberCaseReturn(
@@ -314,19 +317,15 @@ function CaseCardImpl({
         style={{ WebkitTouchCallout: "none" }}
         className="case-card group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
       >
-        <Link
-          to={detailHref}
-          onClick={rememberReturn}
-          className="relative block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/50"
-          aria-label={`查看 ${accessibleCaseLabel(data)}`}
+        <div
+          className="case-card-media relative overflow-hidden bg-ink-850"
+          style={{ "--case-media-ratio": mediaRatio } as React.CSSProperties}
         >
-          <div
-            className="relative overflow-hidden bg-ink-850"
-            style={
-              naturalImageRatio?.caseId === data.id && naturalImageRatio.imageUrl === data.imageUrl
-                ? { aspectRatio: naturalImageRatio.aspectRatio }
-                : aspectStyle(data.ratio)
-            }
+          <Link
+            to={detailHref}
+            onClick={rememberReturn}
+            className="absolute inset-0 block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ember-500/50"
+            aria-label={`查看 ${accessibleCaseLabel(data)}`}
           >
             {imgErr ? (
               <img
@@ -361,32 +360,7 @@ function CaseCardImpl({
               />
             )}
 
-            {/* Hover-only gradient frames the image without polluting default state. */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-            {/* Favorite — always visible on mobile (with stronger contrast),
-                hover-only on desktop. */}
-            <button
-              type="button"
-              data-no-longpress
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onToggleFavorite(data.id);
-              }}
-              aria-label={favorited ? "取消收藏" : "收藏"}
-              className={
-                // Mobile: h-11 w-11 (44px) meets WCAG 2.5.5 target size. Desktop
-                // keeps the compact sm:h-8 since the heart is hover-revealed there
-                // (mouse precision is high and the action is secondary).
-                "absolute right-2.5 top-2.5 grid h-11 w-11 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
-                (favorited
-                  ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
-                  : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
-              }
-            >
-              <HeartIcon filled={favorited} />
-            </button>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-1/2 bg-gradient-to-t from-ink-950/90 via-ink-950/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100 sm:block" />
 
             {/* Hover overlay: author + view affordance (desktop) */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden items-end justify-between gap-2 p-3 opacity-0 transition duration-500 group-hover:opacity-100 sm:flex">
@@ -402,26 +376,43 @@ function CaseCardImpl({
                 <ArrowRightIcon />
               </span>
             </div>
-
-          </div>
-        </Link>
-
-        {/* MOBILE FOOTER — single-line title, author/source row, primary action */}
-        <div className="flex flex-col gap-2 px-3 pb-3 pt-2.5 sm:hidden">
-          <Link
-            to={detailHref}
-            onClick={rememberReturn}
-            className="block text-[14px] font-semibold leading-snug text-ink-50 transition group-hover:text-ember-200"
-          >
-            <span className="line-clamp-1">{data.title}</span>
           </Link>
-          {data.source && (
-            <div className="flex items-center gap-1 text-[11.5px] text-ink-400">
-              <SourceDot />
-              <span className="truncate">{data.source}</span>
+
+          <button
+            type="button"
+            data-no-longpress
+            onClick={(event) => {
+              event.stopPropagation();
+              onToggleFavorite(data.id);
+            }}
+            aria-label={favorited ? "取消收藏" : "收藏"}
+            aria-pressed={favorited}
+            className={
+              "absolute right-2.5 top-2.5 z-20 grid h-11 w-11 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
+              (favorited
+                ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
+                : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
+            }
+          >
+            <HeartIcon filled={favorited} />
+          </button>
+
+          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-ink-950 via-ink-950/90 to-transparent px-3 pb-3 pt-14 sm:hidden">
+            <Link
+              to={detailHref}
+              onClick={rememberReturn}
+              className="block rounded-sm text-[14px] font-semibold leading-snug text-ink-50 transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+            >
+              <span className="line-clamp-1">{data.title}</span>
+            </Link>
+            <div className="flex items-center justify-between gap-2 text-[11.5px] text-ink-300">
+              <span className="inline-flex min-w-0 items-center gap-1">
+                <SourceDot />
+                <span className="truncate">{data.source || userCategoryLabel(data.userCategory)}</span>
+              </span>
+              <span className="shrink-0 text-ink-400">{userCategoryLabel(data.userCategory)}</span>
             </div>
-          )}
-          <div className="flex items-center gap-2" data-no-longpress>
+            <div className="flex items-center gap-2" data-no-longpress>
             <button
               type="button"
               onClick={(e) => {
@@ -432,7 +423,7 @@ function CaseCardImpl({
               disabled={copying}
               aria-label="复制 Prompt"
               className={
-                "inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-xl text-[13.5px] font-semibold transition disabled:opacity-60 " +
+                "inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-xl text-[13.5px] font-semibold transition disabled:opacity-60 " +
                 (state === "copied"
                   ? "bg-emerald-400/95 text-ink-950"
                   : state === "error"
@@ -466,6 +457,7 @@ function CaseCardImpl({
             >
               <DotsIcon />
             </button>
+            </div>
           </div>
         </div>
 
@@ -537,7 +529,7 @@ function CaseCardImpl({
             ) : (
               <>
                 <CopyIcon />
-                <span>复制</span>
+                <span>复制 Prompt</span>
               </>
             )}
           </button>

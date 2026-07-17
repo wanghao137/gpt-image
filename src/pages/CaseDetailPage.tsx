@@ -266,6 +266,29 @@ export default function CaseDetailPage() {
         </button>
       </div>
 
+      <div className="container-narrow pt-5 lg:hidden">
+        <p className="eyebrow">{meta?.label ?? userCategoryLabel(c.userCategory)}</p>
+        <h1 className="mt-2 text-[26px] font-semibold leading-tight tracking-[-0.025em] text-ink-50 text-balance">
+          {c.title}
+        </h1>
+        {c.titleEn && c.titleEn !== c.title && (
+          <p className="mt-2 text-[13px] leading-relaxed text-ink-400">{c.titleEn}</p>
+        )}
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {(c.platforms ?? []).map((platform) => (
+            <Chip key={platform} label={platformLabel(platform)} />
+          ))}
+          {tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="inline-flex items-center rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-0.5 text-[11.5px] font-medium text-ink-300"
+            >
+              {tagLabel(tag)}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <article className="container-narrow grid gap-7 pb-12 pt-5 lg:grid-cols-12 lg:gap-10">
         {/* IMAGE side — sticky on desktop, true ratio (no black bars). */}
         <div className="lg:col-span-7">
@@ -317,27 +340,28 @@ export default function CaseDetailPage() {
 
         {/* INFO side */}
         <div className="flex flex-col lg:col-span-5">
-          <p className="eyebrow">{meta?.label ?? userCategoryLabel(c.userCategory)}</p>
-          <h1 className="mt-2 text-[24px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[40px]">
-            {c.title}
-          </h1>
-          {c.titleEn && c.titleEn !== c.title && (
-            <p className="mt-2 text-[13px] leading-relaxed text-ink-400">{c.titleEn}</p>
-          )}
+          <div className="hidden lg:block">
+            <p className="eyebrow">{meta?.label ?? userCategoryLabel(c.userCategory)}</p>
+            <h1 className="mt-2 text-[40px] font-normal leading-tight tracking-[-0.02em] text-ink-50 serif-display text-balance">
+              {c.title}
+            </h1>
+            {c.titleEn && c.titleEn !== c.title && (
+              <p className="mt-2 text-[13px] leading-relaxed text-ink-400">{c.titleEn}</p>
+            )}
 
-          {/* Meta chips: scenarios + platforms only — ratio/difficulty already in stat strip */}
-          <div className="mt-5 flex flex-wrap gap-1.5">
-            {(c.platforms ?? []).map((p) => (
-              <Chip key={p} label={platformLabel(p)} />
-            ))}
-            {tags.slice(0, 5).map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-0.5 text-[11.5px] font-medium text-ink-300"
-              >
-                {tagLabel(t)}
-              </span>
-            ))}
+            <div className="mt-5 flex flex-wrap gap-1.5">
+              {(c.platforms ?? []).map((platform) => (
+                <Chip key={platform} label={platformLabel(platform)} />
+              ))}
+              {tags.slice(0, 5).map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-0.5 text-[11.5px] font-medium text-ink-300"
+                >
+                  {tagLabel(tag)}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Prompt block — toolbar over scroller. */}
@@ -402,7 +426,7 @@ export default function CaseDetailPage() {
                       "失败"
                     ) : (
                       <>
-                        <CopyIcon /> 复制
+                        <CopyIcon /> 复制 Prompt
                       </>
                     )}
                   </button>

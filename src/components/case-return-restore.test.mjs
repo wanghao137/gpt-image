@@ -45,6 +45,8 @@ test("case return restore uses the captured viewport position before falling bac
 test("cached images keep their decoded ratio when a card remounts after detail navigation", () => {
   assert.match(caseCard, /naturalImageRatio\?\.caseId === data\.id/);
   assert.match(caseCard, /naturalImageRatio\.imageUrl === data\.imageUrl/);
-  assert.match(caseCard, /aspectRatio: naturalImageRatio\.aspectRatio/);
+  assert.match(caseCard, /\? naturalImageRatio\.aspectRatio/);
+  assert.match(caseCard, /--case-media-ratio/);
+  assert.match(css, /aspect-ratio:\s*var\(--case-media-ratio/);
   assert.doesNotMatch(caseCard, /setNaturalAspectRatio\(null\)/);
 });
