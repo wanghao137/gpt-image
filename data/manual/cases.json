@@ -1,5 +1,29 @@
 [
   {
+    "id": "100174",
+    "title": "蜡笔手绘风格插画转换模板",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Creative"
+    ],
+    "tags": [
+      "Illustration",
+      "Cinematic",
+      "Minimal",
+      "Editorial",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-07-19-case-mdmadeit-crayon-illustration.jpg",
+    "imageAlt": "蜡笔手绘风格插画转换模板",
+    "prompt": "Rework the given image into a crayon-style illustration, transforming the entire scene into something that feels hand-drawn by a 10-year-old. Keep the forms simple and slightly imperfect, like a child's drawing.\n\nAvoid using the original color palette—replace it with bright, playful crayon colors on a clean white paper background. Aim for a soft, cute, and innocent aesthetic.\n\nIncorporate fun, childlike details such as castles or towers, candy, stars, clouds, and other whimsical decorations to amplify the playful vibe.\n\nThe final result should feel charming, colorful, and full of childlike imagination.",
+    "promptPreview": "Rework the given image into a crayon-style illustration, transforming the entire scene into something that feels hand-drawn by a 10-year-old. Keep the forms simple and slightly imperfect, like a child's drawing. Avoid u…",
+    "source": "Community collected via @mdmadeit",
+    "createdAt": "2026-07-18T20:03:18.725Z"
+  },
+  {
     "id": "100173",
     "title": "荷风素影·后印象派花卉编辑海报",
     "category": "插画与艺术",
