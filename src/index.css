@@ -474,6 +474,124 @@
   }
 
   /*
+   * Case-detail route transition: a restrained photographic darkroom rather
+   * than a generic spinner. One slow light pass communicates progress while
+   * the fixed frame and prompt geometry preserve the final page silhouette.
+   */
+  .case-detail-loading-frame {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.025),
+      0 28px 70px -48px rgba(0, 0, 0, 0.78);
+  }
+  .case-detail-loading-frame::after {
+    content: "";
+    position: absolute;
+    inset: -35% -55%;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 36%,
+      rgba(217, 119, 87, 0.035) 44%,
+      rgba(255, 220, 197, 0.11) 50%,
+      rgba(217, 119, 87, 0.035) 56%,
+      transparent 64%
+    );
+    transform: translate3d(-38%, 0, 0);
+    animation: caseDetailDevelop 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .case-detail-loading-grid {
+    opacity: 0.22;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 72%);
+            mask-image: radial-gradient(circle at center, black, transparent 72%);
+  }
+  .case-detail-loading-mark {
+    animation: caseDetailMarkBreathe 2.8s ease-in-out infinite;
+  }
+  .case-detail-loading-dot {
+    box-shadow: 0 0 0 0 rgba(217, 119, 87, 0.35);
+    animation: caseDetailDot 1.8s ease-out infinite;
+  }
+  .case-detail-loading-progress {
+    animation: caseDetailProgress 1.8s ease-in-out infinite;
+  }
+  .case-detail-loading-line {
+    position: relative;
+    overflow: hidden;
+  }
+  .case-detail-loading-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.055), transparent);
+    transform: translateX(-100%);
+    animation: caseDetailLine 2.4s ease-in-out infinite;
+  }
+  @keyframes caseDetailDevelop {
+    0% { transform: translate3d(-38%, 0, 0); }
+    100% { transform: translate3d(38%, 0, 0); }
+  }
+  @keyframes caseDetailMarkBreathe {
+    0%, 100% { transform: translateY(0); border-color: rgba(255, 255, 255, 0.1); }
+    50% { transform: translateY(-3px); border-color: rgba(217, 119, 87, 0.24); }
+  }
+  @keyframes caseDetailDot {
+    0% { box-shadow: 0 0 0 0 rgba(217, 119, 87, 0.3); }
+    70%, 100% { box-shadow: 0 0 0 6px rgba(217, 119, 87, 0); }
+  }
+  @keyframes caseDetailProgress {
+    0% { transform: translateX(-120%); }
+    55%, 100% { transform: translateX(220%); }
+  }
+  @keyframes caseDetailLine {
+    0%, 24% { transform: translateX(-100%); }
+    70%, 100% { transform: translateX(100%); }
+  }
+
+  :root[data-theme="light"] .case-detail-loading-status,
+  :root[data-theme="light"] .case-detail-loading-frame,
+  :root[data-theme="light"] .case-detail-loading .border-white\/\[0\.08\],
+  :root[data-theme="light"] .case-detail-loading .border-white\/\[0\.07\],
+  :root[data-theme="light"] .case-detail-loading .border-white\/\[0\.06\] {
+    border-color: rgba(104, 79, 55, 0.16);
+  }
+  :root[data-theme="light"] .case-detail-loading-frame {
+    background: rgba(244, 238, 229, 0.58);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 28px 70px -48px rgba(80, 55, 34, 0.34);
+  }
+  :root[data-theme="light"] .case-detail-loading-mark {
+    background: rgba(255, 252, 247, 0.74);
+    border-color: rgba(104, 79, 55, 0.16);
+  }
+  :root[data-theme="light"] .case-detail-loading-grid {
+    opacity: 0.45;
+    background-image:
+      linear-gradient(rgba(104, 79, 55, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(104, 79, 55, 0.06) 1px, transparent 1px);
+  }
+  :root[data-theme="light"] .case-detail-loading-fill {
+    background-color: rgba(104, 79, 55, 0.09);
+  }
+  :root[data-theme="light"] .case-detail-loading-fill-strong {
+    background-color: rgba(104, 79, 55, 0.14);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-detail-loading-frame::after,
+    .case-detail-loading-mark,
+    .case-detail-loading-dot,
+    .case-detail-loading-progress,
+    .case-detail-loading-line::after {
+      animation: none;
+    }
+  }
+
+  /*
    * Ken Burns slow zoom for the hero. Used on the home page main hero
    * image to keep the landing surface "alive" without distracting motion.
    *

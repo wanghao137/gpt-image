@@ -14,6 +14,7 @@ import { CaseGrid } from "../components/CaseGrid";
 import { SEO, SITE } from "../components/SEO";
 import { StickyMobileActions } from "../components/StickyMobileActions";
 import { ImageLightbox } from "../components/ImageLightbox";
+import { PeachLogoMark } from "../components/BrandLogo";
 import { useCopy } from "../hooks/useCopy";
 import { useFavorites } from "../hooks/useFavorites";
 import { usePrompt } from "../hooks/usePrompt";
@@ -36,6 +37,119 @@ function ratioStyle(ratio: string): React.CSSProperties {
   const [w, h] = ratio.split(":").map((n) => Number(n.trim()));
   if (!w || !h) return { aspectRatio: "4 / 5" };
   return { aspectRatio: `${w} / ${h}` };
+}
+
+/**
+ * A route-level loading state for client-side case navigation.
+ *
+ * It deliberately mirrors the final detail composition instead of collapsing
+ * the page to a spinner. That keeps the footer below the fold, gives users an
+ * immediate sense of place, and avoids a second large layout change when the
+ * case shard finishes resolving.
+ */
+function CaseDetailLoading() {
+  return (
+    <section
+      className="case-detail-loading container-narrow min-h-[calc(100svh-4rem)] pb-16 pt-7 sm:pt-8"
+      aria-label="正在加载案例详情"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <div className="flex items-center justify-between gap-4 text-[12px] text-ink-500">
+        <div className="flex items-center gap-2" aria-hidden="true">
+          <span className="case-detail-loading-fill h-3 w-10 rounded-full bg-white/[0.07]" />
+          <span className="text-ink-700">/</span>
+          <span className="case-detail-loading-fill h-3 w-14 rounded-full bg-white/[0.07]" />
+          <span className="text-ink-700">/</span>
+          <span className="case-detail-loading-fill h-3 w-20 rounded-full bg-white/[0.05]" />
+        </div>
+        <div className="case-detail-loading-status inline-flex shrink-0 items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.025] px-3 py-1.5 text-ink-400">
+          <span className="case-detail-loading-dot h-1.5 w-1.5 rounded-full bg-ember-400" />
+          正在准备案例
+        </div>
+      </div>
+
+      <div className="mt-5 lg:hidden" aria-hidden="true">
+        <div className="h-3 w-24 rounded-full bg-ember-400/20" />
+        <div className="case-detail-loading-fill-strong mt-3 h-8 w-[88%] rounded-lg bg-white/[0.075]" />
+        <div className="case-detail-loading-fill mt-2 h-8 w-[62%] rounded-lg bg-white/[0.055]" />
+        <div className="mt-4 flex gap-2">
+          <span className="case-detail-loading-fill h-7 w-16 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+          <span className="case-detail-loading-fill h-7 w-20 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+          <span className="case-detail-loading-fill h-7 w-14 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+        </div>
+      </div>
+
+      <div className="mt-5 grid gap-7 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-7">
+          <div className="case-detail-loading-frame relative min-h-[27rem] overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-900/45 sm:min-h-[34rem] lg:min-h-[min(72vh,48rem)]">
+            <div className="case-detail-loading-grid absolute inset-0" aria-hidden="true" />
+            <span className="case-detail-loading-corner absolute left-4 top-4 h-8 w-8 border-l border-t border-ember-400/35" aria-hidden="true" />
+            <span className="case-detail-loading-corner absolute bottom-4 right-4 h-8 w-8 border-b border-r border-ember-400/35" aria-hidden="true" />
+
+            <div className="absolute inset-0 grid place-items-center px-8 text-center">
+              <div className="relative flex max-w-xs flex-col items-center">
+                <div className="case-detail-loading-mark relative grid h-20 w-20 place-items-center rounded-full border border-white/[0.1] bg-ink-950/55 shadow-soft backdrop-blur-sm">
+                  <span className="absolute inset-2 rounded-full border border-ember-400/15" aria-hidden="true" />
+                  <PeachLogoMark className="relative h-11 w-11 drop-shadow-[0_12px_28px_rgba(217,119,87,0.28)]" />
+                </div>
+                <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.24em] text-ember-300">
+                  Developing artwork
+                </p>
+                <p className="mt-2 text-xl font-medium tracking-[-0.02em] text-ink-100">
+                  正在显影案例
+                </p>
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-500">
+                  高清作品与完整 Prompt 即将呈现
+                </p>
+                <div className="mt-6 h-px w-32 overflow-hidden rounded-full bg-white/[0.08]" aria-hidden="true">
+                  <span className="case-detail-loading-progress block h-full w-1/2 bg-gradient-to-r from-transparent via-ember-400 to-transparent" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:col-span-5" aria-hidden="true">
+          <div className="hidden lg:block">
+            <div className="h-3 w-24 rounded-full bg-ember-400/20" />
+            <div className="case-detail-loading-fill-strong mt-4 h-10 w-[88%] rounded-xl bg-white/[0.075]" />
+            <div className="case-detail-loading-fill mt-2.5 h-10 w-[64%] rounded-xl bg-white/[0.055]" />
+            <div className="mt-5 flex gap-2">
+              <span className="case-detail-loading-fill h-7 w-16 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+              <span className="case-detail-loading-fill h-7 w-20 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+              <span className="case-detail-loading-fill h-7 w-14 rounded-full border border-white/[0.06] bg-white/[0.035]" />
+            </div>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-950/45">
+            <div className="flex h-13 items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+              <span className="case-detail-loading-fill-strong h-3 w-16 rounded-full bg-white/[0.09]" />
+              <span className="h-8 w-24 rounded-full bg-ember-400/20" />
+            </div>
+            <div className="space-y-3.5 p-5">
+              {[94, 88, 97, 76, 91, 58].map((width) => (
+                <span
+                  key={width}
+                  className="case-detail-loading-line case-detail-loading-fill block h-2.5 rounded-full bg-white/[0.055]"
+                  style={{ width: `${width}%` }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex gap-2">
+              <span className="case-detail-loading-fill h-9 w-24 rounded-full border border-white/[0.07] bg-white/[0.025]" />
+              <span className="case-detail-loading-fill h-9 w-20 rounded-full border border-white/[0.07] bg-white/[0.025]" />
+            </div>
+            <span className="case-detail-loading-fill h-3 w-16 rounded-full bg-white/[0.045]" />
+          </div>
+        </div>
+      </div>
+      <span className="sr-only">正在加载案例详情，请稍候。</span>
+    </section>
+  );
 }
 
 /**
@@ -130,10 +244,7 @@ export default function CaseDetailPage() {
   // before resolving from the shard. Only show 404 if loading is done and no case.
   if (!c) {
     if (loading && !import.meta.env.SSR) {
-      // Client-side loading: keep the SSG'd content visible by rendering
-      // nothing (React preserves the existing DOM during hydration). The
-      // case will resolve from the shard shortly.
-      return null;
+      return <CaseDetailLoading />;
     }
     return <NotFoundPage />;
   }
