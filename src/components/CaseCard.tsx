@@ -36,12 +36,12 @@ const FALLBACK =
      </svg>`,
   );
 
-/** Map a ratio string like "9:16" to a CSS aspect-ratio value. */
-function aspectStyle(ratio: string): React.CSSProperties {
-  if (!ratio) return { aspectRatio: "4 / 5" };
+/** Reserve the declared shape until the real image dimensions are decoded. */
+function ratioDimensions(ratio: string): { width: number; height: number } {
+  if (!ratio) return { width: 800, height: 1000 };
   const [w, h] = ratio.split(":").map((n) => Number(n.trim()));
-  if (!w || !h) return { aspectRatio: "4 / 5" };
-  return { aspectRatio: `${w} / ${h}` };
+  if (!w || !h) return { width: 800, height: 1000 };
+  return { width: 800, height: Math.max(1, Math.round((800 * h) / w)) };
 }
 
 function tagsOf(data: PromptCase) {
@@ -192,7 +192,7 @@ function CaseCardImpl({
   const suppressNextClickRef = useRef(false);
   const tags = tagsOf(data);
   const detailHref = `/case/${data.slug}`;
-  const mediaRatio = String(aspectStyle(data.ratio).aspectRatio ?? "4 / 5");
+  const imageDimensions = ratioDimensions(data.imageRatio || data.ratio);
 
   const rememberReturn = useCallback(() => {
     rememberCaseReturn(
@@ -312,39 +312,37 @@ function CaseCardImpl({
         style={{ WebkitTouchCallout: "none" }}
         className="case-card group relative overflow-hidden rounded-2xl border border-white/[0.05] bg-ink-900/40 transition duration-500 hover:border-white/15 hover:shadow-soft"
       >
-        <div
-          className="case-card-media relative overflow-hidden bg-ink-850"
-          style={{ "--case-media-ratio": mediaRatio } as React.CSSProperties}
-        >
+        <div className="case-card-media relative overflow-hidden bg-ink-850">
           <Link
             to={detailHref}
             onClick={rememberReturn}
-            className="absolute inset-0 block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ember-500/50"
+            className="relative block text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ember-500/50"
             aria-label={`查看 ${accessibleCaseLabel(data)}`}
           >
             {imgErr ? (
               <img
                 src={FALLBACK}
                 alt={data.imageAlt || data.title}
-                width={640}
-                height={800}
+                width={imageDimensions.width}
+                height={imageDimensions.height}
                 onLoad={onImageLoad}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="block h-auto w-full"
               />
             ) : (
               <SmartImg
                 src={data.imageUrl}
                 alt={data.imageAlt || data.title}
-                width={640}
-                height={800}
+                width={imageDimensions.width}
+                height={imageDimensions.height}
                 widths={[280, 420, 560, 800]}
                 baseWidth={280}
                 sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                 loading={priority ? "eager" : "lazy"}
                 fetchPriority={priority ? "high" : "auto"}
+                preserveAspectRatio
                 onLoad={onImageLoad}
                 onError={() => setImgErr(true)}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                className="relative block w-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />
             )}
 

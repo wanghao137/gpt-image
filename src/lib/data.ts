@@ -232,6 +232,43 @@ export function getCachedShard(category: string): PromptCase[] | undefined {
   return shardCache.get(category);
 }
 
+const browsePageCache = new Map<number, PromptCase[]>();
+const browsePageInflight = new Map<number, Promise<PromptCase[]>>();
+
+/** Fetch one globally ordered browse page. Unlike category shards, pages do not overlap. */
+export function loadBrowsePage(page: number): Promise<PromptCase[]> {
+  if (browsePageCache.has(page)) return Promise.resolve(browsePageCache.get(page)!);
+  if (browsePageInflight.has(page)) return browsePageInflight.get(page)!;
+
+  const filename = `page-${String(page).padStart(3, "0")}.json`;
+  const url = `${import.meta.env.BASE_URL}data/browse/${filename}?v=${DATA_REVISION}`;
+  const promise = fetchWithTimeout(url, { cache: "force-cache", timeoutMs: 10000 })
+    .then((response) => {
+      if (!response.ok) throw new Error(`browse page ${page}: ${response.status}`);
+      return response.json();
+    })
+    .then((data: PromptCase[]) => {
+      browsePageCache.set(page, data);
+      browsePageInflight.delete(page);
+      return data;
+    })
+    .catch((error) => {
+      browsePageInflight.delete(page);
+      throw error;
+    });
+
+  browsePageInflight.set(page, promise);
+  return promise;
+}
+
+export function getCachedBrowsePages(): PromptCase[][] {
+  const pages: PromptCase[][] = [];
+  for (let index = 0; browsePageCache.has(index); index += 1) {
+    pages.push(browsePageCache.get(index)!);
+  }
+  return pages;
+}
+
 // ── cases-index.json loading ──
 
 export interface CaseIndexEntry {

@@ -18,6 +18,8 @@ import {
   summarizePromptLocales,
 } from "./upstream-locales.mjs";
 import { repairRecentPromptLocales } from "./upstream-localized-pages.mjs";
+import sharp from "sharp";
+import { inferExplicitRatio, ratioFromDimensions } from "./ratio-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -251,6 +253,7 @@ function normalizeCase(item, officialLocales) {
   // locale export keep their original English title instead of mixed Chinglish.
   const rawTitle = item.title || `案例 ${item.id}`;
   const titleZh = official?.zh?.title;
+  const ratio = inferExplicitRatio(rawTitle, titleZh, description, promptEn, promptZh);
   return {
     id: String(item.id),
     title: titleZh || rawTitle,
@@ -268,7 +271,51 @@ function normalizeCase(item, officialLocales) {
     source: "YouMind",
     githubUrl: undefined,
     createdAt: inferContentDate(item),
+    ratio: ratio || undefined,
   };
+}
+
+async function detectRemoteRatio(imageUrl) {
+  if (!imageUrl) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  try {
+    const proxyUrl = new URL("https://wsrv.nl/");
+    proxyUrl.searchParams.set("url", imageUrl.replace(/^https?:\/\//i, ""));
+    proxyUrl.searchParams.set("w", "64");
+    proxyUrl.searchParams.set("output", "webp");
+    const response = await fetch(proxyUrl, {
+      headers: { "user-agent": "gpt-image-gallery-sync/1.0", accept: "image/*" },
+      signal: controller.signal,
+    });
+    if (!response.ok) return null;
+    const metadata = await sharp(Buffer.from(await response.arrayBuffer())).metadata();
+    return ratioFromDimensions(metadata.width, metadata.height);
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function enrichNewCaseRatios(cases, cachedCaseById, concurrency = 8) {
+  const pending = cases.filter(
+    (item) => !cachedCaseById.get(String(item.id))?.imageRatio,
+  );
+  let cursor = 0;
+  const workers = Array.from({ length: Math.min(concurrency, pending.length) }, async () => {
+    for (;;) {
+      const index = cursor++;
+      if (index >= pending.length) return;
+      const item = pending[index];
+      item.imageRatio = (await detectRemoteRatio(item.imageUrl)) || undefined;
+    }
+  });
+  await Promise.all(workers);
+  if (pending.length > 0) {
+    const resolved = pending.filter((item) => item.imageRatio).length;
+    console.log(`resolved real image ratios for ${resolved}/${pending.length} new cases`);
+  }
 }
 
 function writeJson(relativePath, data, opts = {}) {
@@ -367,6 +414,8 @@ function normalizeManualCase(item) {
     source: item.source || undefined,
     githubUrl: item.githubUrl || undefined,
     createdAt: inferContentDate(item),
+    ratio: item.ratio || undefined,
+    imageRatio: item.imageRatio || undefined,
     hidden: Boolean(item.hidden),
   };
 }
@@ -457,6 +506,7 @@ async function main() {
     upstreamCases = rawUpstreamCases
       .map((item) => normalizeCase(item, officialLocales))
       .filter((item) => item.imageUrl && item.prompt);
+    await enrichNewCaseRatios(upstreamCases, cachedCaseById);
   } catch (error) {
     upstreamOk = false;
     if (!OPTIONAL) throw error;
@@ -560,6 +610,8 @@ async function main() {
     if (c.styles?.length) row.styles = c.styles;
     if (c.scenes?.length) row.scenes = c.scenes;
     if (c.githubUrl) row.githubUrl = c.githubUrl;
+    if (c.ratio || cached?.ratio) row.ratio = c.ratio || cached.ratio;
+    if (c.imageRatio || cached?.imageRatio) row.imageRatio = c.imageRatio || cached.imageRatio;
     return row;
   });
 

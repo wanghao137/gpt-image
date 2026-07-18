@@ -38,6 +38,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pinyin } from "pinyin-pro";
 import { classifyCase } from "./classify-core.mjs";
+import { inferCaseRatio, inferExplicitRatio } from "./ratio-core.mjs";
 import {
   deriveTemplatesFromCases,
   getTemplateDerivationBase,
@@ -106,25 +107,15 @@ function classify(c) {
 
 // ───────────────────────────────────────────── ratio ──
 
-function inferRatio(c) {
-  const t = `${c.title || ""} ${c.promptPreview || ""}`.toLowerCase();
-  const explicit = t.match(
-    /\b(9\s*[:×x]\s*16|16\s*[:×x]\s*9|3\s*[:×x]\s*4|4\s*[:×x]\s*5|2\s*[:×x]\s*3|1\s*[:×x]\s*1|a4|vertical\s+poster|portrait\s+9:?16)\b/,
-  );
-  if (explicit) {
-    const v = explicit[1].replace(/\s+/g, "").replace(/[×x]/, ":");
-    if (v === "a4" || v.startsWith("vertical") || v.startsWith("portrait")) return "3:4";
-    return v;
+function promptTextForCase(id) {
+  try {
+    const payload = JSON.parse(
+      readFileSync(resolve(ROOT, `public/data/prompts/${id}.json`), "utf8"),
+    );
+    return [payload.prompt, payload.promptEn, payload.promptZh].filter(Boolean).join(" ");
+  } catch {
+    return "";
   }
-  const cat = c.category || "";
-  if (/海报|Poster|排版/.test(cat)) return "9:16";
-  if (/UI|界面|Dashboard|Screenshot/i.test(cat)) return "16:9";
-  if (/信息图|Infographic|图表/.test(cat)) return "3:4";
-  if (/角色|人物|Portrait|写真/.test(cat)) return "4:5";
-  if (/产品|电商|Product/.test(cat)) return "1:1";
-  if (/建筑|Architecture/.test(cat)) return "16:9";
-  if (/场景|叙事|Storyboard/.test(cat)) return "16:9";
-  return "4:5";
 }
 
 // ───────────────────────────────────────── platforms ──
@@ -140,7 +131,7 @@ function inferPlatforms(c, primary) {
 
   if (list.length === 0) {
     // Sensible fallback by primary bucket and ratio.
-    const ratio = inferRatio(c);
+    const ratio = inferCaseRatio(c);
     if (primary === "xhs-cover") list.push("xiaohongshu");
     else if (primary === "wechat-grid") list.push("wechat");
     else if (primary === "ecommerce") list.push("ec");
@@ -195,8 +186,13 @@ const next = raw.map((c) => {
     }
   }
 
-  if (!out.ratio) {
-    out.ratio = inferRatio(out);
+  const promptText = promptTextForCase(out.id);
+  const explicitRatio = inferExplicitRatio(out.title, out.titleEn, out.promptPreview, promptText);
+  if (explicitRatio && Number(out.id) < 100000 && out.ratio !== explicitRatio) {
+    out.ratio = explicitRatio;
+    touched = true;
+  } else if (!out.ratio) {
+    out.ratio = inferCaseRatio(out, promptText);
     touched = true;
   }
   // Platforms: re-derive when missing or when primary category just changed.

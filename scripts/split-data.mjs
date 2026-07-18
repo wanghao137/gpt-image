@@ -27,6 +27,7 @@ import {
   mkdirSync,
   existsSync,
   readdirSync,
+  rmSync,
   unlinkSync,
 } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -43,6 +44,9 @@ import { selectHeroCases } from "../src/lib/home-hero-core.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const DATA_DIR = resolve(ROOT, "public/data");
+const BROWSE_DIR = resolve(DATA_DIR, "browse");
+const BROWSE_INITIAL_SIZE = 48;
+const BROWSE_PAGE_SIZE = 96;
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
@@ -99,7 +103,7 @@ function buildHomePayload(cases, now = Date.now()) {
   const heroIds = new Set(heroCases.map((c) => c.id));
   const stripCases = sorted.filter((c) => !heroIds.has(c.id)).slice(0, 14);
   const featured = sorted.slice(0, 12);
-  const initialCases = sorted.slice(0, 48);
+  const initialCases = sorted.slice(0, BROWSE_INITIAL_SIZE);
 
   // Tile stats for CategoryShowcase — pre-computed so the homepage doesn't
   // need the full dataset just to count per-category.
@@ -133,7 +137,21 @@ function buildHomePayload(cases, now = Date.now()) {
       const cutoff = Math.max(now - RECENT_WINDOW_MS, RECENT_TRACKING_BASELINE);
       return Number.isFinite(createdAt) && createdAt > cutoff && createdAt <= now;
     }).length,
+    browsePageSize: BROWSE_PAGE_SIZE,
+    browsePageCount: Math.ceil(
+      Math.max(0, sorted.length - BROWSE_INITIAL_SIZE) / BROWSE_PAGE_SIZE,
+    ),
   };
+}
+
+function buildBrowsePages(cases) {
+  const sorted = sortCasesForDisplay(cases);
+  const remaining = sorted.slice(BROWSE_INITIAL_SIZE);
+  const pages = [];
+  for (let index = 0; index < remaining.length; index += BROWSE_PAGE_SIZE) {
+    pages.push(stripLite(remaining.slice(index, index + BROWSE_PAGE_SIZE)));
+  }
+  return pages;
 }
 
 /**
@@ -155,6 +173,7 @@ function stripLite(cases) {
       userCategory: c.userCategory,
       ratio: c.ratio,
     };
+    if (c.imageRatio) row.imageRatio = c.imageRatio;
     if (c.titleEn) row.titleEn = c.titleEn;
     if (c.tags?.length) row.tags = c.tags;
     if (c.styles?.length) row.styles = c.styles;
@@ -234,6 +253,23 @@ function main() {
   console.log(
     `✓ filter-options.json: ${filterOptions.styles.length} styles, ${filterOptions.scenes.length} scenes, ${filterOptions.platforms.length} platforms`,
   );
+
+  // Browse pages preserve the canonical global order. They are deliberately
+  // separate from overlapping category shards so infinite scroll can append
+  // without re-sorting or replacing cards already visible on screen.
+  rmSync(BROWSE_DIR, { recursive: true, force: true });
+  mkdirSync(BROWSE_DIR, { recursive: true });
+  const browsePages = buildBrowsePages(cases);
+  browsePages.forEach((page, index) => {
+    writeJson(`public/data/browse/page-${String(index).padStart(3, "0")}.json`, page);
+  });
+  writeJson("public/data/browse/manifest.json", {
+    pageSize: BROWSE_PAGE_SIZE,
+    pageCount: browsePages.length,
+    totalCount: cases.length,
+    revision: home.revision,
+  });
+  console.log(`✓ ${browsePages.length} ordered browse pages written`);
 
   // ── cases-<category>.json shards ──
   // IMPORTANT: This must match casesByUserCategory() in src/lib/data.ts, which

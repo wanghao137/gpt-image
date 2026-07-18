@@ -65,6 +65,8 @@ export interface PromptCase {
   imageAlt?: string;
   /** v2 aspect ratio used for un-cropped layout (e.g. `9:16`). */
   ratio: Ratio;
+  /** Verified dimensions of the delivered asset when they differ from the prompt ratio. */
+  imageRatio?: Ratio;
 
   // ─── prompt ───
   /**

@@ -42,10 +42,9 @@ test("case return restore uses the captured viewport position before falling bac
   assert.match(caseGrid, /Math\.max\(0,\s*Math\.min/);
 });
 
-test("case cards keep their declared ratio stable while images decode", () => {
-  assert.match(caseCard, /const mediaRatio = String\(aspectStyle\(data\.ratio\)/);
-  assert.match(caseCard, /--case-media-ratio/);
-  assert.match(css, /aspect-ratio:\s*var\(--case-media-ratio/);
-  assert.doesNotMatch(caseCard, /naturalImageRatio/);
-  assert.doesNotMatch(caseCard, /onNaturalSize=/);
+test("case cards reserve the declared ratio but render the decoded image uncropped", () => {
+  assert.match(caseCard, /ratioDimensions\(data\.imageRatio \|\| data\.ratio\)/);
+  assert.match(caseCard, /preserveAspectRatio/);
+  assert.match(caseCard, /className="block h-auto w-full"/);
+  assert.doesNotMatch(css, /\.case-card-media\s*\{[^}]*aspect-ratio/s);
 });

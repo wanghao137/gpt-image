@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const RESERVED_CASE_FILES = new Set([
@@ -50,7 +50,15 @@ function compareIdSets(sourceIds, candidateIds, label) {
   throw new Error(`[data-consistency] ${label} differs from cases.json (${details.join("; ")})`);
 }
 
-export function validateGeneratedData({ sourceCases, home, index, search, categoryShards }) {
+export function validateGeneratedData({
+  sourceCases,
+  home,
+  index,
+  search,
+  categoryShards,
+  browseManifest,
+  browsePages,
+}) {
   const sourceIds = uniqueIds(sourceCases, "cases.json");
   const indexIds = uniqueIds(index, "cases-index.json");
   const searchIds = uniqueIds(search, "cases-search.json");
@@ -109,6 +117,28 @@ export function validateGeneratedData({ sourceCases, home, index, search, catego
   }
   compareIdSets(sourceIds, categoryIds, "category shard union");
 
+  if (browseManifest || browsePages) {
+    if (!browseManifest || !Array.isArray(browsePages)) {
+      throw new Error("[data-consistency] ordered browse data is incomplete");
+    }
+    const flattened = browsePages.flatMap((page) => page.records);
+    const expected = sourceCases.slice(home.initial.length).map(idOf);
+    const actual = flattened.map(idOf);
+    if (browseManifest.pageCount !== browsePages.length) {
+      throw new Error(
+        `[data-consistency] browse manifest pageCount=${browseManifest.pageCount} but found ${browsePages.length} pages`,
+      );
+    }
+    if (browseManifest.totalCount !== sourceIds.size) {
+      throw new Error(
+        `[data-consistency] browse manifest totalCount=${browseManifest.totalCount} but cases.json has ${sourceIds.size}`,
+      );
+    }
+    if (expected.length !== actual.length || expected.some((id, index) => id !== actual[index])) {
+      throw new Error("[data-consistency] ordered browse pages differ from canonical case order");
+    }
+  }
+
   return {
     caseCount: sourceIds.size,
     categoryShardCount: categoryShards.length,
@@ -124,6 +154,12 @@ export function readGeneratedData(dataDir) {
     )
     .sort();
 
+  const browseDir = resolve(dataDir, "browse");
+  const browseManifestPath = resolve(browseDir, "manifest.json");
+  const browsePageFiles = existsSync(browseDir)
+    ? readdirSync(browseDir).filter((name) => /^page-\d+\.json$/.test(name)).sort()
+    : [];
+
   return {
     sourceCases: readJson(resolve(dataDir, "cases.json")),
     home: readJson(resolve(dataDir, "cases-home.json")),
@@ -132,6 +168,11 @@ export function readGeneratedData(dataDir) {
     categoryShards: categoryFiles.map((name) => ({
       name,
       records: readJson(resolve(dataDir, name)),
+    })),
+    browseManifest: existsSync(browseManifestPath) ? readJson(browseManifestPath) : undefined,
+    browsePages: browsePageFiles.map((name) => ({
+      name,
+      records: readJson(resolve(browseDir, name)),
     })),
   };
 }

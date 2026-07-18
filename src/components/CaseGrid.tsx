@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { CaseCard } from "./CaseCard";
 
@@ -28,6 +28,7 @@ interface CaseGridProps {
 }
 
 const PAGE_SIZE = 24;
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 function countForRestore(cases: PromptCase[], paginate: boolean, restoreId?: string | null) {
   if (!paginate) return cases.length;
@@ -74,6 +75,8 @@ export function CaseGrid({
   const [restoreLayoutLocked, setRestoreLayoutLocked] = useState(false);
   const [restoreTargetLoaded, setRestoreTargetLoaded] = useState(false);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const masonryRef = useRef<HTMLDivElement | null>(null);
+  const [masonryReady, setMasonryReady] = useState(false);
   const restoredRef = useRef<string | null>(null);
   const caseIds = useMemo(() => cases.map((item) => item.id), [cases]);
   const caseIdsKey = useMemo(() => caseIds.join("\u0000"), [caseIds]);
@@ -133,11 +136,11 @@ export function CaseGrid({
   // observer disconnect/reconnect on every pagination step.
   const loadMoreRef = useRef<() => void>(() => {});
   loadMoreRef.current = () => {
-    if (hasMoreData && !loadingMore) onLoadMoreData?.();
     if (visibleCount < cases.length) {
       setVisibleCount((count) => Math.min(count + PAGE_SIZE, cases.length));
       return;
     }
+    if (hasMoreData && !loadingMore) onLoadMoreData?.();
   };
 
   useEffect(() => {
@@ -163,15 +166,39 @@ export function CaseGrid({
       window.removeEventListener("scroll", scheduleCheck);
       window.removeEventListener("resize", scheduleCheck);
     };
-  }, [cases.length, hasMore, visibleCount]);
+  }, [hasMore]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
-  const visiblePages = useMemo(() => {
-    const pages: PromptCase[][] = [];
-    for (let index = 0; index < visible.length; index += PAGE_SIZE) {
-      pages.push(visible.slice(index, index + PAGE_SIZE));
-    }
-    return pages;
+
+  useIsomorphicLayoutEffect(() => {
+    const grid = masonryRef.current;
+    if (!grid || typeof ResizeObserver === "undefined") return;
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const gap = Number.parseFloat(getComputedStyle(grid).columnGap) || 20;
+      grid.querySelectorAll<HTMLElement>(".masonry-item").forEach((item) => {
+        const card = item.firstElementChild as HTMLElement | null;
+        if (!card) return;
+        const height = card.getBoundingClientRect().height;
+        const span = Math.ceil(height + gap);
+        item.style.gridRowEnd = `span ${Math.max(1, span)}`;
+      });
+      setMasonryReady(true);
+    };
+    const scheduleMeasure = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(measure);
+    };
+    const observer = new ResizeObserver(scheduleMeasure);
+    grid.querySelectorAll<HTMLElement>(".masonry-item > *").forEach((card) => {
+      observer.observe(card);
+    });
+    measure();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, [visible]);
   // Stable boolean: is the scroll-restore target currently rendered? Depending
   // on this instead of the `visible` array keeps the restore effect from
@@ -338,25 +365,24 @@ export function CaseGrid({
 
   return (
     <div className={wrapperClassName}>
-      <div className="masonry-feed">
-        {visiblePages.map((page, pageIndex) => (
-          <div className="masonry masonry-page" key={page[0]?.id ?? pageIndex}>
-            {page.map((item, itemIndex) => {
-              const index = pageIndex * PAGE_SIZE + itemIndex;
-              const isRestoreTarget = restoreId === item.id;
-              return (
-                <CaseCard
-                  key={item.id}
-                  data={item}
-                  favorited={favoriteIds.has(item.id)}
-                  onToggleFavorite={onToggleFavorite}
-                  priority={index < priorityCount}
-                  onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
-                />
-              );
-            })}
-          </div>
-        ))}
+      <div
+        ref={masonryRef}
+        className={`masonry masonry-feed${masonryReady ? " masonry-ready" : ""}`}
+      >
+        {visible.map((item, index) => {
+          const isRestoreTarget = restoreId === item.id;
+          return (
+            <div className="masonry-item" key={item.id}>
+              <CaseCard
+                data={item}
+                favorited={favoriteIds.has(item.id)}
+                onToggleFavorite={onToggleFavorite}
+                priority={index < priorityCount}
+                onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {paginate && canLoadMore && (

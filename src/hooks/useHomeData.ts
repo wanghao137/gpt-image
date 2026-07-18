@@ -29,6 +29,9 @@ export interface HomeData {
   revision: string;
   totalCount: number;
   recentCount: number;
+  /** Ordered browse shards after the initial CasesPage batch. */
+  browsePageSize: number;
+  browsePageCount: number;
 }
 
 export const HOME_DATA: HomeData = homeData as HomeData;

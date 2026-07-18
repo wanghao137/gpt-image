@@ -152,7 +152,10 @@ export default function CaseDetailPage() {
   // Real pixel dimensions from the case's declared ratio — emitting a hardcoded
   // 1200×1500 for every image (the old behaviour) feeds search engines false
   // structured data for any non-4:5 case.
-  const { width: ldImgWidth, height: ldImgHeight } = imageDimensionsForRatio(c.ratio, 1200);
+  const { width: ldImgWidth, height: ldImgHeight } = imageDimensionsForRatio(
+    c.imageRatio || c.ratio,
+    1200,
+  );
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -306,7 +309,7 @@ export default function CaseDetailPage() {
                 style={
                   naturalImageRatio?.caseId === c.id
                     ? { aspectRatio: naturalImageRatio.aspectRatio }
-                    : ratioStyle(c.ratio)
+                    : ratioStyle(c.imageRatio || c.ratio)
                 }
               >
                 <SmartImg
@@ -548,7 +551,7 @@ export default function CaseDetailPage() {
         src={c.imageUrl}
         alt={c.imageAlt || c.title}
         caption={c.title}
-        ratio={c.ratio}
+        ratio={c.imageRatio || c.ratio}
         onCopy={promptText ? () => copy(promptText) : undefined}
         copyState={copyState}
         onPrev={prev ? () => navigate(`/case/${prev.slug}`) : undefined}

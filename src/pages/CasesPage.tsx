@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ALL_CASES, getCachedShard, loadShard } from "../lib/data";
+import {
+  ALL_CASES,
+  getCachedBrowsePages,
+  loadBrowsePage,
+  loadShard,
+} from "../lib/data";
 import type { PromptCase } from "../types";
 import { CaseGrid } from "../components/CaseGrid";
 import { FilterBar } from "../components/FilterBar";
@@ -10,29 +15,12 @@ import { useFavorites } from "../hooks/useFavorites";
 import { useCaseReturnRestore } from "../hooks/useCaseReturnRestore";
 import { useFilterOptions, useSearchIndex } from "../hooks/useSearchIndex";
 import { HOME_DATA } from "../hooks/useHomeData";
-import { USER_CATEGORIES } from "../lib/userCategories";
 import { sortCasesForDisplay } from "../lib/caseSort";
 import {
   categoriesForSearchEntries,
   filterCaseSearchEntries,
 } from "../lib/case-search-core.mjs";
 import { HOT_CASE_SEARCHES } from "../lib/case-discovery.mjs";
-
-const BROWSE_BATCH_SIZE = 1;
-const BROWSE_PRIORITY = [
-  "xhs-cover",
-  "merchant-poster",
-  "ecommerce",
-  "portrait",
-  "brand-kv",
-  "poster-general",
-];
-const BROWSE_CATEGORY_ORDER = [
-  ...BROWSE_PRIORITY,
-  ...USER_CATEGORIES.map((category) => category.slug).filter(
-    (category) => !BROWSE_PRIORITY.includes(category),
-  ),
-];
 
 function uniqueCases(cases: PromptCase[]): PromptCase[] {
   const seen = new Set<string>();
@@ -43,16 +31,12 @@ function uniqueCases(cases: PromptCase[]): PromptCase[] {
   });
 }
 
-function cachedBrowseCases(): { cases: PromptCase[]; categories: Set<string> } {
-  const categories = new Set<string>();
-  const cases = [...HOME_DATA.initial];
-  for (const category of BROWSE_CATEGORY_ORDER) {
-    const cached = getCachedShard(category);
-    if (!cached) continue;
-    categories.add(category);
-    cases.push(...cached);
-  }
-  return { cases: uniqueCases(cases), categories };
+function cachedBrowseCases(): { cases: PromptCase[]; pageCount: number } {
+  const pages = getCachedBrowsePages();
+  return {
+    cases: uniqueCases([...HOME_DATA.initial, ...pages.flat()]),
+    pageCount: pages.length,
+  };
 }
 
 function readSet(sp: URLSearchParams, key: string): Set<string> {
@@ -88,8 +72,8 @@ export default function CasesPage() {
   const [shardCases, setShardCases] = useState<PromptCase[]>(() =>
     isSSR ? [] : initialBrowse.current!.cases,
   );
-  const [browseLoadedCategories, setBrowseLoadedCategories] = useState<Set<string>>(
-    () => (isSSR ? new Set() : initialBrowse.current!.categories),
+  const [browseLoadedPages, setBrowseLoadedPages] = useState(() =>
+    isSSR ? 0 : initialBrowse.current!.pageCount,
   );
   const [browseLoading, setBrowseLoading] = useState(false);
   const [filteredLoading, setFilteredLoading] = useState(false);
@@ -195,60 +179,31 @@ export default function CasesPage() {
     [requiredCategories],
   );
 
-  const rebuildBrowseCasesFromCache = useCallback((categories: Set<string>) => {
-    const cases = [...HOME_DATA.initial];
-    for (const category of categories) {
-      const cached = getCachedShard(category);
-      if (cached) cases.push(...cached);
-    }
-    setShardCases(uniqueCases(cases));
-  }, []);
-
   const loadMoreBrowse = useCallback(async () => {
     if (isSSR || browseLoadingRef.current) return;
-    const nextCategories = BROWSE_CATEGORY_ORDER.filter(
-      (category) => !browseLoadedCategories.has(category),
-    ).slice(0, BROWSE_BATCH_SIZE);
-    if (nextCategories.length === 0) return;
+    if (browseLoadedPages >= HOME_DATA.browsePageCount) return;
 
     browseLoadingRef.current = true;
     setBrowseLoading(true);
     setLoadError(null);
-    const results = await Promise.allSettled(nextCategories.map((category) => loadShard(category)));
-    const loaded = new Set(browseLoadedCategories);
-    const appendedCases: PromptCase[] = [];
-    const failed: string[] = [];
-    results.forEach((result, index) => {
-      const category = nextCategories[index];
-      if (result.status === "fulfilled") {
-        loaded.add(category);
-        appendedCases.push(...result.value);
-      } else {
-        failed.push(category);
-      }
-    });
-    setBrowseLoadedCategories(loaded);
-    if (appendedCases.length > 0) {
+    try {
+      const appendedCases = await loadBrowsePage(browseLoadedPages);
       setShardCases((current) => uniqueCases([...current, ...appendedCases]));
+      setBrowseLoadedPages((current) => current + 1);
+    } catch (reason) {
+      setLoadError(reason instanceof Error ? reason.message : "案例加载失败");
+    } finally {
+      browseLoadingRef.current = false;
+      setBrowseLoading(false);
     }
-    if (failed.length > 0) {
-      setLoadError(`部分案例加载失败：${failed.join("、")}`);
-    }
-    browseLoadingRef.current = false;
-    setBrowseLoading(false);
-  }, [browseLoadedCategories, isSSR]);
+  }, [browseLoadedPages, isSSR]);
 
   useEffect(() => {
     if (isSSR || !browseMode) return;
-    rebuildBrowseCasesFromCache(browseLoadedCategories);
-    if (browseLoadedCategories.size === 0) void loadMoreBrowse();
-  }, [
-    browseLoadedCategories,
-    browseMode,
-    isSSR,
-    loadMoreBrowse,
-    rebuildBrowseCasesFromCache,
-  ]);
+    const cached = cachedBrowseCases();
+    setShardCases(cached.cases);
+    setBrowseLoadedPages(cached.pageCount);
+  }, [browseMode, isSSR]);
 
   useEffect(() => {
     if (isSSR || browseMode) return;
@@ -295,8 +250,8 @@ export default function CasesPage() {
 
   const baseList = useMemo<PromptCase[]>(() => {
     const candidates = isSSR ? HOME_DATA.initial : shardCases;
-    return sortCasesForDisplay(candidates);
-  }, [isSSR, shardCases]);
+    return browseMode ? candidates : sortCasesForDisplay(candidates);
+  }, [browseMode, isSSR, shardCases]);
 
   const filtered = useMemo(() => {
     if (needsSearchIndex && !matchingIds) return [];
@@ -486,7 +441,7 @@ export default function CasesPage() {
         onRestored={onRestored}
         loading={(searchLoading || filteredLoading) && filtered.length === 0}
         loadingMore={browseLoading}
-        hasMoreData={browseMode && browseLoadedCategories.size < BROWSE_CATEGORY_ORDER.length}
+        hasMoreData={browseMode && browseLoadedPages < HOME_DATA.browsePageCount}
         onLoadMoreData={loadMoreBrowse}
       />
     </>

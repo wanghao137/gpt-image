@@ -22,6 +22,8 @@ interface SmartImgProps {
   className?: string;
   style?: React.CSSProperties;
   objectFit?: React.CSSProperties["objectFit"];
+  /** Let the decoded image's intrinsic ratio define its rendered height. */
+  preserveAspectRatio?: boolean;
   loading?: "eager" | "lazy";
   fetchPriority?: "high" | "low" | "auto";
   decoding?: "sync" | "async" | "auto";
@@ -99,6 +101,7 @@ function SmartImgImpl({
   className,
   style,
   objectFit = "cover",
+  preserveAspectRatio = false,
   loading = "lazy",
   fetchPriority,
   decoding = "async",
@@ -277,10 +280,9 @@ function SmartImgImpl({
     style: {
       display: "block" as const,
       width: "100%",
-      height: "100%",
+      height: preserveAspectRatio ? "auto" : "100%",
       objectFit,
-      opacity: loaded ? 1 : 0,
-      transition: "opacity 220ms ease-out",
+      opacity: 1,
     },
     onLoad: markLoaded,
     onError: markErrored,
