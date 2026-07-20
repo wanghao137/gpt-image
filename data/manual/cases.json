@@ -1,5 +1,30 @@
 [
   {
+    "id": "100179",
+    "title": "报纸拼贴泼墨 · 混合媒介前卫艺术肖像",
+    "category": "插画与艺术",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-21-case-100179-newspaper-collage-portrait.jpg",
+    "imageAlt": "报纸拼贴泼墨 · 混合媒介前卫艺术肖像",
+    "prompt": "Mixed-media portrait of [SUBJECT], [EXPRESSION], [GAZE DIRECTION], with [ACCESSORY/STYLING], realistic identity, black sketch strokes, torn newspaper collage, acrylic paint splashes, editorial print texture, blending realism and abstract expressionism, premium poster aesthetic, tactile handmade feel, high contrast, ultra-detailed face and eyes, [PRIMARY COLORS] and [SECONDARY COLORS]",
+    "promptPreview": "Mixed-media portrait of [SUBJECT], [EXPRESSION], [GAZE DIRECTION], with [ACCESSORY/STYLING], realistic identity, black sketch strokes, torn newspaper collage, acrylic paint splashes, editorial print texture, blending re…",
+    "source": "Community collected via @MayorKingAI",
+    "createdAt": "2026-07-20T20:03:20.379Z"
+  },
+  {
     "id": "100178",
     "title": "黄金时刻图书馆阁楼 · 电影级编辑摄影人像",
     "category": "摄影与写实",
