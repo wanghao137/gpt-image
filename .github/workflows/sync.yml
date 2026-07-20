@@ -27,6 +27,9 @@ permissions:
 concurrency:
   # Don't queue parallel sync runs — if a manual run is in flight, skip
   # the cron rather than racing it. New data will land on the next slot.
+  # IMPORTANT: this group is SHARED with content.yml so a content-triggered
+  # regenerate and this daily cron serialize against each other rather than
+  # both PATCHing main. If you rename it here, rename it there too.
   group: data-sync
   cancel-in-progress: false
 

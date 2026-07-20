@@ -1,0 +1,102 @@
+name: Content Regenerate
+
+# Regenerates `public/data/*` immediately after a Hermes content commit
+# (data/manual/*.json upsert or public/uploads/* asset add) lands on main.
+#
+# Why this workflow exists:
+#   - Hermes writes via POST /api/hermes/content, which only commits the
+#     manual source files (data/manual/*.json) and uploaded images. It does
+#     NOT regenerate the SSG data shards under public/data/*.
+#   - The daily sync.yml only runs once at 02:17 CST, so content pushed at
+#     any other time would sit invisible on the live site for up to ~22h.
+#     (This was the root cause of derived-pseudo-documentary-photo and cases
+#     100176/100177 not showing up on 2026-07-20.)
+#   - Vercel's vercel-build only runs split-data.mjs on whatever public/data
+#     is already committed; it does not re-run sync.mjs because sync depends
+#     on the upstream YouMind API which is unreliable at build time.
+#   - So this workflow closes the gap: on any content push, immediately run
+#     the full sync (same as the daily cron) and commit the regenerated
+#     shards back to main. Vercel then redeploys with fresh data.
+#
+# Concurrency: shares the `data-sync` group with sync.yml so a content-triggered
+# run and the daily cron never race the same ref update. cancel-in-progress is
+# false so a run already committing isn't killed mid-write.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/manual/**"
+      - "public/uploads/**"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  # MUST match sync.yml's group so the two workflows serialize against each
+  # other rather than both PATCHing main.
+  group: data-sync
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    # Skip when the push came from a sync-style auto-commit (this workflow or
+    # the daily sync) — otherwise we'd loop: regenerate → commit → trigger
+    # regenerate. github-actions[bot] is the identity used by both auto-commits.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync upstream → public/data/
+        # Same hard-fail policy as sync.yml: if upstream is down we do NOT
+        # want to commit a half-empty cases.json. The next push or the daily
+        # cron will retry.
+        run: npm run sync
+
+      - name: Apply v2 field migrations
+        run: npm run migrate
+
+      - name: Detect changes
+        id: diff
+        run: |
+          if [ -z "$(git status --porcelain -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes — skipping commit." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
+          summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
+          git commit -m "data(sync): regenerate after content upsert" \
+            -m "Triggered by content push ${GITHUB_SHA::7} from @${GITHUB_ACTOR}" \
+            -m "Changes: ${summary}"
+          git push origin HEAD:main
+
+      - name: Trigger GitHub Pages deployment
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
