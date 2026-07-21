@@ -43,7 +43,8 @@ test("case return restore uses the captured viewport position before falling bac
 });
 
 test("case cards reserve the declared ratio but render the decoded image uncropped", () => {
-  assert.match(caseCard, /ratioDimensions\(data\.imageRatio \|\| data\.ratio\)/);
+  // The card may swap `data` for `activeCase` (series carousel) — accept either.
+  assert.match(caseCard, /ratioDimensions\((?:data|activeCase)\.imageRatio \|\| (?:data|activeCase)\.ratio\)/);
   assert.match(caseCard, /preserveAspectRatio/);
   assert.match(caseCard, /className="block h-auto w-full"/);
   assert.doesNotMatch(css, /\.case-card-media\s*\{[^}]*aspect-ratio/s);

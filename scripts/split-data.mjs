@@ -181,6 +181,8 @@ function stripLite(cases) {
     if (c.userCategories?.length) row.userCategories = c.userCategories;
     if (c.platforms?.length) row.platforms = c.platforms;
     if (c.githubUrl) row.githubUrl = c.githubUrl;
+    if (c.seriesId) row.seriesId = c.seriesId;
+    if (Array.isArray(c.imageUrls) && c.imageUrls.length > 0) row.imageUrls = c.imageUrls;
     return row;
   });
 }

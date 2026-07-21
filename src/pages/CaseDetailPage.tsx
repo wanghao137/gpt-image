@@ -187,6 +187,14 @@ export default function CaseDetailPage() {
     caseId: string;
     aspectRatio: string;
   } | null>(null);
+  // Multi-image carousel: which slide is active on the detail page. Reset
+  // whenever the case changes. Many upstream prompts ship 2-4 alternative
+  // outputs of the same prompt under one case — this exposes all of them
+  // instead of just the lead image.
+  const [activeImgIdx, setActiveImgIdx] = useState(0);
+  useEffect(() => {
+    setActiveImgIdx(0);
+  }, [c?.id]);
 
   const meta = c ? getUserCategoryByKey(c.userCategory) : undefined;
   const hydratedPage = useMemo(() => {
@@ -194,6 +202,18 @@ export default function CaseDetailPage() {
     const text = document.getElementById(CASE_HYDRATION_ELEMENT_ID)?.textContent;
     return parseCaseHydrationData(text, slug);
   }, [slug]);
+  // Flat list of all images for this case: lead first, then any extras the
+  // upstream prompt shipped (imageUrls). Used to drive the main image and
+  // the thumbnail strip on the detail page.
+  const images = useMemo(() => {
+    if (!c) return [];
+    const out: string[] = [];
+    if (c.imageUrl) out.push(c.imageUrl);
+    for (const u of c.imageUrls ?? []) {
+      if (typeof u === "string" && u && !out.includes(u)) out.push(u);
+    }
+    return out;
+  }, [c]);
   // SEO title/description are DERIVED, not stored (they used to bloat the
   // shared data chunk that every page downloads). On this SSG'd page the
   // result is baked into the static HTML at build time, so crawlers still see
@@ -254,6 +274,10 @@ export default function CaseDetailPage() {
   const sourceLabel = sourceDisplayLabel(c.source, c.githubUrl);
 
   const tags = Array.from(new Set([...(c.styles ?? []), ...(c.scenes ?? []), ...(c.tags ?? [])])).slice(0, 8);
+  // Active image — falls back to c.imageUrl if images array is somehow empty.
+  const activeImage = images.length > 0
+    ? images[Math.min(activeImgIdx, images.length - 1)]
+    : c.imageUrl;
   // OG / share card image. The baked 1200px JPEG is same-origin and already
   // optimised, so we serve it directly (no third-party dependency). `transformUrl`
   // returns the local /images/* path unchanged; `absoluteUrl` promotes it to a
@@ -424,7 +448,8 @@ export default function CaseDetailPage() {
                 }
               >
                 <SmartImg
-                  src={c.imageUrl}
+                  key={activeImage}
+                  src={activeImage}
                   alt={c.imageAlt || c.title}
                   width={1200}
                   height={1500}
@@ -449,8 +474,48 @@ export default function CaseDetailPage() {
                 <div className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/15 bg-ink-950/65 px-2 py-1 text-[10.5px] font-medium text-ink-200 backdrop-blur opacity-90 transition group-hover:opacity-100">
                   <ZoomInIcon /> 放大
                 </div>
+                {/* Active-image counter — only when the case has alternates. */}
+                {images.length > 1 && (
+                  <div className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/15 bg-ink-950/65 px-2 py-1 text-[10.5px] font-medium tabular-nums text-ink-100 backdrop-blur">
+                    {activeImgIdx + 1}/{images.length}
+                  </div>
+                )}
               </figure>
             </button>
+
+            {/* Thumbnail strip — shown only when the case has alternates.
+                Clicking a thumb swaps the main image without reflowing the
+                page; mirrors the e-commerce PDP pattern users already know. */}
+            {images.length > 1 && (
+              <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
+                {images.map((url, i) => {
+                  const active = i === activeImgIdx;
+                  return (
+                    <button
+                      key={url}
+                      type="button"
+                      onClick={() => setActiveImgIdx(i)}
+                      aria-label={`查看第 ${i + 1} 张`}
+                      aria-current={active ? "true" : undefined}
+                      className={
+                        "relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border transition " +
+                        (active
+                          ? "border-ember-400/70 ring-2 ring-ember-400/40"
+                          : "border-white/[0.06] opacity-70 hover:opacity-100")
+                      }
+                    >
+                      <img
+                        src={transformUrl(url, { width: 160 })}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 

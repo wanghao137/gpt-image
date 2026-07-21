@@ -95,10 +95,13 @@ function validateCases(raw: unknown): PromptCase[] {
         }
       }
     }
-    for (const arrField of ["tags", "styles", "scenes", "platforms"]) {
+    for (const arrField of ["tags", "styles", "scenes", "platforms", "imageUrls"]) {
       if (rec[arrField] !== undefined && !Array.isArray(rec[arrField])) {
         throw new Error(`[data] ${where} field "${arrField}" must be an array when present`);
       }
+    }
+    if (rec.seriesId !== undefined && typeof rec.seriesId !== "string") {
+      throw new Error(`[data] ${where} seriesId must be a string when present`);
     }
     if (slugs.has(rec.slug as string)) {
       throw new Error(`[data] duplicate slug "${rec.slug}" at ${where}`);

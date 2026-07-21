@@ -244,6 +244,13 @@ function normalizeCase(item, officialLocales) {
   const promptPreview = (description || promptZh || promptEn).slice(0, 100);
   const media = Array.isArray(item.sourceMedia) ? item.sourceMedia : [];
   const imageUrl = media.find((u) => typeof u === "string" && u) || "";
+  // Preserve any additional images the upstream prompt shipped (some cases
+  // have 2-4 alternative outputs of the same prompt). The first one is the
+  // lead `imageUrl` above; the rest go into `imageUrls` so the gallery card
+  // can carousel them without changing the case identity.
+  const imageUrls = media
+    .filter((u, i) => typeof u === "string" && u && i > 0)
+    .map((u) => u);
   // Use the first category slug the prompt appeared under as the primary
   // category signal for the classifier.
   const slug = Array.isArray(item.categorySlugs) ? item.categorySlugs[0] : item.category;
@@ -263,6 +270,7 @@ function normalizeCase(item, officialLocales) {
     styles: [],
     scenes: [],
     imageUrl,
+    imageUrls: imageUrls.length > 0 ? imageUrls : undefined,
     imageAlt: titleZh || rawTitle,
     prompt: promptEn,
     promptEn,
@@ -417,6 +425,12 @@ function normalizeManualCase(item) {
     ratio: item.ratio || undefined,
     imageRatio: item.imageRatio || undefined,
     hidden: Boolean(item.hidden),
+    seriesId: typeof item.seriesId === "string" && item.seriesId.trim()
+      ? item.seriesId.trim()
+      : undefined,
+    imageUrls: Array.isArray(item.imageUrls)
+      ? item.imageUrls.filter((u) => typeof u === "string" && u)
+      : undefined,
   };
 }
 
@@ -428,6 +442,76 @@ function loadManualCases() {
   }
   return raw.map(normalizeManualCase).filter(Boolean);
 }
+
+/**
+ * Auto-assign `seriesId` to clusters of cases that share the same author
+ * (`source`) AND the same Chinese `category`, so the gallery can collapse
+ * same-character multi-pose runs into one switchable carousel card.
+ *
+ * Rules (conservative on purpose — over-merging hurts more than under-merging
+ * because the user can always add a manual `seriesId` in cases.json):
+ *   - Skip sources that are clearly self-authored or aggregated (no `source`,
+ *     "本站作者", "汪浩", gallery collections).
+ *   - Skip buckets with ≥ SERIES_AUTO_MAX_PER_BUCKET cases (default 4) — those
+ *     are usually mixed-bag authors where the only common thread is the handle.
+ *   - Skip buckets with < 2 cases (nothing to collapse).
+ *   - Never overwrite a case that already has a non-empty `seriesId`.
+ * Output is idempotent: re-running sync produces the same `seriesId` values
+ * because they're derived only from `source` + `category`.
+ */
+const SERIES_AUTO_SELF_SOURCES = new Set([
+  "",
+  "本站作者",
+  "汪浩",
+  "MeiGen Community Gallery",
+  "Creative Toolkit Gallery",
+]);
+const SERIES_AUTO_MAX_PER_BUCKET = Number(process.env.SERIES_AUTO_MAX_PER_BUCKET || 4);
+
+function slugifyTag(s) {
+  return String(s || "")
+    .toLowerCase()
+    .replace(/[@\s/]+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 40) || "anon";
+}
+
+function tagAutoSeries(cases) {
+  // Bucket by source + category, preserving original index so we can mutate
+  // in place.
+  const buckets = new Map(); // key -> array of { idx, c }
+  cases.forEach((c, idx) => {
+    if (typeof c.seriesId === "string" && c.seriesId.trim()) return; // manual
+    const src = typeof c.source === "string" ? c.source.trim() : "";
+    if (SERIES_AUTO_SELF_SOURCES.has(src)) return;
+    const cat = typeof c.category === "string" && c.category.trim() ? c.category.trim() : "other";
+    const key = `${src}\u0000${cat}`;
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push({ idx, c });
+  });
+
+  let taggedSeries = 0;
+  let taggedCases = 0;
+  for (const [key, entries] of buckets) {
+    if (entries.length < 2 || entries.length > SERIES_AUTO_MAX_PER_BUCKET) continue;
+    const [src, cat] = key.split("\u0000");
+    const sid = `auto-${slugifyTag(src)}-${slugifyTag(cat)}`;
+    for (const { c } of entries) {
+      c.seriesId = sid;
+      taggedCases += 1;
+    }
+    taggedSeries += 1;
+  }
+  if (taggedSeries > 0) {
+    console.log(
+      `✓ auto-tagged ${taggedSeries} series (${taggedCases} cases) — ` +
+      `set SERIES_AUTO_TAG=0 to disable`,
+    );
+  }
+}
+
 
 function loadManualTemplates() {
   const raw = readJsonSafe(MANUAL_TEMPLATES_PATH, []);
@@ -566,6 +650,15 @@ async function main() {
   // when each upstream id first appeared in our daily sync.
   const fullCases = sortCasesForDisplay(Array.from(caseMap.values()));
 
+  // Auto-tag "same source + same category" clusters as series so the gallery
+  // collapses same-author/same-character multi-pose runs into one carousel
+  // card (matching YouMind's display). Conservative: skips mixed-bag sources
+  // with ≥5 entries in a bucket, skips self-authored sources, and never
+  // overwrites a manual `seriesId`. Disable with SERIES_AUTO_TAG=0.
+  if (process.env.SERIES_AUTO_TAG !== "0") {
+    tagAutoSeries(fullCases);
+  }
+
   // The YouMind upstream has no style-library, so templates come only from
   // manual data here. The derive step (migrate-v2.mjs) later adds templates
   // derived from the merged case library.
@@ -612,6 +705,8 @@ async function main() {
     if (c.githubUrl) row.githubUrl = c.githubUrl;
     if (c.ratio || cached?.ratio) row.ratio = c.ratio || cached.ratio;
     if (c.imageRatio || cached?.imageRatio) row.imageRatio = c.imageRatio || cached.imageRatio;
+    if (c.seriesId) row.seriesId = c.seriesId;
+    if (Array.isArray(c.imageUrls) && c.imageUrls.length > 0) row.imageUrls = c.imageUrls;
     return row;
   });
 

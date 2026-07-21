@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { PromptCase } from "../types";
 import { CaseCard } from "./CaseCard";
+import { groupSeries } from "../lib/series";
 
 interface CaseGridProps {
   cases: PromptCase[];
@@ -169,6 +170,24 @@ export function CaseGrid({
   }, [hasMore]);
 
   const visible = useMemo(() => cases.slice(0, visibleCount), [cases, visibleCount]);
+  // Collapse same-series cases into one carousel card. Grouping happens on the
+  // already-paginated `visible` slice so the "load more" count reflects what
+  // the user actually sees (siblings count toward the page even though they
+  // render inside the lead card).
+  const { leads, siblingsByLeadId } = useMemo(() => groupSeries(visible), [visible]);
+  // Reverse lookup: sibling id → lead id, so scroll-restore from a sibling's
+  // detail page still resolves to the lead card's DOM anchor.
+  const leadIdByCaseId = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const [leadId, sibs] of siblingsByLeadId) {
+      map.set(leadId, leadId);
+      for (const s of sibs) map.set(s.id, leadId);
+    }
+    return map;
+  }, [siblingsByLeadId]);
+  const restoreLeadId = restoreId
+    ? leadIdByCaseId.get(restoreId) ?? leads.find((l) => l.id === restoreId)?.id ?? null
+    : null;
 
   useIsomorphicLayoutEffect(() => {
     const grid = masonryRef.current;
@@ -260,7 +279,10 @@ export function CaseGrid({
     };
     const scrollToTarget = () => {
       if (cancelled) return false;
-      const el = document.getElementById(`case-${restoreId}`);
+      // Sibling cards don't have their own DOM id — scroll to the lead's
+      // anchor (the whole carousel card lives at the lead position).
+      const anchorId = restoreLeadId ?? restoreId;
+      const el = anchorId ? document.getElementById(`case-${anchorId}`) : null;
       if (!el) return false;
       const rect = el.getBoundingClientRect();
       const maxScrollY = Math.max(
@@ -317,7 +339,7 @@ export function CaseGrid({
       disconnectResizeObserver();
       removeUserListeners();
     };
-  }, [onRestored, restoreId, restoreScrollY, restoreTargetLoaded, restoreTargetTop, restoreTargetVisible]);
+  }, [onRestored, restoreId, restoreLeadId, restoreScrollY, restoreTargetLoaded, restoreTargetTop, restoreTargetVisible]);
 
   if (loading) {
     return (
@@ -369,13 +391,19 @@ export function CaseGrid({
         ref={masonryRef}
         className={`masonry masonry-feed${masonryReady ? " masonry-ready" : ""}`}
       >
-        {visible.map((item, index) => {
-          const isRestoreTarget = restoreId === item.id;
+        {leads.map((item, index) => {
+          // Restore target hits when either the lead or any sibling matches
+          // restoreId — they all live in the same DOM card.
+          const siblings = siblingsByLeadId.get(item.id);
+          const isRestoreTarget =
+            restoreId === item.id || (siblings?.some((s) => s.id === restoreId) ?? false);
           return (
             <div className="masonry-item" key={item.id}>
               <CaseCard
                 data={item}
+                siblings={siblings}
                 favorited={favoriteIds.has(item.id)}
+                favoritedIds={favoriteIds}
                 onToggleFavorite={onToggleFavorite}
                 priority={index < priorityCount}
                 onImageLoad={isRestoreTarget ? handleRestoreTargetLoad : undefined}

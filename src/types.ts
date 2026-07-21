@@ -67,6 +67,13 @@ export interface PromptCase {
   ratio: Ratio;
   /** Verified dimensions of the delivered asset when they differ from the prompt ratio. */
   imageRatio?: Ratio;
+  /**
+   * Additional image URLs for the SAME case (excludes `imageUrl`, which is
+   * always the lead). Many upstream prompts ship 2-4 alternative outputs of
+   * the same prompt under one case; the carousel exposes all of them without
+   * changing the title / prompt / detail-page link.
+   */
+  imageUrls?: string[];
 
   // ─── prompt ───
   /**
@@ -84,6 +91,14 @@ export interface PromptCase {
   commercialOk?: CommercialFlag;
   /** v2 ISO timestamp. */
   createdAt: string;
+
+  // ─── 系列合并（同人物/主题的多张变体合并到一张可切换卡片）───
+  /**
+   * Shared key that collapses multiple cases into one carousel card. Cases
+   * with the same non-empty `seriesId` render as a single switchable card
+   * (image + footer copy switch per slide). See `src/lib/series.ts`.
+   */
+  seriesId?: string;
 
   // ─── SEO ───
   // NOTE: `seoTitle` / `seoDescription` are DERIVED at render time via
