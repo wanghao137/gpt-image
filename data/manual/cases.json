@@ -1,5 +1,31 @@
 [
   {
+    "id": "100183",
+    "title": "诗意水彩儿童绘本插画：留白与柔和光影",
+    "category": "插画与艺术",
+    "styles": [
+      "Watercolor",
+      "Illustration"
+    ],
+    "scenes": [
+      "Children Book"
+    ],
+    "tags": [
+      "Illustration",
+      "3D Render",
+      "Minimal",
+      "Editorial",
+      "Brand",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-07-23-case-dotey-children-book-watercolor.jpg",
+    "imageAlt": "诗意水彩儿童绘本插画：留白与柔和光影",
+    "prompt": "Soft poetic children's book illustration with watercolor and gouache textures. Clear gentle daylight with slightly brighter highlights. Muted pastel colors with soft blue and warm tones. Visible brush strokes and paper grain. Minimalist composition with large negative space. Calm, thoughtful, slightly open-ended atmosphere.\n\nChild character (around 12 years old). Subtle visual metaphors like light, shadow, perspective, reflection. Hand-painted picture book style, not cartoon, not anime, not 3D.\n\nTwo children in calm conversation, soft connection forming.",
+    "promptPreview": "Soft poetic children's book illustration with watercolor and gouache textures. Clear gentle daylight with slightly brighter highlights. Muted pastel colors with soft blue and warm tones. Visible brush strokes and paper …",
+    "source": "Community collected via @dotey",
+    "createdAt": "2026-07-22T20:04:10.668Z"
+  },
+  {
     "id": "100182",
     "title": "专业动画角色设计参考表：正面/侧面/背面多视角",
     "category": "角色与人物",
