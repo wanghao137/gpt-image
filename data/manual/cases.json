@@ -1,5 +1,30 @@
 [
   {
+    "id": "100185",
+    "title": "LUMIÈRE高定时尚杂志封面级人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Minimal",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-07-24-case-100185-lumiere-fashion-cover.jpg",
+    "imageAlt": "LUMIÈRE高定时尚杂志封面级人像",
+    "prompt": "A luxury high-fashion magazine cover. Magazine name at the very top in massive elegant serif font reads \"LUMIÈRE\" — the letters are large, slightly transparent/ghost-style overlapping the model's head just like ELLE magazine, in soft platinum silver color blending into the background.\nCharacter: A young beautiful white woman, early 20s, soft feminine features, big blue eyes, naturally full lips, flawless porcelain skin, subtle makeup — rosy cheeks, nude lips, defined brows. Her hair is platinum blonde, long and wavy, loosely flowing over one shoulder. She looks directly into the camera with a soft yet powerful gaze. Slight tilt of the head, naturally elegant posture.\nOutfit: She is wearing a dramatic deep burgundy wine-red ballgown — structured corset top with off-shoulder neckline, voluminous layered satin skirt billowing around her dramatically. Behind her shoulders, large sculptural fabric rises like rose petals — same architectural drama as reference. She leans slightly forward, both hands resting gently on her knees.\nBackground: Pure soft warm white/ivory background — completely clean, minimal, high-end studio editorial. Soft diffused light, no harsh shadows.\nTypography — placed EXACTLY like ELLE magazine reference:\nTop: \"LUMIÈRE\" massive serif, platinum/silver, overlapping model's head slightly\nLeft mid: \"GRACE & POWER\" bold serif, then smaller below \"THE NEW VISION OF LUXURY\"\nRight mid: \"TIMELESS & FEARLESS\" bold, then \"PURE OPULENCE\" smaller below\nBottom right large: \"ICONIC & UNSTOPPABLE\" elegant large serif\nAll text in deep charcoal/dark navy. Font style: classic high fashion serif — same weight, spacing, and elegance as ELLE. Text naturally integrated into the composition, NOT floating randomly.\nUltra photorealistic, 8K, real magazine cover quality, perfect typography placement, vertical 9:13 format.",
+    "promptPreview": "A luxury high-fashion magazine cover. Magazine name at the very top in massive elegant serif font reads \"LUMIÈRE\" — the letters are large, slightly transparent/ghost-style overlapping the model's head just like ELLE mag…",
+    "source": "Community collected via @Ozayrr_irl",
+    "createdAt": "2026-07-23T20:02:47.542Z"
+  },
+  {
     "id": "100184",
     "title": "OLAH日料五板黑石建筑感餐饮品牌海报",
     "category": "产品与电商",
