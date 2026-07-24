@@ -1,5 +1,30 @@
 [
   {
+    "id": "100186",
+    "title": "童趣油画棒重绘品牌标志",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Illustration",
+      "3D Render",
+      "Brand",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-07-25-case-100186-childlike-oil-pastel-logo.jpg",
+    "imageAlt": "童趣油画棒重绘品牌标志",
+    "prompt": "[BRAND NAME].\n\nAct as a Senior Printmaking Artist, specializing in childlike oil pastel logo reproductions on raw paper (style: expressive child-drawn oil pastel, loose and imperfect waxy pigment on textured paper).\n\nPHASE 1: BACKGROUND — PAPER SURFACE\nA flat, warm off-white paper surface (#F5F2EC range) — NOT pure digital white, but the texture of a real uncoated cold-press paper with clearly visible paper grain and fiber texture across the entire surface. The paper grain is visible both in the negative space AND through the pigment. No gradient, no vignette.\n\nPHASE 2: LOGO RECONSTRUCTED IN CHILDLIKE OIL PASTEL TECHNIQUE (TRUE SHAPE)\n[BRAND NAME]'s real, official primary icon/logomark is reproduced with its overall silhouette and general shape recognizable — but drawn as a child would draw it: with imprecise, wobbly lines, uneven pressure, slightly lopsided proportions, and the natural imperfections of a young hand gripping an oil pastel too hard. The logo's core identity remains recognizable, but the execution is deliberately clumsy, energetic, and unrefined — as if a child who knows what the logo looks like tried to draw it from memory. Centered, occupying roughly 50–60% of frame height.\n\nCRITICAL ACCURACY INSTRUCTION: The logo must remain recognizable as [BRAND NAME]'s real mark — do not invent a completely different shape. The core silhouette is preserved, only the execution quality is deliberately childlike and imprecise.\n\nPHASE 3: CHILDLIKE OIL PASTEL TEXTURE LOGIC (HERO EFFECT)\nThe oil pastel application follows the physical behavior of a child drawing with heavy wax sticks:\n- Pressure is wildly uneven — some zones are heavily over-applied with thick, waxy, almost sculptural pigment build-up; other zones are barely touched, showing mostly bare paper with just a hint of color.\n- The outer edges are very irregular — wobbly, wandering lines that go slightly outside and inside the intended shape, with visible over-runs where the pastel slipped beyond the form.\n- The fill strokes are visible and directionally inconsistent — going in multiple directions within the same area, overlapping, crossing, as a child would naturally scribble to fill a shape.\n- Paper grain shows heavily through the thinner pigment areas — especially in the center of larger filled zones where pressure was lighter.\n- Small accidental marks, extra strokes, and pigment smudges appear just outside the logo's silhouette — the natural result of an unsteady hand.\n- Some areas are left partially unfilled — gaps and holes in the coverage where the child missed a section or ran out of patience.\n- The overall form feels energetic, immediate, and joyfully imperfect — maximum analog rawness.\n\nPHASE 4: COMPOSITION\nLogo centered with generous paper-colored negative space surrounding it. No additional text, no background pattern, no color accents — strictly the childlike oil pastel logo mark on warm off-white textured paper.\n\nTECH SPECS:\nFlat 2D illustration, no 3D, no lighting simulation, no gradients. Pigment color: deep charcoal-black (#1A1A1A) oil pastel. Paper background: warm off-white (#F5F2EC) with visible cold-press paper grain throughout. Resolution: 8K.",
+    "promptPreview": "[BRAND NAME]. Act as a Senior Printmaking Artist, specializing in childlike oil pastel logo reproductions on raw paper (style: expressive child-drawn oil pastel, loose and imperfect waxy pigment on textured paper). PHAS…",
+    "source": "Community collected via @poletaeviktor",
+    "createdAt": "2026-07-24T20:05:52.026Z"
+  },
+  {
     "id": "100185",
     "title": "LUMIÈRE高定时尚杂志封面级人像",
     "category": "摄影与写实",
