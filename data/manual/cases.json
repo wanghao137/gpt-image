@@ -1,5 +1,32 @@
 [
   {
+    "id": "100188",
+    "title": "照片化身迷你手办：Cozy Scrapbook 迷你分身拼贴",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration",
+      "Collage"
+    ],
+    "scenes": [
+      "Social",
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-07-26-case-scrapbook-mini-alter-egos.jpg",
+    "imageAlt": "照片化身迷你手办：Cozy Scrapbook 迷你分身拼贴",
+    "prompt": "Transform the provided reference image into a cozy aesthetic scrapbook-style composition while strictly preserving the original subject, identity, pose, lighting, and background.\n\nAdd multiple small \"mini version\" characters of the same person (chibi / doll-like style), placed naturally around the scene (on objects, table, shoulder, etc.). These mini figures must match the subject's face, hairstyle, outfit, and vibe consistently, styled as cute 3D collectible figurines. Show them doing different activities (reading, posing, taking photos, relaxing).\n\nOverlay handwritten-style doodles and annotations across the image: arrows, hearts, stars, sparkles, icons, and playful captions connected to elements in the scene.\n\nUse a soft pastel color palette (white base with pink, peach, blue accents).\n\nKeep the frame visually rich and filled but balanced and clean.\n\nStyle: warm, cozy lighting, dreamy Instagram scrapbook aesthetic, soft depth of field, highly detailed, polished but playful.\n\nThe final result must look like the SAME original image enhanced with mini alter-egos and aesthetic annotations — not a recreated or different scene.",
+    "promptPreview": "Transform the provided reference image into a cozy aesthetic scrapbook-style composition while strictly preserving the original subject, identity, pose, lighting, and background. Add multiple small \"mini version\" charac…",
+    "source": "Community collected via @Kashberg_0",
+    "createdAt": "2026-07-25T20:05:02.948Z"
+  },
+  {
     "id": "100187",
     "title": "巨骨荒漠遗迹聚落概念艺术",
     "category": "场景与叙事",
