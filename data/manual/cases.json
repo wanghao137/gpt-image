@@ -1,5 +1,32 @@
 [
   {
+    "id": "100190",
+    "title": "电影感极简地理信息旅行海报",
+    "category": "图表与信息图",
+    "styles": [
+      "Editorial",
+      "Realistic"
+    ],
+    "scenes": [
+      "Editorial",
+      "Infographic"
+    ],
+    "tags": [
+      "Minimal",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Infographic"
+    ],
+    "imageUrl": "/uploads/2026-07-27-case-travel-infographic-poster.jpg",
+    "imageAlt": "电影感极简地理信息旅行海报",
+    "prompt": "Create a cinematic minimalist travel poster of [LOCATION NAME].\nThe poster should feel like a premium National Geographic cover mixed with luxury editorial design and modern environmental storytelling.\nComposition:\nVertical poster format (4:5)\nMonumental central subject occupying the lower-middle frame\nVast negative space in the upper section\nMassive condensed typography displaying the location name integrated into the background\nClean infographic-inspired layout\nSymmetrical and balanced composition\nUltra-premium magazine cover aesthetic\nEnvironment & Atmosphere:\nShowcase the most iconic natural feature of the location\nHyper-realistic landscape photography\nCinematic scale and depth\nAtmospheric haze\nSoft volumetric lighting\nDetailed environmental textures\nEpic sense of place and geological significance\nTypography System:\nGiant condensed sans-serif title spanning most of the poster height\nTitle subtly blended into the environment\nSmall scientific annotations and coordinates\nGeographic data labels\nElevation/depth information\nMinimalist information hierarchy\nLuxury editorial spacing\nColor Palette:\nLocation-specific natural colors\nSoft gradients\nFilmic color grading\nMuted luxury tones\nHigh dynamic range\nRealistic atmospheric perspective\nDesign Details:\nGeographic coordinates\nScientific measurements\nMinimal line dividers\nTiny informational labels\nEnvironmental statistics\nExploration-inspired UI elements\nMuseum-quality graphic design\nQuality:\nUltra detailed\nHyper realistic\nPremium poster design\nEditorial photography\nLuxury print quality\n8k\nSharp focus\nCinematic lighting\nAward-winning travel campaign aesthetic",
+    "promptPreview": "Create a cinematic minimalist travel poster of [LOCATION NAME]. The poster should feel like a premium National Geographic cover mixed with luxury editorial design and modern environmental storytelling. Composition: Vert…",
+    "source": "Community collected via @Shorelyn_",
+    "createdAt": "2026-07-26T20:03:43.557Z"
+  },
+  {
     "id": "100189",
     "title": "麒麟西瓜高端礼盒包装提案板：麒夏礼境",
     "category": "产品与电商",
