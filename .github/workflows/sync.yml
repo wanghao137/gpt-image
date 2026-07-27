@@ -80,29 +80,72 @@ jobs:
           fi
 
       - name: Commit and push
+        id: push
         if: steps.diff.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
-          # Pull a one-line summary for the commit body so the history is
-          # actually scannable instead of a wall of "auto sync" entries.
-          summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
-          git commit -m "data(sync): daily upstream refresh" \
-            -m "Triggered by ${GITHUB_EVENT_NAME} on $(date -u +%Y-%m-%d) UTC" \
-            -m "Changes: ${summary}"
-          git push origin HEAD:main
+
+          # Self-healing commit+push. See content.yml for the full rationale —
+          # `concurrency: data-sync` serializes Actions runs against each
+          # other but cannot serialize against Hermes's external push to
+          # main. On push reject we rebase onto latest main, re-run
+          # sync+migrate on the fresh tree (idempotent; migrate never
+          # touches data/manual/*), and retry up to 2 times. Final give-up
+          # exits 0 — a later cron slot or content push will reconcile.
+          attempt=0
+          max_attempts=3   # 1 initial + 2 retries
+          while [ $attempt -lt $max_attempts ]; do
+            attempt=$((attempt + 1))
+            echo "::group::Commit & push attempt $attempt/$max_attempts"
+            if [ $attempt -gt 1 ]; then
+              echo "Push was rejected on the previous attempt (likely a concurrent Hermes push). Rebasing onto latest main and re-running sync+migrate..."
+              git fetch origin main
+              git reset --hard origin/main
+              npm run sync
+              npm run migrate
+            fi
+            git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
+            if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
+              echo "No data changes after re-sync — nothing to commit."
+              echo "pushed=false" >> "$GITHUB_OUTPUT"
+              echo "::endgroup::"
+              break
+            fi
+            # Pull a one-line summary for the commit body so the history is
+            # actually scannable instead of a wall of "auto sync" entries.
+            summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
+            git commit -m "data(sync): daily upstream refresh" \
+              -m "Triggered by ${GITHUB_EVENT_NAME} on $(date -u +%Y-%m-%d) UTC" \
+              -m "Changes: ${summary}"
+            if git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              echo "::endgroup::"
+              break
+            else
+              echo "::endgroup::"
+              if [ $attempt -lt $max_attempts ]; then
+                echo "Push rejected — will retry on latest main."
+              else
+                echo "::warning::Max attempts reached ($max_attempts). Concurrent pushes are still landing on main; a later cron slot or content push will reconcile. Exiting 0 — this is not a real failure."
+                echo "pushed=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            fi
+          done
 
       - name: Trigger GitHub Pages deployment
-        if: steps.diff.outputs.changed == 'true'
+        if: steps.diff.outputs.changed == 'true' && steps.push.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref main
 
       - name: Summary
         run: |
-          if [ "${{ steps.diff.outputs.changed }}" = "true" ]; then
+          if [ "${{ steps.push.outputs.pushed }}" = "true" ]; then
             echo "✅ Pushed updated data to main; Vercel will redeploy automatically." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.diff.outputs.changed }}" = "true" ]; then
+            echo "⚠️ Data had changes but push was deferred (concurrent commits on main). The next sync slot will reconcile." >> "$GITHUB_STEP_SUMMARY"
           else
             echo "ℹ️ Upstream is already in sync — no commit, no redeploy." >> "$GITHUB_STEP_SUMMARY"
           fi

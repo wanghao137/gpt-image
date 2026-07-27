@@ -84,19 +84,70 @@ jobs:
           fi
 
       - name: Commit and push
+        id: push
         if: steps.diff.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
-          summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
-          git commit -m "data(sync): regenerate after content upsert" \
-            -m "Triggered by content push ${GITHUB_SHA::7} from @${GITHUB_ACTOR}" \
-            -m "Changes: ${summary}"
-          git push origin HEAD:main
+
+          # Self-healing commit+push.
+          #
+          # Why this exists: Hermes writes cases directly to main via the
+          # server-side GitHub write (POST /api/hermes/content). When two
+          # cases land a few seconds apart, both push events trigger this
+          # workflow, and the first run's `git push` is rejected with
+          # "fetch first" because the second Hermes commit already advanced
+          # origin/main between our checkout and our push.
+          #
+          # `concurrency: data-sync` only serializes Actions runs against
+          # each other — it cannot serialize against Hermes's external push.
+          # So instead of surfacing this as a workflow failure (and a
+          # failure email), we rebase onto the latest main, re-run
+          # sync+migrate on the fresh tree (sync is idempotent and only
+          # reads data/manual/* + upstream; migrate never touches
+          # data/manual/*), and retry. Up to 2 retries. Final give-up
+          # exits 0 because the daily sync.yml cron reconciles everything.
+          attempt=0
+          max_attempts=3   # 1 initial + 2 retries
+          while [ $attempt -lt $max_attempts ]; do
+            attempt=$((attempt + 1))
+            echo "::group::Commit & push attempt $attempt/$max_attempts"
+            if [ $attempt -gt 1 ]; then
+              echo "Push was rejected on the previous attempt (likely a concurrent Hermes push). Rebasing onto latest main and re-running sync+migrate..."
+              git fetch origin main
+              git reset --hard origin/main
+              npm run sync
+              npm run migrate
+            fi
+            git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
+            if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
+              echo "No data changes after re-sync — nothing to commit."
+              echo "pushed=false" >> "$GITHUB_OUTPUT"
+              echo "::endgroup::"
+              break
+            fi
+            summary=$(git diff --cached --stat -- public/data data/upstream-case-times.json data/upstream-locales.json | tail -n 1 | sed 's/^ *//')
+            git commit -m "data(sync): regenerate after content upsert" \
+              -m "Triggered by content push ${GITHUB_SHA::7} from @${GITHUB_ACTOR}" \
+              -m "Changes: ${summary}"
+            if git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              echo "::endgroup::"
+              break
+            else
+              echo "::endgroup::"
+              if [ $attempt -lt $max_attempts ]; then
+                echo "Push rejected — will retry on latest main."
+              else
+                echo "::warning::Max attempts reached ($max_attempts). Concurrent pushes are still landing on main; the daily sync.yml cron will reconcile. Exiting 0 — this is not a real failure."
+                echo "pushed=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            fi
+          done
 
       - name: Trigger GitHub Pages deployment
-        if: steps.diff.outputs.changed == 'true'
+        if: steps.diff.outputs.changed == 'true' && steps.push.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref main
