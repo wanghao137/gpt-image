@@ -1,5 +1,32 @@
 [
   {
+    "id": "100203",
+    "title": "欧式城市水彩时尚旅行插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Watercolor",
+      "Illustration"
+    ],
+    "scenes": [
+      "Fashion",
+      "Travel"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Documentary",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-08-02-case-watercolor-fashion-travel-illustration.jpg",
+    "imageAlt": "欧式城市水彩时尚旅行插画",
+    "prompt": "Elegant watercolor fashion illustration of a stylish young woman exploring scenic European cities and cozy cafés, soft hand-painted watercolor textures, expressive ink sketch outlines, long wavy dark hair, chic oversized jackets, denim jeans, tote bags, sneakers, vintage camera, candid travel moments, historic streets, warm café lighting, pastel neutral tones, airy white background, delicate brush strokes, luxury fashion editorial meets travel sketchbook diary, Pinterest aesthetic, cinematic sunlight, modern feminine vibe, ultra detailed, elegant urban lifestyle artwork, timeless chic atmosphere, 8K masterpiece.",
+    "promptPreview": "Elegant watercolor fashion illustration of a stylish young woman exploring scenic European cities and cozy cafés, soft hand-painted watercolor textures, expressive ink sketch outlines, long wavy dark hair, chic oversize…",
+    "source": "Community collected via @Stonic_AI",
+    "createdAt": "2026-08-01T20:04:11.842Z"
+  },
+  {
     "id": "100202",
     "title": "印度街头小吃 Pani Puri 拼贴风信息图",
     "category": "图表与信息图",
