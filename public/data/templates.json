@@ -791,18 +791,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-08-02-case-watercolor-fashion-travel-illustration.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / Editorial / Cinematic / Documentary / Brand / Watercolor\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100203 欧式城市水彩时尚旅行插画: Elegant watercolor fashion illustration of a stylish young woman exploring scenic European citi…\n- #30541 紫色算法主题演讲海报: 创作一张极简风格的企业活动海报，包含巨大的中文字体、坐姿企业家肖像以及醒目的紫色舞台美学。\n- #30539 奇幻生物草甸合影: 一份详细的提示词，用于生成一幅充满奇思妙想的手绘风格画作，描绘了在郁郁葱葱的山间草甸上，一群友好的奇幻生物聚在一起的肖像。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-03-case-music-nostalgia-collage.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Cinematic / Poster / Realistic / Editorial / Minimal / Studio / Music\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n- #100203 欧式城市水彩时尚旅行插画: Elegant watercolor fashion illustration of a stylish young woman exploring scenic European citi…\n- #30541 紫色算法主题演讲海报: 创作一张极简风格的企业活动海报，包含巨大的中文字体、坐姿企业家肖像以及醒目的紫色舞台美学。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100204",
       "100203",
       "30541",
       "30539",
-      "30535",
-      "30533"
+      "30535"
     ]
   },
   {
@@ -1055,18 +1055,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "/uploads/2026-08-02-case-watercolor-fashion-travel-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / Editorial / Cinematic / Documentary / Brand / Watercolor / Fashion\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100203 欧式城市水彩时尚旅行插画: Elegant watercolor fashion illustration of a stylish young woman exploring scenic European citi…\n- #100202 印度街头小吃 Pani Puri 拼贴风信息图: Create a vibrant, colorful 3-page zine-style infographic about a trendy Indian street food: \"Pa…\n- #30539 奇幻生物草甸合影: 一份详细的提示词，用于生成一幅充满奇思妙想的手绘风格画作，描绘了在郁郁葱葱的山间草甸上，一群友好的奇幻生物聚在一起的肖像。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-03-case-tarot-holographic-card.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Cinematic / Editorial / Brand / Portrait / Fantasy / Collectible / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100205 全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡: 引用したキャラクター画像を主人公として、ライダー・ウェイト版タロットカードをモチーフにした大アルカナ（22枚）からランダムで1枚選んで、イラストを作成する。 【基本ルール】 ・人物は引用キャ…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n- #100203 欧式城市水彩时尚旅行插画: Elegant watercolor fashion illustration of a stylish young woman exploring scenic European citi…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100205",
+      "100204",
       "100203",
       "100202",
-      "30539",
-      "30527",
-      "30519"
+      "30539"
     ]
   },
   {
@@ -1151,18 +1151,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1785573822845_6n5iwv_HOjIQVjbcAACqPM.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30447 90 年代复古动漫 DJ 女孩: 一幅充满活力的城市流行（city-pop）风格动漫插画，描绘了音乐节上的 DJ 女孩，采用高角度鱼眼视角和霓虹灯光效果。\n- #30423 复古科幻星舰军官: 一个电影感肖像提示词，用于生成复古科幻飞船驾驶舱场景，画面中一位神情严肃的女军官正在操作发光的控制台。\n- #30387 日本河畔夏日野餐肖像: 一份详细的提示词，用于生成高质量、写实的女性河畔夏日野餐肖像，包含零食和胶片相机等特定细节。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "/uploads/2026-08-03-case-music-nostalgia-collage.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Cinematic / Poster / Realistic / Editorial / Minimal / Studio / Music\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n- #30447 90 年代复古动漫 DJ 女孩: 一幅充满活力的城市流行（city-pop）风格动漫插画，描绘了音乐节上的 DJ 女孩，采用高角度鱼眼视角和霓虹灯光效果。\n- #30423 复古科幻星舰军官: 一个电影感肖像提示词，用于生成复古科幻飞船驾驶舱场景，画面中一位神情严肃的女军官正在操作发光的控制台。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100204",
       "30447",
       "30423",
       "30387",
-      "30244",
-      "30238"
+      "30244"
     ]
   }
 ]
