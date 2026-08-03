@@ -1,5 +1,30 @@
 [
   {
+    "id": "100206",
+    "title": "3D皮克斯风表情九宫格头像贴纸",
+    "category": "角色与人物",
+    "styles": [
+      "Character"
+    ],
+    "scenes": [
+      "Social"
+    ],
+    "tags": [
+      "Illustration",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Portrait",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-08-04-case-austinit-pixtar-expression-sheet.jpg",
+    "imageAlt": "3D皮克斯风表情九宫格头像贴纸",
+    "prompt": "3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x3 grid layout, peeking through torn paper circles, emotions: wink, sunglasses cool, thinking, happy smile, thumbs up, drinking boba tea, friendly wave, laughing, cute pout, different outfits: green sweater, red jacket, yellow hoodie, striped tee, orange shirt, blue top, purple vest, pink cardigan, teal pullover. Soft cinematic lighting, clean white background, vibrant colors, high detail, adorable cartoon character, playful expressions, consistent character design across all poses",
+    "promptPreview": "3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x3 grid layout, peeking through torn paper circles, emotions: wink, sunglasses cool, thinking, happy smile, thumbs up, drinki…",
+    "source": "Community collected via @austinit",
+    "createdAt": "2026-08-03T20:03:50.504Z"
+  },
+  {
     "id": "100205",
     "title": "全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡",
     "category": "插画与艺术",
