@@ -897,18 +897,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "https://cms-assets.youmind.com/media/1785143451600_y2q5a5_HOIZROSbQAAtnel.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #29856 复古黑白照相亭九宫格: 一个复古风格的 2x2 网格拼贴提示词，模拟经典的单色照相亭，包含各种抓拍姿势。\n- #29460 赛博朋克武士角色设计图: 生成高密度的动漫赛博朋克角色三视图、武器规格、英雄插画以及九宫格战斗分镜，用于概念设计。\n- #28834 九宫格 AI 美颜人像拼贴: 生成 3×3 的九宫格拼贴图，展示一系列相似的精致东亚奇幻风格自拍人像，用于研究或戏仿重复的 AI 基础人脸美学。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/uploads/2026-08-04-case-austinit-pixtar-expression-sheet.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Illustration / 3D Render / Cinematic / Minimal / Portrait / Social / Character\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100206 3D皮克斯风表情九宫格头像贴纸: 3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x…\n- #29856 复古黑白照相亭九宫格: 一个复古风格的 2x2 网格拼贴提示词，模拟经典的单色照相亭，包含各种抓拍姿势。\n- #29460 赛博朋克武士角色设计图: 生成高密度的动漫赛博朋克角色三视图、武器规格、英雄插画以及九宫格战斗分镜，用于概念设计。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100206",
       "29856",
       "29460",
       "28834",
-      "25514",
-      "24603"
+      "25514"
     ]
   },
   {
@@ -921,18 +921,18 @@
       "Pack"
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
-    "cover": "https://cms-assets.youmind.com/media/1785573884352_9l09e7_HOnEllUaUAAn8g7.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30519 柔和色调动漫学姐女仆: 生成一张带有可爱柔和边框、粉色头发戴眼镜的女仆角色竖版动漫插画。\n- #30491 皇家蓝夏日海滩美妆大片: 一张充满活力的海滩女性美妆肖像，以缎面连衣裙和太阳镜的深皇家蓝色调为特色。画面以大海和天空为背景，捕捉到清爽的夏日氛围，并辅以清晰的对焦和自然阳光。\n- #30451 RAW 智能手机生活感人像: 一个旨在模拟年轻女性在城市街道上随手拍摄的、未经修饰的智能手机照片的提示词，强调照片的真实感与自然瑕疵。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "cover": "/uploads/2026-08-04-case-austinit-pixtar-expression-sheet.jpg",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / Illustration / 3D Render / Cinematic / Minimal / Portrait / Social / Character\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100206 3D皮克斯风表情九宫格头像贴纸: 3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x…\n- #30519 柔和色调动漫学姐女仆: 生成一张带有可爱柔和边框、粉色头发戴眼镜的女仆角色竖版动漫插画。\n- #30491 皇家蓝夏日海滩美妆大片: 一张充满活力的海滩女性美妆肖像，以缎面连衣裙和太阳镜的深皇家蓝色调为特色。画面以大海和天空为背景，捕捉到清爽的夏日氛围，并辅以清晰的对焦和自然阳光。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100206",
       "30519",
       "30491",
       "30451",
-      "30416",
-      "30397"
+      "30416"
     ]
   },
   {
@@ -1089,18 +1089,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "/uploads/2026-08-03-case-tarot-holographic-card.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Cinematic / Editorial / Brand / Portrait / Fantasy / Collectible / Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100205 全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡: 引用したキャラクター画像を主人公として、ライダー・ウェイト版タロットカードをモチーフにした大アルカナ（22枚）からランダムで1枚選んで、イラストを作成する。 【基本ルール】 ・人物は引用キャ…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n- #100203 欧式城市水彩时尚旅行插画: Elegant watercolor fashion illustration of a stylish young woman exploring scenic European citi…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-04-case-mystveil7-impressionist-rain-intersection.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial / Cinematic / Brand / Tech / Portrait / Fantasy / Collectible\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100207 印象派雨夜街口·黑白中的霓虹光影: A high-angle, wide-composition Impressionist oil painting of a rainy urban intersection. The sc…\n- #100205 全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡: 引用したキャラクター画像を主人公として、ライダー・ウェイト版タロットカードをモチーフにした大アルカナ（22枚）からランダムで1枚選んで、イラストを作成する。 【基本ルール】 ・人物は引用キャ…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100207",
       "100205",
       "100204",
       "100203",
-      "100202",
-      "30539"
+      "100202"
     ]
   },
   {
