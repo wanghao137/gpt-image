@@ -1,5 +1,29 @@
 [
   {
+    "id": "100207",
+    "title": "印象派雨夜街口·黑白中的霓虹光影",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial",
+      "Cinematic",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-04-case-mystveil7-impressionist-rain-intersection.jpg",
+    "imageAlt": "印象派雨夜街口·黑白中的霓虹光影",
+    "prompt": "A high-angle, wide-composition Impressionist oil painting of a rainy urban intersection. The scene is primarily monochrome with deep charcoal blacks and silvery grays, but features vibrant, colorful glowing lights at the footsteps of pedestrians crossing the street and beneath their umbrellas. A lone motorcyclist in the center leaves a trail of soft, colorful light, and car headlights emit small, brilliant pops of color. The style is heavily blurred and painterly, with loose, expressive brushstrokes and vague silhouettes, prioritizing mood and 'urban solitude' over sharp detail. The pavement is rain-soaked, reflecting both the gray sky and the neon-like colorful glows in shimmering, broken patterns. Misty atmosphere with distant buildings fading into soft tonal washes.",
+    "promptPreview": "A high-angle, wide-composition Impressionist oil painting of a rainy urban intersection. The scene is primarily monochrome with deep charcoal blacks and silvery grays, but features vibrant, colorful glowing lights at th…",
+    "source": "Community collected via @Mystveil7",
+    "createdAt": "2026-08-03T20:03:54.569Z"
+  },
+  {
     "id": "100206",
     "title": "3D皮克斯风表情九宫格头像贴纸",
     "category": "角色与人物",
