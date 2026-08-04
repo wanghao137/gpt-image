@@ -1,5 +1,30 @@
 [
   {
+    "id": "100209",
+    "title": "日系透明感偶像写真书庭院光影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Portrait",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-05-case-100209-japanese-idol-photobook.jpg",
+    "imageAlt": "日系透明感偶像写真书庭院光影",
+    "prompt": "{\n  \"Character\": {\n    \"Subject\": \"Japanese female idol, late teens to early 20s\",\n    \"Face_and_Skin\": \"pure innocent face with translucent pale skin, glassy realistic skin texture with a subtle natural glow\",\n    \"Makeup\": \"minimal 'no-makeup' look, very subtle soft pink blush, glossy clear lip balm\",\n    \"Hair\": \"natural dark brown medium-length bob hair gently swaying in the breeze, no hat\",\n    \"Eyes_and_Expression\": \"wide innocent soft eyes capturing the light, looking directly at camera with a gentle, ephemeral and pure expression\",\n    \"Pose\": \"SITTING on a wooden engawa, HUGGING KNEES to chest, chin resting gracefully on knees, arms wrapped softly around shins, bare feet, relaxed and natural posture\",\n    \"Outfit\": \"loose-fitting thin white linen summer dress, sleeveless, slightly translucent fabric catching the backlight, delicate collarbone visible, pure and ethereal all-white aesthetic\"\n  },\n  \"Scene\": {\n    \"Environment\": \"wooden engawa (traditional Japanese veranda), traditional Japanese house with sliding glass doors open to a lush green summer garden\",\n    \"Details\": \"bright white sheer curtains blowing in the background, soft green, brown, and white color palette\",\n    \"Atmosphere\": \"clear summer morning breeze, nostalgic and ephemeral atmosphere, feeling the gentle summer breeze\"\n  },\n  \"Photography\": {\n    \"Style\": \"Japanese idol photobook (shashin-shu), airy and transparent photography, masterpiece, best quality, photorealistic\",\n    \"Camera_and_Lens\": \"Contax 645 medium format look, Carl Zeiss Planar 80mm f/2 lens, shallow depth of field, soft airy creamy bokeh, soft ethereal focus on the edges, sharp on the eyes\",\n    \"Framing\": \"shot from EYE LEVEL, medium close-up framing, knee-up composition\",\n    \"Lighting\": \"SOFT NATURAL DAYLIGHT, OVERCAST or DIFFUSED WINDOW LIGHT, high-key lighting (low contrast), slightly overexposed (+1 EV) for transparency, soft wrap-around light, bright square catchlights in eyes\",\n    \"Film_Simulation_and_Color\": \"Fujifilm Pro 400H film simulation, pastel color grading, cool cyan-green undertones in the shadows, milky lifted blacks, soft glowing highlights without pure white clipping\",\n    \"Effects\": \"fine subtle film grain (0.2), very mild vignette (0.1), soft gentle light leak from the top corner\"\n    \"Aapect Ratio\": \"3:4\"\n  }\n}",
+    "promptPreview": "{ \"Character\": { \"Subject\": \"Japanese female idol, late teens to early 20s\", \"Face_and_Skin\": \"pure innocent face with translucent pale skin, glassy realistic skin texture with a subtle natural glow\", \"Makeup\": \"minimal…",
+    "source": "Community collected via @BeautyVerse_Lab",
+    "createdAt": "2026-08-04T20:04:51.753Z"
+  },
+  {
     "id": "100208",
     "title": "禅意极简室内环境大片人像",
     "category": "建筑与空间",
