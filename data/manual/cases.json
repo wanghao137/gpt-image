@@ -1,5 +1,31 @@
 [
   {
+    "id": "100210",
+    "title": "等距3D微缩体育场信息图",
+    "category": "图表与信息图",
+    "styles": [
+      "Minimal"
+    ],
+    "scenes": [
+      "Infographic",
+      "Education"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Infographic",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-08-06-case-ftcarpe-isometric-stadium-infographic.jpg",
+    "imageAlt": "等距3D微缩体育场信息图",
+    "prompt": "Present a clear, 45° top-down isometric miniature 3D cartoon scene of [Stadium], with soft refined textures, realistic PBR materials, and gentle lifelike lighting. Use a clean solid [Color] background. At the top-center, display the name of this stadium in large bold text and place the official logo associated with this stadium below the text. All text must match the background contrast automatically (white or black). Centered layout, square 1080x1080 dimension.",
+    "promptPreview": "Present a clear, 45° top-down isometric miniature 3D cartoon scene of [Stadium], with soft refined textures, realistic PBR materials, and gentle lifelike lighting. Use a clean solid [Color] background. At the top-center…",
+    "source": "Community collected via @ftcarpe",
+    "createdAt": "2026-08-05T22:49:06.683Z"
+  },
+  {
     "id": "100209",
     "title": "日系透明感偶像写真书庭院光影",
     "category": "摄影与写实",
