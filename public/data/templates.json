@@ -825,18 +825,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "/uploads/2026-08-05-case-100209-japanese-idol-photobook.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Cinematic / Minimal / Brand / Tech / 3D Render / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100209 日系透明感偶像写真书庭院光影: { \"Character\": { \"Subject\": \"Japanese female idol, late teens to early 20s\", \"Face_and_Skin\": \"…\n- #100208 禅意极简室内环境大片人像: 高级时装大片禅意环境人像，东亚成年美丽女性，主题「静·禅」。真实摄影主体 + 极简禅意室内空间 + 大面积负空间（留白）。画面不依靠夸张的表情，而是通过安静的室内空间、自然光线、茶席、窗外庭…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-06-case-flora-olive-velvet-saree-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Editorial / Studio / Brand / Cinematic / Minimal / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100211 橄榄绿丝绒纱丽高定影棚人像: A detailed, high-fashion studio photograph of a woman posing gracefully, wearing a luxurious ol…\n- #100209 日系透明感偶像写真书庭院光影: { \"Character\": { \"Subject\": \"Japanese female idol, late teens to early 20s\", \"Face_and_Skin\": \"…\n- #100208 禅意极简室内环境大片人像: 高级时装大片禅意环境人像，东亚成年美丽女性，主题「静·禅」。真实摄影主体 + 极简禅意室内空间 + 大面积负空间（留白）。画面不依靠夸张的表情，而是通过安静的室内空间、自然光线、茶席、窗外庭…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100211",
       "100209",
       "100208",
       "100204",
-      "100203",
-      "30541"
+      "100203"
     ]
   },
   {
