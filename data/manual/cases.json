@@ -1,5 +1,30 @@
 [
   {
+    "id": "100211",
+    "title": "橄榄绿丝绒纱丽高定影棚人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Studio",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-08-06-case-flora-olive-velvet-saree-portrait.jpg",
+    "imageAlt": "橄榄绿丝绒纱丽高定影棚人像",
+    "prompt": "A detailed, high-fashion studio photograph of a woman posing gracefully, wearing a luxurious olive green velvet saree draped elegantly over her shoulder, paired with a matching heavily embroidered sleeveless blouse that highlights her midriff. The lighting is moody and dramatic, accentuating the rich texture of the velvet and giving her skin a subtle, dewy sheen. Her hands are adorned with intricate, dark henna (mehndi) designs, and she is wearing traditional gold earrings, looking directly into the camera with a confident expression.",
+    "promptPreview": "A detailed, high-fashion studio photograph of a woman posing gracefully, wearing a luxurious olive green velvet saree draped elegantly over her shoulder, paired with a matching heavily embroidered sleeveless blouse that…",
+    "source": "Community collected via @Flora_Janer8",
+    "createdAt": "2026-08-05T22:49:10.382Z"
+  },
+  {
     "id": "100210",
     "title": "等距3D微缩体育场信息图",
     "category": "图表与信息图",
