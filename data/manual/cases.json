@@ -1,5 +1,32 @@
 [
   {
+    "id": "100212",
+    "title": "奢华巧克力品牌系列风味产品广告",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-08-07-case-100212-luxury-chocolate-ad.jpg",
+    "imageAlt": "奢华巧克力品牌系列风味产品广告",
+    "prompt": "Create a premium ad for a fictional luxury chocolate brand called Velvet Bite.\n\nMake a realistic square product ad for one dark chocolate bar flavor. Keep the same core packaging system across each version: matte black wrapper, gold foil, elegant serif typography, premium product photography, and a high-end editorial feel.\n\nCreate a different flavor world for each ad using the flavor name, colors, props, lighting, and mood.\n\nFlavor:\nBlood Orange Noir\nDark chocolate, citrus, warm orange accents, dramatic shadows, gold foil, rich luxury feel.\n\nFlavor 2:\nSalted Pistachio Muse\nDark chocolate, pistachio, soft cream background, green accents, elegant and refined.\n\nFlavor 3:\nRaspberry Ember\nDark chocolate, raspberry, deep red backdrop, moody lighting, rich and indulgent.\n\nEach ad should include a bold headline, short supporting copy, the Velvet Bite chocolate bar as the hero product, flavor-specific ingredients around the product, and a small CTA that says \"Shop the drop.\"\n\nMake the ads feel realistic, premium, polished, and cohesive, like they all belong to the same brand campaign.",
+    "promptPreview": "Create a premium ad for a fictional luxury chocolate brand called Velvet Bite. Make a realistic square product ad for one dark chocolate bar flavor. Keep the same core packaging system across each version: matte black w…",
+    "source": "Community collected via @ecomchasedimond",
+    "createdAt": "2026-08-06T20:03:57.579Z"
+  },
+  {
     "id": "100211",
     "title": "橄榄绿丝绒纱丽高定影棚人像",
     "category": "摄影与写实",
