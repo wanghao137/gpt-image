@@ -1,5 +1,32 @@
 [
   {
+    "id": "100214",
+    "title": "手工编织质感产品雕塑：毛线针织艺术品",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-08-08-case-textile-sculpture.jpg",
+    "imageAlt": "手工编织质感产品雕塑：毛线针织艺术品",
+    "prompt": "A whimsical handcrafted textile sculpture of [Object], created entirely from knitted fabrics, woven fibers, felt, yarn, embroidery threads, and soft textile materials. Elegant minimalist design with layered fabric construction, visible stitching, intricate woven textures, ribbed knit patterns, soft tactile surfaces, delicate handcrafted details, muted pastel color palette, premium artisan craftsmanship, collectible designer figurine aesthetic, shallow depth of field, soft diffused studio lighting, clean background, ultra-detailed fibers, realistic fabric textures, cinematic composition, high-end product photography, masterpiece quality, 8K render.",
+    "promptPreview": "A whimsical handcrafted textile sculpture of [Object], created entirely from knitted fabrics, woven fibers, felt, yarn, embroidery threads, and soft textile materials. Elegant minimalist design with layered fabric const…",
+    "source": "Community collected via @RizwanAly07",
+    "createdAt": "2026-08-07T20:05:10.816Z"
+  },
+  {
     "id": "100213",
     "title": "月之呢喃日式和果子礼盒包装品牌概念",
     "category": "品牌与标志",
