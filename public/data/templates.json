@@ -801,18 +801,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-08-07-case-100212-luxury-chocolate-ad.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100212 奢华巧克力品牌系列风味产品广告: Create a premium ad for a fictional luxury chocolate brand called Velvet Bite. Make a realistic…\n- #30465 禅意乌龙茶电商详情页: 一份精心设计的提示词，旨在为概念茶品牌生成高端移动端优先的电商详情页，遵循具有禅意美学的结构化客户转化路径。\n- #30382 高端白酒包装设计项目: 一份针对高端白酒包装设计项目的专业详细提示词，包含 3D 透视图、结构爆炸图以及奢华礼盒的材质规格说明。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-08-08-case-textile-sculpture.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Cinematic / Minimal / Poster / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100214 手工编织质感产品雕塑：毛线针织艺术品: A whimsical handcrafted textile sculpture of [Object], created entirely from knitted fabrics, w…\n- #100212 奢华巧克力品牌系列风味产品广告: Create a premium ad for a fictional luxury chocolate brand called Velvet Bite. Make a realistic…\n- #30465 禅意乌龙茶电商详情页: 一份精心设计的提示词，旨在为概念茶品牌生成高端移动端优先的电商详情页，遵循具有禅意美学的结构化客户转化路径。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100214",
       "100212",
       "30465",
       "30382",
-      "30376",
-      "30324"
+      "30376"
     ]
   },
   {
@@ -1089,18 +1089,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "/uploads/2026-08-04-case-mystveil7-impressionist-rain-intersection.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial / Cinematic / Brand / Tech / Portrait / Fantasy / Collectible\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100207 印象派雨夜街口·黑白中的霓虹光影: A high-angle, wide-composition Impressionist oil painting of a rainy urban intersection. The sc…\n- #100205 全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡: 引用したキャラクター画像を主人公として、ライダー・ウェイト版タロットカードをモチーフにした大アルカナ（22枚）からランダムで1枚選んで、イラストを作成する。 【基本ルール】 ・人物は引用キャ…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-08-case-pastel-fantasy-temple.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Concept Art / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100215 冰山古寺樱花梦境：粉彩奇幻风景插画: A dreamy pastel fantasy landscape in a vertical composition, showing a glowing East Asian pagod…\n- #100207 印象派雨夜街口·黑白中的霓虹光影: A high-angle, wide-composition Impressionist oil painting of a rainy urban intersection. The sc…\n- #100205 全息雷德韦塔罗牌：角色化身大阿尔卡纳收藏卡: 引用したキャラクター画像を主人公として、ライダー・ウェイト版タロットカードをモチーフにした大アルカナ（22枚）からランダムで1枚選んで、イラストを作成する。 【基本ルール】 ・人物は引用キャ…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100215",
       "100207",
       "100205",
       "100204",
-      "100203",
-      "100202"
+      "100203"
     ]
   },
   {
