@@ -801,18 +801,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786090958978_bjtqpk_HPBxSSObMAAT_2N.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Cinematic / Minimal / Poster / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30660 Vintage Brass Hanging Lantern: A centered hand-painted product illustration of an antique brass glass lantern for asset, icon,…\n- #30643 Pop Art Product Branding Grid: A comprehensive prompt to create energetic social media campaign grids with pop-art design, fea…\n- #100214 手工编织质感产品雕塑：毛线针织艺术品: A whimsical handcrafted textile sculpture of [Object], created entirely from knitted fabrics, w…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1786178659785_5n7mqe_HPLAcKHa8AA98ER.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30755 Cinematic Pepsi Energy Drink Video Sequence: A complex cinematic commercial prompt for a Pepsi energy drink featuring detailed liquid physic…\n- #30673 Icy Whale Summer Soda: A hyperrealistic vertical scene of an emerald soda transforming into a tiny arctic world, ideal…\n- #30660 Vintage Brass Hanging Lantern: A centered hand-painted product illustration of an antique brass glass lantern for asset, icon,…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "30755",
+      "30673",
       "30660",
-      "30643",
-      "100214",
-      "100212",
-      "30465"
+      "30648",
+      "30643"
     ]
   },
   {
@@ -825,18 +825,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1786178696514_op20eq_HOZt_9zbIAEgZ49.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30798 Mischievous Girl With Manga Wall Sketch: A whimsical mixed-media full-body portrait showing a cute woman beside a chaotic manga-style dr…\n- #30794 Black Cat Transformation Hero: A cinematic photorealistic action portrait of a black cat posing like a tokusatsu hero with a d…\n- #30790 Shy Anime Love Letter Portrait: Generates a romantic vertical anime portrait of a blushing schoolgirl holding a sealed love let…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-09-case-100217-gatsby-art-deco-wedding.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Realistic / 3D Render / Editorial / Cinematic / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100217 盖茨比 1920s Art Deco 复古婚纱电影大片: 请基于用户上传的两位成年人清晰生活照，生成一张「Gatsby 风格 / 1920s Art Deco 风格」的超高预算婚纱写真。 请严格保留两个人的真实身份特征，包括脸型、五官比例、眼睛、鼻…\n- #30798 Mischievous Girl With Manga Wall Sketch: A whimsical mixed-media full-body portrait showing a cute woman beside a chaotic manga-style dr…\n- #30794 Black Cat Transformation Hero: A cinematic photorealistic action portrait of a black cat posing like a tokusatsu hero with a d…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100217",
       "30798",
       "30794",
       "30790",
-      "30788",
-      "30787"
+      "30788"
     ]
   },
   {
@@ -921,18 +921,18 @@
       "Pack"
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
-    "cover": "https://cms-assets.youmind.com/media/1786178681608_jpdt2n_HPHv7UFaUAAssCC.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30779 Pastel Blue Frilly Maid Girl: Generates a dreamy anime character illustration in a pastel blue-and-white cropped frilly maid …\n- #30758 Tang Dynasty Spice Shop Night Portrait: A cinematic prompt for creating a nostalgic atmosphere of a Tang Dynasty spice shop at night, f…\n- #30753 Anime Summer Girl Reference Portrait: An anime-style prompt designed to maintain character consistency from a reference image while d…\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "cover": "/uploads/2026-08-09-case-100216-asics-y2k-badge.jpg",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack / Editorial / Illustration / Minimal / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100216 ASICS 东京原宿 Y2K 运动文化徽章贴纸: Create a premium flat vector badge inspired by ASICS, designed like a collectible Harajuku Y2K …\n- #30779 Pastel Blue Frilly Maid Girl: Generates a dreamy anime character illustration in a pastel blue-and-white cropped frilly maid …\n- #30758 Tang Dynasty Spice Shop Night Portrait: A cinematic prompt for creating a nostalgic atmosphere of a Tang Dynasty spice shop at night, f…\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100216",
       "30779",
       "30758",
       "30753",
-      "30747",
-      "30739"
+      "30747"
     ]
   },
   {
@@ -1185,18 +1185,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1786178662370_l4o4qm_HPKDYnAaIAAlL-8.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Cinematic / Poster / Realistic / Editorial / Minimal / Studio / Music\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30758 Tang Dynasty Spice Shop Night Portrait: A cinematic prompt for creating a nostalgic atmosphere of a Tang Dynasty spice shop at night, f…\n- #30651 Vintage Philippines Travel Poster: Generates a nostalgic tourism poster featuring a Filipina portrait, Philippine landmarks, tropi…\n- #100204 复古黑胶与流媒体混剪：音乐回忆编辑拼贴海报: A premium nostalgic music-themed editorial collage inspired by vintage cassette culture, Spotif…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "/uploads/2026-08-09-case-100217-gatsby-art-deco-wedding.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Illustration / Realistic / 3D Render / Editorial / Cinematic / Studio / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100217 盖茨比 1920s Art Deco 复古婚纱电影大片: 请基于用户上传的两位成年人清晰生活照，生成一张「Gatsby 风格 / 1920s Art Deco 风格」的超高预算婚纱写真。 请严格保留两个人的真实身份特征，包括脸型、五官比例、眼睛、鼻…\n- #30758 Tang Dynasty Spice Shop Night Portrait: A cinematic prompt for creating a nostalgic atmosphere of a Tang Dynasty spice shop at night, f…\n- #30651 Vintage Philippines Travel Poster: Generates a nostalgic tourism poster featuring a Filipina portrait, Philippine landmarks, tropi…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100217",
       "30758",
       "30651",
       "100204",
-      "30447",
-      "30423"
+      "30447"
     ]
   }
 ]
