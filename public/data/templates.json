@@ -801,18 +801,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786263582790_bg4bbz_HPPewB_aMAESEHi.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30936 Hand Pinching One-Yuan Coin: A photorealistic close-up of an adult right hand holding a one-yuan coin in a blurred office se…\n- #30935 Top-Down Apple Counting Desk Scene: A photorealistic overhead tabletop arrangement for testing exact object counting and position c…\n- #30896 Futuristic Product Launch Poster: A minimal sci-fi event poster featuring a misty landscape, glowing S-curve light trail, giant p…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-08-10-case-sneaker-rooftop.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100219 城市天台运动鞋仰角摄影构图: \"scene_description\": { \"location\": \"Urban rooftop or high vantage point with a backdrop of towe…\n- #30936 Hand Pinching One-Yuan Coin: A photorealistic close-up of an adult right hand holding a one-yuan coin in a blurred office se…\n- #30935 Top-Down Apple Counting Desk Scene: A photorealistic overhead tabletop arrangement for testing exact object counting and position c…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100219",
       "30936",
       "30935",
-      "30896",
-      "30854",
-      "30827"
+      "30929",
+      "30896"
     ]
   },
   {
@@ -849,18 +849,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cms-assets.youmind.com/media/1786263552190_j4pfl5_HPM_ROda8AAb9Im.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Documentary / Brand / Watercolor\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30898 Dianchi Memories Vintage Travel Poster: A warm retro postcard-style poster of Dianchi Lake with mountains, fireworks, a bridge, and a b…\n- #30799 Circuit Board City Landmark Poster: Generates a gritty experimental cyberpunk city poster where a landmark transforms into a toweri…\n- #30791 Cinematic Motorcycle Route Poster: Generates a dramatic golden-hour motorcycle travel poster with a glowing navigation route overl…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-08-10-case-pakistan-stamp-poster.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Cinematic / Realistic / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100218 巴基斯坦邮票平台立体微缩旅行海报: Create a premium stylized 3D isometric travel poster of Pakistan designed as a floating miniatu…\n- #30898 Dianchi Memories Vintage Travel Poster: A warm retro postcard-style poster of Dianchi Lake with mountains, fireworks, a bridge, and a b…\n- #30799 Circuit Board City Landmark Poster: Generates a gritty experimental cyberpunk city poster where a landmark transforms into a toweri…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100218",
       "30898",
       "30799",
       "30791",
-      "30651",
-      "100203"
+      "30651"
     ]
   },
   {
@@ -1041,18 +1041,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "https://cms-assets.youmind.com/media/1786263579938_8balop_HPHLhGRa0AAyxiw.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30932 Celestial Xianxia Cloud Kingdom Wallpaper: Transforms a palace reference into a 4K ancient Chinese fantasy wallpaper with a lone immortal …\n- #30920 Speedster vs Meteor Cityscape: A cinematic prompt for generating an epic superhero speedster racing up a skyscraper as meteors…\n- #30891 Cinematic Dubai Skyline Drone View: A photorealistic golden-hour aerial cityscape with a quadcopter drone, ideal for cinematic trav…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-08-10-case-sneaker-rooftop.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Studio / Realistic / Cinematic / Minimal / Commerce / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100219 城市天台运动鞋仰角摄影构图: \"scene_description\": { \"location\": \"Urban rooftop or high vantage point with a backdrop of towe…\n- #30932 Celestial Xianxia Cloud Kingdom Wallpaper: Transforms a palace reference into a 4K ancient Chinese fantasy wallpaper with a lone immortal …\n- #30920 Speedster vs Meteor Cityscape: A cinematic prompt for generating an epic superhero speedster racing up a skyscraper as meteors…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100219",
       "30932",
       "30920",
       "30891",
-      "30646",
-      "30580"
+      "30646"
     ]
   },
   {
