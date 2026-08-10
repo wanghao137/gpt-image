@@ -1,5 +1,32 @@
 [
   {
+    "id": "100220",
+    "title": "蓝图与3D渲染对撞·技术解构图鉴",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic",
+      "Blueprint"
+    ],
+    "scenes": [
+      "Tech",
+      "Industrial"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Cinematic",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-08-11-case-blueprint-3d-split-glenn.jpg",
+    "imageAlt": "蓝图与3D渲染对撞·技术解构图鉴",
+    "prompt": "A [subject] split vertically down the center, left half as a [adjective] technical blueprint, right half as a [adjective] 3D render, the seam between them glitching where both realities collide.\n\nBlueprint side: precise orthogonal lines, dimension callouts, annotation labels, grid measurements, schematic cross-sections, monochrome cyan-on-white or white-on-blue drafting aesthetic, engineering drawing conventions, exploded view annotations.\n\n3D render side: photorealistic materials, dynamic studio lighting, depth of field, subsurface scattering, PBR textures, volumetric atmosphere, cinematic color grading, Octane-render quality.\n\nThe collision seam: pixel-sorting artifacts, chromatic aberration, data-mosh glitch bands, holographic interference patterns, where the flat schematic bleeds into volumetric form. Background: dark technical environment with faint grid, subtle ambient occlusion. Style: hybrid technical illustration meets product visualization, 8K detail, award-winning industrial design presentation.",
+    "promptPreview": "A [subject] split vertically down the center, left half as a [adjective] technical blueprint, right half as a [adjective] 3D render, the seam between them glitching where both realities collide. Blueprint side: precise …",
+    "source": "Community collected via @GlennHasABeard",
+    "createdAt": "2026-08-10T20:04:16.393Z"
+  },
+  {
     "id": "100219",
     "title": "城市天台运动鞋仰角摄影构图",
     "category": "产品与电商",
