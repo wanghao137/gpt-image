@@ -813,18 +813,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1786351229092_bmoliq_HPN02GZWAAAXWCo.png",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31043 Cartoon Spartan Warrior Bust: A humorous hand-drawn cartoon portrait of a muscular Spartan warrior with a red-plumed helmet o…\n- #31023 Ethereal Celestial Goddess: A luminous fantasy space goddess illustration for creating dreamy cosmic character art with flo…\n- #31018 Grok Imagine Image 2.0 Launch Banner: A cinematic tech promo banner visualizing AI image editing, multi-reference generation, and sma…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-08-11-case-matcha-latte-annisa.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / 3D Render / Editorial / Cinematic / Product / Commerce\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100221 抹茶拿铁·极简瑞士风美食广告海报: [Matcha Latte] STYLE & ART DIRECTION: Modern minimalist food advertising aesthetics, Swiss-styl…\n- #31043 Cartoon Spartan Warrior Bust: A humorous hand-drawn cartoon portrait of a muscular Spartan warrior with a red-plumed helmet o…\n- #31023 Ethereal Celestial Goddess: A luminous fantasy space goddess illustration for creating dreamy cosmic character art with flo…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100221",
       "31043",
       "31023",
       "31018",
-      "31014",
-      "30928"
+      "31014"
     ]
   },
   {
@@ -837,18 +837,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786351209503_blrcge_HPPin3fbMAE2-M8.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31022 Anime AI Model Comparison Balcony Scene: Generates a square side-by-side comparison image of two AI model outputs using a sunny anime ba…\n- #100219 城市天台运动鞋仰角摄影构图: \"scene_description\": { \"location\": \"Urban rooftop or high vantage point with a backdrop of towe…\n- #30936 Hand Pinching One-Yuan Coin: A photorealistic close-up of an adult right hand holding a one-yuan coin in a blurred office se…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-08-11-case-matcha-latte-annisa.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100221 抹茶拿铁·极简瑞士风美食广告海报: [Matcha Latte] STYLE & ART DIRECTION: Modern minimalist food advertising aesthetics, Swiss-styl…\n- #31022 Anime AI Model Comparison Balcony Scene: Generates a square side-by-side comparison image of two AI model outputs using a sunny anime ba…\n- #100219 城市天台运动鞋仰角摄影构图: \"scene_description\": { \"location\": \"Urban rooftop or high vantage point with a backdrop of towe…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100221",
       "31022",
       "100219",
       "30936",
-      "30935",
-      "30929"
+      "30935"
     ]
   },
   {
@@ -1149,18 +1149,18 @@
       "Commercial"
     ],
     "description": "生成高端食品/饮品的商业广告级视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786351189897_n0xgus_HPQgNCCWgAAnHqT.jpg",
-    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Poster / Realistic / Editorial / Cinematic / Minimal / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #30875 Premium Food Advertising Scenes: A high-end advertising prompt that creates two cohesive food scenes featuring a model with ice …\n- #30293 皮克斯风格三文鱼晚餐广告: 一个竖屏超写实 3D 美食广告，画面中一位亲切的动画女性正在温馨且阳光明媚的厨房里展示色泽诱人的照烧三文鱼。\n- #30274 极简主义餐厅美食摄影: 一款专为高端美食摄影打造的专业级提示词，侧重于斯堪的纳维亚美学、自然光线以及高级商业造型。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "cover": "/uploads/2026-08-11-case-matcha-latte-annisa.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Poster / Realistic / 3D Render / Editorial / Cinematic / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100221 抹茶拿铁·极简瑞士风美食广告海报: [Matcha Latte] STYLE & ART DIRECTION: Modern minimalist food advertising aesthetics, Swiss-styl…\n- #30875 Premium Food Advertising Scenes: A high-end advertising prompt that creates two cohesive food scenes featuring a model with ice …\n- #30293 皮克斯风格三文鱼晚餐广告: 一个竖屏超写实 3D 美食广告，画面中一位亲切的动画女性正在温馨且阳光明媚的厨房里展示色泽诱人的照烧三文鱼。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
     "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100221",
       "30875",
       "30293",
       "30274",
-      "30248",
-      "100197"
+      "30248"
     ]
   },
   {
