@@ -1,5 +1,32 @@
 [
   {
+    "id": "100221",
+    "title": "抹茶拿铁·极简瑞士风美食广告海报",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic"
+    ],
+    "imageUrl": "/uploads/2026-08-11-case-matcha-latte-annisa.jpg",
+    "imageAlt": "抹茶拿铁·极简瑞士风美食广告海报",
+    "prompt": "[Matcha Latte] STYLE & ART DIRECTION: Modern minimalist food advertising aesthetics, Swiss-style advertising composition, premium restaurant social media branding, editorial design for an FMCG campaign, visuals for startup food brands, Pinterest-style food poster aesthetics, playful geometric advertising structure, modern in-app branding style, minimalist luxury restaurant marketing.\n\nMAIN OBJECT: Hyper-realistic food hero placed in the center of the composition, striking premium food photography design, floating or suspended presentation, realistic glossy textures, detailing of fresh ingredients, mouth-watering commercial presentation, studio-quality dish rendering, premium restaurant advertising campaign atmosphere.\n\nLAYOUT & COMPOSITION: Maintain the EXACT composition structure as sampled: large, rounded organic cream background centered on a vibrant full-color backdrop, large, lowercase type placed behind the protagonist and the hero's food object positioned in the center, overlapping, small branding/navigation strip aligned at the top, short editorial text block positioned on the left, floating rounded ingredient or flavor labels in the UI aligned vertically on the right, minimal decorative micro-icons, clean asymmetrical spacing, large breakout room, premium minimalist style hierarchy, social media poster composition.\n\nTypography: Large, bold typeface with rounded lowercase letters, modern geometric sans-serif font system, minimal supporting text, clear typography hierarchy for emerging brands, soft, rounded commercial lettering, large-scale typography treatment hidden behind objects.\n\nDEPTH AND LIGHT: Soft premium studio lighting, high-quality food highlights, realistic soft shadows, subtle glossy reflections, cinematic commercial lighting, highly detailed texture rendering, high-quality depth separation.\n\nADDITIONAL DESIGN DETAILS: Rounded pill-shaped labels, small plus icons, minimal floating elements in the UI, app-like composition, fresh ingredient garnish, soft shadow blending, modern food delivery branding system, clean visuals, minimal geometric balance.\n\nCOLOR PALETTE: [PRIMARY BRAND COLOR], cream/off-white, warm accent tones, high-contrast food colors, minimal black typography accents, a modern premium commercial palette.\n\nQuality: Ultra-high resolution, Behance-level food ad quality, 8k commercial rendering, Pinterest-style restaurant ad campaign design, premium FMCG branding aesthetics, professional art direction, high-quality editorial food poster.",
+    "promptPreview": "[Matcha Latte] STYLE & ART DIRECTION: Modern minimalist food advertising aesthetics, Swiss-style advertising composition, premium restaurant social media branding, editorial design for an FMCG campaign, visuals for star…",
+    "source": "Community collected via @SimplyAnnisa",
+    "createdAt": "2026-08-10T20:04:20.129Z"
+  },
+  {
     "id": "100220",
     "title": "蓝图与3D渲染对撞·技术解构图鉴",
     "category": "图表与信息图",
