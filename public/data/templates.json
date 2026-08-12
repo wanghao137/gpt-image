@@ -837,18 +837,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-08-12-case-100222-luxury-terrace-product.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100222 金色时刻奢华露台生活方式产品展示图: Ultra-realistic IMAX-level Netflix-style cinematic luxury terrace portrait, 9:16 vertical compo…\n- #31147 Vitamin C Serum Beauty Ad: Creates a luxurious two-panel skincare advertisement featuring a glowing model, amber Vitamin C…\n- #31107 Ivory Lace Top and Black Mesh Dress Specification: A highly detailed technical fashion prompt specifying layering, fabric textures, and constructi…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1786523362718_vo0wdy_HPcaxMhbwAAohD2.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31235 Cinematic Chef Plating at Dusk: A photorealistic editorial food scene of a chef plating fine dining in a warm modern kitchen ov…\n- #31231 Three Infinity Material Sculptures: A photorealistic studio render comparing glass, chrome, and marble figure-eight infinity sculpt…\n- #31201 Pistachio Crochet Cardigan and Plaid Mini Dress: A complex outfit prompt detailing the textures of a crochet cardigan paired with a multiscale p…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "31235",
+      "31231",
+      "31201",
       "100222",
-      "31147",
-      "31107",
-      "31106",
-      "31098"
+      "31147"
     ]
   },
   {
@@ -861,18 +861,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1786523376170_wdm84z_HPgP8PKbAAAqppU.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31255 Cyberpunk Founder Portrait: Generates a vertical AI model comparison-style image with a white label header above a cinemati…\n- #31253 White Suit Man in Hooded Crowd: An ultra-realistic black-and-white cinematic fashion portrait of a confident man in a white sui…\n- #31249 Sunlit Library Portrait: A realistic vertical portrait prompt for creating a softly backlit young woman in a red hoodie …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-13-case-fashion-street-flash.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Editorial / Minimal / Documentary / Brand / Illustration / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100225 JSON结构化街拍时尚夜店闪光摄影: { \"character_identity\": { \"name_placeholder\": \"YOUR_CHARACTER\", \"gender_presentation\": \"female\"…\n- #100224 九宫格手绘涂鸦风格人物角色拼贴海报: A professional 3x3 collage featuring the same beautiful young woman photographed from the refer…\n- #31255 Cyberpunk Founder Portrait: Generates a vertical AI model comparison-style image with a white label header above a cinemati…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100225",
+      "100224",
       "31255",
       "31253",
-      "31249",
-      "31245",
-      "31243"
+      "31249"
     ]
   },
   {
@@ -933,18 +933,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "/uploads/2026-08-04-case-austinit-pixtar-expression-sheet.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Illustration / 3D Render / Cinematic / Minimal / Portrait / Social / Character\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100206 3D皮克斯风表情九宫格头像贴纸: 3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x…\n- #29856 复古黑白照相亭九宫格: 一个复古风格的 2x2 网格拼贴提示词，模拟经典的单色照相亭，包含各种抓拍姿势。\n- #29460 赛博朋克武士角色设计图: 生成高密度的动漫赛博朋克角色三视图、武器规格、英雄插画以及九宫格战斗分镜，用于概念设计。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/uploads/2026-08-13-case-doodle-collage-portrait.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Illustration / Poster / Realistic / Editorial / Cinematic / Minimal / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100224 九宫格手绘涂鸦风格人物角色拼贴海报: A professional 3x3 collage featuring the same beautiful young woman photographed from the refer…\n- #100206 3D皮克斯风表情九宫格头像贴纸: 3D Pixar-style expression sheet, cute stylized avatar with wavy dark hair and round glasses, 3x…\n- #29856 复古黑白照相亭九宫格: 一个复古风格的 2x2 网格拼贴提示词，模拟经典的单色照相亭，包含各种抓拍姿势。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100224",
       "100206",
       "29856",
       "29460",
-      "28834",
-      "25514"
+      "28834"
     ]
   },
   {
@@ -1125,18 +1125,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1786523375169_y12gij_HPf1u9MbkAAsLMd.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31254 Crimson Xianxia Martial Training: A vertical cinematic fantasy artwork of a red-haired xianxia heroine practicing a powerful punc…\n- #31243 Sunlit Convenience Store Schoolgirl: A vertical anime illustration prompt for creating a cinematic schoolgirl portrait inside a Japa…\n- #31234 Anime Impact Battle Scene: Generates a cinematic anime illustration of a masked twin-braided fighter slamming a pink-haire…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-13-case-doodle-collage-portrait.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Poster / Realistic / Editorial / Cinematic / Minimal / Social / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100224 九宫格手绘涂鸦风格人物角色拼贴海报: A professional 3x3 collage featuring the same beautiful young woman photographed from the refer…\n- #31254 Crimson Xianxia Martial Training: A vertical cinematic fantasy artwork of a red-haired xianxia heroine practicing a powerful punc…\n- #31243 Sunlit Convenience Store Schoolgirl: A vertical anime illustration prompt for creating a cinematic schoolgirl portrait inside a Japa…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100224",
       "31254",
       "31243",
       "31234",
-      "31232",
-      "31230"
+      "31232"
     ]
   },
   {
