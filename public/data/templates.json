@@ -861,18 +861,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1786609324688_ejihc0_HPhnb4gWsAAQm6u.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31333 Beethoven Tragic Sonata Collage: A cinematic Romantic-era portrait of Beethoven playing piano amid shattered manuscripts, a viol…\n- #31332 High-Angle Bedroom Selfie Portrait: A photorealistic vertical smartphone selfie of an adult woman in casual summer clothing inside …\n- #31329 Angel Girl at Sunset Coast: A photorealistic vertical portrait of a wind-swept angelic young woman on a glowing seaside cli…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-14-case-100227-fashion-editorial.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Poster / Realistic / Editorial / Cinematic / Minimal / Studio / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100227 千禧复古韩系时尚杂志编辑海报: Ultra-stylized high-fashion editorial poster of a confident young Asian female model standing i…\n- #31333 Beethoven Tragic Sonata Collage: A cinematic Romantic-era portrait of Beethoven playing piano amid shattered manuscripts, a viol…\n- #31332 High-Angle Bedroom Selfie Portrait: A photorealistic vertical smartphone selfie of an adult woman in casual summer clothing inside …\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100227",
       "31333",
       "31332",
       "31329",
-      "31328",
-      "31325"
+      "31328"
     ]
   },
   {
@@ -1221,18 +1221,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1786609269226_2itpgm_HPgqOGxaYAEF9zS.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Illustration / Realistic / 3D Render / Editorial / Cinematic / Studio / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31275 Vintage Cinematic Car Portrait: A nostalgic 1970s style film portrait of a man sitting in front of a vintage red sedan on a for…\n- #30957 Korean Woman Classroom Editorial: A cinematic fashion-editorial prompt featuring a young Korean woman in a nostalgic modern class…\n- #100217 盖茨比 1920s Art Deco 复古婚纱电影大片: 请基于用户上传的两位成年人清晰生活照，生成一张「Gatsby 风格 / 1920s Art Deco 风格」的超高预算婚纱写真。 请严格保留两个人的真实身份特征，包括脸型、五官比例、眼睛、鼻…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "/uploads/2026-08-14-case-100227-fashion-editorial.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Poster / Realistic / Editorial / Cinematic / Minimal / Studio / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100227 千禧复古韩系时尚杂志编辑海报: Ultra-stylized high-fashion editorial poster of a confident young Asian female model standing i…\n- #31275 Vintage Cinematic Car Portrait: A nostalgic 1970s style film portrait of a man sitting in front of a vintage red sedan on a for…\n- #30957 Korean Woman Classroom Editorial: A cinematic fashion-editorial prompt featuring a young Korean woman in a nostalgic modern class…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100227",
       "31275",
       "30957",
       "100217",
-      "30758",
-      "30651"
+      "30758"
     ]
   }
 ]
