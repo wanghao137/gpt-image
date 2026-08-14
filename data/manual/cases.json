@@ -1,5 +1,30 @@
 [
   {
+    "id": "100229",
+    "title": "电影级角色替换保持场景一致性",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Editorial",
+      "Brand",
+      "Architecture",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-15-case-100229-character-replacement-cinematic.jpg",
+    "imageAlt": "电影级角色替换保持场景一致性",
+    "prompt": "\"Use the scene image as the primary source of truth.\n\nReplace only the target character in the scene with the character from the attached reference sheet. Preserve the original scene exactly: same composition, camera angle, lens, framing, background, props, set dressing, architecture, atmosphere, colour grade, depth of field, film grain, aspect ratio, and cinematic still quality.\n\nThe replacement character must preserve the identity traits from the reference sheet: same face, likeness, hairstyle, hair texture, hair length, age, body proportions, and overall physical build. Do not redesign, beautify, stylise, or reinterpret the character’s identity.\n\nThe replacement character must preserve the exact outfit, costume, footwear, accessories, and styling from the character sheet. Transfer the wardrobe exactly, including fit, layering, materials, colours, patterns, and how the clothing sits on the body.\n\nMatch the original pose, body position, scale, perspective, eye line, and interaction with the environment. Integrate the new character naturally into the scene and match the lighting precisely, including light direction, softness, contrast, shadow shape, rim light, bounce light, reflections, exposure, colour temperature, haze, and practical light sources.\n\nAdapt the lighting across the replacement character’s skin, face, hair, body, and clothing so they inherit the same scene illumination, colour cast, shadow falloff, bounce light, highlight behaviour, and environmental shading as the character they are replacing. Preserve the reference character’s natural complexion and identity, but make their skin and face respond to the scene’s lighting, colour grade, exposure, and atmosphere so they feel photographed in the original shot rather than inserted afterwards.\n\nPreserve all occlusions, foreground elements, contact shadows, floor contact, reflections, and environmental effects. Ensure the feet, hands, clothing edges, hair edges, and body contours blend naturally with the scene. Do not alter any other character, object, background detail, lighting setup, camera position, or scene mood. Do not add or remove elements.\n\nFinal result: a seamless photorealistic cinematic film still in which the target character has been replaced by the reference-sheet character’s likeness, hairstyle, body, exact clothing, and styling, fully matched to the lighting, colour, texture, and photographic realism of the original scene.\"",
+    "promptPreview": "\"Use the scene image as the primary source of truth. Replace only the target character in the scene with the character from the attached reference sheet. Preserve the original scene exactly: same composition, camera ang…",
+    "source": "Community collected via @VictorInFocus",
+    "createdAt": "2026-08-14T20:03:30.498Z"
+  },
+  {
     "id": "100228",
     "title": "手撕纸拼贴人物肖像插画",
     "category": "插画与艺术",
