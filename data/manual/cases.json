@@ -1,5 +1,30 @@
 [
   {
+    "id": "100228",
+    "title": "手撕纸拼贴人物肖像插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Studio",
+      "Brand",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-08-15-case-100228-torn-paper-collage-portrait.jpg",
+    "imageAlt": "手撕纸拼贴人物肖像插画",
+    "prompt": "Create a realistic torn paper collage portrait of the subject, constructed entirely from layered pieces of colored paper. Facial features, hair, clothing, and shadows are formed using irregular hand-torn paper fragments with rough, fibrous edges clearly visible.\nEach paper layer overlaps naturally, creating subtle depth and soft shadow separation between pieces.\nUse muted, earthy tones and desaturated colors, with visible paper grain and thickness.\nNo paint, no brush strokes — only paper textures.\nBackground made of larger torn paper sheets arranged organically, with soft neutral tones.\nSoft diffused studio lighting enhances the paper layers and edge shadows without gloss or shine.\nHandcrafted, editorial illustration style.\nUltra-detailed, tactile, museum-quality mixed-media look.\nSquare format, high resolution.",
+    "promptPreview": "Create a realistic torn paper collage portrait of the subject, constructed entirely from layered pieces of colored paper. Facial features, hair, clothing, and shadows are formed using irregular hand-torn paper fragments…",
+    "source": "Community collected via @AIwithkhan",
+    "createdAt": "2026-08-14T20:03:25.098Z"
+  },
+  {
     "id": "100227",
     "title": "千禧复古韩系时尚杂志编辑海报",
     "category": "海报与排版",
