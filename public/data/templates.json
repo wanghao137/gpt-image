@@ -838,17 +838,17 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "https://cms-assets.youmind.com/media/1786781736126_qold2y_HPrrKeMakAAf-at.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31559 Wet Transparent Earbud Macro: A premium hyper-realistic macro product shot of a futuristic transparent earbud covered in wate…\n- #31420 Premium Energy Drink Branding Concepts: A detailed product design prompt for transforming a logo into a futuristic energy drink brand b…\n- #31413 Fantasy Sky Train Attendant Instruction: A highly structured system prompt for maintaining character consistency while placing a subject…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31559 Wet Transparent Earbud Macro: A premium hyper-realistic macro product shot of a futuristic transparent earbud covered in wate…\n- #31522 Luxury Perfume Brand Advertisement: A professional and comprehensive prompt for creating high-end perfume commercial photography fe…\n- #31420 Premium Energy Drink Branding Concepts: A detailed product design prompt for transforming a logo into a futuristic energy drink brand b…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "31559",
+      "31522",
       "31420",
       "31413",
-      "31383",
-      "31379"
+      "31383"
     ]
   },
   {
@@ -1029,18 +1029,18 @@
       "Sheet"
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
-    "cover": "https://cms-assets.youmind.com/media/1786781735221_09iklk_HPqabhsbUAAqksq.png",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31558 Cyborg Ronin Character Sheet: Generates a detailed cinematic game-character reference sheet for a cybernetic ronin with turna…\n- #31556 Cinematic Rocky Waterfall Valley: A photorealistic ultra-wide cinematic landscape prompt for generating an epic rocky valley with…\n- #31550 Anime Girl with Blue Slime Hat: Generates a polished fantasy anime scene of a smiling pink-haired girl holding a cute blue slim…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "cover": "/uploads/2026-08-16-case-gameboy-pixel-battle.jpg",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Cinematic / Minimal / Editorial / Tech / PixelArt\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100231 宝可梦式 GameBoy 像素战斗场景: inspired by a classic pokemon gameboy screenshot but it's highly detailed beautiful pixel art, …\n- #31558 Cyborg Ronin Character Sheet: Generates a detailed cinematic game-character reference sheet for a cybernetic ronin with turna…\n- #31556 Cinematic Rocky Waterfall Valley: A photorealistic ultra-wide cinematic landscape prompt for generating an epic rocky valley with…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100231",
       "31558",
       "31556",
       "31550",
-      "31506",
-      "31499"
+      "31506"
     ]
   },
   {
@@ -1125,18 +1125,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1786781733630_r0hdho_HPqC9Iia4AAb4Wb.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31555 Hong Kong Watercolor Travel Journal: Generates a hand-painted watercolor travel journal scene with a stylish foreground portrait and…\n- #31550 Anime Girl with Blue Slime Hat: Generates a polished fantasy anime scene of a smiling pink-haired girl holding a cute blue slim…\n- #31549 Anime Cyclists at Forest Waterfall: A cinematic anime scene of two cycling girls resting before a lush forest waterfall, ideal for …\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-16-case-risograph-icon-set.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100230 Risograph 网点噪点风格主题图标集: Create a collection of icons representing [a theme], they belong together as a single theme. Pu…\n- #31555 Hong Kong Watercolor Travel Journal: Generates a hand-painted watercolor travel journal scene with a stylish foreground portrait and…\n- #31550 Anime Girl with Blue Slime Hat: Generates a polished fantasy anime scene of a smiling pink-haired girl holding a cute blue slim…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100230",
       "31555",
       "31550",
       "31549",
-      "31548",
-      "31544"
+      "31548"
     ]
   },
   {
