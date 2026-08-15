@@ -1,5 +1,27 @@
 [
   {
+    "id": "100230",
+    "title": "Risograph 网点噪点风格主题图标集",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-08-16-case-risograph-icon-set.jpg",
+    "imageAlt": "Risograph 网点噪点风格主题图标集",
+    "prompt": "Create a collection of icons representing [a theme], they belong together as a single theme. Put them in a 2x2 grid (no lines). The background is pure white. Make the icons as risograph prints. No text. No color distortion. Vibrant and not faded. Stochastic stippling and sand-like noise pattern within color fills. Each icon has a thick black outline.",
+    "promptPreview": "Create a collection of icons representing [a theme], they belong together as a single theme. Put them in a 2x2 grid (no lines). The background is pure white. Make the icons as risograph prints. No text. No color distort…",
+    "source": "Community collected via @NanoBanana",
+    "createdAt": "2026-08-15T20:03:40.202Z"
+  },
+  {
     "id": "100229",
     "title": "电影级角色替换保持场景一致性",
     "category": "场景与叙事",
