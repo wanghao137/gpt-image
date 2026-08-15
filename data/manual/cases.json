@@ -1,5 +1,28 @@
 [
   {
+    "id": "100231",
+    "title": "宝可梦式 GameBoy 像素战斗场景",
+    "category": "场景与叙事",
+    "styles": [
+      "PixelArt"
+    ],
+    "scenes": [
+      "Game"
+    ],
+    "tags": [
+      "Cinematic",
+      "Minimal",
+      "Editorial",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-16-case-gameboy-pixel-battle.jpg",
+    "imageAlt": "宝可梦式 GameBoy 像素战斗场景",
+    "prompt": "inspired by a classic pokemon gameboy screenshot but it's highly detailed beautiful pixel art, include cool effects from moves used, modern minimal ui",
+    "promptPreview": "inspired by a classic pokemon gameboy screenshot but it's highly detailed beautiful pixel art, include cool effects from moves used, modern minimal ui",
+    "source": "Community collected via @ProperPrompter",
+    "createdAt": "2026-08-15T20:03:45.508Z"
+  },
+  {
     "id": "100230",
     "title": "Risograph 网点噪点风格主题图标集",
     "category": "插画与艺术",
