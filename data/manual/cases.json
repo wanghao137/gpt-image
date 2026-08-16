@@ -1,5 +1,32 @@
 [
   {
+    "id": "100232",
+    "title": "米其林级拉面美食英雄镜头",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-08-17-case-204984-ramen-hero.jpg",
+    "imageAlt": "米其林级拉面美食英雄镜头",
+    "prompt": "Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly.\n\nInstead, use a warm, clean, natural environment:\n– light wooden table or soft concrete surface\n– subtle reflections or slight moisture\n– soft golden daylight entering from the side\nCenter a premium ramen bowl with:\n– thick glossy noodles being lifted with chopsticks\n– rich golden broth with visible oil texture\n– soft-boiled eggs with glowing yolk\n– juicy pork slices with caramelized edges\n– finely chopped green onions\nAdd strong steam rising naturally, illuminated by warm light.\n\nInclude a human hand holding chopsticks to add realism and scale.\n\nUse a warm, appetizing color palette:\n– golden tones\n– soft whites\n– natural greens\n– subtle reds\nAvoid neon, avoid cyberpunk, avoid heavy branding dominance.\nFocus on:\n food realism, warmth, and emotional appeal\nAdd microdetails:\n– condensation on the bowl\n– slight sauce splashes\n– texture imperfections\n– natural shadows\nThe final image must feel:\n warm, real, irresistible, and comforting — like a Michelin-level food photo\n\nUltra-detailed, 4K",
+    "promptPreview": "Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly. Instead, use a warm, clean, natural environment: – light wooden table or soft concrete surface – subtle reflections or slig…",
+    "source": "Community collected via @Preda2005",
+    "createdAt": "2026-08-16T20:06:33.900Z"
+  },
+  {
     "id": "100231",
     "title": "宝可梦式 GameBoy 像素战斗场景",
     "category": "场景与叙事",
