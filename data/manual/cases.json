@@ -1,5 +1,32 @@
 [
   {
+    "id": "100233",
+    "title": "水彩钢笔城市写生旅行插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration",
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial",
+      "Travel"
+    ],
+    "tags": [
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Brand",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-08-17-case-207840-aquarelle-sketch.jpg",
+    "imageAlt": "水彩钢笔城市写生旅行插画",
+    "prompt": "Create a refined horizontal aquarelle urban sketch of a peaceful, iconic outdoor location in [Place], [City], using delicate freehand ink, restrained transparent watercolor, and generous areas of warm-white cold-pressed paper.\n\nCOMPOSITION:\nUse a landscape 3:2 composition viewed from natural pedestrian eye level. Place the defining feature of [Place] across the left and center-left middle ground. Let the street, promenade, square, riverbank, or pathway recede naturally toward an off-center vanishing point on the right.\n\nKeep the immediate foreground spacious and pale. Show only a broad section of pavement, ground, or walkway with a few thin perspective lines and diluted lavender-blue shadows. Do not place oversized, cropped, or close-up people, trees, benches, furniture, vehicles, or objects against the front edge.\n\nPERSPECTIVE:\nLet paving joints, curbs, railings, pathways, and surrounding architecture converge naturally toward the distance. Reduce the size and spacing of pedestrians, bicycles, vehicles, trees, and buildings with distance. Maintain believable perspective while preserving slight freehand irregularity.\n\nMIDDLE GROUND:\nMake [Place] the primary focal area. Include a few relaxed pedestrians, subtle local details, and everyday elements that naturally belong to the location while keeping every figure and object proportionate to the surrounding architecture and landscape.\n\nUse fine blue-black fountain-pen lines with changing pressure, broken contours, searching construction marks, and limited cross-hatching. Concentrate the clearest drawing around the central focal area without creating heavy black outlines.\n\nCOLOR:\nUse transparent warm ochre, pale terracotta, muted coral, dusty sage, cerulean blue, and soft lavender-gray. Adapt the palette subtly to reflect the atmosphere of [City] while keeping the watercolor density light to medium. Reserve darker pigment for only a few small shaded areas.\n\nAllow watercolor washes to form subtle blooms, uneven deposits, and dry edges. Use pale blue-violet washes for cast shadows. Let portions of architecture, foliage, clothing, sky, and surrounding details remain entirely unpainted.\n\nBACKGROUND:\nSuggest the surrounding skyline and landscape using thin interrupted lines and highly diluted blue-gray washes. If appropriate, include one recognizable landmark only as a small, distant, softly rendered silhouette naturally integrated into the composition. Do not turn the illustration into a landmark collage.\n\nWHITE SPACE:\nPreserve approximately 45% of the cold-pressed paper. Keep much of the foreground, upper sky, distant background, and one side of the composition lightly painted or entirely unpainted.\n\nTYPOGRAPHY:\nReserve a quiet area of warm-white paper in the upper-right corner. Add the exact city name:\n\n\"[City]\"\n\nSet it in refined uppercase editorial lettering in muted blue-gray. Directly beneath it, add a short handwritten poetic tagline related to the city's atmosphere.\n\nKeep the typography crisp, correctly spelled, and unobstructed by architecture, trees, or other objects.\n\nThe strongest detail and color should remain in the middle-ground focal area. The foreground must stay light, open, and secondary. No oversized foreground objects, no dramatic close-up elements, no dense silhouettes, no crowded tourist scenes, no landmark collage, no uniform color filter, no glossy digital watercolor, no CGI.",
+    "promptPreview": "Create a refined horizontal aquarelle urban sketch of a peaceful, iconic outdoor location in [Place], [City], using delicate freehand ink, restrained transparent watercolor, and generous areas of warm-white cold-pressed…",
+    "source": "Community collected via @ZaraIrahh",
+    "createdAt": "2026-08-16T20:06:38.242Z"
+  },
+  {
     "id": "100232",
     "title": "米其林级拉面美食英雄镜头",
     "category": "产品与电商",
