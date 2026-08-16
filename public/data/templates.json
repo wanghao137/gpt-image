@@ -813,18 +813,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1786867830666_e1lihp_HPwN7fkboAAhgyV.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31650 Overhead Pepperoni Pizza Photo: Generates a realistic top-down studio product photo of a whole pepperoni pizza for food adverti…\n- #31630 Realistic Unaju Grilled Eel Box: A photorealistic restaurant-style food shot of glossy grilled eel over rice in a lacquered bent…\n- #31624 Natural Restaurant Meal Regeneration: Transforms a reference restaurant meal photo into a more realistic landscape tabletop compositi…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-08-17-case-207840-aquarelle-sketch.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Illustration / 3D Render / Editorial / Cinematic / Brand / Architecture / Travel\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100233 水彩钢笔城市写生旅行插画: Create a refined horizontal aquarelle urban sketch of a peaceful, iconic outdoor location in [P…\n- #100232 米其林级拉面美食英雄镜头: Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly.…\n- #31650 Overhead Pepperoni Pizza Photo: Generates a realistic top-down studio product photo of a whole pepperoni pizza for food adverti…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100233",
+      "100232",
       "31650",
       "31630",
-      "31624",
-      "31621",
-      "31593"
+      "31624"
     ]
   },
   {
@@ -837,18 +837,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786867779891_9wbvu1_HPxD2vgbwAIP--_.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31596 Cleaning Product Commerical with Doodle Art: A creative advertising prompt for household cleaners that mixes high-end product photography wi…\n- #31559 Wet Transparent Earbud Macro: A premium hyper-realistic macro product shot of a futuristic transparent earbud covered in wate…\n- #31522 Luxury Perfume Brand Advertisement: A professional and comprehensive prompt for creating high-end perfume commercial photography fe…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-08-17-case-204984-ramen-hero.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100232 米其林级拉面美食英雄镜头: Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly.…\n- #31652 Spotify Miniature Car Ad Scene: Generates a cinematic photorealistic miniature advertising scene with a branded vintage car, dr…\n- #31596 Cleaning Product Commerical with Doodle Art: A creative advertising prompt for household cleaners that mixes high-end product photography wi…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100232",
+      "31652",
       "31596",
       "31559",
-      "31522",
-      "31420",
-      "31413"
+      "31522"
     ]
   },
   {
@@ -885,18 +885,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cms-assets.youmind.com/media/1786867777402_mp8c1g_HPwdhIPbkAAPgsU.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31592 Vintage Paper Collage Travel Poster: A prompt for generating sophisticated vintage travel posters using a handmade paper collage aes…\n- #31580 Vintage Watercolor City Poster: A comprehensive template for creating minimalist, vintage watercolor city posters with brush le…\n- #31530 Mid-Century Travel Book Illustration: A nostalgia-focused prompt for creating mid-century modern city illustrations that look like vi…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-08-17-case-207840-aquarelle-sketch.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / 3D Render / Editorial / Cinematic / Brand / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100233 水彩钢笔城市写生旅行插画: Create a refined horizontal aquarelle urban sketch of a peaceful, iconic outdoor location in [P…\n- #31592 Vintage Paper Collage Travel Poster: A prompt for generating sophisticated vintage travel posters using a handmade paper collage aes…\n- #31580 Vintage Watercolor City Poster: A comprehensive template for creating minimalist, vintage watercolor city posters with brush le…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100233",
       "31592",
       "31580",
       "31530",
-      "31463",
-      "31414"
+      "31463"
     ]
   },
   {
@@ -1125,18 +1125,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1786867831915_sz9qur_HPyGHb0X0AAPEKH.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31651 Egyptian Moon Priestess Ritual: A richly detailed dark fantasy illustration prompt for generating an ancient Egyptian moon prie…\n- #31649 Egyptian Black Cat Goddess: A cinematic fantasy illustration prompt for generating a regal Egyptian black cat goddess surro…\n- #31646 Sunlit Summer Gazebo Anime Girl: A luminous anime illustration of a shy summer girl in a blue sundress standing inside a bright …\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-17-case-207840-aquarelle-sketch.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / 3D Render / Editorial / Cinematic / Brand / Architecture / Travel\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100233 水彩钢笔城市写生旅行插画: Create a refined horizontal aquarelle urban sketch of a peaceful, iconic outdoor location in [P…\n- #31651 Egyptian Moon Priestess Ritual: A richly detailed dark fantasy illustration prompt for generating an ancient Egyptian moon prie…\n- #31649 Egyptian Black Cat Goddess: A cinematic fantasy illustration prompt for generating a regal Egyptian black cat goddess surro…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100233",
       "31651",
       "31649",
       "31646",
-      "31642",
-      "31640"
+      "31642"
     ]
   },
   {
@@ -1149,18 +1149,18 @@
       "Commercial"
     ],
     "description": "生成高端食品/饮品的商业广告级视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786867830666_e1lihp_HPwN7fkboAAhgyV.jpg",
-    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31650 Overhead Pepperoni Pizza Photo: Generates a realistic top-down studio product photo of a whole pepperoni pizza for food adverti…\n- #31630 Realistic Unaju Grilled Eel Box: A photorealistic restaurant-style food shot of glossy grilled eel over rice in a lacquered bent…\n- #31593 Luxury Seafood Advertising Poster: Generates high-end seafood advertisements featuring cooked crabs on crushed ice against a clean…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "cover": "/uploads/2026-08-17-case-204984-ramen-hero.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Cinematic / Minimal / Commerce / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100232 米其林级拉面美食英雄镜头: Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly.…\n- #31650 Overhead Pepperoni Pizza Photo: Generates a realistic top-down studio product photo of a whole pepperoni pizza for food adverti…\n- #31630 Realistic Unaju Grilled Eel Box: A photorealistic restaurant-style food shot of glossy grilled eel over rice in a lacquered bent…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
     "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100232",
       "31650",
       "31630",
       "31593",
-      "31557",
-      "31428"
+      "31557"
     ]
   },
   {
