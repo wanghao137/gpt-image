@@ -1,5 +1,31 @@
 [
   {
+    "id": "100235",
+    "title": "地下朋克Zine黑白红字复古海报",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "3D Render",
+      "Editorial",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-08-18-case-100235-punk-zine-poster.jpg",
+    "imageAlt": "地下朋克Zine黑白红字复古海报",
+    "prompt": "Create a high-contrast vintage underground editorial poster in a black-and-white 1970s/80s underground comic and punk-zine aesthetic. Centered is a dramatic close-up portrait of a rugged bearded man, facing directly toward the camera, with thick wavy dark hair, heavy eyebrows, prominent nose, full mustache and textured beard. His expression is serious, intense, and stoic.\n\nRender the portrait entirely in black, white, and gray halftone shading, using dense stippling, cross-hatching, rough ink strokes, distressed print textures, and hand-illustrated comic-book linework. Add subtle paper grain, scratches, speckles, ink imperfections, and worn screen-print artifacts throughout.\n\nAcross the center of the face, place enormous bold red typography reading “VINTAGE”, stretching almost edge-to-edge. Use a dramatic condensed vintage serif / Western gothic display font, slightly irregular and warped, with thick black outline/shadow. The red letters should have cracked, distressed textures and small black fracture lines, giving the typography an aged, weathered print appearance.\n\nKeep the background almost completely black with subtle grain, dust, scratches, and tiny distressed white marks. Strong symmetrical composition, frontal portrait, extreme close-up, gritty underground magazine cover aesthetic, rebellious punk poster energy, high detail, screen-print texture, analog print imperfections, dramatic contrast.\n\nComposition: vertical poster, centered face, typography dominating the middle, face partially obscured behind the word, tightly cropped portrait.\n\nAspect ratio: 4:5\nStyle: vintage punk zine, underground comic illustration, distressed screen print, halftone engraving, monochrome ink artwork with bold blood-red typography.",
+    "promptPreview": "Create a high-contrast vintage underground editorial poster in a black-and-white 1970s/80s underground comic and punk-zine aesthetic. Centered is a dramatic close-up portrait of a rugged bearded man, facing directly tow…",
+    "source": "Community collected via @arsalannazir07",
+    "createdAt": "2026-08-17T20:05:20.404Z"
+  },
+  {
     "id": "100234",
     "title": "JSON结构化海军蓝奢华精华广告",
     "category": "产品与电商",
