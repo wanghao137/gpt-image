@@ -873,18 +873,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1786954589009_mg0uwm_HP2Bzica4AEL6PN.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31707 Minimalist 3D Surreal Product Ad: A template for creating minimalist and clever 3D brand visuals featuring surreal objects and mi…\n- #100232 米其林级拉面美食英雄镜头: Create a hyper-realistic, ultra-detailed ramen hero scene designed to trigger hunger instantly.…\n- #31652 Spotify Miniature Car Ad Scene: Generates a cinematic photorealistic miniature advertising scene with a branded vintage car, dr…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-08-18-case-100234-luxury-serum-ad.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / 3D Render / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100234 JSON结构化海军蓝奢华精华广告: { \"type\": \"ultra_premium_luxury_skincare_advertisement\", \"resolution\": \"4K Ultra HD\", \"aspect_r…\n- #31713 Robot Woman Fast Food Counter Chaos: A photorealistic action shot of a sleek robot woman at a chaotic fast-food counter with fries a…\n- #31707 Minimalist 3D Surreal Product Ad: A template for creating minimalist and clever 3D brand visuals featuring surreal objects and mi…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100234",
+      "31713",
       "31707",
       "100232",
-      "31652",
-      "31596",
-      "31559"
+      "31652"
     ]
   },
   {
@@ -897,18 +897,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1786954618539_1cwczg_HP1Y-GLWYAANqJJ.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31745 Cyberpunk Treadmill Fashion Editorial: Generates a dark luxury studio fashion editorial featuring a masked cyberpunk techwear model wa…\n- #31739 Dark Glam Anime Fashion Portrait: Generates a vertical gothic-luxury anime portrait of an elegant woman in a dark teal halter dre…\n- #31737 White Wing Nurse Cafe Portrait: Generates a soft anime portrait of an adult nurse mascot relaxing with coffee in a bright ficti…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-18-case-100235-punk-zine-poster.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Poster / Realistic / Illustration / 3D Render / Editorial / Social / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100235 地下朋克Zine黑白红字复古海报: Create a high-contrast vintage underground editorial poster in a black-and-white 1970s/80s unde…\n- #100234 JSON结构化海军蓝奢华精华广告: { \"type\": \"ultra_premium_luxury_skincare_advertisement\", \"resolution\": \"4K Ultra HD\", \"aspect_r…\n- #31745 Cyberpunk Treadmill Fashion Editorial: Generates a dark luxury studio fashion editorial featuring a masked cyberpunk techwear model wa…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100235",
+      "100234",
       "31745",
       "31739",
-      "31737",
-      "31736",
-      "31732"
+      "31737"
     ]
   },
   {
@@ -1257,18 +1257,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1786954562298_37b2l8_HP0IIm_bIAAyfCR.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Poster / Realistic / Editorial / Cinematic / Minimal / Studio / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #31678 Y2K Digital Camera Selfie: Captures a nostalgic early-2000s digital camera aesthetic with hazy lighting, mirror reflection…\n- #31672 Vintage Digital Camera Mirror Selfie: A nostalgic Y2K-style mirror selfie prompt that maintains character identity from a reference i…\n- #31599 Nostalgic Japanese Studio Portrait Collage: A photorealistic collage prompt for a consistent female subject in various playful poses, with …\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "/uploads/2026-08-18-case-100235-punk-zine-poster.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Poster / Realistic / Illustration / 3D Render / Editorial / Social\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100235 地下朋克Zine黑白红字复古海报: Create a high-contrast vintage underground editorial poster in a black-and-white 1970s/80s unde…\n- #31678 Y2K Digital Camera Selfie: Captures a nostalgic early-2000s digital camera aesthetic with hazy lighting, mirror reflection…\n- #31672 Vintage Digital Camera Mirror Selfie: A nostalgic Y2K-style mirror selfie prompt that maintains character identity from a reference i…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100235",
       "31678",
       "31672",
       "31599",
-      "31453",
-      "100227"
+      "31453"
     ]
   }
 ]
