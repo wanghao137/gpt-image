@@ -1,5 +1,32 @@
 [
   {
+    "id": "100239",
+    "title": "角色成长叙事海报：时间层叠构图",
+    "category": "角色与人物",
+    "styles": [
+      "Cinematic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-20-case-character-growth-poster.jpg",
+    "imageAlt": "角色成长叙事海报：时间层叠构图",
+    "prompt": "character : [chracter]\n\nDesign a narrative growth poster in which the current character stands prominently in the foreground, while earlier versions appear only as residual forms, cut-out silhouettes, or symbolic echoes. Instead of a simple character lineup, the poster should show evolution through changing shape language, recurring objects, progressive damage or refinement, and shifting color accents. The image should feel like time layered into a single composition, elegant, emotionally resonant, and quietly cinematic.",
+    "promptPreview": "character : [chracter] Design a narrative growth poster in which the current character stands prominently in the foreground, while earlier versions appear only as residual forms, cut-out silhouettes, or symbolic echoes.…",
+    "source": "Community collected via @story_with_ai",
+    "createdAt": "2026-08-19T20:04:53.821Z"
+  },
+  {
     "id": "100238",
     "title": "产品ASMR开箱视频分镜信息图",
     "category": "图表与信息图",
