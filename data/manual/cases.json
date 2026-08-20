@@ -1,5 +1,30 @@
 [
   {
+    "id": "100241",
+    "title": "照片转极简3D卡通手办风格角色",
+    "category": "角色与人物",
+    "styles": [
+      "3D"
+    ],
+    "scenes": [
+      "Character"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-08-21-case-100241-3d-character-style.jpg",
+    "imageAlt": "照片转极简3D卡通手办风格角色",
+    "prompt": "{\n \"task\": \"image_style_transfer_3d_character\",\n \"input\": {\n \"source_image\": \"USER_UPLOADED_IMAGE\",\n \"preserve_identity\": true,\n \"preserve_pose\": true,\n \"preserve_composition\": true\n },\n \"style_reference\": {\n \"render_style\": \"stylized_3d_character\",\n \"aesthetic\": \"soft_minimal_cartoon_3d\",\n \"inspiration\": [\n \"pixar_like_but_more_minimal\",\n \"toy_figure_render\",\n \"clean_product_character_design\"\n ]\n },\n \"character_design\": {\n \"skin\": {\n \"material\": \"smooth_matte_plastic\",\n \"texture\": \"soft_uniform\",\n \"subsurface_scattering\": \"gentle\"\n },\n \"facial_features\": {\n \"eyes\": \"half_closed_bored_expression\",\n \"eyelids\": \"heavy\",\n \"nose\": \"rounded_simplified\",\n \"mouth\": \"flat_neutral\",\n \"ears\": \"simplified_rounded\"\n },\n \"emotion\": \"unimpressed_calm_bored\"\n },\n \"clothing\": {\n \"style\": \"minimal_streetwear\",\n \"details\": \"no_logos_no_patterns\",\n \"fabric\": \"soft_matte\"\n },\n \"accessories\": {\n \"headwear\": \"simple_baseball_cap_optional\",\n \"ear_accessories\": \"wireless_earbuds_optional\"\n },\n \"lighting\": {\n \"setup\": \"studio_softbox\",\n \"shadows\": \"very_soft\",\n \"contrast\": \"low\",\n \"highlights\": \"subtle\"\n },\n \"background\": {\n \"type\": \"solid_color\",\n \"color_palette\": [\n \"muted_green\",\n \"pastel_tone\"\n ],\n \"gradient\": \"none\"\n },\n \"camera\": {\n \"angle\": \"front_facing\",\n \"framing\": \"medium_close_up\",\n \"lens\": \"50mm_equivalent\",\n \"distortion\": \"none\"\n },\n \"render_quality\": {\n \"resolution\": \"high\",\n \"edges\": \"clean\",\n \"noise\": \"none\",\n \"realism_balance\": \"stylized_over_realistic\"\n },\n \"output\": {\n \"consistency\": \"high\",\n \"style_strength\": \"strong\",\n \"photorealism\": false\n }\n}",
+    "promptPreview": "{ \"task\": \"image_style_transfer_3d_character\", \"input\": { \"source_image\": \"USER_UPLOADED_IMAGE\", \"preserve_identity\": true, \"preserve_pose\": true, \"preserve_composition\": true }, \"style_reference\": { \"render_style\": \"st…",
+    "source": "Community collected via @firatbilal",
+    "createdAt": "2026-08-20T20:04:17.599Z"
+  },
+  {
     "id": "100240",
     "title": "魂系动作游戏Boss战开场界面设计",
     "category": "UI 与界面",
