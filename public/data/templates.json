@@ -874,17 +874,17 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "https://cms-assets.youmind.com/media/1787299963728_mqlupc_HQJ656laoAAKdiA.png",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32173 Apple 风格 iPhone Fold 着陆页: 为虚构的折叠屏 iPhone 产品发布创建一个高端、Apple 风格的网页着陆页模型。\n- #31937 蓝白细条纹衬衫时尚穿搭: 一套复杂的时尚设计提示词，用于打造叠穿造型，包含一件白色蕾丝胸衣和一件天蓝色细条纹衬衫。\n- #31918 法式学院哥特风时尚穿搭: 一个专注于时尚的提示词，将优雅的法式复古学院风与轻哥特元素相结合，呈现经典的黑白对比色调。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32173 Apple 风格 iPhone Fold 着陆页: 为虚构的折叠屏 iPhone 产品发布创建一个高端、Apple 风格的网页着陆页模型。\n- #32138 高级时装 Vogue 杂志封面: 一个专为 gpt-image-2 设计的高级提示词，用于创作具有 Vogue 风格的杂志封面，呈现雕塑感高级定制时装、戏剧性光影以及极简奢华的美学风格。\n- #32113 冰银奢华风 Mood board: 一份用于创建 3x3 电影感奢华 Mood board 的综合提示词，采用未来感冰蓝色与银色单色美学。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "32173",
-      "31937",
-      "31918",
-      "31910",
-      "31888"
+      "32138",
+      "32113",
+      "32112",
+      "32058"
     ]
   },
   {
@@ -897,18 +897,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1787299970384_shvfsd_HQHwxXVXAAA9IRG.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32184 复古未来主义人机赛博海报: 生成一张高级垂直编辑风格海报，展示融合了控制论的古典大理石半身像、醒目的排版，以及葡萄牙语的 AI 与人类协作信息。\n- #32181 单色励志肖像海报: 生成一张带有醒目西班牙语励志排版的黑白编辑风格肖像海报，适用于社交媒体或个人品牌推广。\n- #32180 动漫咖啡师肖像: 一个简洁的竖版动漫肖像提示词，用于创作一位佩戴眼镜、身穿围裙并手持咖啡杯的时尚女性咖啡师角色。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-22-case-100243-paper-bloom-cover.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Editorial / Poster / Illustration / 3D Render / Education / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100243 纸感切面侧脸花瓣瀑布杂志封面: { \"style_name\": \"Paper Bloom Covers\", \"style_slug\": \"faceted-profile-petal-cascade-cover\", \"can…\n- #32184 复古未来主义人机赛博海报: 生成一张高级垂直编辑风格海报，展示融合了控制论的古典大理石半身像、醒目的排版，以及葡萄牙语的 AI 与人类协作信息。\n- #32181 单色励志肖像海报: 生成一张带有醒目西班牙语励志排版的黑白编辑风格肖像海报，适用于社交媒体或个人品牌推广。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100243",
       "32184",
       "32181",
       "32180",
-      "32178",
-      "32177"
+      "32178"
     ]
   },
   {
@@ -1137,18 +1137,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-07-16-case-100169-luxury-coffee-table-book.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Realistic / Education / Brand / Portrait / Tech / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100169 Vogue风格奢华咖啡桌画册摄影: Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition …\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n- #100138 水墨禅意高级时尚杂志封面设计: Luxury editorial cover, title \"ZEN MODE\", featuring a conceptual portrait of a modern Asian mod…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-08-22-case-100243-paper-bloom-cover.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Illustration / 3D Render / Education / Brand / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100243 纸感切面侧脸花瓣瀑布杂志封面: { \"style_name\": \"Paper Bloom Covers\", \"style_slug\": \"faceted-profile-petal-cascade-cover\", \"can…\n- #100169 Vogue风格奢华咖啡桌画册摄影: Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition …\n- #100158 奢华极繁主义天体杂志封面设计: Create a luxury maximalist vector magazine cover in portrait format Theme: Queen of the Lunar C…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100243",
       "100169",
       "100158",
       "100138",
-      "100134",
-      "100127"
+      "100134"
     ]
   },
   {
