@@ -1,5 +1,29 @@
 [
   {
+    "id": "100244",
+    "title": "手账涂鸦风人像插画：照片转简笔画水彩涂鸦",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Minimal",
+      "Editorial",
+      "Portrait",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-08-23-case-2090046-doodle-illustration.jpg",
+    "imageAlt": "手账涂鸦风人像插画：照片转简笔画水彩涂鸦",
+    "prompt": "Transform the image into a charming minimalist hand-drawn doodle illustration. Preserve the main subject, pose, proportions, and overall composition while simplifying everything into playful, childlike forms. Use loose brush-pen outlines with subtle wobble, uneven pressure, and naturally imperfect handmade strokes. Keep the linework clean and sparse, with tiny expressive details that give the subject personality. Add delicate watercolor-ink touches with very soft, restrained color accents while maintaining plenty of clean white space. Create a naive sketchbook feeling with whimsical cartoon shapes, spontaneous marks, gentle imperfections, and an authentic handmade drawing quality. Avoid excessive detail, realism, heavy shading, or polished digital-vector edges. The final result should feel like a cute artist's notebook doodle drawn by hand with watercolor ink.",
+    "promptPreview": "Transform the image into a charming minimalist hand-drawn doodle illustration. Preserve the main subject, pose, proportions, and overall composition while simplifying everything into playful, childlike forms. Use loose …",
+    "source": "Community collected via @MahnoorAi12",
+    "createdAt": "2026-08-22T20:06:02.027Z"
+  },
+  {
     "id": "100243",
     "title": "纸感切面侧脸花瓣瀑布杂志封面",
     "category": "文档与出版",
