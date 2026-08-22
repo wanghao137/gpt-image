@@ -1,5 +1,32 @@
 [
   {
+    "id": "100245",
+    "title": "真人照片混搭手绘涂鸦：马克笔涂鸦环绕人物创意照",
+    "category": "角色与人物",
+    "styles": [
+      "Illustration",
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Social"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Minimal",
+      "Portrait",
+      "Social",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-08-23-case-2036656-doodle-photo-mix.jpg",
+    "imageAlt": "真人照片混搭手绘涂鸦：马克笔涂鸦环绕人物创意照",
+    "prompt": "Create a creative photo of a person using the face from the uploaded image. The person is standing in a simple environment while surrounded by hand-drawn doodle elements. Around them are sketch-style drawings like arrows, lightning, stars, scribbles, and abstract shapes, as if drawn with a marker. Some doodles interact with the person, like wings on their back, a crown above their head, or energy lines around their body. The style is a mix of real photo and doodle art. The person is wearing casual modern clothes like a t-shirt, jacket, jeans, and sneakers. The background is clean so the doodles stand out. High contrast, creative composition, slightly messy sketch style, fun and expressive, ultra detailed, modern social media aesthetic.",
+    "promptPreview": "Create a creative photo of a person using the face from the uploaded image. The person is standing in a simple environment while surrounded by hand-drawn doodle elements. Around them are sketch-style drawings like arrow…",
+    "source": "Community collected via @NikhilRajX",
+    "createdAt": "2026-08-22T20:06:07.024Z"
+  },
+  {
     "id": "100244",
     "title": "手账涂鸦风人像插画：照片转简笔画水彩涂鸦",
     "category": "插画与艺术",
