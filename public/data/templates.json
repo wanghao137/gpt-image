@@ -874,17 +874,17 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "https://cms-assets.youmind.com/media/1787386265409_fq6i65_HQP4vnbWQAAw4VA.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32271 Glossy Potted Plant Asset: Generates a polished transparent-background potted plant icon suitable for product mockups, UI …\n- #32173 Apple 风格 iPhone Fold 着陆页: 为虚构的折叠屏 iPhone 产品发布创建一个高端、Apple 风格的网页着陆页模型。\n- #32138 高级时装 Vogue 杂志封面: 一个专为 gpt-image-2 设计的高级提示词，用于创作具有 Vogue 风格的杂志封面，呈现雕塑感高级定制时装、戏剧性光影以及极简奢华的美学风格。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32271 Glossy Potted Plant Asset: Generates a polished transparent-background potted plant icon suitable for product mockups, UI …\n- #32236 高端护肤品产品摄影: 为带有极简品牌标识和银色金属质感的磨砂玻璃护肤品瓶身打造的高端产品摄影提示词。\n- #32227 Oversized Fruit Miniature World: A creative prompt featuring a miniature person interacting with giant fruit and drinks, set in …\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "32271",
+      "32236",
+      "32227",
       "32173",
-      "32138",
-      "32113",
-      "32112"
+      "32138"
     ]
   },
   {
@@ -897,18 +897,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1787386298232_7kf23p_HQPwlSYa8AATJMT.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32305 野花草地上的动漫少女: 这是一条详细的文本提示词，用于生成一张宁静的竖版动漫田园肖像，描绘了一位编发少女在阳光明媚的乡村草地上采摘花朵的场景。\n- #32303 Japanese UV Protection Manga Comic: A four-panel educational Japanese manga page explaining steroid use, ultraviolet irritation, an…\n- #32300 Impasto Harvest Maiden at Sunset: A richly textured fantasy oil-painting portrait of a kimono-clad harvest maiden glowing among g…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-08-23-case-2090046-doodle-illustration.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Illustration / Minimal / Editorial / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100244 手账涂鸦风人像插画：照片转简笔画水彩涂鸦: Transform the image into a charming minimalist hand-drawn doodle illustration. Preserve the mai…\n- #32305 野花草地上的动漫少女: 这是一条详细的文本提示词，用于生成一张宁静的竖版动漫田园肖像，描绘了一位编发少女在阳光明媚的乡村草地上采摘花朵的场景。\n- #32303 Japanese UV Protection Manga Comic: A four-panel educational Japanese manga page explaining steroid use, ultraviolet irritation, an…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100244",
       "32305",
       "32303",
       "32300",
-      "32295",
-      "32294"
+      "32295"
     ]
   },
   {
@@ -1161,18 +1161,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1787386301206_u1a0ka_HQMpBTUW4AEhXWi.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #32310 Medieval Scriptorium Hall: Generates an antique parchment-style illustration of monks copying manuscripts in a vast mediev…\n- #32306 两只毛茸茸的可爱猫咪: 一幅柔和的水彩风格插画，描绘了两只依偎在一起的可爱毛绒猫咪，非常适合用作贴纸、剪贴画或透明背景素材。\n- #32303 Japanese UV Protection Manga Comic: A four-panel educational Japanese manga page explaining steroid use, ultraviolet irritation, an…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-08-23-case-2036656-doodle-photo-mix.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / Minimal / Portrait / Social / Brand / Editorial / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100245 真人照片混搭手绘涂鸦：马克笔涂鸦环绕人物创意照: Create a creative photo of a person using the face from the uploaded image. The person is stand…\n- #100244 手账涂鸦风人像插画：照片转简笔画水彩涂鸦: Transform the image into a charming minimalist hand-drawn doodle illustration. Preserve the mai…\n- #32310 Medieval Scriptorium Hall: Generates an antique parchment-style illustration of monks copying manuscripts in a vast mediev…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100245",
+      "100244",
       "32310",
       "32306",
-      "32303",
-      "32297",
-      "32294"
+      "32303"
     ]
   },
   {
