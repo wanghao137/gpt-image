@@ -1,5 +1,30 @@
 [
   {
+    "id": "100246",
+    "title": "晶透玻璃质感品牌Logo悬浮雕塑海报",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-08-24-case-glass-logo-sculpture.jpg",
+    "imageAlt": "晶透玻璃质感品牌Logo悬浮雕塑海报",
+    "prompt": "Act as a High-End Product Photographer and CGI Artist.\n\nPHASE 1: SUBJECT & LOGIC\nGenerate a massive, perfectly centered, three-dimensional physical sculpture of the official, unaltered corporate logo for [BRAND NAME]. The sculpture must strictly adhere to the brand’s precise logo geometry and proportions (1:1 from brandbook). The sculpture is suspended in mid-air. Autonomously identify the exact official shape and structure of the [BRAND NAME] logo and render it as a single, flawless glass object without any modifications.\nPHASE 2: MATERIALITY (GLASS)\nThe entire logo is made of hyper-realistic, optical-grade crystal glass (not water, not gel). The material is solid, colorless, and boasts high clarity with a high refractive index. It must look heavy and монолитное (monolithic). The glass structure contains subtle, photorealistic microscopic flaws: fine polished scratches on the surface and minor internal inclusions (dust particles/seed bubbles, very few) to avoid “CGI plastic.” The edges must be precision-beveled and fire-polished.\n\nPHASE 3: ENVIRONMENT & CAUSTICS\nThe logo is suspended against a strictly clean, bright blue sky with sparse, naturally defined white cumulus clouds. NO land, NO trees, NO palms. The background is purely atmospheric. The focus is entirely on the glass logo. Critically render hyper-realistic, complex glass caustics: intense, sharp patterns of focused light and color (refractions of the blue sky) cast inside and onto the surface of the glass form due to the sunlight passing through it.\n\nTECH SPECS\nRendered with Arnold or Octane. Phase One XF, 120mm Macro lens. Aperture f/5.6 for sharp depth across the entire glass sculpture. Intense, direct sunlight (hard lighting) to maximize caustics. Global illumination, ray-traced refractions (double-sided geometry), and chromatic aberration emulation (subtle) for optical realism. Fine grain film emulation (Fujifilm Velvia 50).",
+    "promptPreview": "Act as a High-End Product Photographer and CGI Artist. PHASE 1: SUBJECT & LOGIC Generate a massive, perfectly centered, three-dimensional physical sculpture of the official, unaltered corporate logo for [BRAND NAME]. Th…",
+    "source": "Community collected via @AmirMushich",
+    "createdAt": "2026-08-23T20:05:08.150Z"
+  },
+  {
     "id": "100245",
     "title": "真人照片混搭手绘涂鸦：马克笔涂鸦环绕人物创意照",
     "category": "角色与人物",
