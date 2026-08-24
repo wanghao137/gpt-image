@@ -23,6 +23,7 @@ on:
 permissions:
   actions: write
   contents: write
+  issues: write
 
 concurrency:
   # Don't queue parallel sync runs — if a manual run is in flight, skip
@@ -159,4 +160,33 @@ jobs:
             echo "⚠️ Data had changes but push was deferred (concurrent commits on main). The next sync slot will reconcile." >> "$GITHUB_STEP_SUMMARY"
           else
             echo "ℹ️ Upstream is already in sync — no commit, no redeploy." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upstream freshness watchdog
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/upstream-freshness.mjs | tee freshness.txt
+          new3=$(sed -n 's/^upstream_new_3d=//p' freshness.txt)
+          new7=$(sed -n 's/^upstream_new_7d=//p' freshness.txt)
+          {
+            echo "### Upstream freshness"
+            echo "- new upstream cases in 3d: **${new3:-unknown}**"
+            echo "- new upstream cases in 7d: **${new7:-unknown}**"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "${new3:-1}" != "0" ] && [ "${new7:-1}" != "0" ]; then
+            echo "Upstream is flowing — no alert needed."
+            exit 0
+          fi
+          gh label create upstream-stale --color D93F0B --description "YouMind export stalled" 2>/dev/null || true
+          open_count=$(gh issue list --label upstream-stale --state open --json number --jq length)
+          if [ "${open_count:-0}" -eq 0 ]; then
+            gh issue create \
+              --label upstream-stale \
+              --title "上游 YouMind 同步近期零新增" \
+              --body "daily sync 成功但最近窗口无新增上游案例 (3d=${new3:-?}, 7d=${new7:-?})。上次断供发生在 2026-08-01 并于当月中旬自愈；排查入口：references manifest 是否仍在更新。"
+            echo "::warning::Created upstream-staleness issue."
+          else
+            echo "Staleness issue already open (${open_count}) — not duplicating."
           fi
