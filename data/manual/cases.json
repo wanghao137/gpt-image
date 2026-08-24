@@ -1,5 +1,30 @@
 [
   {
+    "id": "100249",
+    "title": "黑白奢华杂志封面人像：双重曝光故障风",
+    "category": "文档与出版",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-08-25-case-mono-magazine-cover.jpg",
+    "imageAlt": "黑白奢华杂志封面人像：双重曝光故障风",
+    "prompt": "Use my uploaded face image as the primary identity reference. Preserve my 100% exact facial identity, face shape, hairstyle, hair texture, beard style, skin tone, eye shape, eyebrows, and all facial details with maximum accuracy. Do not change my face.\n\nCreate a premium black-and-white luxury magazine cover portrait of me. Make me directly facing the camera (straight-on pose) with a calm, confident, focused expression. My head should be upright, looking straight into the lens — no side profile, no turned face.\n\nKeep my same hairstyle from the reference image exactly: same hair length, volume, texture, and natural styling.\n\nOutfit: elegant white tailored blazer/suit jacket, clean minimal fashion style. Add transparent clear-frame glasses with realistic reflections.\n\nComposition: centered portrait, my face as the main focus. Add a subtle blurred double-exposure reflection of my face on the left side with a soft RGB glitch/chromatic effect. Leave space for editorial typography like a luxury fashion poster.\n\nStyle: high-end fashion editorial photography, monochrome grayscale, cinematic studio lighting, realistic skin texture, sharp facial details, premium magazine aesthetic, 8K ultra-realistic.\n\nLighting: soft dramatic studio light, deep shadows, high contrast, smooth black-and-white tones.\n\nAvoid: changing identity, different hairstyle, different face, side angle, looking away, cartoon style, artificial skin, distorted eyes, extra features, blurry details.",
+    "promptPreview": "Use my uploaded face image as the primary identity reference. Preserve my 100% exact facial identity, face shape, hairstyle, hair texture, beard style, skin tone, eye shape, eyebrows, and all facial details with maximum…",
+    "source": "Community collected via @Professor_134",
+    "createdAt": "2026-08-24T20:09:55.286Z"
+  },
+  {
     "id": "100248",
     "title": "角色魅力解剖图：粉丝视角的可爱分析板",
     "category": "角色与人物",
