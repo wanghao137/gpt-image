@@ -68,6 +68,16 @@ jobs:
         # exact same on-disk shape as a full local `npm run build`.
         run: npm run migrate
 
+      - name: Regenerate derived shards
+        # sync rewrites public/data/cases.json but not the shards/index/search
+        # files; without this step the checked-in artifacts drift apart and
+        # data-consistency.test.mjs fails (root cause of the long-red main).
+        run: node scripts/split-data.mjs
+
+      - name: Verify (typecheck + tests)
+        # Gate: do not commit/push regenerated data that fails the suite.
+        run: npm run check
+
       - name: Detect changes
         id: diff
         run: |
@@ -104,6 +114,7 @@ jobs:
               git reset --hard origin/main
               npm run sync
               npm run migrate
+              node scripts/split-data.mjs
             fi
             git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
             if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
