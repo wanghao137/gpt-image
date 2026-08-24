@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BrandLogo } from "./BrandLogo";
 import { BRAND } from "../lib/brand";
@@ -117,6 +118,13 @@ const QUICK_CHIPS: { to: string; label: string; primary?: boolean }[] = [
 // ───────────────────────────────────────────────────── small atoms ─
 
 function BrandBlock() {
+  // The year renders as nothing on SSR and the first client render; an effect
+  // fills it one frame after mount. A stale CDN copy served across a year
+  // boundary then matches server output exactly — no hydration mismatch.
+  const [year, setYear] = useState<number | null>(null);
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
   return (
     <div>
       <Link to="/" className="inline-flex items-center gap-2.5">
@@ -129,7 +137,7 @@ function BrandBlock() {
         {BRAND.name}整理真实案例、Prompt 模板与场景分类。让小红书博主、商家与设计师从灵感到出图只走一步。
       </p>
       <p className="mt-4 text-[12px] text-ink-500">
-        © {new Date().getFullYear()} {BRAND.name} · 部分素材来源
+        © {year === null ? null : <span>{year}</span>} {BRAND.name} · 部分素材来源
         <a
           className="ml-1 underline-offset-2 hover:text-ink-300 hover:underline"
           href="https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search"
