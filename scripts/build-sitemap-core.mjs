@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 export const SITE_URL = "https://taostudioai.com";
@@ -73,17 +73,53 @@ function caseMatchesCategory(item, slug) {
   return Array.isArray(item?.userCategories) && item.userCategories.includes(slug);
 }
 
-function createSitemapEntries({ cases, today, siteUrl }) {
+/** Slugs that actually have a prerendered page: dist/<segment>/<slug>/index.html or .html. */
+function collectPrerendered(distDir, segment) {
+  const slugs = new Set();
+  const dir = resolve(distDir, segment);
+  if (!existsSync(dir)) return slugs;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) slugs.add(entry.name);
+    else if (entry.isFile() && entry.name.endsWith(".html")) {
+      slugs.add(entry.name.replace(/\.html$/, ""));
+    }
+  }
+  return slugs;
+}
+
+function createSitemapEntries({ cases, today, siteUrl }, distDir) {
   const sourceCases = Array.isArray(cases) ? cases : [];
+  // A distDir path that does not exist on disk counts as "no dist": fall back
+  // to the static category table instead of scanning an empty tree.
+  const hasPrerenderedDist = Boolean(distDir) && existsSync(distDir);
   const entries = [];
 
   for (const item of STATIC_PATHS) {
     entries.push(urlEntry({ loc: item.path, lastmod: today, priority: item.priority, siteUrl }));
   }
 
-  for (const slug of USER_CATEGORY_SLUGS) {
-    if (!sourceCases.some((item) => caseMatchesCategory(item, slug))) continue;
-    entries.push(urlEntry({ loc: `/category/${slug}`, lastmod: today, priority: "0.8", siteUrl }));
+  // Invariant: sitemap lists exactly the URLs that ship as real pages. When
+  // dist exists we scan it (single source of truth); otherwise fall back to
+  // the static category table and omit templates rather than guess.
+  const prerenderedCategories = hasPrerenderedDist
+    ? collectPrerendered(distDir, "category")
+    : null;
+  if (prerenderedCategories) {
+    for (const slug of [...prerenderedCategories].sort()) {
+      entries.push(urlEntry({ loc: `/category/${slug}`, lastmod: today, priority: "0.8", siteUrl }));
+    }
+  } else {
+    for (const slug of USER_CATEGORY_SLUGS) {
+      if (!sourceCases.some((item) => caseMatchesCategory(item, slug))) continue;
+      entries.push(urlEntry({ loc: `/category/${slug}`, lastmod: today, priority: "0.8", siteUrl }));
+    }
+  }
+
+  if (hasPrerenderedDist) {
+    const templates = collectPrerendered(distDir, "template");
+    for (const id of [...templates].sort()) {
+      entries.push(urlEntry({ loc: `/template/${id}`, lastmod: today, priority: "0.7", siteUrl }));
+    }
   }
 
   for (const item of sourceCases) {
@@ -99,8 +135,9 @@ export function generateSitemapXml({
   cases,
   today = new Date().toISOString().slice(0, 10),
   siteUrl = SITE_URL,
+  distDir,
 } = {}) {
-  const entries = createSitemapEntries({ cases, today, siteUrl });
+  const entries = createSitemapEntries({ cases, today, siteUrl }, distDir);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -118,8 +155,8 @@ export function buildSitemap({
 } = {}) {
   const casesPath = resolve(publicDir, "data", "cases.json");
   const cases = JSON.parse(readFileSync(casesPath, "utf8"));
-  const xml = generateSitemapXml({ cases, today, siteUrl });
-  const urls = createSitemapEntries({ cases, today, siteUrl }).length;
+  const xml = generateSitemapXml({ cases, today, siteUrl, distDir });
+  const urls = createSitemapEntries({ cases, today, siteUrl }, distDir).length;
   const written = [];
 
   mkdirSync(publicDir, { recursive: true });
