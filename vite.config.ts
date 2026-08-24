@@ -48,7 +48,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",
-    chunkSizeWarningLimit: 1200,
+    chunkSizeWarningLimit: 900,
     rollupOptions: {
       input: isSsrBuild
         ? // SSR build is driven by vite-react-ssg's own entry, no overrides needed.
