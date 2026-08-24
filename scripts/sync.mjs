@@ -18,6 +18,7 @@ import {
   summarizePromptLocales,
 } from "./upstream-locales.mjs";
 import { repairRecentPromptLocales } from "./upstream-localized-pages.mjs";
+import { assertUpstreamNotShrunk } from "./upstream-shrink-guard.mjs";
 import sharp from "sharp";
 import { inferExplicitRatio, ratioFromDimensions } from "./ratio-core.mjs";
 
@@ -591,6 +592,16 @@ async function main() {
       .map((item) => normalizeCase(item, officialLocales))
       .filter((item) => item.imageUrl && item.prompt);
     await enrichNewCaseRatios(upstreamCases, cachedCaseById);
+    // A partial upstream response must never wipe the committed library.
+    // Throwing here lands in the catch below: hard-fail without --optional,
+    // cached-snapshot fallback with it.
+    assertUpstreamNotShrunk({
+      fetchedCount: upstreamCases.length,
+      cachedCount: Array.from(cachedCaseById.values()).filter(
+        (item) => Number(item.id) < 100000,
+      ).length,
+      minRatio: process.env.SYNC_MIN_UPSTREAM_RATIO,
+    });
   } catch (error) {
     upstreamOk = false;
     if (!OPTIONAL) throw error;
