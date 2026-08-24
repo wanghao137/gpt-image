@@ -59,4 +59,18 @@ describe("buildCaseMetaHtml", () => {
     assert.equal(buildCaseMetaHtml({ spaHtml: SPA, row: { ...ROW, slug: "" } }), null);
     assert.equal(buildCaseMetaHtml({ spaHtml: SPA, row: { ...ROW, title: "" } }), null);
   });
+
+  it("never expands $-patterns from row text during injection", () => {
+    const hostile = {
+      ...ROW,
+      title: "标题$& $` $' 结束",
+      promptPreview: "正文$& $' 片段",
+    };
+    const html = buildCaseMetaHtml({ spaHtml: SPA, row: hostile });
+    // escapeHtml necessarily renders $& as $&amp; and $' as $&#39;; asserting
+    // the escaped form proves the $-patterns survived replace() without
+    // expansion (active expansion would emit "</head>" / shell tail instead).
+    assert(html.includes("<title>标题$&amp; $` $&#39; 结束 | 桃子AI视觉实验室</title>"));
+    assert(!html.includes("</head>\n    <meta name=\"viewport\""), "no shell-tail splice");
+  });
 });

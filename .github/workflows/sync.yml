@@ -167,6 +167,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -o pipefail
           node scripts/upstream-freshness.mjs | tee freshness.txt
           new3=$(sed -n 's/^upstream_new_3d=//p' freshness.txt)
           new7=$(sed -n 's/^upstream_new_7d=//p' freshness.txt)

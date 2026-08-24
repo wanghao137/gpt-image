@@ -66,6 +66,6 @@ export function buildCaseMetaHtml({ spaHtml, row, siteUrl = SITE_URL }) {
   }
 
   return spaHtml
-    .replace("</head>", `${headTags}${HEAD_SUFFIX}`)
-    .replace(ROOT_ANCHOR, `${ROOT_ANCHOR}\n    <noscript><p>${escapeHtml(description)}</p></noscript>`);
+    .replace("</head>", () => `${headTags}${HEAD_SUFFIX}`)
+    .replace(ROOT_ANCHOR, () => `${ROOT_ANCHOR}\n    <noscript><p>${escapeHtml(description)}</p></noscript>`);
 }
