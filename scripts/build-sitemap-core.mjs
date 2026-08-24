@@ -152,6 +152,13 @@ export function buildSitemap({
   distDir = resolve(root, "dist"),
   today = new Date().toISOString().slice(0, 10),
   siteUrl = SITE_URL,
+  // Vercel re-invokes the build command several times per deployment, and a
+  // build that mutates public/ (an input tree) re-triggers it while the
+  // previous pass's output is still being streamed — the resulting
+  // delete-vs-read race crashed deploys with ENOENT on random public images.
+  // CI therefore writes dist-only; local dev keeps the public/ copy so
+  // `vite dev` can serve /sitemap.xml before any build exists.
+  alsoWritePublic = !process.env.VERCEL,
 } = {}) {
   const casesPath = resolve(publicDir, "data", "cases.json");
   const cases = JSON.parse(readFileSync(casesPath, "utf8"));
@@ -159,10 +166,12 @@ export function buildSitemap({
   const urls = createSitemapEntries({ cases, today, siteUrl }, distDir).length;
   const written = [];
 
-  mkdirSync(publicDir, { recursive: true });
-  const publicPath = resolve(publicDir, "sitemap.xml");
-  writeFileSync(publicPath, xml, "utf8");
-  written.push(publicPath);
+  if (alsoWritePublic) {
+    mkdirSync(publicDir, { recursive: true });
+    const publicPath = resolve(publicDir, "sitemap.xml");
+    writeFileSync(publicPath, xml, "utf8");
+    written.push(publicPath);
+  }
 
   if (existsSync(distDir)) {
     const distPath = resolve(distDir, "sitemap.xml");

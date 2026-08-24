@@ -49,6 +49,12 @@ export default defineConfig(({ isSsrBuild }) => ({
     sourcemap: false,
     minify: "esbuild",
     chunkSizeWarningLimit: 900,
+    // Vercel re-invokes the build command within a single deployment; wiping
+    // dist/ on every pass races the previous pass's output streaming (deploy
+    // crashed with ENOENT on a random public image). Fresh clones start
+    // without dist/, so skipping the wipe on CI is safe; local builds keep it
+    // to avoid stale artifacts accumulating.
+    emptyOutDir: !process.env.VERCEL,
     rollupOptions: {
       input: isSsrBuild
         ? // SSR build is driven by vite-react-ssg's own entry, no overrides needed.

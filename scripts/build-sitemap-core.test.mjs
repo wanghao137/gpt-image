@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, it, test } from "node:test";
@@ -81,4 +81,17 @@ describe("sitemap derives categories/templates from prerendered dist", () => {
     assert(!xml.includes("/template/"), "no template urls without dist");
     assert(xml.includes("/case/ga-case<"));
   });
+});
+
+test("buildSitemap can skip the public copy via alsoWritePublic:false", () => {
+  const root = mkdtempSync(join(tmpdir(), "taostudio-sitemap-nopub-"));
+  try {
+    mkdirSync(join(root, "public", "data"), { recursive: true });
+    writeFileSync(join(root, "public", "data", "cases.json"), "[]");
+    const result = buildSitemap({ root, today: "2026-08-24", alsoWritePublic: false });
+    assert(!existsSync(join(root, "public", "sitemap.xml")), "public copy must be skipped");
+    assert.deepEqual(result.written, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
