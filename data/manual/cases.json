@@ -1,5 +1,31 @@
 [
   {
+    "id": "100251",
+    "title": "儿童蜡笔画风格：手账纸上的大太阳与涂鸦",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Education",
+      "Social"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "Editorial",
+      "Social",
+      "Brand",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-08-26-case-100249-crayon-child-drawing.jpg",
+    "imageAlt": "儿童蜡笔画风格：手账纸上的大太阳与涂鸦",
+    "prompt": "A child's crayon drawing on white lined notebook paper. [Describe Your Visual Here], drawn with chunky wax-crayon strokes, wobbly uneven outlines, and simple flat shapes. Bright bold colors with messy coloring that overflows the outlines. Visible heavy pressure marks, small waxy smudges, and uneven scribble shading. Important things are drawn disproportionately big, everything else is tiny. Round friendly faces with dot eyes and big curved smiles, mitten-shaped hands, and blobby rounded animals. A large yellow sun in one corner with radiating lines, puffy cloud shapes, and scattered hearts or stars. A few tiny margin doodles. Flat composition with no realistic perspective or shading. Childlike, joyful, naive art style.",
+    "promptPreview": "A child's crayon drawing on white lined notebook paper. [Describe Your Visual Here], drawn with chunky wax-crayon strokes, wobbly uneven outlines, and simple flat shapes. Bright bold colors with messy coloring that over…",
+    "source": "Community collected via @umesh_ai",
+    "createdAt": "2026-08-25T20:04:12.150Z"
+  },
+  {
     "id": "100250",
     "title": "时尚双重曝光人像：全前景人物配背景巨幅黑白面孔",
     "category": "摄影与写实",
