@@ -38,6 +38,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pinyin } from "pinyin-pro";
 import { classifyCase } from "./classify-core.mjs";
+import { normalizeCaseTags } from "./tag-normalize-core.mjs";
 import { inferCaseRatio, inferExplicitRatio } from "./ratio-core.mjs";
 import {
   deriveTemplatesFromCases,
@@ -102,7 +103,8 @@ function toSlug(title, id) {
 // thin adapter here that maps the old `classify(out)` call shape onto it.
 
 function classify(c) {
-  return classifyCase(c);
+  const classified = classifyCase(c);
+  return { ...classified, ...normalizeCaseTags(classified) };
 }
 
 // ───────────────────────────────────────────── ratio ──
