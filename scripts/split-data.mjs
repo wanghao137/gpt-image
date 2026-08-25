@@ -40,6 +40,7 @@ import {
 } from "./data-consistency-core.mjs";
 import { createCaseSearchEntry } from "../src/lib/case-search-core.mjs";
 import { selectHeroCases } from "../src/lib/home-hero-core.mjs";
+import { buildFilterOptions } from "./split-data-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -200,23 +201,6 @@ function buildIndex(cases) {
   }));
 }
 
-function buildFilterOptions(cases) {
-  const styles = new Set();
-  const scenes = new Set();
-  const platforms = new Set();
-  for (const c of cases) {
-    for (const s of c.styles ?? []) styles.add(s);
-    for (const s of c.scenes ?? []) scenes.add(s);
-    for (const p of c.platforms ?? []) platforms.add(p);
-  }
-  const sortZh = (a, b) => a.localeCompare(b, "zh-Hans-CN");
-  return {
-    styles: Array.from(styles).sort(sortZh),
-    scenes: Array.from(scenes).sort(sortZh),
-    platforms: Array.from(platforms).sort(sortZh),
-  };
-}
-
 function main() {
   const casesPath = resolve(DATA_DIR, "cases.json");
   if (!existsSync(casesPath)) {
@@ -253,7 +237,7 @@ function main() {
   const filterOptions = buildFilterOptions(cases);
   writeJson("public/data/filter-options.json", filterOptions);
   console.log(
-    `✓ filter-options.json: ${filterOptions.styles.length} styles, ${filterOptions.scenes.length} scenes, ${filterOptions.platforms.length} platforms`,
+    `✓ filter-options.json: ${filterOptions.styles.length} styles, ${filterOptions.scenes.length} scenes, ${filterOptions.platforms.length} platforms (counts attached)`,
   );
 
   // Browse pages preserve the canonical global order. They are deliberately

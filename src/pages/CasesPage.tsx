@@ -407,6 +407,8 @@ export default function CasesPage() {
         scenes={filterOptions?.scenes ?? []}
         activeScenes={activeScenes}
         onScenesChange={setActiveScenes}
+        styleCounts={filterOptions?.styleCounts}
+        sceneCounts={filterOptions?.sceneCounts}
         activePlatforms={activePlatforms}
         onPlatformsChange={setActivePlatforms}
         total={totalCount}

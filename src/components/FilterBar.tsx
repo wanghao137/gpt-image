@@ -17,6 +17,10 @@ interface FilterBarProps {
   scenes: string[];
   activeScenes: Set<string>;
   onScenesChange: (next: Set<string>) => void;
+  /** Per-style case counts from filter-options.json; powers chip count badges. */
+  styleCounts?: Record<string, number>;
+  /** Per-scene case counts from filter-options.json; powers chip count badges. */
+  sceneCounts?: Record<string, number>;
   /** Active platforms. Multiple values combine with OR. */
   activePlatforms: Set<string>;
   onPlatformsChange: (next: Set<string>) => void;
@@ -74,6 +78,8 @@ export function FilterBar({
   scenes,
   activeScenes,
   onScenesChange,
+  styleCounts,
+  sceneCounts,
   activePlatforms,
   onPlatformsChange,
   total,
@@ -140,8 +146,16 @@ export function FilterBar({
   // ── Axis definitions used by both desktop chip rows and the mobile drawer ──
   const categoryOptions = USER_CATEGORIES.map((c) => ({ key: c.slug, label: c.label }));
   const platformOptions = PLATFORM_OPTIONS.map((p) => ({ key: p.key, label: p.label }));
-  const styleOptions = styles.map((s) => ({ key: s, label: styleLabel(s) }));
-  const sceneOptions = scenes.map((s) => ({ key: s, label: sceneLabel(s) }));
+  const styleOptions = styles.map((s) => ({
+    key: s,
+    label: styleLabel(s),
+    count: styleCounts?.[s],
+  }));
+  const sceneOptions = scenes.map((s) => ({
+    key: s,
+    label: sceneLabel(s),
+    count: sceneCounts?.[s],
+  }));
 
   const axes: AxisDef[] = [
     {
@@ -536,6 +550,8 @@ export function FilterBar({
 interface ChipOption {
   key: string;
   label: string;
+  /** Case count badge (optional; omitted for axes without counts). */
+  count?: number;
 }
 
 function ChipRow({
@@ -584,6 +600,9 @@ function ChipRow({
               className={`chip ${active ? "chip-active" : "chip-idle"}`}
             >
               {opt.label}
+              {typeof opt.count === "number" && (
+                <span className="ml-1 text-[10px] tabular-nums opacity-55">{opt.count}</span>
+              )}
               {active && (
                 <span aria-hidden="true" className="-mr-0.5 ml-0.5 text-[10px] opacity-70">
                   ×
@@ -603,6 +622,9 @@ function ChipRow({
               className={`chip ${active ? "chip-active" : "chip-idle"}`}
             >
               {opt.label}
+              {typeof opt.count === "number" && (
+                <span className="ml-1 text-[10px] tabular-nums opacity-55">{opt.count}</span>
+              )}
             </button>
           );
         })}
