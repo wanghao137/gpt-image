@@ -21,6 +21,10 @@ import {
   filterCaseSearchEntries,
 } from "../lib/case-search-core.mjs";
 import { HOT_CASE_SEARCHES } from "../lib/case-discovery.mjs";
+import {
+  formatCasesDocumentTitle,
+  formatCasesHeading,
+} from "../lib/cases-heading-core.mjs";
 
 function uniqueCases(cases: PromptCase[]): PromptCase[] {
   const seen = new Set<string>();
@@ -288,6 +292,19 @@ export default function CasesPage() {
           : filtered.length
         : totalCount;
 
+  // Same predicate the FilterBar chip uses, so H1 / title / "N / M 匹配"
+  // never disagree about whether a filter is active.
+  const headingActive = hasActiveFilter || showFavorites;
+  const heading = formatCasesHeading(totalCount, displayedMatchCount, headingActive);
+
+  useEffect(() => {
+    document.title = formatCasesDocumentTitle(
+      totalCount,
+      displayedMatchCount,
+      headingActive,
+    );
+  }, [totalCount, displayedMatchCount, headingActive]);
+
   const resetFilters = useCallback(() => {
     setQuery("");
     setActiveCategories(new Set());
@@ -332,7 +349,7 @@ export default function CasesPage() {
         <p className="eyebrow">All Cases</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
-            按场景筛选 {totalCount} 个 GPT-Image 2 案例
+            {heading.text}
           </h1>
           <button
             type="button"
