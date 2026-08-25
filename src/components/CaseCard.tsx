@@ -236,6 +236,8 @@ function CaseCardImpl({
   const isSeriesActive = activeCase.id !== data.id;
 
   const sourceLabel = sourceDisplayLabel(activeCase.source, activeCase.githubUrl);
+  // 卡片元信息行只展示来源主标签（如 "社区整理"/"YouMind"），长 handle 放详情页。
+  const shortSourceLabel = (label: string) => label.split(" · ")[0] || label;
   const { state, copy } = useCopy(1500, {
     successTitle: "Prompt 已复制",
     successDescription: "去 ChatGPT 粘贴出图",
@@ -528,7 +530,7 @@ function CaseCardImpl({
             <div className="flex items-center justify-between gap-2 text-[11.5px] text-ink-300">
               <span className="inline-flex min-w-0 items-center gap-1">
                 <SourceDot />
-                <span className="truncate">{activeCase.source ? sourceLabel : userCategoryLabel(activeCase.userCategory)}</span>
+                <span className="truncate">{activeCase.source ? shortSourceLabel(sourceLabel) : userCategoryLabel(activeCase.userCategory)}</span>
               </span>
               <span className="shrink-0 text-ink-400">{userCategoryLabel(activeCase.userCategory)}</span>
             </div>
@@ -607,30 +609,36 @@ function CaseCardImpl({
           </Link>
 
           <div className="flex min-w-0 items-center gap-2">
-            <div className="flex min-w-0 flex-1 items-center gap-1.5 text-[11px] text-ink-400">
+            <div className="flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden text-[11px] text-ink-400">
               {activeCase.source && (
                 <>
-                  <span className="inline-flex items-center gap-1 truncate text-ink-300">
+                  <span className="inline-flex shrink-0 items-center gap-1 text-ink-300">
                     <SourceDot />
-                    {sourceLabel}
+                    {shortSourceLabel(sourceLabel)}
                   </span>
-                  <span className="text-ink-600">·</span>
+                  <span className="shrink-0 text-ink-600">·</span>
                 </>
               )}
               <Link
                 to={`/category/${activeCase.userCategory}`}
-                className="truncate transition hover:text-ember-200"
+                className="shrink-0 whitespace-nowrap transition hover:text-ember-200"
                 onClick={(e) => e.stopPropagation()}
               >
                 {userCategoryLabel(activeCase.userCategory)}
               </Link>
-              {tags.length > 0 && <span className="text-ink-600">·</span>}
-              {tags.map((tag, i) => (
-                <span key={`${activeCase.id}-${tag}`} className="truncate text-ink-300">
-                  {tagLabel(tag)}
-                  {i < tags.length - 1 && <span className="ml-1.5 text-ink-600">·</span>}
-                </span>
-              ))}
+              {tags.length > 0 && (
+                <>
+                  <span className="shrink-0 text-ink-600">·</span>
+                  <span className="min-w-0 truncate text-ink-300">
+                    {tags.map((tag, i) => (
+                      <span key={`${activeCase.id}-${tag}`}>
+                        {tagLabel(tag)}
+                        {i < tags.length - 1 && <span className="ml-1.5 text-ink-600">·</span>}
+                      </span>
+                    ))}
+                  </span>
+                </>
+              )}
             </div>
 
             {activeCase.promptPreview && (
