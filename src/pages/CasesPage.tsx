@@ -339,6 +339,7 @@ export default function CasesPage() {
             onClick={() => setShowFavorites((value) => !value)}
             disabled={favoriteCount === 0}
             aria-pressed={showFavorites}
+            title={favoriteCount === 0 ? "在案例卡片上点 ♥ 收藏后，可在这里查看" : undefined}
             className={
               "inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition disabled:cursor-not-allowed disabled:opacity-40 " +
               (showFavorites

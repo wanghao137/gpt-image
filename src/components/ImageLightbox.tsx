@@ -517,7 +517,7 @@ function ImageLightboxImpl({
       >
         <span className="rounded-full border border-white/10 bg-ink-950/60 px-3 py-1 backdrop-blur">
           {onPrev || onNext
-            ? "双指缩放 · 双击放大 · ← → 或两侧按钮切换 · ESC 关闭"
+            ? "双指缩放 · 双击放大 · 左右方向键或两侧按钮切换 · ESC 关闭"
             : "双指缩放 · 双击放大 · 点击空白关闭"}
         </span>
       </div>
