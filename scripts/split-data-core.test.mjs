@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildFilterOptions } from "./split-data-core.mjs";
+import { buildFilterOptions, countCategoryCases } from "./split-data-core.mjs";
 
 const cases = [
   { styles: ["Anime", "Minimal"], scenes: ["Food"], platforms: ["wechat"] },
@@ -27,4 +27,15 @@ test("empty input yields empty arrays and counts", () => {
   const opts = buildFilterOptions([]);
   assert.deepEqual(opts.styles, []);
   assert.deepEqual(opts.styleCounts, {});
+});
+
+test("countCategoryCases matches filter semantics (primary + secondary)", () => {
+  const cases = [
+    { userCategory: "portrait" },
+    { userCategory: "sticker", userCategories: ["portrait"] },
+    { userCategory: "sticker", userCategories: ["poster-general"] },
+  ];
+  assert.equal(countCategoryCases(cases, "portrait"), 2);
+  assert.equal(countCategoryCases(cases, "sticker"), 2);
+  assert.equal(countCategoryCases(cases, "xhs-cover"), 0);
 });

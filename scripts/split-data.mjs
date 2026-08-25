@@ -7,8 +7,9 @@
  * emits purpose-built shards so the client bundle NEVER imports the 7+ MB
  * monolith. Each page loads only the shard(s) it needs:
  *
- *   cases-index.json      — ultra-light [{id,slug,uc,r}] for SSG path
- *                           enumeration + SPA case lookup. ~150 KB gzip.
+ *   cases-index.json      — ultra-light [{id,slug,uc,r,us?}] for SSG path
+ *                           enumeration + SPA case lookup. `us` carries
+ *                           secondary userCategories when present. ~150 KB gzip.
  *   cases-home.json       — pre-selected hero/strip/featured cases + tile
  *                           stats. The ONLY data the homepage needs. ~25 KB.
  *   cases-search.json     — [{id,t,c,uc,s,sc}] for CasesPage search index.
@@ -40,7 +41,7 @@ import {
 } from "./data-consistency-core.mjs";
 import { createCaseSearchEntry } from "../src/lib/case-search-core.mjs";
 import { selectHeroCases } from "../src/lib/home-hero-core.mjs";
-import { buildFilterOptions } from "./split-data-core.mjs";
+import { buildFilterOptions, countCategoryCases } from "./split-data-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -107,21 +108,20 @@ function buildHomePayload(cases, now = Date.now()) {
   const initialCases = sorted.slice(0, BROWSE_INITIAL_SIZE);
 
   // Tile stats for CategoryShowcase — pre-computed so the homepage doesn't
-  // need the full dataset just to count per-category.
-  const byKey = new Map();
-  for (const c of sorted) {
-    const arr = byKey.get(c.userCategory);
-    if (arr) arr.push(c);
-    else byKey.set(c.userCategory, [c]);
-  }
+  // need the full dataset just to count per-category. countCategoryCases
+  // matches the runtime gallery filter semantics (primary + secondary), so
+  // tile counts always agree with what /cases filters and the sitemap report.
   const tiles = HOMEPAGE_TILES.map((meta) => {
-    const list = byKey.get(meta.key) ?? [];
+    const count = countCategoryCases(sorted, meta.key);
+    const cover = sorted.find(
+      (c) => c.userCategory === meta.key || (Array.isArray(c.userCategories) && c.userCategories.includes(meta.key)),
+    );
     return {
       slug: meta.slug,
       label: meta.label,
       tagline: meta.tagline,
-      count: list.length,
-      cover: list[0]?.imageUrl,
+      count,
+      cover: cover?.imageUrl,
     };
   }).filter((tile) => tile.count > 0);
 
@@ -193,12 +193,19 @@ function buildSearchIndex(cases) {
 }
 
 function buildIndex(cases) {
-  return cases.map((c) => ({
-    id: c.id,
-    slug: c.slug,
-    uc: c.userCategory,
-    r: c.ratio,
-  }));
+  return cases.map((c) => {
+    const row = {
+      id: c.id,
+      slug: c.slug,
+      uc: c.userCategory,
+      r: c.ratio,
+    };
+    // Secondary categories ride along so SitemapPage counts with the same
+    // primary+secondary semantics as gallery filters and homepage tiles.
+    // `us` is omitted for rows without secondaries to keep the shard light.
+    if (Array.isArray(c.userCategories) && c.userCategories.length > 0) row.us = c.userCategories;
+    return row;
+  });
 }
 
 function main() {
