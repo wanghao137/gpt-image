@@ -21,6 +21,7 @@ import { repairRecentPromptLocales } from "./upstream-localized-pages.mjs";
 import { assertUpstreamNotShrunk } from "./upstream-shrink-guard.mjs";
 import sharp from "sharp";
 import { inferExplicitRatio, ratioFromDimensions } from "./ratio-core.mjs";
+import { cleanText, normalizeCaseTitle, sanitizeTitleEn } from "./case-text-hygiene-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -242,7 +243,10 @@ function normalizeCase(item, officialLocales) {
     ? cleanPromptContent(official.zh.prompt)
     : undefined;
   const description = official?.zh?.description || item.description || "";
-  const promptPreview = (description || promptZh || promptEn).slice(0, 100);
+  // Junk guards: upstream sometimes ships "null" strings or pure whitespace
+  // into the preview slot; fall back through zh prompt then English prompt.
+  const safePreview = cleanText(description) ?? cleanText(promptZh) ?? undefined;
+  const promptPreview = (safePreview ?? promptEn).slice(0, 100);
   const media = Array.isArray(item.sourceMedia) ? item.sourceMedia : [];
   const imageUrl = media.find((u) => typeof u === "string" && u) || "";
   // Preserve any additional images the upstream prompt shipped (some cases
@@ -261,18 +265,23 @@ function normalizeCase(item, officialLocales) {
   // locale export keep their original English title instead of mixed Chinglish.
   const rawTitle = item.title || `案例 ${item.id}`;
   const titleZh = official?.zh?.title;
+  // Text hygiene: strip junk prefixes ("提示词：" …), derive a readable title
+  // from the description when nothing survives, and drop titleEn values that
+  // are CJK-dominant or duplicate the zh title.
+  const safeTitle = normalizeCaseTitle(titleZh || rawTitle, description) || `案例 ${item.id}`;
+  const safeTitleEn = titleZh ? sanitizeTitleEn(rawTitle, safeTitle) : undefined;
   const ratio = inferExplicitRatio(rawTitle, titleZh, description, promptEn, promptZh);
   return {
     id: String(item.id),
-    title: titleZh || rawTitle,
-    titleEn: titleZh ? rawTitle : undefined,
+    title: safeTitle,
+    titleEn: safeTitleEn,
     category: localizeCategory(slug),
     tags: [],
     styles: [],
     scenes: [],
     imageUrl,
     imageUrls: imageUrls.length > 0 ? imageUrls : undefined,
-    imageAlt: titleZh || rawTitle,
+    imageAlt: safeTitle,
     prompt: promptEn,
     promptEn,
     promptZh,
