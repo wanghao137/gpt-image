@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { sceneLabel, styleLabel } from "../lib/labels";
+import { sceneLabel, styleLabel, PLATFORM_LABELS } from "../lib/labels";
 import { USER_CATEGORIES } from "../lib/userCategories";
 import { useFocusTrap } from "../hooks/useFocusTrap";
 
@@ -26,13 +26,10 @@ interface FilterBarProps {
   onReset: () => void;
 }
 
-const PLATFORM_OPTIONS = [
-  { key: "xiaohongshu", label: "小红书" },
-  { key: "wechat", label: "微信" },
-  { key: "douyin", label: "抖音" },
-  { key: "ec", label: "电商" },
-  { key: "offline", label: "线下" },
-];
+const PLATFORM_OPTIONS = Object.entries(PLATFORM_LABELS).map(([key, label]) => ({
+  key,
+  label,
+}));
 
 type AxisKey = "category" | "platform" | "style" | "scene";
 

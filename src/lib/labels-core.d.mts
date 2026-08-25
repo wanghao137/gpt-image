@@ -1,0 +1,8 @@
+export declare const STYLE_LABELS: Record<string, string>;
+export declare const SCENE_LABELS: Record<string, string>;
+export declare const PLATFORM_LABELS: Record<string, string>;
+export declare const IDENTITY_OK_LABELS: Set<string>;
+export declare function styleLabel(value: string): string;
+export declare function sceneLabel(value: string): string;
+export declare function platformLabel(value: string): string;
+export declare function tagLabel(value: string): string;
