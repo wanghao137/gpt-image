@@ -22,6 +22,7 @@ import { assertUpstreamNotShrunk } from "./upstream-shrink-guard.mjs";
 import sharp from "sharp";
 import { inferExplicitRatio, ratioFromDimensions } from "./ratio-core.mjs";
 import { cleanText, normalizeCaseTitle, sanitizeTitleEn } from "./case-text-hygiene-core.mjs";
+import { normalizeCaseTags } from "./tag-normalize-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -419,15 +420,25 @@ function sortTemplatesForDisplay(templates) {
 function normalizeManualCase(item) {
   const id = String(item.id ?? "").trim();
   if (!id) return null;
-  const styles = Array.isArray(item.styles) ? item.styles.filter(Boolean) : [];
-  const scenes = Array.isArray(item.scenes) ? item.scenes.filter(Boolean) : [];
+  // Tag canonicalization at ingest (tag-normalize-core.mjs): manual authors
+  // can still write legacy tokens ("Poster" in styles, "Brand Identity" in
+  // tags…). Normalizing here means a daily re-sync can never reintroduce
+  // removed/synonym tokens into public/data, no matter what the source file
+  // contains. cleanList already drops blank/falsy tokens.
+  const normalizedTags = normalizeCaseTags({
+    styles: item.styles,
+    scenes: item.scenes,
+    tags: item.tags,
+  });
+  const styles = normalizedTags.styles;
+  const scenes = normalizedTags.scenes;
   const fallbackTags = [...new Set([...styles, ...scenes])].slice(0, 6);
   const prompt = (item.prompt ?? "").toString();
   return {
     id,
     title: item.title || `案例 ${id}`,
     category: item.category || "其他用例",
-    tags: Array.isArray(item.tags) && item.tags.length > 0 ? item.tags : fallbackTags,
+    tags: normalizedTags.tags.length > 0 ? normalizedTags.tags : fallbackTags,
     styles,
     scenes,
     imageUrl: item.imageUrl || "",

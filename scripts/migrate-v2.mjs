@@ -12,6 +12,11 @@
  *                         and `commercialOk` were never rendered. Dropping them
  *                         trims ~160 KB raw (~10 KB gzip) from the data chunk
  *                         that EVERY page downloads.
+ * v2.3          canonicalizes tags: every row's final styles/scenes/tags pass
+ *                         through tag-normalize-core.mjs `normalizeCaseTags`
+ *                         right before the write (covers both upstream and
+ *                         manual rows; see the row-write wiring in the main
+ *                         loop), so filter chips stay deduped across axes.
  *
  * Writes/keeps (without removing source fields):
  *   - slug              SEO-friendly URL piece
@@ -101,10 +106,12 @@ function toSlug(title, id) {
 // unit-tested `scripts/classify-core.mjs` so migrate-v2, the admin automation
 // core and any future caller all agree on one implementation. We only keep a
 // thin adapter here that maps the old `classify(out)` call shape onto it.
+// (Tag normalization used to be spread onto classifyCase's output here, but
+// classifyCase only returns {primary, secondaries} — that spread was a no-op.
+// Normalization now happens at the row-write point in the main loop below.)
 
 function classify(c) {
-  const classified = classifyCase(c);
-  return { ...classified, ...normalizeCaseTags(classified) };
+  return classifyCase(c);
 }
 
 // ───────────────────────────────────────────── ratio ──
@@ -215,6 +222,28 @@ const next = raw.map((c) => {
   for (const dead of ["seoTitle", "seoDescription", "difficulty", "commercialOk"]) {
     if (dead in out) {
       delete out[dead];
+      touched = true;
+    }
+  }
+
+  // Tag canonicalization (tag-normalize-core.mjs). This is the row-write
+  // point: by now the row's FINAL styles/scenes/tags are settled — sync.mjs
+  // assigns them for upstream rows, data/manual/cases.json carries them for
+  // manual rows — so normalizing here covers BOTH sources and guarantees a
+  // daily sync→migrate rebuild can never reintroduce removed/synonym tokens
+  // into public/data/cases.json.
+  const normalizedTags = normalizeCaseTags(out);
+  for (const key of ["styles", "scenes", "tags"]) {
+    const normalizedList = normalizedTags[key];
+    if (normalizedList.length > 0) {
+      if (JSON.stringify(normalizedList) !== JSON.stringify(out[key] ?? [])) {
+        out[key] = normalizedList;
+        touched = true;
+      }
+    } else if (out[key] !== undefined) {
+      // Keep the compact convention shared with sync.mjs's lite writer: omit
+      // empty arrays instead of persisting "styles":[] across 16K+ rows.
+      delete out[key];
       touched = true;
     }
   }
