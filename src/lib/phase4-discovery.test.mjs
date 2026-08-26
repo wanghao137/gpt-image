@@ -3,6 +3,7 @@ import test from "node:test";
 import { AUDIENCE_TASK_ENTRIES } from "./product-navigation.mjs";
 import { HOT_CASE_SEARCHES } from "./case-discovery.mjs";
 import {
+  applyTemplateVariables,
   derivedCaseSearchHref,
   extractTemplateVariables,
   filterAndSortTemplates,
@@ -46,6 +47,31 @@ test("template variables are deduplicated and keep defaults", () => {
     { name: "比例", defaultValue: "4:5" },
   ]);
   assert.equal(derivedCaseSearchHref("100021"), "/cases?q=100021");
+});
+
+const PROMPT = '拍摄{argument name="背景色" default="纯正大红"}背景的证件照，妆容为{argument name="妆容强度" default="浓艳"}舞台妆。';
+
+test("applyTemplateVariables substitutes provided values", () => {
+  const out = applyTemplateVariables(PROMPT, { 背景色: "深蓝", 妆容强度: "裸感" });
+  assert.ok(out.includes("深蓝"));
+  assert.ok(out.includes("裸感"));
+  assert.ok(!out.includes("{argument"));
+});
+
+test("applyTemplateVariables falls back to defaults for missing/blank values", () => {
+  const out = applyTemplateVariables(PROMPT, { 背景色: "  " });
+  assert.ok(out.includes("纯正大红"));
+  assert.ok(out.includes("浓艳"));
+  assert.ok(!out.includes("{argument"));
+});
+
+test("applyTemplateVariables passes through prompts without markers", () => {
+  assert.equal(applyTemplateVariables("没有变量的提示词"), "没有变量的提示词");
+});
+
+test("extract and apply agree on variable names", () => {
+  const vars = extractTemplateVariables(PROMPT).map((v) => v.name);
+  assert.deepEqual(vars, ["背景色", "妆容强度"]);
 });
 
 test("hot searches are concise and unique", () => {

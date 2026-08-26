@@ -21,6 +21,8 @@ import { repairRecentPromptLocales } from "./upstream-localized-pages.mjs";
 import { assertUpstreamNotShrunk } from "./upstream-shrink-guard.mjs";
 import sharp from "sharp";
 import { inferExplicitRatio, ratioFromDimensions } from "./ratio-core.mjs";
+import { cleanText, normalizeCaseTitle, sanitizeTitleEn } from "./case-text-hygiene-core.mjs";
+import { normalizeCaseTags } from "./tag-normalize-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -241,8 +243,14 @@ function normalizeCase(item, officialLocales) {
   const promptZh = official?.zh?.prompt
     ? cleanPromptContent(official.zh.prompt)
     : undefined;
-  const description = official?.zh?.description || item.description || "";
-  const promptPreview = (description || promptZh || promptEn).slice(0, 100);
+  // Clean at the source: upstream locale fields sometimes carry the literal
+  // string "null" — every downstream use (preview, title fallback, ratio
+  // signal) must never see it.
+  const description = cleanText(official?.zh?.description) ?? cleanText(item.description) ?? "";
+  // Junk guards: upstream sometimes ships "null" strings or pure whitespace
+  // into the preview slot; fall back through zh prompt then English prompt.
+  const safePreview = cleanText(description) ?? cleanText(promptZh) ?? undefined;
+  const promptPreview = (safePreview ?? promptEn).slice(0, 100);
   const media = Array.isArray(item.sourceMedia) ? item.sourceMedia : [];
   const imageUrl = media.find((u) => typeof u === "string" && u) || "";
   // Preserve any additional images the upstream prompt shipped (some cases
@@ -261,18 +269,25 @@ function normalizeCase(item, officialLocales) {
   // locale export keep their original English title instead of mixed Chinglish.
   const rawTitle = item.title || `案例 ${item.id}`;
   const titleZh = official?.zh?.title;
+  // Text hygiene: strip junk prefixes ("提示词：" …), derive a readable title
+  // from the description when nothing survives, and drop titleEn values that
+  // are CJK-dominant or duplicate the zh title.
+  const safeTitle =
+    normalizeCaseTitle(titleZh || rawTitle, description || promptZh) ||
+    `案例 ${item.id}`;
+  const safeTitleEn = titleZh ? sanitizeTitleEn(rawTitle, safeTitle) : undefined;
   const ratio = inferExplicitRatio(rawTitle, titleZh, description, promptEn, promptZh);
   return {
     id: String(item.id),
-    title: titleZh || rawTitle,
-    titleEn: titleZh ? rawTitle : undefined,
+    title: safeTitle,
+    titleEn: safeTitleEn,
     category: localizeCategory(slug),
     tags: [],
     styles: [],
     scenes: [],
     imageUrl,
     imageUrls: imageUrls.length > 0 ? imageUrls : undefined,
-    imageAlt: titleZh || rawTitle,
+    imageAlt: safeTitle,
     prompt: promptEn,
     promptEn,
     promptZh,
@@ -405,15 +420,25 @@ function sortTemplatesForDisplay(templates) {
 function normalizeManualCase(item) {
   const id = String(item.id ?? "").trim();
   if (!id) return null;
-  const styles = Array.isArray(item.styles) ? item.styles.filter(Boolean) : [];
-  const scenes = Array.isArray(item.scenes) ? item.scenes.filter(Boolean) : [];
+  // Tag canonicalization at ingest (tag-normalize-core.mjs): manual authors
+  // can still write legacy tokens ("Poster" in styles, "Brand Identity" in
+  // tags…). Normalizing here means a daily re-sync can never reintroduce
+  // removed/synonym tokens into public/data, no matter what the source file
+  // contains. cleanList already drops blank/falsy tokens.
+  const normalizedTags = normalizeCaseTags({
+    styles: item.styles,
+    scenes: item.scenes,
+    tags: item.tags,
+  });
+  const styles = normalizedTags.styles;
+  const scenes = normalizedTags.scenes;
   const fallbackTags = [...new Set([...styles, ...scenes])].slice(0, 6);
   const prompt = (item.prompt ?? "").toString();
   return {
     id,
     title: item.title || `案例 ${id}`,
     category: item.category || "其他用例",
-    tags: Array.isArray(item.tags) && item.tags.length > 0 ? item.tags : fallbackTags,
+    tags: normalizedTags.tags.length > 0 ? normalizedTags.tags : fallbackTags,
     styles,
     scenes,
     imageUrl: item.imageUrl || "",

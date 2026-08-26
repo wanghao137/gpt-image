@@ -343,14 +343,16 @@
   .serif-display {
     font-family: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
     font-feature-settings: "liga", "dlig";
-    letter-spacing: -0.012em;
+    letter-spacing: 0;
   }
 
-  /* Magazine-grade hero numerals */
+  /* Magazine-grade hero numerals. Instrument Serif's figures are genuinely
+     narrow by design ("1" advance = 0.249em, verified against the official
+     Google Fonts release), so adjacent digits collide at stat sizes. Data
+     readouts use the body sans with tabular figures instead. */
   .stat-num {
-    font-family: "Instrument Serif", Palatino, Georgia, serif;
     font-variant-numeric: lining-nums tabular-nums;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .smart-img-picture {

@@ -209,9 +209,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Poster",
@@ -254,7 +252,7 @@
     "title": "照片转极简3D卡通手办风格角色",
     "category": "角色与人物",
     "styles": [
-      "3D"
+      "3D Render"
     ],
     "scenes": [
       "Character"
@@ -308,8 +306,7 @@
       "Editorial"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Illustration",
@@ -331,7 +328,6 @@
     "title": "产品ASMR开箱视频分镜信息图",
     "category": "图表与信息图",
     "styles": [
-      "Infographic",
       "Editorial"
     ],
     "scenes": [
@@ -411,12 +407,9 @@
     "title": "地下朋克Zine黑白红字复古海报",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Poster",
       "Realistic",
@@ -468,7 +461,6 @@
       "Editorial"
     ],
     "scenes": [
-      "Editorial",
       "Travel"
     ],
     "tags": [
@@ -565,9 +557,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -613,12 +603,10 @@
     "title": "千禧复古韩系时尚杂志编辑海报",
     "category": "海报与排版",
     "styles": [
-      "Editorial",
-      "Poster"
+      "Editorial"
     ],
     "scenes": [
-      "Social",
-      "Editorial"
+      "Social"
     ],
     "tags": [
       "Poster",
@@ -639,9 +627,7 @@
     "id": "100226",
     "title": "趣味未来感品牌VI视觉识别套件设计",
     "category": "品牌与标志",
-    "styles": [
-      "Brand Identity"
-    ],
+    "styles": [],
     "scenes": [
       "Brand",
       "Commerce"
@@ -669,8 +655,7 @@
       "Realistic"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Realistic",
@@ -719,7 +704,6 @@
     "title": "鱼眼视窗冲击感酒吧世界杯观战海报",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Cinematic"
     ],
     "scenes": [
@@ -800,7 +784,6 @@
     "title": "蓝图与3D渲染对撞·技术解构图鉴",
     "category": "图表与信息图",
     "styles": [
-      "Infographic",
       "Blueprint"
     ],
     "scenes": [
@@ -856,9 +839,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Poster",
@@ -932,9 +913,7 @@
       "Illustration",
       "Concept Art"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -1038,8 +1017,7 @@
       "Realistic"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Realistic",
@@ -1140,9 +1118,7 @@
     "styles": [
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Editorial",
@@ -1161,9 +1137,7 @@
     "id": "100206",
     "title": "3D皮克斯风表情九宫格头像贴纸",
     "category": "角色与人物",
-    "styles": [
-      "Character"
-    ],
+    "styles": [],
     "scenes": [
       "Social"
     ],
@@ -1217,8 +1191,7 @@
       "Cinematic"
     ],
     "scenes": [
-      "Music",
-      "Editorial"
+      "Music"
     ],
     "tags": [
       "Cinematic",
@@ -1267,7 +1240,6 @@
     "title": "印度街头小吃 Pani Puri 拼贴风信息图",
     "category": "图表与信息图",
     "styles": [
-      "Infographic",
       "Editorial"
     ],
     "scenes": [
@@ -1296,9 +1268,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -1323,8 +1293,7 @@
       "Minimal"
     ],
     "scenes": [
-      "Education",
-      "Editorial"
+      "Education"
     ],
     "tags": [
       "Minimal",
@@ -1345,9 +1314,7 @@
     "id": "100199",
     "title": "极致电影感创作者信念主题海报",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Commerce",
       "Social"
@@ -1375,8 +1342,7 @@
       "Realistic"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Realistic",
@@ -1474,7 +1440,7 @@
     "title": "手工黏土质感3D动画舞蹈角色",
     "category": "角色与人物",
     "styles": [
-      "3D",
+      "3D Render",
       "Realistic"
     ],
     "scenes": [
@@ -1585,7 +1551,6 @@
       "Realistic"
     ],
     "scenes": [
-      "Editorial",
       "Infographic"
     ],
     "tags": [
@@ -1639,8 +1604,7 @@
       "Collage"
     ],
     "scenes": [
-      "Social",
-      "Editorial"
+      "Social"
     ],
     "tags": [
       "Illustration",
@@ -1664,9 +1628,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Poster",
@@ -1816,9 +1778,7 @@
       "Watercolor",
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -1839,7 +1799,7 @@
     "title": "2x2设计师级城市微缩乙烯基玩具景观",
     "category": "建筑与空间",
     "styles": [
-      "3D",
+      "3D Render",
       "Realistic"
     ],
     "scenes": [
@@ -1894,8 +1854,7 @@
       "Editorial"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Realistic",
@@ -1970,7 +1929,7 @@
     "title": "3D立体社交媒体主页破框效果",
     "category": "UI 与界面",
     "styles": [
-      "3D",
+      "3D Render",
       "Realistic"
     ],
     "scenes": [
@@ -2126,9 +2085,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Realistic",
@@ -2151,9 +2108,7 @@
     "styles": [
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -2227,12 +2182,9 @@
     "title": "电影感高对比眼部特写海报",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Poster",
       "Editorial",
@@ -2544,9 +2496,7 @@
     "styles": [
       "Realistic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Realistic",
       "Poster",
@@ -2566,9 +2516,7 @@
     "id": "100152",
     "title": "地下俱乐部风格音乐海报",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Music"
     ],
@@ -2729,8 +2677,7 @@
       "Cinematic"
     ],
     "scenes": [
-      "Architecture",
-      "Editorial"
+      "Architecture"
     ],
     "tags": [
       "Realistic",
@@ -2831,7 +2778,6 @@
     "title": "等距透视产品拆解技术信息图",
     "category": "图表与信息图",
     "styles": [
-      "Infographic",
       "Technical"
     ],
     "scenes": [
@@ -2911,8 +2857,7 @@
       "Cinematic"
     ],
     "scenes": [
-      "Commerce",
-      "Editorial"
+      "Commerce"
     ],
     "tags": [
       "Cinematic",
@@ -2936,9 +2881,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Poster",
@@ -2961,9 +2904,7 @@
     "styles": [
       "Realistic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -3063,7 +3004,6 @@
       "Collage"
     ],
     "scenes": [
-      "Editorial",
       "Commerce"
     ],
     "tags": [
@@ -3090,8 +3030,7 @@
       "Anime"
     ],
     "scenes": [
-      "Character",
-      "Editorial"
+      "Character"
     ],
     "tags": [
       "Illustration",
@@ -3219,8 +3158,7 @@
       "Editorial"
     ],
     "scenes": [
-      "Brand",
-      "Editorial"
+      "Brand"
     ],
     "tags": [
       "Editorial",
@@ -3271,9 +3209,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Illustration",
@@ -3496,9 +3432,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Realistic",
@@ -3575,7 +3509,6 @@
       "Illustration"
     ],
     "scenes": [
-      "Editorial",
       "Narrative"
     ],
     "tags": [
@@ -3603,7 +3536,6 @@
       "Realistic"
     ],
     "scenes": [
-      "Editorial",
       "Narrative"
     ],
     "tags": [
@@ -3689,7 +3621,6 @@
     "scenes": [
       "Portrait",
       "Brand",
-      "Editorial",
       "Tech"
     ],
     "tags": [
@@ -3744,8 +3675,7 @@
     ],
     "scenes": [
       "Portrait",
-      "Brand",
-      "Editorial"
+      "Brand"
     ],
     "tags": [
       "Realistic",
@@ -3847,9 +3777,7 @@
     "styles": [
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -3922,9 +3850,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -3974,8 +3900,7 @@
       "Realistic"
     ],
     "scenes": [
-      "Portrait",
-      "Editorial"
+      "Portrait"
     ],
     "tags": [
       "Illustration",
@@ -4000,9 +3925,7 @@
     "styles": [
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Poster",
@@ -4026,9 +3949,7 @@
     "styles": [
       "Illustration"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Poster",
@@ -4082,7 +4003,6 @@
       "Minimal"
     ],
     "scenes": [
-      "Editorial",
       "Lifestyle"
     ],
     "tags": [
@@ -4136,10 +4056,7 @@
       "Realistic",
       "Cinematic"
     ],
-    "scenes": [
-      "Artistic",
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Illustration",
       "Realistic",
@@ -4161,11 +4078,10 @@
     "title": "通用奢侈品牌身份展示板",
     "category": "品牌与标志",
     "styles": [
-      "Editorial",
-      "Brand"
+      "Editorial"
     ],
     "scenes": [
-      "Brand Identity"
+      "Brand"
     ],
     "tags": [
       "Editorial",
@@ -4268,9 +4184,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -4369,8 +4283,7 @@
     "title": "双曝光球星城市地标融合海报",
     "category": "海报与排版",
     "styles": [
-      "Realistic",
-      "Artistic"
+      "Realistic"
     ],
     "scenes": [
       "Sports",
@@ -4454,7 +4367,6 @@
       "Cinematic"
     ],
     "scenes": [
-      "Editorial",
       "Nature"
     ],
     "tags": [
@@ -4481,8 +4393,7 @@
       "Minimal"
     ],
     "scenes": [
-      "Travel",
-      "Editorial"
+      "Travel"
     ],
     "tags": [
       "Illustration",
@@ -4527,7 +4438,7 @@
     "title": "夸张大头收藏公仔：名人微缩雕像",
     "category": "角色与人物",
     "styles": [
-      "3D",
+      "3D Render",
       "Caricature"
     ],
     "scenes": [
@@ -4553,7 +4464,7 @@
     "title": "设计师收藏级艺术潮玩手办",
     "category": "角色与人物",
     "styles": [
-      "3D"
+      "3D Render"
     ],
     "scenes": [
       "Product"
@@ -4577,9 +4488,7 @@
     "id": "100071",
     "title": "合成波复古未来主义音乐海报",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Music"
     ],
@@ -4631,9 +4540,7 @@
       "Cinematic",
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Poster",
@@ -4682,9 +4589,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Realistic",
@@ -4781,9 +4686,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -4806,9 +4709,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Realistic",
@@ -4858,9 +4759,7 @@
     "styles": [
       "Editorial"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Editorial",
       "Realistic",
@@ -5008,8 +4907,7 @@
     "title": "电影质感复古美式餐厅汽水广告海报",
     "category": "产品与电商",
     "styles": [
-      "Realistic",
-      "Poster"
+      "Realistic"
     ],
     "scenes": [
       "Commerce",
@@ -5036,7 +4934,6 @@
     "title": "Nike运动鞋创意广告海报：空中姿态与字体融合",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Realistic"
     ],
     "scenes": [
@@ -5063,8 +4960,7 @@
     "title": "Spotify音乐营销海报：排版为视觉主角",
     "category": "海报与排版",
     "styles": [
-      "Editorial",
-      "Poster"
+      "Editorial"
     ],
     "scenes": [
       "Social",
@@ -5119,7 +5015,7 @@
     "title": "高风格化3D卡通头像：夸张表情与光滑材质",
     "category": "角色与人物",
     "styles": [
-      "3D",
+      "3D Render",
       "Caricature"
     ],
     "scenes": [
@@ -5146,9 +5042,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "3D Render",
@@ -5171,9 +5065,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Poster",
@@ -5219,12 +5111,8 @@
     "id": "100046",
     "title": "动画风烹饪视频分镜脚本",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
-    "scenes": [
-      "Editorial"
-    ],
+    "styles": [],
+    "scenes": [],
     "tags": [
       "Poster",
       "Realistic",
@@ -5301,8 +5189,7 @@
     "title": "Nike风格品牌产品广告活动排版",
     "category": "品牌与标志",
     "styles": [
-      "Editorial",
-      "Poster"
+      "Editorial"
     ],
     "scenes": [
       "Commerce",
@@ -5359,9 +5246,7 @@
     "styles": [
       "Digital Art"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Poster",
       "Realistic",
@@ -5411,9 +5296,7 @@
     "styles": [
       "Cinematic"
     ],
-    "scenes": [
-      "Editorial"
-    ],
+    "scenes": [],
     "tags": [
       "Cinematic",
       "Realistic",
@@ -5541,8 +5424,7 @@
     "title": "面部保留风格化人像摄影",
     "category": "摄影与写实",
     "styles": [
-      "Realistic",
-      "Portrait"
+      "Realistic"
     ],
     "scenes": [
       "Portrait"
@@ -5571,7 +5453,6 @@
       "Cinematic"
     ],
     "scenes": [
-      "Editorial",
       "Creative"
     ],
     "tags": [
@@ -5861,7 +5742,6 @@
     "title": "韩式咖啡馆饮品剪贴簿海报",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Realistic"
     ],
     "scenes": [
@@ -5887,7 +5767,6 @@
     "title": "餐饮品牌全案VI物料矩阵",
     "category": "品牌与标志",
     "styles": [
-      "Poster",
       "Realistic"
     ],
     "scenes": [
@@ -5913,9 +5792,7 @@
     "id": "100020",
     "title": "超高级Master JUMBO ProMPT V1",
     "category": "其他用例",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Commerce",
       "Brand",
@@ -5928,9 +5805,7 @@
     "id": "100019",
     "title": "90年代嘻哈杂志布局",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Commerce",
       "Brand"
@@ -5959,8 +5834,7 @@
     "title": "全3D雕塑",
     "category": "品牌与标志",
     "styles": [
-      "3D Render",
-      "Poster"
+      "3D Render"
     ],
     "scenes": [
       "Brand",
@@ -5974,9 +5848,7 @@
     "id": "100016",
     "title": "可爱的剪贴簿风格美食摄影海报",
     "category": "海报与排版",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Commerce",
       "Brand",
@@ -5989,9 +5861,7 @@
     "id": "100015",
     "title": "超充满活力的Poppi草莓柠檬苏打英雄镜头",
     "category": "产品与电商",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Brand",
       "Product"
@@ -6019,8 +5889,7 @@
     "title": "电影极简主义旅行海报",
     "category": "海报与排版",
     "styles": [
-      "Realistic",
-      "Poster"
+      "Realistic"
     ],
     "scenes": [
       "Infographic"
@@ -6033,7 +5902,6 @@
     "title": "创建“毛绒漫画玩具产品海报”风格的形象。",
     "category": "海报与排版",
     "styles": [
-      "Poster",
       "Comic"
     ],
     "scenes": [
@@ -6048,9 +5916,7 @@
     "id": "100011",
     "title": "⚡C罗战斗日海报｜葡萄牙 VS 哥伦比亚",
     "category": "角色与人物",
-    "styles": [
-      "Poster"
-    ],
+    "styles": [],
     "scenes": [
       "Commerce",
       "Portrait",
@@ -6141,8 +6007,7 @@
     "title": "把自拍变成动漫电影名场面教学",
     "category": "摄影与写实",
     "styles": [
-      "Realistic",
-      "Poster"
+      "Realistic"
     ],
     "scenes": [
       "Portrait",

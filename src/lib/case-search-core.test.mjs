@@ -69,3 +69,17 @@ test("matching entries identify every shard that may contain them", () => {
     ["illustration", "merchant-poster"],
   );
 });
+
+test("search entry q includes Chinese labels for styles/scenes/platforms", () => {
+  const entry = createCaseSearchEntry({
+    id: "1",
+    title: "t",
+    styles: ["Anime"],
+    scenes: ["Game UI"],
+    platforms: ["xiaohongshu"],
+  });
+  assert.ok(entry.q.includes("动漫"), "style zh label searchable");
+  assert.ok(entry.q.includes("游戏 ui"), "scene zh label searchable (lowercased)");
+  assert.ok(entry.q.includes("小红书"), "platform zh label searchable");
+  assert.ok(entry.q.includes("anime"), "raw token still searchable");
+});

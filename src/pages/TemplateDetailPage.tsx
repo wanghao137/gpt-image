@@ -7,6 +7,7 @@ import { SEO, SITE } from "../components/SEO";
 import { useCopy } from "../hooks/useCopy";
 import { absoluteUrl } from "../lib/seo-url.mjs";
 import {
+  applyTemplateVariables,
   derivedCaseSearchHref,
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
@@ -27,6 +28,9 @@ import NotFoundPage from "./NotFoundPage";
  *   - Mobile: single column, image first then content.
  *   - Prompt block reuses the same two-zone shape as the case detail page:
  *     a sticky toolbar (chars + copy) over a scrollable body.
+ *   - The Variables block is a fillable form: typing into an input live-
+ *     substitutes {argument} markers in both the prompt preview and the
+ *     copy payload, so "复制 Prompt" always copies the filled result.
  *   - Prev/next nav at the bottom walks the same sorted order as TemplatesPage.
  */
 export default function TemplateDetailPage() {
@@ -42,16 +46,24 @@ export default function TemplateDetailPage() {
     },
   });
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  // Remix loop: user fills template variables, the prompt preview and the
+  // copy payload both reflect the substituted text in real time.
+  const [variableValues, setVariableValues] = useState<Record<string, string>>({});
+
+  const variables = t ? extractTemplateVariables(t.prompt) : [];
+  const displayPrompt =
+    t && variables.length > 0
+      ? applyTemplateVariables(t.prompt, variableValues)
+      : (t?.prompt ?? "");
 
   const handleCopy = useCallback(() => {
-    if (t) copy(t.prompt);
-  }, [t, copy]);
+    if (t) copy(displayPrompt);
+  }, [t, copy, displayPrompt]);
 
   if (!t) return <NotFoundPage />;
 
-  const charCount = t.prompt.length;
-  const promptLines = t.prompt.split(/\r?\n/).length;
-  const variables = extractTemplateVariables(t.prompt);
+  const charCount = displayPrompt.length;
+  const promptLines = displayPrompt.split(/\r?\n/).length;
   const derivedCaseIds = t.derivedFrom?.slice(0, 8) ?? [];
 
   const sourceLabel = sourceDisplayLabel(
@@ -197,19 +209,33 @@ export default function TemplateDetailPage() {
                   </div>
                   <p className="text-[11.5px] text-ink-500">共 {variables.length} 项，保留模板结构，只修改任务变量</p>
                 </div>
-                <dl className="mt-3 grid gap-2 sm:grid-cols-2">
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
                   {variables.map((variable) => (
-                    <div
+                    <label
                       key={`${t.id}-${variable.name}`}
-                      className="rounded-lg border border-white/[0.06] bg-ink-950/35 px-3 py-2.5"
+                      className="block rounded-lg border border-white/[0.06] bg-ink-950/35 px-3 py-2.5"
                     >
-                      <dt className="text-[12px] font-medium text-ink-100">{variable.name}</dt>
-                      <dd className="mt-0.5 line-clamp-2 text-[11.5px] leading-relaxed text-ink-500">
+                      <span className="block text-[12px] font-medium text-ink-100">
+                        {variable.name}
+                      </span>
+                      <input
+                        type="text"
+                        value={variableValues[variable.name] ?? ""}
+                        placeholder={variable.defaultValue || "按当前任务填写"}
+                        onChange={(event) =>
+                          setVariableValues((prev) => ({
+                            ...prev,
+                            [variable.name]: event.target.value,
+                          }))
+                        }
+                        className="mt-1.5 w-full rounded-md border border-white/10 bg-ink-950/60 px-2.5 py-1.5 text-[12.5px] text-ink-100 placeholder:text-ink-600 focus:border-ember-500/50 focus:outline-none"
+                      />
+                      <span className="mt-1 block text-[11px] leading-relaxed text-ink-500">
                         默认：{variable.defaultValue || "按当前任务填写"}
-                      </dd>
-                    </div>
+                      </span>
+                    </label>
                   ))}
-                </dl>
+                </div>
               </section>
             )}
 
@@ -274,7 +300,7 @@ export default function TemplateDetailPage() {
                 </button>
               </div>
               <pre className="max-h-[60vh] overflow-auto whitespace-pre-wrap p-4 font-mono text-[12.5px] leading-relaxed text-ink-200">
-                {t.prompt}
+                {displayPrompt}
               </pre>
             </section>
 

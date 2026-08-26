@@ -14,4 +14,8 @@ export function filterAndSortTemplates<T extends PromptTemplate>(
   options?: { query?: string; category?: string; sort?: TemplateSortMode },
 ): T[];
 export function extractTemplateVariables(prompt: string): TemplateVariable[];
+export function applyTemplateVariables(
+  prompt: string,
+  values?: Record<string, string>,
+): string;
 export function derivedCaseSearchHref(caseId: string): string;

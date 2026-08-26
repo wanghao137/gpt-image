@@ -9,6 +9,10 @@ export interface FilterOptions {
   styles: string[];
   scenes: string[];
   platforms: string[];
+  /** Per-tag case counts (frequency-ordered payload); optional for backward compat. */
+  styleCounts?: Record<string, number>;
+  sceneCounts?: Record<string, number>;
+  platformCounts?: Record<string, number>;
 }
 
 interface AsyncResource<T> {

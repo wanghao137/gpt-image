@@ -1,3 +1,5 @@
+import { platformLabel, sceneLabel, styleLabel } from "./labels-core.mjs";
+
 function lower(value) {
   return String(value ?? "").trim().toLocaleLowerCase("zh-CN");
 }
@@ -24,6 +26,9 @@ export function createCaseSearchEntry(item) {
     ...styles,
     ...scenes,
     ...platforms,
+    ...styles.map(styleLabel),
+    ...scenes.map(sceneLabel),
+    ...platforms.map(platformLabel),
   ]
     .filter(Boolean)
     .join("\n");

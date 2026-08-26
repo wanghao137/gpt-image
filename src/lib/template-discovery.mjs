@@ -51,11 +51,13 @@ export function filterAndSortTemplates(templates, options = {}) {
   return filtered;
 }
 
+const ARGUMENT_PATTERN =
+  /\{argument\s+name=(?:"([^"]+)"|'([^']+)'|([^\s}]+))(?:\s+default=(?:"([^"]*)"|'([^']*)'|([^\s}]+)))?[^}]*\}/g;
+
 export function extractTemplateVariables(prompt) {
   const variables = [];
   const seen = new Set();
-  const pattern = /\{argument\s+name=(?:"([^"]+)"|'([^']+)'|([^\s}]+))(?:\s+default=(?:"([^"]*)"|'([^']*)'|([^\s}]+)))?[^}]*\}/g;
-  for (const match of String(prompt ?? "").matchAll(pattern)) {
+  for (const match of String(prompt ?? "").matchAll(ARGUMENT_PATTERN)) {
     const name = (match[1] ?? match[2] ?? match[3] ?? "").trim();
     if (!name || seen.has(name)) continue;
     seen.add(name);
@@ -65,6 +67,23 @@ export function extractTemplateVariables(prompt) {
     });
   }
   return variables;
+}
+
+/**
+ * Substitute {argument} markers with user values (blank/missing → default).
+ * Prompts without markers pass through untouched, so the copy button can
+ * always call this unconditionally.
+ */
+export function applyTemplateVariables(prompt, values = {}) {
+  return String(prompt ?? "").replace(
+    ARGUMENT_PATTERN,
+    (match, n1, n2, n3, d1, d2, d3) => {
+      const name = (n1 ?? n2 ?? n3 ?? "").trim();
+      const fallback = (d1 ?? d2 ?? d3 ?? "").trim();
+      const given = String(values?.[name] ?? "").trim();
+      return given || fallback || match;
+    },
+  );
 }
 
 export function derivedCaseSearchHref(caseId) {

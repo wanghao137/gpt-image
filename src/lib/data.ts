@@ -279,6 +279,8 @@ export interface CaseIndexEntry {
   slug: string;
   uc: string;
   r: string;
+  /** Secondary userCategories — present only on rows that have them. */
+  us?: string[];
 }
 
 let caseIndexCache: CaseIndexEntry[] | null = null;
