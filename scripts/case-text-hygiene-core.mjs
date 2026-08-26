@@ -11,8 +11,10 @@
 // Matches three junk shapes: "角色设定提示词：", bare labels ("分辨率：" /
 // "标题：" / "prompt:"), and bare "提示词：". Alternation because the label
 // and 提示词 are each independently optional — "分辨率：" has no 提示词.
+// Case-insensitive so English label prefixes ("Character sheet prompt:",
+// "Resolution:", "Prompt:", "Title:", "Description:") strip in any casing.
 const TITLE_JUNK_PREFIX_RE =
-  /^(?:(?:角色设定|分辨率|标题|描述|prompt)\s*提示词\s*[:：]\s*|(?:角色设定|分辨率|标题|描述|prompt)\s*[:：]\s*|提示词\s*[:：]\s*)/;
+  /^(?:(?:角色设定|分辨率|标题|描述|prompt)\s*提示词\s*[:：]\s*|(?:角色设定|分辨率|标题|描述|prompt|character\s+sheet\s+prompt|resolution|title|description)\s*[:：]\s*|提示词\s*[:：]\s*)/i;
 
 export function normalizeCaseTitle(rawTitle, fallbackText = "") {
   let title = String(rawTitle ?? "").trim();

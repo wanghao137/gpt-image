@@ -53,3 +53,22 @@ test("normalizeCaseTitle skips a null sentence and uses the next real one", () =
   const out = normalizeCaseTitle("提示词：", "null\n\n一位年轻女性的真实感写真集。第二句。");
   assert.equal(out, "一位年轻女性的真实感写真集");
 });
+
+test("normalizeCaseTitle strips English label prefixes with trailing colon", () => {
+  assert.equal(normalizeCaseTitle("Character sheet prompt:"), "");
+  assert.equal(normalizeCaseTitle("Resolution:"), "");
+  assert.equal(normalizeCaseTitle("Prompt:"), "");
+  assert.equal(normalizeCaseTitle("Title:"), "");
+  assert.equal(normalizeCaseTitle("Description:"), "");
+});
+
+test("normalizeCaseTitle strips the English label and keeps the real title", () => {
+  assert.equal(
+    normalizeCaseTitle("Character sheet prompt: Cyber Ninja Three-View Turnaround"),
+    "Cyber Ninja Three-View Turnaround",
+  );
+  // Case-insensitive label.
+  assert.equal(normalizeCaseTitle("RESOLUTION: 4K product hero shot"), "4K product hero shot");
+  // A real title that merely STARTS with these words is kept (no trailing colon).
+  assert.equal(normalizeCaseTitle("Title Design Basics"), "Title Design Basics");
+});
