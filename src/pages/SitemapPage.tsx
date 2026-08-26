@@ -26,12 +26,14 @@ export default function SitemapPage() {
   }, []);
 
   // Compute category counts from the index using primary+secondary semantics,
-  // matching gallery filters and homepage tile counts.
+  // matching gallery filters and homepage tile counts. The per-row Set guards
+  // against a hypothetical duplicate token inside one row's userCategories
+  // (or one echoing the primary) double-counting the row.
   const categoryCounts: Record<string, number> = {};
   for (const c of caseIndex) {
-    categoryCounts[c.uc] = (categoryCounts[c.uc] ?? 0) + 1;
-    for (const secondary of c.us ?? []) {
-      if (secondary !== c.uc) categoryCounts[secondary] = (categoryCounts[secondary] ?? 0) + 1;
+    const rowCategories = new Set<string>([c.uc, ...(c.us ?? [])]);
+    for (const key of rowCategories) {
+      categoryCounts[key] = (categoryCounts[key] ?? 0) + 1;
     }
   }
 
