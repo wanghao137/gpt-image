@@ -1,6 +1,9 @@
 /**
- * One-time repair for legacy rows written before text hygiene went live:
- * junk titles ("提示词：" …), promptPreview "null", CJK titleEn.
+ * ONE-TIME historical backfill for rows already written to public/data before
+ * text hygiene went live at ingest: junk titles ("提示词：" …), promptPreview
+ * "null", CJK titleEn. The PERSISTENT guarantee lives in ingest normalization
+ * (sync.mjs `normalizeCase` applies the same case-text-hygiene-core guards to
+ * every incoming row). Do NOT run this as part of the daily pipeline.
  * Idempotent; prints per-field change counts.
  *
  * Output stays COMPACT (`JSON.stringify(next)`, no trailing newline) to match

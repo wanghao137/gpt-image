@@ -1,7 +1,11 @@
 /**
- * One-time backfill: apply tag-normalize-core to every row already in
- * public/data/cases.json (rows written before pipeline normalization went
- * live). Idempotent — safe to re-run. Prints per-field change counts.
+ * ONE-TIME historical backfill: apply tag-normalize-core to every row already
+ * in public/data/cases.json (rows written before pipeline normalization went
+ * live). The PERSISTENT guarantee lives in ingest normalization — sync.mjs
+ * `normalizeManualCase` and migrate-v2.mjs's row write both pass a row's final
+ * styles/scenes/tags through `normalizeCaseTags` before cases.json is written.
+ * Do NOT run this as part of the daily pipeline. Idempotent — safe to re-run.
+ * Prints per-field change counts.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
