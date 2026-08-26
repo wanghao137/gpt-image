@@ -41,3 +41,15 @@ test("sanitizeTitleEn drops CJK-dominant and duplicate titles", () => {
   assert.equal(sanitizeTitleEn("Same Title", "Same Title"), undefined);
   assert.equal(sanitizeTitleEn("null", "x"), undefined);
 });
+
+test("normalizeCaseTitle treats literal null/undefined strings as empty on both inputs", () => {
+  assert.equal(normalizeCaseTitle("null", ""), "");
+  assert.equal(normalizeCaseTitle("undefined", ""), "");
+  assert.equal(normalizeCaseTitle("提示词：", "null"), "");
+  assert.equal(normalizeCaseTitle("提示词：", "undefined"), "");
+});
+
+test("normalizeCaseTitle skips a null sentence and uses the next real one", () => {
+  const out = normalizeCaseTitle("提示词：", "null\n\n一位年轻女性的真实感写真集。第二句。");
+  assert.equal(out, "一位年轻女性的真实感写真集");
+});

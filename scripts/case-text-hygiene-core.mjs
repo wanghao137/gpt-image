@@ -16,17 +16,21 @@ const TITLE_JUNK_PREFIX_RE =
 
 export function normalizeCaseTitle(rawTitle, fallbackText = "") {
   let title = String(rawTitle ?? "").trim();
+  // Upstream locale fields sometimes hold the literal string "null".
+  if (title === "null" || title === "undefined") title = "";
   // Strip repeatedly: upstream sometimes stacks prefixes ("角色设定提示词：").
   while (TITLE_JUNK_PREFIX_RE.test(title)) {
     title = title.replace(TITLE_JUNK_PREFIX_RE, "").trim();
   }
   if (title) return title;
-  // Derive from the first sentence of the fallback description.
-  const sentence = String(fallbackText ?? "")
+  // Derive from the first sentence of the fallback description — with the
+  // same "null"-string guard, or "null" becomes a 4-char "title".
+  const fb = cleanText(fallbackText) ?? "";
+  const sentence = fb
     .replace(TITLE_JUNK_PREFIX_RE, "")
     .split(/[。.!?\n]/)
     .map((s) => s.trim())
-    .find((s) => s.length > 0);
+    .find((s) => s.length > 0 && s !== "null" && s !== "undefined");
   if (!sentence) return "";
   return sentence.length > 40 ? `${sentence.slice(0, 39)}…` : sentence;
 }

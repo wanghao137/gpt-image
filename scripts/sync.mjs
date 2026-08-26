@@ -242,7 +242,10 @@ function normalizeCase(item, officialLocales) {
   const promptZh = official?.zh?.prompt
     ? cleanPromptContent(official.zh.prompt)
     : undefined;
-  const description = official?.zh?.description || item.description || "";
+  // Clean at the source: upstream locale fields sometimes carry the literal
+  // string "null" — every downstream use (preview, title fallback, ratio
+  // signal) must never see it.
+  const description = cleanText(official?.zh?.description) ?? cleanText(item.description) ?? "";
   // Junk guards: upstream sometimes ships "null" strings or pure whitespace
   // into the preview slot; fall back through zh prompt then English prompt.
   const safePreview = cleanText(description) ?? cleanText(promptZh) ?? undefined;
@@ -268,7 +271,9 @@ function normalizeCase(item, officialLocales) {
   // Text hygiene: strip junk prefixes ("提示词：" …), derive a readable title
   // from the description when nothing survives, and drop titleEn values that
   // are CJK-dominant or duplicate the zh title.
-  const safeTitle = normalizeCaseTitle(titleZh || rawTitle, description) || `案例 ${item.id}`;
+  const safeTitle =
+    normalizeCaseTitle(titleZh || rawTitle, description || promptZh) ||
+    `案例 ${item.id}`;
   const safeTitleEn = titleZh ? sanitizeTitleEn(rawTitle, safeTitle) : undefined;
   const ratio = inferExplicitRatio(rawTitle, titleZh, description, promptEn, promptZh);
   return {
