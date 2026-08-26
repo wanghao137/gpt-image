@@ -74,8 +74,14 @@ test("extract and apply agree on variable names", () => {
   assert.deepEqual(vars, ["背景色", "妆容强度"]);
 });
 
-test("hot searches are concise and unique", () => {
+test("hot searches are concise, unique, and map to category buckets", () => {
   assert.ok(HOT_CASE_SEARCHES.length >= 5);
-  assert.equal(new Set(HOT_CASE_SEARCHES).size, HOT_CASE_SEARCHES.length);
-  assert.ok(HOT_CASE_SEARCHES.every((item) => item.length <= 12));
+  assert.equal(
+    new Set(HOT_CASE_SEARCHES.map((item) => item.label)).size,
+    HOT_CASE_SEARCHES.length,
+  );
+  assert.ok(HOT_CASE_SEARCHES.every((item) => item.label.length <= 12));
+  // Every chip must resolve to a real category slug — a typo here silently
+  // breaks the chip (empty filter) in production.
+  assert.ok(HOT_CASE_SEARCHES.every((item) => /^[a-z0-9-]+$/.test(item.category)));
 });

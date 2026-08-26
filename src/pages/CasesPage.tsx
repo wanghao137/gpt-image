@@ -314,9 +314,12 @@ export default function CasesPage() {
     setShowFavorites(false);
   }, []);
 
-  const applyHotSearch = useCallback((value: string) => {
-    setQuery(value);
-    setActiveCategories(new Set());
+  const applyHotSearch = useCallback((category: string) => {
+    // Hot-search chips are category shortcuts, not text queries: the label
+    // itself ("小红书封面") almost never appears in case text, so searching
+    // it literally returned a handful of irrelevant hits.
+    setQuery("");
+    setActiveCategories(new Set([category]));
     setActiveStyles(new Set());
     setActiveScenes(new Set());
     setActivePlatforms(new Set());
@@ -392,12 +395,12 @@ export default function CasesPage() {
             热门搜索
           </span>
           {HOT_CASE_SEARCHES.map((item) => {
-            const active = query.trim() === item;
+            const active = activeCategories.has(item.category);
             return (
               <button
-                key={item}
+                key={item.label}
                 type="button"
-                onClick={() => applyHotSearch(item)}
+                onClick={() => applyHotSearch(item.category)}
                 aria-pressed={active}
                 className={
                   "min-h-11 rounded-full border px-3 py-1.5 text-[12px] transition " +
@@ -406,7 +409,7 @@ export default function CasesPage() {
                     : "border-white/[0.08] bg-white/[0.025] text-ink-400 hover:border-white/20 hover:text-ink-100")
                 }
               >
-                {item}
+                {item.label}
               </button>
             );
           })}

@@ -573,12 +573,14 @@ function ChipRow({
 }) {
   const [expanded, setExpanded] = useState(false);
   const visible = collapsible && !expanded ? options.slice(0, 12) : options;
-  const showMore = collapsible && options.length > 12 && !expanded;
+  // The toggle must stay mounted while expanded, or a collapsible group with
+  // no secondary list (风格/题材) loses its "收起" button entirely.
+  const canToggle = Boolean(secondary) || (collapsible && options.length > 12);
   return (
     <div>
       <div className="mb-1.5 flex items-center justify-between">
         <span className="eyebrow">{label}</span>
-        {(secondary || showMore) && (
+        {canToggle && (
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
