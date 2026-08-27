@@ -93,6 +93,9 @@ export default function CasesPage() {
     setActiveStyles(readSet(current, "style"));
     setActiveScenes(readSet(current, "scene"));
     setActivePlatforms(readSet(current, "platform"));
+    // Deep-linkable favorites view (?fav=1). Ignored silently when the
+    // visitor has no favorites on this device.
+    setShowFavorites(current.get("fav") === "1");
     setHydrated(true);
   }, [searchParamsKey]);
 
@@ -105,6 +108,8 @@ export default function CasesPage() {
     writeSet(next, "style", activeStyles);
     writeSet(next, "scene", activeScenes);
     writeSet(next, "platform", activePlatforms);
+    if (showFavorites) next.set("fav", "1");
+    else next.delete("fav");
     if (next.toString() !== searchParamsKey) {
       lastWrittenSearch.current = next.toString();
       setSp(next, { replace: true });
@@ -116,6 +121,7 @@ export default function CasesPage() {
     activeStyles,
     activeScenes,
     activePlatforms,
+    showFavorites,
     searchParamsKey,
     setSp,
   ]);
@@ -191,9 +197,32 @@ export default function CasesPage() {
     setBrowseLoading(true);
     setLoadError(null);
     try {
-      const appendedCases = await loadBrowsePage(browseLoadedPages);
-      setShardCases((current) => uniqueCases([...current, ...appendedCases]));
-      setBrowseLoadedPages((current) => current + 1);
+      let page = browseLoadedPages;
+      let consecutiveEmpty = 0;
+      // A fetched browse page can dedupe to zero new cases against the
+      // initial seed (e.g. a stale CDN page served under the same revision).
+      // Advance automatically so the click is never a silent no-op; after 3
+      // consecutive empty pages something is genuinely wrong with the feed.
+      while (page < HOME_DATA.browsePageCount) {
+        const beforeLen = cachedBrowseCases().cases.length;
+        await loadBrowsePage(page);
+        page += 1;
+        const merged = cachedBrowseCases().cases;
+        if (merged.length > beforeLen) {
+          setShardCases(merged);
+          setBrowseLoadedPages(page);
+          return;
+        }
+        consecutiveEmpty += 1;
+        if (consecutiveEmpty >= 3) {
+          setLoadError("案例分页数据异常（内容重复），请刷新页面重试");
+          setBrowseLoadedPages(page);
+          return;
+        }
+      }
+      // Exhausted every remaining page without new content.
+      setShardCases(cachedBrowseCases().cases);
+      setBrowseLoadedPages(page);
     } catch (reason) {
       setLoadError(reason instanceof Error ? reason.message : "案例加载失败");
     } finally {
@@ -349,7 +378,7 @@ export default function CasesPage() {
       />
 
       <section className="container-narrow pb-2 pt-10 sm:pt-14">
-        <p className="eyebrow">All Cases</p>
+        <p className="eyebrow">全部案例 · All Cases</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
             {heading.text}
@@ -466,6 +495,11 @@ export default function CasesPage() {
         loadingMore={browseLoading}
         hasMoreData={browseMode && browseLoadedPages < HOME_DATA.browsePageCount}
         onLoadMoreData={loadMoreBrowse}
+        total={displayedMatchCount}
+        emptySuggestions={HOT_CASE_SEARCHES.map((item) => ({
+          label: item.label,
+          onApply: () => applyHotSearch(item.category),
+        }))}
       />
     </>
   );

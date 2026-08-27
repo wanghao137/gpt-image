@@ -132,10 +132,10 @@ export default function HomePage() {
 
       <section className="container-narrow pt-10 sm:pt-14" aria-labelledby="audience-tasks-title">
         <div className="mb-5 max-w-3xl sm:mb-6">
-          <p className="eyebrow">Start With Your Task · 从任务开始</p>
+          <p className="eyebrow">从任务开始 · Start With Your Task</p>
           <h2
             id="audience-tasks-title"
-            className="serif-display mt-2 text-[25px] leading-tight text-ink-50 sm:text-4xl lg:text-[42px]"
+            className="serif-display mt-2 text-[25px] leading-tight text-ink-50 [text-wrap:balance] sm:text-4xl lg:text-[42px]"
           >
             不用先学提示词，先选你今天要完成的工作。
           </h2>
@@ -178,7 +178,7 @@ export default function HomePage() {
       <section className="container-narrow scroll-mt-20 pt-10 sm:pt-14" id="featured">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
-            <p className="eyebrow">Featured</p>
+            <p className="eyebrow">本周精选 · Featured</p>
             <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
               本周精选 12 个案例
             </h2>
@@ -205,7 +205,7 @@ export default function HomePage() {
       <section className="container-narrow scroll-mt-20 pt-4 sm:pt-10" id="templates-teaser">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
-            <p className="eyebrow">Templates</p>
+            <p className="eyebrow">工业模板 · Templates</p>
             <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
               {templates.length} 套工业级模板，先起稿再 remix。
             </h2>

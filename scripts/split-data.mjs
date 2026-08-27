@@ -67,18 +67,20 @@ function writeJson(relativePath, data) {
  * If userCategories.ts changes, update this list to match.
  */
 const HOMEPAGE_TILES = [
-  { key: "xhs-cover", slug: "xhs-cover", label: "小红书封面", tagline: "9:16 高点击封面，文字与构图直接可用" },
   { key: "ecommerce", slug: "ecommerce", label: "电商产品图", tagline: "主图、详情页、包装与场景视觉" },
   { key: "merchant-poster", slug: "merchant-poster", label: "商家海报", tagline: "餐饮、美业、教培促销与节日宣传" },
   { key: "portrait", slug: "portrait", label: "人像写真", tagline: "韩系、胶片、写实人像，可加垫图保持身份" },
   { key: "poster-general", slug: "poster-general", label: "海报与排版", tagline: "活动、产品、节日、电影通用海报" },
   { key: "infographic", slug: "infographic", label: "信息图 · 知识海报", tagline: "百科图鉴、流程图、科普长图" },
   { key: "illustration", slug: "illustration", label: "插画与艺术", tagline: "水彩、水墨、纸艺、漫画风插画" },
-  { key: "travel-poster", slug: "travel-poster", label: "城市旅行海报", tagline: "城市地标、复古旅游招贴、文字海报" },
-  { key: "classical", slug: "classical", label: "历史 · 古风", tagline: "朝代服饰、长卷叙事、东方神话" },
-  { key: "architecture", slug: "architecture", label: "建筑 · 空间", tagline: "室内、建筑外观、城市空间" },
-  { key: "ui-screenshot", slug: "ui-screenshot", label: "UI 截图", tagline: "App、网页、仪表盘高保真截图" },
+  // coverCaseId mirrors userCategories.ts — the newest-in-category fallback
+  // frequently lands a semantically wrong cover (see round-3 walkthrough).
+  { key: "ui-screenshot", slug: "ui-screenshot", label: "UI 截图", tagline: "App、网页、仪表盘高保真截图", coverCaseId: "32152" },
   { key: "3d-ip", slug: "3d-ip", label: "3D · IP 形象", tagline: "潮玩盲盒、品牌吉祥物、Pixar 风角色" },
+  { key: "architecture", slug: "architecture", label: "建筑 · 空间", tagline: "室内、建筑外观、城市空间", coverCaseId: "32395" },
+  { key: "travel-poster", slug: "travel-poster", label: "城市旅行海报", tagline: "城市地标、复古旅游招贴、文字海报" },
+  { key: "classical", slug: "classical", label: "历史 · 古风", tagline: "朝代服饰、长卷叙事、东方神话", coverCaseId: "32397" },
+  { key: "xhs-cover", slug: "xhs-cover", label: "小红书封面", tagline: "9:16 高点击封面，文字与构图直接可用" },
 ];
 
 /**
@@ -113,9 +115,12 @@ function buildHomePayload(cases, now = Date.now()) {
   // tile counts always agree with what /cases filters and the sitemap report.
   const tiles = HOMEPAGE_TILES.map((meta) => {
     const count = countCategoryCases(sorted, meta.key);
-    const cover = sorted.find(
-      (c) => c.userCategory === meta.key || (Array.isArray(c.userCategories) && c.userCategories.includes(meta.key)),
-    );
+    // Pinned cover first (coverCaseId), else the newest case in category.
+    const cover =
+      (meta.coverCaseId ? sorted.find((c) => c.id === meta.coverCaseId) : undefined) ??
+      sorted.find(
+        (c) => c.userCategory === meta.key || (Array.isArray(c.userCategories) && c.userCategories.includes(meta.key)),
+      );
     return {
       slug: meta.slug,
       label: meta.label,

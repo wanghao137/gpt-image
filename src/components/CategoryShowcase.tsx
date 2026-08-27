@@ -44,8 +44,8 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
     <section aria-label="按场景浏览" className="container-narrow pt-10 sm:pt-14">
       <div className="rounded-[1.75rem] border border-ink-800/70 bg-ink-950/90 p-4 shadow-soft sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
         <div className="mb-5 flex flex-col gap-1 sm:mb-6">
-          <p className="eyebrow">Browse by Use Case · 按场景浏览</p>
-          <h2 className="serif-display text-[24px] text-ink-50 sm:text-4xl lg:text-[42px]">
+          <p className="eyebrow">按场景浏览 · Browse by Use Case</p>
+          <h2 className="serif-display text-[24px] text-ink-50 [text-wrap:balance] sm:text-4xl lg:text-[42px]">
             从一个场景开始，复制就能出图。
           </h2>
           <p className="mt-1 hidden text-[14px] text-ink-400 sm:block sm:text-[15px]">
@@ -118,7 +118,7 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
             {tile.cover && (
               <div
                 aria-hidden="true"
-                className="absolute inset-0 opacity-30 transition duration-700 group-hover:scale-105 group-hover:opacity-55"
+                className="absolute inset-0 opacity-45 transition duration-700 group-hover:scale-105 group-hover:opacity-70"
                 style={{
                   backgroundImage: `url(${coverUrl(tile.cover, 480)})`,
                   backgroundSize: "cover",
@@ -126,7 +126,7 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
                 }}
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/75 to-ink-950/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/10" />
             <div className="relative flex h-full flex-col justify-end p-4">
               <div className="flex items-center justify-between">
                 <strong className="block truncate text-[14px] font-semibold text-ink-50">

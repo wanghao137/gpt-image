@@ -69,12 +69,19 @@ function ImageLightboxImpl({
   const repaint = useCallback(() => forcePaint((n) => n + 1), []);
 
   const [loaded, setLoaded] = useState(false);
+  // Degradation ladder for a failed full-size load (round-2 walkthrough:
+  // a transient wsrv/network error used to leave a permanent blank stage):
+  // 0 = w1440 main · 1 = same URL retried (cache-busted) · 2 = w1080 variant
+  // (external only) · 3 = raw origin URL · 4 = give up → error UI + manual
+  // retry. Local /images/* are identity-mapped, so they collapse to 0→1→4.
+  const [ladderStep, setLadderStep] = useState(0);
 
-  // Reset transform whenever a new image opens.
+  // Reset transform + load state whenever a new image opens.
   useEffect(() => {
     if (!open) return;
     tRef.current = { scale: 1, x: 0, y: 0 };
     setLoaded(false);
+    setLadderStep(0);
     repaint();
   }, [open, src, repaint]);
 
@@ -337,23 +344,30 @@ function ImageLightboxImpl({
 
   // Lightbox source. transformUrl is identity for /images/* (the post-build
   // local path) and routes through wsrv only for the rare runtime-only URL.
-  // No fallback ladder — the build pipeline guarantees the local file
-  // exists, and if it doesn't we'd rather show a broken image than ship
-  // multi-stage retry machinery that introduced its own latency.
-  const main = useMemo(
-    () => transformUrl(src, { width: 1440, quality: 86 }),
-    [src],
-  );
   const isLocalImage =
     src.startsWith("/images/") || src.startsWith("/assets/") || src.startsWith("/uploads/");
-  // Only external defensive fallbacks have real transformed width variants.
+  // Ladder-resolved display URL. Step 1 re-requests with a cache buster;
+  // step 2 drops external images to w1080; step 3 uses the raw origin URL.
+  const displaySrc = useMemo(() => {
+    if (ladderStep === 1) {
+      const base = transformUrl(src, { width: 1440, quality: 86 });
+      return base + (base.includes("?") ? "&" : "?") + "lbretry=1";
+    }
+    if (ladderStep === 2 && !isLocalImage) {
+      return transformUrl(src, { width: 1080, quality: 84 });
+    }
+    if (ladderStep >= 3) return src;
+    return transformUrl(src, { width: 1440, quality: 86 });
+  }, [src, ladderStep, isLocalImage]);
+  // Only the primary request carries width variants; a fallback step must
+  // not let srcSet re-request the very widths that just failed.
   const sset = useMemo(() => {
-    if (isLocalImage) return undefined;
+    if (isLocalImage || ladderStep > 0) return undefined;
     const widths = [720, 1080, 1440, 1920];
     return widths
       .map((w) => `${transformUrl(src, { width: w, quality: 86 })} ${w}w`)
       .join(", ");
-  }, [isLocalImage, src]);
+  }, [isLocalImage, src, ladderStep]);
 
   if (!open) return null;
 
@@ -450,7 +464,7 @@ function ImageLightboxImpl({
               data-lb-toolbar
               type="button"
               onClick={onPrev}
-              aria-label="上一个案例"
+              aria-label="上一张"
               className="pointer-events-auto absolute left-3 top-1/2 z-10 inline-flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-2.5 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:left-4 sm:p-3"
             >
               <ArrowLeftIcon />
@@ -461,7 +475,7 @@ function ImageLightboxImpl({
               data-lb-toolbar
               type="button"
               onClick={onNext}
-              aria-label="下一个案例"
+              aria-label="下一张"
               className="pointer-events-auto absolute right-3 top-1/2 z-10 inline-flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-ink-950/65 p-2.5 text-ink-50 backdrop-blur transition hover:border-white/30 hover:bg-ink-950/85 sm:right-4 sm:p-3"
             >
               <ArrowRightIcon />
@@ -485,28 +499,50 @@ function ImageLightboxImpl({
           transition: "transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1)",
         }}
       >
-        <img
-          src={main}
-          srcSet={sset}
-          sizes="96vw"
-          alt={alt}
-          draggable={false}
-          loading="eager"
-          decoding="async"
-          {...({ fetchpriority: "high" } as { fetchpriority: "high" })}
-          onLoad={() => setLoaded(true)}
-          onError={() => {
-            // No retry. The build pipeline guarantees /images/* exist;
-            // if rendering still fails the original src is bad and we
-            // let the browser show its broken-image marker — preferable
-            // to a forever-spinner.
-          }}
-          className="block h-full w-full object-contain"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transition: "opacity 240ms ease-out",
-          }}
-        />
+        {ladderStep >= 4 ? (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-white/15 bg-ink-900/60 text-center">
+            <p className="text-[13px] font-medium text-ink-200">大图加载失败</p>
+            <p className="max-w-[80%] text-[12px] leading-relaxed text-ink-400">
+              网络异常或图片源暂不可用，可重试或关闭后从案例页重新打开。
+            </p>
+            <button
+              data-lb-toolbar
+              type="button"
+              onClick={() => {
+                setLadderStep(0);
+                setLoaded(false);
+              }}
+              className="rounded-full border border-white/15 bg-ink-950/70 px-4 py-1.5 text-[12px] font-medium text-ink-100 transition hover:border-white/35"
+            >
+              重试
+            </button>
+          </div>
+        ) : (
+          <img
+            src={displaySrc}
+            srcSet={sset}
+            sizes="96vw"
+            alt={alt}
+            draggable={false}
+            loading="eager"
+            decoding="async"
+            {...({ fetchpriority: "high" } as { fetchpriority: "high" })}
+            onLoad={() => setLoaded(true)}
+            onError={() => {
+              // Climb the degradation ladder; only local images collapse it
+              // (their variants are identity-mapped, so extra steps would
+              // re-request the exact same URL).
+              setLadderStep((step) =>
+                isLocalImage ? (step < 1 ? 1 : 4) : Math.min(step + 1, 4),
+              );
+            }}
+            className="block h-full w-full object-contain"
+            style={{
+              opacity: loaded ? 1 : 0,
+              transition: "opacity 240ms ease-out",
+            }}
+          />
+        )}
       </div>
 
       {/* Bottom hint strip — disappears once the user has interacted */}

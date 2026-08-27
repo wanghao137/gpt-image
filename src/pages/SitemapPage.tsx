@@ -53,7 +53,7 @@ export default function SitemapPage() {
       />
 
       <section className="container-narrow pt-10 sm:pt-14">
-        <p className="eyebrow">Sitemap</p>
+        <p className="eyebrow">站点地图 · Sitemap</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="serif-display text-[30px] leading-tight text-ink-50 sm:text-4xl lg:text-[44px]">

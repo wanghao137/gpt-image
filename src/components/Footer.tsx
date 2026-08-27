@@ -101,6 +101,11 @@ const COLUMNS: FooterColumn[] = [
       { to: "/about#sources", label: "来源与授权" },
       { to: "/about#privacy", label: "隐私说明" },
       {
+        href: "https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search/issues",
+        external: true,
+        label: "反馈与建议",
+      },
+      {
         href: "https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search",
         external: true,
         label: "GitHub 数据源",

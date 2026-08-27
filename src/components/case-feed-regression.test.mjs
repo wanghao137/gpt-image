@@ -19,8 +19,13 @@ test("case feed appends ordered browse pages without remounting earlier cards", 
   assert.match(grid, /aria-live="polite"/);
   assert.match(card, /preserveAspectRatio/);
   assert.match(card, /sm:flex-col/);
-  assert.match(casesPage, /setShardCases\(\(current\) => uniqueCases\(\[\.\.\.current, \.\.\.appendedCases\]\)\)/);
-  assert.match(casesPage, /loadBrowsePage\(browseLoadedPages\)/);
+  // loadMoreBrowse keeps the ordered-append + dedup invariants: it walks
+  // browse pages in order, merges through cachedBrowseCases()/uniqueCases,
+  // and never lets a dedup-to-zero page become a silent no-op click.
+  assert.match(casesPage, /uniqueCases\(\[\.\.\.HOME_DATA\.initial, \.\.\.pages\.flat\(\)\]\)/);
+  assert.match(casesPage, /await loadBrowsePage\(page\)/);
+  assert.match(casesPage, /setShardCases\(merged\)/);
+  assert.match(casesPage, /consecutiveEmpty/);
   assert.doesNotMatch(casesPage, /BROWSE_CATEGORY_ORDER/);
   assert.doesNotMatch(casesPage, /browseLoading\s*\?\s*"正在加载更多案例/);
   assert.doesNotMatch(styles, /linear-gradient\(180deg, #fffaf2/);

@@ -26,6 +26,19 @@ interface CaseGridProps {
   restoreTargetTop?: number | null;
   onRestored?: () => void;
   contained?: boolean;
+  /**
+   * Total number of cases in the current result set (e.g. filtered/search
+   * match count). When provided, the load-more button reads "已显示 X · 共 Y"
+   * instead of the buffer-relative "还剩 N", which users misread as the
+   * remaining total.
+   */
+  total?: number;
+  /**
+   * Optional exit ramps rendered inside the empty state (e.g. hot searches
+   * that apply a category filter in place), so an empty result is a fork in
+   * the road rather than a dead end.
+   */
+  emptySuggestions?: { label: string; onApply: () => void }[];
 }
 
 const PAGE_SIZE = 24;
@@ -68,6 +81,8 @@ export function CaseGrid({
   restoreTargetTop,
   onRestored,
   contained = true,
+  total,
+  emptySuggestions,
 }: CaseGridProps) {
   const [visibleCount, setVisibleCount] = useState(() =>
     countForRestore(cases, paginate, restoreId),
@@ -97,12 +112,12 @@ export function CaseGrid({
     if (listChanged) {
       setVisibleCount((current) =>
         appendOnly
-          ? Math.min(
+          ? // Pure append (browse page fetched): always advance a page —
+            // gating on `current >= previous.caseIds.length` froze the list
+            // whenever visibleCount lagged behind the old buffer length.
+            Math.min(
               cases.length,
-              Math.max(
-                current >= previous.caseIds.length ? current + PAGE_SIZE : current,
-                countForRestore(cases, paginate, restoreId),
-              ),
+              Math.max(current + PAGE_SIZE, countForRestore(cases, paginate, restoreId)),
             )
           : countForRestore(cases, paginate, restoreId),
       );
@@ -377,6 +392,25 @@ export function CaseGrid({
               清除筛选
             </button>
           )}
+          {emptySuggestions && emptySuggestions.length > 0 && (
+            <div className="mt-7 border-t border-white/[0.06] pt-5">
+              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
+                热门方向
+              </p>
+              <div className="mt-3 flex flex-wrap justify-center gap-2">
+                {emptySuggestions.map((s) => (
+                  <button
+                    key={s.label}
+                    type="button"
+                    onClick={s.onApply}
+                    className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12.5px] text-ink-200 transition hover:border-ember-400/40 hover:text-ember-100"
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -422,12 +456,18 @@ export function CaseGrid({
         >
           <button
             type="button"
-            onClick={loadMoreRef.current}
+            onClick={() => loadMoreRef.current()}
             disabled={loadingMore}
             className="btn-ghost"
           >
             {loadingMore ? "正在加载更多案例…" : "加载更多"}
-            {remaining > 0 && <span className="text-ink-400">· 还剩 {remaining}</span>}
+            {total !== undefined ? (
+              <span className="text-ink-400">
+                · 已显示 {leads.length} / 共 {total}
+              </span>
+            ) : (
+              remaining > 0 && <span className="text-ink-400">· 还剩 {remaining}</span>
+            )}
           </button>
         </div>
       )}

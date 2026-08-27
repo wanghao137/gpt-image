@@ -4,10 +4,10 @@ import type { UserCategoryKey } from "../types";
  * User-intent buckets (12 pinned + 7 secondary).
  *
  * `pinnedHomepage` flags which tiles surface on the home Showcase grid.
- * Order in this array drives the tile order — tweak based on real dataset
- * distribution + business priority (xhs-cover / merchant-poster / portrait
- * are the highest-conversion buckets even when sparse, because that's where
- * paid traffic lands).
+ * Order in this array drives the tile order — biggest, most self-evident
+ * buckets first; a 9-case category leading the grid reads like an empty
+ * shelf (round-3 walkthrough finding). Mirrored by HOMEPAGE_TILES in
+ * scripts/split-data.mjs — keep the two lists in sync.
  */
 export interface UserCategoryMeta {
   key: UserCategoryKey;
@@ -16,18 +16,17 @@ export interface UserCategoryMeta {
   tagline: string;
   defaultRatio: string;
   pinnedHomepage: boolean;
+  /**
+   * Optional case id whose image serves as the homepage tile cover. Without
+   * it the cover is simply the newest case in the category, which is
+   * frequently off-topic for what the bucket promises. Must exist in the
+   * merged catalogue; consumed by scripts/split-data.mjs.
+   */
+  coverCaseId?: string;
 }
 
 export const USER_CATEGORIES: UserCategoryMeta[] = [
   // ── high-traffic, high-conversion buckets first ─────────────────────
-  {
-    key: "xhs-cover",
-    slug: "xhs-cover",
-    label: "小红书封面",
-    tagline: "9:16 高点击封面，文字与构图直接可用",
-    defaultRatio: "9:16",
-    pinnedHomepage: true,
-  },
   {
     key: "ecommerce",
     slug: "ecommerce",
@@ -77,6 +76,34 @@ export const USER_CATEGORIES: UserCategoryMeta[] = [
     pinnedHomepage: true,
   },
   {
+    key: "ui-screenshot",
+    slug: "ui-screenshot",
+    label: "UI 截图",
+    tagline: "App、网页、仪表盘高保真截图",
+    defaultRatio: "16:9",
+    pinnedHomepage: true,
+    // newest-in-category was an anime sticker sheet — nothing UI about it.
+    coverCaseId: "32152",
+  },
+  {
+    key: "3d-ip",
+    slug: "3d-ip",
+    label: "3D · IP 形象",
+    tagline: "潮玩盲盒、品牌吉祥物、Pixar 风角色",
+    defaultRatio: "1:1",
+    pinnedHomepage: true,
+  },
+  {
+    key: "architecture",
+    slug: "architecture",
+    label: "建筑 · 空间",
+    tagline: "室内、建筑外观、城市空间",
+    defaultRatio: "16:9",
+    pinnedHomepage: true,
+    // newest-in-category was a talk-show portrait — pin an interior render.
+    coverCaseId: "32395",
+  },
+  {
     key: "travel-poster",
     slug: "travel-poster",
     label: "城市旅行海报",
@@ -91,29 +118,14 @@ export const USER_CATEGORIES: UserCategoryMeta[] = [
     tagline: "朝代服饰、长卷叙事、东方神话",
     defaultRatio: "4:5",
     pinnedHomepage: true,
+    coverCaseId: "32397",
   },
   {
-    key: "architecture",
-    slug: "architecture",
-    label: "建筑 · 空间",
-    tagline: "室内、建筑外观、城市空间",
-    defaultRatio: "16:9",
-    pinnedHomepage: true,
-  },
-  {
-    key: "ui-screenshot",
-    slug: "ui-screenshot",
-    label: "UI 截图",
-    tagline: "App、网页、仪表盘高保真截图",
-    defaultRatio: "16:9",
-    pinnedHomepage: true,
-  },
-  {
-    key: "3d-ip",
-    slug: "3d-ip",
-    label: "3D · IP 形象",
-    tagline: "潮玩盲盒、品牌吉祥物、Pixar 风角色",
-    defaultRatio: "1:1",
+    key: "xhs-cover",
+    slug: "xhs-cover",
+    label: "小红书封面",
+    tagline: "9:16 高点击封面，文字与构图直接可用",
+    defaultRatio: "9:16",
     pinnedHomepage: true,
   },
 

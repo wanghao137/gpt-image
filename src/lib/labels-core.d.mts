@@ -6,3 +6,5 @@ export declare function styleLabel(value: string): string;
 export declare function sceneLabel(value: string): string;
 export declare function platformLabel(value: string): string;
 export declare function tagLabel(value: string): string;
+export declare const TEMPLATE_TAG_LABELS: Record<string, string>;
+export declare function templateTagLabel(value: string): string;

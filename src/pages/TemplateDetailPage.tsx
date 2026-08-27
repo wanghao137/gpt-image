@@ -12,6 +12,7 @@ import {
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
 import { sourceDisplayLabel } from "../lib/source-label.mjs";
+import { templateTagLabel } from "../lib/labels";
 import NotFoundPage from "./NotFoundPage";
 
 /**
@@ -182,7 +183,7 @@ export default function TemplateDetailPage() {
                     key={`${t.id}-${tag}`}
                     className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11.5px] text-ink-300"
                   >
-                    {tag}
+                    {templateTagLabel(tag)}
                   </span>
                 ))}
               </div>

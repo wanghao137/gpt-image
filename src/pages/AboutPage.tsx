@@ -12,7 +12,7 @@ export default function AboutPage() {
       />
 
       <section className="container-narrow pt-10 sm:pt-14">
-        <p className="eyebrow">About · Trust</p>
+        <p className="eyebrow">关于与信任 · About</p>
         <h1 className="serif-display mt-2 max-w-4xl text-[28px] leading-tight text-ink-50 sm:text-4xl lg:text-[44px]">
           用真实案例降低试错，也把来源与使用边界说清楚。
         </h1>
@@ -32,7 +32,7 @@ export default function AboutPage() {
 
       <section id="sources" className="container-narrow scroll-mt-24 pb-8" aria-labelledby="sources-title">
         <div className="surface p-6 sm:p-8">
-          <p className="eyebrow">Sources · Licensing</p>
+          <p className="eyebrow">来源与授权 · Sources</p>
           <h2 id="sources-title" className="serif-display mt-2 text-[24px] text-ink-50 sm:text-[30px]">
             来源与授权提示
           </h2>
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
       <section id="privacy" className="container-narrow scroll-mt-24 pb-12" aria-labelledby="privacy-title">
         <div className="surface p-6 sm:p-8">
-          <p className="eyebrow">Privacy · Analytics</p>
+          <p className="eyebrow">隐私与统计 · Privacy</p>
           <h2 id="privacy-title" className="serif-display mt-2 text-[24px] text-ink-50 sm:text-[30px]">
             隐私与访问统计
           </h2>
@@ -78,6 +78,14 @@ export default function AboutPage() {
         <div className="flex flex-wrap gap-3">
           <Link to="/cases" className="btn-primary">浏览全部案例</Link>
           <Link to="/templates" className="btn-ghost">查看 Prompt 模板</Link>
+          <a
+            href="https://github.com/YouMind-OpenLab/gpt-image-2-prompts-search/issues"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-ghost"
+          >
+            反馈与建议
+          </a>
         </div>
       </section>
     </>

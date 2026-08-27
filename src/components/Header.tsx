@@ -147,7 +147,7 @@ function HeaderImpl() {
           <BrandLogo
             className="transition group-hover:scale-[1.02]"
             markClassName="h-9 w-9 drop-shadow-[0_14px_26px_rgba(255,107,107,0.25)]"
-            textClassName="hidden max-w-[9rem] sm:block md:max-w-none"
+            textClassName="max-w-[8.5rem] sm:block md:max-w-none"
           />
         </Link>
 

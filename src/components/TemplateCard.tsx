@@ -9,6 +9,7 @@ import {
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
 import { sourceDisplayLabel } from "../lib/source-label.mjs";
+import { templateTagLabel } from "../lib/labels";
 
 interface TemplateCardProps {
   data: PromptTemplate;
@@ -148,8 +149,8 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               <span className="template-capability-label">适用方向</span>
               <div className="template-capability-tags">
                 {visibleTags.map((tag) => (
-                  <span key={`${data.id}-${tag}`} className="template-capability-tag" title={tag}>
-                    {tag}
+                  <span key={`${data.id}-${tag}`} className="template-capability-tag" title={templateTagLabel(tag)}>
+                    {templateTagLabel(tag)}
                   </span>
                 ))}
                 {hiddenTagCount > 0 && (

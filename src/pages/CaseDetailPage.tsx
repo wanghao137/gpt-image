@@ -170,7 +170,7 @@ function CaseDetailLoading() {
 export default function CaseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { caseData: c, loading } = useCaseDetail(slug);
+  const { caseData: c, loading, error, retry } = useCaseDetail(slug);
   const { has, toggle } = useFavorites();
   const fetched = usePrompt(c?.id ?? null);
   const { state: copyState, copy } = useCopy(1500, {
@@ -247,10 +247,14 @@ export default function CaseDetailPage() {
     setPromptLanguage("zh");
   }, [c?.id]);
 
+  // Canonical-slug fixup: after the case resolves, align the URL with the
+  // case's canonical slug. MUST skip while `loading` — right after a
+  // case→case navigation the hook still holds the previous case, and
+  // navigating back to it would eat the click (URL bounces to the old case).
   useEffect(() => {
-    if (!c || !slug || c.slug === slug) return;
+    if (loading || !c || !slug || c.slug === slug) return;
     navigate(`/case/${c.slug}`, { replace: true });
-  }, [c, navigate, slug]);
+  }, [c, navigate, slug, loading]);
 
   const closeDetail = useCallback(() => {
     const saved = readCaseReturn();
@@ -261,13 +265,34 @@ export default function CaseDetailPage() {
 
   // SSG: if c is undefined on the server, the slug doesn't exist → 404.
   // Client SPA: show a brief loading state (SSG'd HTML stays visible under it)
-  // before resolving from the shard. Only show 404 if loading is done and no case.
+  // before resolving from the shard. A fetch failure (error) is NOT a 404 —
+  // offer a retry instead of misleading the user with "not found".
   if (!c) {
+    if (error && !loading && !import.meta.env.SSR) {
+      return (
+        <main className="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center gap-4 px-6 text-center">
+          <p className="text-lg font-semibold text-ink-100">案例数据加载失败</p>
+          <p className="text-sm text-ink-400">网络异常或案例源暂不可用，请重试。</p>
+          <button type="button" className="btn-ghost" onClick={retry}>
+            重试
+          </button>
+        </main>
+      );
+    }
     if (loading && !import.meta.env.SSR) {
       return <CaseDetailLoading />;
     }
     return <NotFoundPage />;
   }
+
+  const caseLoadErrorBanner = error ? (
+    <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-2.5 text-[13px] text-amber-200" role="alert">
+      <span>当前显示的是上一个案例，新案例数据加载失败。</span>
+      <button type="button" className="btn-ghost h-8 !px-3 !py-1 text-[12px]" onClick={retry}>
+        重试
+      </button>
+    </div>
+  ) : null;
 
   const charCount = promptText.length;
   const wordCount = promptText.trim().split(/\s+/).filter(Boolean).length;
@@ -428,6 +453,8 @@ export default function CaseDetailPage() {
           ))}
         </div>
       </div>
+
+      {caseLoadErrorBanner}
 
       <article className="container-narrow grid gap-7 pb-12 pt-5 lg:grid-cols-12 lg:gap-10">
         {/* IMAGE side — sticky on desktop, true ratio (no black bars). */}
@@ -686,7 +713,7 @@ export default function CaseDetailPage() {
         <section className="container-narrow border-t border-white/[0.05] pb-12 pt-12 sm:pt-16">
           <div className="mb-6 flex items-end justify-between gap-3">
             <div>
-              <p className="eyebrow">Related</p>
+              <p className="eyebrow">同类案例 · Related</p>
               <h2 className="serif-display mt-1 text-2xl text-ink-50 sm:text-3xl">
                 同类型的 {related.length} 个案例
               </h2>
@@ -724,14 +751,29 @@ export default function CaseDetailPage() {
 
       <ImageLightbox
         open={lightboxOpen}
-        src={c.imageUrl}
+        src={activeImage}
         alt={c.imageAlt || c.title}
         caption={c.title}
         ratio={c.imageRatio || c.ratio}
         onCopy={promptText ? () => copy(promptText) : undefined}
         copyState={copyState}
-        onPrev={prev ? () => navigate(`/case/${prev.slug}`) : undefined}
-        onNext={next ? () => navigate(`/case/${next.slug}`) : undefined}
+        // Continuous gallery: switch within this case's images first, then
+        // roll over to the neighbouring cases (single-image cases jump
+        // straight to the neighbour, as before).
+        onPrev={
+          activeImgIdx > 0
+            ? () => setActiveImgIdx(activeImgIdx - 1)
+            : prev
+              ? () => navigate(`/case/${prev.slug}`)
+              : undefined
+        }
+        onNext={
+          activeImgIdx < images.length - 1
+            ? () => setActiveImgIdx(activeImgIdx + 1)
+            : next
+              ? () => navigate(`/case/${next.slug}`)
+              : undefined
+        }
         onClose={() => setLightboxOpen(false)}
       />
     </>

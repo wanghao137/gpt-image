@@ -426,6 +426,13 @@ function CaseCardImpl({
           e.preventDefault();
           e.stopPropagation();
         }}
+        // A long-press/right-click sets suppressNextClickRef for the click
+        // that follows its release. If that click never arrives (pointer
+        // cancelled, sheet dismissed from outside), the flag would eat the
+        // next genuine click — clear it when a new press begins.
+        onPointerDownCapture={() => {
+          suppressNextClickRef.current = false;
+        }}
         {...longPress}
         // Block iOS callout (long-press → "Save Image / Copy Image") so our
         // menu can take over. Without this the OS sheet fights ours.
@@ -612,9 +619,9 @@ function CaseCardImpl({
             <div className="flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden text-[11px] text-ink-400">
               {activeCase.source && (
                 <>
-                  <span className="inline-flex shrink-0 items-center gap-1 text-ink-300">
+                  <span className="inline-flex min-w-0 items-center gap-1 text-ink-300">
                     <SourceDot />
-                    {shortSourceLabel(sourceLabel)}
+                    <span className="truncate">{shortSourceLabel(sourceLabel)}</span>
                   </span>
                   <span className="shrink-0 text-ink-600">·</span>
                 </>

@@ -32,6 +32,8 @@ function readHydratedCase(slug: string): PromptCase | undefined {
 export function useCaseDetail(slug: string | undefined): {
   caseData: PromptCase | undefined;
   loading: boolean;
+  error: string | null;
+  retry: () => void;
 } {
   // SSR or SSG hydration: use synchronous lookup.
   const isSSR = import.meta.env.SSR;
@@ -39,11 +41,19 @@ export function useCaseDetail(slug: string | undefined): {
 
   const [caseData, setCaseData] = useState<PromptCase | undefined>(ssgCase);
   const [loading, setLoading] = useState(!isSSR && !ssgCase);
+  const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
+  // Which slug the current `caseData` was resolved for. Lets us tell a
+  // still-resolving stale case (previous slug) apart from a resolved case
+  // whose canonical slug differs from the URL (alias fixup).
+  const [resolvedFor, setResolvedFor] = useState<string | undefined>(ssgCase?.slug);
 
   useEffect(() => {
     if (!slug) {
       setCaseData(undefined);
+      setResolvedFor(undefined);
       setLoading(false);
+      setError(null);
       return;
     }
 
@@ -51,7 +61,9 @@ export function useCaseDetail(slug: string | undefined): {
     const existing = getCaseBySlug(slug);
     if (existing) {
       setCaseData(existing);
+      setResolvedFor(slug);
       setLoading(false);
+      setError(null);
       return;
     }
 
@@ -65,7 +77,9 @@ export function useCaseDetail(slug: string | undefined): {
         const entry = findCaseIndexEntry(index, slug);
         if (!entry) {
           setCaseData(undefined);
+          setResolvedFor(slug);
           setLoading(false);
+          setError(null);
           return;
         }
         // Check if shard is already cached.
@@ -73,24 +87,40 @@ export function useCaseDetail(slug: string | undefined): {
         if (cached) {
           const found = findCaseInShard(cached, slug, entry.id);
           setCaseData(found);
+          setResolvedFor(slug);
           setLoading(false);
+          setError(null);
           return;
         }
         return loadShard(entry.uc).then((shard) => {
           if (cancelled) return;
           const found = findCaseInShard(shard, slug, entry.id);
           setCaseData(found);
+          setResolvedFor(slug);
           setLoading(false);
+          setError(null);
         });
       })
-      .catch(() => {
-        if (!cancelled) setLoading(false);
+      .catch((reason) => {
+        if (cancelled) return;
+        // Keep whatever case is on screen (continuity), but surface the
+        // failure instead of silently rendering the wrong case forever.
+        setLoading(false);
+        setError(reason instanceof Error ? reason.message : "案例数据加载失败");
       });
 
     return () => {
       cancelled = true;
     };
-  }, [slug]);
+  }, [slug, attempt]);
 
-  return { caseData, loading };
+  // While a case→case navigation resolves, `caseData` still holds the
+  // PREVIOUS case. Surface that window as `loading` during render (the
+  // setLoading(true) above only lands after commit) so consumers never
+  // mistake the stale case for a resolved alias mismatch — the detail
+  // page's canonical-slug fixup must not fire here, or it bounces the
+  // URL straight back to the old case and eats the click.
+  const staleWindow = caseData !== undefined && resolvedFor !== undefined && resolvedFor !== slug;
+
+  return { caseData, loading: loading || staleWindow, error, retry: () => setAttempt((n) => n + 1) };
 }

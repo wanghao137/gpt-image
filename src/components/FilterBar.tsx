@@ -90,6 +90,16 @@ export function FilterBar({
   const [draft, setDraft] = useState(query);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerAxis, setDrawerAxis] = useState<AxisKey>("category");
+  // ⌘K is the Mac convention; Windows/Linux users get the hint they can
+  // actually press. Resolved post-hydration to keep SSR output stable.
+  const [kbdHint, setKbdHint] = useState("⌘K");
+  useEffect(() => {
+    const platform =
+      (navigator as Navigator & { userAgentData?: { platform?: string } }).userAgentData?.platform ??
+      navigator.platform ??
+      "";
+    if (!/mac|iphone|ipad/i.test(platform)) setKbdHint("Ctrl K");
+  }, []);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const drawerRef = useFocusTrap<HTMLDivElement>(drawerOpen);
 
@@ -293,7 +303,7 @@ export function FilterBar({
               aria-label="搜索案例"
             />
             <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 text-[10px] font-medium text-ink-400 lg:inline-block">
-              ⌘K
+              {kbdHint}
             </kbd>
           </div>
 

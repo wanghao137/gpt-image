@@ -21,6 +21,6 @@ test("cases page loads the full search index only for search-like filters", () =
   const casesPage = readFileSync(new URL("./CasesPage.tsx", import.meta.url), "utf8");
   assert.match(casesPage, /useSearchIndex\(needsSearchIndex\)/);
   assert.doesNotMatch(casesPage, /Promise\.all\(USER_CATEGORIES/);
-  assert.match(casesPage, /loadBrowsePage\(browseLoadedPages\)/);
+  assert.match(casesPage, /await loadBrowsePage\(page\)/);
   assert.doesNotMatch(casesPage, /BROWSE_CATEGORY_ORDER/);
 });

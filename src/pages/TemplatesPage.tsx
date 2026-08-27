@@ -36,7 +36,7 @@ export default function TemplatesPage() {
         path="/templates"
       />
       <section className="container-narrow pt-10 sm:pt-14">
-        <p className="eyebrow">Industrial Templates</p>
+        <p className="eyebrow">工业级模板 · Templates</p>
         <h1 className="serif-display mt-2 text-[28px] text-ink-50 sm:text-4xl lg:text-[44px]">
           {templates.length} 套工业级模板，先起稿再 remix
         </h1>

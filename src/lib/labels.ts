@@ -8,10 +8,12 @@ export {
   PLATFORM_LABELS,
   SCENE_LABELS,
   STYLE_LABELS,
+  TEMPLATE_TAG_LABELS,
   platformLabel,
   sceneLabel,
   styleLabel,
   tagLabel,
+  templateTagLabel,
 } from "./labels-core.mjs";
 
 /**
