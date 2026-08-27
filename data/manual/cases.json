@@ -1,5 +1,32 @@
 [
   {
+    "id": "100254",
+    "title": "拼贴风国家旅行海报：时尚游客×地标混搭",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Editorial"
+    ],
+    "scenes": [
+      "Travel",
+      "Editorial"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Social",
+      "Brand",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-08-28-case-100254-algeria-travel-collage-poster.jpg",
+    "imageAlt": "拼贴风国家旅行海报：时尚游客×地标混搭",
+    "prompt": "Create a stylized travel poster / graphic collage for [ALGERIA]. The main subject should be a stylish international tourist visiting [ALGERIA], clearly presented as a traveler and not a local resident. Show the tourist wearing modern travel fashion, with details such as a camera, backpack, sunglasses, map, or suitcase, exploring the culture and atmosphere of [ALGERIA]. Place the tourist in a dynamic composition surrounded by iconic architecture, streets, landscapes, landmarks, transportation, food, signage, and cultural elements associated with [ALGERIA]. Blend realistic character detail with a graphic collage background made of layered paper textures, torn poster edges, sticker elements, halftone dots, editorial typography, and bold geometric shapes. Include authentic visual motifs from [ALGERIA], but keep the tourist's appearance and styling globally fashionable and clearly foreign to the setting. Add a large readable headline: \"VISIT [ALGERIA]\". Modern, artistic, premium editorial travel poster aesthetic, balanced layout, print-worthy composition.",
+    "promptPreview": "Create a stylized travel poster / graphic collage for [ALGERIA]. The main subject should be a stylish international tourist visiting [ALGERIA], clearly presented as a traveler and not a local resident. Show the tourist …",
+    "source": "Community collected via @MaAyyoub",
+    "createdAt": "2026-08-27T20:04:24.917Z"
+  },
+  {
     "id": "100253",
     "title": "品牌元素微缩人3D创意广告",
     "category": "品牌与标志",
