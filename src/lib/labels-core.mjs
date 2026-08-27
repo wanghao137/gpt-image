@@ -38,6 +38,7 @@ export const STYLE_LABELS = {
   Illustration: "插画",
   Infographic: "信息图",
   Minimal: "极简",
+  "Oil Painting": "油画",
   "Paper Craft": "纸艺",
   PixelArt: "像素画",
   Playful: "俏皮",

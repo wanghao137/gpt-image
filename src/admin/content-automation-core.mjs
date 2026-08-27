@@ -40,18 +40,21 @@ const CATEGORY_HINTS = {
   "UI 与界面": { styles: ["Minimal"], scenes: ["Tech"] },
 };
 
+// Hint tags MUST resolve to Chinese through templateTagLabel (see
+// labels-core.test.mjs) — an unresolvable hint would fail the CI label test
+// after the next regen. validation-core.test.mjs asserts this stays true.
 const TEMPLATE_TAG_HINTS = {
-  "建筑与空间": ["Architecture", "Interior"],
-  "品牌与标志": ["Brand", "Identity"],
+  "建筑与空间": ["Architecture", "Interior Design"],
+  "品牌与标志": ["Brand", "Brand Identity"],
   "角色与人物": ["Character", "Portrait"],
   "图表与信息图": ["Infographic", "Education"],
-  "文档与出版": ["Document", "Layout"],
-  "历史与古典": ["Classical", "Culture"],
-  "插画与艺术": ["Illustration", "Style"],
+  "文档与出版": ["Publication", "Typography"],
+  "历史与古典": ["Classical", "Heritage"],
+  "插画与艺术": ["Illustration", "Artistic"],
   "摄影与写实": ["Photography", "Realistic"],
   "海报与排版": ["Poster", "Typography"],
   "产品与电商": ["Product", "Commerce"],
-  "场景与叙事": ["Storyboard", "Scene"],
+  "场景与叙事": ["Storyboard", "Storytelling"],
   "UI 与界面": ["UI", "Dashboard"],
 };
 

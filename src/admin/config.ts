@@ -67,6 +67,7 @@ export const COMMON_SCENES = [
   "Architecture",
   "Portrait",
   "Product",
+  "Social",
   "Map",
   "Infographic",
 ];

@@ -31,6 +31,7 @@ export function getAnalyticsConfig(env = {}) {
     keyPrefix: env.ANALYTICS_KEY_PREFIX || DEFAULT_PREFIX,
     timeZone: env.ANALYTICS_TIME_ZONE || DEFAULT_TIME_ZONE,
     salt: env.ANALYTICS_SALT || adminToken || "taostudio-analytics",
+    saltExplicit: Boolean(env.ANALYTICS_SALT),
     storageConfigured: Boolean(kvUrl && kvToken),
     repoOwner: env.HERMES_REPO_OWNER || env.VITE_ADMIN_REPO_OWNER || "wanghao137",
     repoName: env.HERMES_REPO_NAME || env.VITE_ADMIN_REPO_NAME || "gpt-image",
@@ -75,7 +76,12 @@ export async function authorizeAnalyticsSummaryRequest({
         },
       },
     );
-    return Boolean(response?.ok);
+    if (!response?.ok) return false;
+    // The repo is public — ANY valid GitHub token gets a 200 here. Readable
+    // is not authorized: require write access (contents:write on a
+    // fine-grained PAT, repo scope on a classic one).
+    const repo = await response.json().catch(() => null);
+    return Boolean(repo?.permissions?.push);
   } catch {
     return false;
   }
@@ -358,5 +364,12 @@ export async function handleAnalyticsSummary({ days = 30, env, now = new Date(),
     browsers: mergeRankedMetrics(daily.map((item) => item.browsers)),
     os: mergeRankedMetrics(daily.map((item) => item.os)),
     countries: mergeRankedMetrics(daily.map((item) => item.countries)),
+    // Surface fallback-salt usage — the visitor hash is only private when
+    // the salt is a dedicated secret.
+    warnings: config.saltExplicit
+      ? []
+      : [
+          "ANALYTICS_SALT 未独立配置：访客去重哈希当前使用回退盐值，建议在 Vercel 配置一个随机长字符串 ANALYTICS_SALT。",
+        ],
   };
 }

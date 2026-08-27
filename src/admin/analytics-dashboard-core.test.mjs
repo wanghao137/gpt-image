@@ -28,18 +28,28 @@ test("uses at least one as chart maximum", () => {
   );
 });
 
-test("calculates trend delta between first and last non-empty points", () => {
+test("trend delta compares trailing 7 days against the previous 7 days", () => {
+  const day = (date, pageViews) => ({ date, pageViews, visitors: 1 });
+  const daily = [
+    ...Array.from({ length: 7 }, (_, i) => day(`2026-06-0${i + 1}`, 10)), // prev7 = 70
+    ...Array.from({ length: 7 }, (_, i) => day(`2026-06-1${i % 10}`, 20)), // last7 = 140
+  ];
+  assert.equal(trendDelta(daily, "pageViews"), 100);
+
+  // Not enough history for a week-over-week comparison.
   assert.equal(
     trendDelta([
       { date: "2026-06-02", pageViews: 10, visitors: 2 },
       { date: "2026-06-03", pageViews: 20, visitors: 4 },
     ], "pageViews"),
-    100,
-  );
-  assert.equal(
-    trendDelta([{ date: "2026-06-03", pageViews: 20, visitors: 0 }], "visitors"),
     null,
   );
+  // Previous week had zero traffic — no meaningful ratio.
+  const flatStart = [
+    ...Array.from({ length: 7 }, (_, i) => day(`2026-06-0${i + 1}`, 0)),
+    ...Array.from({ length: 7 }, (_, i) => day(`2026-06-1${i % 10}`, 5)),
+  ];
+  assert.equal(trendDelta(flatStart, "pageViews"), null);
 });
 
 test("builds setup checklist from summary errors", () => {

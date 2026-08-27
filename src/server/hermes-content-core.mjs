@@ -5,6 +5,13 @@ import {
   inferCaseFields,
   inferTemplateFields,
 } from "../admin/content-automation-core.mjs";
+import {
+  CASE_CATEGORIES,
+  isGitHubBlobImage,
+  isKnownSceneToken,
+  isKnownStyleToken,
+  isKnownTemplateTag,
+} from "../admin/validation-core.mjs";
 
 const GITHUB_API = "https://api.github.com";
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
@@ -22,23 +29,26 @@ const PATHS = {
   templates: "data/manual/templates.json",
 };
 
-const CATEGORIES = new Set([
-  "建筑与空间",
-  "品牌与标志",
-  "角色与人物",
-  "图表与信息图",
-  "文档与出版",
-  "历史与古典",
-  "插画与艺术",
-  "其他用例",
-  "摄影与写实",
-  "海报与排版",
-  "产品与电商",
-  "场景与叙事",
-  "UI 与界面",
-]);
+// Shared with the browser admin save path (src/admin/validation-core.mjs) so
+// both writers enforce exactly the same rules that the CI label tests apply
+// at public/data regeneration time.
+const CATEGORIES = new Set(CASE_CATEGORIES);
 
 const TEMPLATE_SOURCE_TYPES = new Set(["upstream-style", "derived-case", "manual"]);
+
+function assertVocabularyTokens(tokens, isKnown, axis, code) {
+  for (const token of tokens) {
+    if (isKnown(token)) continue;
+    throw new HermesContentError(
+      422,
+      `${axis} token "${token}" is not in the label vocabulary (src/lib/labels-core.mjs). ` +
+        `The CI label test would block the public/data regeneration and the content would stay invisible. ` +
+        `Use an existing token, or ask the maintainer to add the label mapping first.`,
+      code,
+      { value: token },
+    );
+  }
+}
 
 function encodeGitHubPath(path) {
   return String(path)
@@ -301,6 +311,16 @@ function prepareCaseItem(input, cases, uploads) {
 
   const imageUrl = text(item.imageUrl) || (uploads.length === 1 ? uploadPathToPublicUrl(uploads[0].path) : "");
   if (!imageUrl) throw new HermesContentError(422, "imageUrl is required");
+  // Same rule the browser editors enforce (validation-core): a blob HTML page
+  // is not an image, and it would break the next full manual-file save.
+  if (isGitHubBlobImage(imageUrl)) {
+    throw new HermesContentError(
+      422,
+      "imageUrl must be a direct image link, not a GitHub blob page",
+      "IMAGE_URL_INVALID",
+      { value: imageUrl },
+    );
+  }
   const id = optionalText(item, "id") || nextCaseId(cases);
   const existing = cases.find((entry) => text(entry?.id) === id);
 
@@ -322,6 +342,9 @@ function prepareCaseItem(input, cases, uploads) {
     },
     { overwrite: false },
   );
+
+  assertVocabularyTokens(next.styles, isKnownStyleToken, "style", "STYLE_NOT_IN_VOCAB");
+  assertVocabularyTokens(next.scenes, isKnownSceneToken, "scene", "SCENE_NOT_IN_VOCAB");
 
   return Object.fromEntries(Object.entries(next).filter(([, value]) => value !== undefined));
 }
@@ -362,6 +385,12 @@ function prepareTemplateItem(input, templates, uploads) {
     { overwrite: false },
   );
   if (!text(next.cover)) throw new HermesContentError(422, "cover is required");
+  assertVocabularyTokens(
+    next.tags,
+    isKnownTemplateTag,
+    "template tag",
+    "TEMPLATE_TAG_NOT_IN_VOCAB",
+  );
 
   return Object.fromEntries(Object.entries(next).filter(([, value]) => value !== undefined));
 }

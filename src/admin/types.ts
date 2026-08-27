@@ -41,6 +41,8 @@ export interface FileState<T> {
   sha: string | null;
   /** True when we have unsaved local changes against `data`. */
   dirty: boolean;
+  /** Increments on every local edit; used to keep `dirty` accurate across in-flight saves. */
+  revision: number;
 }
 
 export type ConnectionStatus =

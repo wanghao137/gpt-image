@@ -250,7 +250,7 @@ test("handleHermesContentRequest rejects a new template cover that is missing fr
             id: "missing-template-cover",
             title: "缺图模板",
             category: "插画与艺术",
-            tags: ["missing"],
+            tags: ["illustration"],
             description: "应该被拒绝的模板",
             cover: "/uploads/missing-template-cover.jpg",
             prompt: "完整模板 Prompt",
@@ -425,4 +425,116 @@ test("readGitHubTextFile preserves slashes in GitHub contents paths", async () =
   assert.equal(text, "[]\n");
   assert.match(calls[0], /\/contents\/data\/manual\/cases\.json\?ref=main$/);
   assert.doesNotMatch(calls[0], /data%2Fmanual%2Fcases\.json/);
+});
+
+test("case upsert rejects style tokens outside the label vocabulary", () => {
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "case",
+          action: "upsert",
+          item: {
+            title: "测试",
+            category: "海报与排版",
+            styles: ["NotARealStyle"],
+            scenes: [],
+            imageUrl: "/uploads/demo.jpg",
+            prompt: "p",
+          },
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    (err) => err.code === "STYLE_NOT_IN_VOCAB" && err.status === 422,
+  );
+});
+
+test("case upsert rejects scene tokens outside the label vocabulary", () => {
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "case",
+          action: "upsert",
+          item: {
+            title: "测试",
+            category: "海报与排版",
+            styles: [],
+            scenes: ["NotARealScene"],
+            imageUrl: "/uploads/demo.jpg",
+            prompt: "p",
+          },
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    (err) => err.code === "SCENE_NOT_IN_VOCAB" && err.status === 422,
+  );
+});
+
+test("case upsert accepts legacy tokens that the pipeline normalizes away", () => {
+  // "Poster" is deliberately removed from the styles axis by
+  // tag-normalize-core; it must NOT be rejected here.
+  const result = buildHermesContentUpdate({
+    body: {
+      kind: "case",
+      action: "upsert",
+      item: {
+        title: "测试",
+        category: "海报与排版",
+        styles: ["Poster"],
+        scenes: ["Commerce"],
+        imageUrl: "/uploads/demo.jpg",
+        prompt: "p",
+      },
+    },
+    casesText: emptyCases,
+    templatesText: emptyTemplates,
+  });
+  assert.equal(result.summary.id, "100001");
+});
+
+test("template upsert rejects tags that would fail the CI label test", () => {
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "template",
+          action: "upsert",
+          item: {
+            id: "demo-template",
+            title: "模板",
+            category: "海报与排版",
+            tags: ["zzz-unknown-tag"],
+            cover: "/uploads/demo.jpg",
+            prompt: "p",
+          },
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    (err) => err.code === "TEMPLATE_TAG_NOT_IN_VOCAB" && err.status === 422,
+  );
+});
+
+test("case upsert rejects GitHub blob page URLs as imageUrl", () => {
+  assert.throws(
+    () =>
+      buildHermesContentUpdate({
+        body: {
+          kind: "case",
+          action: "upsert",
+          item: {
+            title: "测试",
+            category: "海报与排版",
+            imageUrl: "https://github.com/foo/bar/blob/main/img.png",
+            prompt: "p",
+          },
+        },
+        casesText: emptyCases,
+        templatesText: emptyTemplates,
+      }),
+    (err) => err.code === "IMAGE_URL_INVALID" && err.status === 422,
+  );
 });

@@ -33,6 +33,7 @@ on:
 permissions:
   actions: write
   contents: write
+  issues: write
 
 concurrency:
   # MUST match sync.yml's group so the two workflows serialize against each
@@ -64,10 +65,15 @@ jobs:
         run: npm ci
 
       - name: Sync upstream → public/data/
-        # Same hard-fail policy as sync.yml: if upstream is down we do NOT
-        # want to commit a half-empty cases.json. The next push or the daily
-        # cron will retry.
-        run: npm run sync
+        # `--optional`: manual/Hermes content publishing must NOT be held
+        # hostage by upstream YouMind availability. On fetch failure sync
+        # falls back to the last committed public/data upstream slice
+        # (id < 100000) instead of failing, so regeneration — and the
+        # content going live — still happens. The upstream-shrink guard
+        # still throws on partial responses, and the fallback catches that
+        # too. Upstream freshness itself is monitored by sync.yml's watchdog
+        # (hard-fail there signals a real outage).
+        run: npm run sync -- --optional
 
       - name: Apply v2 field migrations
         run: npm run migrate
@@ -126,9 +132,16 @@ jobs:
               echo "Push was rejected on the previous attempt (likely a concurrent Hermes push). Rebasing onto latest main and re-running sync+migrate..."
               git fetch origin main
               git reset --hard origin/main
-              npm run sync
+              # Keep --optional on retries too: a concurrent push + an upstream
+              # outage must not turn a push race into a hard failure (and a
+              # false content-regen-failed alert).
+              npm run sync -- --optional
               npm run migrate
               node scripts/split-data.mjs
+              # The rebased tree may contain manual pushes that bypassed the
+              # admin/Hermes validation paths — re-run the full gate before
+              # committing regenerated shards from it.
+              npm run check
             fi
             git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
             if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
@@ -162,3 +175,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref main
+
+      # 2026-08-24..26: four content commits sat invisible on main because the
+      # Verify gate failed and nothing surfaced it beyond a workflow email.
+      # This durable issue is the alarm the admin sidebar's publish-status
+      # panel points at.
+      - name: Alert on regenerate failure (content may be stuck offline)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create content-regen-failed --color D93F0B --description "content.yml regenerate failed; content stuck off-line" 2>/dev/null || true
+          open_count=$(gh issue list --label content-regen-failed --state open --json number --jq length)
+          if [ "${open_count:-0}" -eq 0 ]; then
+            gh issue create \
+              --label content-regen-failed \
+              --title "content.yml 再生失败：最新内容未上线" \
+              --body "触发提交 ${GITHUB_SHA::7}。运行链接：${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID} 。通常是词表校验或数据一致性测试拦截（查看 Verify 步骤日志）。修复后手动 dispatch「Content Regenerate」工作流即可补上线。"
+            echo "::warning::Created content-regen-failed issue."
+          else
+            echo "Failure issue already open (${open_count}) — not duplicating."
+          fi

@@ -32,6 +32,7 @@ interface AnalyticsSummary {
   os?: RankedMetric[];
   countries?: RankedMetric[];
   setup?: { requiredEnv?: string[] };
+  warnings?: string[];
   error?: { code: string; message?: string };
 }
 
@@ -78,6 +79,7 @@ export function AnalyticsDashboard({ token }: AnalyticsDashboardProps) {
   const pageViewTrend = trendDelta(daily, "pageViews");
   const visitorTrend = trendDelta(daily, "visitors");
   const storageMissing = summary?.error?.code === "ANALYTICS_STORAGE_NOT_CONFIGURED";
+  const saltWarning = summary?.warnings?.[0];
 
   return (
     <div className="flex h-full min-h-0 flex-col gap-4 overflow-hidden">
@@ -114,6 +116,12 @@ export function AnalyticsDashboard({ token }: AnalyticsDashboardProps) {
           </button>
         </div>
       </header>
+
+      {saltWarning && (
+        <p className="rounded-xl border border-amber-400/25 bg-amber-500/10 px-3.5 py-2.5 text-[12.5px] leading-relaxed text-amber-100">
+          {saltWarning}
+        </p>
+      )}
 
       <div className="min-h-0 flex-1 overflow-auto pr-1 scrollbar-thin">
         {loading && !summary ? (
@@ -165,9 +173,9 @@ export function AnalyticsDashboard({ token }: AnalyticsDashboardProps) {
 }
 
 function trendLabel(delta: number | null) {
-  if (delta === null) return "等待更多日期";
-  if (delta === 0) return "与首日持平";
-  return `${delta > 0 ? "+" : ""}${delta}% 对比首个有数据日`;
+  if (delta === null) return "周环比：数据不足";
+  if (delta === 0) return "与前 7 天持平";
+  return `${delta > 0 ? "+" : ""}${delta}% 对比前 7 天`;
 }
 
 function MetricCard({
@@ -354,6 +362,8 @@ function SetupPanel({ summary }: { summary: AnalyticsSummary | null }) {
         npx vercel env add ANALYTICS_KV_REST_API_TOKEN production
         <br />
         npx vercel env add ANALYTICS_ADMIN_TOKEN production
+        <br />
+        npx vercel env add ANALYTICS_SALT production
       </div>
     </section>
   );

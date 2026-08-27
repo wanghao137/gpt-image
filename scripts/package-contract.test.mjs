@@ -14,7 +14,13 @@ test("check runs the regression test suite", () => {
 });
 
 test("Vercel builds from committed generated data without running external sync", () => {
-  assert.match(pkg.scripts["vercel-build"], /^node scripts\/split-data\.mjs && tsc -b/);
+  // verify-admin-env runs FIRST: a missing/malformed VITE_ADMIN_PASSWORD_HASH
+  // must fail the production build instead of silently shipping a passwordless
+  // /admin (see src/admin/README.md).
+  assert.match(
+    pkg.scripts["vercel-build"],
+    /^node scripts\/verify-admin-env\.mjs && node scripts\/split-data\.mjs && tsc -b/,
+  );
   assert.match(pkg.scripts["vercel-build"], /vite-react-ssg build/);
   assert.match(pkg.scripts["vercel-build"], /npm run postbuild/);
   assert.doesNotMatch(pkg.scripts["vercel-build"], /scripts\/sync\.mjs/);

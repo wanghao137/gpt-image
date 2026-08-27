@@ -69,6 +69,23 @@ X-Hermes-Api-Key: <HERMES_ADMIN_API_KEY>
 - 图片 JSON 路径写 `/uploads/...`，上传文件路径写 `public/uploads/...`。
 - `contentBase64` 可以是纯 base64，也可以是 `data:image/...;base64,...` 格式，API 会自动剥离 data URL 前缀。
 
+### 标签词表约束（2026-08-27 起强制）
+
+`styles` / `scenes` / 模板 `tags` 的每个值在**标签规范化之后**必须能映射到中文标签
+（词表 = `src/lib/labels-core.mjs` 的 `STYLE_LABELS` / `SCENE_LABELS` /
+`TEMPLATE_TAG_LABELS`，加 tag-normalize 的同义词/移除规则）。
+不满足时返回 `422`，错误码：
+
+- `STYLE_NOT_IN_VOCAB`
+- `SCENE_NOT_IN_VOCAB`
+- `TEMPLATE_TAG_NOT_IN_VOCAB`
+
+原因：词表外的值会在 CI 的 `labels-core.test.mjs` 拦截 `public/data` 再生，
+内容虽然已 commit 却不会上线（2026-08-24..26 的 "Oil Painting" 事故）。
+**Hermes 请只使用现有词表值**；扩展词表需要维护者先在 `labels-core.mjs`
+加映射并随代码提交。旧 token（如 styles 里的 `Poster`、`Brand Identity`）
+会被规范化管道自动移除/映射，仍然合法。
+
 ## Template Upsert
 
 请求示例：

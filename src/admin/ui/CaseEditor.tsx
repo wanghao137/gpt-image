@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { ManualCase } from "../types";
 import { CATEGORIES, COMMON_SCENES, COMMON_STYLES } from "../config";
 import { collides, formatContentDate, makeEmptyCase, suggestNextCaseId, summarize } from "../utils";
+import { validateManualCases } from "../validation-core.mjs";
 import { sceneLabel, styleLabel } from "../../lib/labels";
 import { inferCaseFields } from "../content-automation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
@@ -86,17 +87,16 @@ export function CaseEditor({
   };
 
   const handleSave = async () => {
-    // Pre-flight checks: collisions and required fields.
-    const issues: string[] = [];
-    cases.forEach((c, i) => {
-      if (!c.id.trim()) issues.push(`第 ${i + 1} 条缺少 id`);
-      if (!c.hidden && !c.title.trim()) issues.push(`#${c.id || i + 1} 缺少 title`);
-      if (!c.hidden && !c.imageUrl.trim()) issues.push(`#${c.id || i + 1} 缺少 imageUrl`);
-      if (!c.hidden && !c.prompt.trim()) issues.push(`#${c.id || i + 1} 缺少 prompt`);
-      if (collides(cases, c.id, i)) issues.push(`#${c.id} ID 重复`);
-    });
+    // Shared write-path validation (same rules as the Hermes API and the CI
+    // label tests) — required fields, id collisions, category whitelist,
+    // image URL shape, and the style/scene label vocabulary.
+    const issues = validateManualCases(cases);
     if (issues.length > 0) {
-      toast.push(`保存被阻止：${issues[0]}${issues.length > 1 ? `（共 ${issues.length} 项）` : ""}`, "error");
+      setActiveIdx(Math.min(issues[0].index, cases.length - 1));
+      toast.push(
+        `保存被阻止：${issues[0].message}${issues.length > 1 ? `（另有 ${issues.length - 1} 项）` : ""}`,
+        "error",
+      );
       return;
     }
 

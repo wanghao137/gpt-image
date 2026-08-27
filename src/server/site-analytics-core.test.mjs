@@ -56,7 +56,7 @@ test("uses constant-time authorization for analytics admin tokens", () => {
   assert.equal(isAuthorizedAnalyticsToken("", env), false);
 });
 
-test("authorizes summary reads with either admin token or repo-scoped GitHub token", async () => {
+test("authorizes summary reads with admin token or a write-capable GitHub token", async () => {
   assert.equal(
     await authorizeAnalyticsSummaryRequest({
       authorization: "Bearer analytics-secret",
@@ -75,7 +75,7 @@ test("authorizes summary reads with either admin token or repo-scoped GitHub tok
       env: { HERMES_REPO_OWNER: "wanghao137", HERMES_REPO_NAME: "gpt-image" },
       fetchImpl: async (url, init) => {
         calls.push({ url, init });
-        return { ok: true };
+        return { ok: true, json: async () => ({ permissions: { push: true } }) };
       },
     }),
     true,
@@ -88,6 +88,20 @@ test("authorizes summary reads with either admin token or repo-scoped GitHub tok
       authorization: "Bearer bad-token",
       env: { HERMES_REPO_OWNER: "wanghao137", HERMES_REPO_NAME: "gpt-image" },
       fetchImpl: async () => ({ ok: false }),
+    }),
+    false,
+  );
+
+  // The repo is public, so any valid GitHub token gets a 200 from GET /repos.
+  // A read-only token must NOT unlock the site's analytics.
+  assert.equal(
+    await authorizeAnalyticsSummaryRequest({
+      authorization: "Bearer read-only-token",
+      env: { HERMES_REPO_OWNER: "wanghao137", HERMES_REPO_NAME: "gpt-image" },
+      fetchImpl: async () => ({
+        ok: true,
+        json: async () => ({ permissions: { push: false } }),
+      }),
     }),
     false,
   );

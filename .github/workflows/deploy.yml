@@ -38,6 +38,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Verify admin env
+        # Fail the mirror build loudly when the admin password hash variable
+        # is missing, instead of silently shipping a passwordless /admin (the
+        # same assertion the Vercel build runs via scripts/verify-admin-env.mjs).
+        env:
+          VITE_ADMIN_PASSWORD_HASH: ${{ vars.VITE_ADMIN_PASSWORD_HASH }}
+          CI_ADMIN_HASH_ENFORCE: "1"
+        run: node scripts/verify-admin-env.mjs
+
       - name: Build
         env:
           # Password hash for the hidden /admin entry. Configure as a

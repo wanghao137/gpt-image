@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { writeBinaryFile } from "../github";
+import { GitHubError, getFileSha, writeBinaryFile } from "../github";
 import { PATHS, REPO_TARGET } from "../config";
 import { buildUploadFilename, fmtBytes } from "../utils";
 import { Button } from "./Primitives";
@@ -30,12 +30,22 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
   // value changes so a new (valid) URL re-attempts the preview instead of
   // staying hidden — the previous command-style `display:none` was permanent.
   const [previewFailed, setPreviewFailed] = useState(false);
+  // Two-stage preview: same-origin first (works once CI deployed the file),
+  // then raw.githubusercontent.com for JUST-uploaded files that only exist on
+  // main so far. Previously a fresh upload showed a broken-image placeholder.
+  const [rawFallbackTried, setRawFallbackTried] = useState(false);
   const toast = useToast();
 
   // A new value gets a fresh chance to preview.
   useEffect(() => {
     setPreviewFailed(false);
+    setRawFallbackTried(false);
   }, [value]);
+
+  const rawFallbackUrl =
+    value.startsWith("/uploads/")
+      ? `https://raw.githubusercontent.com/${REPO_TARGET.owner}/${REPO_TARGET.repo}/${REPO_TARGET.branch}/public${value}`
+      : "";
 
   const upload = async (file: File) => {
     if (file.size > MAX_BYTES) {
@@ -51,13 +61,36 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
     try {
       const filename = buildUploadFilename(file.name, slug);
       const repoPath = `${PATHS.uploadsDir}/${filename}`;
-      await writeBinaryFile(
-        REPO_TARGET,
-        repoPath,
-        file,
-        token,
-        `chore(uploads): add ${filename}`,
-      );
+      try {
+        await writeBinaryFile(
+          REPO_TARGET,
+          repoPath,
+          file,
+          token,
+          `chore(uploads): add ${filename}`,
+        );
+      } catch (error) {
+        // Same-day re-upload of an identical filename hits an existing blob;
+        // GitHub refuses a sha-less PUT. Resolve the existing sha and update
+        // the file in place instead of surfacing a cryptic 4xx.
+        if (error instanceof GitHubError && looksLikeShaConflict(error)) {
+          const existingSha = await getFileSha(REPO_TARGET, repoPath, token);
+          if (existingSha) {
+            await writeBinaryFile(
+              REPO_TARGET,
+              repoPath,
+              file,
+              token,
+              `chore(uploads): update ${filename}`,
+              existingSha,
+            );
+          } else {
+            throw error;
+          }
+        } else {
+          throw error;
+        }
+      }
       // The gallery serves /uploads/* directly (public/uploads -> /uploads).
       onChange(`/uploads/${filename}`);
       toast.push("图片上传成功", "success");
@@ -112,10 +145,17 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
               </div>
             ) : (
               <img
-                src={resolvePreview(value)}
+                src={
+                  rawFallbackTried && rawFallbackUrl
+                    ? rawFallbackUrl
+                    : resolvePreview(value)
+                }
                 alt="case preview"
                 className="h-full w-full object-cover opacity-95"
-                onError={() => setPreviewFailed(true)}
+                onError={() => {
+                  if (!rawFallbackTried && rawFallbackUrl) setRawFallbackTried(true);
+                  else setPreviewFailed(true);
+                }}
               />
             )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
@@ -196,11 +236,11 @@ export function ImageDrop({ token, value, onChange, slug }: ImageDropProps) {
 function resolvePreview(url: string): string {
   if (!url) return "";
   if (/^https?:\/\//.test(url)) return url;
-  if (url.startsWith("/")) {
-    // The admin is served on the same origin as the public site, so a
-    // relative `/uploads/...` resolves naturally — but the file may not exist
-    // until CI redeploys after upload. Fall back to GitHub raw if needed.
-    return url;
-  }
   return url;
+}
+
+/** GitHub rejects a sha-less PUT onto an existing file (409/422, "sha" hint). */
+function looksLikeShaConflict(error: GitHubError): boolean {
+  if (error.status !== 409 && error.status !== 422) return false;
+  return /sha/i.test(error.message);
 }

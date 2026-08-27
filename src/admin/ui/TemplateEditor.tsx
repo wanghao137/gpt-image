@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { ManualTemplate } from "../types";
 import { CATEGORIES } from "../config";
 import { formatContentDate, summarize } from "../utils";
 import { inferTemplateFields } from "../content-automation-core.mjs";
-import { validateManualTemplates } from "../template-validation-core.mjs";
+import { validateManualTemplates } from "../validation-core.mjs";
 import { Badge, Button, Card, Field, SectionHeading, Select, TextArea, TextInput } from "./Primitives";
 import { TagInput } from "./TagInput";
 import { ImageDrop } from "./ImageDrop";
@@ -41,7 +41,21 @@ export function TemplateEditor({
   token,
 }: TemplateEditorProps) {
   const [activeIdx, setActiveIdx] = useState<number>(templates.length > 0 ? 0 : -1);
+  const [query, setQuery] = useState("");
   const toast = useToast();
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return templates.map((_, i) => i);
+    return templates
+      .map((t, i) => {
+        const text = [t.id, t.title, t.category, t.description, t.useWhen]
+          .join(" ")
+          .toLowerCase();
+        return text.includes(q) ? i : -1;
+      })
+      .filter((i) => i >= 0);
+  }, [templates, query]);
 
   const active = activeIdx >= 0 && activeIdx < templates.length ? templates[activeIdx] : null;
 
@@ -54,6 +68,22 @@ export function TemplateEditor({
 
   const addNew = () => {
     const next = [makeEmpty(), ...templates];
+    onChange(next);
+    setActiveIdx(0);
+  };
+
+  const duplicate = () => {
+    if (activeIdx < 0 || !active) return;
+    let id = `${active.id}-copy`;
+    let n = 2;
+    while (templates.some((t) => t.id === id)) id = `${active.id}-copy-${n++}`;
+    const copy: ManualTemplate = {
+      ...active,
+      id,
+      title: `${active.title} · 副本`,
+      createdAt: new Date().toISOString(),
+    };
+    const next = [copy, ...templates];
     onChange(next);
     setActiveIdx(0);
   };
@@ -126,6 +156,17 @@ export function TemplateEditor({
 
       <div className="mt-6 grid min-h-0 flex-1 gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
         <Card className="flex min-h-0 flex-col overflow-hidden">
+          <div className="border-b border-white/[0.05] p-3">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="搜索 id / 标题 / 描述"
+              className="input-base"
+            />
+            <p className="mt-2 px-1 text-[11px] tabular-nums text-ink-500">
+              {filtered.length} / {templates.length} 条
+            </p>
+          </div>
           <div className="flex-1 overflow-y-auto scrollbar-thin">
             {templates.length === 0 ? (
               <div className="flex h-full items-center justify-center p-6 text-center text-[13px] text-ink-400">
@@ -133,7 +174,8 @@ export function TemplateEditor({
               </div>
             ) : (
               <ul className="divide-y divide-white/[0.04]">
-                {templates.map((t, i) => {
+                {filtered.map((i) => {
+                  const t = templates[i];
                   const isActive = i === activeIdx;
                   return (
                     <li key={`${t.id}-${i}`}>
@@ -197,9 +239,18 @@ export function TemplateEditor({
                     {active.title || <em className="text-ink-500">无标题模板</em>}
                   </p>
                 </div>
-                <Button variant="danger" onClick={remove}>
-                  删除
-                </Button>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <Button variant="subtle" onClick={duplicate}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+                      <rect x="9" y="9" width="13" height="13" rx="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    复制一份
+                  </Button>
+                  <Button variant="danger" onClick={remove}>
+                    删除
+                  </Button>
+                </div>
               </header>
 
               <div className="flex-1 overflow-y-auto p-5 scrollbar-thin">

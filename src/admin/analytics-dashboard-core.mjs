@@ -13,15 +13,20 @@ export function chartMaxValue(daily = []) {
   return Math.max(1, max);
 }
 
+/**
+ * Week-over-week delta: trailing 7 days vs the previous 7 days within the
+ * selected window. Needs at least 8 days of data; the old "vs first day with
+ * data" semantics was misleading because a growing site's first day is near
+ * zero, producing inflated percentages.
+ */
 export function trendDelta(daily = [], metric = "pageViews") {
-  const points = daily
-    .map((item) => Number(item[metric] || 0))
-    .filter((value) => value > 0);
-  if (points.length < 2) return null;
-  const first = points[0];
-  const last = points[points.length - 1];
-  if (!first) return null;
-  return Math.round(((last - first) / first) * 100);
+  const points = daily.map((item) => Number(item[metric] || 0));
+  if (points.length < 8) return null;
+  const sum = (list) => list.reduce((acc, value) => acc + value, 0);
+  const last7 = sum(points.slice(-7));
+  const prev7 = sum(points.slice(-14, -7));
+  if (prev7 === 0) return null;
+  return Math.round(((last7 - prev7) / prev7) * 100);
 }
 
 const LABELS = {

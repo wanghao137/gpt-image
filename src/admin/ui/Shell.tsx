@@ -5,9 +5,12 @@ import { CaseEditor } from "./CaseEditor";
 import { AnalyticsDashboard } from "./AnalyticsDashboard";
 import { TemplateEditor } from "./TemplateEditor";
 import { RawJson } from "./RawJson";
-import { useAdminStore } from "../store";
+import { PublishStatus } from "./PublishStatus";
+import { peekDraft, useAdminStore } from "../store";
+import { validateManualCases, validateManualTemplates } from "../validation-core.mjs";
 import { BRAND } from "../../lib/brand";
 import { Badge, BrandMark } from "./Primitives";
+import { useToast } from "./Toast";
 import {
   applyThemeToDocument,
   getSystemTheme,
@@ -113,7 +116,9 @@ function initialThemeMode(): ThemeMode {
 
 export function Shell({ token, login, onSignOut }: ShellProps) {
   const store = useAdminStore(token);
+  const toast = useToast();
   const [tab, setTab] = useState<Tab>("analytics");
+  const [draftAt, setDraftAt] = useState<string | null>(() => peekDraft()?.savedAt ?? null);
   const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
   const [systemTheme, setSystemTheme] = useState<EffectiveTheme>(() =>
     typeof window === "undefined" ? "dark" : getSystemTheme(),
@@ -150,6 +155,24 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
     return () => media.removeEventListener?.("change", update);
   }, []);
 
+  // Draft affordance tracks the store lifecycle: a successful save clears the
+  // draft (see useAdminStore's cleanSource), while a refresh deliberately
+  // keeps it as the recovery point — re-peek on every clean transition.
+  useEffect(() => {
+    if (!store.dirty) setDraftAt(peekDraft()?.savedAt ?? null);
+  }, [store.dirty]);
+
+  const handleRestoreDraft = () => {
+    if (store.dirty && !confirm("恢复草稿会替换当前未保存的改动（当前改动将丢失）。继续？")) {
+      return;
+    }
+    if (store.restoreDraft()) {
+      toast.push("已恢复本地草稿，改动尚未保存到 GitHub", "success");
+    } else {
+      toast.push("没有可恢复的草稿", "info");
+    }
+  };
+
   const repoLabel = `${REPO_TARGET.owner}/${REPO_TARGET.repo}`;
 
   return (
@@ -165,11 +188,18 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
           lock();
           onSignOut();
         }}
-        onRefresh={store.refresh}
+        onRefresh={async () => {
+          await store.refresh();
+          setDraftAt(peekDraft()?.savedAt ?? null);
+        }}
         loading={store.loading}
+        saving={store.saving}
         casesCount={store.cases.data.length}
         templatesCount={store.templates.data.length}
         dirty={store.dirty}
+        token={token}
+        draftAt={draftAt}
+        onRestoreDraft={handleRestoreDraft}
       />
 
       <main className="flex flex-1 flex-col overflow-hidden">
@@ -223,6 +253,7 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
               onSave={store.saveCases}
               saving={store.saving}
               dirty={store.cases.dirty}
+              validate={validateManualCases}
             />
           ) : (
             <RawJson
@@ -233,6 +264,7 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
               onSave={store.saveTemplates}
               saving={store.saving}
               dirty={store.templates.dirty}
+              validate={validateManualTemplates}
             />
           )}
         </section>
@@ -250,11 +282,15 @@ interface SidebarProps {
   onChange: (tab: Tab) => void;
   login: string;
   onSignOut: () => void;
-  onRefresh: () => void;
+  onRefresh: () => void | Promise<void>;
   loading: boolean;
+  saving: boolean;
   casesCount: number;
   templatesCount: number;
   dirty: boolean;
+  token: string;
+  draftAt: string | null;
+  onRestoreDraft: () => void;
 }
 
 function Sidebar({
@@ -264,9 +300,13 @@ function Sidebar({
   onSignOut,
   onRefresh,
   loading,
+  saving,
   casesCount,
   templatesCount,
   dirty,
+  token,
+  draftAt,
+  onRestoreDraft,
 }: SidebarProps) {
   const groupItems = (group: "manage" | "raw") =>
     TABS.filter((t) => t.group === group);
@@ -311,7 +351,7 @@ function Sidebar({
         <button
           type="button"
           onClick={onRefresh}
-          disabled={loading}
+          disabled={loading || saving}
           className="mb-2 flex w-full items-center gap-2 rounded-full px-3 py-1.5 text-[12.5px] text-ink-400 transition hover:bg-white/[0.04] hover:text-ink-100 disabled:opacity-50"
         >
           <svg
@@ -329,7 +369,32 @@ function Sidebar({
           从 GitHub 拉取最新
         </button>
 
-        <div className="rounded-xl border border-white/[0.06] bg-ink-950/50 px-3 py-2.5">
+        {draftAt && (
+          <button
+            type="button"
+            onClick={onRestoreDraft}
+            title={`草稿保存于 ${draftAt}`}
+            className="mb-2 flex w-full items-center gap-2 rounded-full px-3 py-1.5 text-[12.5px] text-amber-200/90 transition hover:bg-amber-500/10 hover:text-amber-100"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-3.5 w-3.5 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 12a9 9 0 1 0 3-6.7" />
+              <polyline points="3 4 3 9 8 9" />
+            </svg>
+            恢复未保存草稿
+          </button>
+        )}
+
+        <PublishStatus token={token} />
+
+        <div className="mt-2 rounded-xl border border-white/[0.06] bg-ink-950/50 px-3 py-2.5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
             Signed in
           </p>

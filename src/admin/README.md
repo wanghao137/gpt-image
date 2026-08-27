@@ -18,19 +18,16 @@ https://你的站点/admin
 npm run admin:hash
 ```
 
-按提示输入密码，会得到一个盐化 PBKDF2-SHA-256 哈希（形如 `pbkdf2$210000$…$…`）。把它写进构建环境：
+按提示输入密码，会得到一个盐化 PBKDF2-SHA-256 哈希（形如 `pbkdf2$210000$…$…`）。把它写进**两处**构建环境：
 
-- 本地开发：在仓库根目录建 `.env.local`：
+- **Vercel（线上主站，必须配置）**：
+  ```bash
+  npx vercel env add VITE_ADMIN_PASSWORD_HASH production
   ```
-  VITE_ADMIN_PASSWORD_HASH=<你的哈希>
-  ```
-- GitHub Actions：去 repo → Settings → Secrets and variables → Actions，新建一个 **Repository variable**（不是 secret，因为它是公开页面里的字符串）叫 `VITE_ADMIN_PASSWORD_HASH`，再把它注入到 build step：
-  ```yaml
-  - name: Build
-    env:
-      VITE_ADMIN_PASSWORD_HASH: ${{ vars.VITE_ADMIN_PASSWORD_HASH }}
-    run: npm run build
-  ```
+  Vercel 生产构建会在第一步跑 `scripts/verify-admin-env.mjs`：变量缺失或格式非法时**直接构建失败**——
+  这是防止线上静默退回"无密码模式"的断言（2026-08 之前线上就曾漏配，密码门整体失效）。
+- GitHub Actions（GH Pages 镜像）：repo → Settings → Secrets and variables → Actions，新建一个 **Repository variable**（不是 secret，因为它是公开页面里的字符串）叫 `VITE_ADMIN_PASSWORD_HASH`，deploy.yml 已把它注入 build step。
+- 本地开发：在仓库根目录 `.env.local` 里写 `VITE_ADMIN_PASSWORD_HASH=<你的哈希>`（可留空体验无密码模式，但 Vercel 构建不会放过）。
 
 > 哈希可以公开，原密码哈希不出。但仍建议挑一个长一点的随机密码。
 
@@ -55,10 +52,12 @@ npm run admin:hash
 ## 能做什么
 
 - 查看「数据看板」：每日访客、页面浏览、热门页面、来源、设备、浏览器、系统、国家/地区
+- 查看「内容发布」状态灯（侧栏）：内容提交 → Content Regenerate 再生 → 上线，任一环节失败会直接显示并可跳转
 - 增 / 删 / 改 `data/manual/cases.json` 里的案例（同 ID 覆盖上游、`hidden:true` 屏蔽上游）
 - 增 / 删 / 改 `data/manual/templates.json` 里的模板
-- 直接拖拽图片到 `public/uploads/`，自动 commit 并填回路径
-- 直接编辑原始 JSON（适合粘贴大段或定向修复）
+- 直接拖拽图片到 `public/uploads/`，自动 commit 并填回路径（同名文件自动覆盖更新）
+- 直接编辑原始 JSON（适合粘贴大段或定向修复；保存前会跑与表单编辑器/Hermes API 完全相同的校验）
+- 编辑误丢保险：未保存改动在「拉取最新」/保存冲突(409)时自动备份到本地草稿，可从侧栏一键恢复
 
 ## 数据看板
 
