@@ -1,5 +1,29 @@
 [
   {
+    "id": "100257",
+    "title": "水彩墨线时尚家庭插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial",
+      "Minimal",
+      "Portrait",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-08-29-case-watercolor-family-sketch.jpg",
+    "imageAlt": "水彩墨线时尚家庭插画",
+    "prompt": "A stylish family standing together, digital watercolor and ink sketch illustration, fashion illustration style, white clean background with abstract beige brush strokes, soft lighting, expressive line art, casual modern clothing, denim jeans, black hijabs, relaxed happy pose, elegant minimal aesthetic, high detail, editorial sketch look.",
+    "promptPreview": "A stylish family standing together, digital watercolor and ink sketch illustration, fashion illustration style, white clean background with abstract beige brush strokes, soft lighting, expressive line art, casual modern…",
+    "source": "Community collected via @AiwithZohaib",
+    "createdAt": "2026-08-28T20:08:14.974Z"
+  },
+  {
     "id": "100256",
     "title": "儿童趣味食物造型食谱信息图",
     "category": "图表与信息图",
