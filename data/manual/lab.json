@@ -6448,19 +6448,6 @@
     "quality": "high"
   },
   {
-    "id": "mtbbc0f5262v5o",
-    "slug": "20260827-mtbbc0f5262v5o",
-    "title": "Create a Meme sticker pack based on the ",
-    "createdAt": "2026-08-27T09:21:01.986Z",
-    "prompt": "Create a Meme sticker pack based on the images attached, remixing with 😎😛💕🚀🥳. Use exaggerated internet-reaction expressions, including crying, confusion, shock, smugness, side-eye, and deadpan disbelief, with awkward poses, low-fi cutout textures, and absurd humor. Create a single square(1:1) transparent sticker sheet with nine distinct stickers arranged in a 3×3 grid, each showing a different expression, pose, or reaction. Separate the stickers with wide, fully transparent gaps. No background, shadows, or overlapping elements.",
-    "promptPreview": "Create a Meme sticker pack based on the images attached, remixing with 😎😛💕🚀🥳. Use exaggerated internet-reaction exp…",
-    "cosKey": "lab/2026/08/mtbbc0f5262v5o.png",
-    "width": 2880,
-    "height": 2880,
-    "model": "gpt-image-2",
-    "quality": "high"
-  },
-  {
     "id": "mtcdex9r2cjty",
     "slug": "20260828-mtcdex9r2cjty",
     "title": "9:16 vertical, realistic real-person pho",
@@ -6678,19 +6665,6 @@
     "cosKey": "lab/2026/08/mtcin5rr2e6xr.png",
     "width": 2400,
     "height": 3200,
-    "model": "gpt-image-2",
-    "quality": "high"
-  },
-  {
-    "id": "mtcjbm1y18ecc",
-    "slug": "20260828-mtcjbm1y18ecc",
-    "title": "Create a Meme sticker pack based on the ",
-    "createdAt": "2026-08-28T05:52:26.470Z",
-    "prompt": "Create a Meme sticker pack based on the images attached, remixing with 😎😛💕🚀🥳💪😂🍕. Use exaggerated internet-reaction expressions, including crying, confusion, shock, smugness, side-eye, and deadpan disbelief, with awkward poses, low-fi cutout textures, and absurd humor.\n\n\n\nCreate a single square(1:1) transparent sticker sheet with nine distinct stickers arranged in a 3×3 grid, each showing a different expression, pose, or reaction. Separate the stickers with wide, fully transparent gaps. No background, shadows, or overlapping elements.",
-    "promptPreview": "Create a Meme sticker pack based on the images attached, remixing with 😎😛💕🚀🥳💪😂🍕. Use exaggerated internet-reacti…",
-    "cosKey": "lab/2026/08/mtcjbm1y18ecc.png",
-    "width": 2880,
-    "height": 2880,
     "model": "gpt-image-2",
     "quality": "high"
   },

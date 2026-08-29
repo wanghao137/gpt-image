@@ -31,6 +31,15 @@ test("LabPage load-more pulls browse shards via loadLabBrowsePage", () => {
   assert.match(src, /LAB_HOME/);
 });
 
+test("LabPage auto-loads via IntersectionObserver with manual button fallback", () => {
+  const src = readFileSync("src/pages/LabPage.tsx", "utf8");
+  assert.match(src, /new IntersectionObserver/);
+  assert.match(src, /rootMargin/);
+  assert.match(src, /sentinelRef/);
+  // manual retry path survives infinite scroll
+  assert.match(src, /加载失败，点此重试/);
+});
+
 test("LabGrid renders direct imageMogr2 thumbs with aspect-ratio placeholders", () => {
   const src = readFileSync("src/components/LabGrid.tsx", "utf8");
   assert.match(src, /item\.thumb/);

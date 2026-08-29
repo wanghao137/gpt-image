@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SEO } from "../components/SEO";
 import { LabGrid } from "../components/LabGrid";
 import { LAB_HOME, loadLabBrowsePage } from "../lib/data-lab";
@@ -6,8 +6,10 @@ import type { LabLiteRow } from "../types";
 
 /**
  * 4K 实验室 index — masonry wall of every imported 4K original, newest first.
- * First 48 rows are inlined by SSG (LAB_HOME static import, ~10KB); "加载更多"
- * pulls non-overlapping browse shards, mirroring the /cases pagination model.
+ * First 48 rows are inlined by SSG (LAB_HOME static import, ~10KB); further
+ * pages auto-load via IntersectionObserver when the sentinel approaches the
+ * viewport (600px rootMargin pre-loads before the user hits the bottom).
+ * The button stays as a manual fallback / error retry path.
  */
 export default function LabPage() {
   const [items, setItems] = useState<LabLiteRow[]>(LAB_HOME.items);
@@ -16,6 +18,7 @@ export default function LabPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const hasMore = nextPage < LAB_HOME.pageCount;
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   const loadMore = useCallback(async () => {
     if (loading) return;
@@ -34,6 +37,23 @@ export default function LabPage() {
       setLoading(false);
     }
   }, [loading, nextPage]);
+
+  // Auto-load (infinite scroll). Re-arms after every state change: when a
+  // fetch finishes and the sentinel is STILL in view (short viewport / long
+  // grid), the next page starts immediately. Guarded by hasMore/loading so
+  // it never stacks requests. Client-only by construction (inside effect).
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || !hasMore || loading) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) void loadMore();
+      },
+      { rootMargin: "600px 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasMore, loading, loadMore]);
 
   return (
     <>
@@ -66,6 +86,11 @@ export default function LabPage() {
           <>
             <LabGrid items={items} />
 
+            {/* Infinite-scroll sentinel — enters viewport before the grid
+                bottom and triggers the next shard fetch. Also the anchor
+                for the manual button below. */}
+            {hasMore && <div ref={sentinelRef} aria-hidden="true" className="h-px" />}
+
             {hasMore && (
               <div className="mt-8 flex justify-center">
                 <button
@@ -74,9 +99,18 @@ export default function LabPage() {
                   disabled={loading}
                   className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 text-[13px] font-medium text-ink-200 transition hover:border-white/25 hover:text-ink-50 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  {loading ? "正在加载…" : error ? "加载失败，点此重试" : `加载更多（${items.length}/${LAB_HOME.totalCount}）`}
+                  {loading
+                    ? "正在加载…"
+                    : error
+                      ? "加载失败，点此重试"
+                      : `加载更多（${items.length}/${LAB_HOME.totalCount}）`}
                 </button>
               </div>
+            )}
+            {!hasMore && items.length > LAB_HOME.pageSize && (
+              <p className="mt-8 text-center text-[12px] text-ink-600">
+                已展示全部 {LAB_HOME.totalCount} 张
+              </p>
             )}
           </>
         )}

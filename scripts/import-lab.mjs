@@ -26,6 +26,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadDotenv } from "dotenv";
 import COS from "cos-nodejs-sdk-v5";
+import sharp from "sharp";
 import { mergeLabEntries, parseArchiveFolder } from "./lab-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -83,6 +84,28 @@ async function doctor() {
   console.log("4. cleanup PASS — doctor 全绿");
 }
 
+/**
+ * Actual-pixel transparency check. The metadata flag
+ * (params.transparent_output) is UNRELIABLE — verified 2026-08-29: two
+ * "Meme sticker pack" generations carry transparent pixels but were flagged
+ * false by the generator. So sticker exclusion runs on the real alpha
+ * channel: an image with any meaningfully transparent pixel (alpha min <
+ * 250) is treated as the sticker lane and skipped. ~0.5s per image.
+ */
+async function isTransparentImage(file) {
+  try {
+    const image = sharp(file);
+    const md = await image.metadata();
+    if (!md.hasAlpha) return false;
+    const st = await image.stats();
+    const alpha = st.channels[st.channels.length - 1];
+    return Number.isFinite(alpha?.min) && alpha.min < 250;
+  } catch {
+    // Unreadable image → let the uploader surface the real error later.
+    return false;
+  }
+}
+
 function scanArchive() {
   const out = [];
   let transparent = 0;
@@ -119,8 +142,23 @@ function scanArchive() {
       out.push({ entry: entries[i], file });
     }
   }
-  if (transparent > 0) console.log(`跳过表情包透明底文件夹 ${transparent} 个`);
+  if (transparent > 0) console.log(`跳过表情包（metadata 标记） ${transparent} 个文件夹`);
   return out;
+}
+
+async function filterTransparent(candidates) {
+  const kept = [];
+  let alphaSkipped = 0;
+  for (const c of candidates) {
+    if (await isTransparentImage(c.file)) {
+      alphaSkipped += 1;
+      console.log(`跳过（实际像素透明，表情包通道）: ${c.entry.title}  → ${c.entry.cosKey}`);
+      continue;
+    }
+    kept.push(c);
+  }
+  if (alphaSkipped > 0) console.log(`alpha 实测排除 ${alphaSkipped} 张（metadata 标记不可信，见函数注释）`);
+  return kept;
 }
 
 async function run() {
@@ -130,8 +168,9 @@ async function run() {
     process.exit(1);
   }
   const known = new Set(existing.map((e) => e.id));
-  const candidates = scanArchive().filter((c) => !known.has(c.entry.id));
+  let candidates = scanArchive().filter((c) => !known.has(c.entry.id));
   console.log(`档案候选 ${candidates.length} 条（已登记 ${existing.length} 条自动跳过）`);
+  candidates = await filterTransparent(candidates);
   if (candidates.length === 0) {
     console.log("无新增。");
     return;
