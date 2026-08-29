@@ -27,7 +27,7 @@ test("buildSitemap writes public/sitemap.xml even when dist is not present", () 
     });
 
     const publicXml = readFileSync(join(root, "public", "sitemap.xml"), "utf8");
-    assert.equal(result.urls, 7);
+    assert.equal(result.urls, 8);
     assert.match(publicXml, /<loc>https:\/\/taostudioai\.com\/sitemap<\/loc>/);
     assert.match(publicXml, /<loc>https:\/\/taostudioai\.com\/case\/demo-case<\/loc>/);
   } finally {
@@ -94,4 +94,60 @@ test("buildSitemap can skip the public copy via alsoWritePublic:false", () => {
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+describe("sitemap lists 4K lab pages", () => {
+  it("/lab index ships via STATIC_PATHS", () => {
+    const xml = generateSitemapXml({ cases: [], today: "2026-08-28" });
+    assert(xml.includes("/lab<"), "/lab static path listed");
+  });
+
+  it("without dist, lab detail slugs come from labSlugs", () => {
+    const xml = generateSitemapXml({
+      cases: [],
+      labSlugs: ["20260828-abc", "20260801-def"],
+      today: "2026-08-28",
+    });
+    assert(xml.includes("/lab/20260828-abc<"));
+    assert(xml.includes("/lab/20260801-def<"));
+  });
+
+  it("with dist, lists exactly what pre-rendered (skips index, ignores fallback)", () => {
+    const root = mkdtempSync(join(tmpdir(), "sm-lab-"));
+    try {
+      const lab = join(root, "dist", "lab");
+      mkdirSync(join(lab, "index"), { recursive: true });
+      mkdirSync(join(lab, "20260828-abc"), { recursive: true });
+      const xml = generateSitemapXml({
+        cases: [],
+        labSlugs: ["20260801-should-not-appear"],
+        today: "2026-08-28",
+        distDir: join(root, "dist"),
+      });
+      assert(xml.includes("/lab/20260828-abc<"), "prerendered lab slug listed");
+      assert(!xml.includes("should-not-appear"), "dist scan wins over fallback list");
+      // /lab index dir must not produce a duplicate /lab/index URL
+      assert(!xml.includes("/lab/index<"));
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it("buildSitemap reads lab slugs from public/data/lab-index.json", () => {
+    const root = mkdtempSync(join(tmpdir(), "sm-labidx-"));
+    try {
+      mkdirSync(join(root, "public", "data"), { recursive: true });
+      writeFileSync(join(root, "public", "data", "cases.json"), "[]");
+      writeFileSync(
+        join(root, "public", "data", "lab-index.json"),
+        JSON.stringify([{ id: "a", slug: "20260828-a" }]),
+        "utf8",
+      );
+      buildSitemap({ root, today: "2026-08-28" });
+      const xml = readFileSync(join(root, "public", "sitemap.xml"), "utf8");
+      assert(xml.includes("/lab/20260828-a<"));
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });

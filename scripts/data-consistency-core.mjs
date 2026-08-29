@@ -184,3 +184,76 @@ export function validateGeneratedDataDirectory(dataDir) {
 export function isCategoryShardFilename(name) {
   return /^cases-.+\.json$/.test(name) && !RESERVED_CASE_FILES.has(name);
 }
+
+// ── 4K lab registry validation ──────────────────────────────────────────
+
+const LAB_COS_KEY_RE = /^lab\/\d{4}\/\d{2}\/[^/]+\.png$/;
+const LAB_SLUG_RE = /^\d{8}-.+$/;
+
+/**
+ * Schema gate for data/manual/lab.json (the 4K 实验室 source registry).
+ * Catches hand edits and importer regressions before they ship: uniqueness,
+ * required strings, positive dims, cosKey/slug formats, parseable dates.
+ */
+export function validateLabData(items) {
+  if (!Array.isArray(items)) {
+    throw new Error("[data-consistency] lab.json must be an array");
+  }
+  const ids = new Set();
+  const slugs = new Set();
+  for (const [index, item] of items.entries()) {
+    const where = `[data-consistency] lab[${index}] (id=${item?.id ?? "?"})`;
+    if (!item || typeof item !== "object") {
+      throw new Error(`${where} is not an object`);
+    }
+    for (const field of ["id", "slug", "title", "createdAt", "prompt", "cosKey"]) {
+      if (typeof item[field] !== "string" || item[field].length === 0) {
+        throw new Error(`${where} missing required string field "${field}"`);
+      }
+    }
+    if (!LAB_SLUG_RE.test(item.slug)) {
+      throw new Error(`${where} slug "${item.slug}" must match ${LAB_SLUG_RE}`);
+    }
+    if (!LAB_COS_KEY_RE.test(item.cosKey)) {
+      throw new Error(`${where} cosKey "${item.cosKey}" must match ${LAB_COS_KEY_RE}`);
+    }
+    for (const dim of ["width", "height"]) {
+      if (!Number.isInteger(item[dim]) || item[dim] <= 0) {
+        throw new Error(`${where} ${dim} must be a positive integer`);
+      }
+    }
+    if (Number.isNaN(Date.parse(item.createdAt))) {
+      throw new Error(`${where} createdAt is not a parseable date`);
+    }
+    if (ids.has(item.id)) throw new Error(`${where} duplicate id ${item.id}`);
+    if (slugs.has(item.slug)) throw new Error(`${where} duplicate slug ${item.slug}`);
+    ids.add(item.id);
+    slugs.add(item.slug);
+  }
+  return { count: items.length };
+}
+
+/**
+ * Cross-check the GENERATED lab artifacts against the source registry:
+ * home.totalCount == visible(source), index rows == visible(source) by slug.
+ */
+export function validateGeneratedLabData({ source, home, index }) {
+  const visible = source.filter((i) => !i.hidden);
+  if (home.totalCount !== visible.length) {
+    throw new Error(
+      `[data-consistency] lab-home totalCount ${home.totalCount} != visible lab.json entries ${visible.length}`,
+    );
+  }
+  if (!Array.isArray(index) || index.length !== visible.length) {
+    throw new Error(
+      `[data-consistency] lab-index has ${Array.isArray(index) ? index.length : "non-array"} rows, expected ${visible.length}`,
+    );
+  }
+  const bySlug = new Set(visible.map((i) => i.slug));
+  for (const [i, row] of index.entries()) {
+    if (!bySlug.has(row.slug)) {
+      throw new Error(`[data-consistency] lab-index[${i}] slug "${row.slug}" not visible in lab.json`);
+    }
+  }
+  return { count: visible.length };
+}

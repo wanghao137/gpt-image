@@ -29,6 +29,7 @@ export const STATIC_PATHS = [
   { path: "/", priority: "1.0" },
   { path: "/cases", priority: "0.9" },
   { path: "/templates", priority: "0.8" },
+  { path: "/lab", priority: "0.8" },
   { path: "/about", priority: "0.5" },
   { path: "/sitemap", priority: "0.5" },
 ];
@@ -87,7 +88,7 @@ function collectPrerendered(distDir, segment) {
   return slugs;
 }
 
-function createSitemapEntries({ cases, today, siteUrl }, distDir) {
+function createSitemapEntries({ cases, labSlugs, today, siteUrl }, distDir) {
   const sourceCases = Array.isArray(cases) ? cases : [];
   // A distDir path that does not exist on disk counts as "no dist": fall back
   // to the static category table instead of scanning an empty tree.
@@ -122,6 +123,23 @@ function createSitemapEntries({ cases, today, siteUrl }, distDir) {
     }
   }
 
+  // 4K lab detail pages. Same invariant as categories/templates: when dist
+  // exists, list exactly what pre-rendered (hidden entries never render, so
+  // they never list); otherwise fall back to the generated index (dev only —
+  // CI's postbuild always runs after a successful dist build). `index` is the
+  // /lab listing itself and is covered by STATIC_PATHS.
+  if (hasPrerenderedDist) {
+    const prerenderedLab = collectPrerendered(distDir, "lab");
+    for (const slug of [...prerenderedLab].sort()) {
+      if (slug === "index") continue;
+      entries.push(urlEntry({ loc: `/lab/${slug}`, lastmod: today, priority: "0.6", siteUrl }));
+    }
+  } else {
+    for (const slug of [...(Array.isArray(labSlugs) ? labSlugs : [])].sort()) {
+      entries.push(urlEntry({ loc: `/lab/${slug}`, lastmod: today, priority: "0.6", siteUrl }));
+    }
+  }
+
   for (const item of sourceCases) {
     if (!item?.slug) continue;
     const lastmod = String(item.createdAt || today).slice(0, 10);
@@ -133,11 +151,12 @@ function createSitemapEntries({ cases, today, siteUrl }, distDir) {
 
 export function generateSitemapXml({
   cases,
+  labSlugs = [],
   today = new Date().toISOString().slice(0, 10),
   siteUrl = SITE_URL,
   distDir,
 } = {}) {
-  const entries = createSitemapEntries({ cases, today, siteUrl }, distDir);
+  const entries = createSitemapEntries({ cases, labSlugs, today, siteUrl }, distDir);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -162,8 +181,12 @@ export function buildSitemap({
 } = {}) {
   const casesPath = resolve(publicDir, "data", "cases.json");
   const cases = JSON.parse(readFileSync(casesPath, "utf8"));
-  const xml = generateSitemapXml({ cases, today, siteUrl, distDir });
-  const urls = createSitemapEntries({ cases, today, siteUrl }, distDir).length;
+  const labIndexPath = resolve(publicDir, "data", "lab-index.json");
+  const labSlugs = existsSync(labIndexPath)
+    ? JSON.parse(readFileSync(labIndexPath, "utf8")).map((row) => row.slug)
+    : [];
+  const xml = generateSitemapXml({ cases, labSlugs, today, siteUrl, distDir });
+  const urls = createSitemapEntries({ cases, labSlugs, today, siteUrl }, distDir).length;
   const written = [];
 
   if (alsoWritePublic) {

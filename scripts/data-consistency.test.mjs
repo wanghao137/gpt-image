@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import test from "node:test";
+import test, { describe, it } from "node:test";
 
 import {
   validateGeneratedData,
   validateGeneratedDataDirectory,
+  validateLabData,
 } from "./data-consistency-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -57,4 +58,29 @@ test("checked-in generated data matches the canonical source", () => {
   const result = validateGeneratedDataDirectory(dataDir);
   assert.ok(result.caseCount > 0);
   assert.ok(result.categoryShardCount > 0);
+});
+
+describe("validateLabData schema gate", () => {
+  const valid = (over = {}) => ({
+    id: "abc", slug: "20260828-abc", title: "t", createdAt: "2026-08-28T09:06:37.735Z",
+    prompt: "p", promptPreview: "p", cosKey: "lab/2026/08/abc.png",
+    width: 2400, height: 3200, model: "gpt-image-2",
+    ...over,
+  });
+
+  it("accepts a valid registry", () => {
+    assert.equal(validateLabData([valid()]).count, 1);
+  });
+
+  it("rejects non-array, missing fields, bad dims, bad cosKey, dup ids", () => {
+    assert.throws(() => validateLabData({}));
+    assert.throws(() => validateLabData([valid({ prompt: "" })]));
+    assert.throws(() => validateLabData([valid({ width: 0 })]));
+    assert.throws(() => validateLabData([valid({ cosKey: "uploads/x.png" })]));
+    assert.throws(() => validateLabData([valid(), valid({ slug: "20260829-abc", cosKey: "lab/2026/08/abc.png" })]));
+  });
+
+  it("hidden entries still validate (they only drop out of shards)", () => {
+    assert.equal(validateLabData([valid({ hidden: true })]).count, 1);
+  });
 });
