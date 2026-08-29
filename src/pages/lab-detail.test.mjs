@@ -22,10 +22,13 @@ test("detail page uses direct COS imageMogr2 URLs for og:image / main / lightbox
   assert.match(src, /labImageUrl\(item\.cosKey, 2160, 85\)/);
 });
 
-test("detail page offers original download + SPA fallback via prompts shard preload", () => {
+test("detail page offers original download; NO redundant prompts-shard preload", () => {
   const src = readFileSync("src/pages/LabDetailPage.tsx", "utf8");
   assert.match(src, /labOriginalUrl\(item\.cosKey\)/);
-  assert.match(src, /data\/lab\/prompts\/\$\{item\.slug\}\.json/);
+  // The prompt is already inline (SSG) or fetched by useLabDetail on SPA
+  // arrival — a <link rel=preload> for the shard is dead weight and Chrome
+  // flags it "preloaded but not used" (adversarial review 2026-08-29).
+  assert.ok(!src.includes("preloadFetch"));
 });
 
 test("stale-window guard present in useLabDetail (lab→lab SPA navigation)", () => {

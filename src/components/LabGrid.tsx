@@ -27,9 +27,12 @@ export function LabGrid({ items }: { items: LabLiteRow[] }) {
             className="overflow-hidden rounded-lg bg-ink-900/60"
             style={{ aspectRatio: `${Math.max(item.w, 1)} / ${Math.max(item.h, 1)}` }}
           >
+            {/* Decorative alt: the link's accessible name comes from the visible
+                title/date/dims text below — a duplicated alt made screen readers
+                announce the title twice (found in adversarial review). */}
             <SmartImg
               src={item.thumb}
-              alt={item.t}
+              alt=""
               width={item.w}
               height={item.h}
               preserveAspectRatio

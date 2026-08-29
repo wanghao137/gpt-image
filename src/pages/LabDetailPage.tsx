@@ -68,7 +68,6 @@ export default function LabDetailPage() {
         path={`/lab/${item.slug}`}
         image={labImageUrl(item.cosKey, 1200)}
         imageAlt={item.title}
-        preloadFetch={[`${import.meta.env.BASE_URL}data/lab/prompts/${item.slug}.json`]}
       />
 
       <section className="container-narrow pb-16 pt-7 sm:pt-8">
@@ -150,10 +149,12 @@ export default function LabDetailPage() {
                     "inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 text-[12px] font-medium transition " +
                     (copyState === "copied"
                       ? "border-ember-500/50 bg-ember-500/15 text-ember-100"
-                      : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")
+                      : copyState === "error"
+                        ? "border-red-400/50 bg-red-400/10 text-red-200"
+                        : "border-white/10 bg-white/[0.03] text-ink-200 hover:border-white/25 hover:text-ink-50")
                   }
                 >
-                  {copyState === "copied" ? "已复制" : "复制 Prompt"}
+                  {copyState === "copied" ? "已复制" : copyState === "error" ? "复制失败，请手动选择" : "复制 Prompt"}
                 </button>
               </div>
               <pre className="mt-3 max-h-[26rem] overflow-y-auto whitespace-pre-wrap break-words font-sans text-[13px] leading-relaxed text-ink-200 scrollbar-thin">
