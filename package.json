@@ -7,9 +7,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs && node scripts/split-data.mjs",
+    "predev": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs && node scripts/split-data.mjs && node scripts/build-lab-data.mjs",
     "dev": "vite-react-ssg dev",
-    "prebuild": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict && node scripts/split-data.mjs",
+    "prebuild": "node scripts/sync.mjs --optional && node scripts/migrate-v2.mjs && node scripts/build-images.mjs --strict && node scripts/split-data.mjs && node scripts/build-lab-data.mjs",
     "build": "tsc -b && vite-react-ssg build",
     "vercel-build": "node scripts/verify-admin-env.mjs && node scripts/split-data.mjs && tsc -b && vite-react-ssg build && npm run postbuild",
     "check": "tsc -b && npm run test",
@@ -24,6 +24,7 @@
     "brand:assets": "node scripts/build-brand-assets.mjs",
     "og": "node scripts/build-og-image.mjs",
     "upload-cos": "node scripts/upload-cos.mjs",
+    "lab:import": "node scripts/import-lab.mjs",
     "admin:hash": "node scripts/admin-hash.mjs"
   },
   "dependencies": {
