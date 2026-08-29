@@ -60,6 +60,10 @@ function isLocalImage(src: string): boolean {
  */
 export function transformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
+  // COS preset-transform URLs (imageMogr2) are already width/format-optimised
+  // and served direct from COS HK (<100ms RTT from CN). Wrapping them in wsrv
+  // (North-American POPs) would be a strict downgrade — pass through as-is.
+  if (src.includes("imageMogr2")) return src;
   // Every root-relative asset is already same-origin. Keeping it relative is
   // also hydration-safe: SSR and local/browser runtimes must not bake their
   // different hostnames into a wsrv URL for `/uploads/*` covers.

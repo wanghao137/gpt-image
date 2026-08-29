@@ -1,0 +1,28 @@
+/**
+ * Shared COS URL builders for the 4K 实验室 section.
+ *
+ * Consumed by BOTH build-time scripts (scripts/build-lab-data.mjs) and
+ * runtime rendering (src/lib/data-lab.ts, lab pages) so the imageMogr2 URL
+ * scheme has a single source of truth. Plain .mjs on purpose — no TS import
+ * friction from build scripts.
+ *
+ * Why preset imageMogr2 URLs instead of the generic transformUrl/wsrv path:
+ * the site's audience is in mainland China. COS HK answers <100ms RTT from
+ * CN telecom/unicom/mobile, while wsrv.nl resolves to North-American POPs.
+ * These URLs must therefore go DIRECT to COS (see img.ts / SmartImg.tsx
+ * imageMogr2 pass-through) and never be wrapped by a proxy.
+ */
+
+// Public bucket endpoint — public info (same value documented in
+// .env.example / upload-cos.mjs). Not a secret; safe for the client bundle.
+export const COS_PUBLIC_BASE = "https://gpt-image-2-1259488227.cos.ap-hongkong.myqcloud.com";
+
+/** Width-bounded WebP thumbnail/detail variant of a lab original. */
+export function labImageUrl(cosKey, width, quality = 78) {
+  return `${COS_PUBLIC_BASE}/${cosKey}?imageMogr2/thumbnail/${width}x/format/webp/q/${quality}`;
+}
+
+/** The untouched 4K PNG original — download links only. */
+export function labOriginalUrl(cosKey) {
+  return `${COS_PUBLIC_BASE}/${cosKey}`;
+}

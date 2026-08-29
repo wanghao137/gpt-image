@@ -9,9 +9,12 @@ import TemplatesPage from "./pages/TemplatesPage";
 import TemplateDetailPage from "./pages/TemplateDetailPage";
 import AboutPage from "./pages/AboutPage";
 import SitemapPage from "./pages/SitemapPage";
+import LabPage from "./pages/LabPage";
+import LabDetailPage from "./pages/LabDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { ALL_CASES, ALL_TEMPLATES } from "./lib/data";
 import { USER_CATEGORIES } from "./lib/userCategories";
+import { SSG_LAB_ITEMS } from "./lib/data-lab-ssg";
 
 /**
  * Route table consumed by `vite-react-ssg` at build time *and* by
@@ -40,6 +43,16 @@ export const routes: RouteRecord[] = [
         getStaticPaths: () => USER_CATEGORIES.map((c) => `/category/${c.slug}`),
       },
       { path: "templates", Component: TemplatesPage, entry: "src/pages/TemplatesPage.tsx" },
+      // 4K 实验室 — personal 4K generation archive (COS originals + full
+      // prompts). Index is one page; every detail page pre-renders one HTML
+      // file (SEO long-tail: the full prompt is in the static markup).
+      { path: "lab", Component: LabPage, entry: "src/pages/LabPage.tsx" },
+      {
+        path: "lab/:slug",
+        Component: LabDetailPage,
+        entry: "src/pages/LabDetailPage.tsx",
+        getStaticPaths: () => SSG_LAB_ITEMS.map((i) => `/lab/${i.slug}`),
+      },
       {
         // Per-template detail page. The template's stable `id` doubles as the
         // URL slug (e.g. /template/derived-exploded-technical-diagram), so we

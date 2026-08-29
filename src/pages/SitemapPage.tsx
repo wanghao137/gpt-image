@@ -5,6 +5,7 @@ import { ALL_TEMPLATES } from "../lib/data";
 import { USER_CATEGORIES } from "../lib/userCategories";
 import { HOME_DATA } from "../hooks/useHomeData";
 import { loadCaseIndex, getCachedCaseIndex, type CaseIndexEntry } from "../lib/data";
+import { LAB_HOME } from "../lib/data-lab";
 import { useEffect, useState } from "react";
 
 /**
@@ -78,6 +79,7 @@ export default function SitemapPage() {
           <SitemapLink to="/" label="首页" detail="最新案例、精选模板与场景入口" />
           <SitemapLink to="/cases" label="全部案例" detail={`${totalCount} 个案例`} />
           <SitemapLink to="/templates" label="模板库" detail={`${ALL_TEMPLATES.length} 套模板`} />
+          <SitemapLink to="/lab" label="4K 实验室" detail={`${LAB_HOME.totalCount} 张 4K 原生生图`} />
           <SitemapLink to="/about" label="关于" detail="项目说明与数据来源" />
         </SitemapGroup>
 

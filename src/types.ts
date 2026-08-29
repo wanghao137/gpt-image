@@ -124,3 +124,57 @@ export interface PromptTemplate {
   sourceUrl?: string;
   derivedFrom?: string[];
 }
+
+/**
+ * 4K 实验室 registry entry — one per original image in data/manual/lab.json
+ * (written by scripts/import-lab.mjs from the local generation archive).
+ * `hidden: true` removes an entry from every public artifact.
+ */
+export interface LabItem {
+  /** Generation taskId; multi-image folders get `${taskId}-${N}` for N ≥ 2. */
+  id: string;
+  /** `${YYYYMMDD}-${id}` — URL piece for /lab/:slug. */
+  slug: string;
+  title: string;
+  createdAt: string;
+  prompt: string;
+  promptPreview: string;
+  /** COS object key, e.g. `lab/2026/08/<id>.png`. URLs derive via lab-cos-core. */
+  cosKey: string;
+  width: number;
+  height: number;
+  model: string;
+  quality?: string;
+  hidden?: boolean;
+}
+
+/** Compact card row served by lab-home.json + lab/browse/page-NNN.json. */
+export interface LabLiteRow {
+  id: string;
+  slug: string;
+  /** title (compact key, mirrors cases shards). */
+  t: string;
+  /** createdAt ISO. */
+  d: string;
+  w: number;
+  h: number;
+  /** Preset imageMogr2 640px WebP URL — direct to COS, never wsrv-proxied. */
+  thumb: string;
+}
+
+export interface LabHomePayload {
+  items: LabLiteRow[];
+  totalCount: number;
+  pageCount: number;
+  pageSize: number;
+  revision: string;
+}
+
+/** Full item as served by lab/prompts/<slug>.json (hidden stripped, URLs added). */
+export interface LabPromptEntry extends Omit<LabItem, "hidden"> {
+  detail: string;
+  lightbox: string;
+  /** Adjacent entries in newest-first order (null at the ends). */
+  prev: { slug: string; t: string } | null;
+  next: { slug: string; t: string } | null;
+}

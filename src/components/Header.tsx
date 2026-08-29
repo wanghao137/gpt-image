@@ -31,6 +31,7 @@ function readStoredThemeMode(): ThemeMode {
 const NAV: NavItem[] = [
   { to: "/cases", label: "案例" },
   { to: "/templates", label: "模板" },
+  { to: "/lab", label: "4K 实验室", accent: true },
   { to: "/about", label: "关于" },
 ];
 
