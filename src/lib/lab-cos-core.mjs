@@ -19,10 +19,9 @@ export const COS_PUBLIC_BASE = "https://gpt-image-2-1259488227.cos.ap-hongkong.m
 
 // 4K originals moved to Cloudflare R2 (2026-08-30): 5.74GB fits the 10GB
 // free tier and R2 egress is free forever — the COS bill (~¥1/day under bot
-// traffic) drops to ¥0. Set to the bucket's public development URL once the
-// bucket goes public; while null, originals keep serving from COS so the
-// switch is a one-line constant + shard regen.
-export const R2_PUBLIC_BASE = null;
+// traffic) drops to ¥0. Bucket "taostudio-lab", public development URL
+// enabled via CF API. Egress is free, so no hotlink protection is needed.
+export const R2_PUBLIC_BASE = "https://pub-8e95aae17566496ba4c5e5ed16a824cf.r2.dev";
 
 /** Width-bounded WebP thumbnail/detail variant of a lab original (COS CI). */
 export function labImageUrl(cosKey, width, quality = 78) {
