@@ -125,13 +125,16 @@ function SmartImgImpl({
   // they're already optimised on disk. Upstream CDN images (YouMind) go
   // through wsrv for resize + WebP transcoding + better reachability in CN.
   const isLocalImg = /^\/images\//i.test(src);
-  // Direct-serve sources: repo assets, uploads, AND preset imageMogr2 COS
-  // URLs (4K 实验室). The latter already encode their width/format transform
-  // and COS HK answers CN traffic <100ms — proxying through wsrv (NA POPs)
-  // would only add RTT, so they render exactly as passed in.
+  // Direct-serve sources: repo assets, uploads, baked lab variants
+  // (/lab-images/, cost fix 2026-08-30 — must NOT round-trip through wsrv),
+  // and preset imageMogr2 COS URLs (4K 实验室 originals). The latter already
+  // encode their width/format transform and COS HK answers CN traffic <100ms
+  // — proxying through wsrv (NA POPs) would only add RTT, so they render
+  // exactly as passed in.
   const isOtherSameOrigin =
     src.startsWith("/assets/") ||
     src.startsWith("/uploads/") ||
+    src.startsWith("/lab-images/") ||
     src.includes("imageMogr2");
 
   const baseW =

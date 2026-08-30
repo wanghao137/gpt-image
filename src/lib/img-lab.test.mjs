@@ -16,6 +16,14 @@ test("SmartImg renders imageMogr2 URLs direct (same path as /uploads)", () => {
   assert.match(src, /imageMogr2/);
 });
 
+test("SmartImg serves /lab-images/ direct — never wsrv-wrapped", () => {
+  // 2026-08-30 cost-fix regression guard: baked lab variants are same-origin
+  // static files; wrapping them in wsrv added NA-proxy RTT AND upscaled
+  // 480px thumbs by requesting at the original 2400px width.
+  const src = readFileSync("src/components/SmartImg.tsx", "utf8");
+  assert.match(src, /startsWith\("\/lab-images\/"\)/);
+});
+
 test("lab-cos-core derives imageMogr2 URLs against the COS HK public base", () => {
   const src = readFileSync("src/lib/lab-cos-core.mjs", "utf8");
   assert.match(src, /cos\.ap-hongkong\.myqcloud\.com/);
