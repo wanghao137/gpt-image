@@ -47,6 +47,10 @@ const call = (fn, params) =>
   new Promise((res, rej) => fn.call(cos, params, (e, d) => (e ? rej(e) : res(d))));
 const md5 = (buf) => createHash("md5").update(buf).digest("hex");
 const publicUrl = (key) => `https://${BUCKET}.cos.${REGION}.myqcloud.com/${key}`;
+// Bucket has a referer whitelist (2026-08-30 cost fix) — anonymous GETs are
+// 403 by design. Verify with the site's own Referer, mirroring a real
+// in-site download click. (HEAD ignores referer checks; GET enforces them.)
+const SITE_HEADERS = { Referer: "https://taostudioai.com/lab" };
 
 function requireEnv() {
   const missing = ["COS_BUCKET", "COS_REGION", "COS_SECRET_ID", "COS_SECRET_KEY", "LAB_ARCHIVE_DIR"].filter(
@@ -75,7 +79,7 @@ async function doctor() {
     ACL: "public-read",
   });
   console.log("2. putObject+public-read PASS");
-  const r = await fetch(publicUrl(Key));
+  const r = await fetch(publicUrl(Key), { headers: SITE_HEADERS });
   if (!(r.status === 200 && (await r.text()) === "probe")) {
     throw new Error(`匿名读失败 status=${r.status}`);
   }
@@ -225,8 +229,7 @@ async function run() {
           ACL: "public-read",
           CacheControl: "public, max-age=31536000, immutable",
         });
-        const check = await fetch(publicUrl(entry.cosKey), { method: "HEAD" });
-        if (check.status !== 200) throw new Error(`匿名 HEAD status=${check.status}`);
+        const check = await fetch(publicUrl(entry.cosKey), { method: "HEAD" });        if (check.status !== 200) throw new Error(`匿名 HEAD status=${check.status}`);
         newEntries.push(entry);
         uploaded += 1;
         console.log(

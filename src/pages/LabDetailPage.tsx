@@ -40,7 +40,7 @@ function LabDetailLoading() {
  */
 export default function LabDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { item, prev, next, loading } = useLabDetail(slug);
+  const { item, urls, prev, next, loading } = useLabDetail(slug);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const { state: copyState, copy } = useCopy();
   const navigate = useNavigate();
@@ -50,6 +50,12 @@ export default function LabDetailPage() {
     return <NotFoundPage />;
   }
 
+  // Build-time URLs (same-origin baked variants). Defensive COS fallbacks in
+  // case a shard predates the url map — keeps the page renderable either way.
+  const detailSrc = urls?.detail ?? labImageUrl(item.cosKey, 1600, 82);
+  const lightboxSrc = urls?.lightbox ?? detailSrc;
+  const ogSrc = urls?.og ?? labImageUrl(item.cosKey, 1200);
+  const origHref = urls?.orig ?? labOriginalUrl(item.cosKey);
   const ratio = `${Math.max(item.width, 1)}:${Math.max(item.height, 1)}`;
 
   return (
@@ -58,7 +64,7 @@ export default function LabDetailPage() {
         id={LAB_HYDRATION_ELEMENT_ID}
         type="application/json"
         dangerouslySetInnerHTML={{
-          __html: serializeLabHydrationData({ item, prev, next }),
+          __html: serializeLabHydrationData({ item, urls, prev, next }),
         }}
       />
       <SEO
@@ -66,7 +72,7 @@ export default function LabDetailPage() {
         title={`${item.title} · 4K 实验室`}
         description={item.promptPreview}
         path={`/lab/${item.slug}`}
-        image={labImageUrl(item.cosKey, 1200)}
+        image={ogSrc}
         imageAlt={item.title}
       />
 
@@ -91,7 +97,7 @@ export default function LabDetailPage() {
               aria-label="放大查看"
             >
               <SmartImg
-                src={labImageUrl(item.cosKey, 1600, 82)}
+                src={detailSrc}
                 alt={item.title}
                 width={item.width}
                 height={item.height}
@@ -101,7 +107,7 @@ export default function LabDetailPage() {
               />
             </button>
             <a
-              href={labOriginalUrl(item.cosKey)}
+              href={origHref}
               download
               target="_blank"
               rel="noopener"
@@ -197,7 +203,7 @@ export default function LabDetailPage() {
 
       <ImageLightbox
         open={lightboxOpen}
-        src={labImageUrl(item.cosKey, 2160, 85)}
+        src={lightboxSrc}
         alt={item.title}
         caption={item.title}
         ratio={ratio}

@@ -7,7 +7,7 @@
  *     lab/browse/page-NNN.json (load-more) and lab/prompts/<slug>.json (SPA
  *     detail fallback). The full registry is never in the client bundle.
  */
-import type { LabHomePayload, LabItem, LabLiteRow, LabPromptEntry } from "../types";
+import type { LabHomePayload, LabItem, LabLiteRow, LabPromptEntry, LabUrls } from "../types";
 import { fetchWithTimeout } from "./fetchWithTimeout";
 import labHomeJson from "../../public/data/lab-home.json";
 
@@ -18,10 +18,12 @@ const REVISION = LAB_HOME.revision;
 // Same pattern as data.ts: the dynamic import is resolved at SSR build time
 // and eliminated in the client build.
 let SSG_LAB_ITEMS: LabItem[] = [];
+let SSG_LAB_URLS: Record<string, LabUrls> = {};
 
 if (import.meta.env.SSR) {
   const ssg = await import("./data-lab-ssg");
   SSG_LAB_ITEMS = ssg.SSG_LAB_ITEMS;
+  SSG_LAB_URLS = ssg.SSG_LAB_URLS;
 }
 
 /** Full visible registry — SSG only; empty array in the client. */
@@ -32,6 +34,11 @@ export function getLabItems(): LabItem[] {
 /** SSG slug lookup for /lab/:slug rendering. Returns undefined on client. */
 export function getLabItemBySlug(slug: string): LabItem | undefined {
   return SSG_LAB_ITEMS.find((i) => i.slug === slug);
+}
+
+/** SSG-only per-entry image URLs (baked same-origin variants + COS fallbacks). */
+export function getLabUrls(slug: string): LabUrls | undefined {
+  return SSG_LAB_URLS[slug];
 }
 
 /**

@@ -170,10 +170,23 @@ export interface LabHomePayload {
   revision: string;
 }
 
+/** Per-entry image URLs (assembled at build time by build-lab-data.mjs). */
+export interface LabUrls {
+  /** Card thumbnail — /lab-images/<id>-480.webp (COS imageMogr2 fallback). */
+  thumb: string;
+  /** Detail + lightbox + og:image — /lab-images/<id>-1600.webp (fallback COS). */
+  detail: string;
+  lightbox: string;
+  og: string;
+  /** Untouched 4K PNG on COS — the ONLY path meant to cost COS traffic. */
+  orig: string;
+}
+
 /** Full item as served by lab/prompts/<slug>.json (hidden stripped, URLs added). */
 export interface LabPromptEntry extends Omit<LabItem, "hidden"> {
   detail: string;
   lightbox: string;
+  orig: string;
   /** Adjacent entries in newest-first order (null at the ends). */
   prev: { slug: string; t: string } | null;
   next: { slug: string; t: string } | null;

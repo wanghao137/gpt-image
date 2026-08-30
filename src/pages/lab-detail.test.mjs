@@ -15,20 +15,28 @@ test("detail page renders full prompt in static HTML (SEO) and embeds hydration 
   assert.match(src, /serializeLabHydrationData/);
 });
 
-test("detail page uses direct COS imageMogr2 URLs for og:image / main / lightbox", () => {
+test("detail page never references wsrv for images (imageMogr2/COS fallback stays direct)", () => {
   const src = readFileSync("src/pages/LabDetailPage.tsx", "utf8");
-  assert.match(src, /labImageUrl\(item\.cosKey, 1200\)/);
-  assert.match(src, /labImageUrl\(item\.cosKey, 1600, 82\)/);
-  assert.match(src, /labImageUrl\(item\.cosKey, 2160, 85\)/);
+  assert.ok(!src.includes("rawTransformUrl"));
+  assert.ok(!src.includes("wsrv"));
 });
 
-test("detail page offers original download; NO redundant prompts-shard preload", () => {
+test("detail page serves browse images same-origin and keeps COS only for original download", () => {
   const src = readFileSync("src/pages/LabDetailPage.tsx", "utf8");
-  assert.match(src, /labOriginalUrl\(item\.cosKey\)/);
-  // The prompt is already inline (SSG) or fetched by useLabDetail on SPA
-  // arrival — a <link rel=preload> for the shard is dead weight and Chrome
-  // flags it "preloaded but not used" (adversarial review 2026-08-29).
+  // og / detail / lightbox all come from the build-time url map
+  assert.match(src, /urls\?\.(detail|og|lightbox|orig)/);
+  // original download keeps the COS link (the only COS-traffic path)
+  assert.match(src, /origHref/);
+  // NO redundant prompts-shard preload (adversarial review 2026-08-29)
   assert.ok(!src.includes("preloadFetch"));
+});
+
+test("shards assemble same-origin baked variants with COS fallback", () => {
+  const src = readFileSync("scripts/build-lab-data.mjs", "utf8");
+  assert.match(src, /\/lab-images\/\$\{item\.id\}-\$\{CARD_W\}\.webp/);
+  assert.match(src, /\/lab-images\/\$\{item\.id\}-\$\{DETAIL_W\}\.webp/);
+  assert.match(src, /labImageUrl\(item\.cosKey/);
+  assert.match(src, /lab-urls\.json/);
 });
 
 test("stale-window guard present in useLabDetail (lab→lab SPA navigation)", () => {

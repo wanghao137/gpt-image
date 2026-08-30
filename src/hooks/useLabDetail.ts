@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { LabItem } from "../types";
-import { getLabItemBySlug, getLabNeighbors, loadLabItemBySlug } from "../lib/data-lab";
+import type { LabItem, LabUrls } from "../types";
+import { getLabItemBySlug, getLabNeighbors, getLabUrls, loadLabItemBySlug } from "../lib/data-lab";
 import {
   LAB_HYDRATION_ELEMENT_ID,
   parseLabHydrationData,
@@ -11,11 +11,15 @@ interface LabNeighbor {
   t: string;
 }
 
-function readHydratedLab(slug: string): {
+interface LabDetailState {
   item: LabItem;
+  /** Present in every current producer; optional only for legacy blobs. */
+  urls?: LabUrls;
   prev: LabNeighbor | null;
   next: LabNeighbor | null;
-} | undefined {
+}
+
+function readHydratedLab(slug: string): LabDetailState | undefined {
   if (typeof document === "undefined") return undefined;
   const text = document.getElementById(LAB_HYDRATION_ELEMENT_ID)?.textContent;
   return parseLabHydrationData(text, slug);
@@ -32,6 +36,7 @@ function readHydratedLab(slug: string): {
  */
 export function useLabDetail(slug: string | undefined): {
   item: LabItem | undefined;
+  urls: LabUrls | undefined;
   prev: LabNeighbor | null;
   next: LabNeighbor | null;
   loading: boolean;
@@ -46,6 +51,7 @@ export function useLabDetail(slug: string | undefined): {
       const neighbors = getLabNeighbors(slug);
       return {
         item,
+        urls: getLabUrls(slug),
         prev: neighbors.prev ? { slug: neighbors.prev.slug, t: neighbors.prev.title } : null,
         next: neighbors.next ? { slug: neighbors.next.slug, t: neighbors.next.title } : null,
       };
@@ -86,6 +92,13 @@ export function useLabDetail(slug: string | undefined): {
                 model: entry.model,
                 quality: entry.quality,
               },
+              urls: {
+                thumb: "",
+                detail: entry.detail,
+                lightbox: entry.lightbox,
+                og: entry.detail,
+                orig: entry.orig,
+              },
               prev: entry.prev,
               next: entry.next,
             }
@@ -104,6 +117,7 @@ export function useLabDetail(slug: string | undefined): {
 
   return {
     item: state?.item,
+    urls: state?.urls,
     prev: state?.prev ?? null,
     next: state?.next ?? null,
     loading: loading || stale,

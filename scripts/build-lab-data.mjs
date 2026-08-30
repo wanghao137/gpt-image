@@ -22,18 +22,46 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { labImageUrl } from "../src/lib/lab-cos-core.mjs";
+import { labImageUrl, labOriginalUrl } from "../src/lib/lab-cos-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const LAB_JSON = resolve(ROOT, "data/manual/lab.json");
 const DATA_DIR = resolve(ROOT, "public/data");
+const LAB_IMAGES_DIR = resolve(ROOT, "public/lab-images");
 
 const PAGE_SIZE = 48;
+const CARD_W = 480;
+const DETAIL_W = 1600;
 
 function writeJson(path, data) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, JSON.stringify(data), "utf8");
+}
+
+/**
+ * Per-entry image URLs. Browse-grade variants are served same-origin from
+ * public/lab-images/ (baked by build-lab-web-images.mjs, free Vercel
+ * bandwidth — COS egress became ¥1/day under bot traffic, 2026-08-30).
+ * When a baked file is missing the entry falls back to its COS imageMogr2
+ * URL so a partial bake can never break the page. `orig` stays a COS
+ * direct link (download button — the only path that should cost COS
+ * traffic).
+ */
+function labUrls(item) {
+  const card = resolve(LAB_IMAGES_DIR, `${item.id}-${CARD_W}.webp`);
+  const detail = resolve(LAB_IMAGES_DIR, `${item.id}-${DETAIL_W}.webp`);
+  const thumb = existsSync(card) ? `/lab-images/${item.id}-${CARD_W}.webp` : labImageUrl(item.cosKey, 640);
+  const detailUrl = existsSync(detail)
+    ? `/lab-images/${item.id}-${DETAIL_W}.webp`
+    : labImageUrl(item.cosKey, DETAIL_W, 82);
+  return {
+    thumb,
+    detail: detailUrl,
+    lightbox: detailUrl,
+    og: detailUrl,
+    orig: labOriginalUrl(item.cosKey),
+  };
 }
 
 function toLite(item) {
@@ -44,7 +72,7 @@ function toLite(item) {
     d: item.createdAt,
     w: item.width,
     h: item.height,
-    thumb: labImageUrl(item.cosKey, 640),
+    thumb: labUrls(item).thumb,
   };
 }
 
@@ -65,17 +93,21 @@ export function buildLabShards(items) {
   }
 
   const prompts = {};
+  const urls = {};
   visible.forEach((item, idx) => {
     const { hidden: _hidden, ...rest } = item;
+    const u = labUrls(item);
     // prev = newer neighbour (one row above), next = older. Baked into the
     // shard so SPA navigation has prev/next without loading the registry.
     prompts[item.slug] = {
       ...rest,
-      detail: labImageUrl(item.cosKey, 1600, 82),
-      lightbox: labImageUrl(item.cosKey, 2160, 85),
+      detail: u.detail,
+      lightbox: u.lightbox,
+      orig: u.orig,
       prev: idx > 0 ? { slug: visible[idx - 1].slug, t: visible[idx - 1].title } : null,
       next: idx < visible.length - 1 ? { slug: visible[idx + 1].slug, t: visible[idx + 1].title } : null,
     };
+    urls[item.slug] = u;
   });
 
   return {
@@ -89,6 +121,7 @@ export function buildLabShards(items) {
     pages,
     index: visible.map((i) => ({ id: i.id, slug: i.slug })),
     prompts,
+    urls,
   };
 }
 
@@ -99,7 +132,7 @@ function main() {
   const items = existsSync(LAB_JSON)
     ? JSON.parse(readFileSync(LAB_JSON, "utf8"))
     : [];
-  const { home, pages, index, prompts } = buildLabShards(items);
+  const { home, pages, index, prompts, urls } = buildLabShards(items);
 
   // Clear stale shards so hidden/deleted entries never linger (prompts/ and
   // browse/ are fully regenerated each run).
@@ -113,6 +146,9 @@ function main() {
     writeJson(resolve(DATA_DIR, `lab/browse/page-${String(n).padStart(3, "0")}.json`), rows);
   });
   writeJson(resolve(DATA_DIR, "lab-index.json"), index);
+  // SSG-side URL map (slug → thumb/detail/lightbox/og/orig). Imported ONLY by
+  // data-lab-ssg (server build), never the client bundle.
+  writeJson(resolve(DATA_DIR, "lab-urls.json"), urls);
   const promptSlugs = Object.keys(prompts);
   for (const slug of promptSlugs) {
     writeJson(resolve(DATA_DIR, `lab/prompts/${slug}.json`), prompts[slug]);

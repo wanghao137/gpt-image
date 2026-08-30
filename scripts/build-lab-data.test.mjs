@@ -35,13 +35,16 @@ test("lite rows carry thumb url and compact fields; home mirrors page-000", () =
   assert.deepEqual(s.pages[0][0].id, "b");
 });
 
-test("prompts shard carries full item (minus hidden) + detail/lightbox urls", () => {
+test("prompts shard carries full item (minus hidden) + urls; baked file wins over COS fallback", () => {
   const s = buildLabShards(items);
   assert.equal(s.prompts["20260802-b"].prompt, "pb");
+  // no baked file for fixture ids → COS imageMogr2 fallback
   assert.match(s.prompts["20260802-b"].detail, /thumbnail\/1600x/);
-  assert.match(s.prompts["20260802-b"].lightbox, /thumbnail\/2160x/);
+  assert.equal(s.prompts["20260802-b"].lightbox, s.prompts["20260802-b"].detail);
+  assert.match(s.prompts["20260802-b"].orig, /\/b\.png$/);
   assert.equal(s.prompts["20260802-b"].hidden, undefined);
   assert.equal(s.prompts["20260803-h"], undefined);
+  assert.equal(s.urls["20260802-b"].og, s.prompts["20260802-b"].detail);
 });
 
 test("index lists id+slug of visible items newest-first", () => {
