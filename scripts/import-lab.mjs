@@ -15,76 +15,69 @@
  * Scope guard: only archive-root folders matching the generation naming
  * convention are scanned (never recursive — the archive root also holds
  * ~200GB of content-collection working dirs), and sticker folders
- * (params.transparent_output === true) are skipped entirely.
+ * (params.transparent_output === true, plus real-pixel alpha detection —
+ * the metadata flag proved unreliable) are skipped entirely.
+ *
+ * Storage: Cloudflare R2 (2026-08-30, S3-compatible; free tier covers the
+ * whole archive and egress is free forever). Before that: Tencent COS HK.
  *
  * Env (from .env.local, gitignored — secrets never enter the repo):
- *   COS_BUCKET / COS_REGION / COS_SECRET_ID / COS_SECRET_KEY / LAB_ARCHIVE_DIR
+ *   R2_ACCOUNT_ID / R2_BUCKET / R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY /
+ *   LAB_ARCHIVE_DIR
  */
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadDotenv } from "dotenv";
-import COS from "cos-nodejs-sdk-v5";
 import sharp from "sharp";
+import {
+  R2_BUCKET,
+  r2Client,
+  ensureR2Bucket,
+  r2HeadEtag,
+  r2Put,
+  r2Delete,
+  md5of,
+} from "./r2-client.mjs";
+import { R2_PUBLIC_BASE } from "../src/lib/lab-cos-core.mjs";
 import { mergeLabEntries, parseArchiveFolder } from "./lab-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 loadDotenv({ path: resolve(ROOT, ".env.local") });
 
-const BUCKET = process.env.COS_BUCKET;
-const REGION = process.env.COS_REGION;
 const ARCHIVE = process.env.LAB_ARCHIVE_DIR;
 const LAB_JSON = resolve(ROOT, "data/manual/lab.json");
 const args = new Set(process.argv.slice(2));
 
-const cos = new COS({
-  SecretId: process.env.COS_SECRET_ID,
-  SecretKey: process.env.COS_SECRET_KEY,
-});
-const call = (fn, params) =>
-  new Promise((res, rej) => fn.call(cos, params, (e, d) => (e ? rej(e) : res(d))));
-const md5 = (buf) => createHash("md5").update(buf).digest("hex");
-const publicUrl = (key) => `https://${BUCKET}.cos.${REGION}.myqcloud.com/${key}`;
-// Bucket has a referer whitelist (2026-08-30 cost fix) — anonymous GETs are
-// 403 by design. Verify with the site's own Referer, mirroring a real
-// in-site download click. (HEAD ignores referer checks; GET enforces them.)
-const SITE_HEADERS = { Referer: "https://taostudioai.com/lab" };
+const client = r2Client();
 
 function requireEnv() {
-  const missing = ["COS_BUCKET", "COS_REGION", "COS_SECRET_ID", "COS_SECRET_KEY", "LAB_ARCHIVE_DIR"].filter(
-    (k) => !process.env[k],
-  );
-  if (missing.length) {
-    console.error(`缺少环境变量: ${missing.join(", ")}（写入 .env.local）`);
-    process.exit(1);
-  }
-  if (!existsSync(ARCHIVE)) {
+  // R2 credentials are validated by r2Client(); here we only check the archive.
+  if (!ARCHIVE || !existsSync(ARCHIVE)) {
     console.error(`LAB_ARCHIVE_DIR 不存在: ${ARCHIVE}`);
     process.exit(1);
   }
 }
 
 async function doctor() {
-  await call(cos.headBucket, { Bucket: BUCKET, Region: REGION });
-  console.log("1. headBucket PASS（密钥有效，桶可访问）");
+  requireEnv();
+  const info = await ensureR2Bucket(client);
+  console.log(`1. R2 桶 ${R2_BUCKET} ${info.created ? "已创建" : "可访问"} PASS`);
   const Key = "lab/_doctor_probe.txt";
-  await call(cos.putObject, {
-    Bucket: BUCKET,
-    Region: REGION,
-    Key,
-    Body: "probe",
-    ContentType: "text/plain",
-    ACL: "public-read",
-  });
-  console.log("2. putObject+public-read PASS");
-  const r = await fetch(publicUrl(Key), { headers: SITE_HEADERS });
-  if (!(r.status === 200 && (await r.text()) === "probe")) {
-    throw new Error(`匿名读失败 status=${r.status}`);
+  await r2Put(client, Key, "probe", "text/plain");
+  console.log("2. putObject PASS");
+  if (R2_PUBLIC_BASE) {
+    const r = await fetch(`${R2_PUBLIC_BASE}/${Key}`);
+    if (!(r.status === 200 && (await r.text()) === "probe")) {
+      throw new Error(`匿名读失败 status=${r.status}（检查桶的 Public Development URL 是否开启）`);
+    }
+    console.log("3. anonymous GET PASS（公开读链路通）");
+  } else {
+    console.log("3. 匿名读验证跳过（lab-cos-core 的 R2_PUBLIC_BASE 未配置——桶公开 URL 确定后填入再验）");
   }
-  console.log("3. anonymous GET PASS（公读链路通）");
-  await call(cos.deleteObject, { Bucket: BUCKET, Region: REGION, Key });
+  await r2Delete(client, Key);
   console.log("4. cleanup PASS — doctor 全绿");
 }
 
@@ -205,31 +198,20 @@ async function run() {
       if (idx >= candidates.length) return;
       const { entry, file } = candidates[idx];
       const buf = readFileSync(file);
-      // ETag = md5 for single-part uploads. Multipart-pushed objects (or
-      // another writer) produce a different ETag → treated as changed and
-      // re-uploaded. Safe + idempotent.
-      const remote = await call(cos.headObject, { Bucket: BUCKET, Region: REGION, Key: entry.cosKey }).catch(
-        () => null,
-      );
-      const remoteEtag = remote?.headers?.etag?.replace(/"/g, "");
-      if (remote && remoteEtag === md5(buf)) {
+      // ETag = md5 for R2 single-part puts. Mismatch/absence → (re)upload.
+      const remote = await r2HeadEtag(client, entry.cosKey);
+      if (remote === md5of(buf)) {
         newEntries.push(entry);
         unchanged += 1;
         console.log(`  已存在  ${entry.cosKey}`);
         continue;
       }
       try {
-        await call(cos.putObject, {
-          Bucket: BUCKET,
-          Region: REGION,
-          Key: entry.cosKey,
-          Body: buf,
-          ContentType: "image/png",
-          ContentLength: buf.length,
-          ACL: "public-read",
-          CacheControl: "public, max-age=31536000, immutable",
-        });
-        const check = await fetch(publicUrl(entry.cosKey), { method: "HEAD" });        if (check.status !== 200) throw new Error(`匿名 HEAD status=${check.status}`);
+        await r2Put(client, entry.cosKey, buf, "image/png");
+        if (R2_PUBLIC_BASE) {
+          const check = await fetch(`${R2_PUBLIC_BASE}/${entry.cosKey}`, { method: "HEAD" });
+          if (check.status !== 200) throw new Error(`匿名 HEAD status=${check.status}`);
+        }
         newEntries.push(entry);
         uploaded += 1;
         console.log(

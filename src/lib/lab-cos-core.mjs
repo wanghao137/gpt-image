@@ -17,12 +17,20 @@
 // .env.example / upload-cos.mjs). Not a secret; safe for the client bundle.
 export const COS_PUBLIC_BASE = "https://gpt-image-2-1259488227.cos.ap-hongkong.myqcloud.com";
 
-/** Width-bounded WebP thumbnail/detail variant of a lab original. */
+// 4K originals moved to Cloudflare R2 (2026-08-30): 5.74GB fits the 10GB
+// free tier and R2 egress is free forever — the COS bill (~¥1/day under bot
+// traffic) drops to ¥0. Set to the bucket's public development URL once the
+// bucket goes public; while null, originals keep serving from COS so the
+// switch is a one-line constant + shard regen.
+export const R2_PUBLIC_BASE = null;
+
+/** Width-bounded WebP thumbnail/detail variant of a lab original (COS CI). */
 export function labImageUrl(cosKey, width, quality = 78) {
   return `${COS_PUBLIC_BASE}/${cosKey}?imageMogr2/thumbnail/${width}x/format/webp/q/${quality}`;
 }
 
 /** The untouched 4K PNG original — download links only. */
 export function labOriginalUrl(cosKey) {
-  return `${COS_PUBLIC_BASE}/${cosKey}`;
+  const base = R2_PUBLIC_BASE ?? COS_PUBLIC_BASE;
+  return `${base}/${cosKey}`;
 }
