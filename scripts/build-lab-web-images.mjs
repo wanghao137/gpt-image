@@ -16,6 +16,12 @@
  *
  * Idempotent: skips files whose mtime is newer than the source image.
  * Usage: node scripts/build-lab-web-images.mjs [--force]
+ *
+ * CI-safe no-op: without a local archive (LAB_ARCHIVE_DIR unset/missing —
+ * e.g. GitHub Pages / fresh clones) the script exits 0 immediately; the
+ * committed public/lab-images WebPs ARE the served artifacts, so a build
+ * must never fail just because it cannot re-bake them (2026-08-30+ Pages
+ * deploy outage: 514/514 MISSING-SOURCE → exit 1 on every push).
  */
 import { existsSync, readdirSync, readFileSync, statSync, mkdirSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
@@ -83,6 +89,12 @@ async function bake(entry) {
 }
 
 async function main() {
+  if (!ARCHIVE || !existsSync(ARCHIVE)) {
+    console.log(
+      "lab-web-images: LAB_ARCHIVE_DIR 未配置或不存在，跳过烘焙（构建直接使用仓库内已提交的 public/lab-images 资产）。",
+    );
+    return;
+  }
   const items = existsSync(LAB_JSON) ? JSON.parse(readFileSync(LAB_JSON, "utf8")) : [];
   const visible = items.filter((i) => !i.hidden);
   mkdirSync(OUT_DIR, { recursive: true });
