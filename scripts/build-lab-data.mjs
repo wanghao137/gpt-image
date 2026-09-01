@@ -22,7 +22,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { labImageUrl, labOriginalUrl } from "../src/lib/lab-cos-core.mjs";
+import { labOriginalUrl } from "../src/lib/lab-cos-core.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -43,18 +43,17 @@ function writeJson(path, data) {
  * Per-entry image URLs. Browse-grade variants are served same-origin from
  * public/lab-images/ (baked by build-lab-web-images.mjs, free Vercel
  * bandwidth — COS egress became ¥1/day under bot traffic, 2026-08-30).
- * When a baked file is missing the entry falls back to its COS imageMogr2
- * URL so a partial bake can never break the page. `orig` stays a COS
- * direct link (download button — the only path that should cost COS
- * traffic).
+ * When a baked file is missing the entry falls back to its R2 ORIGINAL
+ * (the old imageMogr2 fallback died with the emptied COS bucket in the
+ * 2026-08-30 R2 move). Heavy but always resolvable — a partial bake can
+ * never break the page. `orig` stays the R2 direct link (download button).
  */
 function labUrls(item) {
   const card = resolve(LAB_IMAGES_DIR, `${item.id}-${CARD_W}.webp`);
   const detail = resolve(LAB_IMAGES_DIR, `${item.id}-${DETAIL_W}.webp`);
-  const thumb = existsSync(card) ? `/lab-images/${item.id}-${CARD_W}.webp` : labImageUrl(item.cosKey, 640);
-  const detailUrl = existsSync(detail)
-    ? `/lab-images/${item.id}-${DETAIL_W}.webp`
-    : labImageUrl(item.cosKey, DETAIL_W, 82);
+  const fallback = labOriginalUrl(item.cosKey);
+  const thumb = existsSync(card) ? `/lab-images/${item.id}-${CARD_W}.webp` : fallback;
+  const detailUrl = existsSync(detail) ? `/lab-images/${item.id}-${DETAIL_W}.webp` : fallback;
   return {
     thumb,
     detail: detailUrl,

@@ -24,8 +24,12 @@ test("SmartImg serves /lab-images/ direct — never wsrv-wrapped", () => {
   assert.match(src, /startsWith\("\/lab-images\/"\)/);
 });
 
-test("lab-cos-core derives imageMogr2 URLs against the COS HK public base", () => {
+test("lab-cos-core points originals at R2 — COS/imageMogr2 fully retired", () => {
+  // 2026-08-30 R2 move EMPTIED the COS bucket, so imageMogr2 URLs 404 and the
+  // labImageUrl builder was deleted. Guard against the dead COS base (or a
+  // rebuilt imageMogr2 URL template) sneaking back in.
   const src = readFileSync("src/lib/lab-cos-core.mjs", "utf8");
-  assert.match(src, /cos\.ap-hongkong\.myqcloud\.com/);
-  assert.match(src, /thumbnail\/\$\{width\}x\/format\/webp/);
+  assert.match(src, /pub-8e95aae17566496ba4c5e5ed16a824cf\.r2\.dev/);
+  assert.ok(!src.includes("myqcloud.com"));
+  assert.ok(!src.includes("thumbnail/${width}x"));
 });

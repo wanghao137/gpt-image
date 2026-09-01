@@ -6,7 +6,7 @@ import { ImageLightbox } from "../components/ImageLightbox";
 import { useCopy } from "../hooks/useCopy";
 import { useLabDetail } from "../hooks/useLabDetail";
 import { serializeLabHydrationData, LAB_HYDRATION_ELEMENT_ID } from "../hooks/lab-hydration-core.mjs";
-import { labImageUrl, labOriginalUrl } from "../lib/lab-cos-core.mjs";
+import { labOriginalUrl } from "../lib/lab-cos-core.mjs";
 import NotFoundPage from "./NotFoundPage";
 
 function labDate(iso: string): string {
@@ -50,11 +50,12 @@ export default function LabDetailPage() {
     return <NotFoundPage />;
   }
 
-  // Build-time URLs (same-origin baked variants). Defensive COS fallbacks in
-  // case a shard predates the url map — keeps the page renderable either way.
-  const detailSrc = urls?.detail ?? labImageUrl(item.cosKey, 1600, 82);
+  // Build-time URLs (same-origin baked variants). Defensive R2-original
+  // fallbacks in case a shard predates the url map — keeps the page
+  // renderable either way.
+  const detailSrc = urls?.detail ?? labOriginalUrl(item.cosKey);
   const lightboxSrc = urls?.lightbox ?? detailSrc;
-  const ogSrc = urls?.og ?? labImageUrl(item.cosKey, 1200);
+  const ogSrc = urls?.og ?? labOriginalUrl(item.cosKey);
   const origHref = urls?.orig ?? labOriginalUrl(item.cosKey);
   const ratio = `${Math.max(item.width, 1)}:${Math.max(item.height, 1)}`;
 

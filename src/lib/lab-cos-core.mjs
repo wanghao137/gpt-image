@@ -1,35 +1,27 @@
 /**
- * Shared COS URL builders for the 4K 实验室 section.
+ * Shared URL builders for the 4K 实验室 section.
  *
  * Consumed by BOTH build-time scripts (scripts/build-lab-data.mjs) and
- * runtime rendering (src/lib/data-lab.ts, lab pages) so the imageMogr2 URL
- * scheme has a single source of truth. Plain .mjs on purpose — no TS import
- * friction from build scripts.
+ * runtime rendering (src/pages/LabDetailPage.tsx) so lab URLs have a single
+ * source of truth. Plain .mjs on purpose — no TS import friction from build
+ * scripts.
  *
- * Why preset imageMogr2 URLs instead of the generic transformUrl/wsrv path:
- * the site's audience is in mainland China. COS HK answers <100ms RTT from
- * CN telecom/unicom/mobile, while wsrv.nl resolves to North-American POPs.
- * These URLs must therefore go DIRECT to COS (see img.ts / SmartImg.tsx
- * imageMogr2 pass-through) and never be wrapped by a proxy.
+ * History: originals used to live on COS HK with imageMogr2 preset URLs
+ * (labImageUrl). The 2026-08-30 R2 move EMPTIED the COS bucket, so every
+ * imageMogr2 URL now 404s and that builder was deleted. R2 serves raw
+ * objects only — no on-the-fly resize — so baked same-origin WebPs are the
+ * browse path and the R2 original doubles as the emergency fallback when a
+ * baked variant is missing. Keep these URLs direct (never wsrv-proxied):
+ * the audience is in mainland China and proxy POPs are slow there.
  */
 
-// Public bucket endpoint — public info (same value documented in
-// .env.example / upload-cos.mjs). Not a secret; safe for the client bundle.
-export const COS_PUBLIC_BASE = "https://gpt-image-2-1259488227.cos.ap-hongkong.myqcloud.com";
-
-// 4K originals moved to Cloudflare R2 (2026-08-30): 5.74GB fits the 10GB
-// free tier and R2 egress is free forever — the COS bill (~¥1/day under bot
-// traffic) drops to ¥0. Bucket "taostudio-lab", public development URL
-// enabled via CF API. Egress is free, so no hotlink protection is needed.
+// 4K originals on Cloudflare R2: 5.74GB fits the 10GB free tier and R2
+// egress is free forever — the former COS bill (~¥1/day under bot traffic)
+// is ¥0. Bucket "taostudio-lab", public development URL enabled via CF API.
+// Not a secret; safe for the client bundle.
 export const R2_PUBLIC_BASE = "https://pub-8e95aae17566496ba4c5e5ed16a824cf.r2.dev";
 
-/** Width-bounded WebP thumbnail/detail variant of a lab original (COS CI). */
-export function labImageUrl(cosKey, width, quality = 78) {
-  return `${COS_PUBLIC_BASE}/${cosKey}?imageMogr2/thumbnail/${width}x/format/webp/q/${quality}`;
-}
-
-/** The untouched 4K PNG original — download links only. */
+/** The untouched 4K PNG original — download links + emergency fallback. */
 export function labOriginalUrl(cosKey) {
-  const base = R2_PUBLIC_BASE ?? COS_PUBLIC_BASE;
-  return `${base}/${cosKey}`;
+  return `${R2_PUBLIC_BASE}/${cosKey}`;
 }

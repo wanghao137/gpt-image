@@ -67,7 +67,7 @@ function locateArchiveImage(cosKey) {
 async function bake(entry) {
   const src = locateArchiveImage(entry.cosKey);
   if (!src) {
-    console.warn(`  MISSING-SOURCE ${entry.id}（本地档案找不到，跳过——COS 回退）`);
+    console.warn(`  MISSING-SOURCE ${entry.id}（本地档案找不到，跳过——R2 原图回退）`);
     return { id: entry.id, ok: false, reason: "no-source" };
   }
   const cardPath = resolve(OUT_DIR, `${entry.id}-${CARD_W}.webp`);
@@ -114,7 +114,7 @@ async function main() {
     }
   };
   await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
-  console.log(`完成：${done} 条，失败 ${failed}（失败条目运行时回退 COS imageMogr2）。`);
+  console.log(`完成：${done} 条，失败 ${failed}（失败条目运行时回退 R2 原图）。`);
   if (failed > 0) process.exitCode = 1;
 }
 

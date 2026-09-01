@@ -15,27 +15,27 @@ test("detail page renders full prompt in static HTML (SEO) and embeds hydration 
   assert.match(src, /serializeLabHydrationData/);
 });
 
-test("detail page never references wsrv for images (imageMogr2/COS fallback stays direct)", () => {
+test("detail page never references wsrv for images (R2 fallback stays direct)", () => {
   const src = readFileSync("src/pages/LabDetailPage.tsx", "utf8");
   assert.ok(!src.includes("rawTransformUrl"));
   assert.ok(!src.includes("wsrv"));
 });
 
-test("detail page serves browse images same-origin and keeps COS only for original download", () => {
+test("detail page serves browse images same-origin and keeps R2 for original download", () => {
   const src = readFileSync("src/pages/LabDetailPage.tsx", "utf8");
   // og / detail / lightbox all come from the build-time url map
   assert.match(src, /urls\?\.(detail|og|lightbox|orig)/);
-  // original download keeps the COS link (the only COS-traffic path)
+  // original download keeps the R2 link
   assert.match(src, /origHref/);
   // NO redundant prompts-shard preload (adversarial review 2026-08-29)
   assert.ok(!src.includes("preloadFetch"));
 });
 
-test("shards assemble same-origin baked variants with COS fallback", () => {
+test("shards assemble same-origin baked variants with R2-original fallback", () => {
   const src = readFileSync("scripts/build-lab-data.mjs", "utf8");
   assert.match(src, /\/lab-images\/\$\{item\.id\}-\$\{CARD_W\}\.webp/);
   assert.match(src, /\/lab-images\/\$\{item\.id\}-\$\{DETAIL_W\}\.webp/);
-  assert.match(src, /labImageUrl\(item\.cosKey/);
+  assert.match(src, /labOriginalUrl\(item\.cosKey/);
   assert.match(src, /lab-urls\.json/);
 });
 

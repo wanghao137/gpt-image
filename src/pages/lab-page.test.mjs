@@ -40,7 +40,7 @@ test("LabPage auto-loads via IntersectionObserver with manual button fallback", 
   assert.match(src, /加载失败，点此重试/);
 });
 
-test("LabGrid renders direct imageMogr2 thumbs with aspect-ratio placeholders", () => {
+test("LabGrid renders baked same-origin thumbs with aspect-ratio placeholders", () => {
   const src = readFileSync("src/components/LabGrid.tsx", "utf8");
   assert.match(src, /item\.thumb/);
   assert.match(src, /aspectRatio/);

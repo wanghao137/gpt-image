@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { buildLabShards } from "./build-lab-data.mjs";
+import { labOriginalUrl } from "../src/lib/lab-cos-core.mjs";
 
 // buildLabShards(items) 是纯函数：输入 LabItem[]，返回 { home, pages, index, prompts }
 // home.items[0] 是最新条目；pages 每页 ≤48；hidden 条目不出现在任何产物。
@@ -31,15 +32,16 @@ test("lite rows carry thumb url and compact fields; home mirrors page-000", () =
   assert.equal(row.d, "2026-08-02T00:00:00Z");
   assert.equal(row.w, 2160);
   assert.equal(row.h, 3840);
-  assert.match(row.thumb, /imageMogr2\/thumbnail\/640x\/format\/webp/);
+  // fixture ids have no baked file → R2-original fallback (COS emptied 2026-08-30)
+  assert.equal(row.thumb, labOriginalUrl("lab/2026/08/b.png"));
   assert.deepEqual(s.pages[0][0].id, "b");
 });
 
-test("prompts shard carries full item (minus hidden) + urls; baked file wins over COS fallback", () => {
+test("prompts shard carries full item (minus hidden) + urls; missing baked file falls back to R2 original", () => {
   const s = buildLabShards(items);
   assert.equal(s.prompts["20260802-b"].prompt, "pb");
-  // no baked file for fixture ids → COS imageMogr2 fallback
-  assert.match(s.prompts["20260802-b"].detail, /thumbnail\/1600x/);
+  // no baked file for fixture ids → R2 original fallback
+  assert.equal(s.prompts["20260802-b"].detail, labOriginalUrl("lab/2026/08/b.png"));
   assert.equal(s.prompts["20260802-b"].lightbox, s.prompts["20260802-b"].detail);
   assert.match(s.prompts["20260802-b"].orig, /\/b\.png$/);
   assert.equal(s.prompts["20260802-b"].hidden, undefined);

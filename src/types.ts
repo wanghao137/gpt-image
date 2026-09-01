@@ -158,7 +158,7 @@ export interface LabLiteRow {
   d: string;
   w: number;
   h: number;
-  /** Preset imageMogr2 640px WebP URL — direct to COS, never wsrv-proxied. */
+  /** Card thumbnail — /lab-images/<id>-480.webp (R2 original fallback). */
   thumb: string;
 }
 
@@ -172,13 +172,13 @@ export interface LabHomePayload {
 
 /** Per-entry image URLs (assembled at build time by build-lab-data.mjs). */
 export interface LabUrls {
-  /** Card thumbnail — /lab-images/<id>-480.webp (COS imageMogr2 fallback). */
+  /** Card thumbnail — /lab-images/<id>-480.webp (R2 original fallback). */
   thumb: string;
-  /** Detail + lightbox + og:image — /lab-images/<id>-1600.webp (fallback COS). */
+  /** Detail + lightbox + og:image — /lab-images/<id>-1600.webp (R2 fallback). */
   detail: string;
   lightbox: string;
   og: string;
-  /** Untouched 4K PNG on COS — the ONLY path meant to cost COS traffic. */
+  /** Untouched 4K PNG on R2 — the download button target. */
   orig: string;
 }
 
