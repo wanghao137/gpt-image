@@ -118,16 +118,16 @@ export function Connect({ onConnected }: ConnectProps) {
         {/* Right: form card */}
         <form onSubmit={submit} className="surface p-6 shadow-soft sm:p-7">
           <div className="grid grid-cols-2 gap-3 rounded-xl border border-white/[0.06] bg-ink-950/50 p-4 sm:grid-cols-4">
-            <Stat label="Owner" value={REPO_TARGET.owner} />
-            <Stat label="Repo" value={REPO_TARGET.repo} />
-            <Stat label="Branch" value={REPO_TARGET.branch} />
-            <Stat label="API" value="api.github.com" />
+            <Stat label="所有者" value={REPO_TARGET.owner} />
+            <Stat label="仓库" value={REPO_TARGET.repo} />
+            <Stat label="分支" value={REPO_TARGET.branch} />
+            <Stat label="接口" value="api.github.com" />
           </div>
 
           <label className="mt-5 block">
             <div className="mb-1.5 flex items-baseline justify-between">
               <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-ink-400">
-                Personal Access Token <span className="ml-1 text-ember-400">*</span>
+                个人访问令牌（Token） <span className="ml-1 text-ember-400">*</span>
               </span>
               <a
                 href={tokenUrl}

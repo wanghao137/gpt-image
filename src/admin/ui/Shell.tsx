@@ -246,7 +246,7 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
             />
           ) : tab === "raw-cases" ? (
             <RawJson
-              label="cases"
+              label="案例"
               path="data/manual/cases.json"
               data={store.cases.data}
               onChange={store.setCases}
@@ -257,7 +257,7 @@ export function Shell({ token, login, onSignOut }: ShellProps) {
             />
           ) : (
             <RawJson
-              label="templates"
+              label="模板"
               path="data/manual/templates.json"
               data={store.templates.data}
               onChange={store.setTemplates}
@@ -331,7 +331,7 @@ function Sidebar({
 
       <nav className="flex-1 space-y-6 px-3 py-2">
         <NavGroup
-          label="Manage"
+          label="内容管理"
           items={groupItems("manage").map((t) => ({
             ...t,
             count: countForTab(t.id, casesCount, templatesCount),
@@ -340,7 +340,7 @@ function Sidebar({
           onChange={onChange}
         />
         <NavGroup
-          label="Raw"
+          label="源码数据"
           items={groupItems("raw")}
           active={active}
           onChange={onChange}
@@ -396,7 +396,7 @@ function Sidebar({
 
         <div className="mt-2 rounded-xl border border-white/[0.06] bg-ink-950/50 px-3 py-2.5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
-            Signed in
+            当前登录
           </p>
           <p className="mt-0.5 truncate text-[13px] font-semibold text-ink-100">
             @{login}

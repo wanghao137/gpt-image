@@ -113,7 +113,7 @@ export function CaseEditor({
   return (
     <div className="flex h-full min-h-0 flex-col">
       <SectionHeading
-        eyebrow="Manual Library"
+        eyebrow="手动内容库"
         title="案例管理"
         description="维护 data/manual/cases.json。每次保存会向 GitHub 提交一次 commit，CI 自动重新构建并部署。"
         right={
@@ -204,7 +204,7 @@ export function CaseEditor({
                               <span className="truncate font-mono text-[10.5px] text-ink-400">
                                 #{c.id || "—"}
                               </span>
-                              {c.hidden && <Badge tone="rose">hidden</Badge>}
+                              {c.hidden && <Badge tone="rose">已隐藏</Badge>}
                             </span>
                             <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-ink-500">
                               {formatContentDate(c.createdAt || c.imageUrl)}
@@ -294,7 +294,7 @@ function CaseForm({
     <div className="flex h-full min-h-0 flex-col">
       <header className="flex items-center justify-between gap-3 border-b border-white/[0.05] px-5 py-3">
         <div className="min-w-0">
-          <p className="eyebrow">Editing</p>
+          <p className="eyebrow">编辑中</p>
           <p className="mt-0.5 truncate text-[14px] font-semibold text-ink-100">
             {data.title || <em className="text-ink-500">无标题案例</em>}
           </p>
@@ -323,7 +323,7 @@ function CaseForm({
             <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <div>
-                  <p className="eyebrow">Publish fields</p>
+                  <p className="eyebrow">发布信息</p>
                   <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
                     快速发布
                   </h2>
@@ -386,7 +386,7 @@ function CaseForm({
               <summary className="cursor-pointer list-none">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="eyebrow">Metadata</p>
+                    <p className="eyebrow">元数据</p>
                     <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
                       高级字段
                     </h2>

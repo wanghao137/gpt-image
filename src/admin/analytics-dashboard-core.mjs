@@ -1,8 +1,9 @@
 export function formatCompactNumber(value) {
   const number = Math.max(0, Number(value) || 0);
-  if (number < 1000) return String(Math.round(number));
-  if (number < 1000000) return `${(number / 1000).toFixed(1).replace(/\.0$/, "")}k`;
-  return `${(number / 1000000).toFixed(1).replace(/\.0$/, "")}m`;
+  const trimZero = (text) => text.replace(/\.0$/, "");
+  if (number < 10000) return String(Math.round(number));
+  if (number < 100000000) return `${trimZero((number / 10000).toFixed(1))}万`;
+  return `${trimZero((number / 100000000).toFixed(1))}亿`;
 }
 
 export function chartMaxValue(daily = []) {
@@ -44,6 +45,22 @@ const LABELS = {
     SG: "新加坡",
     KR: "韩国",
     GB: "英国",
+    DE: "德国",
+    FR: "法国",
+    IN: "印度",
+    RU: "俄罗斯",
+    CA: "加拿大",
+    AU: "澳大利亚",
+    VN: "越南",
+    TH: "泰国",
+    MY: "马来西亚",
+    ID: "印度尼西亚",
+    PH: "菲律宾",
+    MM: "缅甸",
+    TR: "土耳其",
+    IT: "意大利",
+    ES: "西班牙",
+    NL: "荷兰",
   },
   device: {
     Desktop: "桌面端",

@@ -10,11 +10,13 @@ import {
   trendDelta,
 } from "./analytics-dashboard-core.mjs";
 
-test("formats compact dashboard numbers", () => {
+test("formats compact dashboard numbers in Chinese units", () => {
   assert.equal(formatCompactNumber(0), "0");
   assert.equal(formatCompactNumber(999), "999");
-  assert.equal(formatCompactNumber(1250), "1.3k");
-  assert.equal(formatCompactNumber(1200000), "1.2m");
+  assert.equal(formatCompactNumber(1250), "1250");
+  assert.equal(formatCompactNumber(12345), "1.2万");
+  assert.equal(formatCompactNumber(1200000), "120万");
+  assert.equal(formatCompactNumber(150000000), "1.5亿");
 });
 
 test("uses at least one as chart maximum", () => {

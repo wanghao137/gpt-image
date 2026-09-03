@@ -123,7 +123,7 @@ export function TemplateEditor({
   return (
     <div className="flex h-full min-h-0 flex-col">
       <SectionHeading
-        eyebrow="Manual Library"
+        eyebrow="手动内容库"
         title="模板管理"
         description="维护 data/manual/templates.json。模板比案例少很多，通常一两条即可。"
         right={
@@ -234,7 +234,7 @@ export function TemplateEditor({
             <div className="flex h-full min-h-0 flex-col">
               <header className="flex items-center justify-between gap-3 border-b border-white/[0.05] px-5 py-3">
                 <div className="min-w-0">
-                  <p className="eyebrow">Editing</p>
+                  <p className="eyebrow">编辑中</p>
                   <p className="mt-0.5 truncate text-[14px] font-semibold text-ink-100">
                     {active.title || <em className="text-ink-500">无标题模板</em>}
                   </p>
@@ -259,7 +259,7 @@ export function TemplateEditor({
                     <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
                       <div className="mb-4 flex items-center justify-between gap-3">
                         <div>
-                          <p className="eyebrow">Template core</p>
+                          <p className="eyebrow">模板核心</p>
                           <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
                             模板主信息
                           </h2>
@@ -319,7 +319,7 @@ export function TemplateEditor({
 
                     <section className="rounded-xl border border-white/[0.06] bg-ink-950/35 p-4">
                       <div className="mb-4">
-                        <p className="eyebrow">Metadata</p>
+                        <p className="eyebrow">元数据</p>
                         <h2 className="mt-1 text-[15px] font-semibold text-ink-100">
                           展示辅助字段
                         </h2>

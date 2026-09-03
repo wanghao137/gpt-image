@@ -85,7 +85,7 @@ export function AnalyticsDashboard({ token }: AnalyticsDashboardProps) {
     <div className="flex h-full min-h-0 flex-col gap-4 overflow-hidden">
       <header className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="eyebrow">Analytics</p>
+          <p className="eyebrow">访问统计</p>
           <h1 className="serif-display mt-1 text-3xl text-ink-50">数据看板</h1>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -215,16 +215,16 @@ function TrendPanel({ daily }: { daily: DailyMetric[] }) {
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-500">
-            Daily Traffic
+            流量走势
           </p>
           <h2 className="mt-1 text-[17px] font-semibold text-ink-50">每日访问趋势</h2>
         </div>
         <div className="flex items-center gap-3 text-[11.5px] text-ink-400">
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-ember-400" /> PV
+            <span className="h-2 w-2 rounded-full bg-ember-400" /> 浏览量
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" /> UV
+            <span className="h-2 w-2 rounded-full bg-emerald-400" /> 访客数
           </span>
         </div>
       </div>
@@ -313,7 +313,7 @@ function PlatformPanel() {
   return (
     <section className="surface-form p-4">
       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-500">
-        Integrations
+        外部集成
       </p>
       <h2 className="mt-1 text-[17px] font-semibold text-ink-50">外部平台</h2>
       <div className="mt-4 space-y-2">
