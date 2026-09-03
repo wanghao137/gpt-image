@@ -1,5 +1,32 @@
 [
   {
+    "id": "100269",
+    "title": "宝可梦联名羽绒服高级编辑感产品大片",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-09-04-case-100269-pokemon-puffer-jacket.jpg",
+    "imageAlt": "宝可梦联名羽绒服高级编辑感产品大片",
+    "prompt": "High-end editorial product shot of a custom The North Face Nuptse 700 puffer jacket inspired by [POKEMON].\nThe jacket’s primary colorway automatically derives from [POKEMON]’s dominant palette (main body color as base tone, secondary accents used sparingly for contrast), translated into premium, wearable hues — never cartoonish, always fashion-forward.\nA large-scale embroidered [POKEMON] artwork dominates the back panel, adapted to the jacket’s quilted structure.\nEmbroidery style reflects [POKEMON]’s core identity:\n\naggressive Pokémon → bold stitch density, sharp contours\nelegant or mystical Pokémon → flowing lines, layered thread gradients\n\narmored or mechanical Pokémon → heavy, structured embroidery with tactile depth\n\nThe front of the jacket remains minimal and restrained:\nclean TNF logo, subtle Poké Ball patch, no additional graphics.\n\nMaterial realism is critical: visible fabric sheen, natural puff volume, precise seam alignment, embroidery threads sitting slightly raised from the nylon surface.\n\nShot in a Japanese fashion magazine product layout, pure white background.\nFront and back views presented together, jacket floating upright, perfectly centered.\nLighting is clean, studio-soft with controlled contrast to emphasize texture and craftsmanship.\n\nMood: luxury streetwear meets collectible archive piece.\nNo model. No props. No distractions.\nUltra-sharp focus, high resolution, editorial polish, timeless design.",
+    "promptPreview": "High-end editorial product shot of a custom The North Face Nuptse 700 puffer jacket inspired by [POKEMON]. The jacket’s primary colorway automatically derives from [POKEMON]’s dominant palette (main body color as base t…",
+    "source": "Community collected via @0xInk_",
+    "createdAt": "2026-09-03T20:05:48.734Z"
+  },
+  {
     "id": "100268",
     "title": "翡翠项链奢侈品广告八格电影分镜",
     "category": "场景与叙事",
