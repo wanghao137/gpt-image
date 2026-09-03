@@ -46,3 +46,25 @@ test("LabGrid renders baked same-origin thumbs with aspect-ratio placeholders", 
   assert.match(src, /aspectRatio/);
   assert.match(src, /\/lab\/\$\{item\.slug\}/);
 });
+
+test("LabGrid uses row-first masonry (no CSS columns) — append never reshuffles", () => {
+  // 2026-09-03 "排序乱了" fix: the old `columns-2/3/4` layout rebalanced on
+  // every load-more; /cases solved this with the measured 1px-row grid and
+  // LabGrid mirrors it.
+  const src = readFileSync("src/components/LabGrid.tsx", "utf8");
+  assert.match(src, /masonry masonry-feed/);
+  assert.match(src, /gridRowEnd/);
+  assert.match(src, /ResizeObserver/);
+  assert.ok(!/columns-2|columns-3|columns-4/.test(src), "CSS columns layout must not come back");
+});
+
+test("bake script hard-fails on transparent originals (sticker gate)", () => {
+  const src = readFileSync("scripts/build-lab-web-images.mjs", "utf8");
+  assert.match(src, /alphaMin < 250/);
+  assert.match(src, /reason: "transparent"/);
+});
+
+test("shard ordering is deterministic with id tiebreaker", () => {
+  const src = readFileSync("scripts/build-lab-data.mjs", "utf8");
+  assert.match(src, /String\(a\.id\)\.localeCompare\(String\(b\.id\)\)/);
+});

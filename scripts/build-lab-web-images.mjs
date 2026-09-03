@@ -70,6 +70,24 @@ async function bake(entry) {
     console.warn(`  MISSING-SOURCE ${entry.id}（本地档案找不到，跳过——R2 原图回退）`);
     return { id: entry.id, ok: false, reason: "no-source" };
   }
+  // HARD GATE: transparent originals are the sticker lane and must NEVER
+  // ship. The importer blocks them at entry, but history proved the metadata
+  // flag unreliable AND the first batch predated the check (2026-09-03
+  // incident: sticker sheets went live). Baking runs in predev/prebuild, so
+  // failing here turns the whole build red until the entry is removed.
+  try {
+    const md = await sharp(src).metadata();
+    if (md.hasAlpha) {
+      const st = await sharp(src).stats();
+      const alphaMin = st.channels[st.channels.length - 1].min;
+      if (Number.isFinite(alphaMin) && alphaMin < 250) {
+        console.error(`  TRANSPARENT ${entry.id} — 透明图/表情包严禁上线（从 lab.json 删除该条后重跑）`);
+        return { id: entry.id, ok: false, reason: "transparent" };
+      }
+    }
+  } catch {
+    // unreadable here → the bake below surfaces the real error
+  }
   const cardPath = resolve(OUT_DIR, `${entry.id}-${CARD_W}.webp`);
   const detailPath = resolve(OUT_DIR, `${entry.id}-${DETAIL_W}.webp`);
   const srcMtime = statSync(src).mtimeMs;

@@ -82,7 +82,15 @@ function toLite(item) {
 export function buildLabShards(items) {
   const visible = (Array.isArray(items) ? items : [])
     .filter((i) => i && !i.hidden)
-    .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))); // newest first
+    // Deterministic display order: createdAt desc, then id asc as a stable
+    // tiebreaker (same-second multi-image folders expand 1,2,3…). Without it,
+    // equal-createdAt rows depended on registry input order and pagination
+    // steps could interleave them ("排序乱了" report 2026-09-03).
+    .sort(
+      (a, b) =>
+        String(b.createdAt).localeCompare(String(a.createdAt)) ||
+        String(a.id).localeCompare(String(b.id)),
+    );
   const revision = createHash("sha256").update(JSON.stringify(visible)).digest("hex").slice(0, 12);
 
   const liteRows = visible.map(toLite);
