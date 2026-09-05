@@ -927,17 +927,17 @@
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
     "cover": "https://cms-assets.youmind.com/media/1788595158046_voqccq_HRbU0EXa0AAh4kC.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #33537 四宫格 AI 内容展示: 一个 2x2 的拼贴图，包含精美的电商、生活方式、AI 教育和生产力语录图形，用于展示生成式图像内容创意。\n- #33359 GPT Image 2.5 Neon Glass Banner: A cinematic black-and-gold tech announcement banner for presenting a new GPT image model or pro…\n- #33314 首尔夜景时尚大片: 一个精致的时尚提示词，展现了首尔霓虹街头充满未来感的时装造型。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #33537 四宫格 AI 内容展示: 一个 2x2 的拼贴图，包含精美的电商、生活方式、AI 教育和生产力语录图形，用于展示生成式图像内容创意。\n- #33520 蔬菜沙拉 2K 摄影作品: 一个使用 GPT-Image-2 生成的高分辨率竖屏新鲜蔬菜沙拉提示词。\n- #33359 GPT Image 2.5 Neon Glass Banner: A cinematic black-and-gold tech announcement banner for presenting a new GPT image model or pro…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
       "33537",
+      "33520",
       "33359",
       "33314",
-      "100269",
-      "33257"
+      "100269"
     ]
   },
   {
