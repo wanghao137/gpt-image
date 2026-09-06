@@ -1,5 +1,23 @@
 [
   {
+    "id": "derived-childhood-photo-sticker-avatar",
+    "title": "童年照转潮流贴纸头像：Y2K漂浮头像批量生成",
+    "category": "角色与人物",
+    "tags": [
+      "avatar",
+      "portrait",
+      "collage",
+      "yzk"
+    ],
+    "description": "上传童年照/老照片，保留五官辨识度，批量生成可爱潮流贴纸头像（floating head sticker），可自定义表情、发型、配饰、道具、配色，一次出10张不同造型。",
+    "cover": "/uploads/template-derived-childhood-photo-sticker-avatar.jpg",
+    "prompt": "以用户上传的人像照片作为人物身份与五官参考。即使原图是童年照、低清、模糊、老照片，也优先提取并延续人物最有辨识度的特征：脸型比例、眼型与眼距、眉形、鼻子结构、嘴型、耳朵轮廓、发际线、面部肉感、神态习惯与个人气质；在提升清晰度和细节完整度时，保持这个人原本的辨识度，生成结果仍能明显看出是照片中的同一个人。\n\n将人物制作成可爱潮流人像贴纸 / floating head sticker portrait：只保留头部与少量颈部，头部居中放大，轻微大头比例，脸部仍保持自然真实的人体结构；皮肤细腻柔软，五官清晰，带轻微童趣和精致杂志感，真实摄影质感与可爱玩具感融合。人物轮廓干净，带柔和的白色贴纸描边，背景使用简洁的奶白色或浅色纯净背景。\n\n表情设为{argument name=\"表情\" default=\"嘟嘴 / 眨眼 / 偷笑 / 惊讶 / 鼓腮 / 呆萌 / 酷酷地看向一侧\"}；\n发型设为{argument name=\"发型\" default=\"保留原发型 / 双丸子头 / 短碎发 / 蓬松卷发\"}；\n加入{argument name=\"配饰\" default=\"墨镜 / 棒球帽 / 星星耳钉 / 小圆环耳环 / 发夹\"}；\n加入{argument name=\"互动道具\" default=\"泡泡糖 / 面包片 / 糖果 / 无道具\"}；\n背景点缀{argument name=\"装饰元素\" default=\"手绘星星 / 闪光符号 / 小花 / 爱心 / 涂鸦\"}，数量少而灵活，像时尚贴纸拼贴；\n主色调为{argument name=\"主色调\" default=\"蓝黄 / 粉蓝 / 黑白 / 奶油色\"}。\n\n整体效果：高质量棚拍人像 + 潮流贴纸 + 可爱 editorial fashion + Y2K pop collage，光线柔和明亮，头发有真实发丝与自然高光，眼睛清透有神，皮肤保留细微真实纹理，画面干净、俏皮、精致、有收藏贴纸感。构图可根据人物动作与配饰自然变化，但人物身份特征始终作为最高优先级保持一致。可以要求一次输出10张，每张不同表情、造型、装饰。",
+    "useWhen": "想把童年照、老照片、低清照片转成可爱贴纸风格头像；需要保留人物辨识度；社交媒体头像、社群贴纸物料、朋友圈趣味形象批量产出。",
+    "createdAt": "2026-09-06T21:04:15.303Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-archive-resume-poster",
     "title": "档案式简历海报：黑白抠像双栏编辑排版",
     "category": "文档与出版",
