@@ -1,5 +1,30 @@
 [
   {
+    "id": "100274",
+    "title": "黑白明暗对照极简时尚人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-09-07-case-100274-bw-editorial-portrait.jpg",
+    "imageAlt": "黑白明暗对照极简时尚人像摄影",
+    "prompt": "Ultra-cinematic black-and-white portrait of a young man standing in a dark minimalist studio, wearing a long black wool overcoat and black knit sweater. Dramatic single spotlight from the upper left corner creates a strong diagonal beam of light across the background and partially illuminates the face. Subject positioned slightly off-center, looking away from the camera with a contemplative, melancholic expression. Sharp jawline, textured messy hair, subtle skin detail, high-fashion editorial styling.\n\nDeep shadows, high contrast monochrome photography, moody atmosphere, fine art portrait, luxury fashion campaign aesthetic, minimal composition, negative space, soft falloff lighting, volumetric light beam, chiaroscuro lighting inspired by classic cinema and modern fashion editorials.\n\nProfessional studio photography, medium shot, 85mm lens, f/2.0, shallow depth of field, ultra-detailed facial features, realistic skin texture, cinematic tonal range, rich blacks, smooth grayscale transitions, premium magazine cover quality, dramatic mood, timeless elegance.\n\nBackground completely dark except for the diagonal spotlight, subtle haze to enhance the light beam, clean composition, no distractions, no props, photorealistic, masterpiece quality, 8k resolution.",
+    "promptPreview": "Ultra-cinematic black-and-white portrait of a young man standing in a dark minimalist studio, wearing a long black wool overcoat and black knit sweater. Dramatic single spotlight from the upper left corner creates a str…",
+    "source": "Community collected via @weiinberg",
+    "createdAt": "2026-09-06T20:06:05.674Z"
+  },
+  {
     "id": "100273",
     "title": "赛博朋克雨夜超跑广告级商业摄影",
     "category": "产品与电商",
