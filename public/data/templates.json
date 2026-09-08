@@ -1010,18 +1010,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "https://cms-assets.youmind.com/media/1788769212797_jtdrgv_HRmIVUlWAAE4UdR.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #33717 港口暮色摄影与建筑草图海报: 创作一张上下结构的旅行海报，上方为暮色港口摄影，下方为与之对应的建筑概念草图。\n- #33644 Miniature Shenzhen Paper Diorama: Generates a charming paper-cut travel postcard diorama of Shenzhen with skyline landmarks, tran…\n- #33623 Vintage Fitz Roy Travel Poster: A watercolor vintage luxury travel poster featuring Fitz Roy, Patagonia with a hiker, turquoise…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/uploads/2026-09-09-case-100277-landmark-blueprint-infographic.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Minimal / Realistic / Infographic / Education / Brand / Architecture / Technical\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100277 地标建筑蓝图式技术注释信息图: Create an infographic image of [LANDMARK], combining a real photograph of the landmark with blu…\n- #33717 港口暮色摄影与建筑草图海报: 创作一张上下结构的旅行海报，上方为暮色港口摄影，下方为与之对应的建筑概念草图。\n- #33644 Miniature Shenzhen Paper Diorama: Generates a charming paper-cut travel postcard diorama of Shenzhen with skyline landmarks, tran…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100277",
       "33717",
       "33644",
       "33623",
-      "33621",
-      "33611"
+      "33621"
     ]
   },
   {
@@ -1226,18 +1226,18 @@
       "Layout"
     ],
     "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
-    "cover": "/uploads/2026-08-25-case-mono-magazine-cover.jpg",
-    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Realistic / Cinematic / Minimal / Studio / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100249 黑白奢华杂志封面人像：双重曝光故障风: Use my uploaded face image as the primary identity reference. Preserve my 100% exact facial ide…\n- #100243 纸感切面侧脸花瓣瀑布杂志封面: { \"style_name\": \"Paper Bloom Covers\", \"style_slug\": \"faceted-profile-petal-cascade-cover\", \"can…\n- #100169 Vogue风格奢华咖啡桌画册摄影: Luxury photorealistic coffee table book, open to two pages, showcasing an artistic composition …\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "cover": "/uploads/2026-09-09-case-100278-encyclopedia-knowledge-card.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Illustration / Education / Infographic / Realistic / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100278 模块化科普百科知识卡: 请根据【主题】生成一张高质量竖版「科普百科图」。 这张图不是普通海报，也不是单纯插画，而是一张兼具\"图鉴感、百科感、信息结构感、收藏感\"的模块化科普信息图。整体风格参考高级博物图鉴、现代百科…\n- #100249 黑白奢华杂志封面人像：双重曝光故障风: Use my uploaded face image as the primary identity reference. Preserve my 100% exact facial ide…\n- #100243 纸感切面侧脸花瓣瀑布杂志封面: { \"style_name\": \"Paper Bloom Covers\", \"style_slug\": \"faceted-profile-petal-cascade-cover\", \"can…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
     "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100278",
       "100249",
       "100243",
       "100169",
-      "100158",
-      "100138"
+      "100158"
     ]
   },
   {
@@ -1250,18 +1250,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1788769209631_lqdqez_HRgD2qoboAAfoWK.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #33712 卡通女孩滑板遛狗: 一幅色彩鲜艳的手绘卡通街景，描绘了一个女孩被一只柴犬拉着滑滑板的场景，适用于幽默插画生成。\n- #33711 可爱小熊猫儿童插画: 一幅明亮的儿童绘本风格手绘卡通小熊猫场景，适用于书籍艺术、海报或趣味角色插画。\n- #33709 Starbucks Mountain Watercolor Comparison: Generates a two-panel image pairing a realistic night Starbucks café beneath a misty mountain w…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-09-09-case-100278-encyclopedia-knowledge-card.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial / Poster / Education / Infographic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100278 模块化科普百科知识卡: 请根据【主题】生成一张高质量竖版「科普百科图」。 这张图不是普通海报，也不是单纯插画，而是一张兼具\"图鉴感、百科感、信息结构感、收藏感\"的模块化科普信息图。整体风格参考高级博物图鉴、现代百科…\n- #33712 卡通女孩滑板遛狗: 一幅色彩鲜艳的手绘卡通街景，描绘了一个女孩被一只柴犬拉着滑滑板的场景，适用于幽默插画生成。\n- #33711 可爱小熊猫儿童插画: 一幅明亮的儿童绘本风格手绘卡通小熊猫场景，适用于书籍艺术、海报或趣味角色插画。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100278",
       "33712",
       "33711",
       "33709",
-      "33707",
-      "33705"
+      "33707"
     ]
   },
   {
