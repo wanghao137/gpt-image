@@ -1,5 +1,34 @@
 [
   {
+    "id": "100280",
+    "title": "树冠成发：建筑壁画与真实树木的错视艺术",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Realistic",
+      "Street Art"
+    ],
+    "scenes": [
+      "Narrative",
+      "Urban",
+      "Art"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Brand",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-09-10-case-urmeer-mural-illusion.jpg",
+    "imageAlt": "树冠成发：建筑壁画与真实树木的错视艺术",
+    "prompt": "Ultra-realistic street art illusion, a short white building with a giant mural of the uploaded man painted on its side wall. Behind the building stands a massive real tree that is much taller and wider than the building. The building roof is completely hidden by the tree canopy and not visible above it. The tree is physically behind the building, not growing from the wall.\n\nThe tree canopy perfectly aligns with the man's head, creating the illusion that the tree is his hair. Dense brown dusty foliage, dry autumn-like leaves, earthy brown tones, slightly wilted leaves, natural texture. The lower branches and leaves hang down over the top of the forehead and partially cover the front hairline, exactly like natural hair falling over the head.\n\nPhotorealistic urban scene, realistic shadows, realistic perspective, professional photography, architectural illusion art, mural integrated with real nature, highly detailed, cinematic lighting, 8k realism, believable environmental interaction, no visible roof above the tree canopy, tree completely dominates the upper part of the composition.",
+    "promptPreview": "Ultra-realistic street art illusion, a short white building with a giant mural of the uploaded man painted on its side wall. Behind the building stands a massive real tree that is much taller and wider than the building…",
+    "source": "Community collected via @UrMeer289",
+    "createdAt": "2026-09-09T20:04:28.864Z"
+  },
+  {
     "id": "100279",
     "title": "梦幻纸艺花园少女全身立体剪纸拼贴",
     "category": "插画与艺术",
