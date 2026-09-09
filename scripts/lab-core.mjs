@@ -83,13 +83,16 @@ export function derivePromptPreview(prompt, len = 120) {
 /**
  * folderName + parsed metadata.json → candidate entries (one per image).
  * `.skip` carries the reason when a folder must not be imported:
- *   - "name":        not a generation folder (collection dir etc.)
- *   - "transparent": sticker lane (params.transparent_output === true) —
- *                    user-confirmed exclusion, never uploaded or registered
+ *   - "name": not a generation folder (collection dir etc.)
+ *
+ * NOTE: params.transparent_output is deliberately NOT consulted here. The
+ * metadata flag proved unreliable in BOTH directions (2026-08-29: sticker
+ * sheets flagged false while carrying transparent pixels; 2026-09-09: fully
+ * opaque comparison grids flagged true and silently dropped). Transparency is
+ * decided exclusively by the real-pixel alpha check in the importer.
  */
 export function parseArchiveFolder(folderName, meta) {
   if (!LAB_FOLDER_RE.test(folderName)) return { skip: "name", entries: [] };
-  if (meta?.params?.transparent_output === true) return { skip: "transparent", entries: [] };
   const images =
     Array.isArray(meta?.images) && meta.images.length > 0
       ? meta.images

@@ -58,10 +58,18 @@ test("LabGrid uses row-first masonry (no CSS columns) — append never reshuffle
   assert.ok(!/columns-2|columns-3|columns-4/.test(src), "CSS columns layout must not come back");
 });
 
-test("bake script hard-fails on transparent originals (sticker gate)", () => {
-  const src = readFileSync("scripts/build-lab-web-images.mjs", "utf8");
-  assert.match(src, /alphaMin < 250/);
-  assert.match(src, /reason: "transparent"/);
+test("bake script hard-fails on transparent originals (shared sticker gate)", () => {
+  const bake = readFileSync("scripts/build-lab-web-images.mjs", "utf8");
+  // The bake gate must consult the SHARED real-pixel gate, not re-implement a
+  // per-pixel alphaMin check that drifts from the importer (2026-09-09: an
+  // alphaMin<250 gate would have sunk solid renders with stray edge pixels).
+  assert.match(bake, /isTransparentImage/);
+  assert.match(bake, /from "\.\/lab-alpha\.mjs"/);
+  assert.match(bake, /reason: "transparent"/);
+  // The shared gate itself must use a canvas FRACTION, never alphaMin.
+  const alpha = readFileSync("scripts/lab-alpha.mjs", "utf8");
+  assert.match(alpha, />= 0\.1/);
+  assert.match(alpha, /data\[i\] < 128/);
 });
 
 test("shard ordering is deterministic with id tiebreaker", () => {

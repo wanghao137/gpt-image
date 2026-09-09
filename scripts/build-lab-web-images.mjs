@@ -28,6 +28,7 @@ import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadDotenv } from "dotenv";
 import sharp from "sharp";
+import { isTransparentImage } from "./lab-alpha.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -75,18 +76,12 @@ async function bake(entry) {
   // flag unreliable AND the first batch predated the check (2026-09-03
   // incident: sticker sheets went live). Baking runs in predev/prebuild, so
   // failing here turns the whole build red until the entry is removed.
-  try {
-    const md = await sharp(src).metadata();
-    if (md.hasAlpha) {
-      const st = await sharp(src).stats();
-      const alphaMin = st.channels[st.channels.length - 1].min;
-      if (Number.isFinite(alphaMin) && alphaMin < 250) {
-        console.error(`  TRANSPARENT ${entry.id} — 透明图/表情包严禁上线（从 lab.json 删除该条后重跑）`);
-        return { id: entry.id, ok: false, reason: "transparent" };
-      }
-    }
-  } catch {
-    // unreadable here → the bake below surfaces the real error
+  // Verdict comes from scripts/lab-alpha.mjs — the SAME real-pixel gate the
+  // importer uses (fraction of alpha<128 pixels >= 10%), so a solid image
+  // with a stray anti-aliased edge pixel can never be sunk by the bake.
+  if (await isTransparentImage(src)) {
+    console.error(`  TRANSPARENT ${entry.id} — 透明图/表情包严禁上线（从 lab.json 删除该条后重跑）`);
+    return { id: entry.id, ok: false, reason: "transparent" };
   }
   const cardPath = resolve(OUT_DIR, `${entry.id}-${CARD_W}.webp`);
   const detailPath = resolve(OUT_DIR, `${entry.id}-${DETAIL_W}.webp`);

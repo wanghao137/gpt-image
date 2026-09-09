@@ -44,10 +44,14 @@ test("parseArchiveFolder builds entries with slug/cosKey/title", () => {
   assert.ok(e.promptPreview.length > 0);
 });
 
-test("transparent sticker folders are skipped entirely", () => {
+test("transparent_output metadata no longer pre-skips (real-pixel gate decides)", () => {
+  // 2026-09-09 regression: opaque images flagged transparent by metadata were
+  // silently dropped. Metadata is unreliable in BOTH directions — parse must
+  // stay neutral and let the importer's alpha check be the single gate.
   const r = parseArchiveFolder("2026-08-24_10-11-30_2880x2880_x", META({ params: { transparent_output: true } }));
-  assert.equal(r.skip, "transparent");
-  assert.equal(r.entries.length, 0);
+  assert.equal(r.skip, undefined);
+  assert.equal(r.entries.length, 1);
+  assert.equal(r.entries[0].id, "mtcq9c871afnv");
 });
 
 test("non-matching folder names are skipped", () => {

@@ -14,9 +14,11 @@
  *
  * Scope guard: only archive-root folders matching the generation naming
  * convention are scanned (never recursive — the archive root also holds
- * ~200GB of content-collection working dirs), and sticker folders
- * (params.transparent_output === true, plus real-pixel alpha detection —
- * the metadata flag proved unreliable) are skipped entirely.
+ * ~200GB of content-collection working dirs). Sticker exclusion is decided
+ * by real-pixel alpha detection ONLY (params.transparent_output is ignored:
+ * the metadata flag proved unreliable in both directions — 2026-08-29 false
+ * negatives on sticker packs, 2026-09-09 false positives dropping opaque
+ * comparison-grid images).
  *
  * Storage: Cloudflare R2 (2026-08-30, S3-compatible; free tier covers the
  * whole archive and egress is free forever). Before that: Tencent COS HK.
@@ -30,7 +32,6 @@ import { createHash } from "node:crypto";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadDotenv } from "dotenv";
-import sharp from "sharp";
 import {
   R2_BUCKET,
   r2Client,
@@ -42,6 +43,7 @@ import {
 } from "./r2-client.mjs";
 import { R2_PUBLIC_BASE } from "../src/lib/lab-cos-core.mjs";
 import { mergeLabEntries, parseArchiveFolder } from "./lab-core.mjs";
+import { isTransparentImage } from "./lab-alpha.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -81,31 +83,9 @@ async function doctor() {
   console.log("4. cleanup PASS — doctor 全绿");
 }
 
-/**
- * Actual-pixel transparency check. The metadata flag
- * (params.transparent_output) is UNRELIABLE — verified 2026-08-29: two
- * "Meme sticker pack" generations carry transparent pixels but were flagged
- * false by the generator. So sticker exclusion runs on the real alpha
- * channel: an image with any meaningfully transparent pixel (alpha min <
- * 250) is treated as the sticker lane and skipped. ~0.5s per image.
- */
-async function isTransparentImage(file) {
-  try {
-    const image = sharp(file);
-    const md = await image.metadata();
-    if (!md.hasAlpha) return false;
-    const st = await image.stats();
-    const alpha = st.channels[st.channels.length - 1];
-    return Number.isFinite(alpha?.min) && alpha.min < 250;
-  } catch {
-    // Unreadable image → let the uploader surface the real error later.
-    return false;
-  }
-}
 
 function scanArchive() {
   const out = [];
-  let transparent = 0;
   for (const name of readdirSync(ARCHIVE)) {
     const dir = join(ARCHIVE, name);
     let st;
@@ -125,11 +105,7 @@ function scanArchive() {
       continue;
     }
     const { entries, skip } = parseArchiveFolder(name, meta);
-    if (skip === "transparent") {
-      transparent += 1;
-      continue;
-    }
-    if (skip) continue;
+    if (skip === "name") continue;
     for (let i = 0; i < entries.length; i++) {
       const file = join(dir, meta.images?.[i]?.file ?? `image-${i + 1}.png`);
       if (!existsSync(file)) {
@@ -139,7 +115,6 @@ function scanArchive() {
       out.push({ entry: entries[i], file });
     }
   }
-  if (transparent > 0) console.log(`跳过表情包（metadata 标记） ${transparent} 个文件夹`);
   return out;
 }
 
