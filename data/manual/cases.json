@@ -1,5 +1,32 @@
 [
   {
+    "id": "100279",
+    "title": "梦幻纸艺花园少女全身立体剪纸拼贴",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration",
+      "Paper Craft"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-09-10-case-alina-paper-garden.jpg",
+    "imageAlt": "梦幻纸艺花园少女全身立体剪纸拼贴",
+    "prompt": "Create a premium photorealistic handcrafted paper-craft / 3D paper collage artwork in a vertical 9:16 composition. A cheerful young woman stands full-body in the center, surrounded by a whimsical handmade paper garden. She has long, wavy light-brown hair, wears round blue-tinted sunglasses, a light gray oversized denim-style jacket over a white top, loose blue jeans, white sneakers, and a small black crossbody bag. She is smiling naturally and looking toward the camera, with a relaxed playful pose and both arms slightly extended outward.\n\nEverything in the scene is made from layered handmade paper, textured cardstock, crepe paper, and delicate cut-paper pieces. Surround her with colorful handcrafted flowers, large leaves, small hearts, stars, butterflies, and fluffy paper clouds. Include oversized pink, white, blue, yellow, and orange flowers growing from the bottom, with individually cut leaves and visible paper fibers. Add floating decorative paper clouds near the top, colorful paper stars and hearts scattered around the subject.\n\nThe woman should appear seamlessly integrated into the paper world, with realistic dimensional layering, soft raised paper edges, subtle shadows beneath every cutout, tactile handmade textures, slightly imperfect hand-cut shapes, visible paper grain and fibers. Warm soft studio lighting, creamy off-white paper background, pastel color palette, charming whimsical editorial aesthetic, highly detailed, realistic depth, miniature handcrafted diorama feeling, premium commercial photography, crisp focus, natural shadows, sophisticated composition, ultra-detailed 3D paper sculpture, photorealistic materials, clean background, 8K quality.\n\nNegative Prompt: blurry, low resolution, plastic texture, glossy CGI, metallic surfaces, distorted face, extra fingers, extra limbs, bad anatomy, duplicate flowers, messy composition, harsh shadows, text, watermark, logo, oversaturated colors.",
+    "promptPreview": "Create a premium photorealistic handcrafted paper-craft / 3D paper collage artwork in a vertical 9:16 composition. A cheerful young woman stands full-body in the center, surrounded by a whimsical handmade paper garden. …",
+    "source": "Community collected via @Alina_with_Ai",
+    "createdAt": "2026-09-09T20:04:24.237Z"
+  },
+  {
     "id": "100278",
     "title": "模块化科普百科知识卡",
     "category": "文档与出版",
