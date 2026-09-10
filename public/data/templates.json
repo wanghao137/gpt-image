@@ -962,18 +962,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1788942336338_pno2c0_HRunAK4a8AAgaeo.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34017 韩国超市购物抓拍: 一张写实的智能手机风格生活时尚照片，展示了一名女性在超市过道蹲下的瞬间，适用于真实的零售场景或社交媒体产品展示。\n- #34004 Golden Ocean Sunset Seascape: A vivid painterly square seascape showing a glowing sunset over rolling ocean waves, suitable f…\n- #33990 Glass Octopus Model Comparison: Creates a two-panel photorealistic comparison of premium glass octopus reef sculptures with lab…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1788942352509_kpd10v_HRbHd-Ka4AA6isc.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34035 金毛寻回犬喷雾广告: 通过将一张近距离喷雾参考图扩展为更宽广的宠物驱避喷雾广告，创作出一张照片级真实的户外露营产品摄影图。\n- #34017 韩国超市购物抓拍: 一张写实的智能手机风格生活时尚照片，展示了一名女性在超市过道蹲下的瞬间，适用于真实的零售场景或社交媒体产品展示。\n- #34004 Golden Ocean Sunset Seascape: A vivid painterly square seascape showing a glowing sunset over rolling ocean waves, suitable f…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "34035",
       "34017",
       "34004",
       "33990",
-      "33984",
-      "33825"
+      "33986"
     ]
   },
   {
