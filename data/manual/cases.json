@@ -1,5 +1,29 @@
 [
   {
+    "id": "100281",
+    "title": "羊绒毛衣木屋人物写真",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-11-case-100281-knit-sweater-cabin-portrait.jpg",
+    "imageAlt": "羊绒毛衣木屋人物写真",
+    "prompt": "{\n  \"member\": \"[Member Name]\",\n  \"subject\": {\n    \"identity\": \"facial structure, complexion, and proportions of [Member Name]\",\n    \"hair\": \"long dark hair, loosely styled\",\n    \"expression\": \"calm, looking directly at the camera with a gentle smile\",\n    \"pose\": \"sitting in a large, fluffy white armchair, holding a ceramic mug with both hands near her chest\"\n  },\n  \"wardrobe\": {\n    \"silhouette\": \"oversized off-the-shoulder knitted sweater\",\n    \"material\": \"thick, chunky wool knit\",\n    \"color\": \"cream, carried by the entire garment\",\n    \"footwear\": \"dark tights, feet out of frame\",\n    \"accessories\": \"small silver rings\"\n  },\n  \"scene\": {\n    \"location\": \"inside a rustic wooden cabin\",\n    \"atmosphere\": \"cozy, warm, daytime\",\n    \"background\": \"large window showing a snowy mountain range, a stone fireplace with a fire\",\n    \"composition\": \"tall vertical frame, medium shot, one figure centered\",\n    \"lighting\": \"soft natural daylight from the window\",\n    \"camera\": \"50mm lens, eye level, f/2.0\",\n    \"grade\": \"warm film grain, natural colors\"\n  },\n  \"compiled_prompt\": \"Generate a single-frame portrait photograph of [Member Name], one continuous exposure filling the frame edge to edge. Her long dark hair is loosely styled, and she looks directly at the camera with a calm, gentle smile. She wears an oversized off-the-shoulder knitted sweater in a thick, chunky wool knit, the cream color carried by the entire garment. She is sitting in a large, fluffy white armchair inside a rustic wooden cabin, holding a ceramic mug with both hands near her chest. Dark tights are visible on her legs. Soft natural daylight streams in from a large window behind her, revealing a snowy mountain range outside. A stone fireplace with a fire is also in the background. Shot on a 50mm lens at eye level, f/2.0, tall vertical frame, one figure centered and filling the height of the picture. Warm film grain grade with natural colors, the cream wool texture clearly visible in the light.\"\n}",
+    "promptPreview": "{ \"member\": \"[Member Name]\", \"subject\": { \"identity\": \"facial structure, complexion, and proportions of [Member Name]\", \"hair\": \"long dark hair, loosely styled\", \"expression\": \"calm, looking directly at the camera with …",
+    "source": "Community collected via @alicekpop_ai",
+    "createdAt": "2026-09-10T20:04:11.406Z"
+  },
+  {
     "id": "100280",
     "title": "树冠成发：建筑壁画与真实树木的错视艺术",
     "category": "场景与叙事",
