@@ -471,7 +471,9 @@ function CaseCardImpl({
                 height={imageDimensions.height}
                 widths={[280, 420, 560, 800]}
                 baseWidth={280}
-                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                /* <640px is 50vw too since the 2026-09 sharpness fix made the
+                   masonry 2-col on phones — 100vw there upscaled ~1.4×. */
+                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, 50vw"
                 loading={priority && !isSeriesActive ? "eager" : "lazy"}
                 fetchPriority={priority && !isSeriesActive ? "high" : "auto"}
                 preserveAspectRatio

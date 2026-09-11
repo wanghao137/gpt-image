@@ -21,7 +21,13 @@
  * fallback only for URLs the build pipeline somehow missed.
  */
 
-const WSRV = "https://wsrv.nl/";
+import {
+  withErrorRedirect,
+  wsrvPassthroughUrl,
+  xOrigWsrvTransformUrl,
+  xOriginalUrl,
+} from "./img-xorig-core.mjs";
+
 const SITE_ORIGIN =
   typeof window !== "undefined"
     ? window.location.origin
@@ -54,9 +60,12 @@ function isLocalImage(src: string): boolean {
 
 /**
  * Default image URL. Identity for local /images/* paths and /assets/* Vite
- * bundles. All external URLs (including upstream CDN hosts like YouMind's
- * cms-assets.youmind.com) go through wsrv.nl for resize + WebP transcoding
- * + better reachability in China.
+ * bundles. All external URLs go through wsrv.nl for resize + WebP transcoding
+ * + better reachability in China. YouMind media URLs (98.4% of cases) are
+ * first re-pointed at the original X upload embedded in their filename —
+ * YouMind caps at 1200px long edge, the X original carries 1.2–3.4× more
+ * pixels, and wsrv's `errorredirect` falls back to the YouMind copy
+ * server-side when X 404s. See img-xorig-core.mjs for the full story.
  */
 export function transformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
@@ -72,11 +81,14 @@ export function transformUrl(src: string, opts: ImgOpts): string {
 }
 
 /**
- * wsrv.nl direct URL. Only used for:
- *   - OG card images in SEO meta (scraped by Twitter/FB/WeChat from
- *     non-CN IPs, so wsrv's North-American POPs are fine for them)
- *   - very rare runtime-only URLs that didn't make it through the build
- *     pipeline (defensive)
+ * wsrv.nl direct URL. Used for OG card images in SEO meta (scraped by
+ * Twitter/FB/WeChat from non-CN IPs, so wsrv's North-American POPs are fine
+ * for them), runtime-only URLs the build pipeline missed, and every external
+ * srcset candidate SmartImg builds.
+ *
+ * YouMind media URLs are transparently re-pointed at the original X upload
+ * (1.2–3.4× more pixels) with a server-side `errorredirect` fallback to the
+ * YouMind copy so an X 404 costs one 302, never a broken image.
  */
 export function rawTransformUrl(src: string, opts: ImgOpts): string {
   if (!src) return src;
@@ -85,14 +97,28 @@ export function rawTransformUrl(src: string, opts: ImgOpts): string {
   if (!/^https?:\/\//i.test(abs)) {
     abs = abs.startsWith("/") ? SITE_ORIGIN + abs : `${SITE_ORIGIN}/${abs}`;
   }
-  const params = new URLSearchParams();
-  params.set("url", abs.replace(/^https?:\/\//i, ""));
-  params.set("w", String(Math.max(1, Math.round(opts.width))));
-  params.set("output", opts.format ?? "webp");
-  params.set("q", String(opts.quality ?? 78));
-  params.set("we", "1");
-  params.set("il", "1");
-  return WSRV + "?" + params.toString();
+  return xOrigWsrvTransformUrl(abs, {
+    width: opts.width,
+    quality: opts.quality,
+    format: opts.format,
+  });
+}
+
+/**
+ * Unresized original bytes for the lightbox "查看原图" action. YouMind URLs
+ * route to the X original (same fallback chain as rawTransformUrl); local
+ * same-origin paths open directly — they ARE the originals, no proxy needed.
+ */
+export function originalBytesUrl(src: string): string {
+  if (!src) return src;
+  if (src.startsWith("/")) return src;
+  let abs = src;
+  if (!/^https?:\/\//i.test(abs)) {
+    abs = `${SITE_ORIGIN}/${abs}`;
+  }
+  const xOrig = xOriginalUrl(abs);
+  if (!xOrig) return wsrvPassthroughUrl(abs);
+  return withErrorRedirect(wsrvPassthroughUrl(xOrig), wsrvPassthroughUrl(abs));
 }
 
 // ─────────────────────────────────────────── local variant helpers ──

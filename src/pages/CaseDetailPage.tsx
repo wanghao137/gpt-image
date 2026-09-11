@@ -485,7 +485,7 @@ export default function CaseDetailPage() {
                   sizes="(min-width:1024px) 60vw, 100vw"
                   loading="eager"
                   fetchPriority="high"
-                  quality={85}
+                  quality={90}
                   objectFit="contain"
                   onNaturalSize={(width, height) => {
                     setNaturalImageRatio({

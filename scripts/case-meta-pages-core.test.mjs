@@ -73,4 +73,26 @@ describe("buildCaseMetaHtml", () => {
     assert(html.includes("<title>标题$&amp; $` $&#39; 结束 | 桃子AI视觉实验室</title>"));
     assert(!html.includes("</head>\n    <meta name=\"viewport\""), "no shell-tail splice");
   });
+
+  it('routes YouMind og:image through the X original with server-side fallback', () => {
+    const html = buildCaseMetaHtml({
+      spaHtml: SPA,
+      row: { ...ROW, imageUrl: 'https://cms-assets.youmind.com/media/1788942288291_1ovagz_HRu3ie-bwAATJ-v.jpg' },
+    });
+    const m = html.match(/<meta property="og:image" content="([^"]+)"/);
+    assert.ok(m, 'og:image present');
+    const og = decodeURIComponent(m[1]);
+    assert.match(og, /pbs\.twimg\.com\/media\/HRu3ie-bwAATJ-v/);
+    assert.match(og, /name=orig/);
+    assert.match(og, /errorredirect=/);
+    assert.match(decodeURIComponent(og.split('errorredirect=')[1]), /cms-assets\.youmind\.com/);
+  });
+
+  it('leaves non-YouMind absolute image URLs untouched in og:image', () => {
+    const html = buildCaseMetaHtml({
+      spaHtml: SPA,
+      row: { ...ROW, imageUrl: 'https://example.com/pic.jpg' },
+    });
+    assert.match(html, /<meta property="og:image" content="https:\/\/example\.com\/pic\.jpg" \/>/);
+  });
 });

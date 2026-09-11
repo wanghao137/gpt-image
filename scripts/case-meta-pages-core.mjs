@@ -1,7 +1,27 @@
 import { absoluteUrl, clipText, jsonLdSafeStringify } from "../src/lib/seo-url.mjs";
 import { SITE_URL } from "./build-sitemap-core.mjs";
+import { withErrorRedirect, wsrvPassthroughUrl, xOriginalUrl } from "../src/lib/img-xorig-core.mjs";
 
 export { SITE_URL };
+
+/**
+ * og:image for one case row. YouMind media URLs get the same X-original
+ * treatment as runtime images (see img-xorig-core.mjs): the raw upload is
+ * 1.2–3.4× larger than YouMind's 1200px re-encode, and wsrv `errorredirect`
+ * 302s to the YouMind copy server-side when X 404s. Foreign scrapers reach
+ * both wsrv and pbs.twimg.com fine. Any other URL passes through untouched
+ * (relative paths are absolutised by absoluteUrl).
+ */
+function caseOgImage(row, siteUrl) {
+  const raw = String(row?.imageUrl ?? "");
+  if (!raw) return "";
+  const abs = absoluteUrl(siteUrl, raw);
+  if (!/^https?:\/\/cms-assets\.youmind\.com\//i.test(abs)) return abs;
+  const xOrig = xOriginalUrl(abs);
+  return xOrig
+    ? withErrorRedirect(wsrvPassthroughUrl(xOrig), wsrvPassthroughUrl(abs))
+    : wsrvPassthroughUrl(abs);
+}
 
 export function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => {
@@ -33,7 +53,7 @@ export function buildCaseMetaHtml({ spaHtml, row, siteUrl = SITE_URL }) {
   const description =
     clipText(String(row?.promptPreview ?? "").replace(/\s+/g, " ").trim(), 150) ||
     `${title} — GPT-Image 提示词案例`;
-  const ogImage = absoluteUrl(siteUrl, String(row?.imageUrl ?? ""));
+  const ogImage = caseOgImage(row, siteUrl);
   const createdAt = String(row?.createdAt ?? "").slice(0, 10);
 
   const jsonLd = jsonLdSafeStringify({

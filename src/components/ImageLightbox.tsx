@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { transformUrl } from "../lib/img";
+import { originalBytesUrl, transformUrl } from "../lib/img";
 
 interface ImageLightboxProps {
   open: boolean;
@@ -42,10 +42,11 @@ interface ImageLightboxProps {
  * Render strategy:
  *   - Show LQIP background instantly so the swap from grid → lightbox is
  *     never a black flash on a slow connection.
- *   - Render the high-res image with a srcset that covers DPR up to 3 on
- *     even the largest tablet viewports.
- *   - Fade the high-res in once it loads; LQIP stays underneath (cheap, no
- *     extra DOM for a placeholder).
+ *   - Request ONE URL at w1920 (we=1 caps it at the source's true size) and
+ *     fade it in on load. A srcset ladder here would trigger Chromium's
+ *     density-normalised naturalWidth and break the 1:1 stage cap, and the
+ *     ladder's only choices all hit the same source ceiling anyway.
+ *   - Cap the stage to true pixels ÷ DPR once decoded — never upscale.
  */
 function ImageLightboxImpl({
   open,
@@ -69,9 +70,16 @@ function ImageLightboxImpl({
   const repaint = useCallback(() => forcePaint((n) => n + 1), []);
 
   const [loaded, setLoaded] = useState(false);
+  // Decoded true pixel size of the loaded image. Used to cap the stage at
+  // 1:1 — stretching a 1200px-class source across 96vw @DPR2 was the main
+  // reason the lightbox looked blurry (fill rate 32%). naturalWidth is TRUE
+  // pixels here only because the lightbox requests a single URL (no srcset
+  // w-descriptor → no Chromium density normalisation; see
+  // image-sharpness rig notes in IMAGE_SHARPNESS_FIX_PLAN.md §8).
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
   // Degradation ladder for a failed full-size load (round-2 walkthrough:
   // a transient wsrv/network error used to leave a permanent blank stage):
-  // 0 = w1440 main · 1 = same URL retried (cache-busted) · 2 = w1080 variant
+  // 0 = w1920 main · 1 = same URL retried (cache-busted) · 2 = w1080 variant
   // (external only) · 3 = raw origin URL · 4 = give up → error UI + manual
   // retry. Local /images/* are identity-mapped, so they collapse to 0→1→4.
   const [ladderStep, setLadderStep] = useState(0);
@@ -81,6 +89,7 @@ function ImageLightboxImpl({
     if (!open) return;
     tRef.current = { scale: 1, x: 0, y: 0 };
     setLoaded(false);
+    setNatural(null);
     setLadderStep(0);
     repaint();
   }, [open, src, repaint]);
@@ -343,31 +352,36 @@ function ImageLightboxImpl({
   );
 
   // Lightbox source. transformUrl is identity for /images/* (the post-build
-  // local path) and routes through wsrv only for the rare runtime-only URL.
+  // local path) and routes YouMind images to their X original through wsrv
+  // (with a server-side fallback to the YouMind copy) for the rest.
+  // Primary asks w1920: we=1 caps it at the source's true size, and bigger
+  // sources (X originals reach 2048–4096) deserve the headroom on DPR2.
   const isLocalImage =
     src.startsWith("/images/") || src.startsWith("/assets/") || src.startsWith("/uploads/");
   // Ladder-resolved display URL. Step 1 re-requests with a cache buster;
   // step 2 drops external images to w1080; step 3 uses the raw origin URL.
   const displaySrc = useMemo(() => {
     if (ladderStep === 1) {
-      const base = transformUrl(src, { width: 1440, quality: 86 });
+      const base = transformUrl(src, { width: 1920, quality: 90 });
       return base + (base.includes("?") ? "&" : "?") + "lbretry=1";
     }
     if (ladderStep === 2 && !isLocalImage) {
-      return transformUrl(src, { width: 1080, quality: 84 });
+      return transformUrl(src, { width: 1080, quality: 88 });
     }
     if (ladderStep >= 3) return src;
-    return transformUrl(src, { width: 1440, quality: 86 });
+    return transformUrl(src, { width: 1920, quality: 90 });
   }, [src, ladderStep, isLocalImage]);
-  // Only the primary request carries width variants; a fallback step must
-  // not let srcSet re-request the very widths that just failed.
-  const sset = useMemo(() => {
-    if (isLocalImage || ladderStep > 0) return undefined;
-    const widths = [720, 1080, 1440, 1920];
-    return widths
-      .map((w) => `${transformUrl(src, { width: w, quality: 86 })} ${w}w`)
-      .join(", ");
-  }, [isLocalImage, src, ladderStep]);
+  // Single-URL on purpose: a srcset with w-descriptors triggers Chromium's
+  // density-normalised naturalWidth, which would poison the 1:1 stage cap.
+  // we=1 keeps the one request honest (never larger than the source), so
+  // the srcset ladder would only pick between sizes of the same source cap.
+  const dpr = typeof window === "undefined" ? 1 : window.devicePixelRatio || 1;
+  const stageCap = natural
+    ? {
+        maxWidth: `${Math.max(1, Math.round(natural.w / dpr))}px`,
+        maxHeight: `${Math.max(1, Math.round(natural.h / dpr))}px`,
+      }
+    : null;
 
   if (!open) return null;
 
@@ -436,6 +450,16 @@ function ImageLightboxImpl({
               )}
             </button>
           )}
+          <a
+            data-lb-toolbar
+            href={originalBytesUrl(src)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto inline-flex h-9 shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-white/10 bg-ink-950/60 px-3 text-[12px] font-medium text-ink-100 backdrop-blur transition hover:border-white/35"
+            aria-label="查看原图（新标签页）"
+          >
+            查看原图
+          </a>
           <button
             type="button"
             onClick={() => setTransform({ scale: 1, x: 0, y: 0 })}
@@ -489,14 +513,19 @@ function ImageLightboxImpl({
           aspect-ratio box. The previous version locked the stage to the
           case's `ratio` field, but that field is inferred from prompt text
           and frequently wrong for YouMind upstream data (e.g. a 16:9 image
-          locked into a 4:5 box renders at 40% viewport width). */}
+          locked into a 4:5 box renders at 40% viewport width).
+          Once the image decodes, stageCap shrinks the stage to the image's
+          true size ÷ DPR so pixels are never interpolated past 1:1. */}
       <div
         ref={stageRef}
-        className="relative h-[92vh] w-[96vw] select-none"
+        className="relative h-[92vh] select-none"
         style={{
+          width: "min(96vw, 1600px)",
+          ...stageCap,
           transformOrigin: "center center",
           willChange: "transform",
-          transition: "transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1)",
+          transition:
+            "transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), max-width 0.22s ease-out, max-height 0.22s ease-out",
         }}
       >
         {ladderStep >= 4 ? (
@@ -520,14 +549,18 @@ function ImageLightboxImpl({
         ) : (
           <img
             src={displaySrc}
-            srcSet={sset}
-            sizes="96vw"
             alt={alt}
             draggable={false}
             loading="eager"
             decoding="async"
             {...({ fetchpriority: "high" } as { fetchpriority: "high" })}
-            onLoad={() => setLoaded(true)}
+            onLoad={(e) => {
+              setLoaded(true);
+              const img = e.currentTarget;
+              if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+                setNatural({ w: img.naturalWidth, h: img.naturalHeight });
+              }
+            }}
             onError={() => {
               // Climb the degradation ladder; only local images collapse it
               // (their variants are identity-mapped, so extra steps would

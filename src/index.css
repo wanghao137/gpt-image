@@ -630,7 +630,12 @@
   */
   .masonry {
     --masonry-row-gap: 1.25rem;
-    column-count: 1;
+    /* 2 columns on phones (2026-09 sharpness fix): a 390px @DPR3 phone asks
+       ~1074 physical px per full-width card while the source caps lower —
+       cards rendered at 65–77% fill (visibly upscaled). 50vw ≈ 510 physical
+       px is back at ≥100%. Mirrors the reference gallery
+       (cases.taostudioai.com), which is 2-col on mobile. */
+    column-count: 2;
     column-gap: 1.25rem;
   }
   @media (min-width: 640px) {
@@ -652,7 +657,7 @@
   }
   .masonry.masonry-ready {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-flow: row dense;
     grid-auto-rows: 1px;
     column-gap: 1.25rem;
