@@ -630,12 +630,15 @@
   */
   .masonry {
     --masonry-row-gap: 1.25rem;
-    /* 2 columns on phones (2026-09 sharpness fix): a 390px @DPR3 phone asks
-       ~1074 physical px per full-width card while the source caps lower —
-       cards rendered at 65–77% fill (visibly upscaled). 50vw ≈ 510 physical
-       px is back at ≥100%. Mirrors the reference gallery
-       (cases.taostudioai.com), which is 2-col on mobile. */
-    column-count: 2;
+    /* MUST stay 1 column below 640px (2026-09-12 regression): the mobile
+       card pins a ~165px title/action overlay with absolute bottom-0 ONTO
+       the image (CaseCard sm:hidden block). At 390px full width the shortest
+       images (16:9 ≈ 220px) still clear the overlay; at 50vw ≈ 163px they
+       shrink to 70-110px, the overlay covers 1.5-2.4× the image and bleeds
+       ~94px upward over the card above — measured 27/72 cards broken before
+       this revert. If mobile ever goes 2-col again, move the card footer
+       BELOW the image first (cases.taostudioai.com pattern). */
+    column-count: 1;
     column-gap: 1.25rem;
   }
   @media (min-width: 640px) {
@@ -657,7 +660,7 @@
   }
   .masonry.masonry-ready {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     grid-auto-flow: row dense;
     grid-auto-rows: 1px;
     column-gap: 1.25rem;

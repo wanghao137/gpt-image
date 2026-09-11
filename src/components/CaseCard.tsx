@@ -469,11 +469,13 @@ function CaseCardImpl({
                 alt={activeSlide.alt}
                 width={imageDimensions.width}
                 height={imageDimensions.height}
-                widths={[280, 420, 560, 800]}
+                /* Mobile stays single-column 100vw (see .masonry note in
+                   index.css: the absolute bottom overlay needs ≥165px-tall
+                   media, which 50vw columns can't guarantee). 1080 top rung
+                   feeds 100vw @DPR3 (1170px) from X originals (~90% fill). */
+                widths={[280, 420, 560, 800, 1080]}
                 baseWidth={280}
-                /* <640px is 50vw too since the 2026-09 sharpness fix made the
-                   masonry 2-col on phones — 100vw there upscaled ~1.4×. */
-                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, 50vw"
+                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                 loading={priority && !isSeriesActive ? "eager" : "lazy"}
                 fetchPriority={priority && !isSeriesActive ? "high" : "auto"}
                 preserveAspectRatio
