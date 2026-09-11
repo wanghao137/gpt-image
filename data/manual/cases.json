@@ -1,5 +1,30 @@
 [
   {
+    "id": "100283",
+    "title": "产品日志式生活照与技术图纸混合排版",
+    "category": "产品与电商",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Product"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-09-12-case-qatnology-product-journal.jpg",
+    "imageAlt": "产品日志式生活照与技术图纸混合排版",
+    "prompt": "{\n  \"reference_images\": {\n    \"product_image\": \"UPLOADED_IMAGE\",\n    \"usage_rule\": \"Use the uploaded image as the exact visual reference for the product's form, proportions, materials, and overall identity. Do not redesign or reinterpret the product.\"\n  },\n  \"layout\": {\n    \"canvas\": { \"orientation\": \"vertical\", \"aspect_ratio\": \"3:4\", \"background\": \"warm neutral paper-like surface\" },\n    \"structure\": { \"top_section\": \"lifestyle_hero\", \"bottom_section\": \"technical_specification\" }\n  },\n  \"top_section\": {\n    \"type\": \"lifestyle_product_image\",\n    \"composition\": { \"placement\": \"top_center\", \"scale\": \"dominant\", \"margin\": \"generous whitespace around product\" },\n    \"environment\": {\n      \"setting\": \"minimal architectural interior\",\n      \"lighting\": { \"type\": \"natural sunlight\", \"direction\": \"angled side light\", \"quality\": \"soft but high-contrast shadows\" },\n      \"floor\": \"subtle concrete or stone surface\",\n      \"background\": \"textured plaster wall\"\n    },\n    \"rendering\": { \"style\": \"editorial lifestyle photography\", \"detail\": \"high realism\", \"color_grading\": \"warm, muted, premium\" }\n  },\n  \"bottom_section\": {\n    \"type\": \"technical_specification_panel\",\n    \"layout\": { \"grid\": \"modular\", \"alignment\": \"clean, architectural\" },\n    \"technical_drawings\": {\n      \"placement\": \"bottom_left_and_center\",\n      \"style\": \"architectural line drawings\",\n      \"views\": [\"front view\", \"side view\", \"three-quarter cutaway or profile view\"],\n      \"projection\": \"orthographic\",\n      \"line_style\": { \"color\": \"muted red or sepia\", \"weight\": \"fine technical lines\" },\n      \"annotations\": { \"type\": \"measurement and construction callouts\", \"language\": \"neutral technical labels\", \"density\": \"minimal, editorial\" }\n    },\n    \"materials_panel\": {\n      \"placement\": \"bottom_right\",\n      \"content\": { \"type\": \"material_swatches\", \"count\": \"3-4 depending on product\", \"format\": \"square or rectangular samples\" },\n      \"textures\": { \"source\": \"derived from the product materials\", \"examples\": [\"fabric\", \"leather\", \"metal\", \"wood\", \"plastic\"] },\n      \"labels\": { \"style\": \"small editorial captions\", \"tone\": \"technical but refined\" }\n    }\n  },\n  \"typography\": { \"style\": \"minimal editorial\", \"usage\": \"subtle captions, no large headlines\", \"color\": \"soft black or dark brown\" },\n  \"overall_style\": {\n    \"mood\": \"design catalog / product design journal\",\n    \"aesthetic\": \"architectural, premium, calm\",\n    \"avoid\": [\"clutter\", \"bold colors\", \"heavy branding\", \"overly decorative graphics\"]\n  },\n  \"constraints\": {\n    \"do_not\": [\"change product design\", \"invent new materials\", \"add logos unless present in reference\", \"use perspective distortion in drawings\"]\n  }\n}",
+    "promptPreview": "{ \"reference_images\": { \"product_image\": \"UPLOADED_IMAGE\", \"usage_rule\": \"Use the uploaded image as the exact visual reference for the product's form, proportions, materials, and overall identity. Do not redesign or rei…",
+    "source": "Community collected via @qatnology",
+    "createdAt": "2026-09-11T20:06:51.305Z"
+  },
+  {
     "id": "100282",
     "title": "墙纸海报风街头时尚插画",
     "category": "插画与艺术",
