@@ -319,3 +319,11 @@ sync 管线（`.github/workflows/sync.yml` 的 `npm run sync` 后）增量下载
 **两个实测抓出的既有交互缺陷**（非本轮布局引入，一并修复）：① 手机端系列卡轮播圆点被覆盖层盖住不可见不可点、短图时箭头被拦 → z-20 + 圆点手机隐藏；② 覆盖层拦截图片中下部点击（点图进不了详情）→ pointer-events 穿透。
 
 **复测工具**（留存）：`D:\codesolo\anliku\xiaoxiaodong\_layout_verify.js`（密度/填充率/轨道/覆盖层/控制台断言）、`_hands_on.js`（全站交互路径）。
+
+### §11.3 追加：分类页直载水合崩溃根治（2026-09-12 深夜，部署后零豁免扫描抓出）
+
+部署 `cc154432` 后按「线上零豁免」标准重扫（把 localhost 专属的 React #418/#423 豁免收紧为仅本地），抓到 **/category/* 直载必现 React #425+#418×8+#423**。对照实验：旧部署（不含本轮改动的上游同步提交）同路由干净——但进一步证实这是**既有缺陷首次被扫到**：CategoryPage 是全站唯一依赖「客户端构建里被 tree-shake 成空的 ALL_CASES 模块态」做首帧数据的页面，水合首帧 `list=[]` → 空态覆盖烘焙好的 24 卡墙 → React 撕树重渲。此前从未发现是因为旧复测脚本无条件豁免 #418/#423，且从未直载扫过 /category。
+
+**修复（`3ffcabc1`）**：SSR 把首帧精确切片（前 24 张卡）+ 总数序列化进 `<script type="application/json" data-payload>`（`isSSR` 分支渲染，客户端渲染空标签）；客户端在 useState 初始化器里（React 改 DOM 前）读 payload，首帧渲染同 24 张卡+占位补齐到总数 → 水合 1:1 零差异；分片（cases-<key>.json）到位后无缝升级全量；深滚动 restoreId 等分片落地后再启用（防止 visibleCount 展开进隐形占位）；客户端导航（无 payload）渲染骨架而非误导性「没有找到匹配的案例」。守卫：`category-hydration.test.mjs`。
+
+**验证**：本地真实预渲染页（注意 `vite preview` 对无尾斜杠深链会 SPA 兜底到首页——**必须用尾斜杠或直读 dist 文件**，本轮差点据此误判）三个 DPR 全部 0 水合错误、h1 计数/加载更多文案与烘焙一致；线上部署后 `BASE=https://taostudioai.com` 零豁免 rig 全绿 + hands-on 全绿 + /case、/lab、/template 深链直载全净。
