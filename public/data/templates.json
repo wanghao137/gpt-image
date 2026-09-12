@@ -938,18 +938,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1789199145423_de75ig_HR_GootbYAAF236.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34459 巴黎咖啡馆街头抓拍: 一个极其详尽的提示词，用于生成一张电影感十足的街头照片，描绘了一位坐在复古巴黎咖啡馆的女性，强调自然的动态模糊和黄金时刻的光影效果。\n- #34239 National Style City Promotion Poster: A prompt designed to create high-end vertical city posters that blend realistic digital paintin…\n- #34220 Spatial Subject Arrangement: A simple spatial prompt for testing model comprehension of object placement and character posit…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "https://cms-assets.youmind.com/media/1789029041543_pwkidi_HR026QCbAAAUpjE.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34239 National Style City Promotion Poster: A prompt designed to create high-end vertical city posters that blend realistic digital paintin…\n- #34220 Spatial Subject Arrangement: A simple spatial prompt for testing model comprehension of object placement and character posit…\n- #34205 Pixel Art Sprite Sheet Generation: A professional prompt for creating transparent pixel art combat sprite sheets in a 4x4 grid for…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34459",
       "34239",
       "34220",
       "34205",
-      "34195"
+      "34195",
+      "34190"
     ]
   },
   {
@@ -962,18 +962,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1789199151890_mwfo2z_HR80hPlWIAEYNBv.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n- #34318 咖啡杯中的微缩城市: 一个超现实且充满奇思妙想的提示词，用于生成在咖啡杯中利用蒸汽和泡沫构建的超写实微缩城市。\n- #100283 产品日志式生活照与技术图纸混合排版: { \"reference_images\": { \"product_image\": \"UPLOADED_IMAGE\", \"usage_rule\": \"Use the uploaded imag…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1789113117792_zqa4m2_HR3yrutWQAI9eAh.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34318 咖啡杯中的微缩城市: 一个超现实且充满奇思妙想的提示词，用于生成在咖啡杯中利用蒸汽和泡沫构建的超写实微缩城市。\n- #100283 产品日志式生活照与技术图纸混合排版: { \"reference_images\": { \"product_image\": \"UPLOADED_IMAGE\", \"usage_rule\": \"Use the uploaded imag…\n- #34243 UGC Product Photography Workflow: A specialized workflow using GPT Image 2.5 for consistent product placement and realistic light…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34470",
       "34318",
       "100283",
       "34243",
-      "34035"
+      "34035",
+      "34017"
     ]
   },
   {
@@ -986,18 +986,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1789199149911_uct728_HR-PEFiaQAAP6P3.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34467 透明玫瑰宫廷淑女: 一幅柔和的动漫奇幻肖像，描绘了一位身着半透明玫瑰色与象牙白宫廷服饰的优雅淑女，适用于精致的角色插画提示词。\n- #34466 复古杂志风肖像拼贴: 一个用于创作 2x2 拼贴画的精美提示词，展现 1970 年代企业美学风格的男性模特，搭配森林绿西装与忧郁的影棚灯光。\n- #34465 写实蜂蜜色调美妆肖像: 一个为 GPT Image 2 设计的高细节美妆肖像提示词，专注于严格的面部特征保留，同时将主体服装重塑为蜂蜜色调。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "https://cms-assets.youmind.com/media/1789199148996_8zj89r_HR71gh_boAAp-0B.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34465 写实蜂蜜色调美妆肖像: 一个为 GPT Image 2 设计的高细节美妆肖像提示词，专注于严格的面部特征保留，同时将主体服装重塑为蜂蜜色调。\n- #34332 女性与同款 3D 大头公仔: 生成一张写实的摄影棚肖像，展示一位女性与她可爱的 3D 漫画版公仔并肩站立，适用于趣味社交媒体内容或角色概念视觉图。\n- #34331 黄昏时分的动漫列车与富士山: 一幅充满意境的动漫列车内景，一位哥特风少女的剪影映衬在粉彩色的富士山日落背景下，适合用作电影感壁纸艺术。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34467",
-      "34466",
       "34465",
-      "34462",
-      "34460"
+      "34332",
+      "34331",
+      "34330",
+      "34319"
     ]
   },
   {
@@ -1178,18 +1178,18 @@
       "Sequence"
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
-    "cover": "https://cms-assets.youmind.com/media/1789199149911_uct728_HR-PEFiaQAAP6P3.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34467 透明玫瑰宫廷淑女: 一幅柔和的动漫奇幻肖像，描绘了一位身着半透明玫瑰色与象牙白宫廷服饰的优雅淑女，适用于精致的角色插画提示词。\n- #34331 黄昏时分的动漫列车与富士山: 一幅充满意境的动漫列车内景，一位哥特风少女的剪影映衬在粉彩色的富士山日落背景下，适合用作电影感壁纸艺术。\n- #34327 不死吸血鬼国王宝座: 一个黑暗奇幻概念艺术提示词，用于在闹鬼的教堂宝座室中生成哥特式不死君主，背景包含幽灵军队和不祥的铭文。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "cover": "https://cms-assets.youmind.com/media/1789113124326_zwiqs3_HR6tFIFXcAwQg-M.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34331 黄昏时分的动漫列车与富士山: 一幅充满意境的动漫列车内景，一位哥特风少女的剪影映衬在粉彩色的富士山日落背景下，适合用作电影感壁纸艺术。\n- #34327 不死吸血鬼国王宝座: 一个黑暗奇幻概念艺术提示词，用于在闹鬼的教堂宝座室中生成哥特式不死君主，背景包含幽灵军队和不祥的铭文。\n- #34321 云朵朋友剪贴簿海报: 一张充满奇趣的竖版海报，上方是蓝天中微笑的云朵，下方是九宫格手绘风格的云朵主题项目。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34467",
       "34331",
       "34327",
       "34321",
-      "34317"
+      "34317",
+      "34314"
     ]
   },
   {
@@ -1250,18 +1250,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1789199151606_kb71qn_HR8GhWubUAA2Egk.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34469 撕纸风格阅读海报: 创作一张充满诗意的日式编辑风海报，通过手工撕纸效果呈现沙发上的阅读者，非常适合文学或怀旧拼贴视觉风格。\n- #34468 Psychedelic Sci-Fi Laboratory Screen Print: Generates a late-1960s psychedelic screen-print illustration of a surreal brainwave laboratory …\n- #34467 透明玫瑰宫廷淑女: 一幅柔和的动漫奇幻肖像，描绘了一位身着半透明玫瑰色与象牙白宫廷服饰的优雅淑女，适用于精致的角色插画提示词。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "https://cms-assets.youmind.com/media/1789113125214_ig0i2n_HR4JccraIAAUu8D.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Poster / Realistic / 3D Render / Editorial / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34333 金鹿晨曦羊毛毡艺术转化: 创建一个分屏场景，对比一张雾气缭绕的金色森林鹿群照片与一幅极简主义羊毛毡插画。\n- #34326 温布尔登动态双联海报: 生成一张分屏网球艺术作品，将写实的温布尔登网球赛场与粗粝的编辑风格海报插画相结合。\n- #34322 Snowy Japanese Bus Stop Diptych: Creates a split realistic-and-paper-cut poster of a quiet snowy Japanese bus stop with poetic e…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34469",
-      "34468",
-      "34467",
-      "34466",
-      "34461"
+      "34333",
+      "34326",
+      "34322",
+      "34321",
+      "100285"
     ]
   },
   {
@@ -1346,18 +1346,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1789199149794_ouvrj1_HR_JOC8bYAA3zp3.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34466 复古杂志风肖像拼贴: 一个用于创作 2x2 拼贴画的精美提示词，展现 1970 年代企业美学风格的男性模特，搭配森林绿西装与忧郁的影棚灯光。\n- #34214 Polaroid Gallery Installation Portrait: A creative prompt that places a subject in a contemporary gallery installation entirely covered…\n- #34084 Watercolor Sunset Portrait: Generates a nostalgic watercolor-and-charcoal portrait of a young woman against an ocean sunset…\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "https://cms-assets.youmind.com/media/1789029016141_jpu9tf_HRwEhRQaYAA6QVK.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34214 Polaroid Gallery Installation Portrait: A creative prompt that places a subject in a contemporary gallery installation entirely covered…\n- #34084 Watercolor Sunset Portrait: Generates a nostalgic watercolor-and-charcoal portrait of a young woman against an ocean sunset…\n- #33982 复古合成器波播客主持人: 一张写实风格的 1980 年代蒸汽波风格工作室肖像，用于创作带有怀旧道具和标志的霓虹灯播客主持人场景。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "34466",
       "34214",
       "34084",
       "33982",
-      "33959"
+      "33959",
+      "33941"
     ]
   }
 ]
