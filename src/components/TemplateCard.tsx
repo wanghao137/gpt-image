@@ -9,7 +9,6 @@ import {
   extractTemplateVariables,
 } from "../lib/template-discovery.mjs";
 import { sourceDisplayLabel } from "../lib/source-label.mjs";
-import { templateTagLabel } from "../lib/labels";
 
 interface TemplateCardProps {
   data: PromptTemplate;
@@ -29,8 +28,6 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
   const [imgLoaded, setImgLoaded] = useState(false);
   const [expanded, setExpanded] = useState(defaultExpanded);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const visibleTags = data.tags.slice(0, 3);
-  const hiddenTagCount = Math.max(0, data.tags.length - visibleTags.length);
   const variables = extractTemplateVariables(data.prompt);
   const derivedCaseIds = data.derivedFrom?.slice(0, 5) ?? [];
   const detailHref = `/template/${data.id}`;
@@ -50,6 +47,22 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
     event.currentTarget.style.setProperty("--y", `${event.clientY - rect.top}px`);
   }, []);
 
+  const copyIcon = (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3.5 w-3.5"
+      aria-hidden="true"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </svg>
+  );
+
   return (
     <>
       <article
@@ -59,7 +72,12 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
           (expanded ? "border-ember-500/35 shadow-ember" : "border-white/[0.06]")
         }
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-ink-850">
+        {/* The card IS the picture. Phones render media only (4:3 reads bigger
+            than 16:10 in a 2-up wall while staying sharp — covers are 600-1200px
+            natively, a ~169px card needs ~507px @DPR3); category/title/copy sit
+            on the gradient. Full tags/variables/description live on the detail
+            page, which also carries the expandable prompt. */}
+        <div className="relative aspect-[4/3] overflow-hidden bg-ink-850 sm:aspect-[16/10]">
           <Link
             to={detailHref}
             className="group/media absolute inset-0 block focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ember-400/70"
@@ -75,9 +93,6 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               height={500}
               widths={[420, 640, 800, 1080]}
               baseWidth={640}
-              /* Mirrors the grid ladder in TemplatesPage/HomePage (2/3/4/5/6
-                 columns). Only matters for the few /images covers — /uploads
-                 covers render as a bare <img> with no srcset at all. */
               sizes="(min-width:1536px) 17vw, (min-width:1280px) 20vw, (min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
               onLoad={() => setImgLoaded(true)}
               className={
@@ -90,6 +105,11 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               TEMPLATE
             </span>
           </Link>
+
+          {/* Phone overlay removed on purpose: a scrim across a 125px-tall
+              thumbnail read as a washed-out text panel. The phone card is the
+              clean cover + a slim footer (title + the one action that matters);
+              category/variables/tags/description live on the detail page. */}
           <button
             type="button"
             aria-label="查看模板大图"
@@ -113,9 +133,43 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
           </button>
         </div>
 
-        <div className="relative z-[2] flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-5">
+        {/* Phone footer: title + one action under the clean cover. */}
+        <div className="px-2 py-1.5 sm:hidden">
+          <h3 className="line-clamp-2 text-[12px] font-semibold leading-snug text-ink-50">
+            {data.title}
+          </h3>
+          <button
+            type="button"
+            onClick={() => copy(data.prompt)}
+            className={
+              "mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1 rounded-lg text-[11.5px] font-semibold transition " +
+              (state === "copied"
+                ? "bg-emerald-400/95 text-ink-950"
+                : state === "error"
+                  ? "bg-rose-400/90 text-ink-950"
+                  : "bg-ember-500/95 text-ink-950 active:bg-ember-400")
+            }
+          >
+            {state === "copied" ? (
+              "已复制"
+            ) : state === "error" ? (
+              "复制失败"
+            ) : (
+              <>
+                {copyIcon}
+                复制模板
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Desktop body: trimmed to eyebrow + title + 2-line description +
+            variables chip + actions. The bordered capability strip and the
+            fill-in hint moved to the detail page (user feedback: cards carried
+            too much text). */}
+        <div className="relative z-[2] hidden flex-1 flex-col gap-2.5 p-4 sm:flex sm:gap-3 sm:p-5">
           <div className="eyebrow">{data.category}</div>
-          <h3 className="text-[14.5px] font-semibold leading-snug text-ink-50 sm:text-[16px]">
+          <h3 className="text-[16px] font-semibold leading-snug text-ink-50">
             <Link
               to={detailHref}
               className="group/title flex items-start gap-1 rounded-sm transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
@@ -136,39 +190,16 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               </svg>
             </Link>
           </h3>
-          <p className="line-clamp-2 text-[12px] leading-relaxed text-ink-400 sm:text-[13px]">{data.description}</p>
+          <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
 
           {variables.length > 0 && (
-            <div className="flex items-center gap-2 text-[11px] text-ink-400 sm:text-[11.5px]">
+            <div className="flex items-center text-[11.5px] text-ink-400">
               <span className="rounded-full border border-ember-400/20 bg-ember-400/[0.07] px-2 py-1 text-ember-200">
                 {variables.length} 个可替换变量
               </span>
-              <span>展开后逐项填写</span>
             </div>
           )}
 
-          {visibleTags.length > 0 && (
-            <div className="template-capability-strip" aria-label="模板适用方向">
-              <span className="template-capability-label">适用方向</span>
-              <div className="template-capability-tags">
-                {visibleTags.map((tag) => (
-                  <span key={`${data.id}-${tag}`} className="template-capability-tag" title={templateTagLabel(tag)}>
-                    {templateTagLabel(tag)}
-                  </span>
-                ))}
-                {hiddenTagCount > 0 && (
-                  <span className="template-capability-more" aria-label={`还有 ${hiddenTagCount} 个适用方向`}>
-                    +{hiddenTagCount}
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* flex-wrap + basis: the two actions share a line only when the card
-              is wide enough (~274px) for the widest label ("展开 Prompt" needs
-              ~113px with its icon). A fixed 2-col grid overflowed the label at
-              3-4 columns (640-1535px, cards 181-352px). */}
           <div className="mt-auto flex flex-wrap gap-2 pt-1.5 sm:pt-2">
             {expandable ? (
               <button
@@ -229,19 +260,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
                 "复制失败"
               ) : (
                 <>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                    aria-hidden="true"
-                  >
-                    <rect x="9" y="9" width="13" height="13" rx="2" />
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                  </svg>
+                  {copyIcon}
                   复制模板
                 </>
               )}

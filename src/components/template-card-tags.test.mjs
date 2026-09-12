@@ -1,34 +1,24 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const component = readFileSync(new URL("./TemplateCard.tsx", import.meta.url), "utf8");
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const css = readFileSync(join(root, "index.css"), "utf8");
 
-test("template cards render tags as a contained capability strip", () => {
-  assert.match(component, /visibleTags\s*=\s*data\.tags\.slice\(0,\s*3\)/);
-  assert.match(component, /hiddenTagCount\s*=\s*Math\.max\(0,\s*data\.tags\.length - visibleTags\.length\)/);
-  assert.match(component, /template-capability-strip/);
-  assert.match(component, /template-capability-tags/);
-  assert.match(component, /template-capability-tag/);
-  assert.match(component, /template-capability-more/);
-  assert.doesNotMatch(component, /className="flex flex-wrap gap-1\.5"/);
-});
-
-test("template capability tags have stable card-level styles", () => {
-  for (const selector of [
-    ".template-capability-strip",
-    ".template-capability-label",
-    ".template-capability-tags",
-    ".template-capability-tag",
-    ".template-capability-more",
-  ]) {
-    assert.match(css, new RegExp(`${selector.replace(".", "\\.")}\\s*\\{`), selector);
-  }
-
-  assert.match(css, /min-h-\[/);
-  assert.match(css, /:root\[data-theme="light"\] \.template-capability-strip/);
+test("template card is image-first: tags/copy live on the picture, not a text page", () => {
+  // 2026-09-12 user feedback: the card carried an eyebrow + 3-line title +
+  // description + variables chip + a bordered capability strip + two stacked
+  // buttons under a ~110px thumbnail — "字太多，图片太小". The card is now the
+  // picture: category/title/copy sit on the image gradient on phones, and the
+  // capability strip moved to the detail page (which renders its own tags).
+  assert.doesNotMatch(component, /template-capability-strip/);
+  assert.doesNotMatch(component, /展开后逐项填写/);
+  // phone: clean cover + slim footer (title + copy) — no scrim panel over the
+  // thumbnail, no eyebrow/description/variables/tags on the card
+  assert.match(component, /aspect-\[4\/3\][^"']*sm:aspect-\[16\/10\]/);
+  assert.match(component, /px-2 py-1\.5 sm:hidden/);
+  assert.match(component, /line-clamp-2 text-\[12px\] font-semibold/);
+  assert.match(component, /mt-1\.5 inline-flex h-8 w-full/);
+  // desktop keeps a trimmed body; the expand/copy actions stay functional
+  assert.match(component, /hidden flex-1 flex-col[^"]*sm:flex/);
+  assert.match(component, /aria-expanded=\{expanded\}/);
 });
