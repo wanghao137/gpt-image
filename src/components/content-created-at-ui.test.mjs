@@ -26,12 +26,14 @@ test("template pages use the shared newest-first template sort", () => {
   assert.match(homePage, /sortTemplatesForDisplay\(ALL_TEMPLATES\)/);
 });
 
-test("template cards expose independent detail, lightbox, and prompt controls", () => {
+test("template cards expose independent detail, lightbox, and copy controls", () => {
   assert.match(templateCard, /ImageLightbox/);
   assert.match(templateCard, /lightboxOpen/);
   assert.match(templateCard, /setLightboxOpen\(true\)/);
   assert.match(templateCard, /to=\{detailHref\}/);
-  assert.match(templateCard, /aria-expanded=\{expanded\}/);
+  // the inline expand affordance moved to the detail page (2026-09-12:
+  // image-first cards) — the card keeps detail + lightbox + copy
+  assert.match(templateCard, /复制模板/);
   assert.match(templateCard, /type="button"\s+aria-label=/);
   assert.doesNotMatch(templateCard, /<Link[^>]*>\s*<article/);
 });

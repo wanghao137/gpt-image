@@ -6,7 +6,7 @@ import {
   templateCategories,
   type TemplateSortMode,
 } from "../lib/template-discovery.mjs";
-import { TemplateCard } from "../components/TemplateCard";
+import { TemplateGrid } from "../components/TemplateGrid";
 import { SEO } from "../components/SEO";
 import { BRAND } from "../lib/brand";
 
@@ -126,14 +126,12 @@ export default function TemplatesPage() {
       </section>
 
       {visibleTemplates.length > 0 ? (
-        // Density ladder mirrors the case wall (.masonry): 2 cols on phones,
-        // then 3/4/5/6. Cards stay ≤293px so the /uploads covers (many are only
-        // 600-680px natively) hold ≥97% fill at DPR2 — a 4-wide grid on the
-        // wide track stretched them to 428px and fell to ~70%.
-        <div className="container-gallery grid grid-cols-2 gap-3 pb-16 pt-6 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-          {visibleTemplates.map((t) => (
-            <TemplateCard key={t.id} data={t} expandable />
-          ))}
+        // Natural-ratio masonry wall (covers are 22 portrait / 17 landscape /
+        // 9 square — a fixed-ratio grid cropped every portrait to a sliver).
+        // The dense ladder keeps cards ≤~260px so the 600-680px covers stay
+        // sharp, and filtering just re-feeds the wall.
+        <div className="container-gallery pb-16 pt-6">
+          <TemplateGrid templates={visibleTemplates} />
         </div>
       ) : (
         <div className="container-gallery pb-20 pt-8">

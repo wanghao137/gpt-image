@@ -5,7 +5,7 @@ import { HOME_DATA } from "../hooks/useHomeData";
 import { SmartImg } from "../components/SmartImg";
 import { CategoryShowcase } from "../components/CategoryShowcase";
 import { CaseGrid } from "../components/CaseGrid";
-import { TemplateCard } from "../components/TemplateCard";
+import { TemplateGrid } from "../components/TemplateGrid";
 import { HeroStrip } from "../components/HeroStrip";
 import { SEO, SITE } from "../components/SEO";
 import { useFavorites } from "../hooks/useFavorites";
@@ -217,30 +217,9 @@ export default function HomePage() {
             全部模板
           </Link>
         </div>
-        {/* Same density ladder as /templates. Card count per band is kept a
-            multiple of that band's column count (2 cols→6 cards, 3→6, 4→8,
-            5→10, 6→12) so every row stays full; the wrapper is
-            `display: contents` when visible, so the <article> stays the grid
-            item. A plain 4-card slice on the wide track stretched the cards to
-            445px and dropped the 600-680px /uploads covers to ~67% fill @DPR2. */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-          {templates.slice(0, 12).map((t, i) => (
-            <div
-              key={t.id}
-              className={
-                i < 6
-                  ? "contents"
-                  : i < 8
-                    ? "hidden contents lg:contents"
-                    : i < 10
-                      ? "hidden contents xl:contents"
-                      : "hidden contents 2xl:contents"
-              }
-            >
-              <TemplateCard data={t} />
-            </div>
-          ))}
-        </div>
+        {/* Same natural-ratio wall as /templates — 12 cards flow densely at
+            every column count, so no per-band visibility juggling. */}
+        <TemplateGrid templates={templates.slice(0, 12)} />
       </section>
 
       <section className="container-gallery pb-16 pt-12 sm:pt-16">

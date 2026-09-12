@@ -1,24 +1,38 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const component = readFileSync(new URL("./TemplateCard.tsx", import.meta.url), "utf8");
+const grid = readFileSync(new URL("./TemplateGrid.tsx", import.meta.url), "utf8");
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const css = readFileSync(join(root, "index.css"), "utf8");
 
-test("template card is image-first: tags/copy live on the picture, not a text page", () => {
-  // 2026-09-12 user feedback: the card carried an eyebrow + 3-line title +
-  // description + variables chip + a bordered capability strip + two stacked
-  // buttons under a ~110px thumbnail — "字太多，图片太小". The card is now the
-  // picture: category/title/copy sit on the image gradient on phones, and the
-  // capability strip moved to the detail page (which renders its own tags).
+test("template cards render covers at natural ratio with minimal text", () => {
+  // 2026-09-12 user feedback: a fixed-ratio grid cropped every portrait cover
+  // (22 portrait / 17 landscape / 9 square) to a sliver, and the card carried
+  // an eyebrow + title + description + variables chip + capability strip +
+  // two buttons. The card is now the cover at NATURAL ratio + title + copy.
+  assert.match(component, /preserveAspectRatio/);
+  assert.doesNotMatch(component, /aspect-\[\d+\/\d+\]/, "no fixed-ratio crop box");
+  assert.doesNotMatch(component, /object-cover/);
+  // minimal copy: title + one action only
+  assert.match(component, /line-clamp-2 text-\[12\.5px\] font-medium/);
+  assert.match(component, /复制模板/);
+  assert.doesNotMatch(component, /展开 Prompt/);
   assert.doesNotMatch(component, /template-capability-strip/);
-  assert.doesNotMatch(component, /展开后逐项填写/);
-  // phone: clean cover + slim footer (title + copy) — no scrim panel over the
-  // thumbnail, no eyebrow/description/variables/tags on the card
-  assert.match(component, /aspect-\[4\/3\][^"']*sm:aspect-\[16\/10\]/);
-  assert.match(component, /px-2 py-1\.5 sm:hidden/);
-  assert.match(component, /line-clamp-2 text-\[12px\] font-semibold/);
-  assert.match(component, /mt-1\.5 inline-flex h-8 w-full/);
-  // desktop keeps a trimmed body; the expand/copy actions stay functional
-  assert.match(component, /hidden flex-1 flex-col[^"]*sm:flex/);
-  assert.match(component, /aria-expanded=\{expanded\}/);
+  assert.doesNotMatch(component, /line-clamp-2 text-\[13px] leading-relaxed/);
+  // detail/lightbox affordances stay
+  assert.match(component, /ImageLightbox/);
+  assert.match(component, /to=\{detailHref\}/);
+});
+
+test("templates wall is the dense measured masonry (row-first, no reshuffle)", () => {
+  assert.match(grid, /masonry masonry-dense/);
+  assert.match(grid, /gridRowEnd/);
+  assert.match(grid, /ResizeObserver/);
+  // the dense ladder exists in CSS and the shared feed marker carries no rules
+  assert.match(css, /\.masonry-dense\s*\{\s*column-count:\s*2/);
+  assert.doesNotMatch(css, /\.masonry-feed\s*[,{]/);
 });

@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getTemplateById, templateNeighbors } from "../lib/data";
-import { SmartImg } from "../components/SmartImg";
 import { ImageLightbox } from "../components/ImageLightbox";
 import { SEO, SITE } from "../components/SEO";
 import { useCopy } from "../hooks/useCopy";
@@ -146,18 +145,18 @@ export default function TemplateDetailPage() {
                 className="group relative block w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-900/40 transition hover:border-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
                 aria-label="查看模板大图"
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-ink-850">
-                  <SmartImg
+                {/* Natural ratio, no crop: covers are 22 portrait / 17
+                    landscape / 9 square — a fixed 16:10 box cut every portrait
+                    poster in half. Height caps at the viewport so tall posters
+                    stay fully visible beside the copy. */}
+                <div className="relative overflow-hidden rounded-2xl bg-ink-850">
+                  <img
                     src={t.cover}
                     alt={t.title}
-                    width={800}
-                    height={500}
-                    widths={[420, 640, 800]}
-                    baseWidth={640}
-                    sizes="(min-width:1024px) 40vw, 90vw"
                     loading="eager"
+                    decoding="async"
                     fetchPriority="high"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="mx-auto block max-h-[76vh] w-auto max-w-full transition duration-500 group-hover:scale-[1.02]"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent" />
                   <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
@@ -408,7 +407,7 @@ export default function TemplateDetailPage() {
         src={t.cover}
         alt={t.title}
         caption={t.title}
-        ratio="16:10"
+        ratio="4:5"
         onClose={() => setLightboxOpen(false)}
       />
     </>

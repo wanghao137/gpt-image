@@ -603,7 +603,8 @@
        ~94px upward over the card above — measured 27/72 cards broken before
        this revert. If mobile ever goes 2-col again, move the card footer
        BELOW the image first (cases.taostudioai.com pattern).
-       .masonry-lab (4K lab) has no overlay — it does go 2-col on phones. */
+       .masonry-dense walls (lab / templates) have no overlay — they go
+       2-col on phones. */
     column-count: 1;
     column-gap: 1rem;
   }
@@ -674,42 +675,40 @@
     }
   }
   /*
-     4K lab wall column ladder — deliberately denser than the case wall. The
-     lab thumb is a single 480px baked WebP with NO srcset (SmartImg
-     direct-serves /lab-images/*), so rendered card width is the ONLY lever on
-     its fill rate: at the case wall's counts the 480 thumb fell to 76% (1440
-     @DPR2) and 86% (1920 @DPR2) once the track widened. This ladder keeps every
-     band ≥110% (card ≤260px) with zero extra bytes and no new files.
-     Captions sit BELOW the image (no overlay), so the phone 2-column tier is
-     safe — see the note on .masonry above.
-     Targets .masonry-lab ONLY: `masonry-feed` is shared with CaseGrid, whose
-     cards overlay text on the image and must stay 1-col on phones.
-     MUST stay last in the masonry block: `.masonry-lab*` and the base
-     `.masonry*` rules above have identical specificity, so source order wins.
+     Dense wall ladder — shared by the overlay-free walls (4K lab + templates).
+     Deliberately denser than the case wall: lab thumbs are single 480px baked
+     WebPs and template covers are 600-1200px native files with NO srcset
+     (SmartImg direct-serves both), so rendered card width is the ONLY lever on
+     their fill rate. This ladder keeps every band's card ≤~260px (≥96% fill
+     @DPR2) with zero extra bytes. Covers render at NATURAL aspect ratio, so
+     portrait covers get full-height cards instead of being cropped to a sliver.
+     MUST stay last in the masonry block: `.masonry-dense.masonry-ready` and the
+     base `.masonry.masonry-ready` above have identical specificity, so source
+     order wins. Case cards pin text onto the image and MUST NOT use this class.
   */
   @media (max-width: 639px) {
-    .masonry-lab { column-count: 2; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 2; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (min-width: 640px) {
-    .masonry-lab { column-count: 3; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 3; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
   @media (min-width: 768px) {
-    .masonry-lab { column-count: 4; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 4; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   @media (min-width: 1024px) {
-    .masonry-lab { column-count: 5; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 5; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   }
   @media (min-width: 1280px) {
-    .masonry-lab { column-count: 6; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 6; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   }
   @media (min-width: 1792px) {
-    .masonry-lab { column-count: 7; }
-    .masonry-lab.masonry-ready { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .masonry-dense { column-count: 7; }
+    .masonry-dense.masonry-ready { grid-template-columns: repeat(7, minmax(0, 1fr)); }
   }
 
   .case-card {

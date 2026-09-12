@@ -93,12 +93,13 @@ export function LabGrid({ items }: { items: LabLiteRow[] }) {
   }, [items]);
 
   return (
-    // `masonry-lab` (not just `masonry-feed`) carries the phone 2-column rule:
-    // CaseGrid renders `masonry masonry-feed` too, and its cards pin a text
-    // overlay onto the image, so a shared class must never flip cases to 2-col.
+    // `masonry-dense` (not the shared `masonry-feed` marker) carries the wall's
+    // column ladder: CaseGrid renders `masonry masonry-feed` too, and its cards
+    // pin a text overlay onto the image, so the shared class must never flip
+    // cases to the dense ladder.
     <div
       ref={masonryRef}
-      className={`masonry masonry-feed masonry-lab${masonryReady ? " masonry-ready" : ""}`}
+      className={`masonry masonry-feed masonry-dense${masonryReady ? " masonry-ready" : ""}`}
     >
       {items.map((item) => (
         <div className="masonry-item" key={item.id}>
