@@ -73,9 +73,12 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               alt={data.title}
               width={800}
               height={500}
-              widths={[420, 640, 800]}
+              widths={[420, 640, 800, 1080]}
               baseWidth={640}
-              sizes="(min-width:1280px) 25vw, (min-width:640px) 50vw, 100vw"
+              /* Mirrors the grid ladder in TemplatesPage/HomePage (2/3/4/5/6
+                 columns). Only matters for the few /images covers — /uploads
+                 covers render as a bare <img> with no srcset at all. */
+              sizes="(min-width:1536px) 17vw, (min-width:1280px) 20vw, (min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
               onLoad={() => setImgLoaded(true)}
               className={
                 "absolute inset-0 h-full w-full object-cover transition duration-[1100ms] group-hover/media:scale-[1.05] " +
@@ -83,7 +86,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               }
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
-            <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-ink-950/70 px-2.5 py-1 text-[10.5px] font-medium tracking-[0.16em] text-ember-200 backdrop-blur">
+            <span className="absolute left-2 top-2 rounded-full border border-white/15 bg-ink-950/70 px-2 py-0.5 text-[9.5px] font-medium tracking-[0.12em] text-ember-200 backdrop-blur sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[10.5px] sm:tracking-[0.16em]">
               TEMPLATE
             </span>
           </Link>
@@ -91,7 +94,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
             type="button"
             aria-label="查看模板大图"
             onClick={() => setLightboxOpen(true)}
-            className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-ink-950/70 text-ink-100 shadow-soft backdrop-blur transition hover:border-ember-400/45 hover:bg-ember-500/15 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+            className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-ink-950/70 text-ink-100 shadow-soft backdrop-blur transition hover:border-ember-400/45 hover:bg-ember-500/15 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 sm:right-3 sm:top-3 sm:h-11 sm:w-11 sm:rounded-xl"
           >
             <svg
               viewBox="0 0 24 24"
@@ -110,9 +113,9 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
           </button>
         </div>
 
-        <div className="relative z-[2] flex flex-1 flex-col gap-3 p-5">
+        <div className="relative z-[2] flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-5">
           <div className="eyebrow">{data.category}</div>
-          <h3 className="text-[16px] font-semibold leading-snug text-ink-50">
+          <h3 className="text-[14.5px] font-semibold leading-snug text-ink-50 sm:text-[16px]">
             <Link
               to={detailHref}
               className="group/title flex items-start gap-1 rounded-sm transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
@@ -133,10 +136,10 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               </svg>
             </Link>
           </h3>
-          <p className="line-clamp-2 text-[13px] leading-relaxed text-ink-400">{data.description}</p>
+          <p className="line-clamp-2 text-[12px] leading-relaxed text-ink-400 sm:text-[13px]">{data.description}</p>
 
           {variables.length > 0 && (
-            <div className="flex items-center gap-2 text-[11.5px] text-ink-400">
+            <div className="flex items-center gap-2 text-[11px] text-ink-400 sm:text-[11.5px]">
               <span className="rounded-full border border-ember-400/20 bg-ember-400/[0.07] px-2 py-1 text-ember-200">
                 {variables.length} 个可替换变量
               </span>
@@ -162,12 +165,16 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
             </div>
           )}
 
-          <div className="mt-auto grid grid-cols-2 gap-2 pt-2">
+          {/* flex-wrap + basis: the two actions share a line only when the card
+              is wide enough (~274px) for the widest label ("展开 Prompt" needs
+              ~113px with its icon). A fixed 2-col grid overflowed the label at
+              3-4 columns (640-1535px, cards 181-352px). */}
+          <div className="mt-auto flex flex-wrap gap-2 pt-1.5 sm:pt-2">
             {expandable ? (
               <button
                 type="button"
                 onClick={() => setExpanded((value) => !value)}
-                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[12.5px] font-medium text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+                className="inline-flex h-10 flex-1 basis-[112px] items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[12.5px] font-medium text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 sm:h-11"
                 aria-expanded={expanded}
               >
                 <svg
@@ -187,7 +194,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
             ) : (
               <Link
                 to={detailHref}
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[12.5px] font-medium text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+                className="inline-flex h-10 flex-1 basis-[112px] items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-3 text-[12.5px] font-medium text-ink-200 transition hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 sm:h-11"
               >
                 查看详情
               </Link>
@@ -196,7 +203,7 @@ function TemplateCardImpl({ data, expandable = false, defaultExpanded = false }:
               type="button"
               onClick={() => copy(data.prompt)}
               className={
-                "inline-flex h-11 items-center justify-center gap-1.5 rounded-xl border px-3 text-[12.5px] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 " +
+                "inline-flex h-10 flex-1 basis-[112px] items-center justify-center gap-1.5 rounded-xl border px-3 text-[12.5px] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70 sm:h-11 " +
                 (state === "copied"
                   ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-200"
                   : "border-white/10 bg-white/[0.03] text-ink-100 hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-100")

@@ -193,6 +193,18 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
+  /*
+     Gallery pages (cases / lab / templates grids) get a wider track than
+     text pages: on a 1920px display the old 1280px narrow container left 360px
+     of dead space per side (37.5% of the screen) while cards stayed 285px.
+     1920 + px-10 = 1840px of content, so a 1920 screen loses only the 40px
+     padding. Text-heavy pages keep .container-narrow for line length; the
+     header/footer ride this track so the nav lines up with the walls.
+  */
+  .container-gallery {
+    @apply mx-auto w-full max-w-[1920px] px-5 sm:px-8 lg:px-10;
+  }
+
   .eyebrow {
     @apply text-[11px] font-medium uppercase tracking-[0.22em] text-ink-400;
   }
@@ -629,17 +641,17 @@
      boundary voids, while source and keyboard order remain unchanged.
   */
   .masonry {
-    --masonry-row-gap: 1.25rem;
     /* MUST stay 1 column below 640px (2026-09-12 regression): the mobile
-       card pins a ~165px title/action overlay with absolute bottom-0 ONTO
-       the image (CaseCard sm:hidden block). At 390px full width the shortest
-       images (16:9 ≈ 220px) still clear the overlay; at 50vw ≈ 163px they
+       case card pins a ~135px title/action overlay with absolute bottom-0
+       ONTO the image (CaseCard sm:hidden block). At 390px full width the
+       shortest images (16:9 ≈ 220px) clear the overlay; at 50vw ≈ 163px they
        shrink to 70-110px, the overlay covers 1.5-2.4× the image and bleeds
        ~94px upward over the card above — measured 27/72 cards broken before
        this revert. If mobile ever goes 2-col again, move the card footer
-       BELOW the image first (cases.taostudioai.com pattern). */
+       BELOW the image first (cases.taostudioai.com pattern).
+       .masonry-lab (4K lab) has no overlay — it does go 2-col on phones. */
     column-count: 1;
-    column-gap: 1.25rem;
+    column-gap: 1rem;
   }
   @media (min-width: 640px) {
     .masonry { column-count: 2; }
@@ -650,10 +662,16 @@
   @media (min-width: 1280px) {
     .masonry { column-count: 4; }
   }
+  @media (min-width: 1536px) {
+    .masonry { column-count: 5; }
+  }
+  @media (min-width: 1792px) {
+    .masonry { column-count: 6; }
+  }
   .masonry:not(.masonry-ready) > * {
     display: inline-block;
     width: 100%;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     break-inside: avoid;
     min-width: 0;
     transform: translateZ(0);
@@ -663,7 +681,7 @@
     grid-template-columns: minmax(0, 1fr);
     grid-auto-flow: row dense;
     grid-auto-rows: 1px;
-    column-gap: 1.25rem;
+    column-gap: 1rem;
     row-gap: 0;
   }
   .masonry.masonry-ready > .masonry-item {
@@ -682,14 +700,62 @@
   @media (min-width: 1280px) {
     .masonry.masonry-ready { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
+  @media (min-width: 1536px) {
+    .masonry.masonry-ready { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1792px) {
+    .masonry.masonry-ready { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
   @media (max-width: 639px) {
-    .masonry {
-      --masonry-row-gap: 0.875rem;
-      column-gap: 0.875rem;
+    /* The ready-state grid needs the two-class form: `.masonry.masonry-ready`
+       (column-gap: 1rem, above) outranks a bare `.masonry` override whatever
+       the source order, so a single-class gap here never reached the hydrated
+       grid — phones kept the 16px desktop gap and shifted 4px on hydration. */
+    .masonry,
+    .masonry.masonry-ready {
+      column-gap: 0.75rem;
     }
     .masonry:not(.masonry-ready) > * {
-      margin-bottom: 0.875rem;
+      margin-bottom: 0.75rem;
     }
+  }
+  /*
+     4K lab wall column ladder — deliberately denser than the case wall. The
+     lab thumb is a single 480px baked WebP with NO srcset (SmartImg
+     direct-serves /lab-images/*), so rendered card width is the ONLY lever on
+     its fill rate: at the case wall's counts the 480 thumb fell to 76% (1440
+     @DPR2) and 86% (1920 @DPR2) once the track widened. This ladder keeps every
+     band ≥110% (card ≤260px) with zero extra bytes and no new files.
+     Captions sit BELOW the image (no overlay), so the phone 2-column tier is
+     safe — see the note on .masonry above.
+     Targets .masonry-lab ONLY: `masonry-feed` is shared with CaseGrid, whose
+     cards overlay text on the image and must stay 1-col on phones.
+     MUST stay last in the masonry block: `.masonry-lab*` and the base
+     `.masonry*` rules above have identical specificity, so source order wins.
+  */
+  @media (max-width: 639px) {
+    .masonry-lab { column-count: 2; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 640px) {
+    .masonry-lab { column-count: 3; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .masonry-lab { column-count: 4; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .masonry-lab { column-count: 5; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1280px) {
+    .masonry-lab { column-count: 6; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1792px) {
+    .masonry-lab { column-count: 7; }
+    .masonry-lab.masonry-ready { grid-template-columns: repeat(7, minmax(0, 1fr)); }
   }
 
   .case-card {

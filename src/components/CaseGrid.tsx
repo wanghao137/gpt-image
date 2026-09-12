@@ -242,7 +242,9 @@ export function CaseGrid({
     () => (restoreId ? visible.some((item) => item.id === restoreId) : false),
     [restoreId, visible],
   );
-  const baseWrapperClassName = contained ? "container-narrow pb-20" : "pb-20";
+  // Gallery track, not the text-page narrow container — on a 1920px display
+  // the narrow one wasted 360px per side (see .container-gallery in index.css).
+  const baseWrapperClassName = contained ? "container-gallery pb-20" : "pb-20";
   const wrapperClassName = restoreInProgress || restoreLayoutLocked
     ? `${baseWrapperClassName} case-grid-restoring`
     : baseWrapperClassName;
@@ -358,7 +360,7 @@ export function CaseGrid({
 
   if (loading) {
     return (
-      <div className="container-narrow pb-24">
+      <div className="container-gallery pb-24">
         <div className="masonry">
           {Array.from({ length: 8 }).map((_, i) => (
             <SkeletonCard key={i} />
@@ -370,7 +372,7 @@ export function CaseGrid({
 
   if (cases.length === 0) {
     return (
-      <div className="container-narrow pb-24">
+      <div className="container-gallery pb-24">
         <div className="surface mx-auto max-w-xl p-10 text-center">
           <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-ink-300">
             <svg

@@ -471,11 +471,16 @@ function CaseCardImpl({
                 height={imageDimensions.height}
                 /* Mobile stays single-column 100vw (see .masonry note in
                    index.css: the absolute bottom overlay needs ≥165px-tall
-                   media, which 50vw columns can't guarantee). 1080 top rung
-                   feeds 100vw @DPR3 (1170px) from X originals (~90% fill). */
-                widths={[280, 420, 560, 800, 1080]}
+                   media, which 50vw columns can't guarantee). 1280 top rung
+                   feeds 100vw @DPR3 — a 390px phone wants 1170px, so the old
+                   1080 ceiling sat at 92% fill; 1280 lands ~100% off the X
+                   originals. 640 covers the 5/6-col desktop tiers (293px card
+                   @DPR2 = 586px), which the old 560→800 gap missed. */
+                widths={[280, 420, 560, 640, 800, 1080, 1280]}
                 baseWidth={280}
-                sizes="(min-width:1280px) 280px, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                /* Widths mirror the real track: 4 cols at 1280-1535 → 25vw-32px,
+                   5/6 cols above → a fixed ~286-293px (see .masonry tiers). */
+                sizes="(min-width:1792px) 300px, (min-width:1536px) 286px, (min-width:1280px) 25vw, (min-width:1024px) 34vw, (min-width:640px) 50vw, 100vw"
                 loading={priority && !isSeriesActive ? "eager" : "lazy"}
                 fetchPriority={priority && !isSeriesActive ? "high" : "auto"}
                 preserveAspectRatio
@@ -521,7 +526,7 @@ function CaseCardImpl({
             aria-label={activeFavorited ? "取消收藏" : "收藏"}
             aria-pressed={activeFavorited}
             className={
-              "absolute right-2.5 top-2.5 z-20 grid h-11 w-11 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
+              "absolute right-2 top-2 z-20 grid h-9 w-9 place-items-center rounded-full border backdrop-blur-md transition sm:h-8 sm:w-8 " +
               (activeFavorited
                 ? "border-ember-400/60 bg-ember-500/30 text-ember-100"
                 : "border-white/25 bg-ink-950/65 text-ink-50 opacity-100 hover:border-ember-400/60 hover:text-ember-200 sm:border-white/15 sm:bg-ink-950/55 sm:opacity-0 sm:group-hover:opacity-100")
@@ -530,22 +535,26 @@ function CaseCardImpl({
             <HeartIcon filled={activeFavorited} />
           </button>
 
-          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-ink-950 via-ink-950/90 to-transparent px-3 pb-3 pt-14 sm:hidden">
+          {/* pointer-events-none: the gradient must not swallow image taps —
+              on short images the link's centre falls inside this box and the
+              case would never open from the lower half. Only the title link
+              and the action row re-enable pointer events. */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-1.5 bg-gradient-to-t from-ink-950 via-ink-950/90 to-transparent px-2.5 pb-2.5 pt-11 sm:hidden">
             <Link
               to={detailHref}
               onClick={rememberReturn}
-              className="block rounded-sm text-[14px] font-semibold leading-snug text-ink-50 transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+              className="pointer-events-auto block rounded-sm text-[13.5px] font-semibold leading-snug text-ink-50 transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
             >
               <span className="line-clamp-1">{activeCase.title}</span>
             </Link>
-            <div className="flex items-center justify-between gap-2 text-[11.5px] text-ink-300">
+            <div className="flex items-center justify-between gap-2 text-[11px] text-ink-300">
               <span className="inline-flex min-w-0 items-center gap-1">
                 <SourceDot />
                 <span className="truncate">{activeCase.source ? shortSourceLabel(sourceLabel) : userCategoryLabel(activeCase.userCategory)}</span>
               </span>
               <span className="shrink-0 text-ink-400">{userCategoryLabel(activeCase.userCategory)}</span>
             </div>
-            <div className="flex items-center gap-2" data-no-longpress>
+            <div className="pointer-events-auto flex items-center gap-1.5" data-no-longpress>
             <button
               type="button"
               onClick={(e) => {
@@ -556,7 +565,7 @@ function CaseCardImpl({
               disabled={copying}
               aria-label="复制 Prompt"
               className={
-                "inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-xl text-[13.5px] font-semibold transition disabled:opacity-60 " +
+                "inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg text-[12.5px] font-semibold transition disabled:opacity-60 " +
                 (state === "copied"
                   ? "bg-emerald-400/95 text-ink-950"
                   : state === "error"
@@ -588,7 +597,7 @@ function CaseCardImpl({
                 }}
                 aria-expanded={previewOpen}
                 aria-controls={`prompt-preview-${activeCase.id}`}
-                className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl border border-ink-800/70 bg-ink-900/80 px-3 text-[12px] font-medium text-ink-200 active:bg-ink-850/80"
+                className="inline-flex h-9 shrink-0 items-center justify-center rounded-lg border border-ink-800/70 bg-ink-900/80 px-2.5 text-[11.5px] font-medium text-ink-200 active:bg-ink-850/80"
               >
                 {previewOpen ? "收起" : "预览"}
               </button>
@@ -601,7 +610,7 @@ function CaseCardImpl({
                 setMenuOpen(true);
               }}
               aria-label="更多操作"
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
             >
               <DotsIcon />
             </button>
@@ -766,7 +775,10 @@ function SeriesNav({
   onSelect: (next: number) => void;
 }) {
   return (
-    <div className="pointer-events-none absolute inset-0 z-10" aria-hidden="false">
+    // z-20: the phone overlay (z-10, later sibling) used to paint over this
+    // layer, hiding the pagination dots and intercepting taps meant for the
+    // arrows on short images.
+    <div className="pointer-events-none absolute inset-0 z-20" aria-hidden="false">
       {/* Counter pill (top-left). Sits below the favorite button (z-20). */}
       <span className="pointer-events-none absolute left-2.5 top-2.5 inline-flex h-6 items-center rounded-full border border-white/15 bg-ink-950/65 px-2 text-[10.5px] font-medium tabular-nums text-ink-100 backdrop-blur-md">
         {activeIdx + 1}/{total}
@@ -806,8 +818,10 @@ function SeriesNav({
         </svg>
       </button>
 
-      {/* Pagination dots — hidden on mobile footer hover gradient (kept above gradient via z-10) */}
-      <div className="pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
+      {/* Pagination dots. `hidden` on phones: the bottom overlay paints over
+          them there (dots would sit ON the copy-button row even above it), and
+          phones navigate by swipe + arrows + the 2/4 counter instead. */}
+      <div className="pointer-events-none absolute bottom-2 left-1/2 hidden -translate-x-1/2 items-center gap-1.5 sm:flex">
         {Array.from({ length: total }).map((_, i) => {
           const active = i === activeIdx;
           return (

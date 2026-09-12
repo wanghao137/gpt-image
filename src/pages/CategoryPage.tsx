@@ -103,7 +103,7 @@ export default function CategoryPage() {
         jsonLd={[breadcrumbLd, collectionLd]}
       />
 
-      <section className="container-narrow pb-4 pt-10 sm:pt-14">
+      <section className="container-gallery pb-4 pt-10 sm:pt-14">
         <nav aria-label="面包屑" className="text-[12px] text-ink-500">
           <Link to="/" className="hover:text-ink-200">首页</Link>
           <span className="mx-2 text-ink-700">›</span>

@@ -41,7 +41,7 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
   if (tiles.length === 0) return null;
 
   return (
-    <section aria-label="按场景浏览" className="container-narrow pt-10 sm:pt-14">
+    <section aria-label="按场景浏览" className="container-gallery pt-10 sm:pt-14">
       <div className="rounded-[1.75rem] border border-ink-800/70 bg-ink-950/90 p-4 shadow-soft sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none">
         <div className="mb-5 flex flex-col gap-1 sm:mb-6">
           <p className="eyebrow">按场景浏览 · Browse by Use Case</p>
@@ -120,7 +120,12 @@ export function CategoryShowcase({ tiles, totalCount }: CategoryShowcaseProps) {
                 aria-hidden="true"
                 className="absolute inset-0 opacity-45 transition duration-700 group-hover:scale-105 group-hover:opacity-70"
                 style={{
-                  backgroundImage: `url(${coverUrl(tile.cover, 480)})`,
+                  // 800 (not 480): the tile grid rides the wide gallery track
+                  // (.container-gallery), so a 4-col tile is ~451px CSS — the
+                  // old 480px source fell to ~53% fill on a DPR2 laptop. 800
+                  // lands at ~89% and these tiles are dimmed to 45% opacity
+                  // behind a gradient, so the last 11% isn't perceptible.
+                  backgroundImage: `url(${coverUrl(tile.cover, 800)})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

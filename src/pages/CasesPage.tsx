@@ -377,7 +377,7 @@ export default function CasesPage() {
         path="/cases"
       />
 
-      <section className="container-narrow pb-2 pt-10 sm:pt-14">
+      <section className="container-gallery pb-2 pt-10 sm:pt-14">
         <p className="eyebrow">全部案例 · All Cases</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
@@ -418,7 +418,7 @@ export default function CasesPage() {
         </div>
       </section>
 
-      <div className="container-narrow pb-3">
+      <div className="container-gallery pb-3">
         <div className="flex flex-wrap items-center gap-2" aria-label="热门搜索">
           <span className="mr-1 text-[11px] font-medium uppercase tracking-[0.16em] text-ink-500">
             热门搜索
@@ -466,7 +466,7 @@ export default function CasesPage() {
         onReset={resetFilters}
       />
 
-      <div className="container-narrow" aria-live="polite" aria-atomic="true">
+      <div className="container-gallery" aria-live="polite" aria-atomic="true">
         {statusMessage && <p className="pb-3 text-sm text-ink-300">{statusMessage}</p>}
         {(loadError || searchError) && (
           <div

@@ -63,7 +63,7 @@ export default function LabPage() {
         path="/lab"
       />
 
-      <section className="container-narrow pb-2 pt-10 sm:pt-14">
+      <section className="container-gallery pb-2 pt-10 sm:pt-14">
         <p className="eyebrow">4K 实验室 · The Lab</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h1 className="text-[25px] font-semibold leading-tight tracking-[-0.02em] text-ink-50 sm:serif-display sm:text-4xl sm:font-normal lg:text-[44px]">
@@ -76,7 +76,7 @@ export default function LabPage() {
         </div>
       </section>
 
-      <section className="container-narrow pb-16">
+      <section className="container-gallery pb-16">
         {items.length === 0 ? (
           <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-16 text-center">
             <p className="text-[15px] font-medium text-ink-200">实验室还在整理中</p>

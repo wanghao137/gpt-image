@@ -139,7 +139,10 @@ function HeaderImpl() {
       // logo is partially obscured on iPhone 14+.
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      <div className="container-narrow flex h-16 items-center justify-between gap-4">
+      {/* Chrome rides the wide gallery track so the nav's left edge lines up
+          with the case/template walls below it on large displays; text pages
+          stay centred on .container-narrow inside it. */}
+      <div className="container-gallery flex h-16 items-center justify-between gap-4">
         <Link
           to="/"
           className="group inline-flex min-w-0 items-center"
@@ -248,7 +251,7 @@ function HeaderImpl() {
           className="border-t border-white/[0.06] bg-ink-950/95 backdrop-blur-xl md:hidden"
           aria-label="移动端导航"
         >
-          <div className="container-narrow flex flex-col gap-1 py-4">
+          <div className="container-gallery flex flex-col gap-1 py-4">
             {NAV.map((n) => {
               const active = isNavActive(n.to);
               return (

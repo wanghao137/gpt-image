@@ -35,7 +35,7 @@ export default function TemplatesPage() {
         description={`${BRAND.name}按用途分组整理 GPT-Image 2 工业级 Prompt 模板：UI 截图 / 信息图 / 海报 / 产品 / 品牌 / 摄影 / 角色 / 场景叙事。复制即可用，含约束与防坑指南。`}
         path="/templates"
       />
-      <section className="container-narrow pt-10 sm:pt-14">
+      <section className="container-gallery pt-10 sm:pt-14">
         <p className="eyebrow">工业级模板 · Templates</p>
         <h1 className="serif-display mt-2 text-[28px] text-ink-50 sm:text-4xl lg:text-[44px]">
           {templates.length} 套工业级模板，先起稿再 remix
@@ -48,7 +48,7 @@ export default function TemplatesPage() {
         </p>
       </section>
 
-      <section className="container-narrow pt-7" aria-label="筛选模板">
+      <section className="container-gallery pt-7" aria-label="筛选模板">
         <div className="rounded-2xl border border-white/[0.07] bg-ink-900/55 p-3 sm:p-4">
           <div className="grid gap-3 lg:grid-cols-[minmax(260px,1fr)_220px_180px]">
             <div>
@@ -126,13 +126,17 @@ export default function TemplatesPage() {
       </section>
 
       {visibleTemplates.length > 0 ? (
-        <div className="container-narrow grid gap-5 pb-16 pt-6 sm:grid-cols-2 xl:grid-cols-4">
+        // Density ladder mirrors the case wall (.masonry): 2 cols on phones,
+        // then 3/4/5/6. Cards stay ≤293px so the /uploads covers (many are only
+        // 600-680px natively) hold ≥97% fill at DPR2 — a 4-wide grid on the
+        // wide track stretched them to 428px and fell to ~70%.
+        <div className="container-gallery grid grid-cols-2 gap-3 pb-16 pt-6 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           {visibleTemplates.map((t) => (
             <TemplateCard key={t.id} data={t} expandable />
           ))}
         </div>
       ) : (
-        <div className="container-narrow pb-20 pt-8">
+        <div className="container-gallery pb-20 pt-8">
           <div className="rounded-2xl border border-dashed border-white/10 bg-ink-900/35 px-5 py-12 text-center">
             <h2 className="text-[17px] font-semibold text-ink-100">没有匹配的模板</h2>
             <p className="mt-2 text-[13px] text-ink-400">换一个关键词，或清除分类后再试。</p>

@@ -215,7 +215,10 @@ export function FilterBar({
   }
 
   return (
-    <div className="container-narrow pb-6 pt-4">
+    // Gallery track, so the filter panel lines up with the case wall below it
+    // (the wall rides .container-gallery since 2026-09-12). Same px-5, so the
+    // mobile sticky strip's -mx-5 full-bleed above still reaches the edges.
+    <div className="container-gallery pb-6 pt-4">
       {/* Mobile-only sticky category strip — horizontally swipeable. */}
       <div
         className="sticky z-20 -mx-5 mb-3 border-y border-ink-800/70 bg-ink-950/95 shadow-soft backdrop-blur-xl backdrop-saturate-150 sm:hidden"

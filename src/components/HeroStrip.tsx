@@ -105,8 +105,10 @@ function StripTile({ item, priority }: { item: PromptCase; priority: boolean }) 
       {failed ? (
         <div className="h-full w-full bg-gradient-to-br from-ink-800 to-ink-900" />
       ) : (
+        // 480 (not 320): the tile is a fixed 8.5rem (136px) wide, so a DPR3
+        // phone wants 408px and the 320 file sat at 78% fill.
         <img
-          src={thumbUrl(item.imageUrl, 320)}
+          src={thumbUrl(item.imageUrl, 480)}
           alt=""
           loading={priority ? "eager" : "lazy"}
           decoding="async"

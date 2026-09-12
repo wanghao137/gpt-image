@@ -293,3 +293,29 @@ sync 管线（`.github/workflows/sync.yml` 的 `npm run sync` 后）增量下载
 **处置**：`.masonry` 手机段回退为 1 列 + CaseCard `sizes` 回 `100vw`（CSS 里留了防再发注释：**手机卡片覆盖层设计要求图高 ≥165px，任何窄列化必须先把卡片 footer 移到图外**）。清晰度收益改用无布局风险的替代：CaseCard srcset 梯子 `[280,420,560,800]` → `[280,420,560,800,1080]`，手机 100vw@DPR3（需 1170px）取 1080 档，X 原图下填充率 65-77% → ~90%。
 
 **流程教训**：复测脚本当初只验证了「列数=2 + 无网格叠压 + 填充率」，没有断言**卡片内部覆盖层与图片的几何关系**——真机才暴露。已把「overlay 覆盖率/bleed 检查」加入 `_fix_verify.js` 作为常驻断言。
+
+### §11.2 空间利用与密度整修（2026-09-12，用户反馈「缝隙太大/按钮太大/够不够清晰」）
+
+**走查量化（改前）**：1920 屏左右各浪费 360px 死区（37.5%），卡片 285px；masonry 列/行距 20px；4K 墙手机填充率 48%、模板封面 65%（600-680px 原生 /uploads 封面被拉到 350px@DPR3）。
+
+**落地内容**：
+
+| 文件 | 内容 |
+|------|------|
+| `src/index.css` | 新增 `.container-gallery`（`max-w-[1920px]`，与 px-10 合计 1920 屏仅剩 40px 内边距）；masonry 列/行距 20→16px（手机 14→12px，**用 `.masonry,.masonry-ready` 双类写法**——单类会被基础规则的高优先级反压）；案例墙加 5 列(≥1536)/6 列(≥1792) 档；新增 `.masonry-lab` 专用列阶梯 2/3/4/5/6/7（480px 烤焙缩略图无 srcset，列宽是唯一填充率杠杆，全带 ≥96%） |
+| `src/components/LabGrid.tsx` | 增挂 `masonry-lab` 类（**`masonry-feed` 被 CaseGrid 共用，绝不能让它携带任何规则**——否则手机双列会重演 §11.1 破版）；LabCard meta 改两行（标题独占一行，日期·尺寸次行） |
+| `src/components/CaseGrid.tsx` | `contained` 包裹改 `container-gallery`；骨架屏/空态同步 |
+| `src/components/CaseCard.tsx` | 手机覆盖层按钮 44→36px（h-9）、覆盖层 165→~135px；srcset 梯子加 640/1280 档、`sizes` 按真实轨道几何改写（≥1792:300px/1536:286px/1280:25vw/1024:34vw）；**SeriesNav 层 z-10→z-20**（手机覆盖层同 z-10 且 DOM 靠后，把轮播圆点盖到不可见不可点、短图时拦截箭头）；圆点手机端 `hidden`（有滑动+箭头+计数器）；**覆盖层 `pointer-events-none` + 标题/按钮行 `pointer-events-auto`**（原渐变层吞掉图片中下部点击，短图时链接中心正好落在层内，点图无法进详情） |
+| `src/components/TemplateCard.tsx` | 手机 2 列卡片适配：内边距/字号分档、TEMPLATE 徽标与大图按钮缩小、操作行改 `flex flex-wrap + basis-[112px]`（固定 2 列 grid 在 640-1535px 卡宽下溢出标签）；`sizes` 按 2/3/4/5/6 列阶梯改写 |
+| `src/pages/TemplatesPage.tsx` | 结果网格 2/3/4/5/6 列阶梯（卡 ≤293px 保 /uploads 封面 ≥97%@DPR2）；空态轨道对齐 |
+| `src/pages/HomePage.tsx` | 模板 teaser 改同款 6 列阶梯 + 12 卡按断点显隐（2 列→6 卡、3→6、4→8、5→10、6→12），**每个断点都是整行**（固定 4 卡在宽轨道被拉到 445px、封面掉到 67%）；HeroSolo `sizes` 100vw + 梯子上探 1600（平板 DPR2 68%→~94%） |
+| `src/components/CategoryShowcase.tsx` | 桌面瓷砖背景图 480→800（宽轨道下 4 列瓷砖 ~451px） |
+| `src/components/{Header,Footer,FilterBar}.tsx`、`src/pages/{Cases,Category,Lab}Page.tsx` | 全部轨道对齐（同一页内不允许 narrow/gallery 混排；header/footer 跟宽轨，文字页保持 `.container-narrow` 居中） |
+| `src/pages/CaseDetailPage.tsx` | hero `sizes` 60vw→精确 683px（≥1280 固定值，DPR1 不再多拉一档）；同类型案例区改 `container-gallery + contained=false`（viewport 键控的 masonry 嵌在窄容器里会被压成 173px 小卡） |
+| 测试 | `case-feed-regression.test.mjs` 新增三条守卫：`.masonry-lab` 才能带手机双列、`.masonry-feed` 不得携带任何 CSS 规则、手机 12px 间距必须双类命中 ready 网格 + lab 规则必须排在基础规则之后（源序陷阱）；`lab-page.test.mjs` 断言 `masonry-lab` 挂载 |
+
+**验证（最终构建，localhost:4173）**：`npm run check` 356/356；`_layout_verify.js` 全绿——1920 死区 40px/侧、案例墙 6 列 293px、lab 7 列 249px、模板 6 列 293px、行距=列距 16/17px、无横向溢出、每页单一轨道；请求档位填充率：案例手机 122%/桌面 109%、lab 桌面 96-113%/手机 95%、模板手机 128%（**served 受源图上限约束**：wsrv `we=1` 不放大，个别 X 原图只有 704px，属源限制非代码问题）；手机 390@DPR3：案例 1 列、覆盖层 0 破版、按钮 ≤36px、lab/模板双列、无横向溢出；7 条路由×2 端控制台干净（本地伪影：React #418 = SSG 烘焙绝对 URL、`/_vercel/*` 404 = Vercel 注入脚本，线上不存在）。`_hands_on.js` 全绿——桌面：进详情、灯箱 1:1+查看原图+Esc、返回滚动恢复、筛选 chip（多归桶语义：`userCategories` 次级桶命中即显示，卡面展示主分类）、搜索、收藏、模板展开、lab 详情 1600 档；手机：复制（headless 需授予剪贴板权限）、预览展开、操作面板、**轮播箭头 1/4→2/4**、详情吸底栏、汉堡菜单。
+
+**两个实测抓出的既有交互缺陷**（非本轮布局引入，一并修复）：① 手机端系列卡轮播圆点被覆盖层盖住不可见不可点、短图时箭头被拦 → z-20 + 圆点手机隐藏；② 覆盖层拦截图片中下部点击（点图进不了详情）→ pointer-events 穿透。
+
+**复测工具**（留存）：`D:\codesolo\anliku\xiaoxiaodong\_layout_verify.js`（密度/填充率/轨道/覆盖层/控制台断言）、`_hands_on.js`（全站交互路径）。

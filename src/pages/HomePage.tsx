@@ -91,7 +91,7 @@ export default function HomePage() {
     <>
       <SEO title={HOME_TITLE} description={HOME_DESC} path="/" jsonLd={[ldOrg, ldItemList]} />
 
-      <section className="container-narrow grid gap-8 pb-8 pt-7 sm:gap-10 sm:pb-12 sm:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:pb-16">
+      <section className="container-gallery grid gap-8 pb-8 pt-7 sm:gap-10 sm:pb-12 sm:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:pb-16">
         <div className="relative z-10 flex flex-col">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
@@ -130,7 +130,7 @@ export default function HomePage() {
 
       <HeroStrip cases={stripCases} />
 
-      <section className="container-narrow pt-10 sm:pt-14" aria-labelledby="audience-tasks-title">
+      <section className="container-gallery pt-10 sm:pt-14" aria-labelledby="audience-tasks-title">
         <div className="mb-5 max-w-3xl sm:mb-6">
           <p className="eyebrow">从任务开始 · Start With Your Task</p>
           <h2
@@ -175,7 +175,7 @@ export default function HomePage() {
 
       <CategoryShowcase tiles={HOME_DATA.tiles} totalCount={totalCount} />
 
-      <section className="container-narrow scroll-mt-20 pt-10 sm:pt-14" id="featured">
+      <section className="container-gallery scroll-mt-20 pt-10 sm:pt-14" id="featured">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
             <p className="eyebrow">本周精选 · Featured</p>
@@ -202,7 +202,7 @@ export default function HomePage() {
         />
       </section>
 
-      <section className="container-narrow scroll-mt-20 pt-4 sm:pt-10" id="templates-teaser">
+      <section className="container-gallery scroll-mt-20 pt-4 sm:pt-10" id="templates-teaser">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
           <div>
             <p className="eyebrow">工业模板 · Templates</p>
@@ -217,14 +217,33 @@ export default function HomePage() {
             全部模板
           </Link>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {templates.slice(0, 4).map((t) => (
-            <TemplateCard key={t.id} data={t} />
+        {/* Same density ladder as /templates. Card count per band is kept a
+            multiple of that band's column count (2 cols→6 cards, 3→6, 4→8,
+            5→10, 6→12) so every row stays full; the wrapper is
+            `display: contents` when visible, so the <article> stays the grid
+            item. A plain 4-card slice on the wide track stretched the cards to
+            445px and dropped the 600-680px /uploads covers to ~67% fill @DPR2. */}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          {templates.slice(0, 12).map((t, i) => (
+            <div
+              key={t.id}
+              className={
+                i < 6
+                  ? "contents"
+                  : i < 8
+                    ? "hidden contents lg:contents"
+                    : i < 10
+                      ? "hidden contents xl:contents"
+                      : "hidden contents 2xl:contents"
+              }
+            >
+              <TemplateCard data={t} />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="container-narrow pb-16 pt-12 sm:pt-16">
+      <section className="container-gallery pb-16 pt-12 sm:pt-16">
         <div className="flex flex-wrap gap-2">
           {HOMEPAGE_USER_CATEGORIES.map((c) => (
             <Link
@@ -297,9 +316,12 @@ function HeroSolo({ item }: { item: PromptCase }) {
         alt={item.imageAlt || item.title}
         width={960}
         height={1200}
-        widths={[480, 640, 960]}
+        /* The solo hero is the full column below lg, so 100vw is the honest
+           hint (the old `70vw` above 640px declared 537px for a 704px card and
+           capped the rung at 960 → 68% fill on a DPR2 tablet). */
+        widths={[640, 960, 1280, 1600]}
         baseWidth={480}
-        sizes="(min-width:640px) 70vw, 90vw"
+        sizes="100vw"
         media="(max-width: 1023px)"
         loading="eager"
         fetchPriority="high"

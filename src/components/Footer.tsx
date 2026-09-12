@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="mt-12 border-t border-white/[0.06] bg-ink-950/40">
       <div
-        className="container-narrow flex flex-col gap-8 py-10 md:gap-10 md:py-12"
+        className="container-gallery flex flex-col gap-8 py-10 md:gap-10 md:py-12"
         style={{ paddingBottom: "max(2.5rem, env(safe-area-inset-bottom))" }}
       >
         {/* Brand row + quick chips. On desktop these collapse into a

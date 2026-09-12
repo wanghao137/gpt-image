@@ -33,14 +33,15 @@ function LabCard({ item }: { item: LabLiteRow }) {
           className="h-full w-full transition duration-300 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="flex items-baseline justify-between gap-2 px-1.5 pb-0.5 pt-1.5">
-        <span className="min-w-0 truncate text-[12.5px] font-medium text-ink-200 group-hover:text-ink-50">
+      <div className="px-1.5 pb-1 pt-1.5">
+        {/* Title owns a full line: the wall is 2-up on phones (169px cards), so
+            a title sharing the row with the date truncated to ~6 characters. */}
+        <div className="truncate text-[12.5px] font-medium text-ink-200 group-hover:text-ink-50">
           {item.t}
-        </span>
-        <span className="shrink-0 text-[11px] tabular-nums text-ink-500">{labDate(item.d)}</span>
-      </div>
-      <div className="px-1.5 pb-1 text-[10.5px] tracking-wide text-ink-600">
-        {item.w}×{item.h} · 4K
+        </div>
+        <div className="mt-0.5 truncate text-[10.5px] tabular-nums tracking-wide text-ink-600">
+          {labDate(item.d)} · {item.w}×{item.h}
+        </div>
       </div>
     </Link>
   );
@@ -92,7 +93,13 @@ export function LabGrid({ items }: { items: LabLiteRow[] }) {
   }, [items]);
 
   return (
-    <div ref={masonryRef} className={`masonry masonry-feed${masonryReady ? " masonry-ready" : ""}`}>
+    // `masonry-lab` (not just `masonry-feed`) carries the phone 2-column rule:
+    // CaseGrid renders `masonry masonry-feed` too, and its cards pin a text
+    // overlay onto the image, so a shared class must never flip cases to 2-col.
+    <div
+      ref={masonryRef}
+      className={`masonry masonry-feed masonry-lab${masonryReady ? " masonry-ready" : ""}`}
+    >
       {items.map((item) => (
         <div className="masonry-item" key={item.id}>
           <LabCard item={item} />

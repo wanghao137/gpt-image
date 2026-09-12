@@ -482,7 +482,11 @@ export default function CaseDetailPage() {
                   height={1500}
                   widths={[720, 1080, 1440]}
                   baseWidth={1080}
-                  sizes="(min-width:1024px) 60vw, 100vw"
+                  /* lg hero = 7 of 12 cols inside the 1280px .container-narrow
+                     track (1200 content, 40px gutter) → 683px, fixed at every
+                     viewport ≥1280. The old `60vw` over-asked on DPR1 screens
+                     (1152px at 1920 → pulled the 1440 rung to paint 683px). */
+                  sizes="(min-width:1280px) 683px, (min-width:1024px) 57vw, 100vw"
                   loading="eager"
                   fetchPriority="high"
                   quality={90}
@@ -708,9 +712,12 @@ export default function CaseDetailPage() {
         </div>
       </article>
 
-      {/* RELATED */}
+      {/* RELATED — gallery track, not the article's narrow reading column: the
+          `.masonry` column count keys off the VIEWPORT (6 at 1920), so nesting
+          the grid inside .container-narrow would squeeze six 173px cards into a
+          1120px box instead of six 280px ones. */}
       {related.length > 0 && (
-        <section className="container-narrow border-t border-white/[0.05] pb-12 pt-12 sm:pt-16">
+        <section className="container-gallery border-t border-white/[0.05] pb-12 pt-12 sm:pt-16">
           <div className="mb-6 flex items-end justify-between gap-3">
             <div>
               <p className="eyebrow">同类案例 · Related</p>
@@ -732,6 +739,7 @@ export default function CaseDetailPage() {
             favoriteIds={new Set()}
             onToggleFavorite={toggle}
             paginate={false}
+            contained={false}
           />
         </section>
       )}

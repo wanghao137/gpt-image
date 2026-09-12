@@ -53,6 +53,10 @@ test("LabGrid uses row-first masonry (no CSS columns) — append never reshuffle
   // LabGrid mirrors it.
   const src = readFileSync("src/components/LabGrid.tsx", "utf8");
   assert.match(src, /masonry masonry-feed/);
+  // The phone 2-column rule keys off `masonry-lab`, never off the shared
+  // `masonry-feed` marker — CaseGrid renders that same marker and its cards
+  // overlay copy on the image, so cases must stay 1-col below 640px.
+  assert.match(src, /masonry-lab/);
   assert.match(src, /gridRowEnd/);
   assert.match(src, /ResizeObserver/);
   assert.ok(!/columns-2|columns-3|columns-4/.test(src), "CSS columns layout must not come back");
