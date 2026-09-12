@@ -17,8 +17,8 @@ test("template cards render covers at natural ratio with minimal text", () => {
   assert.match(component, /preserveAspectRatio/);
   assert.doesNotMatch(component, /aspect-\[\d+\/\d+\]/, "no fixed-ratio crop box");
   assert.doesNotMatch(component, /object-cover/);
-  // minimal copy: title + one action only
-  assert.match(component, /line-clamp-2 text-\[12\.5px\] font-medium/);
+  // minimal copy: title (one line) + one action only
+  assert.match(component, /line-clamp-1 text-\[12px\] font-medium/);
   assert.match(component, /复制模板/);
   assert.doesNotMatch(component, /展开 Prompt/);
   assert.doesNotMatch(component, /template-capability-strip/);

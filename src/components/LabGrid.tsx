@@ -5,12 +5,6 @@ import { SmartImg } from "./SmartImg";
 
 const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
-function labDate(iso: string): string {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-${String(d.getUTCDate()).padStart(2, "0")}`;
-}
-
 function LabCard({ item }: { item: LabLiteRow }) {
   return (
     <Link
@@ -33,14 +27,11 @@ function LabCard({ item }: { item: LabLiteRow }) {
           className="h-full w-full transition duration-300 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="px-1.5 pb-1 pt-1.5">
-        {/* Title owns a full line: the wall is 2-up on phones (169px cards), so
-            a title sharing the row with the date truncated to ~6 characters. */}
-        <div className="truncate text-[12.5px] font-medium text-ink-200 group-hover:text-ink-50">
+      <div className="px-1 pb-1 pt-1">
+        {/* 极简: title only — date/dimensions live on the detail page. The
+            title owns a full line (the wall is 2-up on phones). */}
+        <div className="truncate text-[12px] font-medium text-ink-200 group-hover:text-ink-50">
           {item.t}
-        </div>
-        <div className="mt-0.5 truncate text-[10.5px] tabular-nums tracking-wide text-ink-600">
-          {labDate(item.d)} · {item.w}×{item.h}
         </div>
       </div>
     </Link>

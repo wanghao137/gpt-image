@@ -595,16 +595,12 @@
      boundary voids, while source and keyboard order remain unchanged.
   */
   .masonry {
-    /* MUST stay 1 column below 640px (2026-09-12 regression): the mobile
-       case card pins a ~135px title/action overlay with absolute bottom-0
-       ONTO the image (CaseCard sm:hidden block). At 390px full width the
-       shortest images (16:9 ≈ 220px) clear the overlay; at 50vw ≈ 163px they
-       shrink to 70-110px, the overlay covers 1.5-2.4× the image and bleeds
-       ~94px upward over the card above — measured 27/72 cards broken before
-       this revert. If mobile ever goes 2-col again, move the card footer
-       BELOW the image first (cases.taostudioai.com pattern).
-       .masonry-dense walls (lab / templates) have no overlay — they go
-       2-col on phones. */
+    /* Phone contract (2026-09-12 v2): ALL walls (cases / templates / 4K lab)
+       run this dense ladder on phones — every card keeps its text BELOW the
+       image (slim footer), never pinned onto it. If a card ever pins copy
+       onto the picture again, that wall must go back to 1 column: at 50vw the
+       shortest images shrink to 70-110px and the pinned box covers them
+       (27/72 cards broke that way on 2026-09-12). */
     column-count: 1;
     column-gap: 1rem;
   }
@@ -662,16 +658,16 @@
     .masonry.masonry-ready { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   }
   @media (max-width: 639px) {
-    /* The ready-state grid needs the two-class form: `.masonry.masonry-ready`
+    /* 8px: phone screens are small and the user asked for minimum spacing;
+       the ready grid needs the two-class form because `.masonry.masonry-ready`
        (column-gap: 1rem, above) outranks a bare `.masonry` override whatever
-       the source order, so a single-class gap here never reached the hydrated
-       grid — phones kept the 16px desktop gap and shifted 4px on hydration. */
+       the source order. */
     .masonry,
     .masonry.masonry-ready {
-      column-gap: 0.75rem;
+      column-gap: 0.5rem;
     }
     .masonry:not(.masonry-ready) > * {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
   }
   /*

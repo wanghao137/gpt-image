@@ -469,18 +469,12 @@ function CaseCardImpl({
                 alt={activeSlide.alt}
                 width={imageDimensions.width}
                 height={imageDimensions.height}
-                /* Mobile stays single-column 100vw (see .masonry note in
-                   index.css: the absolute bottom overlay needs ≥165px-tall
-                   media, which 50vw columns can't guarantee). 1280 top rung
-                   feeds 100vw @DPR3 — a 390px phone wants 1170px, so the old
-                   1080 ceiling sat at 92% fill; 1280 lands ~100% off the X
-                   originals. 640 covers the 5/6-col desktop tiers (293px card
-                   @DPR2 = 586px), which the old 560→800 gap missed. */
+                /* All walls (cases/templates/4K) run the dense 2-column ladder
+                   on phones: 50vw ≈ 169px card → 507px @DPR3 → the 640 rung
+                   lands ~126%. Desktop sizes mirror the 5/6-col tiers. */
                 widths={[280, 420, 560, 640, 800, 1080, 1280]}
                 baseWidth={280}
-                /* Widths mirror the real track: 4 cols at 1280-1535 → 25vw-32px,
-                   5/6 cols above → a fixed ~286-293px (see .masonry tiers). */
-                sizes="(min-width:1792px) 300px, (min-width:1536px) 286px, (min-width:1280px) 25vw, (min-width:1024px) 34vw, (min-width:640px) 50vw, 100vw"
+                sizes="(min-width:1792px) 300px, (min-width:1536px) 286px, (min-width:1280px) 25vw, (min-width:1024px) 34vw, (min-width:640px) 50vw, 50vw"
                 loading={priority && !isSeriesActive ? "eager" : "lazy"}
                 fetchPriority={priority && !isSeriesActive ? "high" : "auto"}
                 preserveAspectRatio
@@ -534,88 +528,55 @@ function CaseCardImpl({
           >
             <HeartIcon filled={activeFavorited} />
           </button>
+        </div>
 
-          {/* pointer-events-none: the gradient must not swallow image taps —
-              on short images the link's centre falls inside this box and the
-              case would never open from the lower half. Only the title link
-              and the action row re-enable pointer events. */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-1.5 bg-gradient-to-t from-ink-950 via-ink-950/90 to-transparent px-2.5 pb-2.5 pt-11 sm:hidden">
-            <Link
-              to={detailHref}
-              onClick={rememberReturn}
-              className="pointer-events-auto block rounded-sm text-[13.5px] font-semibold leading-snug text-ink-50 transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
-            >
-              <span className="line-clamp-1">{activeCase.title}</span>
-            </Link>
-            <div className="flex items-center justify-between gap-2 text-[11px] text-ink-300">
-              <span className="inline-flex min-w-0 items-center gap-1">
-                <SourceDot />
-                <span className="truncate">{activeCase.source ? shortSourceLabel(sourceLabel) : userCategoryLabel(activeCase.userCategory)}</span>
-              </span>
-              <span className="shrink-0 text-ink-400">{userCategoryLabel(activeCase.userCategory)}</span>
-            </div>
-            <div className="pointer-events-auto flex items-center gap-1.5" data-no-longpress>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleCopy();
-              }}
-              disabled={copying}
-              aria-label="复制 Prompt"
-              className={
-                "inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg text-[12.5px] font-semibold transition disabled:opacity-60 " +
-                (state === "copied"
-                  ? "bg-emerald-400/95 text-ink-950"
-                  : state === "error"
-                    ? "bg-rose-400/90 text-ink-950"
-                    : "bg-ember-500/95 text-ink-950 active:bg-ember-400")
-              }
-            >
-              {copying ? (
-                "…"
-              ) : state === "copied" ? (
-                <>
-                  <CheckIcon /> 已复制
-                </>
-              ) : state === "error" ? (
-                "失败"
-              ) : (
-                <>
-                  <CopyIcon /> 复制 Prompt
-                </>
-              )}
-            </button>
-            {activeCase.promptPreview && (
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  setPreviewOpen((value) => !value);
-                }}
-                aria-expanded={previewOpen}
-                aria-controls={`prompt-preview-${activeCase.id}`}
-                className="inline-flex h-9 shrink-0 items-center justify-center rounded-lg border border-ink-800/70 bg-ink-900/80 px-2.5 text-[11.5px] font-medium text-ink-200 active:bg-ink-850/80"
-              >
-                {previewOpen ? "收起" : "预览"}
-              </button>
+        {/* MOBILE FOOTER — BELOW the image, not pinned onto it (2026-09-12:
+            the old bottom overlay forced the wall to 1 column because a text
+            box needs a ≥165px-tall image; with the copy moved under the
+            picture the card joins the dense 2-column wall like templates/4K).
+            极简: one title line + one copy button; 预览/更多 live on the
+            detail page and the long-press sheet. */}
+        <div className="flex flex-col gap-1 px-1.5 pb-1.5 pt-1 sm:hidden">
+          <Link
+            to={detailHref}
+            onClick={rememberReturn}
+            className="block rounded-sm text-[12px] font-medium leading-snug text-ink-100 transition hover:text-ember-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-400/70"
+          >
+            <span className="line-clamp-1">{activeCase.title}</span>
+          </Link>
+          <button
+            type="button"
+            data-no-longpress
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleCopy();
+            }}
+            disabled={copying}
+            aria-label="复制 Prompt"
+            className={
+              "inline-flex h-8 w-full items-center justify-center gap-1 rounded-lg text-[11.5px] font-semibold transition disabled:opacity-60 " +
+              (state === "copied"
+                ? "bg-emerald-400/95 text-ink-950"
+                : state === "error"
+                  ? "bg-rose-400/90 text-ink-950"
+                  : "bg-ember-500/95 text-ink-950 active:bg-ember-400")
+            }
+          >
+            {copying ? (
+              "…"
+            ) : state === "copied" ? (
+              <>
+                <CheckIcon /> 已复制
+              </>
+            ) : state === "error" ? (
+              "失败"
+            ) : (
+              <>
+                <CopyIcon /> 复制 Prompt
+              </>
             )}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setMenuOpen(true);
-              }}
-              aria-label="更多操作"
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-ink-800/70 bg-ink-900/80 text-ink-200 active:bg-ink-850/80"
-            >
-              <DotsIcon />
-            </button>
-            </div>
-          </div>
+          </button>
         </div>
 
         {/* DESKTOP FOOTER — title + author/category meta + always-on copy button */}
@@ -847,19 +808,6 @@ function SeriesNav({
         })}
       </div>
     </div>
-  );
-}
-
-function DotsIcon() {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      className="h-4 w-4"
-      aria-hidden="true"
-    >
-      <path d="M4 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm4.5 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM13 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
-    </svg>
   );
 }
 

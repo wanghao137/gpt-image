@@ -361,7 +361,7 @@ export function CaseGrid({
   if (loading) {
     return (
       <div className="container-gallery pb-24">
-        <div className="masonry">
+        <div className="masonry masonry-dense">
           {Array.from({ length: 8 }).map((_, i) => (
             <SkeletonCard key={i} />
           ))}
@@ -425,7 +425,7 @@ export function CaseGrid({
     <div className={wrapperClassName}>
       <div
         ref={masonryRef}
-        className={`masonry masonry-feed${masonryReady ? " masonry-ready" : ""}`}
+        className={`masonry masonry-feed masonry-dense${masonryReady ? " masonry-ready" : ""}`}
       >
         {leads.map((item, index) => {
           // Restore target hits when either the lead or any sibling matches

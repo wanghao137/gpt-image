@@ -32,8 +32,8 @@ function TemplateCardImpl({ data }: TemplateCardProps) {
 
   return (
     <>
-      <article className="group block break-inside-avoid overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.025] p-1.5 transition hover:border-ember-400/40 hover:bg-white/[0.05]">
-        <div className="relative overflow-hidden rounded-lg bg-ink-900/60">
+      <article className="group block break-inside-avoid overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.025] p-1 transition hover:border-ember-400/40 hover:bg-white/[0.05]">
+        <div className="relative overflow-hidden rounded-md bg-ink-900/60">
           <Link
             to={detailHref}
             aria-label={`查看模板详情：${data.title}`}
@@ -78,15 +78,15 @@ function TemplateCardImpl({ data }: TemplateCardProps) {
           </button>
         </div>
 
-        <div className="px-1 pt-1.5">
-          <h3 className="line-clamp-2 text-[12.5px] font-medium leading-snug text-ink-100 transition group-hover:text-ink-50">
+        <div className="px-1 pb-1 pt-1">
+          <h3 className="line-clamp-1 text-[12px] font-medium leading-snug text-ink-100 transition group-hover:text-ink-50">
             <Link to={detailHref} className="transition hover:text-ember-200">
               {data.title}
             </Link>
           </h3>
         </div>
 
-        <div className="p-1 pt-1.5">
+        <div className="px-1 pb-1 pt-1">
           <button
             type="button"
             onClick={() => copy(data.prompt)}
