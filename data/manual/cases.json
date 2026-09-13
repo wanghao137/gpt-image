@@ -1,5 +1,31 @@
 [
   {
+    "id": "100288",
+    "title": "筷子挑面的油润瞬间：爆款美食摄影参数模板",
+    "category": "产品与电商",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Commerce",
+      "Product"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-09-14-case-noodle-hero-food-photo.jpg",
+    "imageAlt": "筷子挑面的油润瞬间：爆款美食摄影参数模板",
+    "prompt": "{\n  \"content_goal\": \"viral food visual with high appetite appeal\",\n  \"image_type\": \"ultra-photorealistic food photography\",\n  \"visual_style\": {\n    \"aesthetic\": \"cinematic food editorial, premium street-food style\",\n    \"vibe\": \"steamy, savory, irresistible\",\n    \"realism\": \"high-end commercial food realism\"\n  },\n  \"composition\": {\n    \"framing\": \"close-up or medium close-up\",\n    \"camera_angle\": \"45-degree or slightly top-front angle\",\n    \"subject_position\": \"centered hero bowl or lifted noodles\",\n    \"perspective\": \"depth-rich with strong foreground emphasis\"\n  },\n  \"subject\": {\n    \"description\": \"freshly prepared noodles captured at peak texture\",\n    \"presentation\": \"chopsticks or fork lifting noodles mid-air\",\n    \"details\": \"long glossy strands with visible sauce coating\",\n    \"ingredients\": \"vegetables, protein, herbs, sesame seeds\"\n  },\n  \"texture_details\": {\n    \"noodles\": \"silky, elastic strands with sauce cling\",\n    \"sauce\": \"rich, glossy, evenly coated\",\n    \"steam\": \"visible rising steam for freshness\",\n    \"garnish\": \"spring onions, chili flakes, sesame\"\n  },\n  \"styling\": {\n    \"bowl\": \"ceramic or rustic bowl\",\n    \"props\": \"chopsticks, linen napkin, subtle tableware\",\n    \"messiness\": \"controlled, appetizing chaos\"\n  },\n  \"lighting\": {\n    \"type\": \"warm directional food lighting\",\n    \"quality\": \"soft yet contrast-rich\",\n    \"direction\": \"side or top-side light\",\n    \"highlight_focus\": \"noodle gloss and steam\",\n    \"shadow_style\": \"soft shadows for depth\"\n  },\n  \"color_palette\": {\n    \"primary\": [\"golden brown\", \"soy sauce tones\", \"warm amber\"],\n    \"accent\": [\"chili red\", \"herb green\"],\n    \"mood\": \"cozy, savory, indulgent\"\n  },\n  \"environment\": {\n    \"location\": \"street-food stall, modern kitchen, or studio setup\",\n    \"background\": \"dark or softly blurred background\",\n    \"atmosphere\": \"warm, comforting, flavorful\"\n  },\n  \"camera_details\": {\n    \"camera_type\": \"professional DSLR or mirrorless simulation\",\n    \"lens\": \"85mm or macro food lens\",\n    \"focus\": \"tack-sharp on lifted noodles\",\n    \"depth_of_field\": \"shallow background blur\",\n    \"resolution\": \"advertising-grade clarity\"\n  },\n  \"quality_control\": {\n    \"food_realism\": \"hyper-real texture without plastic look\",\n    \"steam_accuracy\": \"natural steam physics\",\n    \"ai_artifacts\": \"none\",\n    \"professional_finish\": \"commercial food photography quality\"\n  },\n  \"overall_mood\": \"comforting, rich, mouth-watering\",\n  \"intended_use\": {\n    \"primary\": \"viral food post on X\",\n    \"secondary\": \"restaurant branding, food editorial, ads\"\n  }\n}",
+    "promptPreview": "{ \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photorealistic food photography\", \"visual_style\": { \"aesthetic\": \"cinematic food editorial, premium street-food style\", \"vibe\": \"stea…",
+    "source": "Community collected via @cuties7377",
+    "createdAt": "2026-09-13T20:06:22.296Z"
+  },
+  {
     "id": "100287",
     "title": "伊斯坦布尔美食旅行信息图：舌尖上的土耳其",
     "category": "图表与信息图",
