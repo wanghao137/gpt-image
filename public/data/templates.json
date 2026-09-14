@@ -973,18 +973,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1789199145423_de75ig_HR_GootbYAAF236.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Editorial / Cinematic / Commerce / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34459 巴黎咖啡馆街头抓拍: 一个极其详尽的提示词，用于生成一张电影感十足的街头照片，描绘了一位坐在复古巴黎咖啡馆的女性，强调自然的动态模糊和黄金时刻的光影效果。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n- #34239 National Style City Promotion Poster: A prompt designed to create high-end vertical city posters that blend realistic digital paintin…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-09-15-case-100290-fnb-brand-matrix.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / Illustration / Studio / Brand / Commerce / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100290 餐饮品牌触点矩阵：全案VI物料系统提案板: 生成一张[餐饮品牌触点矩阵]系列视觉图，用于展示一个完整的餐饮品牌视觉系统与包装应用方案。 这是一个面向餐饮行业的品牌VI样机展示板 / 包装系统陈列图 / 品牌提案页。画面不是单张宣传海报…\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n- #34459 巴黎咖啡馆街头抓拍: 一个极其详尽的提示词，用于生成一张电影感十足的街头照片，描绘了一位坐在复古巴黎咖啡馆的女性，强调自然的动态模糊和黄金时刻的光影效果。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100290",
+      "100289",
       "34459",
       "100288",
-      "34239",
-      "34220",
-      "34205"
+      "34239"
     ]
   },
   {
@@ -997,18 +997,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1789199151890_mwfo2z_HR80hPlWIAEYNBv.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Editorial / Cinematic / 3D Render / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n- #34318 咖啡杯中的微缩城市: 一个超现实且充满奇思妙想的提示词，用于生成在咖啡杯中利用蒸汽和泡沫构建的超写实微缩城市。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-09-15-case-100289-perfume-dark-studio.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal / Editorial / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100289",
       "34470",
       "100288",
       "34318",
-      "100283",
-      "34243"
+      "100283"
     ]
   },
   {
