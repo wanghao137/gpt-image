@@ -1,5 +1,30 @@
 [
   {
+    "id": "100292",
+    "title": "雨夜加油站红色霓虹街头人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Illustration",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-09-16-case-100292-neon-gas-station-portrait.jpg",
+    "imageAlt": "雨夜加油站红色霓虹街头人像",
+    "prompt": "{\"prompt\": \"Ultra-realistic cinematic nighttime street portrait of a young blonde woman standing beside a modern gas station pump during light rain. Long tousled blonde hair, luminous skin with realistic texture, minimal makeup, soft nude lips, and a calm, confident expression. Wearing a fitted ivory ribbed lace-trim camisole, cream high-waisted jeans, and an oversized black leather jacket draped casually off her shoulders. Moody urban atmosphere with wet pavement reflecting red neon lighting, illuminated fuel station canopy, blurred headlights, and soft rain streaks in the background. A faint plume of smoke drifts through the cool night air, enhancing the cinematic ambiance. Contemporary fashion editorial, luxury street-style campaign, realistic skin texture, photorealistic, highly detailed, premium lifestyle photography, natural color grading, dramatic night lighting, 8K quality.\", \"negative_prompt\": \"blurry, low quality, low resolution, distorted anatomy, extra limbs, extra fingers, unrealistic body proportions, plastic skin, excessive retouching, cartoon, anime, CGI, painting, watermark, text, logo, malformed hands, duplicate features, overexposed highlights, harsh shadows, noisy image, warped reflections\", \"style\": \"photorealistic\", \"camera\": {\"type\": \"full-frame mirrorless\", \"lens\": \"50mm\", \"aperture\": \"f/1.8\", \"iso\": 800, \"angle\": \"eye-level editorial portrait\", \"depth_of_field\": \"shallow\"}, \"lighting\": {\"type\": \"gas station canopy lighting with red neon accents\", \"direction\": \"soft frontal illumination\", \"mood\": \"cinematic, moody, urban\"}, \"composition\": {\"framing\": \"vertical fashion portrait\", \"subject_position\": \"standing beside fuel pump\", \"background\": \"rain-soaked city street, illuminated gas station, neon reflections\"}, \"quality\": {\"resolution\": \"8k\", \"detail\": \"ultra high\", \"realism\": \"maximum\"}}",
+    "promptPreview": "{\"prompt\": \"Ultra-realistic cinematic nighttime street portrait of a young blonde woman standing beside a modern gas station pump during light rain. Long tousled blonde hair, luminous skin with realistic texture, minima…",
+    "source": "Community collected via @Document195",
+    "createdAt": "2026-09-15T20:05:07.079Z"
+  },
+  {
     "id": "100291",
     "title": "微型工人上妆的奢侈腮红广告大片",
     "category": "产品与电商",
