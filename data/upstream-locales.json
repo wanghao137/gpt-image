@@ -49638,8 +49638,8 @@
   },
   "34643": {
     "en": {
-      "title": "Luxury Fashion Studio Portrait",
-      "description": "A prompt for generating a photorealistic full-body studio portrait of an elegant woman in a black midi dress, emphasizing luxury fashion editorial aesthetics.",
+      "title": "Elegant Studio Portrait Prompt",
+      "description": "A prompt for generating a photorealistic full-body studio portrait of a woman in a black formal dress, emphasizing luxury fashion aesthetics and soft lighting.",
       "prompt": "Create a highly photorealistic full-body studio portrait of an elegant adult woman wearing a sophisticated black midi formal dress with long sleeves, a tailored waist, premium fabric, and subtle texture. Minimal jewelry, elegant pointed heels, sleek polished hair, soft natural makeup, confident gentle expression. Luxury fashion studio backdrop, soft diffused lighting, realistic skin texture, natural proportions, cinematic editorial photography, 85mm lens, ultra-detailed, 8K, no text, no watermark."
     },
     "zh": {
@@ -49674,8 +49674,8 @@
   },
   "34646": {
     "en": {
-      "title": "Giant Man Above Paris Prompt",
-      "description": "A surreal fashion photography prompt featuring a giant man sitting above Paris, utilizing forced perspective and cinematic lighting to emphasize scale.",
+      "title": "Giant Man Over Paris Surreal Fashion",
+      "description": "A surreal fashion photography prompt depicting a handsome young man sitting on a rooftop above Paris with exaggerated forced perspective, making him appear giant compared to the city below.",
       "prompt": "Ultra-realistic cinematic surreal fashion photograph of a strikingly handsome young man in his early 20s sitting casually at an enormous giant scale high above Paris, with the entire city far below him. He has thick naturally wavy jet-black hair with subtle tousled volume, strong well-defined eyebrows, deep expressive dark-brown eyes, a straight sculpted nose, prominent cheekbones, a sharp masculine jawline, and subtle natural stubble.\nHe wears a luxurious midnight-blue suede bomber jacket, layered over a crisp ivory shirt, tailored charcoal-gray wide-leg trousers, and premium black leather Chelsea boots. Modern European luxury streetwear, sophisticated and masculine, completely different from the reference outfit.\nHe is sitting in a relaxed, confident pose on a grand historic stone rooftop, with one enormous boot extending dramatically toward the camera in extreme foreground, creating an exaggerated forced-perspective giant effect. His other leg rests naturally near the edge. One arm rests casually on his raised knee while he looks slightly toward the horizon with a calm, confident expression.\nFar below, Paris stretches across the entire background, with the Eiffel Tower clearly visible in the distance, Haussmannian buildings, tree-lined avenues, tiny cars, buses and pedestrians emphasizing his gigantic scale. Warm late-afternoon sunlight, brilliant blue sky with soft clouds, realistic atmospheric haze and depth.\nLow-angle ultra-wide perspective, dramatic foreground boot, realistic giant-scale illusion, cinematic composition, luxury fashion editorial photography, photorealistic skin texture and pores, individually detailed hair strands, realistic fabric and suede texture, natural shadows, physically accurate lighting, 8K HDR, high dynamic range, sharp facial details, sophisticated color grading, 24mm wide-angle lens, extremely detailed, no distortion of face or hands, no text, no watermark."
     },
     "zh": {
@@ -49782,8 +49782,8 @@
   },
   "34655": {
     "en": {
-      "title": "GPT Image 2 Prompt: Parisian Cafe Portrait",
-      "description": "A photorealistic prompt for GPT Image 2 depicting an East Asian young woman sitting at a cozy rustic Parisian cafe during golden hour.",
+      "title": "Parisian Cafe Golden Hour Portrait",
+      "description": "A prompt for generating a cinematic portrait of a woman at a Parisian cafe using GPT Image 2.",
       "prompt": "A beautiful East Asian young woman sitting outdoors at a cozy, rustic Parisian cafe table. She has long, wavy brown hair styled in a half-updo tied with a large beige satin ribbon bow. She rests her chin on her hand, looking thoughtfully into the distance with gentle, natural makeup. She is wearing a cream-colored ribbed knit cardigan sweater and a brown plaid vintage skirt. On the dark round wooden table sits a bouquet of terracotta-orange chrysanthemums wrapped in newsprint paper and an open magazine. Warm late-afternoon golden hour sunlight creates soft glows and bokeh in the background. Cinematic photography, shallow depth of field, warm color palette, aesthetic, high resolution, 8k."
     },
     "zh": {
@@ -49826,6 +49826,198 @@
       "title": "中秋排版海报",
       "description": "一张黑白极简主义排版海报，以大型中文字体和英文点缀为特色，庆祝中秋节。",
       "prompt": "为中秋节创建一张极简、高对比度的排版海报。设计应为单色（白底黑字），并呈现精致的中文字体与英文标签布局。\n\n布局与文本内容：\n1. 顶部区域：突出显示两个巨大的粗衬线体中文字符“月光”。在其左侧，包含小写大写的无衬线字体文本“MID-AUTUMN FESTIVAL”，上方有一条细水平线，随后是两行较小的中文文本：“当月光升起”和“所有的思念都有了归处”。\n2. 中部区域：展示两个大的中文字符“来信”。在这些字符的右侧，放置大写无衬线字体的英文文本“LETTER FROM THE MOON”，通过一条垂直线与一列三个简短的中文短语分隔开：“中秋夜”、“桂香”和“家的方向”。\n3. 底部区域：一条水平线将主体内容与最后一行中等大小的中文文本“把思念寄给圆月”分开。在此之下，位于最底部边缘的是小写大写字母的文本“LETTER FROM THE MOON”。\n\n视觉风格：使用干净、现代的编辑美学。主要中文字体应为厚重优雅的衬线体（宋体风格），而次要文本使用轻量无衬线体。确保充足的负空间以保持平衡的构图。"
+    }
+  },
+  "34673": {
+    "en": {
+      "title": "Rainy Day Cafe Portrait Prompt",
+      "description": "A prompt for a photorealistic candid portrait of a woman outside a cafe on a rainy afternoon using GPT Image 2.",
+      "prompt": "A photorealistic candid outdoor portrait of a young woman standing outside a cozy urban café on a rainy afternoon. She has long dark-brown hair styled in a loose low ponytail, with a few soft face-framing strands naturally falling across her face. She gazes gently toward the side with a calm, dreamy expression.\n\nShe wears a warm beige oversized knit sweater layered over a delicate white blouse, paired with a long dark-brown pleated skirt. A deep burgundy-red shoulder bag hangs naturally from her shoulder. She holds a transparent umbrella in one hand while the other hand gently adjusts a strand of hair near her face.\n\nShe stands beside a rain-covered café walkway, surrounded by wet pavement, small green plants, warm café windows, subtle city buildings, and softly glowing street lights in the background. Tiny raindrops are visible on the umbrella, while reflections of the warm lights shimmer beautifully across the wet ground.\n\nNatural smartphone photography, candid lifestyle aesthetic, soft rainy-day atmosphere, realistic skin texture, detailed individual hair strands, authentic knit and fabric textures, natural reflections, shallow depth of field, cinematic ambient lighting, gentle vintage film grain, muted earthy color palette with warm café highlights, soft atmospheric contrast, peaceful romantic mood, highly photorealistic, vertical 4:5 composition."
+    },
+    "zh": {
+      "title": "雨天咖啡馆人像提示词",
+      "description": "使用 GPT Image 2 生成一张写实风格的抓拍人像，描绘一位女性在雨后的下午站在咖啡馆外的场景。",
+      "prompt": "一张写实风格的户外抓拍人像，画面中一位年轻女性站在雨后温馨的城市咖啡馆外。她留着深棕色长发，随意地扎成低马尾，几缕柔和的发丝自然地垂落在脸庞两侧。她目光温柔地望向一侧，神情平静而梦幻。\n\n她身穿一件温暖的米色宽松针织毛衣，内搭精致的白色衬衫，下身搭配一条深棕色长款百褶裙。一个深酒红色的单肩包自然地挂在她的肩上。她一手撑着透明雨伞，另一只手轻轻整理着脸颊旁的发丝。\n\n她站在被雨水打湿的咖啡馆步道旁，周围是湿润的路面、翠绿的小植物、透着暖光的咖啡馆窗户、隐约可见的城市建筑以及背景中柔和发光的路灯。雨伞上清晰可见细小的雨滴，温暖灯光的倒影在湿漉漉的地面上闪烁着美丽的光泽。\n\n自然智能手机摄影风格，生活化抓拍美学，柔和的雨日氛围，真实的皮肤质感，细致的发丝纹理，逼真的针织与面料细节，自然的反射效果，浅景深，电影感环境光效，轻微的复古胶片颗粒感，以大地色系为主的柔和色调并点缀咖啡馆暖光，柔和的大气对比度，宁静浪漫的氛围，高度写实，4:5 竖构图。"
+    }
+  },
+  "34674": {
+    "en": {
+      "title": "Luxury Fashion Portrait Prompt",
+      "description": "A detailed prompt for generating a high-fashion studio portrait of an elegant woman using GPT Image 2.",
+      "prompt": "A high fashion studio portrait of an elegant blonde woman standing on an ornate stone balcony of a French château during twilight dusk. She is dressed in a sophisticated sleeveless navy blue gown featuring an intricate sheer bodice encrusted with shimmering crystals, beads and rhinestones She wears full-length opera gloves in deep burgundy satin, resting one hand gracefully near her collarbone and the other on the decorative black iron railing Her hair is styled in a sleek low side bun, accessorized with tear-drop earrings Soft bokeh warm lights illuminate the background estate gardens creating a cinematic high detail luxury editorial aesthetic with shallow depth of field, 8k resolution photorealistic lighting, shot on 85mm lens."
+    },
+    "zh": {
+      "title": "奢华时尚人像提示词",
+      "description": "使用 GPT Image 2 生成优雅女性高级时装影棚肖像的详细提示词。",
+      "prompt": "一张高级时装影棚肖像，描绘了一位优雅的金发女性，在黄昏时分站在一座法国城堡装饰华丽的石制阳台上。她身穿一件精致的无袖深蓝色礼服，上身采用复杂的透明薄纱设计，镶嵌着闪烁的水晶、珠子和水钻。她戴着深酒红色缎面长款歌剧手套，一只手优雅地放在锁骨附近，另一只手搭在装饰性的黑色铁艺栏杆上。她的头发梳成光滑的低侧发髻，佩戴着泪滴形耳环。柔和的散景暖光照亮了背景中的庄园花园，营造出具有浅景深的电影感高细节奢华编辑美学，8k 分辨率照片级真实光照，使用 85mm 镜头拍摄。"
+    }
+  },
+  "34675": {
+    "en": {
+      "title": "Realistic Professional Avatar Prompt",
+      "description": "A highly detailed prompt for GPT Image 2 (referred to as GPT2/chatGPT web version) to generate realistic, natural professional avatars with specific lighting, background, and texture instructions.",
+      "prompt": "Generate a real, natural, and approachable professional avatar based on the input photo, highly maintaining identity consistency, facial proportions, face shape, hairline, age sense, and original gender expression, without changing appearance. 1:1 square composition, framed above the chest, adopting asymmetric visual balance: character slightly to the right, retaining about 18% screen height above head, left and upper-left forming main negative space, avoiding ID-photo style centering and tight cropping. Natural shoulder lines, slight head tilt, looking straight at camera, relaxed, confident, friendly expression, can have natural smile or toothy grin.\n\nClothing adopts simple dark round neck or minimalist top, naturally adapted according to character's original style; females retain natural hairstyle, makeup, and moderate jewelry, males retain stubble, hairstyle, and other real features, no stereotypical gendered styling. Background is a real warm-toned wall: low-brightness reddish brown/caramel warm gray at top, gray-beige apricot in middle, creamy off-white at bottom, forming non-linear vertical gradient through natural light decay, wall reflection, and slight vignette; add fine, low-amplitude, high-frequency random grains, more obvious in dark areas, simulating early digital sensor and slight JPEG texture.\n\nUse large-area soft window light, low light ratio, low local contrast, no rim light or commercial studio shaping. Skin tone maintains real hue differences and natural blood color, females avoid porcelain white skin smoothing, males avoid over-emphasizing rough texture; reduce high-frequency skin details and clarity, retain mid-low frequency facial structures, making skin soft but real. Overall low-saturation warm tone, soft highlights, slight black lift, reduced blue-cyan colors, presenting early digital avatar texture of 2000s–2010s: smart, trustworthy, relaxed, natural, approachable, rather than modern high-end commercial portrait."
+    },
+    "zh": {
+      "title": "写实专业头像提示词",
+      "description": "为 GPT Image 2（即 GPT2/ChatGPT 网页版）设计的高度详细提示词，用于生成具有特定光照、背景和纹理指令的逼真自然的专业头像。",
+      "prompt": "基于输入照片生成一个真实、自然且亲切的专业头像，高度保持身份一致性、面部比例、脸型、发际线、年龄感及原始性别表达，不改变外貌特征。采用 1:1 正方形构图，取景于胸部以上，运用非对称视觉平衡：人物略微偏右，头顶保留约 18% 的画面高度，左侧和左上方形成主要负空间，避免证件照式的居中构图和紧凑裁剪。肩部线条自然，头部轻微倾斜，直视镜头，表情放松、自信、友好，可带有自然的微笑或露齿笑容。\n\n服装采用简单的深色圆领或极简风格上衣，根据人物原有风格自然适配；女性保留自然发型、妆容和适度饰品，男性保留胡茬、发型等真实特征，避免刻板印象化的性别造型。背景为真实的暖色调墙面：顶部为低亮度的红棕色/焦糖色暖灰，中部为灰米色杏子色，底部为奶油米白色，通过自然的光线衰减、墙面反射和轻微暗角形成非线性垂直渐变；添加细微、低振幅的高频随机颗粒，在暗部区域更为明显，模拟早期数字传感器和轻微的 JPEG 纹理质感。\n\n使用大面积柔和窗光，低光比，低局部对比度，无轮廓光或商业影棚布光效果。肤色保持真实的色调差异和自然血色，女性避免瓷白磨皮效果，男性避免过度强调粗糙纹理；减少高频皮肤细节和清晰度，保留中低频面部结构，使皮肤柔软但真实。整体呈现低饱和度暖调，高光柔和，黑色略微提升，蓝青色减少，展现 2000s–2010s 年代早期数字头像的质感：聪明、可信、放松、自然、亲切，而非现代高端商业肖像风格。"
+    }
+  },
+  "34677": {
+    "en": {
+      "title": "Japanese Urban Scene Illustration Prompt",
+      "description": "A prompt for generating a stylized navy and ivory line-art illustration of a dense Japanese city street or railway station, featuring architectural details and pedestrians.",
+      "prompt": "Create a vertical editorial illustration inspired by the reference images, depicting a dense Japanese urban scene in a highly stylized navy-blue and warm ivory monochrome line-art aesthetic.\n\nShow a narrow Japanese city street viewed from an elevated perspective, with tall tightly packed buildings on both sides, layered storefronts, balconies, windows, hanging signs, Japanese typography, utility poles, tangled overhead power cables, street lamps, awnings, railings, bicycles, and small architectural details. The street should lead naturally into the distance, creating strong depth and perspective.\n\nInclude several small pedestrians naturally walking through the scene—people carrying bags, checking phones, crossing the street, and walking in pairs. Keep them simplified but expressive, with clean silhouettes and minimal facial detail.\n\nUse deep indigo/navy ink for all outlines, shadows, signs, cables, windows, and architectural details, contrasted against a warm cream/off-white paper background. Strong graphic shadows and large solid navy areas should create a bold screen-print/poster effect.\n\nFor the second scene, depict a Japanese railway station platform from a slightly elevated side perspective. Show detailed steel roof structures, beams, electrical cables, overhead signage, platform markings, tiled flooring, railway tracks, columns, railings, ticket-area structures, and several commuters waiting or walking while looking at their phones. Preserve the same visual language: precise architectural linework, simplified human figures, deep navy shadows, cream paper, and dense urban detail.\n\nStyle: Japanese urban sketchbook + architectural ink illustration + vintage travel poster + screen printing + manga-inspired environmental linework, intricate hand-drawn details, clean perspective, bold negative space, slightly imperfect ink texture, sophisticated editorial composition, nostalgic analog print feel.\n\nColor palette: only deep navy blue, muted blue-gray, and warm ivory/cream. No bright colors.\n\nComposition: highly detailed, visually dense, balanced foreground/midground/background, strong vanishing points, cinematic framing, crisp linework, subtle paper grain, premium art-book illustration.\n\nAspect ratio: 4:5 vertical."
+    },
+    "zh": {
+      "title": "日本城市街景插画提示词",
+      "description": "用于生成风格化海军蓝与象牙白线条艺术插画的提示词，描绘密集的日本街道或火车站场景，包含建筑细节和行人。",
+      "prompt": "创作一幅受参考图像启发的垂直编辑风格插画，以高度风格化的深海军蓝与暖象牙色单色线条艺术美学，描绘一个密集的日本城市街景。\n\n展示一条从高处俯瞰的狭窄日本城市街道，两侧是紧密排列的高楼，包含层叠的店面、阳台、窗户、悬挂招牌、日文排版、电线杆、交错的架空电缆、路灯、遮阳篷、栏杆、自行车以及细小的建筑细节。街道应自然延伸至远方，营造出强烈的纵深感和透视效果。\n\n画面中需包含若干小尺寸的行人自然地穿行于场景中——有人提着包，有人查看手机，有人过马路，有人结伴而行。保持人物形象简化但富有表现力，轮廓清晰，面部细节极简。\n\n所有轮廓线、阴影、招牌、电缆、窗户及建筑细节均使用深靛蓝/海军蓝墨水绘制，与温暖的奶油色/米白色纸张背景形成对比。强烈的图形化阴影和大面积的实心海军蓝色块应营造出大胆的丝网印刷/海报视觉效果。\n\n对于第二个场景，请描绘一个从略微抬高的侧面视角看到的日本火车站站台。展示详细的钢结构屋顶、横梁、电气电缆、架空指示牌、站台标记、瓷砖地面、铁轨、立柱、栏杆、售票区结构，以及几位正在等待或行走时看手机的通勤者。保持相同的视觉语言：精准的建筑线条、简化的人物形象、深海军蓝阴影、奶油色纸张背景以及密集的城市细节。\n\n风格：日本城市速写本 + 建筑墨水插画 + 复古旅行海报 + 丝网印刷 + 漫画风格的环境线条，错综复杂的手绘细节，干净的透视，大胆的留白，略带不完美的墨水质感，精致的编辑构图，怀旧的模拟印刷感。\n\n配色方案：仅使用深海军蓝、柔和的蓝灰色和暖象牙色/奶油色。不使用鲜艳色彩。\n\n构图：高度详细，视觉密集，前景/中景/背景平衡，强烈的消失点，电影般的取景，清晰的线条，微妙的纸张纹理，高端艺术画册插画质感。\n\n宽高比：4:5 纵向。"
+    }
+  },
+  "34678": {
+    "en": {
+      "title": "Realistic Winter Portrait Prompt",
+      "description": "A prompt for generating an ultra-realistic smartphone-style photograph of a young woman sitting in a snowbank, wearing winter clothing, with natural lighting and candid expression.",
+      "prompt": "ULTRA-REALISTIC NATURAL SMARTPHONE PHOTOGRAPH, vertical 3:4, candid winter travel portrait of a young East Asian woman sitting comfortably in a huge snowbank outside a modern mountain-town building.\nShe has medium-length dark brown hair styled in two loose low pigtails with soft strands framing her face. She wears a fluffy cream-white winter hat with a soft pink inner lining and a thick oversized pink-and-white striped scarf wrapped warmly around her neck. She has natural youthful features, rosy cheeks from the cold, and a bright genuine laugh while looking directly at the camera.\nShe is dressed in a warm ivory-white puffer jacket and loose cream-white wide-leg winter pants. She wears thick brown knitted gloves and cozy tan winter snow boots with cream-colored fleece cuffs. Her hands are clasped together naturally between her knees while she sits in the snow, with both legs extending forward.\nFresh deep snow completely covers the ground, forming large soft snowdrifts around her. Snowflakes are gently falling through the air, with small flakes visible against her clothing and in the background.\nBehind her is a modern multi-story building partially covered in snow, featuring dark metal exterior staircases, large windows, green storefront awnings, outdoor vending machines, railings, bare winter trees, and thick accumulated snow along the edges of the property.\nSoft overcast winter daylight, cool snowy atmosphere, realistic snow texture, subtle shadows, natural ambient lighting, peaceful snowy vacation setting.\nRAW smartphone photography aesthetic, ultra-realistic skin texture, natural facial details, realistic hair strands, authentic winter clothing textures, physically accurate snow, realistic proportions, natural candid pose, slight smartphone lens softness, no beauty filter, no plastic skin, no CGI appearance, highly detailed environment, authentic winter travel photography, vertical 3:4 composition."
+    },
+    "zh": {
+      "title": "写实冬季人像提示词",
+      "description": "用于生成一张超写实智能手机风格照片的提示词，画面中一位年轻女性坐在雪堆中，身着冬装，拥有自然光线和抓拍般的表情。",
+      "prompt": "超写实自然智能手机摄影，竖屏 3:4，一位年轻东亚女性在现代山城建筑外的巨大雪堆中舒适坐着的冬季旅行抓拍肖像。\n她留着中长深棕色头发，扎成两个松散的低马尾，柔和的发丝修饰着脸庞。她戴着一顶蓬松的奶油白冬季帽子，内衬为柔和粉色，脖子上围着一条厚实的超大号粉白条纹围巾，温暖包裹。她拥有自然青春的面部特征，因寒冷而脸颊红润，正对着镜头发出明亮真诚的笑声。\n她身穿温暖的象牙白羽绒服和宽松的奶油白阔腿冬季长裤。手上戴着厚实的棕色针织手套，脚穿舒适的棕褐色冬季雪地靴，靴口有奶油色绒毛装饰。她坐在雪中，双手自然地合拢在膝盖之间，双腿向前伸展。\n新鲜深厚的积雪完全覆盖地面，在她周围形成巨大的柔软雪堆。雪花在空中轻轻飘落，在她的衣物和背景中可见细小的雪花。\n她身后是一栋被部分积雪覆盖的现代多层建筑，具有深色金属外部楼梯、大窗户、绿色店面遮阳篷、户外自动售货机、栏杆、光秃的冬季树木，以及沿着物业边缘堆积的厚雪。\n柔和的阴天冬季日光，寒冷的雪景氛围，逼真的雪的纹理，微妙的阴影，自然的环境照明，宁静的雪度假场景。\nRAW 格式智能手机摄影美学，超写实的皮肤纹理，自然的面部细节，逼真的发丝，真实的冬季服装质感，物理准确的雪，真实的人体比例，自然的抓拍姿势，轻微的智能手机镜头柔焦效果，无美颜滤镜，无塑料感皮肤，无 CGI 外观，高度详细的环境，真实的冬季旅行摄影，竖屏 3:4 构图。"
+    }
+  },
+  "34679": {
+    "en": {
+      "title": "Handsome Man Cinematic Portrait Prompt",
+      "description": "A prompt for generating an ultra-realistic close-up portrait of a handsome young man with wavy black hair, wearing a charcoal shirt and earbud, with dramatic side lighting.",
+      "prompt": "Ultra-realistic cinematic close-up portrait of a strikingly handsome young man in his early 20s, with thick naturally wavy jet-black hair styled with soft volume and a slightly tousled side sweep, strong well-defined eyebrows, deep dark-brown eyes, a straight sculpted nose, prominent cheekbones, a sharp masculine jawline, and subtle natural stubble. He gazes slightly upward and toward the side with a calm, confident, mysterious expression.\nHe wears a minimalist dark charcoal crew-neck shirt and a single sleek wireless earbud in one ear. Three-quarter profile, head slightly tilted upward, shoulders relaxed. Dramatic single-source side lighting creates strong highlights across his forehead, cheekbone, nose and jaw while leaving part of his face in deep cinematic shadow. Subtle warm skin tones contrast against a dark navy-black textured studio background.\nSophisticated masculine editorial photography, moody luxury aesthetic, realistic skin texture and pores, natural facial imperfections, detailed hair strands, cinematic contrast, soft atmospheric shadows, shallow depth of field, 85mm portrait lens, f/1.8, professional studio photography, subtle film grain, HDR, ultra-detailed, photorealistic, 8K quality, premium fashion campaign aesthetic, no text, no watermark, no logos, no exaggerated muscles, no plastic-looking skin, no AI-looking face."
+    },
+    "zh": {
+      "title": "帅气男士电影感肖像提示词",
+      "description": "用于生成一位年轻帅气男士超写实特写肖像的提示词，他留着黑色波浪卷发，身穿炭灰色衬衫并佩戴耳机，采用戏剧性的侧光照明。",
+      "prompt": "超写实电影感特写肖像：一位二十岁出头、英俊非凡的年轻男子，拥有一头浓密自然的乌黑波浪卷发，造型蓬松柔和，略带凌乱的侧分刘海；眉毛浓密轮廓分明，深棕色双眸深邃迷人，鼻梁挺直如雕塑，颧骨突出，下颌线锋利阳刚，留有淡淡的自然胡茬。他目光略微向上并向侧面凝视，神情平静、自信且神秘。\n他身穿极简风格的深炭灰色圆领衬衫，一只耳朵佩戴着时尚的单边无线耳机。四分之三侧面视角，头部微微上扬，肩膀放松。戏剧性的单光源侧光在他的额头、颧骨、鼻子和下颌处形成强烈高光，同时让部分面部处于深沉的电影感阴影中。微妙的暖色调肤色与深海军蓝黑色的纹理摄影棚背景形成对比。\n精致阳刚的编辑类摄影风格，情绪化奢华美学，逼真的皮肤质感和毛孔，自然的面部瑕疵，细节丰富的发丝，电影级对比度，柔和的氛围阴影，浅景深，85mm 人像镜头，f/1.8，专业摄影棚拍摄，细微胶片颗粒，HDR，超高细节，照片级真实感，8K 画质，高端时尚大片美学，无文字，无水印，无标志，无夸张肌肉，无塑料感皮肤，无 AI 生成感面孔。"
+    }
+  },
+  "34680": {
+    "en": {
+      "title": "Golden Hour Portrait Collage Prompt",
+      "description": "A structured JSON-style prompt for generating a 3x3 grid collage of golden hour portraits with varied poses, focusing on natural expressions, warm lighting, and consistent identity preservation.",
+      "prompt": "image_generation\": {\n\"face\": {\n\"preserve_original\": true,\n\"reference_match\": true,\n\"description\": \"Maintain the same facial structure, skin tone, eye shape, and natural expressions across all frames, with consistent identity in each pose.\"\n},\n\n\"photo_style\": {\n\"type\": \"golden hour portrait collage\",\n\"camera_angle\": \"varied close-up and medium portrait angles\",\n\"lighting\": \"warm golden hour sunlight casting soft window shadows\",\n\"mood\": \"soft, calm, intimate, aesthetic\",\n\"texture\": \"natural skin texture, soft highlights, gentle contrast\",\n\"focus\": \"sharp focus on face with smooth background falloff\"\n},\n\n\"subject\": {\n\"poses\": [\n\"looking upward toward light\",\n\"soft smile facing camera\",\n\"side profile with downward gaze\",\n\"over-the-shoulder glance\",\n\"direct close-up with relaxed lips\",\n\"hand in hair casual pose\",\n\"head tilted back toward light\",\n\"clean side profile portrait\",\n\"thoughtful pose with hand near chin\"\n],\n\"expression\": \"natural, minimal, relaxed, emotionally subtle\",\n\"hair\": {\n\"style\": \"long straight hair worn loose\",\n\"color\": \"light to medium brown\",\n\"details\": \"natural shine with soft light highlights\"\n},\n\"clothing\": {\n\"type\": \"casual minimalist outfit\",\n\"details\": \"simple dark t-shirt with no visible branding\"\n}\n},\n\n\"composition\": {\n\"layout\": \"3x3 grid collage\",\n\"consistency\": \"uniform lighting and background across all frames\",\n\"framing\": \"clean portrait framing with slight pose variation\"\n},\n\n\"environment\": {\n\"setting\": \"indoor space near a window\",\n\"background\": \"plain wall with warm sunlight and shadow patterns\",\n\"atmosphere\": \"quiet, minimal, artistic indoor ambiance\"\n},\n\n\"aesthetic\": {\n\"style\": \"Instagram aesthetic portrait set\",\n\"features\": [\n\"golden hour light\",\n\"window shadow patterns\",\n\"minimal makeup\",\n\"natural expressions\",\n\"clean editorial portrait look\"\n]\n}\n\n}\n}"
+    },
+    "zh": {
+      "title": "黄金时刻人像拼贴提示词",
+      "description": "一个结构化的 JSON 风格提示词，用于生成 3x3 网格的黄金时刻人像拼贴图，包含多种姿势，重点在于自然表情、暖色调光线以及一致的身份保留。",
+      "prompt": "image_generation\": {\n\"face\": {\n\"preserve_original\": true,\n\"reference_match\": true,\n\"description\": \"在所有画面中保持相同的面部结构、肤色、眼型和自然表情，确保每个姿势中的身份一致性。\"\n},\n\n\"photo_style\": {\n\"type\": \"golden hour portrait collage\",\n\"camera_angle\": \"多样的特写和中景人像角度\",\n\"lighting\": \"温暖的黄金时刻阳光投射出柔和的窗影\",\n\"mood\": \"柔和、平静、亲密、具有美感\",\n\"texture\": \"自然的皮肤质感、柔和的高光、温和的对比度\",\n\"focus\": \"面部清晰对焦，背景平滑虚化\"\n},\n\n\"subject\": {\n\"poses\": [\n\"抬头望向光源\",\n\"面向镜头露出温柔微笑\",\n\"侧脸低头凝视\",\n\"回眸一瞥\",\n\"放松嘴唇的直接特写\",\n\"手抚头发的休闲姿势\",\n\"头部后仰朝向光线\",\n\"干净的侧面肖像\",\n\"手托下巴的思考姿态\"\n],\n\"expression\": \"自然、极简、放松、情感细腻\",\n\"hair\": {\n\"style\": \"长直发自然披散\",\n\"color\": \"浅棕色至中棕色\",\n\"details\": \"自然光泽带有柔和的光线高光\"\n},\n\"clothing\": {\n\"type\": \"休闲极简服装\",\n\"details\": \"简单的深色 T 恤，无可见品牌标识\"\n}\n},\n\n\"composition\": {\n\"layout\": \"3x3 网格拼贴\",\n\"consistency\": \"所有画面中统一的光线和背景\",\n\"framing\": \"干净的人像构图，带有轻微的姿势变化\"\n},\n\n\"environment\": {\n\"setting\": \"靠近窗户的室内空间\",\n\"background\": \"带有温暖阳光和阴影图案的素色墙壁\",\n\"atmosphere\": \"安静、极简、艺术感的室内氛围\"\n},\n\n\"aesthetic\": {\n\"style\": \"Instagram 美学人像系列\",\n\"features\": [\n\"黄金时刻光线\",\n\"窗户阴影图案\",\n\"极简妆容\",\n\"自然表情\",\n\"干净的编辑风格人像外观\"\n]\n}\n\n}\n}"
+    }
+  },
+  "34681": {
+    "en": {
+      "title": "Premium Brand Mascot Character Generation",
+      "description": "A detailed prompt for creating a friendly, energetic, and professional 3D brand mascot character suitable for tech or fintech companies, featuring specific lighting and composition instructions.",
+      "prompt": "Upload a reference image before generating.\n\nMAIN PROMPT\nCreate a premium, highly recognizable brand mascot character designed for modern digital branding. The mascot should have a friendly, confident, energetic personality, a distinctive silhouette, expressive face, polished proportions, and a memorable visual identity. Make the character feel professional enough for a major technology, fintech, social-media, or digital-services brand while remaining approachable and fun.\n\nFORMAT LOCK\nAspect ratio 3:4. Centered full-body mascot composition. Character clearly separated from the background with balanced negative space. Clean commercial presentation suitable for logos, websites, social media, advertisements, stickers, and brand merchandise.\n\nIDENTITY LOCK\nCreate one consistent original mascot with distinctive facial features, signature hairstyle/head shape, recognizable clothing, accessories, and color identity. Keep the character design consistent throughout the image. Do not imitate an existing copyrighted mascot or recognizable character.\n\nCHARACTER\nCute but premium 3D mascot with expressive eyes, confident friendly expression, slightly oversized head, polished stylized proportions, dynamic welcoming pose, clean modern outfit, subtle brand-inspired details, smooth surfaces, high-quality character modeling, appealing personality.\n\nENVIRONMENT\nMinimal premium studio environment with a clean uncluttered background. Subtle floor shadow and soft atmospheric depth. No unnecessary objects competing with the mascot.\n\nLIGHTING & STYLE\nHigh-end 3D commercial character render, cinematic studio lighting, soft key light, subtle rim lighting, realistic reflections, polished materials, detailed textures, premium advertising aesthetic, sharp focus, clean edges, sophisticated color grading, professional brand-campaign quality.\n\nNEGATIVE PROMPT\nLow quality, blurry, distorted anatomy, extra limbs, extra fingers, malformed hands, asymmetrical eyes, duplicated features, messy background, excessive text, watermark, logo imitation, copyrighted character, generic stock mascot, flat lighting, oversaturated colors, noisy image, cropped character, character cut off at edges."
+    },
+    "zh": {
+      "title": "高端品牌吉祥物角色生成",
+      "description": "一个详细的提示词，用于创建适合科技或金融科技公司的友好、充满活力且专业的 3D 品牌吉祥物角色，包含特定的灯光和构图说明。",
+      "prompt": "在生成之前上传参考图像。\n\n主要提示词\n创建一个高端、极具辨识度的品牌吉祥物角色，专为现代数字品牌设计。该吉祥物应具有友好、自信、充满活力的个性，独特的轮廓，富有表现力的面部，精致的比例以及令人难忘的视觉识别度。使角色既足够专业，适用于大型科技、金融科技、社交媒体或数字服务品牌，又保持亲切有趣。\n\n格式锁定\n宽高比 3:4。居中的全身吉祥物构图。角色与背景清晰分离，负空间平衡。干净的商业展示效果，适用于标志、网站、社交媒体、广告、贴纸和品牌周边产品。\n\n身份锁定\n创建一个具有独特面部特征、标志性发型/头型、可识别服装、配饰和色彩身份的原创吉祥物。在整个图像中保持角色设计的一致性。不要模仿现有的受版权保护的吉祥物或可识别的角色。\n\n角色\n可爱但高端的 3D 吉祥物，拥有富有表现力的眼睛、自信友好的表情、略大的头部、精致的风格化比例、动态欢迎姿势、简洁现代的服装、微妙的品牌灵感细节、光滑的表面、高质量的角色建模和迷人的个性。\n\n环境\n极简高端工作室环境，背景干净无杂物。微妙的地面阴影和柔和的大气深度。没有与吉祥物竞争的多余物体。\n\n灯光与风格\n高端 3D 商业角色渲染，电影级工作室灯光，柔和主光，微妙轮廓光，真实反射，精致材质，详细纹理，高端广告美学，锐利焦点，边缘清晰，复杂的色彩分级，专业品牌活动质量。\n\n负面提示词\n低质量，模糊，解剖结构扭曲，多余的肢体，多余的手指，畸形的手，不对称的眼睛，重复的特征，杂乱的背景，过多的文字，水印，标志模仿，受版权保护的角色，通用的库存吉祥物，平淡的灯光，过度饱和的颜色，噪点图像，裁剪的角色，角色在边缘被切断。"
+    }
+  },
+  "34682": {
+    "en": {
+      "title": "Parisian Café Vintage Portrait",
+      "description": "A prompt for creating a photorealistic image of a stylish woman sitting at a vintage Parisian café, wearing a cream cardigan and plaid skirt, with dried flowers on the table and nostalgic atmosphere.",
+      "prompt": "A vertical, full-body photograph of a stylish young East Asian woman sitting at a vintage outdoor café table, looking down at an open magazine with a soft smile. She is wearing a cream-colored long-sleeved ribbed cardigan and a long, pleated multi-colored brown plaid skirt. Her long wavy brown hair is half-up in a beige bow. On the round wooden table sits a bouquet of dried rust-orange flowers wrapped in newspaper. She wears cream-colored high heels, seated on a wooden chair. The background features a dark Parisian-style café exterior with warm indoor lights glowing through the glass, soft natural daylight, nostalgic atmosphere, highly detailed, photorealistic, 8k resolution."
+    },
+    "zh": {
+      "title": "巴黎咖啡馆复古人像",
+      "description": "用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。",
+      "prompt": "一张垂直构图的全景照片，展示了一位时尚的年轻东亚女性坐在复古户外咖啡馆的桌旁，低头看着一本打开的杂志，面带柔和的微笑。她身穿一件米色长袖罗纹开衫和一条长款多色棕色格纹百褶裙。她的棕色长卷发半扎起，系着一个米色蝴蝶结。圆形木桌上放着一束用报纸包裹的铁锈橙色干花。她脚穿米色高跟鞋，坐在一把木椅上。背景是深色巴黎风格咖啡馆的外立面，温暖的室内灯光透过玻璃散发出来，柔和的自然日光，怀旧氛围，细节丰富，写实风格，8k 分辨率。"
+    }
+  },
+  "34683": {
+    "en": {
+      "title": "Mirror Ballet Pointe Portrait",
+      "description": "Prompt for a ballet studio portrait featuring a woman in pointe shoes before a mirror, emphasizing black and white balance and natural daylight.",
+      "prompt": "Subject:\nBlack ballet before mirror\n\nMain Subject:\nVertical full-body photo of adult woman standing on toes in pointe shoes before large mirror in white ballet studio. Person centered in frame.\n\nPerson & Expression:\nLight brown straight bob below chin with thin bangs. Oval face contour, brown eyes looking over shoulder, natural eyebrows, small nose, pale peach lips. Straight back, quietly looking at camera.\n\nClothing & Pose:\nBlack sports bra with thin straps crossing on back, black high-cut ballet shorts. Pale peach-white satin pointe shoes with ribbons crossing ankles. Back turned obliquely, hands lightly clasped behind waist, both feet in pointe. Black top and bottom. Thin straps cross on back.\n\nBackground & Light:\nFloor-to-ceiling mirror, wooden ballet bar, white walls and large window, reflective gray-white floor. Strong daylight from left window creates long rectangular shadows. Main background light is soft light from window side.\n\nComposition & Camera:\n4:5 vertical composition, camera at slightly low rear-oblique angle for full-body shot. Person central, margin from crown to toes, mirror vertical seam placed left. Sharp focus on body lines and pointe shoes. Person fills frame, focused on subject, slight background blur.\n\nTexture & Style:\nPhotorealistic dance photography. Clean depiction of black stretch fabric, satin shoes and ribbons, mirror, glossy floor, natural muscle shadows.\n\nNegative:\nDo not omit both feet in pointe and crossed back straps; do not make it normal upright stance."
+    },
+    "zh": {
+      "title": "镜面芭蕾足尖肖像",
+      "description": "用于生成芭蕾舞室肖像的提示词，描绘一位穿着足尖鞋的女子站在镜前，强调黑白平衡与自然日光。",
+      "prompt": "主题：\n镜前的黑色芭蕾\n\n主要主体：\n一张垂直构图的全景照片，展示一位成年女子在白色芭蕾舞室内的大镜子前，穿着足尖鞋踮起脚尖站立。人物位于画面中央。\n\n人物与表情：\n浅棕色直发波波头，长度及下巴以下，配有薄刘海。脸型呈椭圆形，棕色眼睛越过肩膀看向镜头，眉毛自然，鼻子小巧，嘴唇呈淡桃色。背部挺直，安静地注视着相机。\n\n服装与姿势：\n黑色细带运动内衣，背带在背后交叉；黑色高叉芭蕾短裤。淡桃白色的缎面足尖鞋，丝带缠绕脚踝。身体侧后方朝向镜头，双手在腰后轻轻交握，双脚均处于足尖站立状态。上下身着装均为黑色。细带在背部交叉。\n\n背景与光线：\n落地镜、木质把杆、白墙和大窗户，反光灰白色地板。左侧窗户射入强烈的日光，形成长方形阴影。主背景光为来自窗边的柔和光线。\n\n构图与相机：\n4:5 垂直构图，相机位于略低的后侧斜角进行全身拍摄。人物居中，从头顶到脚尖留有边距，镜子的垂直接缝置于左侧。焦点清晰对准身体线条和足尖鞋。人物充满画面，聚焦于主体，背景轻微虚化。\n\n质感与风格：\n写实风格的舞蹈摄影。清晰呈现黑色弹力面料、缎面鞋子和丝带、镜子、光泽地板以及自然的肌肉阴影。\n\n负面提示：\n不要省略双足尖站立和背部交叉带；不要呈现正常的直立站姿。"
+    }
+  },
+  "34684": {
+    "en": {
+      "title": "Cinematic Male Portrait Reference",
+      "description": "A prompt for generating a photorealistic cinematic close-up portrait of a man using a reference image for face consistency, featuring dramatic lighting and moody atmosphere.",
+      "prompt": "Photorealistic cinematic close-up portrait of a young adult man use image for face reference with natural skin texture. He is wearing a plain black crew-neck T-shirt and white wireless earbuds. Low-angle camera perspective, head and shoulders filling the frame, looking slightly upward and off-camera with a serious, confident expression. Dramatic directional lighting from the upper right side creates strong highlights on the face and deep shadows on the opposite side. Dark charcoal-blue studio background, moody high-contrast atmosphere, realistic pores and beard detail, sharp focus on the eyes and face, shallow depth of field, professional editorial photography, 85mm portrait lens, f/2, natural skin tones, cinematic color grading, ultra-detailed, photorealistic, vertical 4:5 composition."
+    },
+    "zh": {
+      "title": "电影感男性人像参考",
+      "description": "用于生成逼真电影感男性特写人像的提示词，利用参考图像保持面部一致性，具有戏剧性布光和情绪化氛围。",
+      "prompt": "逼真的电影感年轻成年男性特写人像，使用图像作为面部参考以保持自然皮肤质感。他身穿纯色黑色圆领 T 恤和白色无线耳机。低角度拍摄视角，头部和肩部充满画面，眼神略微向上并看向镜头外，表情严肃自信。来自右上方的戏剧性定向光在面部形成强烈高光，并在另一侧投下深邃阴影。深炭蓝色摄影棚背景，情绪化的高对比度氛围，真实的毛孔和胡须细节，眼睛和面部清晰对焦，浅景深，专业编辑级摄影，85mm 人像镜头，f/2 光圈，自然肤色，电影级色彩分级，超精细，照片级真实感，4:5 竖构图。"
+    }
+  },
+  "34685": {
+    "en": {
+      "title": "GPT Image 2 Prompt: Fashion Magazine Scrapbook",
+      "description": "A prompt to create a corkboard collage featuring photos of a specific person styled like a Japanese women's fashion magazine scrapbook.",
+      "prompt": "Create a corkboard covered with many photos of the person in the attached image, arranged in the style of a Japanese women's fashion magazine scrapbook.\nDisplay the corkboard filling the entire screen."
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词：时尚杂志剪贴簿",
+      "description": "一个用于创建软木板拼贴画的提示词，其中包含特定人物的照片，风格模仿日本女性时尚杂志的剪贴簿。",
+      "prompt": "创建一个软木板，上面贴满附件图片中人物的多张照片，按照日本女性时尚杂志剪贴簿的风格进行排列。\n让软木板填满整个屏幕。"
+    }
+  },
+  "34686": {
+    "en": {
+      "title": "Duck Wearing Crab Shell Hat",
+      "description": "A two-panel aesthetic image showing a realistic photo of a white duck wearing a crab shell as a hat, paired with a cute hand-drawn illustration of the same scene and inspirational text overlays.",
+      "prompt": "Create a vertical two-panel composite image featuring a white duck wearing a crab shell as a hat.\n\nTop Panel: A photorealistic, high-angle shot of a plump white domestic duck standing on a beige woven rug with black leaf patterns. The duck is facing forward and has a large, cooked orange-red crab carapace resting on its head like a wide-brimmed hat. The background shows a bright, sunlit room with light grey tiled floors, soft shadows, and a glimpse of a dark wooden furniture leg in the upper right. Handwritten-style white text overlay on the left reads \"A Brighter Day\". Small serif text on the top right reads \"Small Creatures Big Happiness\" followed by a dash. Small serif text on the middle right reads \"Same Weird Hat A Kinder Tomorrow\" followed by a dash.\n\nBottom Panel: A minimalist hand-drawn illustration on a textured off-white paper background. It depicts the same duck character in a sketchy ink style with watercolor accents—white body, orange beak and feet, and the orange crab shell hat. Two small motion lines appear near the hat. To the left, handwritten black text reads \"Good Things Ahead\" with a small underline. To the right, small serif text reads \"A Softer World For Silly Creatures\" followed by a dash and a small blue heart symbol."
+    },
+    "zh": {
+      "title": "戴蟹壳帽的鸭子",
+      "description": "一张双面板美学图片，展示了一只戴着蟹壳作为帽子的逼真白鸭照片，搭配同一场景的可爱手绘插图和励志文字叠加层。",
+      "prompt": "创建一张垂直双面板合成图像，主体是一只头戴蟹壳作为帽子的白鸭。\n\n上方面板：一张高角度拍摄的写实照片，画面中一只丰满的家养白鸭站在带有黑色叶片图案的米色编织地毯上。鸭子正对前方，头顶戴着一个巨大的熟橙红色蟹壳，宛如一顶宽檐帽。背景是一个明亮、阳光充足的房间，铺着浅灰色瓷砖地板，有柔和的阴影，右上角隐约可见深色木质家具腿。左侧叠加手写风格的白色文字“A Brighter Day”。右上角的小号衬线字体写着“Small Creatures Big Happiness”，后跟一个破折号。右侧中间的小号衬线字体写着“Same Weird Hat A Kinder Tomorrow”，后跟一个破折号。\n\n下方面板：一张在纹理米白色纸张背景上的极简手绘插图。它以素描墨水风格描绘了同样的鸭子角色，并点缀有水彩色彩——白色的身体、橙色的喙和脚，以及橙色的蟹壳帽子。帽子附近画有两条细小的动态线条。左侧的手写黑色文字为“Good Things Ahead”，下方有一条小下划线。右侧的小号衬线字体写着“A Softer World For Silly Creatures”，后跟一个破折号和一个小蓝色爱心符号。"
+    }
+  },
+  "34687": {
+    "en": {
+      "title": "Wastewater Treatment Plant Infographic",
+      "description": "A detailed industrial-style infographic poster illustrating the workflow and principles of a wastewater treatment plant, featuring process diagrams and bold typography.",
+      "prompt": "Create a horizontal infographic poster explaining the working principles of a wastewater treatment plant. The design style is industrial, modern, and high-contrast, utilizing a color palette of deep red, black, white, and teal/blue for water elements.\n\n**Layout & Text Elements:**\n1.  **Top Left/Center (Headline):** Large, bold, distressed red Chinese characters \"污水处理厂\" (Wastewater Treatment Plant) spanning across the top. Below it, large black bold text \"工作原理\" (Working Principles). Smaller black text underneath: \"从进水、分离、生化反应到净化出水\" (From influent, separation, biochemical reaction to purified effluent).\n2.  **Left Sidebar:** Vertical layout with small text blocks. Top block: \"让每一滴污水重回自然\" (Let every drop of sewage return to nature), \"水的下一站是更洁净的未来\" (Water's next stop is a cleaner future), English text \"CLEANER WATER BRIGHTER TOMORROW\". Bottom block (red background): \"处理改变为了更好的水环境\" (Treatment changes for a better water environment), English text \"CLEAN CYCLE HEALTHY CITIES\".\n3.  **Right Side (Background Image):** A large photographic collage showing an aerial view of circular clarifier tanks filled with blue-green water, connected by pipes and walkways. Overlay text on the right: \"从污水到清水\" (From sewage to clear water), \"连接城市与更健康的生活\" (Connecting cities with healthier lives), \"FOR A CLEANER TOMORROW\", \"水循环 城市运行 与自然共生\" (Water cycle, city operation, symbiosis with nature), \"净化 让城市更有生命力\" (Purification makes cities more vibrant), \"CLEAN WATER STRONGER CITIES\".\n4.  **Bottom Center (Process Diagram):** A schematic cross-section diagram showing the flow of water through different stages. Arrows indicate direction from left to right. Labels above the sections: \"格栅 / 沉砂\" (Screening/Grit Chamber), \"初沉\" (Primary Sedimentation), \"生化反应\" (Biochemical Reaction - depicted with bubbles), \"二沉\" (Secondary Sedimentation). Labels at ends: \"进水\" (Influent) on left, \"出水\" (Effluent) on right.\n5.  **Bottom Right:** Small text block: \"更干净的水 更宜居的城市 更可持续的明天\" (Cleaner water, more livable cities, more sustainable tomorrow), English text \"CLEANER WATER HEALTHIER CITIES A BRIGHTER TOMORROW\".\n6.  **Center Red Box:** A small red square containing white text: \"看不见的工程 支撑看得见的美好生活\" (Invisible engineering supports visible good life), English text \"INFRASTRUCTURE FOR A HEALTHIER TOMORROW\".\n\n**Visual Style Details:**\n*   Use a grainy texture overlay on the entire image to give it a printed paper feel.\n*   The typography should be heavy sans-serif for Chinese characters.\n*   The water in the photos and diagrams should be a distinct teal/cyan color against the grayscale/red/black background."
+    },
+    "zh": {
+      "title": "污水处理厂信息图",
+      "description": "一张详细的工业风格信息图海报，展示了污水处理厂的流程与原理，包含工艺流程图和醒目的排版设计。",
+      "prompt": "创建一张横向信息图海报，解释污水处理厂的工作原理。设计风格为工业风、现代感且高对比度，采用深红、黑、白以及用于水元素的青/蓝配色方案。\n\n**布局与文本元素：**\n1.  **左上/居中（标题）：** 顶部横跨大号、粗体、做旧效果的红色中文字符“污水处理厂”。其下方为大号黑色粗体文字“工作原理”。再下方为较小的黑色文字：“从进水、分离、生化反应到净化出水”。\n2.  **左侧边栏：** 垂直布局，包含小文本块。顶部文本块：“让每一滴污水重回自然”，“水的下一站是更洁净的未来”，英文文本“CLEANER WATER BRIGHTER TOMORROW”。底部文本块（红色背景）：“处理改变为了更好的水环境”，英文文本“CLEAN CYCLE HEALTHY CITIES”。\n3.  **右侧（背景图像）：** 大型摄影拼贴画，展示充满蓝绿色水的圆形澄清池的鸟瞰图，由管道和走道连接。右侧叠加文本：“从污水到清水”，“连接城市与更健康的生活”，“FOR A CLEANER TOMORROW”，“水循环 城市运行 与自然共生”，“净化 让城市更有生命力”，“CLEAN WATER STRONGER CITIES”。\n4.  **底部居中（流程图）：** 示意图横截面，展示水流经不同阶段的过程。箭头指示从左到右的方向。各部分上方标签：“格栅 / 沉砂”，“初沉”，“生化反应”（以气泡描绘），“二沉”。两端标签：左侧为“进水”，右侧为“出水”。\n5.  **右下角：** 小文本块：“更干净的水 更宜居的城市 更可持续的明天”，英文文本“CLEANER WATER HEALTHIER CITIES A BRIGHTER TOMORROW”。\n6.  **中心红框：** 一个包含白色文字的小红色方块：“看不见的工程 支撑看得见的美好生活”，英文文本“INFRASTRUCTURE FOR A HEALTHIER TOMORROW”。\n\n**视觉风格细节：**\n*   在整个图像上使用颗粒质感叠加层，以营造印刷纸张的感觉。\n*   中文字体的排版应使用厚重的无衬线字体。\n*   照片和图表中的水应在灰度/红/黑背景下呈现独特的青色/蓝绿色。"
+    }
+  },
+  "34688": {
+    "en": {
+      "title": "Elegant Spring Equinox Poster",
+      "description": "A minimalist poster design combining a cinematic photo of a woman in Hanfu with a white horse and a serene illustrated section featuring traditional calligraphy and ample negative space.",
+      "prompt": "A vertical diptych composition. The top half is a cinematic photograph of a woman in flowing pale green Hanfu and a bamboo hat, seen from behind, reaching up to touch white cherry blossoms on a branch while standing next to a saddled white horse. Soft sunlight filters through the trees with falling petals. The bottom half features a vast expanse of textured beige paper negative space (liubai). In the lower right quadrant, there is a small, delicate illustration or cutout echoing the scene above: the tiny figure of the woman and horse under a branch. Next to this small vignette is vertical Chinese text reading \"Spring Equinox\" and a poetic couplet about walking with flowers."
+    },
+    "zh": {
+      "title": "优雅的春分海报",
+      "description": "极简主义海报设计，将身着汉服的女子与白马的电影感照片相结合，并配以传统书法和大量留白的宁静插画部分。",
+      "prompt": "垂直双联画构图。上半部分是一张电影感的照片，展示了一位身着飘逸浅绿色汉服、头戴竹帽的女子背影，她正伸手触碰树枝上的白色樱花，身旁站着一匹备好的白马。柔和的阳光透过树木洒下，花瓣飘落。下半部分是大面积的米色纹理纸张留白（liubai）。在右下象限，有一幅精致的小插图或剪影，呼应上方的场景：女子与马在树枝下的微小身影。在这小景旁边是竖排中文文字“春分”，以及一句关于携花漫步的诗句对联。"
+    }
+  },
+  "34689": {
+    "en": {
+      "title": "Giant Tokyo Police Robot Barricading Street",
+      "description": "A photorealistic image of a massive bipedal police mech deploying a barricade on a Tokyo street, surrounded by officers.",
+      "prompt": "A hyper-realistic, wide-angle photograph of a colossal bipedal police robot standing in the middle of a busy Tokyo intersection on an overcast day. The robot is approximately 15 meters tall, constructed with heavy-duty industrial machinery featuring exposed black hydraulic pistons, cabling, and white armored plating. It has a blocky head equipped with multiple camera lenses and sensor arrays. Red emergency strobe lights are mounted on its shoulders and chest. The text \"警視庁 MPD\" (Metropolitan Police Department) is clearly printed in black on the white armor plates of its chest, thighs, and shins. The robot is actively holding a long, silver metal crowd-control barricade fence with its left hand, positioning it across the road to seal off the area. In the foreground, several human police officers wearing dark blue uniforms, reflective vests, and white helmets are directing traffic; one officer on the left holds an orange baton, while another on the right gestures towards the robot. The background features realistic Japanese street signage, including a large blue overhead sign pointing to \"Shinjuku,\" \"Ginza,\" and \"Tokyo Sta.\" A vertical banner on a building to the left reads \"ともに守る。東京の未来\" (Protecting together. Tokyo's future). The scene includes wet asphalt reflecting the cloudy sky, orange traffic cones, and distant city skyscrapers."
+    },
+    "zh": {
+      "title": "巨型东京警用机器人封锁街道",
+      "description": "一张逼真的图片，展示了一台巨大的双足警用机甲在东京街头部署路障，周围有警察执勤。",
+      "prompt": "这是一张超写实的广角照片，画面中一台巨大的双足警用机器人矗立在阴天里繁忙的东京十字路口中央。该机器人大约 15 米高，由重型工业机械构成，外露的黑色液压活塞、线缆和白色装甲板清晰可见。它拥有一个方正的头部，配备了多个摄像头镜头和传感器阵列。肩膀和胸部安装有红色紧急频闪灯。其胸部、大腿和小腿的白色装甲板上清晰地印有黑色文字“警視庁 MPD”（警视厅）。机器人正用左手持握一道长长的银色金属人群控制路障围栏，将其横置于道路上以封锁区域。前景中，几名身穿深蓝色制服、反光背心并佩戴白色头盔的人类警察正在指挥交通；左侧一名警察手持橙色指挥棒，右侧另一名警察则向机器人做出手势。背景中有逼真的日本街道标识，包括一块指向“新宿”、“银座”和“东京站”的大型蓝色 overhead 指示牌。左侧建筑物上悬挂着一条垂直横幅，上面写着“ともに守る。東京の未来”（共同守护。东京的未来）。场景中还包括反射着阴云天空的潮湿沥青路面、橙色交通锥以及远处的城市摩天大楼。"
     }
   }
 }

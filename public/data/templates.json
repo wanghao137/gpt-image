@@ -997,18 +997,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "/uploads/2026-09-15-case-100289-perfume-dark-studio.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Realistic / Cinematic / Minimal / Editorial / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "/uploads/2026-09-16-case-100291-cosmetics-miniature-workers.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100291 微型工人上妆的奢侈腮红广告大片: Create an ultra-realistic, high-end luxury beauty advertisement inspired by premium editorial c…\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100291",
       "100289",
       "34470",
       "100288",
-      "34318",
-      "100283"
+      "34318"
     ]
   },
   {
@@ -1021,18 +1021,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1789388947722_ds8tjv_HSKS_zAXsAQd8ZM.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34655 GPT Image 2 提示词：巴黎咖啡馆人像: 一个用于 GPT Image 2 的写实风格提示词，描绘了一位东亚年轻女性在黄金时刻坐在温馨质朴的巴黎咖啡馆中的场景。\n- #34654 绿墙光影人像: 专为 GPT Image 2 设计的详细提示词，描绘一位身着嫩绿色连衣裙的女子倚靠在斑驳的蓝绿色墙壁旁，重点呈现光影效果。包含精确的构图与纹理指令。\n- #34653 晨间厨房围裙人像: 一张写实女性肖像的详细提示词，描绘了一位身穿米色荷叶边围裙式连衣裙的女性站在晨间的厨房里，包含服装结构和光线的具体细节。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-09-16-case-100292-neon-gas-station-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Poster / Illustration / Editorial / Cinematic / Minimal / Studio\n\n请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100292 雨夜加油站红色霓虹街头人像: {\"prompt\": \"Ultra-realistic cinematic nighttime street portrait of a young blonde woman standin…\n- #100291 微型工人上妆的奢侈腮红广告大片: Create an ultra-realistic, high-end luxury beauty advertisement inspired by premium editorial c…\n- #34655 GPT Image 2 提示词：巴黎咖啡馆人像: 一个用于 GPT Image 2 的写实风格提示词，描绘了一位东亚年轻女性在黄金时刻坐在温馨质朴的巴黎咖啡馆中的场景。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100292",
+      "100291",
       "34655",
       "34654",
-      "34653",
-      "34652",
-      "34651"
+      "34653"
     ]
   },
   {
