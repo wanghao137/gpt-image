@@ -1,5 +1,29 @@
 [
   {
+    "id": "100293",
+    "title": "Vogue风格黑白晚礼服人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Studio",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-17-case-100294-vogue-bw-evening-portrait.jpg",
+    "imageAlt": "Vogue风格黑白晚礼服人像摄影",
+    "prompt": "Girl in an elegant evening look, large vertical portrait from waist up: black evening dress with a very deep V-neckline, wide straps extending to shoulders, a wide strip of fabric wraps around the neck like a soft choker and hangs down between the breasts, creating a vertical accent; on the visible ear, a large sparkling rectangular earring encrusted with stones and featuring a large black crystal in the center; hairstyle — messy voluminous 90s-style bombshell updo with strong root volume and loose strands framing the face; white studio background; black and white photography, soft directional light casting a slight sheen on the right shoulder and collarbone, highlighting the lines of the dress and the volume of the hairstyle; glamorous atmosphere, slightly cinematic, with a focus on an elegant silhouette and evening style; large vertical shot from a camera height slightly lower than the shoulder, figure occupies the center and the right side of the frame, chest-level portrait, one hand raised with the palm behind the head, direct confident gaze into the camera, powerful Vogue 1995 mood; do not change facial features.",
+    "promptPreview": "Girl in an elegant evening look, large vertical portrait from waist up: black evening dress with a very deep V-neckline, wide straps extending to shoulders, a wide strip of fabric wraps around the neck like a soft choke…",
+    "source": "Community collected via @dreamydigiarts",
+    "createdAt": "2026-09-16T20:09:12.879Z"
+  },
+  {
     "id": "100292",
     "title": "雨夜加油站红色霓虹街头人像",
     "category": "摄影与写实",
