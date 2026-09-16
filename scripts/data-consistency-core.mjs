@@ -63,6 +63,26 @@ export function validateGeneratedData({
   const indexIds = uniqueIds(index, "cases-index.json");
   const searchIds = uniqueIds(search, "cases-search.json");
 
+  // Mirror of src/lib/data.ts validateCases required fields. The SSG build
+  // throws on these at prerender time and serves a fallback shell homepage,
+  // so they must fail EARLY here: `npm run check` (Actions) and the Vercel
+  // build gate both run this. The classic trigger is committing data from a
+  // bare `npm run sync` without `npm run migrate` — fresh upstream cases
+  // arrive without slugs.
+  const seenSlugs = new Set();
+  for (const [index, record] of sourceCases.entries()) {
+    const where = `[data-consistency] cases[${index}] (id=${idOf(record) || "?"})`;
+    for (const field of ["slug", "title", "imageUrl", "ratio", "userCategory", "createdAt"]) {
+      if (typeof record?.[field] !== "string" || record[field].length === 0) {
+        throw new Error(`${where} missing required string field "${field}"`);
+      }
+    }
+    if (seenSlugs.has(record.slug)) {
+      throw new Error(`${where} duplicate slug ${record.slug}`);
+    }
+    seenSlugs.add(record.slug);
+  }
+
   compareIdSets(sourceIds, indexIds, "cases-index.json");
   compareIdSets(sourceIds, searchIds, "cases-search.json");
 

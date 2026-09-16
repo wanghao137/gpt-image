@@ -13,8 +13,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function fixture() {
   const sourceCases = [
-    { id: "1" },
-    { id: "2" },
+    {
+      id: "1", slug: "case-one-1", title: "案例一", imageUrl: "/images/a.jpg",
+      ratio: "4:5", userCategory: "portrait", createdAt: "2026-09-15T00:00:00.000Z",
+    },
+    {
+      id: "2", slug: "case-two-2", title: "案例二", imageUrl: "/images/b.jpg",
+      ratio: "1:1", userCategory: "poster", createdAt: "2026-09-15T00:00:00.000Z",
+    },
   ];
   return {
     sourceCases,
@@ -51,6 +57,18 @@ test("generated datasets reject an incomplete category union", () => {
   const data = fixture();
   data.categoryShards = [{ name: "cases-a.json", records: [{ id: "1" }] }];
   assert.throws(() => validateGeneratedData(data), /category shard union differs/);
+});
+
+test("generated datasets reject cases missing SSG-required fields (e.g. bare sync without migrate)", () => {
+  const data = fixture();
+  delete data.sourceCases[1].slug;
+  assert.throws(() => validateGeneratedData(data), /missing required string field "slug"/);
+});
+
+test("generated datasets reject duplicate case slugs", () => {
+  const data = fixture();
+  data.sourceCases[1].slug = data.sourceCases[0].slug;
+  assert.throws(() => validateGeneratedData(data), /duplicate slug/);
 });
 
 test("checked-in generated data matches the canonical source", () => {
