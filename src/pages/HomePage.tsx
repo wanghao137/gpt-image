@@ -76,7 +76,7 @@ export default function HomePage() {
   const ldItemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "精选 GPT-Image 2 案例",
+    name: `精选 ${BRAND.model} 案例`,
     numberOfItems: featured.length,
     itemListElement: featured.map((c, i) => ({
       "@type": "ListItem",
@@ -91,7 +91,7 @@ export default function HomePage() {
     <>
       <SEO title={HOME_TITLE} description={HOME_DESC} path="/" jsonLd={[ldOrg, ldItemList]} />
 
-      <section className="container-gallery grid gap-8 pb-8 pt-7 sm:gap-10 sm:pb-12 sm:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:pb-16">
+      <section className="container-gallery grid gap-5 pb-6 pt-4 sm:gap-10 sm:pb-12 sm:pt-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:pb-16">
         <div className="relative z-10 flex flex-col">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-ink-300 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
@@ -102,23 +102,24 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h1 className="serif-display mt-4 max-w-3xl text-[2.35rem] leading-[0.98] text-ink-50 sm:text-[4.2rem] lg:text-[4.8rem]">
+          <h1 className="serif-display mt-3 max-w-3xl text-[2rem] leading-[0.98] text-ink-50 sm:mt-4 sm:text-[4.2rem] lg:text-[4.8rem]">
             桃子AI
             <span className="block text-ember-300">视觉实验室</span>
           </h1>
 
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
-            GPT-Image 2 真实案例、现成 Prompt、工业模板和场景筛选。直接看图、复制、改词，少刷教程，多出结果。
+          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-300 sm:mt-6 sm:text-[17px]">
+            {`${BRAND.model} 真实案例、现成 Prompt 与工业模板。直接看图、复制、改词，少刷教程，多出结果。`}
           </p>
 
-          <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:flex-row sm:items-center">
             <Link to="/cases" className="btn-primary justify-center">
               浏览全部 {animCases || totalCount} 个案例
               <ArrowRightIcon />
             </Link>
           </div>
 
-          <div className="mt-6 grid max-w-md grid-cols-3 gap-2 text-center sm:mt-8">
+          {/* 手机端隐藏统计条：CTA 已带案例总数，首屏把高度让给英雄图。 */}
+          <div className="mt-6 hidden max-w-md grid-cols-3 gap-2 text-center sm:mt-8 sm:grid">
             <Metric value={`${totalCount}+`} label="真实案例" />
             <Metric value={`${HOMEPAGE_USER_CATEGORIES.length}`} label="使用场景" />
             <Metric value={`${templates.length}`} label="工业模板" />
@@ -130,7 +131,44 @@ export default function HomePage() {
 
       <HeroStrip cases={stripCases} />
 
-      <section className="container-gallery pt-10 sm:pt-14" aria-labelledby="audience-tasks-title">
+      {/*
+        DOM 顺序即移动端视觉/读屏顺序：精选案例(图) → 场景分类 → 任务指引(文字)。
+        手机用户落地后先看图墙再看解释文案；桌面端用 lg:order 恢复 任务→分类→精选。
+        （纯 CSS 重排必有一端 Tab 序与视觉不一致，以移动端触屏/读屏为主场景。）
+      */}
+      <div className="flex flex-col">
+      <section className="container-gallery scroll-mt-20 pt-10 sm:pt-14 lg:order-3" id="featured">
+        <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
+          <div>
+            <p className="eyebrow">本周精选 · Featured</p>
+            <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
+              本周精选 12 个案例
+            </h2>
+          </div>
+          <Link
+            to="/cases"
+            className="text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
+          >
+            查看全部
+          </Link>
+        </div>
+        <CaseGrid
+          cases={featured}
+          favoriteIds={favoriteIds}
+          onToggleFavorite={toggle}
+          paginate={false}
+          priorityCount={0}
+          restoreId={restoreId}
+          onRestored={onRestored}
+          contained={false}
+        />
+      </section>
+
+      <div className="lg:order-2">
+        <CategoryShowcase tiles={HOME_DATA.tiles} totalCount={totalCount} />
+      </div>
+
+      <section className="container-gallery pt-10 sm:pt-14 lg:order-1" aria-labelledby="audience-tasks-title">
         <div className="mb-5 max-w-3xl sm:mb-6">
           <p className="eyebrow">从任务开始 · Start With Your Task</p>
           <h2
@@ -172,35 +210,7 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <CategoryShowcase tiles={HOME_DATA.tiles} totalCount={totalCount} />
-
-      <section className="container-gallery scroll-mt-20 pt-10 sm:pt-14" id="featured">
-        <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">
-          <div>
-            <p className="eyebrow">本周精选 · Featured</p>
-            <h2 className="serif-display mt-2 text-[26px] text-ink-50 sm:text-4xl lg:text-[40px]">
-              本周精选 12 个案例
-            </h2>
-          </div>
-          <Link
-            to="/cases"
-            className="text-[13px] font-medium text-ember-300 transition hover:text-ember-200"
-          >
-            查看全部
-          </Link>
-        </div>
-        <CaseGrid
-          cases={featured}
-          favoriteIds={favoriteIds}
-          onToggleFavorite={toggle}
-          paginate={false}
-          priorityCount={0}
-          restoreId={restoreId}
-          onRestored={onRestored}
-          contained={false}
-        />
-      </section>
+      </div>
 
       <section className="container-gallery scroll-mt-20 pt-4 sm:pt-10" id="templates-teaser">
         <div className="flex flex-col gap-3 pb-5 sm:flex-row sm:items-end sm:justify-between sm:pb-6">

@@ -13,7 +13,7 @@ export default function NotFoundPage() {
     <>
       <SEO
         title={`页面不存在 · ${BRAND.name}`}
-        description="你访问的页面不存在或已下架。回到首页继续浏览 450+ 个 GPT-Image 2 案例。"
+        description={`你访问的页面不存在或已下架。回到首页继续浏览 450+ 个 ${BRAND.model} 案例。`}
         path="/404"
         noindex
       />

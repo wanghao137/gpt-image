@@ -402,7 +402,7 @@ function buildDerivedTemplate(blueprint, cases, sourceUrl) {
       `用途：${blueprint.useWhen}`,
       `视觉方向：${direction}`,
       "",
-      "请基于以下结构生成一条可直接用于 GPT Image 2 的图片 Prompt：",
+      "请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：",
       `- 主体：[明确要生成的主体，并贴合「${blueprint.focus}」]`,
       "- 场景：[使用环境、受众、平台和传播语境]",
       "- 构图：[画面比例、镜头距离、主体位置、层级和留白]",

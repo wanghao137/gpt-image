@@ -5,6 +5,7 @@ import { ImageLightbox } from "../components/ImageLightbox";
 import { SEO, SITE } from "../components/SEO";
 import { useCopy } from "../hooks/useCopy";
 import { absoluteUrl } from "../lib/seo-url.mjs";
+import { BRAND } from "../lib/brand";
 import {
   applyTemplateVariables,
   derivedCaseSearchHref,
@@ -104,7 +105,7 @@ export default function TemplateDetailPage() {
   return (
     <>
       <SEO
-        title={`${t.title} · GPT-Image 2 模板`}
+        title={`${t.title} · ${BRAND.model} 模板`}
         description={t.description}
         path={`/template/${t.id}`}
         image={ogImage}

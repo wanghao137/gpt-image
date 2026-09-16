@@ -372,8 +372,8 @@ export default function CasesPage() {
   return (
     <>
       <SEO
-        title={`全部案例 · ${totalCount}+ GPT-Image 2 真实案例`}
-        description={`${BRAND.name}按用例、风格、场景、平台筛选 GPT-Image 2 真实案例。一键复制 Prompt，免费用作灵感来源。`}
+        title={`全部案例 · ${totalCount}+ ${BRAND.model} 真实案例`}
+        description={`${BRAND.name}按用例、风格、场景、平台筛选 ${BRAND.model} 真实案例。一键复制 Prompt，免费用作灵感来源。`}
         path="/cases"
       />
 

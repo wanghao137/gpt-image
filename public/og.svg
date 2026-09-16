@@ -26,7 +26,8 @@
     <line x1="4" y1="136" x2="170" y2="136" stroke="#ff6b5f" stroke-width="3"/>
     <text x="196" y="148"
           font-family="'Instrument Serif', Georgia, serif"
-          font-size="34" letter-spacing="6" fill="#23262b">GPT-Image 2 Prompt Lab</text>
+          font-size="34" letter-spacing="4" fill="#23262b"
+          textLength="330" lengthAdjust="spacingAndGlyphs">GPT-Image 2.5 Prompt Lab</text>
     <line x1="548" y1="136" x2="760" y2="136" stroke="#ff6b5f" stroke-width="3"/>
   </g>
 
@@ -34,7 +35,7 @@
     <text x="0" y="0"
           font-family="'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"
           font-size="32" font-weight="650" fill="#23262b">
-      GPT-Image 2 案例与 Prompt 模板库
+      GPT-Image 2.5 案例与 Prompt 模板库
     </text>
     <text x="0" y="52"
           font-family="'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif"

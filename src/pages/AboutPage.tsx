@@ -17,7 +17,7 @@ export default function AboutPage() {
           用真实案例降低试错，也把来源与使用边界说清楚。
         </h1>
         <p className="mt-4 max-w-3xl text-[14px] leading-relaxed text-ink-300 sm:text-[15px]">
-          {BRAND.name}按创作任务整理 GPT-Image 2 案例与 Prompt 模板，帮助内容创作者、商家和设计师更快找到可参考的视觉方向。
+          {`${BRAND.name}按创作任务整理 ${BRAND.model} 案例与 Prompt 模板，帮助内容创作者、商家和设计师更快找到可参考的视觉方向。`}
         </p>
       </section>
 

@@ -31,8 +31,8 @@ export default function TemplatesPage() {
   return (
     <>
       <SEO
-        title={`${templates.length} 套 GPT-Image 2 工业级模板`}
-        description={`${BRAND.name}按用途分组整理 GPT-Image 2 工业级 Prompt 模板：UI 截图 / 信息图 / 海报 / 产品 / 品牌 / 摄影 / 角色 / 场景叙事。复制即可用，含约束与防坑指南。`}
+        title={`${templates.length} 套 ${BRAND.model} 工业级模板`}
+        description={`${BRAND.name}按用途分组整理 ${BRAND.model} 工业级 Prompt 模板：UI 截图 / 信息图 / 海报 / 产品 / 品牌 / 摄影 / 角色 / 场景叙事。复制即可用，含约束与防坑指南。`}
         path="/templates"
       />
       <section className="container-gallery pt-10 sm:pt-14">

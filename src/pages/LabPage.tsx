@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { SEO } from "../components/SEO";
 import { LabGrid } from "../components/LabGrid";
 import { LAB_HOME, loadLabBrowsePage } from "../lib/data-lab";
+import { BRAND } from "../lib/brand";
 import type { LabLiteRow } from "../types";
 
 /**
@@ -58,8 +59,8 @@ export default function LabPage() {
   return (
     <>
       <SEO
-        title={`4K 实验室 · ${LAB_HOME.totalCount} 张 GPT-Image 2 原生生图`}
-        description="桃子AI视觉实验室的 GPT-Image 2 4K 原生生图档案：每张都附完整 Prompt、生成参数与 4K 原图下载，持续更新。"
+        title={`4K 实验室 · ${LAB_HOME.totalCount} 张 ${BRAND.model} 原生生图`}
+        description={`桃子AI视觉实验室的 ${BRAND.model} 4K 原生生图档案：每张都附完整 Prompt、生成参数与 4K 原图下载，持续更新。`}
         path="/lab"
       />
 
@@ -70,7 +71,7 @@ export default function LabPage() {
             4K 原生生图档案
           </h1>
           <p className="max-w-md text-[13px] leading-relaxed text-ink-400">
-            每日生成的 GPT-Image 2 4K 原图，附完整 Prompt 与参数，可下载原图。
+            每日生成的 {BRAND.model} 4K 原图，附完整 Prompt 与参数，可下载原图。
             共 {LAB_HOME.totalCount} 张，持续更新。
           </p>
         </div>

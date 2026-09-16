@@ -100,7 +100,7 @@ test("static logo assets expose production brand metadata", () => {
   assert.match(favicon, /taostudio-peach-mark/);
   assert.match(favicon, /桃子AI视觉实验室/);
   assert.match(og, /桃子AI视觉实验室/);
-  assert.match(og, /GPT-Image 2 Prompt Lab/);
+  assert.match(og, /GPT-Image 2\.5 Prompt Lab/);
   assert.doesNotMatch(og, /Tao Studio AI/);
 });
 

@@ -95,7 +95,7 @@ test("deriveCaseSeo leads the description with the Chinese title + category", ()
     { title: "人像写真示例", promptPreview: "一张胶片感人像写真，柔和光线。" },
     "人像写真",
   );
-  assert.equal(seoTitle, "人像写真示例 · GPT-Image 2 Prompt 案例 | 人像写真");
+  assert.equal(seoTitle, "人像写真示例 · GPT-Image 2.5 Prompt 案例 | 人像写真");
   // Title (zh) must lead — not the English prompt tail.
   assert.ok(seoDescription.startsWith("人像写真示例｜人像写真案例。"));
   // English prompt tail still present (for keyword coverage), clipped short.

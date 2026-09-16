@@ -12,6 +12,7 @@
  *   share card. Every case detail page used to emit exactly that, so the
  *   site's primary virality surface (小红书 / 微信 share) was broken.
  */
+import { BRAND } from "./brand-core.mjs";
 
 /**
  * Resolve a path or URL to an absolute URL against `siteUrl`.
@@ -113,8 +114,8 @@ export function jsonLdSafeStringify(data) {
  */
 export function deriveCaseSeo(promptCase, categoryLabel) {
   const title = String(promptCase?.title ?? "").trim();
-  const label = categoryLabel || "GPT-Image 2";
-  const seoTitle = `${title} · GPT-Image 2 Prompt 案例 | ${label}`;
+  const label = categoryLabel || BRAND.model;
+  const seoTitle = `${title} · ${BRAND.model} Prompt 案例 | ${label}`;
   // Lead with the Chinese title + category (search-relevance for zh-CN users),
   // then a short English prompt tail so crawlers still see prompt keywords.
   // Previously the head was the raw English promptPreview ("Masterpiece, best
