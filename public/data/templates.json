@@ -938,5 +938,461 @@
     "sourceType": "manual",
     "sourceLabel": "X · 李岳 @liyue_ai",
     "sourceUrl": "https://x.com/liyue_ai/status/2057739894261518670"
+  },
+  {
+    "id": "derived-xhs-cover",
+    "title": "小红书爆款封面",
+    "category": "海报与排版",
+    "tags": [
+      "XHS",
+      "Cover",
+      "Social"
+    ],
+    "description": "把标题、主体和高点击信息层组织成小红书封面。",
+    "cover": "/uploads/2026-08-30-case-100259-xhs-profile-card.jpg",
+    "prompt": "模板：小红书爆款封面\n用途：用于小红书笔记封面、种草图、合集封面和教程首图。\n视觉方向：XHS / Cover / Social / Minimal / Realistic / 3D Render / Cinematic / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「高点击标题、主体识别、封面层级、留白和移动端可读性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100259 手持3D小红书个人资料卡创意UI: 一只手中握着一张3D小红书个人资料卡，卡片中间方形镂空，一个女孩随意地坐在卡片镂空的边缘，温暖的米色和柔和的粉彩美学背景，逼真的深度和阴影，电影般的柔和光线，闪亮光滑的纹理，小红书风格的UI…\n- #32715 小红书漫画风帖子截图: 生成一张逼真的小红书风格手机帖子截图，包含两格手绘生活漫画，并圈出互动数据。\n- #30767 Chinese Feng Shui City Test Screenshot: Generates a realistic Xiaohongshu-style post screenshot featuring a feng shui direction map of …\n\n使用建议：\n- 先锁定 高点击标题、主体识别、封面层级、留白和移动端可读性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免长段正文、错误标题、平台 UI 标识和过多装饰贴纸。",
+    "useWhen": "用于小红书笔记封面、种草图、合集封面和教程首图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "100259",
+      "32715",
+      "30767",
+      "28157",
+      "26897"
+    ]
+  },
+  {
+    "id": "derived-merchant-promo-poster",
+    "title": "本地商家促销海报",
+    "category": "海报与排版",
+    "tags": [
+      "Poster",
+      "Local",
+      "Promo"
+    ],
+    "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
+    "cover": "https://cms-assets.youmind.com/media/1789458729544_pvewiy_HSOUWudWoAAMXde.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / Illustration / Studio / Brand / Commerce / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34682 巴黎咖啡馆复古人像: 用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。\n- #34673 雨天咖啡馆人像提示词: 使用 GPT Image 2 生成一张写实风格的抓拍人像，描绘一位女性在雨后的下午站在咖啡馆外的场景。\n- #34655 GPT Image 2 提示词：巴黎咖啡馆人像: 一个用于 GPT Image 2 的写实风格提示词，描绘了一位东亚年轻女性在黄金时刻坐在温馨质朴的巴黎咖啡馆中的场景。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34682",
+      "34673",
+      "34655",
+      "100290",
+      "100289"
+    ]
+  },
+  {
+    "id": "derived-ecommerce-detail-page",
+    "title": "电商详情页卖点图",
+    "category": "产品与电商",
+    "tags": [
+      "Product",
+      "Commerce",
+      "Detail"
+    ],
+    "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
+    "cover": "/uploads/2026-09-16-case-100291-cosmetics-miniature-workers.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100291 微型工人上妆的奢侈腮红广告大片: Create an ultra-realistic, high-end luxury beauty advertisement inspired by premium editorial c…\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n- #34470 编辑级铁线莲花园立体模型: 将随手拍摄的花卉照片转化为带有花盆底座和花架的精致摄影棚风格植物立体模型。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "100291",
+      "100289",
+      "34470",
+      "100288",
+      "34318"
+    ]
+  },
+  {
+    "id": "derived-portrait-photo-series",
+    "title": "人像写真组图",
+    "category": "摄影与写实",
+    "tags": [
+      "Portrait",
+      "Photo",
+      "Series"
+    ],
+    "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
+    "cover": "https://cms-assets.youmind.com/media/1789458732423_1pk9ag_HSKD2DwbAAAKWZE.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34688 优雅的春分海报: 极简主义海报设计，将身着汉服的女子与白马的电影感照片相结合，并配以传统书法和大量留白的宁静插画部分。\n- #34683 镜面芭蕾足尖肖像: 用于生成芭蕾舞室肖像的提示词，描绘一位穿着足尖鞋的女子站在镜前，强调黑白平衡与自然日光。\n- #34682 巴黎咖啡馆复古人像: 用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34688",
+      "34683",
+      "34682",
+      "34680",
+      "34678"
+    ]
+  },
+  {
+    "id": "derived-travel-city-poster",
+    "title": "城市旅行招贴",
+    "category": "海报与排版",
+    "tags": [
+      "Travel",
+      "City",
+      "Poster"
+    ],
+    "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
+    "cover": "https://cms-assets.youmind.com/media/1789113116328_6qnun6_HRwWIXRbcAA5K6c.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34315 随性海岸公路旅行照片: 一个写实风格的提示词，用于生成一张从车内视角拍摄的女性站在海岸公路旁的抓拍旅行照片。\n- #34239 National Style City Promotion Poster: A prompt designed to create high-end vertical city posters that blend realistic digital paintin…\n- #34228 Photo to Watercolor Travel Illustration: A split-composition prompt that transforms a travel photograph into a delicate watercolor paint…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34315",
+      "34239",
+      "34228",
+      "34216",
+      "34209"
+    ]
+  },
+  {
+    "id": "derived-festival-campaign",
+    "title": "节日营销主视觉",
+    "category": "海报与排版",
+    "tags": [
+      "Festival",
+      "Campaign",
+      "KV"
+    ],
+    "description": "为节日节点生成有销售目标的主视觉和传播图。",
+    "cover": "https://cms-assets.youmind.com/media/1789388951512_xvu0qn_HSLJ4tFa8AARb4W.jpg",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34658 中秋排版海报: 一张黑白极简主义排版海报，以大型中文字体和英文点缀为特色，庆祝中秋节。\n- #31825 复古中秋节海报: 生成一张优雅的中国中秋节海报，包含巨型月亮、书法、桂花枝以及精致的复古编辑排版。\n- #31561 宁静中秋灯笼海报: 生成一张富有诗意的竖版中秋节海报，包含发光的灯笼、居中排版的文字，以及两个俯瞰黄昏古城的剪影人物。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34658",
+      "31825",
+      "31561",
+      "31537",
+      "31246"
+    ]
+  },
+  {
+    "id": "derived-wechat-grid-story",
+    "title": "朋友圈九宫格叙事",
+    "category": "场景与叙事",
+    "tags": [
+      "Wechat",
+      "Grid",
+      "Story"
+    ],
+    "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
+    "cover": "https://cms-assets.youmind.com/media/1789113120604_i8nxl6_HR347KhaUAA1H6V.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34321 云朵朋友剪贴簿海报: 一张充满奇趣的竖版海报，上方是蓝天中微笑的云朵，下方是九宫格手绘风格的云朵主题项目。\n- #34060 电影感哥特萝莉 3x3 动漫剧照: 生成一张九宫格电影感动漫联系表，展示一位身处玫瑰宫殿中的哥特萝莉女主角，适用于角色 PV 概念设计和视觉叙事。\n- #34011 Consistent 3x3 Multi-Angle Scene Sheet: Generates a photorealistic 3x3 grid showing the same reference subject and environment from mul…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34321",
+      "34060",
+      "34011",
+      "33449",
+      "31301"
+    ]
+  },
+  {
+    "id": "derived-sticker-avatar-pack",
+    "title": "头像表情包套装",
+    "category": "插画与艺术",
+    "tags": [
+      "Sticker",
+      "Avatar",
+      "Pack"
+    ],
+    "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
+    "cover": "https://cms-assets.youmind.com/media/1789458724142_5nejfp_HSPWs47bYAArT_M.jpg",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34675 写实专业头像提示词: 为 GPT Image 2（即 GPT2/ChatGPT 网页版）设计的高度详细提示词，用于生成具有特定光照、背景和纹理指令的逼真自然的专业头像。\n- #34651 午后粗花呢连衣裙人像: 为 GPT Image 2 设计的综合提示词，用于创建一张逼真的时尚照片：一位身穿黑白粗花呢迷你连衣裙的女性坐在沙发上，沐浴在午后的光线中。内容涵盖主体、表情、服装、背景、构图和风格等详细部…\n- #34644 Y2K 拼贴人像提示词: 用于创建垂直 Y2K 风格拼贴画的提示词，包含同一位女性以不同姿势呈现的三个面板，确保所有画面中面部特征保持一致。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34675",
+      "34651",
+      "34644",
+      "34642",
+      "34079"
+    ]
+  },
+  {
+    "id": "derived-kids-family-portrait",
+    "title": "儿童亲子合影",
+    "category": "摄影与写实",
+    "tags": [
+      "Kids",
+      "Family",
+      "Portrait"
+    ],
+    "description": "生成自然、温暖、身份稳定的儿童或全家福影像。",
+    "cover": "https://cms-assets.youmind.com/media/1788855351520_ixvyvq_HRqV4HRbYAApz1l.jpg",
+    "prompt": "模板：儿童亲子合影\n用途：用于亲子写真、儿童毕业照、节日合影和家庭记录。\n视觉方向：Kids / Family / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「家庭成员关系、儿童表情、服装协调、自然互动和安全姿态」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #33871 幼儿快餐喜剧剧照: 一张照片级逼真的竖屏病毒式视频截图，画面中一名身穿快餐制服的幼儿与一名微笑的女性站在一起，并配有醒目的喜剧字幕。\n- #33823 照片转童书插画分屏效果: 一个综合性提示词，用于创建垂直分屏布局，上方为原始照片，下方为其转换为精致的儿童童书插画。\n- #33711 可爱小熊猫儿童插画: 一幅明亮的儿童绘本风格手绘卡通小熊猫场景，适用于书籍艺术、海报或趣味角色插画。\n\n使用建议：\n- 先锁定 家庭成员关系、儿童表情、服装协调、自然互动和安全姿态。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免成人化造型、假笑、脸部相似度丢失和过度精修。",
+    "useWhen": "用于亲子写真、儿童毕业照、节日合影和家庭记录。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "33871",
+      "33823",
+      "33711",
+      "33681",
+      "33579"
+    ]
+  },
+  {
+    "id": "derived-3d-ip-mascot",
+    "title": "3D IP 吉祥物",
+    "category": "角色与人物",
+    "tags": [
+      "3D",
+      "IP",
+      "Mascot"
+    ],
+    "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
+    "cover": "https://cms-assets.youmind.com/media/1789113124805_g4vki1_HR1PVYMaAAAKPis.jpg",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34332 女性与同款 3D 大头公仔: 生成一张写实的摄影棚肖像，展示一位女性与她可爱的 3D 漫画版公仔并肩站立，适用于趣味社交媒体内容或角色概念视觉图。\n- #34271 3D Animated Character Studio Style: Generates a stylized 3D character reminiscent of modern feature animation films, focusing on ae…\n- #34030 Q 版吉祥物战斗动作精灵图表: 为 GIF、游戏或角色动作研究创建 16 帧 3D Q 版吉祥物战斗动画精灵图表。\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34332",
+      "34271",
+      "34030",
+      "34010",
+      "33853"
+    ]
+  },
+  {
+    "id": "derived-game-character-sheet",
+    "title": "游戏角色设定表",
+    "category": "角色与人物",
+    "tags": [
+      "Game",
+      "Character",
+      "Sheet"
+    ],
+    "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
+    "cover": "https://cms-assets.youmind.com/media/1789388942465_4u665d_HSEg5tCaUAAFYle.jpg",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34650 GPT Image 2 黑白纤维流 Logo 提示词: 用于生成基于严格黑白配色的粘稠纤维流浮雕系统的 Logo 触觉宏观可视化效果的提示词。\n- #34332 女性与同款 3D 大头公仔: 生成一张写实的摄影棚肖像，展示一位女性与她可爱的 3D 漫画版公仔并肩站立，适用于趣味社交媒体内容或角色概念视觉图。\n- #34329 Galaxy Rail 标题界面: 创建一个竖屏复古街机轨道射击游戏标题界面，包含太空轨道、日文说明以及手游启动画面布局。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34650",
+      "34332",
+      "34329",
+      "34328",
+      "34323"
+    ]
+  },
+  {
+    "id": "derived-storyboard-sequence",
+    "title": "电影分镜序列",
+    "category": "场景与叙事",
+    "tags": [
+      "Storyboard",
+      "Cinema",
+      "Sequence"
+    ],
+    "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
+    "cover": "https://cms-assets.youmind.com/media/1789199149911_uct728_HR-PEFiaQAAP6P3.jpg",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34467 透明玫瑰宫廷淑女: 一幅柔和的动漫奇幻肖像，描绘了一位身着半透明玫瑰色与象牙白宫廷服饰的优雅淑女，适用于精致的角色插画提示词。\n- #34331 黄昏时分的动漫列车与富士山: 一幅充满意境的动漫列车内景，一位哥特风少女的剪影映衬在粉彩色的富士山日落背景下，适合用作电影感壁纸艺术。\n- #34327 不死吸血鬼国王宝座: 一个黑暗奇幻概念艺术提示词，用于在闹鬼的教堂宝座室中生成哥特式不死君主，背景包含幽灵军队和不祥的铭文。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34467",
+      "34331",
+      "34327",
+      "34321",
+      "34317"
+    ]
+  },
+  {
+    "id": "derived-architecture-concept-board",
+    "title": "建筑空间概念板",
+    "category": "建筑与空间",
+    "tags": [
+      "Architecture",
+      "Interior",
+      "Board"
+    ],
+    "description": "为建筑、室内或城市空间生成概念表现和材质板。",
+    "cover": "https://cms-assets.youmind.com/media/1789113122141_fs0zvl_HR3643zacAA5J8f.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34325 Underwater Risograph Diptych: A serene split-panel underwater composition pairing a dreamy aquatic photo scene with a poetic …\n- #34324 Same Sea Different Light Diptych: A wide split-screen wallpaper pairing a realistic ocean moonrise photograph with a minimalist c…\n- #34313 Pakistan and Philippines luxury diorama: A sophisticated prompt for a 3D miniature travel diorama merging the geography and architecture…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34325",
+      "34324",
+      "34313",
+      "34156",
+      "34154"
+    ]
+  },
+  {
+    "id": "derived-document-layout-brief",
+    "title": "文档出版版式",
+    "category": "文档与出版",
+    "tags": [
+      "Document",
+      "Publishing",
+      "Layout"
+    ],
+    "description": "把报告、手册、简历或出版物组织成可读的版式系统。",
+    "cover": "/uploads/2026-09-09-case-100278-encyclopedia-knowledge-card.jpg",
+    "prompt": "模板：文档出版版式\n用途：用于报告封面、杂志跨页、说明书、简历和资料型长图。\n视觉方向：Document / Publishing / Layout / Editorial / Poster / Illustration / Education / Infographic / Realistic / Cinematic\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「标题层级、栏目网格、图文比例、页码标识和阅读顺序」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100278 模块化科普百科知识卡: 请根据【主题】生成一张高质量竖版「科普百科图」。 这张图不是普通海报，也不是单纯插画，而是一张兼具\"图鉴感、百科感、信息结构感、收藏感\"的模块化科普信息图。整体风格参考高级博物图鉴、现代百科…\n- #100249 黑白奢华杂志封面人像：双重曝光故障风: Use my uploaded face image as the primary identity reference. Preserve my 100% exact facial ide…\n- #100243 纸感切面侧脸花瓣瀑布杂志封面: { \"style_name\": \"Paper Bloom Covers\", \"style_slug\": \"faceted-profile-petal-cascade-cover\", \"can…\n\n使用建议：\n- 先锁定 标题层级、栏目网格、图文比例、页码标识和阅读顺序。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免正文过长、字号过小、装饰过多和随机乱码文字。",
+    "useWhen": "用于报告封面、杂志跨页、说明书、简历和资料型长图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "100278",
+      "100249",
+      "100243",
+      "100169",
+      "100158"
+    ]
+  },
+  {
+    "id": "derived-anime-scene-illustration",
+    "title": "动漫场景插画",
+    "category": "插画与艺术",
+    "tags": [
+      "Anime",
+      "Scene",
+      "Illustration"
+    ],
+    "description": "生成有故事感和氛围感的动漫风格场景插画。",
+    "cover": "https://cms-assets.youmind.com/media/1789458732423_1pk9ag_HSKD2DwbAAAKWZE.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34688 优雅的春分海报: 极简主义海报设计，将身着汉服的女子与白马的电影感照片相结合，并配以传统书法和大量留白的宁静插画部分。\n- #34686 戴蟹壳帽的鸭子: 一张双面板美学图片，展示了一只戴着蟹壳作为帽子的逼真白鸭照片，搭配同一场景的可爱手绘插图和励志文字叠加层。\n- #34685 GPT Image 2 提示词：时尚杂志剪贴簿: 一个用于创建软木板拼贴画的提示词，其中包含特定人物的照片，风格模仿日本女性时尚杂志的剪贴簿。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34688",
+      "34686",
+      "34685",
+      "34680",
+      "34677"
+    ]
+  },
+  {
+    "id": "derived-food-product-ad",
+    "title": "食品产品广告大片",
+    "category": "产品与电商",
+    "tags": [
+      "Food",
+      "Ad",
+      "Commercial"
+    ],
+    "description": "生成高端食品/饮品的商业广告级视觉。",
+    "cover": "/uploads/2026-09-14-case-noodle-hero-food-photo.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Editorial / Cinematic / Commerce / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n- #34045 秋季温泉美食促销海报: 生成一张高端日本秋季温泉与时令美食之旅促销旅行广告。\n- #33816 美食产品商业项目模板: 一份用于展示结构化产品场景的单页高端商业广告项目布局指南。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "100288",
+      "34045",
+      "33816",
+      "33814",
+      "33677"
+    ]
+  },
+  {
+    "id": "derived-fantasy-environment",
+    "title": "奇幻世界观场景",
+    "category": "建筑与空间",
+    "tags": [
+      "Fantasy",
+      "Environment",
+      "Worldbuilding"
+    ],
+    "description": "为游戏、影视或故事生成沉浸式的奇幻世界观场景。",
+    "cover": "https://cms-assets.youmind.com/media/1783674294990_himkwn_HMs3gBcb0AAq4bJ.jpg",
+    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28165 Cyberpunk Megacity Hacker Scene: A cinematic wide cyberpunk city scene featuring a lone hacker with a smartphone overlooking neo…\n- #27599 Futuristic Starry Skyscraper Wallpaper: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n- #22694 Futuristic Worldbuilding Concept Kit: A prompt for building cohesive visual kits for fictional worlds, covering architecture, clothin…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
+    "useWhen": "用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "28165",
+      "27599",
+      "22694",
+      "21930",
+      "20670"
+    ]
+  },
+  {
+    "id": "derived-double-exposure-art",
+    "title": "双重曝光艺术",
+    "category": "插画与艺术",
+    "tags": [
+      "Double",
+      "Exposure",
+      "Art"
+    ],
+    "description": "用双重曝光手法融合人物与场景的创意视觉。",
+    "cover": "/uploads/2026-09-10-case-alina-paper-garden.jpg",
+    "prompt": "模板：双重曝光艺术\n用途：用于创意海报、艺术头像、社媒封面和概念视觉。\n视觉方向：Double / Exposure / Art / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Paper Craft\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「图层融合、轮廓保留、色彩协调和叙事隐喻」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100279 梦幻纸艺花园少女全身立体剪纸拼贴: Create a premium photorealistic handcrafted paper-craft / 3D paper collage artwork in a vertica…\n- #30752 Cosmic Botanical Fantasy Illustration: A detailed watercolor and ink mixed media illustration of a psychedelic desert landscape featur…\n- #100202 印度街头小吃 Pani Puri 拼贴风信息图: Create a vibrant, colorful 3-page zine-style infographic about a trendy Indian street food: \"Pa…\n\n使用建议：\n- 先锁定 图层融合、轮廓保留、色彩协调和叙事隐喻。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免图层混乱、主体不清晰和过度叠加。",
+    "useWhen": "用于创意海报、艺术头像、社媒封面和概念视觉。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "100279",
+      "30752",
+      "100202",
+      "27761",
+      "26580"
+    ]
+  },
+  {
+    "id": "derived-vintage-retro-photo",
+    "title": "复古怀旧摄影",
+    "category": "摄影与写实",
+    "tags": [
+      "Vintage",
+      "Retro",
+      "Photo"
+    ],
+    "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
+    "cover": "https://cms-assets.youmind.com/media/1789458729544_pvewiy_HSOUWudWoAAMXde.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34682 巴黎咖啡馆复古人像: 用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。\n- #34645 复古双色丝网印刷肖像: 创建具有复古双色丝网印刷海报风格的数字图形插画，特色为融合漫画书和雕刻美学的特写肖像。\n- #34466 复古杂志风肖像拼贴: 一个用于创作 2x2 拼贴画的精美提示词，展现 1970 年代企业美学风格的男性模特，搭配森林绿西装与忧郁的影棚灯光。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
+    "sourceType": "derived-case",
+    "sourceLabel": "基于合并案例库自动派生",
+    "sourceUrl": "/data/cases.json",
+    "derivedFrom": [
+      "34682",
+      "34645",
+      "34466",
+      "34214",
+      "34084"
+    ]
   }
 ]
