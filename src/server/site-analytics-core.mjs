@@ -12,6 +12,28 @@ import {
 const DEFAULT_PREFIX = "taostudio:analytics";
 const DEFAULT_TIME_ZONE = "Asia/Shanghai";
 
+// —— Upstash 免费额度保护(2026-09 额度告警引入)——
+// 免费层每月 50 万条命令;原实现每次浏览写 16 条,其中一半是重复 EXPIRE。
+// 策略:EXPIRE 概率刷新 + 默认停写 4 个低价值维度 + 应急抽样窗口。
+const EXPIRE_REFRESH_PROBABILITY = 1 / 8;
+const SAMPLE_BRIDGE = { start: "2026-09-17", end: "2026-10-01", rate: 0.25 };
+
+function resolveSampleRate(env = {}) {
+  const explicit = Number(env.ANALYTICS_SAMPLE_RATE);
+  if (Number.isFinite(explicit) && explicit > 0) return Math.min(explicit, 1);
+  // 应急窗口(北京时间):当月剩余额度撑不到月底,按 25% 确定性抽样,
+  // 10-01 起自动恢复全量,无需改环境变量。
+  const today = new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  if (today >= SAMPLE_BRIDGE.start && today < SAMPLE_BRIDGE.end) return SAMPLE_BRIDGE.rate;
+  return 1;
+}
+
+function isVisitorSampled(visitorHash, rate) {
+  if (rate >= 1) return true;
+  // 哈希前缀做确定性抽样:同一访客要么全记要么全不记,排行指标保持可比
+  return parseInt(visitorHash.slice(0, 2), 16) < rate * 256;
+}
+
 export function getAnalyticsConfig(env = {}) {
   const kvUrl =
     env.ANALYTICS_KV_REST_API_URL ||
@@ -30,6 +52,14 @@ export function getAnalyticsConfig(env = {}) {
     adminToken: String(adminToken),
     keyPrefix: env.ANALYTICS_KEY_PREFIX || DEFAULT_PREFIX,
     timeZone: env.ANALYTICS_TIME_ZONE || DEFAULT_TIME_ZONE,
+    sampleRate: resolveSampleRate(env),
+    expireProbability: (() => {
+      const explicit = Number(env.ANALYTICS_EXPIRE_PROBABILITY);
+      return Number.isFinite(explicit) && explicit >= 0
+        ? Math.min(explicit, 1)
+        : EXPIRE_REFRESH_PROBABILITY;
+    })(),
+    fullDimensions: env.ANALYTICS_FULL_DIMENSIONS === "1",
     salt: env.ANALYTICS_SALT || adminToken || "taostudio-analytics",
     saltExplicit: Boolean(env.ANALYTICS_SALT),
     storageConfigured: Boolean(kvUrl && kvToken),
@@ -254,24 +284,29 @@ async function redisPipeline(config, commands, fetchImpl = fetch) {
 async function recordPageView(config, record, fetchImpl) {
   const keys = analyticsKeys(config.keyPrefix, record.date);
   const expireSeconds = 400 * 24 * 60 * 60;
+  // 默认只写访客/总量/页面/来源 4 条;设备、浏览器、系统、国家四个维度
+  // 可用 ANALYTICS_FULL_DIMENSIONS=1 恢复(各多 1 条命令/浏览)。
   const commands = [
     ["PFADD", keys.visitors, record.visitorHash],
     ["HINCRBY", keys.day, "pageViews", 1],
     ["ZINCRBY", keys.pages, 1, record.path],
     ["ZINCRBY", keys.referrers, 1, record.referrer],
-    ["ZINCRBY", keys.devices, 1, record.device],
-    ["ZINCRBY", keys.browsers, 1, record.browser],
-    ["ZINCRBY", keys.os, 1, record.os],
-    ["ZINCRBY", keys.countries, 1, record.country],
-    ["EXPIRE", keys.day, expireSeconds],
-    ["EXPIRE", keys.visitors, expireSeconds],
-    ["EXPIRE", keys.pages, expireSeconds],
-    ["EXPIRE", keys.referrers, expireSeconds],
-    ["EXPIRE", keys.devices, expireSeconds],
-    ["EXPIRE", keys.browsers, expireSeconds],
-    ["EXPIRE", keys.os, expireSeconds],
-    ["EXPIRE", keys.countries, expireSeconds],
   ];
+  const expireKeys = [keys.day, keys.visitors, keys.pages, keys.referrers];
+  if (config.fullDimensions) {
+    commands.push(
+      ["ZINCRBY", keys.devices, 1, record.device],
+      ["ZINCRBY", keys.browsers, 1, record.browser],
+      ["ZINCRBY", keys.os, 1, record.os],
+      ["ZINCRBY", keys.countries, 1, record.country],
+    );
+    expireKeys.push(keys.devices, keys.browsers, keys.os, keys.countries);
+  }
+  // TTL 只需偶尔刷新:按概率附带 EXPIRE,期望 ~0.5 条/浏览,
+  // 日均千级浏览下每个键每天仍会被刷新上百次,保留语义不变。
+  if (Math.random() < config.expireProbability) {
+    for (const key of expireKeys) commands.push(["EXPIRE", key, expireSeconds]);
+  }
   await redisPipeline(config, commands, fetchImpl);
 }
 
@@ -288,8 +323,11 @@ export async function handleCollectPageView({ body, headers, env, now = new Date
   if (!config.storageConfigured) {
     return { ok: false, skipped: false, error: { code: "ANALYTICS_STORAGE_NOT_CONFIGURED" } };
   }
+  if (!isVisitorSampled(record.visitorHash, config.sampleRate)) {
+    return { ok: true, skipped: false, sampledOut: true };
+  }
   await recordPageView(config, record, fetchImpl);
-  return { ok: true, skipped: false };
+  return { ok: true, skipped: false, sampledOut: false };
 }
 
 function dailySummaryCommands(config, date) {
@@ -366,10 +404,22 @@ export async function handleAnalyticsSummary({ days = 30, env, now = new Date(),
     countries: mergeRankedMetrics(daily.map((item) => item.countries)),
     // Surface fallback-salt usage — the visitor hash is only private when
     // the salt is a dedicated secret.
-    warnings: config.saltExplicit
-      ? []
-      : [
-          "ANALYTICS_SALT 未独立配置：访客去重哈希当前使用回退盐值，建议在 Vercel 配置一个随机长字符串 ANALYTICS_SALT。",
-        ],
+    warnings: [
+      ...(config.saltExplicit
+        ? []
+        : [
+            "ANALYTICS_SALT 未独立配置：访客去重哈希当前使用回退盐值，建议在 Vercel 配置一个随机长字符串 ANALYTICS_SALT。",
+          ]),
+      ...(dates.some((date) => date >= SAMPLE_BRIDGE.start && date < SAMPLE_BRIDGE.end)
+        ? [
+            `2026-09-17 至 2026-09-30 为保住 Upstash 免费额度按 ${Math.round(
+              SAMPLE_BRIDGE.rate * 100,
+            )}% 确定性抽样，该时段的数值请乘 ${Math.round(
+              1 / SAMPLE_BRIDGE.rate,
+            )} 估算；设备/浏览器/系统/国家维度自 2026-09-17 起停采，历史数据保留。`,
+          ]
+        : []),
+    ],
+    sampleRate: config.sampleRate,
   };
 }

@@ -17,6 +17,9 @@ const ANALYTICS_ENV = {
   KV_REST_API_URL: "https://redis.example.com",
   KV_REST_API_TOKEN: "kv-token",
   ANALYTICS_ADMIN_TOKEN: "admin-token",
+  // 测试显式关闭抽样、固定 EXPIRE 概率,保证命令数断言确定
+  ANALYTICS_SAMPLE_RATE: "1",
+  ANALYTICS_EXPIRE_PROBABILITY: "1",
 };
 
 function collectTestPageView(fetchImpl) {
@@ -197,11 +200,12 @@ test("batches one page view into one Redis pipeline request", async () => {
     fetchImpl,
   });
 
-  assert.deepEqual(result, { ok: true, skipped: false });
+  assert.deepEqual(result, { ok: true, skipped: false, sampledOut: false });
   assert.equal(calls.length, 1);
   assert.equal(calls[0].url, "https://redis.example.com/pipeline");
   assert.equal(calls[0].init.headers.Authorization, "Bearer kv-token");
-  assert.equal(calls[0].commands.length, 16);
+  // 额度保护后的默认写入:4 条数据 + 概率刷新的 4 条 EXPIRE(测试里概率=1)
+  assert.equal(calls[0].commands.length, 8);
   assert.deepEqual(calls[0].commands[0].slice(0, 2), [
     "PFADD",
     "taostudio:analytics:visitors:2026-06-04",
@@ -212,6 +216,111 @@ test("batches one page view into one Redis pipeline request", async () => {
     "pageViews",
     1,
   ]);
+  assert.deepEqual(calls[0].commands[2], [
+    "ZINCRBY",
+    "taostudio:analytics:pages:2026-06-04",
+    1,
+    "/cases",
+  ]);
+  assert.deepEqual(calls[0].commands[3], [
+    "ZINCRBY",
+    "taostudio:analytics:referrers:2026-06-04",
+    1,
+    "Direct",
+  ]);
+  assert.deepEqual(calls[0].commands[4], [
+    "EXPIRE",
+    "taostudio:analytics:day:2026-06-04",
+    400 * 24 * 60 * 60,
+  ]);
+});
+
+test("skips EXPIRE entirely when its probability is zero", async () => {
+  const calls = [];
+  const fetchImpl = async (_url, init) => {
+    const commands = JSON.parse(init.body);
+    calls.push({ commands });
+    return { ok: true, status: 200, json: async () => commands.map(() => ({ result: "OK" })) };
+  };
+
+  const result = await handleCollectPageView({
+    body: { url: "https://taostudioai.com/cases", referrer: "" },
+    headers: { "user-agent": "TaoStudio quality test", "x-real-ip": "203.0.113.10" },
+    env: { ...ANALYTICS_ENV, ANALYTICS_EXPIRE_PROBABILITY: "0" },
+    now: new Date("2026-06-04T04:00:00.000Z"),
+    fetchImpl,
+  });
+
+  assert.deepEqual(result, { ok: true, skipped: false, sampledOut: false });
+  assert.equal(calls[0].commands.length, 4);
+  assert.ok(calls[0].commands.every((command) => command[0] !== "EXPIRE"));
+});
+
+test("restores the four dimension writes with ANALYTICS_FULL_DIMENSIONS=1", async () => {
+  const calls = [];
+  const fetchImpl = async (_url, init) => {
+    const commands = JSON.parse(init.body);
+    calls.push({ commands });
+    return { ok: true, status: 200, json: async () => commands.map(() => ({ result: "OK" })) };
+  };
+
+  await handleCollectPageView({
+    body: { url: "https://taostudioai.com/cases", referrer: "" },
+    headers: { "user-agent": "TaoStudio quality test", "x-real-ip": "203.0.113.10" },
+    env: { ...ANALYTICS_ENV, ANALYTICS_FULL_DIMENSIONS: "1" },
+    now: new Date("2026-06-04T04:00:00.000Z"),
+    fetchImpl,
+  });
+
+  assert.equal(calls[0].commands.length, 16);
+  const ops = calls[0].commands.map((command) => command[0]);
+  assert.deepEqual(
+    ops.slice(0, 8),
+    ["PFADD", "HINCRBY", "ZINCRBY", "ZINCRBY", "ZINCRBY", "ZINCRBY", "ZINCRBY", "ZINCRBY"],
+  );
+  assert.ok(ops.slice(8).every((op) => op === "EXPIRE"));
+});
+
+test("applies deterministic visitor sampling below rate 1", async () => {
+  const env = { ...ANALYTICS_ENV, ANALYTICS_SAMPLE_RATE: "0.25", ANALYTICS_EXPIRE_PROBABILITY: "0" };
+  const input = {
+    body: { url: "https://taostudioai.com/cases", referrer: "" },
+    headers: { "user-agent": "TaoStudio quality test", "x-real-ip": "203.0.113.10" },
+    now: new Date("2026-06-04T04:00:00.000Z"),
+  };
+
+  const firstCalls = [];
+  const first = await handleCollectPageView({
+    ...input,
+    env,
+    fetchImpl: async (_url, init) => {
+      firstCalls.push(JSON.parse(init.body));
+      return { ok: true, status: 200, json: async () => firstCalls[0].map(() => ({ result: "OK" })) };
+    },
+  });
+  const secondCalls = [];
+  const second = await handleCollectPageView({
+    ...input,
+    env,
+    fetchImpl: async (_url, init) => {
+      secondCalls.push(JSON.parse(init.body));
+      return {
+        ok: true,
+        status: 200,
+        json: async () => secondCalls[0].map(() => ({ result: "OK" })),
+      };
+    },
+  });
+
+  // 同一访客哈希必须得到一致的抽样结论
+  assert.equal(first.sampledOut, second.sampledOut);
+  if (first.sampledOut) {
+    assert.equal(firstCalls.length, 0);
+    assert.deepEqual(second, { ok: true, skipped: false, sampledOut: true });
+  } else {
+    assert.equal(firstCalls.length, 1);
+    assert.equal(second.sampledOut, false);
+  }
 });
 
 test("reads a multi-day summary through one Redis pipeline request", async () => {
@@ -303,7 +412,7 @@ test("rejects a Redis pipeline response with the wrong result count", async () =
 
   await assert.rejects(
     () => collectTestPageView(fetchImpl),
-    /Redis pipeline returned 15 results for 16 commands/,
+    /Redis pipeline returned 7 results for 8 commands/,
   );
 });
 
