@@ -50046,8 +50046,8 @@
   },
   "34754": {
     "en": {
-      "title": "Retro Film Photography Woman Running",
-      "description": "A prompt for generating a vintage-style photograph of an Asian woman running through a field with roses, featuring specific clothing and film grain aesthetics.",
+      "title": "Retro Film Photography Style Running Scene",
+      "description": "A prompt for creating a retro 1980s/90s film photography style image of a woman running through a grassy field holding roses.",
       "prompt": "A young Asian woman running gracefully through an open grassy field in side profile, holding a bouquet of long-stemmed red roses. She is wearing a vintage-style outfit featuring a bright yellow button-up long-sleeve shirt, a deep red knee-length A-line skirt, matching red high socks, yellow round heel pumps, a yellow headscarf/bandana over long flowing dark wavy hair, and bold yellow circular statement earrings. The image has a retro 1980s or 1990s film photography aesthetic with rich color contrast, soft natural outdoor lighting, moody dark green field background, and fine film grain."
     },
     "zh": {
@@ -50250,9 +50250,9 @@
   },
   "34773": {
     "en": {
-      "title": "Tiny Chefs Magical Miniature Bakery Scene",
-      "description": "Generates a whimsical cinematic image of a young baker leading five chibi baby chefs through a cozy miniature bakery filled with sweet messages and baking props.",
-      "prompt": "Create an ultra-realistic, highly detailed cinematic vertical 4:5 portrait of a magical cozy miniature bakery called “Tiny Chefs”, filled with warmth, sweetness, creativity, and joyful energy. In the center of the scene, show a cheerful young female baker wearing a white long-sleeve shirt, brown apron printed with “Tiny Chefs” and a small heart, black-and-white checkered pants, red neckerchief, hair in a messy bun, holding a metal whisk high in her right hand and smiling widely with open mouth as if laughing while running forward. Around her are five tiny toddler-sized mini chefs (chibi-style babies) each wearing oversized puffy chef hats labeled “Tiny Chef” with hearts, pink or blue bibs/aprons over checkered outfits, flour-dusted cheeks, big smiles, and holding oversized baking props: one holds a giant strawberry, one a large chocolate bar, one a rolling pin, one a piping bag, one a jar of colorful sprinkles. The floor is scattered with spilled flour forming handwritten text “Sweet People Make a Brighter World ♡”, plus candy balls, eggs, chocolate blocks, and bowls.\n\nBackground details:\n- Top center: hanging wooden sign reading “Tiny Chefs – Bake a Happier World ♡” with a chef hat icon.\n- Left side: chalkboard titled “Ingredients for Today:” with checkboxes listing Love, Creativity, Kindness, Sweet Treats, Happy People, ending with a heart; below it glass jars labeled FLOUR, SUGAR, COCOA and a tipped burlap sack spilling flour.\n- Right side: second chalkboard listing Small Bites / Big Happiness / Sweet People / Brighter Days / Same Team / Bigger Dreams with a heart; next to it a jar labeled SPRINKLES full of multicolored candies.\n- Far background through an arched doorway: warm sunlight, hanging pendant lamps, shelves of baked goods, and a giant pink frosted donut with sprinkles on a stand, plus a smaller sign “Donut Happiness Lives Here ♡”.\n\nLighting & style: golden-hour warm light streaming from behind, soft bokeh, rich saturated colors, shallow depth of field focused on the baker, hyper-detailed textures on wood, fabric, flour dust, and glossy candy. Whimsical storybook-meets-cinematic realism mood."
+      "title": "Tiny Chefs Bakery Scene",
+      "description": "Generates a whimsical, high-resolution image of a young baker leading five toddlers through a cozy, text-filled miniature bakery.",
+      "prompt": "Create an ultra-realistic, highly detailed cinematic vertical 4:5 portrait of a magical cozy miniature bakery called “Tiny Chefs”, filled with warmth, sweetness, creativity, and joyful energy. In the center of the scene, show a cheerful young female baker wearing a white shirt, red neckerchief, brown apron with \"Tiny Chefs\" written on it, and black-and-white checkered trousers, running forward with an excited expression while holding a whisk in her right hand. She is leading a parade of five tiny toddler chefs who are following closely behind her. Each toddler wears a puffy chef's hat labeled \"Tiny Chef\", has flour-dusted cheeks, and holds a specific oversized baking ingredient: from left to right, one holds a giant strawberry, another a large chocolate bar, one carries a rolling pin, another holds a piping bag, and the last one clutches a jar of sprinkles.\n\nThe environment is a rustic, sunlit bakery interior. Above the main archway hangs a wooden sign reading \"Tiny Chefs - Bake a Happier World\" with a chef hat icon. To the left, there is a chalkboard titled \"Ingredients for Today:\" listing checkboxes for Love, Creativity, Kindness, Sweet Treats, and Happy People, next to glass jars labeled FLOUR, SUGAR, and COCOA. To the right, another chalkboard lists phrases like Small Bites Big Happiness, Sweet People Brighter Days, and Same Team Bigger Dreams, next to a jar labeled SPRINKLES. In the background through the door, a giant pink donut sculpture is visible. The floor is covered in scattered flour, colorful candies, and chocolate chunks, with the phrase \"Sweet People Make a Brighter World\" written in the flour dust at the bottom center."
     },
     "zh": {
       "title": "Tiny Chefs 魔法微型烘焙坊场景",
@@ -50294,6 +50294,102 @@
       "title": "双重曝光山峦晨曦人像",
       "description": "将标准人像转化为融合山间日出与星座飞鸟的艺术双重曝光合成作品。",
       "prompt": "使用提供的参考图像，将主体人像转化为高分辨率的双重曝光艺术作品。保持女性的面部、表情和姿势与原图一致，但将其服装和背景替换为黎明时分的壮丽山脉。山脉应覆盖着白雪，沐浴在穿透云层的温暖金色阳光中。在右上方天空中叠加一个由星星组成的发光星座鸟（类似凤凰）作为次要元素。添加微妙的颗粒质感和电影级布光，使两张图像无缝融合。"
+    }
+  },
+  "34844": {
+    "en": {
+      "title": "Cinematic Denim Jacket Portrait",
+      "description": "Ultra-realistic cinematic portrait prompt of a woman in black denim jacket and jeans, optimized for GPT Image 2.",
+      "prompt": "Create an ultra-realistic cinematic portrait photograph of a beautiful young woman with long, voluminous, naturally wavy dark brown hair, parted in the middle with soft face-framing strands. She has delicate feminine facial features, clear fair skin, soft pink lips, natural eyebrows, and expressive dark brown eyes. She is looking directly into the camera with a calm, gentle, slightly serious expression.\nShe is wearing a stylish black denim jacket over a fitted black top, paired with black jeans and a black leather belt with a silver rectangular buckle. A delicate silver necklace with a small pendant rests around her neck. She is wearing a classic black leather wristwatch with a silver case on her raised wrist.\nPose: Close-up to medium portrait, standing indoors in a luxurious modern hallway. One hand is gently touching and lifting her hair near the side of her head, while the other arm rests naturally. Her body is facing the camera, with a relaxed and confident posture.\nBackground: An elegant upscale hotel or luxury apartment corridor with warm beige walls, polished reflective flooring, soft ceiling lights, and beautiful creamy golden bokeh in the distance. The background is softly blurred, creating a premium cinematic atmosphere.\nLighting: Soft warm indoor lighting, natural diffused light on her face, subtle highlights on her hair, realistic skin texture, gentle shadows, and a warm luxurious color palette.\nPhotography style: Ultra-realistic professional fashion photography, cinematic portrait, editorial fashion magazine style, 85mm lens, f/1.8 aperture, shallow depth of field, realistic hair strands, natural skin pores, detailed black denim texture, high dynamic range, soft bokeh, professional color grading.\nComposition: Vertical 2:3 portrait, eye-level camera angle, centered subject, head and upper body prominently framed, highly detailed, photorealistic, 8K quality.\nNegative prompt: cartoon, anime, illustration, CGI, plastic skin, over-smoothed face, blurry eyes, distorted hands, extra fingers, deformed face, unnatural hair, oversaturated colors, harsh lighting, low resolution, watermark, text."
+    },
+    "zh": {
+      "title": "电影感牛仔夹克人像",
+      "description": "为 GPT Image 2 优化的超写实电影感人像提示词，展示身穿黑色牛仔夹克和牛仔裤的女性。",
+      "prompt": "创作一张超写实的电影感人像摄影作品，画面中是一位美丽的年轻女性，拥有一头浓密、自然卷曲的深棕色长发，中分发型，脸颊两侧有柔和的发丝修饰脸型。她五官精致柔美，皮肤白皙透亮，嘴唇呈自然的粉色，眉毛自然，眼神深邃动人（深棕色）。她直视镜头，表情平静、温柔且略带严肃。\n她身穿一件时尚黑色牛仔夹克，内搭修身黑色上衣，下身搭配黑色牛仔裤，腰间系着一条带有银色矩形扣环的黑色皮带。脖子上佩戴着一条精致的银色项链，挂着一个小吊坠。抬起的手腕上戴着一款经典黑色皮表带手表，表盘为银色。\n姿势：特写至半身人像，站在室内豪华现代走廊中。一只手轻轻触碰并撩起头部一侧的头发，另一只手臂自然下垂。身体面向镜头，姿态放松而自信。\n背景：优雅高档的酒店或豪华公寓走廊，墙壁呈暖米色，地面抛光反光，天花板灯光柔和，远处呈现奶油般的金色散景效果。背景虚化柔和，营造出高端电影氛围。\n光线：柔和温暖的室内照明，面部受自然漫射光照射，发丝上有微妙的高光，皮肤纹理真实，阴影柔和，整体色调温暖奢华。\n摄影风格：超写实专业时尚摄影，电影感人像，时尚杂志编辑风格，85mm 镜头，f/1.8 光圈，浅景深，发丝细节逼真，皮肤毛孔自然，黑色牛仔布料纹理清晰，高动态范围，柔和散景，专业色彩分级。\n构图：垂直 2:3 人像比例，平视相机角度，主体居中，突出头部和上半身，细节丰富，照片级真实感，8K 画质。\n负面提示词：卡通，动漫，插画，CGI，塑料质感皮肤，过度磨皮的脸部，模糊的眼睛，扭曲的手部，多余的手指，变形的脸部，不自然的头发，过饱和的颜色，刺眼的光线，低分辨率，水印，文字。"
+    }
+  },
+  "34845": {
+    "en": {
+      "title": "Violet Hair Fashion Portrait",
+      "description": "A hyper-realistic low-angle fashion portrait prompt featuring a woman with violet hair and orange blazer, designed for GPT Image 2.",
+      "prompt": "Create a hyper-realistic low-angle full-body fashion portrait of the same young woman from the reference image, preserving her vivid {argument name=\"hair color\" default=\"violet-purple\"} chin-length bob with straight bangs, fair porcelain skin, natural freckles, hazel/light-brown eyes, delicate features, glossy lips, and slim physique.\nShe sits casually on a stone ledge with knees bent and apart, hands resting near her lap, head slightly tilted back while looking away from the camera. She wears an oversized vibrant {argument name=\"jacket color\" default=\"orange\"} blazer over a fitted white ribbed tank top, loose white baggy trousers rolled at the ankles, white socks, chunky white sneakers, and round {argument name=\"glasses tint\" default=\"orange-tinted\"} sunglasses.\nUse a large brown textured stone wall with clean grid lines as the background. Harsh golden-hour sunlight creates dramatic diagonal shadows and strong contrast. Warm cinematic tones, realistic skin and fabric, sharp details, editorial street-fashion photography, photorealistic, 8K."
+    },
+    "zh": {
+      "title": "紫发时尚人像",
+      "description": "专为 GPT Image 2 设计的超写实低角度时尚人像提示词，展现一位留着紫色头发、身穿橙色西装外套的女性。",
+      "prompt": "创建一张超写实的低角度全身时尚人像，主体为参考图中的同一位年轻女性。保留她鲜艳的 {argument name=\"hair color\" default=\"violet-purple\"} 齐下巴波波头及直刘海、白皙如瓷的肌肤、自然的雀斑、淡褐色/浅棕色眼睛、精致的五官、光泽感的嘴唇以及纤细的身材。\n她随意地坐在石阶上，双膝弯曲并分开，双手放在大腿附近，头部微微后仰，目光看向镜头之外。她身穿一件宽松的鲜艳 {argument name=\"jacket color\" default=\"orange\"} 西装外套，内搭修身白色罗纹背心，下身穿着脚踝处卷起的宽松白色阔腿裤，搭配白袜和厚底白色运动鞋，并佩戴圆形 {argument name=\"glasses tint\" default=\"orange-tinted\"} 墨镜。\n背景使用带有清晰网格线的大型棕色纹理石墙。强烈的黄金时刻阳光营造出戏剧性的对角线阴影和高对比度。温暖的电影色调，真实的皮肤和织物质感，细节锐利，具有编辑风格的街头时尚摄影感，照片级真实，8K 分辨率。"
+    }
+  },
+  "34847": {
+    "en": {
+      "title": "Cinematic Portrait Prompt for GPT-Image-2",
+      "description": "A detailed prompt for generating a cinematic, ultra-realistic portrait of a young man with dramatic low-key lighting and chiaroscuro effects using GPT-Image-2.",
+      "prompt": "Cinematic ultra-realistic portrait of a young man use image for face reference in side profile, facing left, wearing a simple black crew-neck shirt. Dramatic low-key lighting with a single warm golden light source illuminating only  of his face, forehead, nose, lips, jawline, neck and shoulder, while the rest of his face and body disappear into deep black shadows. Strong chiaroscuro, mysterious dark atmosphere, black background, subtle rim lighting on the hair, detailed masculine facial features, short neatly styled dark hair, natural skin texture, contemplative expression, high contrast, warm amber highlights, deep blacks, moody editorial photography, shallow depth of field, 85mm portrait lens, cinematic color grading, photorealistic, vertical composition, minimal background, dramatic silhouette, 4K."
+    },
+    "zh": {
+      "title": "GPT-Image-2 电影感人像提示词",
+      "description": "一份详细的提示词，用于使用 GPT-Image-2 生成具有戏剧性低调照明和明暗对照法效果的年轻男性电影级超写实人像。",
+      "prompt": "年轻男性的电影级超写实人像，使用图像作为面部参考，侧脸朝左，身穿简单的黑色圆领衬衫。采用戏剧性的低调照明，单一暖金色光源仅照亮其部分面部、额头、鼻子、嘴唇、下颌线、颈部和肩部，而其余面部和身体则隐入深邃的黑色阴影中。强烈的明暗对照法（Chiaroscuro），神秘黑暗的氛围，黑色背景，头发上有微妙的轮廓光，细节丰富的男性面部特征，短而整洁的深色发型，自然的皮肤纹理，沉思的表情，高对比度，温暖的琥珀色高光，深黑色调，情绪化的编辑摄影风格，浅景深，85mm 人像镜头，电影级色彩分级，照片级真实感，垂直构图，极简背景，戏剧性剪影，4K。"
+    }
+  },
+  "34848": {
+    "en": {
+      "title": "Hyper-realistic Outdoor Fashion Portrait with Cat",
+      "description": "A prompt for creating a hyper-realistic outdoor fashion portrait of a woman with purple hair and a cat, featuring street art background.",
+      "prompt": "Create a hyper-realistic full-body outdoor fashion portrait of the same young adult female character from the reference image. Preserve her signature appearance: vivid violet-purple chin-length straight bob haircut with soft straight bangs, fair porcelain skin, natural freckles clearly visible across her nose and cheeks, almond-shaped hazel/light-brown eyes, small straight nose, delicate facial features, glossy natural lips, and slim elegant physique.\n\nShe stands casually against a textured concrete wall, facing the camera with a gentle smile and relaxed posture, leaning slightly backward. Both hands are naturally tucked into the front pockets of her jeans. She wears a red long-sleeve plaid flannel shirt tucked into high-waisted loose-fit blue denim cargo jeans with prominent front patch pockets, sleeves rolled to the forearms, and clean white low-top sneakers.\n\nBeside her on the ground sits a real grey-and-white cat wearing a red plaid bandana, looking upward toward the playful wall artwork. The concrete wall features cute cartoon shadow art of a girl making a peace sign, a dancing cartoon cat illustration, small graffiti details, hearts, and casual street-art elements.\n\nUse warm golden-hour sunlight creating soft but distinct shadows across the wall and subject. Natural outdoor atmosphere, warm concrete tones, realistic skin and hair texture, detailed denim and fabric, authentic cat fur, cinematic depth of field, subtle film grain, premium street-fashion photography, cozy urban aesthetic, photorealistic, ultra-detailed, 8K, professional editorial quality."
+    },
+    "zh": {
+      "title": "超写实户外时尚人像：紫发女子与猫咪",
+      "description": "用于生成超写实户外时尚人像的提示词，画面中有一位紫发女子和一只猫，背景为街头艺术风格。",
+      "prompt": "创建一张超写实的全身户外时尚人像，主角为参考图中的同一位年轻女性角色。保留她的标志性外观特征：鲜艳的紫罗兰色齐下巴直发波波头，搭配柔和的齐刘海；白皙如瓷的肌肤，鼻梁和脸颊上清晰可见自然的雀斑；杏仁状的淡褐色/浅棕色眼睛；小巧挺直的鼻子；精致的面部轮廓；光泽自然的嘴唇；以及纤细优雅的身材。\n\n她随意地靠在一面质感粗糙的混凝土墙上，面向镜头，带着温柔的微笑，姿态放松，身体微微后仰。双手自然地插在牛仔裤的前口袋里。她身穿一件红色长袖格纹法兰绒衬衫，下摆塞进高腰宽松版型的蓝色牛仔工装裤中，裤子前侧有明显的贴袋设计，袖子卷至前臂，脚穿干净的白色低帮运动鞋。\n\n在她身旁的地面上坐着一只真实的灰白相间猫咪，脖子上系着红色格纹三角巾，正抬头望向墙面上俏皮的涂鸦艺术作品。混凝土墙面上绘有可爱的卡通阴影艺术：一个比着剪刀手的女孩、一只跳舞的卡通猫插画，以及小型涂鸦细节、爱心图案和随性的街头艺术元素。\n\n使用温暖的黄金时刻阳光，在墙面和主体上投下柔和但清晰的阴影。营造自然的户外氛围，呈现温暖的混凝土色调，展现逼真的皮肤和头发纹理，细致刻画牛仔布和面料质感，还原真实的猫咪毛发细节，具备电影级景深效果、微妙的胶片颗粒感、高端街头时尚摄影风格、舒适的都市美学、照片级真实感、超高细节、8K 分辨率及专业编辑级画质。"
+    }
+  },
+  "34849": {
+    "en": {
+      "title": "Toddler Interacting with Server",
+      "description": "A realistic image of a toddler talking to a smiling server outside a restaurant, featuring a 'Knock' text overlay.",
+      "prompt": "A vertical, realistic cinematic shot of a cute toddler standing on a city sidewalk in front of an open restaurant door. The child is looking up at a smiling woman who appears to be a server or hostess, wearing a beige button-down shirt and apron. The scene captures a moment of interaction where the child seems to be speaking or reacting with a funny expression. The word \"Knock\" is overlaid in bold white text near the center. Warm natural lighting, shallow depth of field, high resolution."
+    },
+    "zh": {
+      "title": "幼儿与服务员互动",
+      "description": "一张逼真的图片，展示了一个幼儿在餐厅外与一位面带微笑的服务员交谈，画面中有“Knock”文字叠加。",
+      "prompt": "一张垂直构图的逼真电影感照片，展示了一个可爱的幼儿站在城市人行道上，面前是一家敞开的餐厅大门。孩子抬头看着一位面带微笑的女性，她看起来像是服务员或领位员，穿着米色纽扣衬衫和围裙。这一场景捕捉到了互动的瞬间，孩子似乎正在说话或做出有趣的表情。单词 \"Knock\" 以粗体白色文字叠加在画面中心附近。温暖的自然光线，浅景深，高分辨率。"
+    }
+  },
+  "34850": {
+    "en": {
+      "title": "Japanese Noodle Shop Signage",
+      "description": "A photo-realistic image of a Japanese restaurant storefront featuring a colorful wall menu and an outdoor sandwich board advertising 500-yen meal sets.",
+      "prompt": "A realistic photograph of a Japanese restaurant exterior featuring two distinct signage elements. In the background, mounted on a pink wall above a dark wooden counter, is a large menu board divided into vertical color-coded columns (yellow, white, blue, red). The text in these columns lists noodle dishes like 'Tanuki Udon', 'Bukkake Udon', 'Abura Soba', and 'Tsuke Men' with prices marked as 380 yen. In the foreground, standing on the pavement, is a black A-frame sandwich board displaying four promotional meal sets arranged in a 2x2 grid. Each quadrant features appetizing photos of food bowls (noodles and pork rice) alongside bold text advertising a '500 Yen' price point for sets combining noodles with a 'Butadon' (pork bowl). The lighting is natural daylight, capturing the vibrant colors of the signs against the street setting."
+    },
+    "zh": {
+      "title": "日式面馆招牌",
+      "description": "一张写实风格的图片，展示了一家日式餐厅店面，特色是色彩丰富的墙面菜单和宣传 500 日元套餐的户外立式广告牌。",
+      "prompt": "一张逼真的照片，展示了日式餐厅的外立面，其中包含两个不同的招牌元素。背景中，安装在深色木质柜台上方粉色墙壁上的是一块大型菜单板，分为垂直的颜色编码列（黄色、白色、蓝色、红色）。这些列中的文字列出了诸如“狸猫乌冬面”、“拌乌冬面”、“油荞麦面”和“蘸面”等面条菜品，价格标注为 380 日元。前景中，立在人行道上的是一个黑色 A 型立式广告牌，以 2x2 网格形式展示了四款促销套餐。每个象限都配有诱人的食物碗照片（面条和猪肉饭），并伴有醒目的文字，宣传将面条与“猪肉盖饭”结合的“500 日元”套餐。光线为自然日光，捕捉了街道背景下招牌的鲜艳色彩。"
+    }
+  },
+  "34851": {
+    "en": {
+      "title": "Woman Catching Water Spray in Rose Garden",
+      "description": "A realistic AI-generated image of a woman playfully catching water spray from a hose in a sunny rose garden.",
+      "prompt": "A photorealistic, high-resolution portrait of a young woman standing in a lush garden filled with blooming pink and white roses. She has long, wet black hair that clings to her skin and is wearing a cream-colored ribbed knit button-down tank top paired with white shorts. Her head is tilted back, eyes closed in joy, and she is playfully sticking her tongue out to catch the spray of water coming from a black garden hose nozzle held in her right hand. The lighting is warm and golden, suggesting late afternoon sun filtering through the trees, creating a dreamy atmosphere with visible water droplets suspended in the air."
+    },
+    "zh": {
+      "title": "玫瑰园中接水的女子",
+      "description": "一张逼真的 AI 生成图像，展示了一位女子在阳光明媚的玫瑰园中俏皮地接住水管喷出的水花。",
+      "prompt": "这是一张逼真的高分辨率人像照片，画面中一位年轻女子站在郁郁葱葱的花园里，周围盛开着粉色和白色的玫瑰花。她留着长长的湿黑发，发丝紧贴在皮肤上，身穿一件奶油色罗纹针织纽扣背心和白色短裤。她仰着头，闭着眼睛，神情愉悦，正俏皮地伸出舌头去接右手拿着的黑色花园水管喷嘴喷出的水花。光线温暖而金黄，暗示着午后阳光透过树叶洒下，营造出一种梦幻般的氛围，空气中悬浮着清晰可见的水滴。"
+    }
+  },
+  "34852": {
+    "en": {
+      "title": "Aerial Steampunk Workshop Transformation",
+      "description": "Transforms a family portrait into a top-down steampunk workshop scene with watercolor splashes and technical blueprints.",
+      "prompt": "Using the provided reference image, transform the portrait into a highly detailed, top-down aerial view of the subjects working in a cluttered steampunk inventor's workshop. Preserve the exact facial features and clothing colors of the three individuals (the man in the white t-shirt, the older woman in cream, and the younger woman in a sleeveless cream dress) while repositioning them around a large wooden table. Populate the table with aged parchment blueprints featuring technical sketches of an ornate machine, scattered brass gears, precision drafting tools, and a magnifying glass. The scene should be illuminated by a warm, glowing hanging light bulb from above. Apply a vibrant watercolor splash effect to the outer edges of the composition, blending colorful pigments like red, blue, and yellow into a textured paper background."
+    },
+    "zh": {
+      "title": "航拍蒸汽朋克工坊改造",
+      "description": "将家庭合影转化为俯视视角的蒸汽朋克工坊场景，融合水彩泼溅效果与技术蓝图元素。",
+      "prompt": "基于提供的参考图像，将人物肖像转化为高度细节化的俯拍视角，展示主体人物在杂乱无章的蒸汽朋克发明家工坊中工作的场景。保留三位人物的面部特征和服装颜色（穿白色 T 恤的男子、穿米色衣服的老年女性以及穿无袖米色连衣裙的年轻女性），并将他们重新布置在一张大木桌周围。桌面上铺满陈旧的羊皮纸蓝图，上面绘有华丽机器的技术草图，并散落着黄铜齿轮、精密绘图工具和放大镜。场景由上方悬挂的一盏温暖发光的灯泡照亮。在构图的外边缘应用鲜艳的水彩泼溅效果，将红色、蓝色和黄色等多彩颜料融入纹理纸张背景中。"
     }
   }
 }
