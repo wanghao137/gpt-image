@@ -1,5 +1,30 @@
 [
   {
+    "id": "100298",
+    "title": "艺术咖啡馆壁画绘制编辑感人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-19-case-cafe-mural-portrait.jpg",
+    "imageAlt": "艺术咖啡馆壁画绘制编辑感人像摄影",
+    "prompt": "Create a realistic, editorial-style portrait photo set in a cozy and artistic café. The subject is painting a large-scale mural portrait in a professional editorial art style on a textured wall. She is fully focused on painting the mural and is not looking at the camera.\n\nThe subject is wearing blue jeans, a white sleeveless tank top, and a beige Carhartt-style apron. She is crouching beside the rough-textured wall while carefully painting a handcrafted mural that reflects her own face, facial expression, and artistic visual interpretation.\n\nNext to the portrait mural, include the phrase “Love you” written in a cute font with a black outline.\n\nThe environment should feel warm, creative, and cinematic, with scattered paint cans on the floor and visible paint stains on her hands and clothes. Use volumetric lighting, realistic textures, and professional editorial photography aesthetics.\n\nMaintain the original facial proportions, skin tone, and expression from the reference images. Ensure ultra-realistic human anatomy and natural materials. Avoid any plastic-like skin or artificial textures.\n\n8K ultra-high-resolution detail, realistic lighting, fashion magazine quality, vertical portrait composition, authentic handcrafted mural atmosphere.",
+    "promptPreview": "Create a realistic, editorial-style portrait photo set in a cozy and artistic café. The subject is painting a large-scale mural portrait in a professional editorial art style on a textured wall. She is fully focused on …",
+    "source": "Community collected via @Kashberg_0",
+    "createdAt": "2026-09-18T20:08:32.416Z"
+  },
+  {
     "id": "100297",
     "title": "复古木刻雕版风格黑白线条肖像插画",
     "category": "插画与艺术",
