@@ -1,5 +1,30 @@
 [
   {
+    "id": "100297",
+    "title": "复古木刻雕版风格黑白线条肖像插画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "3D Render",
+      "Editorial",
+      "Minimal",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-19-case-engraved-line-portrait.jpg",
+    "imageAlt": "复古木刻雕版风格黑白线条肖像插画",
+    "prompt": "A highly detailed black-and-white engraved line art style portrait of the enclosed object rendered 100% identical. Monochrome portrait illustration with very clean curved contour shading, smooth flowing parallel lines shading the face and anatomy, an aesthetic inspired by vintage woodcuts and linoleum, thick black ink outlines combined with thin rhythmic engraved strokes, minimalist grayscale composition on a plain white background, an elegant high-contrast vector engraving look, precise contour lines wrapping naturally around facial structures and body curves, a subtle ink etching texture, a modern editorial illustration combined with classic printing techniques, subtle organic line density transitions, sharp negative space highlights, a handmade etching illustration look, very sharp line consistency, a refined retro poster aesthetic, a clean graphic novel engraving style, a sophisticated monochrome portrait rendering, flowing hair and beard created with layered ink strokes, contemporary digital engraving art inspired by linoleum.",
+    "promptPreview": "A highly detailed black-and-white engraved line art style portrait of the enclosed object rendered 100% identical. Monochrome portrait illustration with very clean curved contour shading, smooth flowing parallel lines s…",
+    "source": "Community collected via @HustleXR",
+    "createdAt": "2026-09-18T20:08:28.437Z"
+  },
+  {
     "id": "100296",
     "title": "九宫格多姿势人像写真拼贴",
     "category": "摄影与写实",
