@@ -1021,18 +1021,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1789631453792_q5cfxg_HSY5MDkbgAARbDv.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34847 GPT-Image-2 电影感人像提示词: 一份详细的提示词，用于使用 GPT-Image-2 生成具有戏剧性低调照明和明暗对照法效果的年轻男性电影级超写实人像。\n- #34853 Claude Debussy Suite Bergamasque Poster: A moody, artistic poster design for Claude Debussy's Suite Bergamasque, combining a vintage por…\n- #34851 玫瑰园中接水的女子: 一张逼真的 AI 生成图像，展示了一位女子在阳光明媚的玫瑰园中俏皮地接住水管喷出的水花。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "/uploads/2026-09-19-case-cafe-mural-portrait.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Editorial / Cinematic / Brand / Illustration / Poster / 3D Render\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100298 艺术咖啡馆壁画绘制编辑感人像摄影: Create a realistic, editorial-style portrait photo set in a cozy and artistic café. The subject…\n- #100297 复古木刻雕版风格黑白线条肖像插画: A highly detailed black-and-white engraved line art style portrait of the enclosed object rende…\n- #34847 GPT-Image-2 电影感人像提示词: 一份详细的提示词，用于使用 GPT-Image-2 生成具有戏剧性低调照明和明暗对照法效果的年轻男性电影级超写实人像。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100298",
+      "100297",
       "34847",
       "34853",
-      "34851",
-      "34848",
-      "34845"
+      "34851"
     ]
   },
   {
@@ -1285,18 +1285,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1789631458350_1r8oar_HSUeSbNaIAAvoXV.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / Cinematic / Portrait / Fashion / Poster / 3D Render / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34852 航拍蒸汽朋克工坊改造: 将家庭合影转化为俯视视角的蒸汽朋克工坊场景，融合水彩泼溅效果与技术蓝图元素。\n- #100296 九宫格多姿势人像写真拼贴: 一张高分辨率的3x3网格照片拼贴，包含九个不同的动态姿势，以上传的女性面部照片为参考，背景是充满活力的蔚蓝天空，点缀着朵朵白云，强烈的明暗自然阳光照射下，形成清晰的阴影。人物身穿针织衫，搭配…\n- #100295 环形巨构科幻都市概念艺术: An immense futuristic megacity built inside a colossal circular ring megastructure embedded in …\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-09-19-case-engraved-line-portrait.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Poster / 3D Render / Editorial / Minimal / Brand / Portrait / Realistic\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100297 复古木刻雕版风格黑白线条肖像插画: A highly detailed black-and-white engraved line art style portrait of the enclosed object rende…\n- #34852 航拍蒸汽朋克工坊改造: 将家庭合影转化为俯视视角的蒸汽朋克工坊场景，融合水彩泼溅效果与技术蓝图元素。\n- #34846 双段式月光海报提示词: 用于生成垂直电影感艺术作品的详细提示词，上半部分为江南水乡夜景，下半部分为雪山水彩插画。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100297",
       "34852",
+      "34846",
       "100296",
-      "100295",
-      "34775",
-      "34772"
+      "100295"
     ]
   },
   {
@@ -1381,18 +1381,18 @@
       "Photo"
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
-    "cover": "https://cms-assets.youmind.com/media/1789458729544_pvewiy_HSOUWudWoAAMXde.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34682 巴黎咖啡馆复古人像: 用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。\n- #34645 复古双色丝网印刷肖像: 创建具有复古双色丝网印刷海报风格的数字图形插画，特色为融合漫画书和雕刻美学的特写肖像。\n- #34466 复古杂志风肖像拼贴: 一个用于创作 2x2 拼贴画的精美提示词，展现 1970 年代企业美学风格的男性模特，搭配森林绿西装与忧郁的影棚灯光。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "cover": "/uploads/2026-09-19-case-engraved-line-portrait.jpg",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo / Illustration / Poster / 3D Render / Editorial / Minimal / Brand / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100297 复古木刻雕版风格黑白线条肖像插画: A highly detailed black-and-white engraved line art style portrait of the enclosed object rende…\n- #34682 巴黎咖啡馆复古人像: 用于生成写实图像的提示词：一位时尚女性坐在复古巴黎咖啡馆中，身穿米色开衫和格纹裙，桌上摆放着干花，营造出怀旧氛围。\n- #34645 复古双色丝网印刷肖像: 创建具有复古双色丝网印刷海报风格的数字图形插画，特色为融合漫画书和雕刻美学的特写肖像。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100297",
       "34682",
       "34645",
       "34466",
-      "34214",
-      "34084"
+      "34214"
     ]
   }
 ]
