@@ -1,5 +1,29 @@
 [
   {
+    "id": "100299",
+    "title": "低多边形透明武器解剖信息图",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic"
+    ],
+    "scenes": [
+      "Tech"
+    ],
+    "tags": [
+      "Minimal",
+      "Infographic",
+      "Education",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-09-20-case-minigun-low-poly-weapon-autopsy.jpg",
+    "imageAlt": "低多边形透明武器解剖信息图",
+    "prompt": "Autopsy infographic of geometric low-polygon transparent M134 Minigun hybrid, parts and labels, industrial mechanical design, bright vivid colours",
+    "promptPreview": "Autopsy infographic of geometric low-polygon transparent M134 Minigun hybrid, parts and labels, industrial mechanical design, bright vivid colours",
+    "source": "Community collected via @michaelrabone",
+    "createdAt": "2026-09-19T20:23:46.603Z"
+  },
+  {
     "id": "100298",
     "title": "艺术咖啡馆壁画绘制编辑感人像摄影",
     "category": "摄影与写实",
