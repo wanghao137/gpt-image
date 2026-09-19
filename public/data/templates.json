@@ -1237,18 +1237,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "https://cms-assets.youmind.com/media/1789113122141_fs0zvl_HR3643zacAA5J8f.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34325 Underwater Risograph Diptych: A serene split-panel underwater composition pairing a dreamy aquatic photo scene with a poetic …\n- #34324 Same Sea Different Light Diptych: A wide split-screen wallpaper pairing a realistic ocean moonrise photograph with a minimalist c…\n- #34313 Pakistan and Philippines luxury diorama: A sophisticated prompt for a 3D miniature travel diorama merging the geography and architecture…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/uploads/2026-09-20-case-floating-city-cinematic.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / Poster / Realistic / Editorial / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100300 云端悬浮都市科幻电影概念场景: Create an ultra-photorealistic, breathtaking cinematic 8K image of a colossal futuristic city f…\n- #34325 Underwater Risograph Diptych: A serene split-panel underwater composition pairing a dreamy aquatic photo scene with a poetic …\n- #34324 Same Sea Different Light Diptych: A wide split-screen wallpaper pairing a realistic ocean moonrise photograph with a minimalist c…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100300",
       "34325",
       "34324",
       "34313",
-      "34156",
-      "34154"
+      "34156"
     ]
   },
   {
@@ -1333,18 +1333,18 @@
       "Worldbuilding"
     ],
     "description": "为游戏、影视或故事生成沉浸式的奇幻世界观场景。",
-    "cover": "https://cms-assets.youmind.com/media/1783674294990_himkwn_HMs3gBcb0AAq4bJ.jpg",
-    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #28165 Cyberpunk Megacity Hacker Scene: A cinematic wide cyberpunk city scene featuring a lone hacker with a smartphone overlooking neo…\n- #27599 Futuristic Starry Skyscraper Wallpaper: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n- #22694 Futuristic Worldbuilding Concept Kit: A prompt for building cohesive visual kits for fictional worlds, covering architecture, clothin…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
+    "cover": "/uploads/2026-09-20-case-floating-city-cinematic.jpg",
+    "prompt": "模板：奇幻世界观场景\n用途：用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。\n视觉方向：Fantasy / Environment / Worldbuilding / Cinematic / Poster / Realistic / Editorial / Brand / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100300 云端悬浮都市科幻电影概念场景: Create an ultra-photorealistic, breathtaking cinematic 8K image of a colossal futuristic city f…\n- #28165 Cyberpunk Megacity Hacker Scene: A cinematic wide cyberpunk city scene featuring a lone hacker with a smartphone overlooking neo…\n- #27599 Futuristic Starry Skyscraper Wallpaper: Creates a vertical 4K sci-fi city wallpaper by turning the reference skyscraper into a low-angl…\n\n使用建议：\n- 先锁定 世界观完整性、建筑风格、尺度对比、氛围光效和叙事张力。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免元素堆砌、比例失真和风格不统一。",
     "useWhen": "用于游戏场景概念、奇幻世界观、史诗场景和叙事背景。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100300",
       "28165",
       "27599",
       "22694",
-      "21930",
-      "20670"
+      "21930"
     ]
   },
   {
