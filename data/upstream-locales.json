@@ -50715,5 +50715,53 @@
       "description": "生成一张逼真的特写人像，展现一位年轻女性在柔和晨光中眨眼吐舌的俏皮模样。",
       "prompt": "这是一张逼真的特写人像，描绘了一位年轻的东亚女性正在拍摄晨间自拍。她留着浅棕色头发，向后扎起，额前散落着几缕轻盈的刘海，修饰着脸型。她的表情俏皮可爱：一只眼睛（左眼）闭着做眨眼状，另一只眼睛直视镜头，同时微微向一侧吐出舌头。她身穿一件简单的灰色罗纹吊带背心或细肩带内衣。光线柔和、明亮且通透，呈现出清晨阳光透过背景左侧白色薄纱窗帘洒入室内的典型氛围。整体感觉亲密、清新且休闲。"
     }
+  },
+  "35054": {
+    "en": {
+      "title": "GPT Image 2 Prompt for Japanese Room Portrait",
+      "description": "A detailed prompt for GPT Image 2 to generate a photorealistic portrait of a woman in a kimono sitting on tatami mats with a fan and tattoo details.",
+      "prompt": "Subject:\nFan and Peony Japanese Room\n\nMain Subject:\nCenter of screen, a young woman sits on tatami mats in a bright Japanese room, wearing a kimono with peony patterns, spreading a floral fan to the left. A large carp and wave line-art tattoo is visible on the foreground right thigh.\n\nPerson & Expression:\nSlender oval face, small chin, large hazel-brown eyes, thin eyebrows, clean nose bridge, slightly parted glossy peach-colored lips. Head tilted slightly right, quietly staring at the frontal camera. Dark brown hair in a high messy updo, with thin bangs and stray hairs falling to cheeks, gold flower branch kanzashi inserted in right back of head.\n\nClothing & Pose:\nOne-piece style long-sleeved kimono with deep V-neck, featuring large red, orange, and green peony patterns on beige ground, tied with wide obi (black ground with red-gold floral pattern) and thin red obijime. Sitting with folded legs on tatami, holding fan in right hand, left hand placed on tatami to the right. Large carp, waves, and flower line-art tattoo spreads across foreground right thigh.\n\nBackground & Light:\nWhite shoji screens on left, gray vase with flower branches, gold fusuma doors, and low lantern in right background. Soft daylight enters from left shoji, brightly illuminating face, kimono, and foreground thigh, casting warm shadows to the right background.\n\nComposition & Camera:\n2:3 vertical composition, camera slightly higher than seated person, full-body close-up portrait from top of head to folded legs. Face and fan in upper half, tattooed thigh large in lower-left foreground. Kimono hem cut off at bottom, focus on eyes and fan, background with soft depth of field.\n\nTexture & Style:\nPhotorealistic live-action photo. High definition of natural skin, silk sheen, fine peony patterns, woven obi, washi paper of fan, tatami, and fine lines of tattoo, warm Japanese room colors of beige, vermilion, and ink black.\n\nNegative:\nOmit fan and carp thigh tattoo; change kimono and obi color scheme"
+    },
+    "zh": {
+      "title": "GPT Image 2 日式房间人像提示词",
+      "description": "为 GPT Image 2 设计的详细提示词，用于生成一位身着和服、坐在榻榻米上手持折扇并带有纹身细节的女性逼真肖像。",
+      "prompt": "主题：\n折扇与牡丹的日式房间\n\n主要主体：\n画面中央，一位年轻女性坐在明亮日式房间的榻榻米上，身穿印有牡丹图案的和服，左手展开一把花卉折扇。右大腿前景处可见一条大型鲤鱼与波浪线条纹身。\n\n人物与表情：\n纤细的鹅蛋脸，小巧的下巴，大而明亮的榛褐色眼睛，细眉，鼻梁挺直，微微张开的嘴唇呈现光泽桃色。头部略微向右倾斜，静静地直视镜头。深棕色头发盘成高耸凌乱的发髻，薄刘海和散落的发丝垂至脸颊，右侧后脑勺插着金色花枝簪（kanzashi）。\n\n服装与姿势：\n一件式长袖和服，深 V 领设计，米色底色上印有大朵红色、橙色和绿色的牡丹图案，系着宽腰带（黑色底配红金花卉图案）和细红色带缔（obijime）。双腿交叠坐在榻榻米上，右手持扇，左手放在右侧榻榻米上。大型鲤鱼、波浪和花卉线条纹身横跨右大腿前景。\n\n背景与光线：\n左侧是白色障子门，背景中有灰色花瓶插着花枝、金色推拉门（fusuma）和低矮灯笼。柔和的自然光从左侧障子射入，照亮面部、和服和前景大腿，在右侧背景投下温暖的阴影。\n\n构图与相机：\n2:3 竖幅构图，相机位置略高于坐姿人物，拍摄从头顶到交叠双腿的全身特写肖像。上半部分聚焦于面部和折扇，下半部分左前景突出展示纹身的腿部。和服下摆在底部被截断，焦点集中在眼睛和折扇上，背景具有柔和的景深效果。\n\n纹理与风格：\n逼真的实拍照片风格。高清呈现自然肌肤质感、丝绸光泽、精细的牡丹图案、编织腰带、折扇的和纸材质、榻榻米纹理以及纹身的细腻线条。整体色调为温暖的日式房间色彩，包括米色、朱红色和墨黑色。\n\n负面提示：\n省略折扇和鲤鱼大腿纹身；改变和服和腰带的配色方案"
+    }
+  },
+  "35055": {
+    "en": {
+      "title": "Cinematic Male Portrait Prompt for GPT Image 2",
+      "description": "A photorealistic portrait prompt using reference images for facial features, focusing on cinematic lighting, fashion editorial aesthetics, and high-detail skin/hair rendering.",
+      "prompt": "Cinematic ultra-realistic male portrait, use the provided reference image for facial features and overall appearance. Close-up head-and-shoulders composition of a man in his 30s with strong masculine facial structure, defined jawline, thick textured dark hair, realistic short beard, and detailed natural skin texture. He is wearing round vintage amber/tortoiseshell sunglasses with dark lenses and an oversized black hoodie. He looks directly into the camera with an intense, calm, neutral expression.\n\nMoody luxury fashion-editorial aesthetic, dramatic cool blue rim light from the side combined with a subtle warm key light on the skin, deep cinematic shadows, realistic reflections in the sunglasses, individually visible hair and beard strands. Soft blue-gray studio background with gentle atmospheric falloff, shallow depth of field, crisp focus on the face. Shot on an 85mm portrait lens at f/1.8, professional studio photography, high contrast, sophisticated dark color palette, subtle analog film grain, photorealistic, extremely detailed, natural proportions, cinematic color grading, premium magazine editorial look, 8K detail, centered composition."
+    },
+    "zh": {
+      "title": "GPT Image 2 电影感男性人像提示词",
+      "description": "一个使用参考图像生成面部特征的超写实人像提示词，重点在于电影级布光、时尚杂志美学以及高细节的皮肤和头发渲染。",
+      "prompt": "电影感超写实男性人像，使用提供的参考图像作为面部特征和整体外观的依据。一位 30 多岁男性的头部和肩部特写构图，具有强烈的男性化面部轮廓、分明的下颌线、浓密有质感的深色头发、逼真的短胡须以及细腻自然的皮肤纹理。他戴着圆形复古琥珀色/玳瑁色墨镜，镜片为深色，身穿一件超大号黑色连帽衫。他直视镜头，表情强烈、平静且中性。\n\n忧郁奢华的时尚杂志美学，侧面戏剧性的冷蓝色轮廓光与皮肤上微妙的暖色调主光相结合，深邃的电影感阴影，墨镜中逼真的反射效果，根根分明的头发和胡须。柔和的蓝灰色工作室背景，带有轻微的大气衰减效果，浅景深，面部焦点清晰。使用 85mm 人像镜头在 f/1.8 光圈下拍摄，专业工作室摄影，高对比度，精致的暗色调色板，轻微的模拟胶片颗粒感，照片级真实感，极其详细，自然比例，电影级色彩分级，高端杂志编辑风格，8K 细节，居中构图。"
+    }
+  },
+  "35056": {
+    "en": {
+      "title": "Split-Panel Travel Poster Prompt for GPT Image 2",
+      "description": "A detailed prompt for generating a vertical travel poster that combines realistic photography on top with 3D paper-craft illustration on the bottom. It includes customizable fields for location, lighting, subject, and typography.",
+      "prompt": "A vertical, split-panel travel poster featuring a photographic view on top and a 3D layered paper-craft illustration of the exact same scene on the bottom.\n\nTop Panel (Realistic Photography): A wide-angle, highly detailed, vibrant photograph of {argument name=\"location scenery\" default=\"a serene Swiss alpine valley with a modern blue train\"}. The lighting is {argument name=\"lighting style\" default=\"warm golden hour light\"}. The composition shows {argument name=\"main subject action\" default=\"a train curving on tracks\"}.\n\nBottom Panel (Paper-Craft Art): An intricate, multi-layered 3D paper-cut illustration re-creating the exact scene from the photo above. Hand-crafted dimensional paper layers create depth, with visible textured paper edges and shadows. Elements like the background mountains, trees, architecture, and subjects are constructed from distinct colored paper cutouts. The background paper behind the illustration is a warm, textured off-white cream color.\n\nTypography & Layout: Clean, minimalist travel poster design. Elegant dark serif typography for the main title: \"{argument name=\"title text\" default=\"Alpine Journey\"}\". Smaller sans-serif text aligned to the right or side: \"SCENIC ROUTE / NATURE / A BRIGHTER TOMORROW\". Minimalist captions and thin alignment lines placed on the cream paper background."
+    },
+    "zh": {
+      "title": "GPT Image 2 分屏旅行海报提示词",
+      "description": "用于生成垂直旅行海报的详细提示词，上半部分为写实摄影，下半部分为 3D 纸艺插画。包含可自定义的地点、光线、主体和排版字段。",
+      "prompt": "一张垂直分屏旅行海报，上半部分为摄影视角，下半部分为同一场景的 3D 分层纸艺插画。\n\n上半部分（写实摄影）：一张广角、高细节、色彩鲜艳的照片，展示 {argument name=\"location scenery\" default=\"宁静的瑞士阿尔卑斯山谷与现代蓝色列车\"}。光线为 {argument name=\"lighting style\" default=\"温暖的黄金时刻光线\"}。构图呈现 {argument name=\"main subject action\" default=\"在轨道上转弯的列车\"}。\n\n下半部分（纸艺艺术）：一幅精致、多层的 3D 剪纸插画，重现上方照片中的确切场景。手工制作的立体纸层营造出深度感，可见有纹理的纸张边缘和阴影。背景山脉、树木、建筑和主体等元素均由不同颜色的剪纸构成。插画背后的背景纸为温暖、有质感的米白色奶油色。\n\n排版与布局：简洁、极简主义的旅行海报设计。主标题采用优雅的深色衬线字体：“{argument name=\"title text\" default=\"Alpine Journey\"}”。较小的无衬线文本右对齐或侧对齐：“SCENIC ROUTE / NATURE / A BRIGHTER TOMORROW”。极简风格的说明文字和细对齐线置于奶油色纸张背景上。"
+    }
+  },
+  "35057": {
+    "en": {
+      "title": "Anime Girl Made of Water",
+      "description": "A prompt for generating an ethereal anime character composed entirely of water, featuring a water dress and floating droplets against a cloudy sky background.",
+      "prompt": "Create a vertical anime-style digital illustration of a young girl made entirely of water. The character has short, bob-cut hair that appears to be formed from splashing water with pink and blue hues at the tips. Her eyes are large, clear, and blue, resembling water droplets. She wears a dress made of flowing, transparent liquid water that swirls around her body like fabric. Her legs and feet are also composed of water, standing barefoot in a shallow pool of water that reflects the sky above. Surrounding her are numerous floating water droplets and bubbles of various sizes. The background is a soft, dreamy sky filled with fluffy white clouds and bright sunlight filtering through, creating a high-key, ethereal lighting effect. The overall color palette consists of cool blues, whites, and soft pinks."
+    },
+    "zh": {
+      "title": "水做的动漫少女",
+      "description": "生成一个完全由水构成的空灵动漫角色的提示词，特色为水裙和漂浮的水滴，背景为多云天空。",
+      "prompt": "创作一幅垂直构图的动漫风格数字插画，描绘一位完全由水构成的年轻女孩。角色留着短发波波头，头发看起来像是由飞溅的水花形成，发梢带有粉色和蓝色色调。她的眼睛大而清澈，呈蓝色，宛如水滴。她身穿一件由流动透明液态水制成的连衣裙，如水般环绕身体旋转。她的双腿和双脚也由水构成，赤脚站在浅水池中，水面反射着上方的天空。周围漂浮着许多大小不一的水滴和气泡。背景是柔和梦幻的天空，布满蓬松的白云，明亮的阳光透过云层洒下，营造出高调、空灵的照明效果。整体配色方案由冷蓝色、白色和柔和的粉色组成。"
+    }
   }
 }
