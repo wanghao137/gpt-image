@@ -1,5 +1,30 @@
 [
   {
+    "id": "100301",
+    "title": "高级时尚杂志质感人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-09-21-case-100301-fashion-editorial-portrait.jpg",
+    "imageAlt": "高级时尚杂志质感人像摄影",
+    "prompt": "{\n  \"image_request\": {\n    \"style\": {\n      \"genre\": \"High-fashion editorial portrait\",\n      \"vibe\": \"Luxury magazine aesthetic\",\n      \"mood\": \"Elegant, bold, confident\",\n      \"aspect_ratio\": \"4:4\"\n    },\n    \"lighting\": {\n      \"type\": \"Dramatic cinematic lighting\",\n      \"tone\": \"Warm highlights with soft shadows\",\n      \"environment\": \"Studio\",\n      \"background\": \"Dark gray, smooth, minimal\"\n    },\n    \"subject\": {\n      \"identity_lock\": \"Use the provided reference image\",\n      \"face_constraints\": \"Maintain 100% exact facial features, proportions, asymmetry, and realism\",\n      \"gender\": \"Woman\",\n      \"expression\": \"Sensual, confident, calm\",\n      \"gaze\": \"Soft and alluring, partially obscured by hair\"\n    },\n    \"hair\": {\n      \"length\": \"Long\",\n      \"style\": \"Loose, cascading over the shoulders\",\n      \"detail\": \"Some strands falling over the face for mystery\"\n    },\n    \"makeup\": {\n      \"style\": \"Subtle yet striking editorial makeup\",\n      \"lips\": \"Intense red lipstick\",\n      \"skin\": \"Natural, realistic texture\",\n      \"overall_finish\": \"High-fashion, refined\"\n    },\n    \"wardrobe\": {\n      \"outfit\": \"Draped garment\",\n      \"color\": \"Muted gray-green\",\n      \"design\": \"Off-shoulder, exposing shoulders and collarbones\"\n    },\n    \"accessories\": {\n      \"jewelry\": [\n        \"Gold necklace\",\n        \"Layered gold chains\"\n      ]\n    },\n    \"pose\": {\n      \"body_language\": \"Confident, elegant, bold\",\n      \"posture\": \"Relaxed yet powerful editorial stance\"\n    },\n    \"camera\": {\n      \"quality\": \"Ultra-realistic, ultra-detailed\",\n      \"style\": \"High-end fashion photography\",\n      \"focus\": \"Sharp facial detail with natural depth\"\n    },\n    \"final_notes\": {\n      \"realism\": \"Photorealistic skin, hair, and fabric textures\",\n      \"editing\": \"No face alteration, no over-smoothing, no stylization\",\n      \"overall_feel\": \"Luxury birthday editorial photoshoot\"\n    }\n  }\n}",
+    "promptPreview": "{ \"image_request\": { \"style\": { \"genre\": \"High-fashion editorial portrait\", \"vibe\": \"Luxury magazine aesthetic\", \"mood\": \"Elegant, bold, confident\", \"aspect_ratio\": \"4:4\" }, \"lighting\": { \"type\": \"Dramatic cinematic lig…",
+    "source": "Community collected via @lilzula_009_me",
+    "createdAt": "2026-09-20T20:02:25.806Z"
+  },
+  {
     "id": "100300",
     "title": "云端悬浮都市科幻电影概念场景",
     "category": "场景与叙事",
