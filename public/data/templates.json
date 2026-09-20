@@ -1,5 +1,22 @@
 [
   {
+    "id": "derived-light-container-poetic-poster",
+    "title": "光的容器诗性海报：中式窗光剪影美学",
+    "category": "海报与排版",
+    "tags": [
+      "poster",
+      "oriental",
+      "minimal"
+    ],
+    "description": "主题转化为发光容器内的剪影投影：月洞门/扇形窗等光区+纸面质感+低饱和留白，安静诗意的东方美学海报。",
+    "cover": "/uploads/template-derived-light-container-poetic-poster.jpg",
+    "prompt": "以“{argument name=\"主题\" default=\"雨过天青\"}”为核心，创作一张极简、高级、诗意、安静的光影海报。画面不要直接描绘主题，而是将主题转化为“被光照亮的剪影意象”。在画面中央设置一个具有识别度的发光形状容器：{argument name=\"发光容器形状\" default=\"月洞门\"}。这个形状像一束光投在有质感的墙面或纸面上，边缘柔和发亮，带轻微雾化扩散。\n\n\n在发光容器内部，用剪影和柔焦投影表现主题相关元素：{argument name=\"主体元素\" default=\"一枝斜出的白梅\"}、{argument name=\"象征元素\" default=\"远山淡影\"}、{argument name=\"环境元素\" default=\"雾气与飘散的花瓣\"}。主体剪影略清晰，辅助元素更加模糊，像树影、花影、烟雾、枝叶、线条或物体轮廓隔着纸窗投射出来。所有元素都保持克制，不要写实细节，只保留最有辨识度的轮廓。画面要有大量留白，构图居中，视觉层级清楚：背景最安静，光区最吸引视线，剪影最有故事感。\n\n\n背景使用低饱和的{argument name=\"背景色\" default=\"米灰色\"}，带细腻纸张纹理、墙面颗粒、微弱噪点、轻微渐变和柔和暗角。光区使用{argument name=\"光色\" default=\"淡金\"}，例如奶油白、象牙白、淡金、月光黄或冷白微光。剪影使用{argument name=\"剪影色\" default=\"墨灰\"}，例如墨灰、蓝灰、深褐、炭黑或同色系深色。整体色彩控制在三到四种以内，形成安静、克制、高级的色彩关系。\n\n\n整体风格：东方美学、现代极简、诗性海报、艺术展览视觉、杂志封面级构图、柔光、负形、剪影、留白、空气感、细腻颗粒、低饱和配色、安静的情绪张力。避免复杂背景，避免强烈饱和色，避免硬边光效，避免过度写实，避免杂乱元素，避免廉价装饰。最终画面应像“光在墙上留下的一首诗”。\n\n画幅比例 = {argument name=\"画幅比例\" default=\"3:4\"}",
+    "useWhen": "需要生成中式极简诗性海报、展览视觉、PPT课件配图、杂志封面级光影海报时使用",
+    "createdAt": "2026-09-20T21:09:42.520Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-architect-sketch-study-page",
     "title": "建筑师手绘研究页：松弛速写式建筑知识图鉴",
     "category": "建筑与空间",
