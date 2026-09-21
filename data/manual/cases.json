@@ -1,5 +1,32 @@
 [
   {
+    "id": "100303",
+    "title": "毛毡风3D等距微缩角色工作室立体盒",
+    "category": "角色与人物",
+    "styles": [
+      "3D Render",
+      "Illustration"
+    ],
+    "scenes": [
+      "Character Design",
+      "Collectible"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-09-22-case-100303-felt-isometric-diorama.jpg",
+    "imageAlt": "毛毡风3D等距微缩角色工作室立体盒",
+    "prompt": "Create a 3D isometric diorama illustration of an original character named [Character Name], peacefully working or practicing a creative activity in a nature-inspired environment, sitting at a wooden desk near a large open window with sunlight flowing in and soft greenery visible outside.\n\nThe character should be inspired by [Ui Ux Designer] and have a unique visual identity, including soft, natural clothing, organic textures, and a calm, introspective personality.The entire scene must have a handcrafted felt aesthetic, with soft rounded shapes, visible stitching details, and clean, polished textures.\n\nThe diorama is enclosed inside a rounded cube structure with subtle hexagonal proportions, made of [Material Style].\n\nThe environment must strongly reflect a peaceful, nature-connected lifestyle, including plants, natural wood furniture, soft textiles, and minimalistic decor.\n\nOn the desk, include small detailed objects such as [Object One], [Object Two], [Object Three].\n\nLighting should be bright, soft, and natural, with warm sunlight beams entering through the window, creating a serene and airy atmosphere, with a clean white background outside the diorama.\n\nRender in 8:20, ultra-detailed, photorealistic style.\n\nInclude a small stitched fabric name tag sewn onto the INNER wall of the diorama (top-left corner inside the cube), clearly integrated into the scene, not floating and not outside the structure, displaying",
+    "promptPreview": "Create a 3D isometric diorama illustration of an original character named [Character Name], peacefully working or practicing a creative activity in a nature-inspired environment, sitting at a wooden desk near a large op…",
+    "source": "Community collected via @de_mon010",
+    "createdAt": "2026-09-21T20:05:24.035Z"
+  },
+  {
     "id": "100302",
     "title": "夏日街拍清新自然光人像写真",
     "category": "摄影与写实",
