@@ -1,5 +1,32 @@
 [
   {
+    "id": "100304",
+    "title": "暗黑超现实：废弃歌剧院黑水中的影子观众",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Concept Art"
+    ],
+    "scenes": [
+      "Narrative",
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-09-22-case-100304-dark-opera-shadow-audience.jpg",
+    "imageAlt": "暗黑超现实：废弃歌剧院黑水中的影子观众",
+    "prompt": "Use case: stylized-concept\nAsset type: vertical social-media artwork for the “Your Dark Side” theme\n\nCreate a haunting original scene in a gigantic abandoned opera house flooded with shallow black water. On the empty stage stands a lone person dressed in bone white, facing the audience. The seats are vacant, but hundreds of tall shadow versions of that same person rise silently from the water between the rows. Every shadow has its hands covering its own mouth except one enormous silhouette in the royal box, whose mouth is a perfectly black doorway opening into a deeper impossible space. The real person has no visible facial detail and remains composed.\n\nVertical 9:16 composition viewed from the rear of the auditorium, stage centered far away, layered depth through flooded seating, towering royal box near the upper third. Cold silver spotlight on the small white performer, almost total darkness elsewhere, very restrained wine-red reflections beneath the silent shadow audience. Decayed velvet, wet gilded surfaces reduced to black, mist, fine dust in the light beam, premium cinematic dark surrealism, photorealistic textures, elegant and psychologically unsettling.\n\nColor palette: obsidian, charcoal, tarnished silver, bone white, minimal wine red.\n\nConstraints: entirely original; one real human figure only, with shadow forms functioning as metaphor; no text, logos, signatures, borders, or watermark.\n\nAvoid: facial mutilation, black material covering skin, glowing eyes, gore, screaming monsters, theatrical comedy/tragedy masks, busy colorful décor, imitation of any named artist.",
+    "promptPreview": "Use case: stylized-concept Asset type: vertical social-media artwork for the “Your Dark Side” theme Create a haunting original scene in a gigantic abandoned opera house flooded with shallow black water. On the empty sta…",
+    "source": "Community collected via @PromptSin",
+    "createdAt": "2026-09-21T20:05:28.908Z"
+  },
+  {
     "id": "100303",
     "title": "毛毡风3D等距微缩角色工作室立体盒",
     "category": "角色与人物",
