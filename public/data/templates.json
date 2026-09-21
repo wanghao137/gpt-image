@@ -1223,18 +1223,18 @@
       "Sheet"
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
-    "cover": "https://cms-assets.youmind.com/media/1789803929368_4sx68a_HShNkaobMAAVI9p.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Cinematic / Poster / Realistic / Illustration / 3D Render / Editorial / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35009 动漫角色设计表：剑之女王: 一份全面的动漫女英雄角色参考表，包含档案数据、正交三视图、表情变化、服装分解、材质色板及技术说明。\n- #35002 GPT Image 2 真人角色街拍: 一个用于将动漫/游戏角色转换为写实街头摄影风格的提示词模板，使用 GPT Image 2，注重自然光线和真实的城市环境。\n- #100295 环形巨构科幻都市概念艺术: An immense futuristic megacity built inside a colossal circular ring megastructure embedded in …\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "cover": "/uploads/2026-09-22-case-100304-dark-opera-shadow-audience.jpg",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Cinematic / Poster / Realistic / Editorial / Minimal / Social / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100304 暗黑超现实：废弃歌剧院黑水中的影子观众: Use case: stylized-concept Asset type: vertical social-media artwork for the “Your Dark Side” t…\n- #35009 动漫角色设计表：剑之女王: 一份全面的动漫女英雄角色参考表，包含档案数据、正交三视图、表情变化、服装分解、材质色板及技术说明。\n- #35002 GPT Image 2 真人角色街拍: 一个用于将动漫/游戏角色转换为写实街头摄影风格的提示词模板，使用 GPT Image 2，注重自然光线和真实的城市环境。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100304",
       "35009",
       "35002",
       "100295",
-      "34650",
-      "34332"
+      "34650"
     ]
   },
   {
@@ -1319,18 +1319,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1789803922062_6s1yze_HSelMxHaEAAT0IW.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Poster / 3D Render / Editorial / Minimal / Brand / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34939 民间艺术咖啡馆学习插画: 用于生成垂直编辑故事书插画的提示词，描绘一位女性在咖啡馆学习的场景，融合斯堪的纳维亚民间艺术的简约风格与水彩质感。\n- #34934 手绘时尚插画风格转换: 专为 gpt-image-2（明确指定）设计的提示词，可将上传的照片转换为迷人的日韩风格手绘时尚插画。\n- #34932 GPT Image 2 剪纸插画提示词: 使用 GPT Image 2 将上传的图片转换为柔和手工剪纸分层插画的详细提示词，同时保留构图和特征。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/uploads/2026-09-22-case-100303-felt-isometric-diorama.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Character Design / Collectible\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100303 毛毡风3D等距微缩角色工作室立体盒: Create a 3D isometric diorama illustration of an original character named [Character Name], pea…\n- #34939 民间艺术咖啡馆学习插画: 用于生成垂直编辑故事书插画的提示词，描绘一位女性在咖啡馆学习的场景，融合斯堪的纳维亚民间艺术的简约风格与水彩质感。\n- #34934 手绘时尚插画风格转换: 专为 gpt-image-2（明确指定）设计的提示词，可将上传的照片转换为迷人的日韩风格手绘时尚插画。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100303",
       "34939",
       "34934",
       "34932",
-      "100297",
-      "34852"
+      "100297"
     ]
   },
   {
