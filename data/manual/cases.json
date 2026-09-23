@@ -1,5 +1,32 @@
 [
   {
+    "id": "100305",
+    "title": "街景地图上的微缩立体城市模型",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Infographic",
+      "Education"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Studio",
+      "Infographic"
+    ],
+    "imageUrl": "/uploads/2026-09-24-case-street-map-3d-city-diorama.jpg",
+    "imageAlt": "街景地图上的微缩立体城市模型",
+    "prompt": "A street-style map of [CITY_NAME] placed on a {MAP_SURFACE}, with a photorealistic miniature version of [CITY_NAME] emerging from it. Include [LANDMARK_1], [LANDMARK_2], [LANDMARK_3], a [NATURE_ELEMENT], an [URBAN_LIFE_ELEMENT], the city's [ICONIC_TRANSPORT], and one EXTRA_DETAIL. All elements grow from the map surface like a 3D urban diorama, blending cartographic accuracy with miniature-model realism. Studio soft lighting, cinematic depth of field, premium macro photography finish. 2:3 vertical format.",
+    "promptPreview": "A street-style map of [CITY_NAME] placed on a {MAP_SURFACE}, with a photorealistic miniature version of [CITY_NAME] emerging from it. Include [LANDMARK_1], [LANDMARK_2], [LANDMARK_3], a [NATURE_ELEMENT], an [URBAN_LIFE_…",
+    "source": "Community collected via @Sheldon056",
+    "createdAt": "2026-09-23T20:05:12.751Z"
+  },
+  {
     "id": "100304",
     "title": "暗黑超现实：废弃歌剧院黑水中的影子观众",
     "category": "场景与叙事",
