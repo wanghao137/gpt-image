@@ -50838,8 +50838,8 @@
   },
   "35111": {
     "en": {
-      "title": "South Asian Woman Fashion Editorial",
-      "description": "A prompt for creating an elegant, photorealistic portrait of a South Asian woman in traditional attire within a luxurious interior.",
+      "title": "Elegant South Asian Woman Portrait",
+      "description": "A prompt for generating a photorealistic portrait of a young South Asian woman in traditional attire, suitable for fashion editorials.",
       "prompt": "Ultra-realistic elegant portrait of a young South Asian woman seated indoors, with long, voluminous dark brown hair parted in the center and naturally flowing over her shoulders. She has delicate facial features, natural skin texture, soft makeup, defined brows, subtle eyeliner, rosy lips, and a calm confident expression looking directly at the camera. She is wearing a fitted black off-shoulder long-sleeve top with elegant traditional dangling earrings. A soft dusty-pink embroidered lehenga/skirt with intricate silver-gold detailing spreads naturally around her. Warm indoor natural lighting, luxurious modern interior background, soft neutral tones, shallow depth of field, realistic fabric texture, cinematic photography, natural skin pores, high detail, professional fashion editorial photography, 85mm lens, soft bokeh, photorealistic, vertical 4:5 composition."
     },
     "zh": {
@@ -50850,8 +50850,8 @@
   },
   "35112": {
     "en": {
-      "title": "Heavenly Glass Platform Luxury Shot",
-      "description": "A cinematic prompt depicting a man on a glass platform above clouds with mountains in the background, evoking a heavenly luxury aesthetic.",
+      "title": "GPT Image 2 Cinematic Luxury Mountain Prompt",
+      "description": "A prompt for generating an ultra-realistic cinematic photograph of a man standing on a glass platform above clouds with mountains in the background.",
       "prompt": "Ultra-realistic cinematic luxury photograph of a strikingly handsome young man in his early 20s standing confidently on a transparent glass platform floating high above a vast ocean of soft white clouds. He has thick naturally wavy jet-black hair, strong eyebrows, deep dark-brown eyes, a defined sculpted jawline, subtle natural stubble, realistic skin texture, visible pores and fine facial details. He wears an elegant cream-white tailored suit with a luxurious silk shirt, minimal accessories, and premium understated styling.\nBehind him, an enormous snow-capped mountain range rises through the clouds, stretching endlessly toward the horizon. A breathtaking soft golden sunrise illuminates the mountains and clouds, creating delicate rays of light, subtle atmospheric haze, and a heavenly glow around the subject. The glass platform reflects the sky, clouds, and warm sunrise beneath his feet, creating the illusion that he is standing in heaven.\nEthereal luxury aesthetic, dreamlike atmosphere, cinematic composition, majestic scale, soft volumetric sunlight, realistic cloud formations, atmospheric perspective, natural reflections, premium fashion editorial photography, sophisticated color grading, shallow depth of field, HDR, 8K, ultra-detailed, photorealistic skin, realistic lighting, 85mm lens, sharp focus on the man, breathtaking wide environment, no other people, no text, no watermark, no artificial-looking face."
     },
     "zh": {
@@ -50934,9 +50934,9 @@
   },
   "35119": {
     "en": {
-      "title": "GPT Image 2 Morning Portrait Prompt",
-      "description": "A detailed prompt for generating a photorealistic portrait of a young woman with glasses in soft morning light, focusing on specific clothing textures and lighting conditions.",
-      "prompt": "Subject:\nMorning time with round glasses.\n\nMain Subject:\nClose-up from the chest up of a young woman resting her cheek on her hand in an indoor setting filled with morning sunlight. The main focus is on large silver-rimmed round glasses, a white open-knit cardigan, a greige camisole, and a gentle gaze.\n\nPerson & Expression:\nSmall oval face, rounded jaw, large dark brown eyes, thin natural eyebrows, short neat nose, glossy pale pink lips. Face is nearly frontal, looking straight at the camera through the glasses with a quiet smile close to a neutral expression. Dark brown hair is tied in a loose bun at the crown, with textured thin bangs and damp-looking stray hairs around the face.\n\nClothing & Pose:\nGreige rib top with thin straps and deep round neck, layered with a thin white open-knit cardigan draped off both shoulders. Large silver thin-framed round glasses. Left elbow on the desk, left hand supporting left cheek within the sleeve, right arm lying flat in front of the desk.\n\nBackground & Light:\nWhite curtain window and blurred white flowers in the far left background, pale-colored wall, frame, and small bookshelf in the far right background, rim of a finished ceramic cup at the bottom right edge. Warm morning sun illuminates hair contours and cheeks from the rear left, creating soft backlight with fine light particles.\n\nComposition & Camera:\n3:4 vertical composition, frontal camera at eye level of seated person, capturing from crown to below chest as a close-up portrait. Face large in upper center, left hand on left cheek, cup at bottom right edge. Both arms cropped at bottom edges, sharp focus on eyes and glasses, background heavily blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High definition of natural pores and cheek color, thin metal of glasses, coarse open knit, rib fabric, and morning micro-particles, with soft low contrast of white and beige.\n\nNegative:\nOmit glasses or cheek rest; change hairstyle and clothing colors"
+      "title": "Morning Glasses Portrait Prompt",
+      "description": "A detailed photorealistic prompt for generating a close-up portrait of a young woman wearing round glasses in morning light.",
+      "prompt": "Subject:\nMorning time with round glasses.\n\nMain Subject:\nClose-up above chest of a young woman resting her cheek on her hand indoors with morning sun entering, centered in frame. Large silver-rimmed round glasses, white open-knit cardigan, greige camisole, soft gaze are main subjects.\n\nPerson & Expression:\nSmall oval face, rounded chin, large dark brown eyes, thin natural eyebrows, short neat nose, glossy pale peach lips. Face nearly frontal, looking straight at camera through glasses with calm near-expressionless smile. Dark brown hair loosely bunned at crown, thin bangs with texture and damp-looking stray hairs around face.\n\nClothing & Pose:\nGreige ribbed top with thin straps and deep round neck, white thin open-knit cardigan draped off both shoulders. Silver thin large round glasses. Left elbow on desk, left hand covered by sleeve supporting left cheek, right arm laid forward on desk.\n\nBackground & Light:\nWhite curtain window and blurred white flowers in far left, pale wall, frame, small bookshelf in far right, rim of finished ceramic cup at bottom right. Warm morning sun from back-left illuminates hair outline and cheek, soft backlight creating fine light points.\n\nComposition & Camera:\n3:4 vertical composition, frontal camera at seated person's eye level capturing from crown to below chest. Close-up portrait. Face large in upper center, left hand on left cheek, cup at bottom right corner. Arms cropped at bottom sides, sharp focus on eyes and glasses, background heavily blurred.\n\nTexture & Style:\nPhotorealistic real photography. High definition for natural pores and cheek blush, thin metal of glasses, coarse open-knit, ribbed fabric, morning particles; soft low contrast of white and beige.\n\nNegative:\nOmit glasses or cheek rest; change hairstyle or clothing color."
     },
     "zh": {
       "title": "GPT Image 2 晨光人像提示词",
@@ -50946,9 +50946,9 @@
   },
   "35120": {
     "en": {
-      "title": "GPT Image 2 Mirror Selfie Prompt",
-      "description": "A detailed prompt for generating a photorealistic mirror selfie of a young woman in a gingham top, optimized for GPT Image 2.",
-      "prompt": "Subject:\nBlue checkered mirror front\n\nMain Subject:\nA young woman taking a mirror selfie of her upper body in a bright bedroom. She wears an off-shoulder top with light blue and white gingham checks, white shorts, and holds a silver smartphone prominently in the upper right.\n\nPerson & Expression:\nSlim oval face, small chin, round dark brown eyes, thin arched eyebrows, small neat nose, glossy pale pink lips. Head tilted slightly to the right, smiling softly while looking at the smartphone area through the mirror. Long wavy dark brown hair with thin bangs and side locks, tied with a large white ribbon at the back flowing down the back.\n\nClothing & Pose:\nLight blue and white gingham check, puff sleeves with frills dropped off shoulders, bow tie at center chest, short top with stretch shirring. White high-waist denim shorts and white flower pendant. Left shoulder forward, right arm bent overhead, holding a vertical silver smartphone with small decorations in the right hand.\n\nBackground & Light:\nThin wooden frame mirror on left edge, wall with photos and small shelf in back left, perfume bottles and greenery, white bedding and beige blanket in back right, gray door. Hard morning direct sunlight enters from window on left, hitting face, chest, arms, creating bright spots on walls and bedding.\n\nComposition & Camera:\n3:4 vertical composition, frontal camera capturing mirror at chest height, showing three-quarter body from head to thigh via mirror reflection. Person centered and large, smartphone upper right, mirror frame left edge. Right hand near top edge, thighs cut off at bottom, focus on eyes and outfit in mirror, bedroom lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. Natural skin, wrinkles and shirring of gingham fabric, denim, hair, fine details of smartphone rendered in high definition, fresh morning colors of white and pale blue.\n\nNegative:\nChange mirror shot and phone position; omit blue checkered outfit"
+      "title": "Mirror Selfie Checkered Top GPT Image 2 Prompt",
+      "description": "A prompt for creating a photorealistic mirror selfie of a young woman wearing a blue gingham check off-shoulder top and white shorts, holding a smartphone in a bright bedroom setting.",
+      "prompt": "Subject:\nBlue Check Mirror Front\n\nMain Subject:\nA young woman taking a mirror selfie showing her upper body in a bright bedroom. The main elements are the sky-blue and white gingham check off-shoulder top, white shorts, and silver smartphone in the top right.\n\nPerson/Face:\nThin oval face, small chin, round dark brown eyes, thin arched eyebrows, small well-defined nose, glossy pale peach lips. Head tilted slightly to the right, smiling softly while looking at the smartphone through the mirror. Long wavy dark brown hair with thin bangs and strands framing the face, tied with a large white ribbon at the back flowing down the back.\n\nClothing/Pose:\nSky-blue and white gingham check, puff sleeves with frills dropped off shoulders, tied ribbon at center chest, short top with elastic shirring. White high-waist denim shorts and white flower pendant. Left shoulder forward, right arm bent overhead, holding a vertically oriented silver smartphone with small decorations in right hand.\n\nBackground/Light:\nThin wooden frame mirror at left edge of screen, wall with pinned photos and small shelf in back left, perfume bottles and greenery, white bedding and beige blanket in back right, gray door. Hard morning direct sunlight enters from window on left side of screen onto face, chest, arms, creating bright spots on walls and bedding.\n\nComposition/Camera:\n3:4 vertical composition, frontal camera capturing mirror at chest height, three-quarter length mirror view from crown to thigh area of shorts. Person large in center, smartphone top-right, mirror frame at left edge. Right hand near top edge, thighs cropped at bottom edge, focus on eyes and outfit in mirror, bedroom lightly blurred.\n\nTexture/Style:\nPhotorealistic live-action photo. Natural skin, wrinkles and shirring of gingham fabric, denim, hair, fine decorations of smartphone in high definition, refreshing morning colors of white and pale sky-blue.\n\nNegative:\nChange mirror shot and smartphone position; omit blue check outfit"
     },
     "zh": {
       "title": "GPT Image 2 镜面自拍提示词",
@@ -51018,9 +51018,9 @@
   },
   "35126": {
     "en": {
-      "title": "GPT-Image-2 Prompt for Ethereal Twin Portrait Effect",
-      "description": "A detailed prompt for GPT-Image-2 that creates a split-composition portrait where the top half remains a realistic photo and the bottom half features an ethereal 'spirit twin' or elemental manifestation emerging from the subject.",
-      "prompt": "Please generate a 3:4 vertical \"Twin Poster\" based on the portrait photo I uploaded.\n\nThe image should be strictly divided into two equal halves (top and bottom), each occupying 50% of the frame.\n\nTop Half:\nPreserve the original photo's subject identity, facial features, hairstyle, clothing, pose, composition, and environmental context. Apply only slight high-end color grading.\nMaintain realistic photographic texture; do not alter the person or add extra characters.\n\nBottom Half:\nStill based on the same person in the same photo, preserving identity, face, clothing, pose, camera angle, and scene.\nGenerate a \"Spirit Companion\" behind, to the side-rear, or at the edge of the person's body.\n\nThis companion should look like a concrete manifestation of the person's hidden temperament, emotions, or power,\ncomposed of [{argument name=\"material_en\" default=\"smoke / light / ink / data particles / water flow / petals / flames / transparent energy / translucent animal silhouette\"}].\nThe companion must have a clear relationship with the person, appearing as if it is extending, growing, or emerging from them.\n\nRequirements:\nThe companion is a key visual focus but must not obscure the recognition of the main subject.\nOverall, maintain a high-end, realistic, cinematic photographic effect.\nNot horror/ghostly, no gore, no monsterization, no anime/cartoon style, no exaggerated game effects.\nThe bottom half should look like \"a real photograph capturing another invisible self.\"\n\nOverall Style:\nTop half is realistic documentary; bottom half is surreal companion presentation based on realistic photography.\nThe image needs a clear contrast between top and bottom but still belongs to the same visual system."
+      "title": "GPT Image 2 Spirit Companion Poster",
+      "description": "A detailed prompt for creating a 'spirit companion' double-exposure poster from a portrait using GPT Image 2.",
+      "prompt": "Please generate a 3:4 vertical \"upper-lower twin poster\" based on the uploaded portrait photo.\n\nThe overall layout is strictly divided 1:1 between top and bottom, each occupying 50% of the frame.\n\nTop Part:\nPreserve the subject's identity, facial features, hairstyle, clothing, pose, composition, and environmental relationships from the original photo. Apply only slight high-end color grading.\nMaintain realistic photographic quality; do not alter the person or add extra characters.\n\nBottom Part:\nStill based on the same person from the same photo, keeping identity, facial features, clothing, pose, camera angle, and scene unchanged.\nGenerate a \"Spirit Companion Entity\" behind, to the side-back, or at the edge of the body.\n\nThis companion entity should resemble a concrete manifestation of the person's hidden temperament, emotions, or power,\ncomposed of [{argument name=\"companion material\" default=\"smoke / light rays / ink blots / data particles / water flow / petals / flames / transparent energy / semi-transparent animal silhouette\"}].\nThe companion must have a clear relationship with the person, appearing to extend, grow, or emerge from them.\n\nRequirements:\nThe companion is one of the visual focal points but must not obscure the recognition of the main subject.\nOverall maintain a high-end, realistic, cinematic photographic effect.\nNot horror ghosts, no bloodiness, no monsterization, no anime/cartoon style, no exaggerated game effects.\nThe bottom part should look like \"another invisible self was actually photographed in reality.\"\n\nOverall Style:\nTop is realistic documentary, bottom is surreal companion presentation based on realistic photography.\nThe image needs clear contrast between top and bottom but remains within the same visual system."
     },
     "zh": {
       "title": "GPT-Image-2 空灵双生肖像效果提示词",
@@ -51050,6 +51050,114 @@
       "title": "白毛巾温泉自拍",
       "description": "一个用于生成写实图像的提示词，描绘了一位年轻女子裹着白色毛巾在传统日式温泉中自拍的场景。",
       "prompt": "一张由一位年轻的亚洲女性拍摄的高分辨率写实自拍。她留着湿润的深棕色齐肩发和柔和的刘海。她裹着一条蓬松的白色浴巾，一只手紧紧护在胸前，另一只手伸出镜头进行拍摄。她的皮肤呈现出水润光泽的质感，暗示她刚刚沐浴完毕。场景位于传统日式温泉（Onsen）室内或半户外区域。背景中有一个石制水盆，清澈的水从竹制出水口流入池中，泛起轻柔的涟漪。左侧，一盏温暖明亮的纸灯笼放置在石台上，旁边有一盆小盆栽和一个木桶。灯光氛围浓郁且富有情调，将灯笼的暖光与水及石墙的冷色调完美融合。"
+    }
+  },
+  "35156": {
+    "en": {
+      "title": "GPT Image 2 Editorial Food Poster Prompt",
+      "description": "A prompt for generating a vertical editorial food poster featuring steamed dumplings with architectural steam effects, using GPT Image 2.",
+      "prompt": "Vertical 4:5 editorial food poster featuring a single plate of handmade steamed dumplings arranged on a dark hammered ceramic dish over a charcoal stone countertop. The composition is centered and highly architectural.\n\nA tall column of hot vapor rises directly above the dumplings and becomes the dominant graphic element. Instead of soft, fluffy steam, shape the vapor into layered translucent sheets, geometric folds, vertical planes, and overlapping glass-like structures, creating the feeling of an architectural monument built from heat.\n\nOnly the chef’s hands and forearms are visible. One arm enters naturally from the upper left in a clean ivory chef sleeve, delicately dropping fresh microgreens onto the dumplings. A second hand enters from the lower right, holding the edge of a round bamboo steamer, suggesting the dish has just been served. No face or full human figure.\n\nThe background is a flattened matte charcoal kitchen wall with minimal detail. Include only one functional object in the distance: a warm brushed-copper saucepan, softly out of focus.\n\nUse a restrained palette of charcoal black, warm ivory, stone gray, muted copper, soft bamboo brown, and fresh herbal green. Dramatic directional restaurant lighting creates sculptural highlights on the dumplings, realistic moisture, gentle shadows, and visible heat.\n\nPlace an enormous translucent numeral “{argument name=\"number\" default=\"03\"}” behind the rising vapor, partially obscured by the steam architecture and integrated into the composition rather than floating over it.\n\nAt the bottom, set the word “{argument name=\"title\" default=\"DUMPLINGS\"}” in tall, narrow condensed editorial typography with generous letter spacing. Add very small secondary type around the edges for a refined culinary-magazine feel.\n\nMinimal, premium, tactile, quiet luxury, food photography blended with Swiss editorial design and architectural poster composition. Heat, precision, ritual, stillness. No clutter, no cartoon styling, no excessive props. 4:5."
+    },
+    "zh": {
+      "title": "GPT Image 2 编辑风格美食海报提示词",
+      "description": "使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。",
+      "prompt": "4:5 垂直比例编辑风格美食海报，画面中心为一盘手工蒸饺，盛放在深色锤纹陶瓷盘中，置于炭黑色石质台面上。构图居中，具有强烈的建筑感。\n\n一股高耸的热气直接升腾于饺子之上，成为主导性的图形元素。不要柔和蓬松的蒸汽，而是将热气塑造成层叠的半透明薄片、几何折面、垂直平面和重叠的玻璃状结构，营造出一种由热量构建的建筑纪念碑之感。\n\n仅可见厨师的双手和前臂。一只手臂从左上方自然伸入，穿着整洁的象牙白厨师袖口，正小心翼翼地将新鲜微型蔬菜撒在饺子上。另一只手从右下方伸入，扶着圆形竹制蒸笼的边缘，暗示这道菜刚刚上桌。不出现面部或完整的人体形象。\n\n背景为扁平化的哑光炭黑厨房墙面，细节极简。远处仅包含一个功能性物体：一个暖色调的拉丝铜酱锅，处于柔焦状态。\n\n采用克制的配色方案：炭黑、暖象牙白、石灰色、柔和铜色、淡竹棕色和清新的草本绿。戏剧性的定向餐厅灯光在饺子上形成雕塑般的高光、逼真的水汽、柔和的阴影以及可见的热度。\n\n在上升的热气后方放置一个巨大的半透明数字“{argument name=\"number\" default=\"03\"}”，部分被蒸汽建筑结构遮挡，并融入构图之中，而非悬浮其上。\n\n在底部，以高窄紧凑的编辑风格字体呈现单词“{argument name=\"title\" default=\"DUMPLINGS\"}”，字间距宽松。在边缘添加极小的辅助文字，营造精致的美食杂志氛围。\n\n极简、高端、触感丰富、静谧奢华，将美食摄影与瑞士编辑设计及建筑海报构图相结合。体现热量、精准、仪式感与宁静。无杂乱元素，无卡通风格，无过多道具。4:5 比例。"
+    }
+  },
+  "35157": {
+    "en": {
+      "title": "Cinematic Blue Backlit Portrait",
+      "description": "A prompt for generating a moody, high-contrast cinematic portrait of a man with cyan-blue backlighting and futuristic atmosphere.",
+      "prompt": "Cinematic high-contrast portrait of a young man in side profile, wearing dark sunglasses, medium-length tousled hair swept back by wind, strong jawline and natural facial texture, dramatic silhouette, intense cyan-blue backlighting from behind, bright overexposed white-blue light glowing around the hair, deep shadows across the face and neck, subtle rim light outlining the hair and shoulders, moody futuristic atmosphere, minimalist background, shallow depth of field, soft atmospheric haze, photorealistic skin and hair details, editorial fashion photography, shot on a 85mm portrait lens, f/1.8, high dynamic range, film grain, teal-blue monochromatic color grading, ultra-detailed, 8K, vertical composition, 3:4 aspect ratio."
+    },
+    "zh": {
+      "title": "电影感蓝色背光人像",
+      "description": "用于生成具有青色蓝色背光和未来主义氛围的忧郁、高对比度电影感人像的提示词。",
+      "prompt": "电影感高对比度人像，年轻男子侧脸特写，佩戴深色墨镜，中等长度凌乱头发被风吹向后方，下颌线条分明且面部纹理自然，戏剧性剪影效果，强烈的青色蓝色背光从身后照射，明亮过曝的白蓝色光晕环绕发丝，面部和颈部呈现深邃阴影，微妙的轮廓光勾勒出发丝和肩部线条，忧郁的未来主义氛围，极简背景，浅景深，柔和的大气雾霭，照片级逼真的皮肤和头发细节，时尚杂志摄影风格，使用 85mm 人像镜头拍摄，光圈 f/1.8，高动态范围，胶片颗粒感，青蓝单色调色，超精细细节，8K 分辨率，垂直构图，3:4 宽高比。"
+    }
+  },
+  "35158": {
+    "en": {
+      "title": "Dolomites Lake Photo to Minimalist Art",
+      "description": "Generates a split image showing a scenic photo of an alpine lake boathouse above a matching minimalist, textured graphic poster design.",
+      "prompt": "A vertical split-screen composition contrasting a realistic photograph with a stylized graphic illustration. The top half is a high-resolution landscape photograph of the famous boathouse at Lago di Braies in the Dolomites, featuring a rustic wooden structure on stilts over emerald green water, backed by towering mountains and dramatic clouds. The bottom half transforms this scene into a minimalist, textured screen-print style illustration using a limited palette of deep blue, black, coral red, and cream. In this lower section, the mountains are represented by flat blue shapes with a grainy texture, the sun is a large pink circle, and the boathouse is depicted in solid black with red shutters. On the left side of the illustration, there is Chinese text arranged vertically: '山会记得' (The mountain will remember), '湖也会记得' (The lake will also remember), followed by smaller text '有些地方' (Some places) and '一直在那里' (Are always there)."
+    },
+    "zh": {
+      "title": "多洛米蒂湖泊照片转极简艺术",
+      "description": "生成一张分割图像，上方展示高山湖泊船屋的风景照片，下方呈现与之匹配的极简主义纹理图形海报设计。",
+      "prompt": "垂直分屏构图，将写实摄影与风格化图形插画形成对比。上半部分是意大利多洛米蒂山脉布莱耶斯湖（Lago di Braies）著名船屋的高分辨率风景照，画面中一座质朴的木制高脚船屋矗立在翡翠绿的湖面上，背景是巍峨的山峰和戏剧性的云层。下半部分将该场景转化为极简主义、带有颗粒质感的丝网印刷风格插画，采用深蓝、黑色、珊瑚红和奶油色的有限配色方案。在下半部分，山脉由带有颗粒质感的扁平蓝色色块表示，太阳是一个巨大的粉色圆形，船屋则以纯黑色描绘并配有红色百叶窗。在插画的左侧，有竖排中文文字：'山会记得'、'湖也会记得'，随后是较小的文字'有些地方'和'一直在那里'。"
+    }
+  },
+  "35159": {
+    "en": {
+      "title": "Tuxedo Cat Photo and Line Art Diptych",
+      "description": "A split-screen design featuring a realistic photo of a tuxedo cat above a matching minimalist line-art sketch with handwritten quotes.",
+      "prompt": "A vertical diptych composition split into two distinct halves. The top half is a high-quality photograph of a black and white tuxedo cat with bright green eyes, resting its front paws over the edge of a bamboo rail against a solid matte sage-green background. The bottom half features a minimalist line-art illustration on textured cream-colored paper. This drawing depicts the same cat in a similar pose, rendered in delicate dark ink strokes. Handwritten-style text surrounds the sketch: 'Same curious eyes a kinder day' on the left, and 'a quieter world is enough' on the right, accompanied by a small crescent moon icon."
+    },
+    "zh": {
+      "title": "燕尾服猫照片与线条画双联图",
+      "description": "分屏设计，上方为逼真的燕尾服猫照片，下方为相呼应的极简线条素描及手写引言。",
+      "prompt": "垂直双联构图，分为两个截然不同的部分。上半部分是一张高质量的照片，展示了一只拥有明亮绿色眼睛的黑白燕尾服猫，它将前爪搭在竹制栏杆边缘，背景为纯色的哑光鼠尾草绿。下半部分是在有纹理的奶油色纸张上绘制的极简线条插画。这幅画以细腻的深色墨线描绘了同一只猫相似的姿势。素描周围环绕着手写风格的文字：左侧写着“Same curious eyes a kinder day”，右侧写着“a quieter world is enough”，并配有一个小新月图标。"
+    }
+  },
+  "35160": {
+    "en": {
+      "title": "Minimalist Plaster Galaxy Art",
+      "description": "A split-composition poster featuring a realistic Milky Way photo above a minimalist white plaster sculpture of a spiral galaxy on a black background with Arabic typography.",
+      "prompt": "A vertical diptych poster design split into two distinct halves. The top half is a high-resolution, photorealistic image of the Milky Way galaxy, featuring deep blue and purple nebulae, dense star clusters, and cosmic dust clouds against a black void. The bottom half is a minimalist studio shot with a solid matte black background. Centered in this lower section is an exquisite white plaster sculpture mounted on a thin metal rod rising from a small rectangular base. The sculpture depicts a stylized spiral galaxy or solar system model, consisting of concentric rings populated by tiny spheres representing planets and stars. To the left of the sculpture, elegant Arabic typography reads 'بين النجوم' (Between the Stars) as a headline, followed by smaller text 'نفس واحد في اتساع لا نهائي' (One breath in infinite expansion). A small horizontal line sits below the text. In the bottom right corner, there is very faint, small Arabic text. The overall aesthetic is serene, intellectual, and highly polished."
+    },
+    "zh": {
+      "title": "极简主义石膏银河艺术",
+      "description": "一张采用分割构图的 posters，上半部分为逼真的银河照片，下半部分为黑色背景上极简风格的白色石膏螺旋星系雕塑，并配有阿拉伯语排版。",
+      "prompt": "这是一张垂直双联海报设计，分为两个截然不同的部分。上半部分是高分辨率、照片级真实的银河系图像，以深邃的蓝色和紫色星云、密集的星团以及黑色虚空中的宇宙尘埃云为特色。下半部分是极简主义的影棚拍摄风格，采用纯哑光黑色背景。在下半部分的中心位置，有一个精致的白色石膏雕塑，安装在一根从矩形小底座升起的细金属杆上。该雕塑描绘了一个风格化的螺旋星系或太阳系模型，由同心圆环组成，环上点缀着代表行星和恒星的小球体。在雕塑左侧，优雅的阿拉伯语排版写着“بين النجوم”（意为“群星之间”）作为标题，下方是较小的文字“نفس واحد في اتساع لا نهائي”（意为“无限扩张中的一口气息”）。文字下方有一条短横线。右下角有非常微弱且细小的阿拉伯语文字。整体美学风格宁静、知性且高度精致。"
+    }
+  },
+  "35161": {
+    "en": {
+      "title": "Madonna & Angels: Oil Painting Meets Paper Cutout",
+      "description": "Generates a split-image composition contrasting a classical religious oil painting with its whimsical paper-cutout reinterpretation, ideal for artistic storytelling or design inspiration.",
+      "prompt": "A vertical two-panel image. The top panel is a classical oil painting of the Madonna and Child surrounded by three angels in a lush garden setting, with soft natural lighting and rich colors. The bottom panel shows a hand holding a handmade paper cutout version of the same scene, rendered in a delicate watercolor style on textured off-white paper. To the left of the cutout, handwritten blue text reads 'A quieter world for tender things', and to the right, it says 'Music keeps love near'. A small gold star icon appears above the left text, and a green olive branch illustration sits below the right text. The overall aesthetic blends fine art tradition with modern craft sensibility."
+    },
+    "zh": {
+      "title": "Madonna & Angels: Oil Painting Meets Paper Cutout",
+      "description": "Generates a split-image composition contrasting a classical religious oil painting with its whimsical paper-cutout reinterpretation, ideal for artistic storytelling or design inspiration.",
+      "prompt": "A vertical two-panel image. The top panel is a classical oil painting of the Madonna and Child surrounded by three angels in a lush garden setting, with soft natural lighting and rich colors. The bottom panel shows a hand holding a handmade paper cutout version of the same scene, rendered in a delicate watercolor style on textured off-white paper. To the left of the cutout, handwritten blue text reads 'A quieter world for tender things', and to the right, it says 'Music keeps love near'. A small gold star icon appears above the left text, and a green olive branch illustration sits below the right text. The overall aesthetic blends fine art tradition with modern craft sensibility."
+    }
+  },
+  "35162": {
+    "en": {
+      "title": "Sunset Photo to Crayon Art Split",
+      "description": "A prompt generating a split image comparing a realistic sunset photo with a naive crayon sketch recreation including Japanese inspirational text.",
+      "prompt": "Create a vertical split-screen composition. The top half is a realistic photograph of a person standing on a sandbar at sunset with arms outstretched, featuring dramatic orange and blue clouds reflected in the calm water. The bottom half is a naive, hand-drawn crayon or oil pastel illustration recreating the exact same scene on a white background. In the drawing, use rough, textured strokes for the sky (orange, yellow, blue) and simple black lines for the figure's silhouette and reflection. Include handwritten Japanese text: large characters 'きっと、うまくいく。' (It will surely work out) on the left, smaller text 'あの夕陽みたいに、今日も、いいほうへ。' (Like that sunset, today too, towards something good) on the right, and 'Good Tomorrow' with a smiley face in the bottom right corner."
+    },
+    "zh": {
+      "title": "日落照片转蜡笔画分屏",
+      "description": "一个生成对比图像的提示词，将逼真的日落照片与包含日语励志文字的稚拙蜡笔素描复刻作品进行分屏展示。",
+      "prompt": "创建一个垂直分屏构图。上半部分是一张逼真的照片，展示了一个人在日落时分站在沙洲上张开双臂，戏剧性的橙色和蓝色云彩倒映在平静的水面上。下半部分是一幅稚拙的手绘蜡笔或油画棒插图，在白色背景上重现完全相同的场景。在绘画中，使用粗糙、有质感的笔触描绘天空（橙色、黄色、蓝色），并用简单的黑色线条勾勒人物的剪影及其倒影。包含手写日文文字：左侧为大字“きっと、うまくいく。”（一切都会好起来的），右侧为小字“あの夕陽みたいに、今日も、いいほうへ。”（像那夕阳一样，今天也向着美好前行），右下角为带有笑脸的“Good Tomorrow”。"
+    }
+  },
+  "35163": {
+    "en": {
+      "title": "Despairing Woman in Messy Apartment",
+      "description": "A realistic photo prompt depicting a stressed young woman sitting amidst extreme clutter and garbage in a small Japanese apartment.",
+      "prompt": "A hyper-realistic, wide-angle photograph of a severely cluttered and messy Japanese apartment room. In the center sits a young woman with dark hair tied in a messy bun, wearing a cozy cream-colored knit sweater and pink patterned pajama pants. She is sitting on the floor amidst the chaos, holding her head with both hands in a gesture of despair or stress, looking down at a low wooden table covered in dirty dishes, cups, bottles, and an open laptop. The room is filled to the brim with garbage: piles of plastic bags, cardboard boxes (including one with 'MUJI' branding), clothes strewn everywhere, and food containers covering the floor space. To the left, there is a mirror reflecting more clutter and handwritten notes taped to the wall with Japanese text like 'Things I want to do'. To the right, a white refrigerator has more handwritten notes taped to it, including a 'To Do' list and a drawing of a cat. A bed is visible in the background, also piled high with blankets and clothes. Large windows show a city skyline outside, contrasting the bright exterior with the dim, chaotic interior. The lighting is natural but slightly muted, emphasizing the overwhelming nature of the mess."
+    },
+    "zh": {
+      "title": "凌乱公寓中绝望的女性",
+      "description": "一张写实风格的照片提示词，描绘了一位年轻女性坐在狭小日本公寓的极度杂乱和垃圾堆中，神情焦虑。",
+      "prompt": "一张超写实的广角照片，展示了一间严重杂乱不堪的日本公寓房间。画面中央坐着一位深色头发、扎着凌乱发髻的年轻女性，她身穿舒适的奶油色针织毛衣和粉色图案睡裤。她坐在混乱的地板上，双手抱头，流露出绝望或压力巨大的神情，低头看着一张低矮的木桌，桌上堆满了脏碗碟、杯子、瓶子和一台打开的笔记本电脑。房间里塞满了垃圾：成堆的塑料袋、纸箱（其中一个印有“MUJI”品牌标识）、随处可见的衣服以及覆盖地板的食物容器。左侧有一面镜子，反射出更多的杂物，墙上贴着带有日文文字的手写便签，如“想做的事情”。右侧的白色冰箱上也贴着更多手写便签，包括一份“To Do”清单和一幅猫的简笔画。背景中可见一张床，上面也堆满了毯子和衣服。大窗户透出外面的城市天际线，明亮的外部环境与昏暗、混乱的内部形成鲜明对比。光线自然但略显柔和，强调了这种杂乱无章带来的压迫感。"
+    }
+  },
+  "35164": {
+    "en": {
+      "title": "Japanese Paper-Cut Sunset Collage",
+      "description": "A vertical collage combining a real coastal sunset photograph with Japanese paper-cut art illustrations and elegant typography, perfect for travel memories or artistic compositions.",
+      "prompt": "Create a vertical collage-style image combining a realistic photograph and a paper-cut illustration. The top half is a high-resolution photograph of a coastal sunset scene: dramatic purple and pink clouds fill the sky, with a golden sun setting over the ocean horizon. A rocky shoreline extends into the water on the left, with gentle waves lapping against sandy beach. Distant city lights twinkle along the coastline, and a small boat is visible on the water. The bottom half features a Japanese paper-cut art style (kirigami) illustration on cream-colored textured paper background. This section includes layered paper clouds in soft blue and pink tones, a circular orange sun made from textured paper, dark brown torn-paper rocks along the shore, and delicate white paper waves. Include elegant Japanese typography: large text reading \"やさしい、夜のはじまり\" (Gentle beginning of night) in the upper left, smaller poetic text below it describing the sea and light, and additional text in the upper right corner about tomorrow's connections. Use subtle drop shadows to create depth between paper layers, maintaining an aesthetic balance between photographic realism and handcrafted paper art."
+    },
+    "zh": {
+      "title": "日式剪纸日落拼贴",
+      "description": "一幅垂直拼贴作品，将真实的海滨日落摄影与日式剪纸艺术插画及优雅排版相结合，非常适合用于旅行纪念或艺术创作。",
+      "prompt": "创建一幅垂直拼贴风格的图像，结合写实摄影与剪纸插画。上半部分是一张高分辨率的海滨日落场景照片：天空中布满戏剧性的紫色和粉色云彩，金色的太阳正沉入海平线。左侧是延伸入水的岩石海岸线，轻柔的波浪拍打着沙滩。远处的城市灯光沿着海岸线闪烁，水面上隐约可见一艘小船。下半部分是在米色纹理纸背景上的日式剪纸艺术（kirigami）风格插画。该部分包括柔和蓝色和粉色调的分层纸云、由纹理纸制成的圆形橙色太阳、岸边深棕色的撕纸岩石以及精致的白色纸浪。包含优雅的日文排版：左上角是大字文本“やさしい、夜のはじまり”（温柔的夜晚开始），其下方是描述海洋与光线的较小诗意文本，右上角则是关于明日联结的额外文本。使用微妙的投影以在纸张层之间创造深度，保持摄影写实感与手工纸艺之间的审美平衡。"
     }
   }
 }
