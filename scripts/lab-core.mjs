@@ -32,7 +32,7 @@ export function buildSlugId(taskId, imageIndex, createdAtISO) {
 export function buildCosKey(id, createdAtISO) {
   const d = new Date(createdAtISO);
   const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
-  return `lab/${d.getUTCFullYear()}/${mm}/${id}.png`;
+  return `lab/${d.getUTCFullYear()}/${mm}/${id}.webp`;
 }
 
 /**

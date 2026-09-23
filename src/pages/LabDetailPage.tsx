@@ -117,7 +117,7 @@ export default function LabDetailPage() {
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              下载 4K 原图（PNG）
+              下载 4K 原图（WebP）
             </a>
           </div>
 

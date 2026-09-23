@@ -7,9 +7,9 @@ import { labOriginalUrl } from "../src/lib/lab-cos-core.mjs";
 // home.items[0] 是最新条目；pages 每页 ≤48；hidden 条目不出现在任何产物。
 
 const items = [
-  { id: "a", slug: "20260801-a", title: "A", createdAt: "2026-08-01T00:00:00Z", prompt: "pa", promptPreview: "pa", cosKey: "lab/2026/08/a.png", width: 2400, height: 3200 },
-  { id: "b", slug: "20260802-b", title: "B", createdAt: "2026-08-02T00:00:00Z", prompt: "pb", promptPreview: "pb", cosKey: "lab/2026/08/b.png", width: 2160, height: 3840 },
-  { id: "h", slug: "20260803-h", title: "H", createdAt: "2026-08-03T00:00:00Z", prompt: "ph", promptPreview: "ph", cosKey: "lab/2026/08/h.png", width: 2400, height: 3200, hidden: true },
+  { id: "a", slug: "20260801-a", title: "A", createdAt: "2026-08-01T00:00:00Z", prompt: "pa", promptPreview: "pa", cosKey: "lab/2026/08/a.webp", width: 2400, height: 3200 },
+  { id: "b", slug: "20260802-b", title: "B", createdAt: "2026-08-02T00:00:00Z", prompt: "pb", promptPreview: "pb", cosKey: "lab/2026/08/b.webp", width: 2160, height: 3840 },
+  { id: "h", slug: "20260803-h", title: "H", createdAt: "2026-08-03T00:00:00Z", prompt: "ph", promptPreview: "ph", cosKey: "lab/2026/08/h.webp", width: 2400, height: 3200, hidden: true },
 ];
 
 test("hidden items are excluded everywhere; newest first; pagination", () => {
@@ -33,7 +33,7 @@ test("lite rows carry thumb url and compact fields; home mirrors page-000", () =
   assert.equal(row.w, 2160);
   assert.equal(row.h, 3840);
   // fixture ids have no baked file → R2-original fallback (COS emptied 2026-08-30)
-  assert.equal(row.thumb, labOriginalUrl("lab/2026/08/b.png"));
+  assert.equal(row.thumb, labOriginalUrl("lab/2026/08/b.webp"));
   assert.deepEqual(s.pages[0][0].id, "b");
 });
 
@@ -41,9 +41,9 @@ test("prompts shard carries full item (minus hidden) + urls; missing baked file 
   const s = buildLabShards(items);
   assert.equal(s.prompts["20260802-b"].prompt, "pb");
   // no baked file for fixture ids → R2 original fallback
-  assert.equal(s.prompts["20260802-b"].detail, labOriginalUrl("lab/2026/08/b.png"));
+  assert.equal(s.prompts["20260802-b"].detail, labOriginalUrl("lab/2026/08/b.webp"));
   assert.equal(s.prompts["20260802-b"].lightbox, s.prompts["20260802-b"].detail);
-  assert.match(s.prompts["20260802-b"].orig, /\/b\.png$/);
+  assert.match(s.prompts["20260802-b"].orig, /\/b\.webp$/);
   assert.equal(s.prompts["20260802-b"].hidden, undefined);
   assert.equal(s.prompts["20260803-h"], undefined);
   assert.equal(s.urls["20260802-b"].og, s.prompts["20260802-b"].detail);

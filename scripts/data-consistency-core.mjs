@@ -207,7 +207,7 @@ export function isCategoryShardFilename(name) {
 
 // ── 4K lab registry validation ──────────────────────────────────────────
 
-const LAB_COS_KEY_RE = /^lab\/\d{4}\/\d{2}\/[^/]+\.png$/;
+const LAB_COS_KEY_RE = /^lab\/\d{4}\/\d{2}\/[^/]+\.webp$/;
 const LAB_SLUG_RE = /^\d{8}-.+$/;
 
 /**

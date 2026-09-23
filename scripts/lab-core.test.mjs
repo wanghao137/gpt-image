@@ -36,7 +36,7 @@ test("parseArchiveFolder builds entries with slug/cosKey/title", () => {
   assert.equal(e.id, "mtcq9c871afnv");
   assert.equal(e.slug, "20260828-mtcq9c871afnv");
   assert.equal(e.title, "陽だまりに閉じる瞳");
-  assert.equal(e.cosKey, "lab/2026/08/mtcq9c871afnv.png");
+  assert.equal(e.cosKey, "lab/2026/08/mtcq9c871afnv.webp");
   assert.equal(e.width, 2400);
   assert.equal(e.model, "gpt-image-2");
   assert.equal(e.quality, "high");
@@ -70,7 +70,7 @@ test("multi-image folders expand with -N suffix from image index", () => {
   assert.deepEqual(r.entries.map((e) => e.id), ["mtcq9c871afnv", "mtcq9c871afnv-2"]);
   assert.deepEqual(
     r.entries.map((e) => e.cosKey),
-    ["lab/2026/08/mtcq9c871afnv.png", "lab/2026/08/mtcq9c871afnv-2.png"],
+    ["lab/2026/08/mtcq9c871afnv.webp", "lab/2026/08/mtcq9c871afnv-2.webp"],
   );
 });
 
@@ -102,7 +102,7 @@ test("derivePromptPreview flattens whitespace and clips", () => {
 
 test("buildSlugId and buildCosKey zero-pad month", () => {
   assert.deepEqual(buildSlugId("abc", 2, "2026-08-28T09:06:37Z"), { id: "abc-2", slug: "20260828-abc-2" });
-  assert.equal(buildCosKey("abc-2", "2026-08-28T09:06:37Z"), "lab/2026/08/abc-2.png");
+  assert.equal(buildCosKey("abc-2", "2026-08-28T09:06:37Z"), "lab/2026/08/abc-2.webp");
 });
 
 test("mergeLabEntries preserves existing entries verbatim and appends new sorted", () => {

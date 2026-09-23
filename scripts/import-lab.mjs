@@ -1,7 +1,7 @@
 /**
- * Idempotent 4K-lab importer — scans the local generation archive, uploads new
- * originals to Tencent COS HK, and appends registry entries to
- * data/manual/lab.json.
+ * Idempotent 4K-lab importer — scans the local generation archive, transcodes
+ * new originals to high-quality WebP (q90), uploads them to Cloudflare R2, and
+ * appends registry entries to data/manual/lab.json.
  *
  *   node scripts/import-lab.mjs --doctor   # prereq check: keys/bucket/public-read chain
  *   node scripts/import-lab.mjs --dry-run  # list what WOULD be imported, zero writes
@@ -44,6 +44,7 @@ import {
 import { R2_PUBLIC_BASE } from "../src/lib/lab-cos-core.mjs";
 import { mergeLabEntries, parseArchiveFolder } from "./lab-core.mjs";
 import { isTransparentImage } from "./lab-alpha.mjs";
+import sharp from "sharp";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -172,17 +173,21 @@ async function run() {
       const idx = cursor++;
       if (idx >= candidates.length) return;
       const { entry, file } = candidates[idx];
-      const buf = readFileSync(file);
-      // ETag = md5 for R2 single-part puts. Mismatch/absence → (re)upload.
+      // The stored "original" is a high-quality lossy WebP transcode of the
+      // archive PNG (2026-09-23: PNG originals pushed R2 past its 10GB free
+      // tier; WebP q95 keeps full 4K resolution at under 1/10 the bytes).
+      // ETag = md5 for R2 single-part puts; sharp output is deterministic per
+      // version+params, so interrupted runs re-upload only missing objects.
+      const webp = await sharp(file).webp({ quality: 95 }).toBuffer();
       const remote = await r2HeadEtag(client, entry.cosKey);
-      if (remote === md5of(buf)) {
+      if (remote === md5of(webp)) {
         newEntries.push(entry);
         unchanged += 1;
         console.log(`  已存在  ${entry.cosKey}`);
         continue;
       }
       try {
-        await r2Put(client, entry.cosKey, buf, "image/png");
+        await r2Put(client, entry.cosKey, webp, "image/webp");
         if (R2_PUBLIC_BASE) {
           const check = await fetch(`${R2_PUBLIC_BASE}/${entry.cosKey}`, { method: "HEAD" });
           if (check.status !== 200) throw new Error(`匿名 HEAD status=${check.status}`);
@@ -190,7 +195,7 @@ async function run() {
         newEntries.push(entry);
         uploaded += 1;
         console.log(
-          `  上传    ${entry.cosKey}  ${(buf.length / 1048576).toFixed(1)}MB  ${entry.title}`,
+          `  上传    ${entry.cosKey}  ${(webp.length / 1048576).toFixed(1)}MB  ${entry.title}`,
         );
       } catch (e) {
         failed += 1;

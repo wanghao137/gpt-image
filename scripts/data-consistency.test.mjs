@@ -81,7 +81,7 @@ test("checked-in generated data matches the canonical source", () => {
 describe("validateLabData schema gate", () => {
   const valid = (over = {}) => ({
     id: "abc", slug: "20260828-abc", title: "t", createdAt: "2026-08-28T09:06:37.735Z",
-    prompt: "p", promptPreview: "p", cosKey: "lab/2026/08/abc.png",
+    prompt: "p", promptPreview: "p", cosKey: "lab/2026/08/abc.webp",
     width: 2400, height: 3200, model: "gpt-image-2",
     ...over,
   });
@@ -94,8 +94,8 @@ describe("validateLabData schema gate", () => {
     assert.throws(() => validateLabData({}));
     assert.throws(() => validateLabData([valid({ prompt: "" })]));
     assert.throws(() => validateLabData([valid({ width: 0 })]));
-    assert.throws(() => validateLabData([valid({ cosKey: "uploads/x.png" })]));
-    assert.throws(() => validateLabData([valid(), valid({ slug: "20260829-abc", cosKey: "lab/2026/08/abc.png" })]));
+    assert.throws(() => validateLabData([valid({ cosKey: "uploads/x.webp" })]));
+    assert.throws(() => validateLabData([valid(), valid({ slug: "20260829-abc", cosKey: "lab/2026/08/abc.webp" })]));
   });
 
   it("hidden entries still validate (they only drop out of shards)", () => {
