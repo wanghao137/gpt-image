@@ -50802,9 +50802,9 @@
   },
   "35108": {
     "en": {
-      "title": "Cinematic Male Portrait Prompt",
-      "description": "A prompt for an ultra-realistic cinematic close-up portrait of a man in a suit with dramatic lighting, created with GPT Image 2.",
-      "prompt": "Ultra-realistic cinematic close-up portrait of a handsome young man in a sophisticated black tailored suit and crisp white dress shirt, thick dark brown wavy hair styled back with natural volume, clean masculine features, subtle stubble, strong jawline, intense confident gaze toward the camera, three-quarter profile pose, elegant and mysterious expression. Dramatic studio lighting with warm amber/orange rim light from the left and deep cool navy-blue background, strong contrast, beautifully sculpted facial highlights and shadows, shallow depth of field, luxury fashion editorial aesthetic, premium cinematic color grading, highly detailed skin texture, realistic hair strands, natural pores, sharp eyes, professional photography, 85mm portrait lens, f/1.8, soft bokeh, HDR, photorealistic, ultra-detailed, 8K, vertical composition, sophisticated Hollywood-style portrait."
+      "title": "Cinematic Portrait of Man in Suit",
+      "description": "A detailed prompt for generating a high-quality, ultra-realistic cinematic close-up portrait of a handsome young man wearing a black suit.",
+      "prompt": "Ultra-realistic cinematic close-up portrait of a handsome young man in a sophisticated black tailored suit and crisp white dress shirt, thick dark brown wavy hair styled back with natural volume, clean masculine features, subtle stubble, strong jawline"
     },
     "zh": {
       "title": "电影感男性肖像提示词",
@@ -51066,8 +51066,8 @@
   },
   "35157": {
     "en": {
-      "title": "Cinematic Blue Backlit Portrait",
-      "description": "A prompt for generating a moody, high-contrast cinematic portrait of a man with cyan-blue backlighting and futuristic atmosphere.",
+      "title": "GPT Image 2 Cyan Backlit Portrait Prompt",
+      "description": "A prompt for creating a cinematic, high-contrast portrait of a young man with intense cyan-blue backlighting and moody futuristic atmosphere using GPT Image 2.",
       "prompt": "Cinematic high-contrast portrait of a young man in side profile, wearing dark sunglasses, medium-length tousled hair swept back by wind, strong jawline and natural facial texture, dramatic silhouette, intense cyan-blue backlighting from behind, bright overexposed white-blue light glowing around the hair, deep shadows across the face and neck, subtle rim light outlining the hair and shoulders, moody futuristic atmosphere, minimalist background, shallow depth of field, soft atmospheric haze, photorealistic skin and hair details, editorial fashion photography, shot on a 85mm portrait lens, f/1.8, high dynamic range, film grain, teal-blue monochromatic color grading, ultra-detailed, 8K, vertical composition, 3:4 aspect ratio."
     },
     "zh": {
@@ -51158,6 +51158,114 @@
       "title": "日式剪纸日落拼贴",
       "description": "一幅垂直拼贴作品，将真实的海滨日落摄影与日式剪纸艺术插画及优雅排版相结合，非常适合用于旅行纪念或艺术创作。",
       "prompt": "创建一幅垂直拼贴风格的图像，结合写实摄影与剪纸插画。上半部分是一张高分辨率的海滨日落场景照片：天空中布满戏剧性的紫色和粉色云彩，金色的太阳正沉入海平线。左侧是延伸入水的岩石海岸线，轻柔的波浪拍打着沙滩。远处的城市灯光沿着海岸线闪烁，水面上隐约可见一艘小船。下半部分是在米色纹理纸背景上的日式剪纸艺术（kirigami）风格插画。该部分包括柔和蓝色和粉色调的分层纸云、由纹理纸制成的圆形橙色太阳、岸边深棕色的撕纸岩石以及精致的白色纸浪。包含优雅的日文排版：左上角是大字文本“やさしい、夜のはじまり”（温柔的夜晚开始），其下方是描述海洋与光线的较小诗意文本，右上角则是关于明日联结的额外文本。使用微妙的投影以在纸张层之间创造深度，保持摄影写实感与手工纸艺之间的审美平衡。"
+    }
+  },
+  "35230": {
+    "en": {
+      "title": "GPT Image 2 Nostalgic Editorial Scrapbook Transformation",
+      "description": "Transforms an uploaded photo into a vertical 3:4 editorial scrapbook layout. The top half preserves the original photorealistic image, while the bottom half features a miniature, hand-painted storybook version of the same scene on textured paper with subtle handwritten text.",
+      "prompt": "Use the uploaded photo as the exact visual reference and transform it into a nostalgic editorial scrapbook-style artwork. Preserve the subjects, composition, clothing, poses, objects, and overall scene from the original photo.\n\nCreate a vertical 3:4 composition with a refined, minimalist Japanese-inspired photo-to-illustration aesthetic.\n\nThe final design should be divided into two equal horizontal sections:\n\nTOP HALF — ORIGINAL PHOTOGRAPH\n•Place the uploaded original photograph in the upper 50% of the canvas.\n•Keep it photorealistic and completely unchanged.\n•Preserve the exact facial features, body proportions, clothing, hairstyle, pose, lighting, environment, furniture, food, blanket, window, and all other recognizable details.\n•Do not crop important subjects.\n•Use the original image naturally, with clean edges and no artificial frame.\n\nBOTTOM HALF — MINIATURE STORYBOOK VERSION\n•Recreate the exact same scene from the photograph as a small, delicate hand-painted illustration positioned around the center of the lower half.\n•Keep the same subjects, poses, clothing, objects, perspective, and recognizable composition, but make the entire scene appear like a tiny nostalgic illustration placed on paper.\n•Use a soft watercolor + colored-pencil + subtle gouache aesthetic.\n•Delicate imperfect brushwork, lightly textured edges, soft shadows, muted natural colors, slightly faded vintage appearance.\n•The miniature scene should occupy only about 25–35% of the lower section, leaving generous negative space around it.\n•Make it feel like a tiny memory captured on paper rather than a conventional full-frame illustration.\n•Add a very subtle hand-drawn shadow underneath the miniature scene to make it feel naturally placed on the paper.\n\nBACKGROUND\n•Cover the entire bottom half with warm off-white / ivory handmade paper.\n•Visible fine paper fibers and subtle grain.\n•Slightly uneven organic texture, similar to premium watercolor paper.\n•Minimal, warm, calm and elegant.\n•No borders, no decorative patterns, no unnecessary elements.\n\nTEXT\n•Beneath the miniature illustration, add a very small handwritten phrase:\n“{argument name=\"phrase\" default=\"sunny days\"}”\n•Use thin, delicate, lowercase handwritten script.\n•Light gray/taupe ink.\n•Keep the text subtle and understated, centered beneath the artwork.\n\nLIGHTING & COLOR\n•Warm natural daylight.\n•Soft cream, beige, pale blue, muted denim blue and warm brown tones.\n•Gentle highlights and soft shadows.\n•Slightly nostalgic film-inspired color grading.\n•Avoid oversaturation.\n•Overall mood: quiet, cozy, sentimental, peaceful family memory.\n\nIMPORTANT\n•Maintain the identity and visual characteristics of the people from the reference photo.\n•Do not invent additional people or objects.\n•Do not change clothing or poses.\n•Do not distort anatomy.\n•The miniature illustration must clearly depict the same exact moment and scene as the original photograph.\n•Clean premium editorial composition.\n•High detail, sophisticated art direction, realistic"
+    },
+    "zh": {
+      "title": "GPT Image 2 怀旧编辑风剪贴簿转换",
+      "description": "将上传的照片转换为垂直 3:4 的编辑风格剪贴簿布局。上半部分保留原始照片的真实感，下半部分则在纹理纸上呈现同一场景的微缩手绘故事书版本，并配有微妙的手写文字。",
+      "prompt": "使用上传的照片作为精确的视觉参考，将其转换为具有怀旧感的编辑风格剪贴簿艺术作品。保留原始照片中的人物主体、构图、服装、姿势、物体及整体场景。\n\n创建垂直 3:4 的构图，采用精致、极简且受日本美学启发的照片转插画风格。\n\n最终设计应分为两个相等的水平区域：\n\n上半部分 — 原始照片\n• 将上传的原始照片放置在画布的上半部分（50%）。\n• 保持其真实感且完全不做修改。\n• 保留确切的面部特征、身体比例、服装、发型、姿势、光照、环境、家具、食物、毯子、窗户以及所有其他可识别的细节。\n• 不要裁剪重要的主体。\n• 自然地使用原始图像，边缘干净，无人工边框。\n\n下半部分 — 微缩故事书版本\n• 将照片中的确切场景重新创作为一幅小巧精致的手绘插画，位于下半部分的中心附近。\n• 保持相同的人物主体、姿势、服装、物体、透视和可识别的构图，但使整个场景看起来像是放置在纸上的微小怀旧插画。\n• 使用柔和的水彩 + 彩色铅笔 + 微妙的水粉画美学。\n• 细腻不完美的笔触、轻微纹理的边缘、柔和的阴影、柔和的自然色彩、略微褪色的复古外观。\n• 微缩场景应仅占据下半部分约 25–35% 的空间，周围留有充足的负空间。\n• 使其感觉像是捕捉在纸上的微小记忆，而非常规的全框插画。\n• 在微缩场景下方添加非常微妙的手绘阴影，以使其感觉自然地放置在纸上。\n\n背景\n• 用温暖的米白色/象牙色手工纸覆盖整个下半部分。\n• 可见细微的纸张纤维和颗粒感。\n• 略有不均匀的有机纹理，类似于优质水彩纸。\n• 极简、温暖、平静且优雅。\n• 无边框、无装饰图案、无不必要的元素。\n\n文字\n• 在微缩插画下方，添加一行非常小的手写短语：\n“{argument name=\"phrase\" default=\"sunny days\"}”\n• 使用纤细、精致的小写手写体。\n• 浅灰色/灰褐色墨水。\n• 保持文字微妙且不显眼，居中置于艺术作品下方。\n\n光照与色彩\n• 温暖的自然日光。\n• 柔和的奶油色、米色、淡蓝色、柔和的牛仔蓝和暖棕色调。\n• 温和的高光和柔和的阴影。\n• 略带怀旧感的胶片风格调色。\n• 避免过度饱和。\n• 整体氛围：安静、舒适、感性、宁静的家庭记忆。\n\n重要提示\n• 保持参考照片中人物的身份和视觉特征。\n• 不要发明额外的人物或物体。\n• 不要改变服装或姿势。\n• 不要扭曲解剖结构。\n• 微缩插画必须清晰地描绘与原始照片完全相同的时刻和场景。\n• 干净的高端编辑式构图。\n• 高细节、精致的艺术指导、写实"
+    }
+  },
+  "35231": {
+    "en": {
+      "title": "Dubai Skyline Golden Hour Portrait",
+      "description": "A prompt for generating an ultra-realistic vertical portrait of a woman taking a selfie on a balcony overlooking the Dubai Downtown skyline during golden hour.",
+      "prompt": "Create an ultra-realistic vertical 9:16 portrait of the same woman from the reference image, preserving her exact facial identity, face shape, eyes, eyebrows, nose, lips, jawline, natural skin tone, and recognizable features. She has long, thick, glossy black hair styled in a high ponytail, with the remaining hair cascading naturally over one shoulder in soft waves. She is wearing an elegant fitted ivory-white long-sleeve outfit with a soft cowl neckline and subtle fluffy cuffs.\nShe is taking a natural selfie on a balcony overlooking the Dubai Downtown skyline and a waterfront with boats during golden hour. Tall modern skyscrapers are visible in the background, softly blurred with realistic depth of field. Warm sunset light gently illuminates her face, creating natural highlights and soft shadows.\nNatural relaxed smile, direct eye contact with the camera, realistic facial expression, authentic skin texture, visible fine details and pores, subtle imperfections, realistic hair strands, professional smartphone photography, shallow depth of field, cinematic natural lighting, realistic colors, high detail, photorealistic, premium lifestyle photography."
+    },
+    "zh": {
+      "title": "迪拜天际线黄金时刻人像",
+      "description": "用于生成一位女性在黄金时刻于俯瞰迪拜市中心天际线的阳台上自拍的超写实竖版人像的提示词。",
+      "prompt": "创建一张超写实的 9:16 竖版人像，保留参考图像中同一位女性的确切面部特征、脸型、眼睛、眉毛、鼻子、嘴唇、下颌线、自然肤色及可识别的特征。她留着长而浓密的黑发，梳成高马尾，其余头发以柔和波浪状自然垂落在单侧肩上。她身穿一件优雅的象牙白修身长袖服装，带有柔软的堆堆领和微妙的毛绒袖口。\n她在黄金时刻于一个阳台上拍摄自然的自拍，背景是迪拜市中心天际线和停泊着船只的水滨。背景中可见高耸的现代摩天大楼，通过真实的景深效果呈现柔和模糊状态。温暖的夕阳余晖轻轻照亮她的脸庞，营造出自然的高光和柔和的阴影。\n自然放松的微笑，直视镜头，真实的面部表情，逼真的皮肤质感，可见细微细节和毛孔，微妙的瑕疵，真实的发丝，专业智能手机摄影，浅景深，电影般的自然光线，逼真的色彩，高细节，照片级真实感，高端生活方式摄影。"
+    }
+  },
+  "35232": {
+    "en": {
+      "title": "GPT Image 2 Prompt: Morning Kitchen Apron",
+      "description": "A prompt for creating a photorealistic image of a woman tying her hair in a kitchen, wearing a checkered apron.",
+      "prompt": "Subject:\nHair tying in checkered apron.\n\nMain Subject:\nYoung woman raising both arms to tie hair in a bright kitchen, centered. Key elements: black/white micro-gingham halter apron, large knot at front waist, vegetables in foreground.\n\nPerson & Expression:\nSmall oval face, thin chin, large dark brown eyes, thin eyebrows, neat nose, glossy pink lips slightly parted. Face turned slightly right, gaze meeting frontal camera with calm expression. Dark brown hair with thin bangs and loose strands, making a low ponytail at back of head with both hands.\n\nClothing & Pose:\nBlack/white micro-gingham, thick white halter straps, gathered apron dress covering chest straightly, large self-fabric ribbon at front waist. Small gold earrings and thin pendant. Standing with elbows bent largely upward/outward, gathering hair at back of head with both hands.\n\nBackground & Lighting:\nForeground wooden counter with metal bowl of leafy greens, red tomatoes, knife, pepper grinder. Background left has fridge and wood shelf, center has sink, right has large window and greenery. Hard morning sun from upper right window enters face, arms, chest, casting bright shadows on counter.\n\nComposition & Camera:\n3:4 vertical composition, frontal camera at chest height across counter capturing upper body from head to below waist. Person large in center, raised arms frame top, vegetables at bottom edge. Elbows cut off at side edges, focus on eyes/face, kitchen depth slightly blurred.\n\nTexture & Style:\nPhotorealistic real-life photo. High-definition natural skin, fine checkered fabric, hair, metal bowl, vegetables, wood counter. Colors: white, black, wood tones plus warm morning sunlight.\n\nNegative:\nChange arm/hair-tying pose; omit checkered apron or vegetables."
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词：晨间厨房围裙",
+      "description": "用于生成一张写实照片的提示词，画面中一位女性在厨房里系头发，身穿格纹围裙。",
+      "prompt": "主题：\n穿着格纹围裙系头发的场景。\n\n主要主体：\n年轻女性在明亮的厨房中央抬起双臂系头发。关键元素包括：黑白小方格挂脖式围裙、腰部前方打的大结、前景中的蔬菜。\n\n人物与表情：\n小巧的椭圆形脸庞，下巴纤细，深棕色大眼睛，眉毛稀疏整齐，鼻子精致，光泽粉嫩的嘴唇微微张开。脸部略微向右转，目光平静地直视镜头。深棕色头发带有细碎刘海和松散发丝，双手在脑后扎成低马尾。\n\n服装与姿势：\n黑白小方格图案，粗白色挂脖带，褶皱围裙连衣裙平整覆盖胸部，腰部前方有同材质大蝴蝶结。佩戴小金耳环和细吊坠。站立时手肘大幅向上向外弯曲，双手在脑后拢起头发。\n\n背景与光线：\n前景为木质台面，上有金属碗装的绿叶蔬菜、红番茄、刀具和胡椒研磨器。背景左侧是冰箱和木架，中间是水槽，右侧是大窗户和绿植。清晨强烈的阳光从右上方窗户射入，照亮面部、手臂和胸部，在台面上投下明亮阴影。\n\n构图与相机：\n3:4 竖幅构图，相机位于台面对面的胸部高度，捕捉从头部到腰部以下的人物上半身。人物居中且占比大，抬起的手臂构成顶部框架，蔬菜位于底部边缘。手肘在侧边被裁切，焦点集中在眼睛/面部，厨房景深略微虚化。\n\n纹理与风格：\n写实摄影风格。高清自然肤质，细腻格纹布料，头发，金属碗，蔬菜，木质台面。色彩：白色、黑色、木色调加上温暖的晨光。\n\n负面提示：\n改变手臂/系头发的姿势；省略格纹围裙或蔬菜。"
+    }
+  },
+  "35233": {
+    "en": {
+      "title": "Paper Craft Reveal Poster",
+      "description": "A split-layout design poster featuring an original photo on top and a selective-color paper craft reveal on the bottom.",
+      "prompt": "Create a high-end design poster from this photo. Use a 3:4 vertical composition overall, divided into two equal sections with a strict 1:1 height ratio, each occupying 50% of the image.\n\nTop half: Preserve the original photo, maintaining the subject's identity and all details exactly as they are in the source image.\n\nBottom half: Create a realistic paper craft effect on a textured off-white background. The center should feature a torn paper hole revealing a grayscale version of the same city scene from above. Crucially, specific elements within this grayscale scene must be highlighted in their original vibrant colors (red, magenta, yellow) to create a striking contrast against the monochrome surroundings."
+    },
+    "zh": {
+      "title": "纸艺揭秘海报",
+      "description": "一款采用分栏布局的设计海报，上半部分为原始照片，下半部分呈现选择性配色的纸艺揭秘效果。",
+      "prompt": "基于此照片创作一张高端设计海报。整体采用 3:4 竖版构图，分为上下两个等大的部分，高度比例为严格的 1:1，各占画面的 50%。\n\n上半部分：保留原始照片，确保主体的身份及所有细节与原图完全一致。\n\n下半部分：在带有纹理的米白色背景上制作逼真的纸艺效果。画面中心应有一个撕裂的纸张破洞，露出上方同一城市场景的黑白版本。关键在于，该黑白场景中的特定元素需以原本鲜艳的彩色（红色、品红、黄色）高亮显示，从而与单色背景形成强烈对比。"
+    }
+  },
+  "35234": {
+    "en": {
+      "title": "AI Realism Thumbnail: Girls with Lanterns",
+      "description": "A vertical social media thumbnail comparing an impressionist oil painting of two girls with lanterns to its photorealistic AI-generated recreation.",
+      "prompt": "Create a vertical 9:16 social media thumbnail. The background is a hyper-realistic, high-resolution photograph of two young girls with curly brown hair wearing vintage white lace-trimmed dresses standing in a lush garden at twilight. They are holding and decorating glowing pink paper lanterns. Surround them with large white lilies and soft-focus pink roses. In the center, overlay bold sans-serif text: 'AI Made This Painting' in white, followed by 'Real' in yellow on the next line. Below the text, place a smaller rectangular inset image showing the original impressionist oil painting (two girls with lanterns) framed in gold, with a hand-drawn yellow arrow pointing from the painting up to the realistic scene."
+    },
+    "zh": {
+      "title": "AI 写实缩略图：提灯笼的女孩",
+      "description": "一张垂直社交媒体缩略图，对比了两名提灯笼女孩的 impressionist 油画与其 photorealistic AI 生成复刻版。",
+      "prompt": "创建一张垂直 9:16 比例的社交媒体缩略图。背景是一张超写实、高分辨率的照片，画面中两名留着棕色卷发的小女孩身穿复古白色蕾丝边连衣裙，站在暮色中的郁郁葱葱的花园里。她们手持并装饰着发光的粉色纸灯笼。周围环绕着大型白色百合花和柔焦粉色玫瑰。在中心位置叠加粗体无衬线文字：“AI Made This Painting”为白色，下一行“Real”为黄色。在文字下方，放置一个较小的矩形插图，展示原始的印象派油画（两名提灯笼的女孩），配有金色画框，并有一个手绘黄色箭头从画作指向写实的场景。"
+    }
+  },
+  "35235": {
+    "en": {
+      "title": "Man Reading by Rainy Window",
+      "description": "A cinematic shot of a man in a dark coat reading a document while looking out at a rain-streaked window with blurred city lights.",
+      "prompt": "A medium shot from behind and slightly to the side captures a man standing indoors, facing a large window. He has short, graying hair and is wearing a long, dark navy blue coat or robe. In his hands, he holds an open white document or book, which he appears to be reading intently. The window pane is covered in vertical streaks of rain, heavily distorting the view outside into an abstract blur of deep blues, vibrant golds, and hints of red, suggesting a nighttime city scene with illuminated signs (one partially legible as \"...BARBATES...\"). To the left, a section of polished dark wood paneling frames the scene. At the bottom, a dark blue velvet banquette or seating area runs along the base of the window. The lighting is moody and atmospheric, contrasting the cool tones of the night outside with the warm golden reflections on the wet glass."
+    },
+    "zh": {
+      "title": "雨窗畔阅读的男子",
+      "description": "电影感镜头：一名身穿深色大衣的男子站在窗前，手持文件专注阅读，窗外雨痕斑驳，城市灯光朦胧。",
+      "prompt": "中景镜头从后方略偏侧的角度捕捉到一名男子站在室内，面向一扇大窗户。他留着灰白的短发，身穿一件深海军蓝色的长款大衣或长袍。他双手捧着一份打开的白色文件或书籍，神情专注地阅读着。窗玻璃上布满了垂直的雨痕，将窗外的景色扭曲成一片抽象的模糊影像，呈现出深邃的蓝色、鲜艳的金黄色以及隐约的红色，暗示着夜晚的城市景象和发光的招牌（其中一个部分可辨认为“...BARBATES...”）。画面左侧，一部分抛光的深色木质镶板构成了场景的边框。底部沿窗台设有一排深蓝色天鹅绒长椅或座位区。整体光线充满情绪感和氛围感，窗外夜晚的冷色调与湿润玻璃上温暖的金色反光形成鲜明对比。"
+    }
+  },
+  "35237": {
+    "en": {
+      "title": "Cute Speech Bubble Mascot Profile Icon",
+      "description": "Generates a minimalist avatar featuring a blushing white speech bubble character and a small smiling device companion on a black background.",
+      "prompt": "A minimalist, flat-design illustration of two cute mascots against a solid black background. The primary subject is a large, white speech bubble character positioned on the left, featuring two vertical oval black eyes and soft pink blush marks on its cheeks. In the bottom right corner, partially overlapping the main figure, is a smaller grey rounded rectangle resembling a handheld device or smartphone with a white screen; this screen displays a simple face with two black dot eyes and a smiling mouth. The style is clean, vector-like, and suitable for a profile icon."
+    },
+    "zh": {
+      "title": "可爱对话气泡吉祥物头像图标",
+      "description": "生成一个极简风格头像，包含一个脸红的白色对话气泡角色和一个在黑色背景上微笑的小型设备伙伴。",
+      "prompt": "一幅极简主义扁平设计插画，描绘了两个可爱的吉祥物，背景为纯黑色。主要主体位于左侧，是一个大型白色对话气泡角色，拥有两个垂直椭圆形黑眼睛和脸颊上柔和的粉色腮红。右下角部分重叠在主形象上的是一个较小的灰色圆角矩形，类似手持设备或智能手机，配有白色屏幕；屏幕上显示着一张简单的脸，有两个黑点眼睛和微笑的嘴巴。整体风格简洁、矢量感强，适合作为个人头像图标。"
+    }
+  },
+  "35238": {
+    "en": {
+      "title": "Morning Kitchen Apron Portrait",
+      "description": "A photorealistic portrait of a young woman tying her hair while wearing a gingham apron in a sunlit kitchen with fresh ingredients.",
+      "prompt": "A photorealistic medium shot of a young Asian woman standing in a bright, cozy kitchen during the morning. She has long black hair with bangs and is posing with both arms raised behind her head, tying her hair into a ponytail. She wears a black-and-white gingham check apron with white straps over bare shoulders, accessorized with a delicate gold necklace and small earrings. Her expression is calm and she looks directly at the camera. In the foreground on a wooden countertop, there are fresh ingredients including a bunch of green leafy vegetables, three red tomatoes on the vine, a chef's knife, and a stainless steel mixing bowl. The background features warm wooden cabinetry, a white refrigerator, and a window letting in soft natural sunlight that illuminates the scene."
+    },
+    "zh": {
+      "title": "晨间厨房围裙人像",
+      "description": "一张写实风格的人像照片，展示了一位年轻女子在阳光明媚的厨房里系着头发，身穿格纹围裙，周围摆放着新鲜食材。",
+      "prompt": "这是一张写实风格的中景照片，展现了一位年轻的亚洲女性站在明亮温馨的厨房中，正值清晨时分。她留着带刘海的黑色长发，双臂举至脑后，正在将头发扎成马尾。她身穿一件黑白格纹围裙，白色肩带露出光洁的肩膀，佩戴着精致的金色项链和小巧耳环。她的神情平静，目光直视镜头。前景的木质台面上摆放着新鲜食材，包括一把绿叶蔬菜、三颗藤上红番茄、一把厨师刀和一个不锈钢搅拌碗。背景是温暖的木质橱柜、一台白色冰箱，以及一扇透入柔和自然阳光的窗户，照亮了整个场景。"
+    }
+  },
+  "35239": {
+    "en": {
+      "title": "Boisterous Shrimpers Entering Pub",
+      "description": "A humorous, caricature-style illustration of drunken fishermen bursting into a pub, accompanied by a haiku about their arrival.",
+      "prompt": "A horizontal digital illustration in a gritty, caricature style depicting a group of five boisterous fishermen entering a pub. The scene is split into two sections: the left side features the artwork, and the right side is a black panel containing text. In the artwork, five men with exaggerated, drunken expressions and red noses are bursting through a doorway. They wear heavy blue knit sweaters, yellow raincoats, and fisherman's hats. One man in the center holds a dark bottle, while another to his right holds a metal tankard. Seated at a wooden table in the foreground are two other men looking up at the newcomers; one on the left has a large nose and holds a glass of beer, while the man on the right is balding and wearing a blue coat. The background shows a dimly lit pub interior with hanging lanterns and framed signs on the walls reading 'THE DRIFTING COD' and 'RUM GIN BITTERS & BAD LANGUAGE'. On the right side, against a solid black background, white serif text displays a haiku: 'the shrimpers / stinking of shrimp and brine / enter the pub / already drunk on bitters / boisterous as stuck pigs'. Below the poem is smaller credit text: 'AI image created by Michael H. Lester in collaboration with GPT Image 2 Low on @Nightcafestudio twitter: ™mhlester', followed by two URLs. A QR code sits in the top right corner."
+    },
+    "zh": {
+      "title": "喧闹的捕虾人闯入酒馆",
+      "description": "一幅幽默的漫画风格插图，描绘了醉醺醺的渔民冲进酒馆的场景，并配有一首关于他们到来的俳句。",
+      "prompt": "这是一幅横向的数字插画，采用粗犷的漫画风格，描绘了一群喧闹的渔民进入酒馆的场景。画面分为两部分：左侧是艺术作品，右侧是一个包含文字的黑色面板。在艺术作品中，五名表情夸张、满脸通红且醉意盎然的男子正破门而入。他们身穿厚重的蓝色针织毛衣、黄色雨衣和渔夫帽。中间的一名男子手持深色酒瓶，而他右侧的另一人则拿着一个金属酒杯。前景中，两名男子坐在木桌旁抬头看着新来者；左边那位鼻子很大，手里拿着一杯啤酒，右边那位秃顶，穿着蓝色外套。背景展示了灯光昏暗的酒馆内部，挂着灯笼，墙上的框牌写着“THE DRIFTING COD”和“RUM GIN BITTERS & BAD LANGUAGE”。在右侧纯黑背景上，白色衬线字体展示了一首俳句：“the shrimpers / stinking of shrimp and brine / enter the pub / already drunk on bitters / boisterous as stuck pigs”。诗歌下方是较小的署名文字：“AI image created by Michael H. Lester in collaboration with GPT Image 2 Low on @Nightcafestudio twitter: ™mhlester”，随后是两个 URL。右上角有一个二维码。"
     }
   }
 }
