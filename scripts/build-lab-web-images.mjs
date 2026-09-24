@@ -45,9 +45,10 @@ const DETAIL_W = 1600;
 
 function locateArchiveImage(cosKey) {
   if (!ARCHIVE || !existsSync(ARCHIVE)) return null;
-  // cosKey = lab/yyyy/mm/<id>.png → <id>.png; find matching generation folder.
-  const idFile = cosKey.split("/").pop();
-  const id = idFile.replace(/\.png$/, "");
+  // cosKey = lab/yyyy/mm/<id>.webp (formerly .png) → <id>; find matching
+  // generation folder. Strip ANY extension — a stale .png assumption here
+  // silently missed every archive folder after the 2026-09-23 WebP move.
+  const id = cosKey.split("/").pop().replace(/\.[a-z]+$/i, "");
   for (const name of readdirSync(ARCHIVE)) {
     if (!/^\d{4}-\d{2}-\d{2}_/.test(name)) continue;
     const metaPath = join(ARCHIVE, name, "metadata.json");

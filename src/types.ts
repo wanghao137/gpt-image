@@ -139,7 +139,7 @@ export interface LabItem {
   createdAt: string;
   prompt: string;
   promptPreview: string;
-  /** COS object key, e.g. `lab/2026/08/<id>.png`. URLs derive via lab-cos-core. */
+  /** R2 object key, e.g. `lab/2026/08/<id>.webp`. URLs derive via lab-cos-core. */
   cosKey: string;
   width: number;
   height: number;
