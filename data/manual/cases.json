@@ -1,5 +1,30 @@
 [
   {
+    "id": "100308",
+    "title": "云端悬浮微缩国家立体地图旅行海报",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic"
+    ],
+    "scenes": [
+      "Education"
+    ],
+    "tags": [
+      "Minimal",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Documentary"
+    ],
+    "imageUrl": "/uploads/2026-09-26-case-591462-miniature-world-map.jpg",
+    "imageAlt": "云端悬浮微缩国家立体地图旅行海报",
+    "prompt": "Create an ultra-detailed hyper-realistic 9:16\ncinematic miniature world map of [City Name], designed as a premium luxury travel-poster masterpiece where the entire country appears as a massive handcrafted floating island civilization suspended in soft atmospheric clouds, featuring highly detailed terrain elevation, iconic mountains, forests, glowing rivers, crystal-blue coastlines, waterfalls, deserts, lakes, farmland, futuristic cities, historical architecture, famous landmarks, highways, railways, suspension bridges, tiny moving vehicles, airplanes, boats, and hidden environmental storytelling details throughout the entire composition; every major region of the country should feel visually unique and culturally alive, with each city and province represented through its own architecture, atmosphere, colors, traditions, and landscape identity, blending modern civilization with natural beauty and historical heritage; the capital city should appear as a vibrant cinematic metropolis filled with realistic skyline details, glowing streets, transportation systems, and dense urban storytelling, while historical regions feature ancient architecture, monuments, temples, castles, mosques, churches, shrines, or culturally iconic structures naturally integrated into the environment, and natural regions showcase forests, snowy mountains, tropical coastlines, volcanic landscapes, deserts, or countryside depending on the country's geography; the environment itself must feel alive with tiny human activity, realistic lighting behavior, atmospheric fog depth, cinematic cloud formations, realistic retlections, satellite-style environmental realism, and immersive depth layering, while hidden cultural elements are naturally integrated throughout the landscape including local food culture, transportation, festivals, regional symbols, wildlife, traditional clothing, street life, markets, music, technology, sports, and national identity details subtly blended into the worldbuilding; designed in a clean minimal luxury editorial style with a bright elegant background, bold oversized [City Name] typography dominating the upper composition in a font style inspired by the country's identity and culture, a cinematic tagline underneath, elegant minimal labels for major cities and landmarks naturally integrated into the environment, refined infographic-style details placed cleanly near the bottom showing population, language, currency, tourism, famous exports, cultural influence, technology, cuisine, and transportation systems, with strong visual hierarchy, premium travel-documentary aesthetics, vibrant natural colors inspired entirely by the country itself, ultra- premium cinematic color grading, emotionally immersive composition, highly zoomable micro-details everywhere, and an 8K masterpiece finish that feels timeless, modern, cinematic, expensive, culturally rich, emotionally powerful, and instantly viral.",
+    "promptPreview": "Create an ultra-detailed hyper-realistic 9:16 cinematic miniature world map of [City Name], designed as a premium luxury travel-poster masterpiece where the entire country appears as a massive handcrafted floating islan…",
+    "source": "Community collected via @ern_exe",
+    "createdAt": "2026-09-25T20:11:30.705Z"
+  },
+  {
     "id": "100307",
     "title": "角色概念全解构图：服装分层与随身物品拆解",
     "category": "角色与人物",
