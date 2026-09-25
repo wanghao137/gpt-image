@@ -1,5 +1,30 @@
 [
   {
+    "id": "100307",
+    "title": "角色概念全解构图：服装分层与随身物品拆解",
+    "category": "角色与人物",
+    "styles": [
+      "Concept Art"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial",
+      "Minimal",
+      "Portrait",
+      "Commerce",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-26-case-483720-character-breakdown.jpg",
+    "imageAlt": "角色概念全解构图：服装分层与随身物品拆解",
+    "prompt": "Generate a comprehensive character concept breakdown image based on Image 1 character.\nThe image must feature the full-body character design at the center, surrounded by detailed elements such as layers of clothing, different facial expressions, core items, material close-ups, and everyday personal items that showcase the character’s lifestyle.\nThe character has the same pose as the one in Image 1.Visual Specifications:\n1. Composition Layout:\n  - Center Position: Place the character’s full-body or primary dynamic pose as the visual anchor.\n  - Surrounding Position: Neatly arrange the deconstructed elements around the central character.\n  - Visual Guide: Use hand-drawn arrows or guide lines to connect the surrounding elements to the corresponding part of the character (e.g., a bag connected to the hand).\n2. Deconstruction Details – Key Iterative Areas:\n  - Clothing Layers: Break down the character's outfit into individual pieces. If layered, show the state of the inner layers when outer layers (like jackets) are removed.\n  - New Addition – Underwear Deconstruction: Independently display the character’s innerwear, focusing on design and material details.\n  - Expression Set: In corners, draw 3-4 different headshots showcasing different emotional expressions.\n  - Material Close-ups: Select 1-2 key areas for zoomed-in material textures.\n  - New Addition – Item Texture Close-ups: Add depictions of small items, focusing on their textures.\n  - Associated Items: This section goes beyond large props and includes “lifestyle fragments”:\n    - Handbags and Contents: Illustrate the character’s everyday bag or clutch, \"opened\" to show scattered contents.\n    - Cosmetics & Care: Show the character's common makeup and skincare products.\n    - Private Lifestyle Items: Visualize personal items that reflect the character’s hidden side. Depending on the character's personality, this could include a private diary, medicine/supplement box, vape, or even more intimate objects.\n3. Style & Annotations:\n  - Art Style: Maintain a high-quality 2D illustration style or conceptual sketch style with clean, sharp lines.\n  - Background Design: Simple background should match the character's style, atmosphere, and environment, and align with the overall design.\n  - Text Annotations: Simulate handwritten notes next to each deconstructed element, briefly describing materials or brand/model hints.\nExecution Logic:\nWhen the user provides an image or description:\n1. Analyze the character's core features, outfit style, and potential personality.\n2. Extract the primary deconstructible elements (e.g., outerwear, shoes, major expressions).\n3. Brainstorm and design secondary depth elements (e.g., what style of underwear would she wear? What lipstick would be in her bag?).\n4. Generate an image that combines all these elements, ensuring accurate perspective, cohesive lighting, and clear annotations.\n5. Use this language: English",
+    "promptPreview": "Generate a comprehensive character concept breakdown image based on Image 1 character. The image must feature the full-body character design at the center, surrounded by detailed elements such as layers of clothing, dif…",
+    "source": "Community collected via @RyuPixelAi",
+    "createdAt": "2026-09-25T20:11:25.772Z"
+  },
+  {
     "id": "100306",
     "title": "清透留白杂志封面式编辑感排版",
     "category": "文档与出版",
