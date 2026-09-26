@@ -1,5 +1,30 @@
 [
   {
+    "id": "100309",
+    "title": "视频分镜自动排布联系表生成器",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Editorial",
+      "Minimal",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-09-27-case-100307-storyboard-contact-sheet.jpg",
+    "imageAlt": "视频分镜自动排布联系表生成器",
+    "prompt": "Turn the VIDEO PROMPT below into one finished storyboard contact sheet. Break the visible action into the appropriate number of keyframes automatically. Use fewer panels for simple scenes and more panels for complex action, prop continuity, transformations, multiple characters, or important reactions. Each panel must be a completed cinematic still from the same video world, not a rough sketch or written shot list.\nRules: \n- Arrange panels in a clean adaptive grid, in chronological order from left to right and top to bottom. \n- The overall sheet can use any aspect ratio needed to keep all panels readable. \n- Preserve character identity, wardrobe, props, environment, lighting, style, screen direction, character count, and object continuity. \n- Each panel shows one clear visible moment only. For an action, choose the strongest readable frame, usually contact, impact, reaction, transformation result, or final position. \n- Do not invent new characters, props, actions, or locations. \n- Do not add captions, panel numbers, arrows, dialogue, subtitles, sound cues, camera notes, or explanatory text. \n\nVIDEO PROMPT:\n[Video Prompt]",
+    "promptPreview": "Turn the VIDEO PROMPT below into one finished storyboard contact sheet. Break the visible action into the appropriate number of keyframes automatically. Use fewer panels for simple scenes and more panels for complex act…",
+    "source": "Community collected via @aimikoda",
+    "createdAt": "2026-09-26T20:05:32.172Z"
+  },
+  {
     "id": "100308",
     "title": "云端悬浮微缩国家立体地图旅行海报",
     "category": "图表与信息图",
