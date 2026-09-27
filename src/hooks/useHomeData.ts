@@ -8,7 +8,7 @@ import type { PromptCase } from "../types";
  *
  * Both SSG and client use the same import, so hydration is consistent.
  */
-import homeData from "../../public/data/cases-home.json";
+import homeDataJson from "../../public/data/cases-home.json";
 
 export interface HomeTile {
   slug: string;
@@ -34,4 +34,62 @@ export interface HomeData {
   browsePageCount: number;
 }
 
-export const HOME_DATA: HomeData = homeData as HomeData;
+export const HOME_DATA: HomeData = normalizeHomeData(homeDataJson);
+
+/**
+ * The generated JSON's inferred type shifts with the data mix (e.g. curated
+ * cases with `scenes` beside upstream ones without it), so a direct
+ * `homeDataJson as HomeData` cast fails `tsc -b` in CI whenever the homepage
+ * selection changes shape. Route it through an unknown boundary and fill the
+ * required classification arrays instead — stable for ANY generated shape.
+ */
+interface RawHomeData {
+  hero: unknown[];
+  strip: unknown[];
+  featured: unknown[];
+  initial: unknown[];
+  tiles: unknown[];
+  revision: string;
+  totalCount: number;
+  recentCount: number;
+  browsePageSize: number;
+  browsePageCount: number;
+}
+
+function normalizeHomeCase(value: unknown): PromptCase {
+  const record = value as PromptCase;
+  return {
+    ...record,
+    tags: record.tags ?? [],
+    styles: record.styles ?? [],
+    scenes: record.scenes ?? [],
+    platforms: record.platforms ?? [],
+  };
+}
+
+function normalizeHomeTile(value: unknown): HomeTile {
+  const record = value as HomeTile;
+  return {
+    slug: record.slug,
+    label: record.label,
+    tagline: record.tagline ?? "",
+    count: record.count,
+    cover: record.cover,
+  };
+}
+
+function normalizeHomeData(raw: unknown): HomeData {
+  const data = raw as RawHomeData;
+  return {
+    hero: data.hero.map(normalizeHomeCase),
+    strip: data.strip.map(normalizeHomeCase),
+    featured: data.featured.map(normalizeHomeCase),
+    initial: data.initial.map(normalizeHomeCase),
+    tiles: data.tiles.map(normalizeHomeTile),
+    revision: data.revision,
+    totalCount: data.totalCount,
+    recentCount: data.recentCount,
+    browsePageSize: data.browsePageSize,
+    browsePageCount: data.browsePageCount,
+  };
+}

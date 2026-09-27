@@ -22,20 +22,38 @@ function fixture() {
       ratio: "1:1", userCategory: "poster", createdAt: "2026-09-15T00:00:00.000Z",
     },
   ];
+  // Lite records (homepage sections, shards, browse pages) must carry the
+  // full PromptCase classification contract — the shape stripLite() writes.
+  const lite = (source) => ({
+    id: source.id,
+    slug: source.slug,
+    title: source.title,
+    category: "人像",
+    imageUrl: source.imageUrl,
+    promptPreview: "预览",
+    source: "manual",
+    createdAt: source.createdAt,
+    userCategory: source.userCategory,
+    ratio: source.ratio,
+    tags: [],
+    styles: [],
+    scenes: [],
+    platforms: [],
+  });
   return {
     sourceCases,
     home: {
       totalCount: 2,
-      hero: [{ id: "1" }],
-      strip: [{ id: "2" }],
-      featured: sourceCases,
-      initial: sourceCases,
+      hero: [lite(sourceCases[0])],
+      strip: [lite(sourceCases[1])],
+      featured: sourceCases.map(lite),
+      initial: sourceCases.map(lite),
     },
     index: sourceCases,
     search: sourceCases,
     categoryShards: [
-      { name: "cases-a.json", records: [{ id: "1" }] },
-      { name: "cases-b.json", records: [{ id: "2" }] },
+      { name: "cases-a.json", records: [lite(sourceCases[0])] },
+      { name: "cases-b.json", records: [lite(sourceCases[1])] },
     ],
   };
 }
@@ -55,7 +73,7 @@ test("generated datasets reject missing search records", () => {
 
 test("generated datasets reject an incomplete category union", () => {
   const data = fixture();
-  data.categoryShards = [{ name: "cases-a.json", records: [{ id: "1" }] }];
+  data.categoryShards = [data.categoryShards[0]];
   assert.throws(() => validateGeneratedData(data), /category shard union differs/);
 });
 
@@ -69,6 +87,24 @@ test("generated datasets reject duplicate case slugs", () => {
   const data = fixture();
   data.sourceCases[1].slug = data.sourceCases[0].slug;
   assert.throws(() => validateGeneratedData(data), /duplicate slug/);
+});
+
+test("generated datasets reject lite records missing classification arrays (the 2026-09-25 tsc regression)", () => {
+  const data = fixture();
+  delete data.home.hero[0].scenes;
+  assert.throws(
+    () => validateGeneratedData(data),
+    /cases-home\.json hero\[0\].*missing required array field "scenes"/,
+  );
+});
+
+test("generated datasets reject lite records missing required string fields", () => {
+  const data = fixture();
+  delete data.categoryShards[1].records[0].ratio;
+  assert.throws(
+    () => validateGeneratedData(data),
+    /cases-b\.json\[0\].*missing required string field "ratio"/,
+  );
 });
 
 test("checked-in generated data matches the canonical source", () => {

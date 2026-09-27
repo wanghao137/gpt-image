@@ -164,6 +164,13 @@ function buildBrowsePages(cases) {
  * Strip a case down to only the fields the card/grid rendering needs.
  * This removes prompt (already in prompts/<id>.json) and imageAlt (always
  * equals title — consumers use `|| title` fallback).
+ *
+ * The four classification arrays are ALWAYS written (empty when the source
+ * case lacks them): every lite record must keep the same shape, because
+ * cases-home.json is statically imported in src/hooks/useHomeData.ts where
+ * a mix of shapes (curated cases with `scenes` beside upstream ones without
+ * it) breaks the PromptCase type contract and fails `tsc -b` in CI. The
+ * data-consistency gate enforces the same contract on generated shards.
  */
 function stripLite(cases) {
   return cases.map((c) => {
@@ -181,11 +188,11 @@ function stripLite(cases) {
     };
     if (c.imageRatio) row.imageRatio = c.imageRatio;
     if (c.titleEn) row.titleEn = c.titleEn;
-    if (c.tags?.length) row.tags = c.tags;
-    if (c.styles?.length) row.styles = c.styles;
-    if (c.scenes?.length) row.scenes = c.scenes;
+    row.tags = c.tags ?? [];
+    row.styles = c.styles ?? [];
+    row.scenes = c.scenes ?? [];
+    row.platforms = c.platforms ?? [];
     if (c.userCategories?.length) row.userCategories = c.userCategories;
-    if (c.platforms?.length) row.platforms = c.platforms;
     if (c.githubUrl) row.githubUrl = c.githubUrl;
     if (c.seriesId) row.seriesId = c.seriesId;
     if (Array.isArray(c.imageUrls) && c.imageUrls.length > 0) row.imageUrls = c.imageUrls;

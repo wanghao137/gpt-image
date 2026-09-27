@@ -39,6 +39,37 @@ function formatSample(values) {
   return values.slice(0, 10).join(", ") + (values.length > 10 ? ", …" : "");
 }
 
+// Lite records (cases-home.json sections, category shards, browse pages) are
+// consumed as PromptCase in the app — useHomeData.ts statically imports
+// cases-home.json, where a missing required field (e.g. `scenes` on upstream
+// cases next to curated ones that have it) breaks type inference and fails
+// `tsc -b` in CI. split-data.mjs stripLite() writes these fields
+// unconditionally; this gate rejects any writer that regresses to conditional
+// shapes.
+const LITE_REQUIRED_STRINGS = [
+  "slug",
+  "title",
+  "category",
+  "imageUrl",
+  "createdAt",
+  "userCategory",
+  "ratio",
+];
+const LITE_REQUIRED_ARRAYS = ["tags", "styles", "scenes", "platforms"];
+
+function assertLiteRecordShape(record, where) {
+  for (const field of LITE_REQUIRED_STRINGS) {
+    if (typeof record?.[field] !== "string" || record[field].length === 0) {
+      throw new Error(`${where} missing required string field "${field}"`);
+    }
+  }
+  for (const field of LITE_REQUIRED_ARRAYS) {
+    if (!Array.isArray(record?.[field])) {
+      throw new Error(`${where} missing required array field "${field}"`);
+    }
+  }
+}
+
 function compareIdSets(sourceIds, candidateIds, label) {
   const missing = Array.from(sourceIds).filter((id) => !candidateIds.has(id));
   const extra = Array.from(candidateIds).filter((id) => !sourceIds.has(id));
@@ -107,6 +138,7 @@ export function validateGeneratedData({
           `[data-consistency] cases-home.json ${field}[${index}] references unknown id ${id || "<empty>"}`,
         );
       }
+      assertLiteRecordShape(record, `[data-consistency] cases-home.json ${field}[${index}] (id=${id})`);
     }
   }
 
@@ -131,6 +163,7 @@ export function validateGeneratedData({
       if (!sourceIds.has(id)) {
         throw new Error(`[data-consistency] ${shard.name} references unknown id ${id}`);
       }
+      assertLiteRecordShape(record, `[data-consistency] ${shard.name}[${index}] (id=${id})`);
       seenInShard.add(id);
       categoryIds.add(id);
     }
@@ -142,6 +175,14 @@ export function validateGeneratedData({
       throw new Error("[data-consistency] ordered browse data is incomplete");
     }
     const flattened = browsePages.flatMap((page) => page.records);
+    for (const [pageIndex, page] of browsePages.entries()) {
+      for (const [index, record] of (page.records ?? []).entries()) {
+        assertLiteRecordShape(
+          record,
+          `[data-consistency] browse page ${pageIndex}[${index}] (id=${idOf(record)})`,
+        );
+      }
+    }
     const expected = sourceCases.slice(home.initial.length).map(idOf);
     const actual = flattened.map(idOf);
     if (browseManifest.pageCount !== browsePages.length) {
