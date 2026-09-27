@@ -1,5 +1,32 @@
 [
   {
+    "id": "100310",
+    "title": "机场行李车上的时尚旅行杂志封面",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial",
+      "Commerce"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-09-28-case-airport-magazine-cover.jpg",
+    "imageAlt": "机场行李车上的时尚旅行杂志封面",
+    "prompt": "Create a premium cinematic fashion-travel magazine cover in a vertical 4:5 composition.\n\nA stylish young woman is seated confidently on a chrome airport luggage trolley inside a modern international airport terminal. She is leaning slightly back, with her right arm raised and holding the trolley handle, while her other hand rests naturally near her lap. She has long dark hair, a natural confident expression, realistic facial features and proportions.\n\nOutfit: fitted charcoal-gray sleeveless crop top, extremely wide-leg light-wash baggy jeans, and black-and-white classic canvas sneakers. Add a minimal dark necklace and subtle natural styling.\n\nThe airport environment should feel cinematic and photorealistic: huge glass architecture, soft diffused daylight, realistic luggage, chrome trolley details, glossy reflective floor, subtle background blur, natural shadows and reflections.\n\nDesign it as a sophisticated luxury travel editorial poster. Use a deep forest-green background with oversized bold off-white typography behind the woman.\n\nMain headline: \"ERASING TEMPLATES\"\n\nThe typography must be huge, condensed, bold, clean and partially hidden behind the subject.\n\nAdd premium editorial travel graphics and small details: \"ETERNAL COLLECTION\", \"ISSUE NO.2025\", \"SEASON COLLECTION\", \"MADE TO TRAVEL\", \"FIRST CLASS\", \"37.7749° N, 122.4194° W\", \"PRIORITY LUGGAGE\", \"HANDLE WITH PURPOSE\", \"MADE FOR MOVEMENT.\", \"BUILT TO LAST.\", \"SEOUL\", \"DEPARTED\", \"INCHEON AIRPORT\", \"REPUBLIC OF KOREA\".\n\nInclude barcode graphics, boarding-pass elements, airplane icon, globe symbol, arrows, luggage tag, circular travel emblem and subtle technical/editorial markings around the composition.\n\nColor palette: deep forest green, warm ivory, muted gray, silver chrome and natural skin tones. High-end fashion campaign aesthetic, subtle film grain, realistic skin texture, cinematic lighting, premium commercial photography, sharp details, realistic fabric texture, authentic reflections, sophisticated modern typography, balanced composition.\n\nIMPORTANT: Keep the subject photorealistic and anatomically accurate. The typography and graphic elements should look professionally designed around the photograph, like an authentic luxury fashion magazine cover.",
+    "promptPreview": "Create a premium cinematic fashion-travel magazine cover in a vertical 4:5 composition. A stylish young woman is seated confidently on a chrome airport luggage trolley inside a modern international airport terminal. She…",
+    "source": "Community collected via @Zara__Ai",
+    "createdAt": "2026-09-27T20:09:24.818Z"
+  },
+  {
     "id": "100309",
     "title": "视频分镜自动排布联系表生成器",
     "category": "场景与叙事",
