@@ -1,5 +1,32 @@
 [
   {
+    "id": "100312",
+    "title": "芝士宇宙美食大片竖版广告",
+    "category": "产品与电商",
+    "styles": [
+      "Realistic",
+      "Cinematic"
+    ],
+    "scenes": [
+      "Commerce",
+      "Product"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Cinematic",
+      "Commerce",
+      "Product",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-09-29-case-100312-cheese-universe-food-ad.jpg",
+    "imageAlt": "芝士宇宙美食大片竖版广告",
+    "prompt": "A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish young woman wearing a modern red-and-black streetwear outfit with transparent eyeglasses. She is holding a giant pizza slice toward the camera while pulling it upward in a dramatic cheese stretch pose.\n\nThe melted cheese stretches infinitely in glowing golden strands, forming a magical cheese vortex in the air. Floating pepperoni slices spin like planets, and steam rises in cinematic slow motion. Inside the pizza slice, a miniature glowing pizza city exists.\n\nBACKGROUND:\nA warm Italian-inspired cinematic city at golden sunset with glowing brick streets, soft ambient lights, and blurred pizzerias in the distance. The atmosphere feels cozy, premium, and appetizing.\n\nLIGHTING & EFFECTS:\nGolden hour glow, cinematic steam, cheese light reflections, floating herbs, shallow depth of field, warm food photography lighting, soft bokeh highlights.\n\nTYPOGRAPHY:\n\"CHEESE UNIVERSE\"\n\"MORE THAN PIZZA. IT'S AN EXPERIENCE.\"\n\nSTYLE: Ultra-realistic 8K food commercial, premium cinematic advertising.",
+    "promptPreview": "A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish young woman wearing a modern red-and-black streetwear outfit with transparent eyeglasses. She is holding a giant pizza slice tow…",
+    "source": "Community collected via @Itswsm105f",
+    "createdAt": "2026-09-28T20:07:39.581Z"
+  },
+  {
     "id": "100311",
     "title": "沙特遗产风格阿拉伯书法定制徽章",
     "category": "品牌与标志",
