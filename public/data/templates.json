@@ -1041,18 +1041,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "https://cms-assets.youmind.com/media/1790495305554_i05z92_HS5hAYPaMAAwcev.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35524 GPT Image 2 提示词：咖啡馆编发人像: 用于生成一位坐在咖啡馆里、面前摆着蛋糕和咖啡的编发女性逼真肖像的提示词。\n- #35519 写实咖啡馆人像提示词: 一份详细的提示词，用于使用 GPT Image 2 生成一位在户外咖啡馆的东亚女性写实肖像，重点在于自然光线和面料细节。\n- #35156 GPT Image 2 编辑风格美食海报提示词: 使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/uploads/2026-09-29-case-100312-cheese-universe-food-ad.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n- #35524 GPT Image 2 提示词：咖啡馆编发人像: 用于生成一位坐在咖啡馆里、面前摆着蛋糕和咖啡的编发女性逼真肖像的提示词。\n- #35519 写实咖啡馆人像提示词: 一份详细的提示词，用于使用 GPT Image 2 生成一位在户外咖啡馆的东亚女性写实肖像，重点在于自然光线和面料细节。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100312",
       "35524",
       "35519",
       "35156",
-      "35107",
-      "35005"
+      "35107"
     ]
   },
   {
@@ -1377,18 +1377,18 @@
       "Commercial"
     ],
     "description": "生成高端食品/饮品的商业广告级视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1790063417834_gh1k4n_HSzJA1wXYAAySMz.jpg",
-    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Editorial / Cinematic / Commerce / Product\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35156 GPT Image 2 编辑风格美食海报提示词: 使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n- #34045 秋季温泉美食促销海报: 生成一张高端日本秋季温泉与时令美食之旅促销旅行广告。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "cover": "/uploads/2026-09-29-case-100312-cheese-universe-food-ad.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n- #35156 GPT Image 2 编辑风格美食海报提示词: 使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
     "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100312",
       "35156",
       "100288",
       "34045",
-      "33816",
-      "33814"
+      "33816"
     ]
   },
   {
