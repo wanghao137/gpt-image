@@ -1,5 +1,32 @@
 [
   {
+    "id": "100313",
+    "title": "照片转高端极简展览海报",
+    "category": "海报与排版",
+    "styles": [
+      "Minimal",
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand",
+      "Editorial"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Illustration",
+      "Editorial",
+      "Minimal",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-09-29-case-100313-minimal-photo-gallery-poster.jpg",
+    "imageAlt": "照片转高端极简展览海报",
+    "prompt": "Transform any uploaded photo into a standalone, high-end, minimalist-style poster. Use an overall 3:4 vertical composition, divided into top and bottom zones with a strict 1:1 height ratio, each occupying 50% of the canvas.\n\nTOP HALF: Retain the original photo - preserving its main structure, authentic texture, natural lighting, and original color atmosphere - while applying only subtle adjustments to evoke an artistic photography or gallery-exhibition aesthetic. To fit the format, naturally extend the sky, ground, or background, but do not stretch, distort, or alter the main subject.\n\nBOTTOM HALF: Abstract the subject's most recognizable outline and structure using simple geometric shapes, flat color blocks, fine line work, and negative space to create a minimalist, vector-style graphic. Avoid realistic illustrations or complex details, yet preserve the subject's key features so the original remains instantly recognizable.\n\nCOLOR & COMPOSITION: Derive the color palette from the image above and incorporate a few horizontal lines, vertical lines, or abstract circular elements. Use a beige or light-colored background with ample negative space; center the main subject within a balanced, restrained composition. You may add a simple English title.\n\nSTYLE: Draw stylistic inspiration from international design, architectural posters, art exhibition posters, and luxury visual systems to achieve a high-end, modern, elegant, and artistic look; avoid common filters, cheap or low-quality aesthetics, cartoon styles, digital effects, or generic template vibes.",
+    "promptPreview": "Transform any uploaded photo into a standalone, high-end, minimalist-style poster. Use an overall 3:4 vertical composition, divided into top and bottom zones with a strict 1:1 height ratio, each occupying 50% of the can…",
+    "source": "Community collected via @cheerselflin",
+    "createdAt": "2026-09-28T20:07:47.310Z"
+  },
+  {
     "id": "100312",
     "title": "芝士宇宙美食大片竖版广告",
     "category": "产品与电商",
