@@ -1041,18 +1041,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/uploads/2026-09-29-case-100312-cheese-universe-food-ad.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n- #35524 GPT Image 2 提示词：咖啡馆编发人像: 用于生成一位坐在咖啡馆里、面前摆着蛋糕和咖啡的编发女性逼真肖像的提示词。\n- #35519 写实咖啡馆人像提示词: 一份详细的提示词，用于使用 GPT Image 2 生成一位在户外咖啡馆的东亚女性写实肖像，重点在于自然光线和面料细节。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "https://cms-assets.youmind.com/media/1790582680033_2nl3qu_HTO5TUrWUAA_eAK.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35576 日式餐厅柠檬沙瓦菜单: 多伦多一家日式餐厅的桌面宣传菜单卡片，推广其招牌饮品柠檬沙瓦。\n- #35569 带配料表的写实风备餐罐: 生成一个写实的美食摄影场景的提示词，展示分层墨西哥风味鸡肉沙拉玻璃罐，并包含手写配料表叠加层。\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35576",
+      "35569",
       "100312",
       "35524",
-      "35519",
-      "35156",
-      "35107"
+      "35519"
     ]
   },
   {
@@ -1065,18 +1065,18 @@
       "Detail"
     ],
     "description": "把产品主图、功能卖点和场景利益点组织成电商视觉。",
-    "cover": "https://cms-assets.youmind.com/media/1790322673391_mtgug8_HS_O2ZbXMAEs32D.jpg",
-    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35399 奢华西装时尚大片提示词: 用于生成高端奢华时尚广告图像的提示词，画面中一位身着定制黑色西装的男士置身于极简主义摄影棚内，配以戏剧性灯光效果。\n- #100291 微型工人上妆的奢侈腮红广告大片: Create an ultra-realistic, high-end luxury beauty advertisement inspired by premium editorial c…\n- #100289 暗调电影感香水产品摄影：黑金高级质感: Luxury perfume product photography in a dark cinematic studio. A premium black matte perfume bo…\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
+    "cover": "https://cms-assets.youmind.com/media/1790582678880_pdo5pi_HTPw8F4WsAAOrd9.jpg",
+    "prompt": "模板：电商详情页卖点图\n用途：用于淘宝、天猫、京东、独立站主图和详情页模块。\n视觉方向：Product / Commerce / Detail / Studio / Poster / Realistic / Illustration / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「产品主体、包装材质、卖点标签、使用场景和转化信息」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35574 哑光黑 B.AI 键盘键帽: 生成一张逼真的产品图，展示带有“B.AI”标志的定制黑色机械键盘键帽，适用于科技品牌宣传或硬件模型展示。\n- #35570 LEGO 人仔变身: 在 ChatGPT 上使用 GPT Image 2 将上传的照片转换为 LEGO 风格人仔的详细提示词，保留人物身份和服装细节。\n- #35399 奢华西装时尚大片提示词: 用于生成高端奢华时尚广告图像的提示词，画面中一位身着定制黑色西装的男士置身于极简主义摄影棚内，配以戏剧性灯光效果。\n\n使用建议：\n- 先锁定 产品主体、包装材质、卖点标签、使用场景和转化信息。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免包装文字错乱、卖点过密、道具遮挡核心产品。",
     "useWhen": "用于淘宝、天猫、京东、独立站主图和详情页模块。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35574",
+      "35570",
       "35399",
       "100291",
-      "100289",
-      "34470",
-      "100288"
+      "100289"
     ]
   },
   {
@@ -1089,18 +1089,18 @@
       "Series"
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
-    "cover": "https://cms-assets.youmind.com/media/1790495308561_3om4x5_HTMeoUbaMAApgSf.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35528 涩谷足球少女广告牌宣传活动: 一张逼真的照片，展示了一位年轻的女足球运动员穿过涩谷十字路口，周围环绕着巨大的广告牌，上面印有她的肖像和关于足球的励志名言。\n- #35526 交叉腿时尚姿势的动漫女孩: 生成一位穿着白衬衫和黑裤子的时尚女性的动漫风格肖像，采用交叉腿姿势，非常适合角色设计或时尚插画提示词。\n- #35525 GPT Image 2 提示词：灰色健身房休憩: 用于生成一张写实照片的提示词，画面中一名女子戴着耳机躺在健身房地面上休息，身旁有一根杠铃。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "cover": "https://cms-assets.youmind.com/media/1790582674363_5zft0l_HTAHZt3XUAEl9IP.jpg",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35568 赛博朋克工业走廊飞溅场景: 生成赛博朋克风格数字插画的提示词，描绘模特身处工业走廊，服务器面板溅出明亮橙色液体，强调高对比度与超现实氛围。\n- #35566 GPT Image 2 奢华建筑人像提示词: 用于在豪华建筑的石阶上创作女性逼真时尚人像的详细提示词。\n- #35528 涩谷足球少女广告牌宣传活动: 一张逼真的照片，展示了一位年轻的女足球运动员穿过涩谷十字路口，周围环绕着巨大的广告牌，上面印有她的肖像和关于足球的励志名言。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35568",
+      "35566",
       "35528",
       "35526",
-      "35525",
-      "35524",
-      "35519"
+      "35525"
     ]
   },
   {
@@ -1137,18 +1137,18 @@
       "KV"
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
-    "cover": "https://cms-assets.youmind.com/media/1789717708670_l9g6hd_HSaRCE7aEAARvTd.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34929 中秋节排版海报提示词: 用于生成极简主义、实验性排版海报的提示词，以中秋节为主题，特色为大号无衬线字体和 Gucci 红色点缀。\n- #34658 中秋排版海报: 一张黑白极简主义排版海报，以大型中文字体和英文点缀为特色，庆祝中秋节。\n- #31825 复古中秋节海报: 生成一张优雅的中国中秋节海报，包含巨型月亮、书法、桂花枝以及精致的复古编辑排版。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "cover": "https://cms-assets.youmind.com/media/1790582677205_5ehl8k_HTMB2iVaIAAOhn3.jpg",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35571 新年蜕变海报: 用于创建具有严格面部保留和分裂视觉主题的电影感新年蜕变海报的详细提示词。\n- #34929 中秋节排版海报提示词: 用于生成极简主义、实验性排版海报的提示词，以中秋节为主题，特色为大号无衬线字体和 Gucci 红色点缀。\n- #34658 中秋排版海报: 一张黑白极简主义排版海报，以大型中文字体和英文点缀为特色，庆祝中秋节。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35571",
       "34929",
       "34658",
       "31825",
-      "31561",
-      "31537"
+      "31561"
     ]
   },
   {
@@ -1257,18 +1257,18 @@
       "Sheet"
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
-    "cover": "/uploads/2026-09-26-case-483720-character-breakdown.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Illustration / Editorial / Minimal / Portrait / Commerce / Brand / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100307 角色概念全解构图：服装分层与随身物品拆解: Generate a comprehensive character concept breakdown image based on Image 1 character. The imag…\n- #35336 地狱犬角色设定信息图: 一张详细的地狱犬守护者奇幻角色设定表，包含属性数据、解剖研究、行为姿态以及与其主人——一只名为 Stinky 的猫咪共同立下的守护誓言。\n- #35236 高质量体素游戏素材表: 一个用于将简单的像素艺术游戏素材升级为高质量、细节丰富的体素插画的提示词，同时保留原始布局和标签。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "cover": "https://cms-assets.youmind.com/media/1790582680620_gojkh2_HTOaV5CaQAAZria.jpg",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Illustration / Editorial / Minimal / Portrait / Commerce / Brand / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35577 Giant Police Robot in Rainy Tokyo Protest: A futuristic concept art piece featuring a colossal 'MPD' mech monitoring a rainy demonstration…\n- #35568 赛博朋克工业走廊飞溅场景: 生成赛博朋克风格数字插画的提示词，描绘模特身处工业走廊，服务器面板溅出明亮橙色液体，强调高对比度与超现实氛围。\n- #100307 角色概念全解构图：服装分层与随身物品拆解: Generate a comprehensive character concept breakdown image based on Image 1 character. The imag…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35577",
+      "35568",
       "100307",
       "35336",
-      "35236",
-      "100304",
-      "35009"
+      "35236"
     ]
   },
   {
@@ -1305,18 +1305,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "https://cms-assets.youmind.com/media/1790322668527_pv2bjd_HS-9UVVaMAERLP8.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / Poster / Realistic / Editorial / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35394 抓拍智能手机照片提示词: 一个详细的提示词，用于生成一张极具真实感的年轻女性在建筑工地附近的抓拍智能手机照片，强调自然的不完美感和相机特性。\n- #100300 云端悬浮都市科幻电影概念场景: Create an ultra-photorealistic, breathtaking cinematic 8K image of a colossal futuristic city f…\n- #34325 Underwater Risograph Diptych: A serene split-panel underwater composition pairing a dreamy aquatic photo scene with a poetic …\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "https://cms-assets.youmind.com/media/1790582673143_7w3k6a_HTRsqxfbcAA0i8s.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / Poster / Realistic / Editorial / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35566 GPT Image 2 奢华建筑人像提示词: 用于在豪华建筑的石阶上创作女性逼真时尚人像的详细提示词。\n- #35394 抓拍智能手机照片提示词: 一个详细的提示词，用于生成一张极具真实感的年轻女性在建筑工地附近的抓拍智能手机照片，强调自然的不完美感和相机特性。\n- #100300 云端悬浮都市科幻电影概念场景: Create an ultra-photorealistic, breathtaking cinematic 8K image of a colossal futuristic city f…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35566",
       "35394",
       "100300",
       "34325",
-      "34324",
-      "34313"
+      "34324"
     ]
   },
   {
@@ -1353,18 +1353,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "https://cms-assets.youmind.com/media/1790495307844_9anviz_HTJFLq2bwAAdlYu.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35526 交叉腿时尚姿势的动漫女孩: 生成一位穿着白衬衫和黑裤子的时尚女性的动漫风格肖像，采用交叉腿姿势，非常适合角色设计或时尚插画提示词。\n- #35523 迷幻龙刺绣艺术: 用于创建充满活力、具有刺绣质感的迷幻数字插画的提示词，描绘了一条从螺旋漩涡中浮现的龙。\n- #35515 超现实食物故事书插画: 一个针对 gpt-image-2 的复杂提示词，可将上传的食物或物体照片转化为超现实的编辑风格艺术作品，使拍摄主体无缝融入下方充满奇思妙想的手绘故事书插画中。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "https://cms-assets.youmind.com/media/1790582678960_dhy07t_HTOvngwaEAAJ2jL.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35575 Libra Constellation Girl Holding Opal: An anime illustration of a girl holding a glowing opal under the Libra constellation at night, …\n- #35568 赛博朋克工业走廊飞溅场景: 生成赛博朋克风格数字插画的提示词，描绘模特身处工业走廊，服务器面板溅出明亮橙色液体，强调高对比度与超现实氛围。\n- #35526 交叉腿时尚姿势的动漫女孩: 生成一位穿着白衬衫和黑裤子的时尚女性的动漫风格肖像，采用交叉腿姿势，非常适合角色设计或时尚插画提示词。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35575",
+      "35568",
       "35526",
       "35523",
-      "35515",
-      "35467",
-      "35457"
+      "35515"
     ]
   },
   {
@@ -1377,18 +1377,18 @@
       "Commercial"
     ],
     "description": "生成高端食品/饮品的商业广告级视觉。",
-    "cover": "/uploads/2026-09-29-case-100312-cheese-universe-food-ad.jpg",
-    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n- #35156 GPT Image 2 编辑风格美食海报提示词: 使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。\n- #100288 筷子挑面的油润瞬间：爆款美食摄影参数模板: { \"content_goal\": \"viral food visual with high appetite appeal\", \"image_type\": \"ultra-photoreal…\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
+    "cover": "https://cms-assets.youmind.com/media/1790582676464_jtxexk_HTRAdKCaAAAL1LT.jpg",
+    "prompt": "模板：食品产品广告大片\n用途：用于食品广告、饮品宣传、餐饮营销和电商主图。\n视觉方向：Food / Ad / Commercial / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35569 带配料表的写实风备餐罐: 生成一个写实的美食摄影场景的提示词，展示分层墨西哥风味鸡肉沙拉玻璃罐，并包含手写配料表叠加层。\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n- #35156 GPT Image 2 编辑风格美食海报提示词: 使用 GPT Image 2 生成垂直编辑风格美食海报的提示词，展示带有建筑感蒸汽效果的蒸饺。\n\n使用建议：\n- 先锁定 食品质感、高速摄影瞬间、品牌色调、商业光影和食欲感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免食物看起来不新鲜、光线平淡和缺乏食欲吸引力。",
     "useWhen": "用于食品广告、饮品宣传、餐饮营销和电商主图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35569",
       "100312",
       "35156",
       "100288",
-      "34045",
-      "33816"
+      "34045"
     ]
   },
   {
