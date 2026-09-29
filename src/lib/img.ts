@@ -40,9 +40,11 @@ const SITE_ORIGIN =
  * avoids a fetch round-trip just to discover what's available.
  *
  * If you change this list, also bump scripts/build-images.mjs and rerun
- * `node scripts/build-images.mjs --force`.
+ * `node scripts/build-images.mjs --force`. 1280 was added 2026-09-29 with the
+ * store-backed case pipeline (/images/cases/*): DPR-3 phone detail heroes
+ * need ~1180 physical px, which the old 960 cap underserved.
  */
-export const LOCAL_WEBP_WIDTHS = [320, 480, 640, 960] as const;
+export const LOCAL_WEBP_WIDTHS = [320, 480, 640, 960, 1280] as const;
 
 export interface ImgOpts {
   /** Render width in CSS pixels. Most call sites pass this; we ignore it

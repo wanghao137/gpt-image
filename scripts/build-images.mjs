@@ -62,14 +62,27 @@ import {
   writeFileSync,
 } from "node:fs";
 import { createHash } from "node:crypto";
-import { dirname, extname, resolve } from "node:path";
+import { basename, dirname, extname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import {
   applyImageRewrites,
   isRetriableImageFetchFailure,
   shouldProcessExistingVariants,
+  storeBaseForCase,
+  storeLocalUrlFor,
+  storeKeysFor,
+  bakeSourceCandidates,
+  manifestUpsert,
+  localisedShare,
 } from "./build-images-core.mjs";
+import { xOriginalUrl } from "../src/lib/img-xorig-core.mjs";
+import {
+  storeEnvReady,
+  storeClient,
+  storePut,
+  B2_STORE_BUCKET,
+} from "./image-store-client.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -79,13 +92,108 @@ const CACHE_DIR = resolve(ROOT, "node_modules/.image-cache");
 const UPLOADS_DIR = resolve(PUBLIC_DIR, "uploads");
 
 /**
- * Remote CDN hosts whose images we intentionally do NOT localise. The YouMind
- * upstream serves images from cms-assets.youmind.com — with 12K+ prompts that's
- * 50K+ variants to download + encode per build, which is impractical (and
- * unnecessary since the CDN is fast and globally distributed). We leave these
- * URLs untouched so the browser loads them directly.
+ * Remote CDN hosts whose images we intentionally do NOT localise in LEGACY
+ * mode (no store credentials): the YouMind upstream serves images from
+ * cms-assets.youmind.com — with 12K+ prompts that's 50K+ variants to download
+ * + encode per build, impractical for a local prebuild.
+ *
+ * STORE mode (--store + B2 credentials, used by CI) localises EVERYTHING:
+ * the 2026-09 CN outage proved hot-linking YouMind (and routing browsers
+ * through wsrv.nl) is unreachable from mainland mobile networks. Store mode
+ * bakes each external case into the B2 image store and points imageUrl at
+ * /images/cases/<base>.jpg, served same-origin via a Vercel proxy rewrite.
  */
 const SKIP_LOCALISE_HOSTS = ["cms-assets.youmind.com"];
+
+/**
+ * Store-mode bake for one external record: resolve raw bytes (X original
+ * first — YouMind filenames embed the media key — then the origin copy),
+ * encode the canonical JPEG + full WebP ladder, upload everything to the
+ * B2 store, and report the canonical local path so applyImageRewrites
+ * points the record at /images/cases/<base>.jpg. Resume-safe: a manifest
+ * entry for this base short-circuits the network entirely.
+ */
+async function storeBakeOne(rec) {
+  const baseName = outputBaseName(rec.kind, rec.id, rec.url);
+  const canonicalPath = storeLocalUrlFor(baseName);
+
+  const prior = storeManifest.entries?.[baseName];
+  if (prior && !FORCE) {
+    return { ok: true, rec, canonicalPath, skipped: true };
+  }
+
+  const keys = storeKeysFor(baseName, VARIANTS);
+  const variants = [
+    { key: keys.jpg, width: MAX_WIDTH, format: "jpg" },
+    ...VARIANTS.map((w) => ({
+      key: `cases/${baseName}-${w}.webp`,
+      width: w,
+      format: "webp",
+    })),
+  ];
+
+  let raw = null;
+  let source = null;
+  let lastError = null;
+  for (const cand of bakeSourceCandidates(rec.url, xOriginalUrl)) {
+    try {
+      if (cand.kind === "x-orig") await jitterSleep();
+      raw = await fetchCached(cand.url);
+      source = cand.kind;
+      break;
+    } catch (err) {
+      lastError = err;
+    }
+  }
+  if (!raw) {
+    // Both sources dead (deleted tweet AND vanished YouMind copy). Record a
+    // failed marker so the gate allows the untouched external URL and the
+    // next backfill chunk retries this base automatically.
+    storeManifest = manifestUpsert(storeManifest, baseName, {
+      widths: [],
+      jpgBytes: 0,
+      webpBytes: {},
+      source: "failed",
+      bakedAt: new Date().toISOString(),
+    });
+    storeManifestDirty = true;
+    return { ok: false, rec, err: lastError };
+  }
+
+  const webpBytes = {};
+  let jpgBytes = 0;
+  let bytesOut = 0;
+  for (const v of variants) {
+    const encoded = await encodeVariant(raw, v.width, v.format);
+    await storePut(
+      storeClientSingleton,
+      v.key,
+      encoded,
+      v.format === "webp" ? "image/webp" : "image/jpeg",
+    );
+    if (v.format === "webp") webpBytes[v.width] = encoded.length;
+    else jpgBytes = encoded.length;
+    bytesOut += encoded.length;
+  }
+
+  storeManifest = manifestUpsert(storeManifest, baseName, {
+    widths: VARIANTS,
+    jpgBytes,
+    webpBytes,
+    source,
+    bakedAt: new Date().toISOString(),
+  });
+  storeManifestDirty = true;
+
+  return {
+    ok: true,
+    rec,
+    canonicalPath,
+    processed: variants.length,
+    bytesIn: raw.length,
+    bytesOut,
+  };
+}
 
 function shouldSkipLocalise(url) {
   if (!url || typeof url !== "string") return false;
@@ -114,13 +222,37 @@ const CONCURRENCY =
 const MAX_WIDTH = Number(process.env.IMAGE_MAX_WIDTH || 1200);
 const QUALITY = Number(process.env.IMAGE_QUALITY || 80);
 const WEBP_Q = Number(process.env.IMAGE_WEBP_Q || 78);
-const VARIANTS = (process.env.IMAGE_VARIANTS || "320,480,640,960")
+const VARIANTS = (process.env.IMAGE_VARIANTS || "320,480,640,960,1280")
   .split(",")
   .map((s) => Number(s.trim()))
   .filter((n) => Number.isFinite(n) && n > 0)
   .sort((a, b) => a - b);
 const SKIP_NET = process.env.IMAGE_SKIP_NET === "1";
 const FETCH_RETRIES = Number(process.env.IMAGE_FETCH_RETRIES || 3);
+
+/**
+ * Store mode (--store + B2 credentials, used by CI) localises EVERYTHING —
+ * see the SKIP_LOCALISE_HOSTS note above. Without credentials we run in
+ * legacy disk mode exactly as before, so local prebuilds stay hermetic.
+ */
+const STORE = args.has("--store") && storeEnvReady();
+if (args.has("--store") && !storeEnvReady()) {
+  console.warn(
+    "  --store requested but B2_STORE_* env is missing — running in legacy disk mode.",
+  );
+}
+const STORE_CONCURRENCY = Number(process.env.IMAGE_STORE_CONCURRENCY || 4);
+const STORE_JITTER_MS = Number(process.env.IMAGE_STORE_JITTER_MS || 200);
+const MANIFEST_PATH = resolve(ROOT, "data/image-store.json");
+let storeManifest = existsSync(MANIFEST_PATH)
+  ? readJson(MANIFEST_PATH)
+  : { version: 1, entries: {} };
+let storeManifestDirty = false;
+const storeClientSingleton = STORE ? storeClient() : null;
+
+function jitterSleep() {
+  return sleep(STORE_JITTER_MS * (0.5 + Math.random()));
+}
 
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(CACHE_DIR, { recursive: true });
@@ -304,7 +436,20 @@ async function pmap(items, fn, n) {
  * variant width to VARIANTS only re-encodes the missing widths.
  */
 async function processOne(rec) {
-  const baseName = outputBaseName(rec.kind, rec.id, rec.url);
+  // Store mode: external sources bake to the B2 store instead of public/.
+  // Local-file records (uploads, legacy canonicals) keep the disk path so
+  // committed assets and their variants stay in sync.
+  if (STORE && rec.kind !== "upload" && !rec.localFile && /^https?:\/\//i.test(rec.url)) {
+    return storeBakeOne(rec);
+  }
+  // Local-file records name their output after the FILE ON DISK that the
+  // data references, not outputBaseName(kind, id) — template covers and
+  // legacy /images/* canonicals keep their published names, so re-runs
+  // emit ladders beside the referenced canonical instead of manufacturing
+  // a second name that data would flip-flop to on every local build.
+  const baseName = rec.localFile
+    ? basename(rec.localFile).replace(/\.[^.]+$/, "")
+    : outputBaseName(rec.kind, rec.id, rec.url);
   const canonicalPath = `/images/${baseName}.jpg`;
   const canonicalFile = resolve(OUT_DIR, `${baseName}.jpg`);
 
@@ -427,10 +572,17 @@ async function main() {
   let cases = [];
   if (existsSync(CASES_PATH)) {
     cases = readJson(CASES_PATH);
-    for (const c of cases) {
+    // Backfill slicing: IMAGE_SLICE="start,end" (0-based, end-exclusive)
+    // restricts which case records this run considers at all.
+    const sliceRaw = process.env.IMAGE_SLICE || "";
+    const slice = sliceRaw
+      ? sliceRaw.split(",").map((n) => Number(n.trim()))
+      : null;
+    for (const [idx, c] of cases.entries()) {
+      if (slice && (idx < slice[0] || idx >= slice[1])) continue;
       if (c.imageUrl && /^https?:\/\//i.test(c.imageUrl)) {
-        if (shouldSkipLocalise(c.imageUrl)) {
-          // Remote CDN we don't localise (e.g. YouMind) — leave as-is.
+        if (shouldSkipLocalise(c.imageUrl) && !STORE) {
+          // Remote CDN we don't localise in legacy mode (e.g. YouMind).
           continue;
         }
         // Remote upstream URL (first build, or new case from sync).
@@ -470,7 +622,7 @@ async function main() {
     templates = readJson(TEMPLATES_PATH);
     for (const t of templates) {
       if (t.cover && /^https?:\/\//i.test(t.cover)) {
-        if (shouldSkipLocalise(t.cover)) continue;
+        if (shouldSkipLocalise(t.cover) && !STORE) continue;
         tasks.push({ kind: "template", targetKind: "template", id: t.id, url: t.cover });
       } else if (t.cover?.startsWith("/images/")) {
         const localFile = resolve(PUBLIC_DIR, t.cover.replace(/^\/+/, ""));
@@ -525,8 +677,12 @@ async function main() {
       `  webp: [${VARIANTS.join(", ")}] q=${WEBP_Q}`,
   );
 
-  // Step 2: process them with bounded concurrency.
-  const results = await pmap(tasks, processOne, CONCURRENCY);
+  // Step 2: process them with bounded concurrency. Store mode clamps the
+  // floor further — X soft-bans shared egress IPs past ~60 rapid fetches.
+  const effectiveConcurrency = STORE
+    ? Math.min(CONCURRENCY, STORE_CONCURRENCY)
+    : CONCURRENCY;
+  const results = await pmap(tasks, processOne, effectiveConcurrency);
 
   // Step 3: rewrite cases.json + templates.json `imageUrl` / `cover`.
   // Successful sources point at their canonical baked JPEG. If a remote
@@ -580,6 +736,16 @@ async function main() {
   if (templatesRewrites > 0) {
     writeJson(TEMPLATES_PATH, templates, { pretty: true });
     console.log(`  rewrote cover on ${templatesRewrites} templates -> ${TEMPLATES_PATH}`);
+  }
+
+  if (STORE) {
+    writeJson(MANIFEST_PATH, storeManifest);
+    const share = localisedShare(cases);
+    console.log(
+      `  store manifest -> ${MANIFEST_PATH} ` +
+        `(${Object.keys(storeManifest.entries).length} bases, bucket=${B2_STORE_BUCKET}, ` +
+        `localised ${(share * 100).toFixed(2)}%)`,
+    );
   }
 
   const ratio =

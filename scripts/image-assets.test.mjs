@@ -4,11 +4,14 @@ import { join } from "node:path";
 import test from "node:test";
 
 const PLACEHOLDER_PATH = "/images/image-unavailable.svg";
-const WEBP_WIDTHS = [320, 480, 640, 960];
+const WEBP_WIDTHS = [320, 480, 640, 960, 1280];
+const MANIFEST_PATH = "data/image-store.json";
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, "utf8"));
 }
+
+const manifest = existsSync(MANIFEST_PATH) ? readJson(MANIFEST_PATH) : null;
 
 function assertLocalImageAsset(src, label) {
   assert.notEqual(src, PLACEHOLDER_PATH, `${label} points at the unavailable placeholder`);
@@ -18,13 +21,29 @@ function assertLocalImageAsset(src, label) {
     return;
   }
 
-  if (!src.startsWith("/images/")) return;
-  assert.ok(existsSync(join("public", src)), `${label} is missing ${src}`);
+  if (!src.startsWith("/images/cases/")) {
+    if (!src.startsWith("/images/")) return;
+    assert.ok(existsSync(join("public", src)), `${label} is missing ${src}`);
+    const base = src.replace(/\.(?:jpg|jpeg|png)$/i, "");
+    for (const width of WEBP_WIDTHS) {
+      const variant = `${base}-${width}.webp`;
+      assert.ok(existsSync(join("public", variant)), `${label} is missing ${variant}`);
+    }
+    return;
+  }
 
-  const base = src.replace(/\.(?:jpg|jpeg|png)$/i, "");
+  // Store-backed ladder: bytes live in the B2 image store (served same-origin
+  // via a Vercel proxy rewrite), so the contract is the committed manifest.
+  assert.ok(manifest, `${label} points at ${src} but data/image-store.json is missing`);
+  const base = src.replace(/^\/images\/cases\//, "").replace(/\.(?:jpg|jpeg|png)$/i, "");
+  const entry = manifest.entries?.[base];
+  assert.ok(entry, `${label} (${base}) is missing from the image store manifest`);
+  assert.ok(entry.jpgBytes > 0, `${label} (${base}) has an empty canonical JPEG`);
   for (const width of WEBP_WIDTHS) {
-    const variant = `${base}-${width}.webp`;
-    assert.ok(existsSync(join("public", variant)), `${label} is missing ${variant}`);
+    assert.ok(
+      (entry.webpBytes?.[width] || 0) > 0,
+      `${label} (${base}) is missing store width ${width}`,
+    );
   }
 }
 

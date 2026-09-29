@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import "dotenv/config";
 import react from "@vitejs/plugin-react";
 import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -41,6 +42,19 @@ const staticEntryCopies = {
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), staticEntryCopies],
+  // Local dev: store-backed case images live in the B2 bucket behind a
+  // Vercel proxy rewrite on production; mirror that path here so dev pages
+  // render them without a deploy. Fill the region once the bucket exists.
+  server: {
+    proxy: {
+      "/images/cases": {
+        target: "https://f005.backblazeb2.com/file/taostudio-img",
+        changeOrigin: true,
+        headers: { Authorization: process.env.B2_STORE_APP_KEY || "" },
+        rewrite: (p: string) => p.replace(/^\/images\/cases/, "/cases"),
+      },
+    },
+  },
   build: {
     // SSR build needs top-level await (used in data.ts for conditional data
     // loading). Client build stays at es2020 for broader browser compat.

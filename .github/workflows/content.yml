@@ -78,6 +78,16 @@ jobs:
       - name: Apply v2 field migrations
         run: npm run migrate
 
+      - name: Bake case images to the B2 store
+        # Store mode: localise every external case/template image into the
+        # B2 store and rewrite imageUrl to /images/cases/* (served same-origin
+        # via a Vercel proxy rewrite). Resume-safe via data/image-store.json.
+        env:
+          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+          B2_STORE_BUCKET: taostudio-img
+          B2_STORE_REGION: us-east-005
+        run: node scripts/build-images.mjs --store
       - name: Regenerate derived shards
         # sync rewrites public/data/cases.json but not the shards/index/search
         # files; without this step the checked-in artifacts drift apart and
@@ -91,12 +101,12 @@ jobs:
       - name: Detect changes
         id: diff
         run: |
-          if [ -z "$(git status --porcelain -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
+          if [ -z "$(git status --porcelain -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No data changes — skipping commit." >> "$GITHUB_STEP_SUMMARY"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            git diff --stat -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json >> "$GITHUB_STEP_SUMMARY"
+            git diff --stat -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Commit and push
@@ -143,8 +153,8 @@ jobs:
               # committing regenerated shards from it.
               npm run check
             fi
-            git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json
-            if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json)" ]; then
+            git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images
+            if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images)" ]; then
               echo "No data changes after re-sync — nothing to commit."
               echo "pushed=false" >> "$GITHUB_OUTPUT"
               echo "::endgroup::"

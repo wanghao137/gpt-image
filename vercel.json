@@ -8,6 +8,10 @@
     {
       "source": "/case/:slug*",
       "destination": "/spa"
+    },
+    {
+      "source": "/images/cases/:path*",
+      "destination": "/api/img-case?key=:path*"
     }
   ],
   "headers": [

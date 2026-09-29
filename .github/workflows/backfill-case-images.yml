@@ -1,0 +1,90 @@
+name: Backfill Case Image Store
+
+# One-off (re-runnable) backfill: bakes every external case/template image
+# into the B2 store and rewrites imageUrl to /images/cases/*. Resume-safe —
+# data/image-store.json short-circuits already-baked bases, so re-running
+# with the same or shifted range only processes what's missing. Chunked via
+# inputs to stay inside the 6h job ceiling; run chunks sequentially (the
+# data-sync concurrency group keeps it serialized against sync/content).
+#
+# After each chunk the workflow commits the manifest + rewritten data, so a
+# later chunk (or the daily sync) continues from committed state.
+
+on:
+  workflow_dispatch:
+    inputs:
+      range_start:
+        description: "0-based start index into cases.json (inclusive)"
+        default: "0"
+      range_end:
+        description: "end index into cases.json (exclusive); empty = all"
+        default: ""
+      limit:
+        description: "max records to bake this run (0 = no cap)"
+        default: "400"
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: data-sync
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bake slice to the B2 store
+        env:
+          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+          B2_STORE_BUCKET: taostudio-img
+          B2_STORE_REGION: us-east-005
+          BACKFILL_RANGE_START: ${{ inputs.range_start }}
+          BACKFILL_RANGE_END: ${{ inputs.range_end }}
+          BACKFILL_LIMIT: ${{ inputs.limit }}
+        run: node scripts/backfill-case-images.mjs
+
+      - name: Regenerate derived shards
+        run: node scripts/split-data.mjs
+
+      - name: Verify (typecheck + tests)
+        run: npm run check
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data data/image-store.json public/images
+          if [ -z "$(git diff --cached --name-only)" ]; then
+            echo "Nothing to commit for this slice."
+            exit 0
+          fi
+          git commit -m "images(store): backfill slice [$BACKFILL_RANGE_START,$BACKFILL_RANGE_END) -> /images/cases" \
+            -m "Triggered by workflow_dispatch on $(date -u +%Y-%m-%d) UTC"
+          attempt=0
+          until git push origin HEAD:main; do
+            attempt=$((attempt + 1))
+            if [ $attempt -ge 3 ]; then echo "::warning::push rejected 3x; next chunk reconciles"; exit 0; fi
+            git fetch origin main && git reset --hard origin/main
+            node scripts/backfill-case-images.mjs
+            git add public/data data/image-store.json public/images
+            git commit -m "images(store): backfill retry slice [$BACKFILL_RANGE_START,$BACKFILL_RANGE_END)"
+          done
