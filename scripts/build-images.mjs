@@ -163,17 +163,24 @@ async function storeBakeOne(rec) {
   const webpBytes = {};
   let jpgBytes = 0;
   let bytesOut = 0;
-  for (const v of variants) {
-    const encoded = await encodeVariant(raw, v.width, v.format);
-    await storePut(
-      storeClientSingleton,
-      v.key,
-      encoded,
-      v.format === "webp" ? "image/webp" : "image/jpeg",
-    );
-    if (v.format === "webp") webpBytes[v.width] = encoded.length;
-    else jpgBytes = encoded.length;
-    bytesOut += encoded.length;
+  try {
+    for (const v of variants) {
+      const encoded = await encodeVariant(raw, v.width, v.format);
+      await storePut(
+        storeClientSingleton,
+        v.key,
+        encoded,
+        v.format === "webp" ? "image/webp" : "image/jpeg",
+      );
+      if (v.format === "webp") webpBytes[v.width] = encoded.length;
+      else jpgBytes = encoded.length;
+      bytesOut += encoded.length;
+    }
+  } catch (err) {
+    // Transient store failure (one B2 PUT blip must NOT kill the whole
+    // chunk — 2026-09-29 chunk-B incident). No manifest marker: the next
+    // run retries this base (unlike the both-sources-dead "failed" mark).
+    return { ok: false, rec, err };
   }
 
   storeManifest = manifestUpsert(storeManifest, baseName, {
@@ -421,7 +428,9 @@ async function pmap(items, fn, n) {
       try {
         out[i] = await fn(items[i], i);
       } catch (err) {
-        out[i] = { ok: false, err };
+        // Carry the record so the summary can log kind#id even on throw —
+        // a rec-less entry crashed the summary loop once (2026-09-29).
+        out[i] = { ok: false, rec: items[i], err };
       }
     }
   });
@@ -702,7 +711,10 @@ async function main() {
     if (!r.ok) {
       failed += 1;
       const e = r.err instanceof Error ? r.err.message : String(r.err);
-      console.warn(`  FAILED ${r.rec.kind}#${r.rec.id} <- ${r.rec.url}: ${e}`);
+      // rec can be absent on failure entries from concurrent workers —
+      // log defensively instead of crashing the summary (2026-09-29).
+      const label = r.rec ? `${r.rec.kind}#${r.rec.id} <- ${r.rec.url}` : "(record unavailable)";
+      console.warn(`  FAILED ${label}: ${e}`);
       continue;
     }
     if (r.reusedExistingFallback) {
