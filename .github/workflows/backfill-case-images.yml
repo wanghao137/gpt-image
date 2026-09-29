@@ -86,8 +86,15 @@ jobs:
           until git push origin HEAD:main; do
             attempt=$((attempt + 1))
             if [ $attempt -ge 3 ]; then echo "::warning::push rejected 3x; next chunk reconciles"; exit 0; fi
-            git fetch origin main && git reset --hard origin/main
-            node scripts/backfill-case-images.mjs
-            git add public/data data/image-store.json public/images
-            git commit -m "images(store): backfill retry slice [$BACKFILL_RANGE_START,$BACKFILL_RANGE_END)"
+            # Rebase OUR commit onto the new main — never reset --hard, which
+            # throws the chunk's own baked progress away (2026-09-29 incident:
+            # a racing push on main cost a whole 3000-case slice).
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              git reset --hard origin/main
+              node scripts/backfill-case-images.mjs
+              git add public/data data/image-store.json public/images
+              git commit -m "images(store): backfill retry slice [$BACKFILL_RANGE_START,$BACKFILL_RANGE_END)"
+            fi
           done
