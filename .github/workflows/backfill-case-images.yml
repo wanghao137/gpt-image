@@ -35,6 +35,17 @@ jobs:
   backfill:
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    # Job-level so the bake step AND the push-retry re-bake both run in
+    # store mode — the 2026-09-29 incident: a retry without creds degraded
+    # to legacy mode and threw away the chunk's manifest progress.
+    env:
+      B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+      B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+      B2_STORE_BUCKET: taostudio-img
+      B2_STORE_REGION: us-east-005
+      BACKFILL_RANGE_START: ${{ inputs.range_start }}
+      BACKFILL_RANGE_END: ${{ inputs.range_end }}
+      BACKFILL_LIMIT: ${{ inputs.limit }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -52,14 +63,6 @@ jobs:
         run: npm ci
 
       - name: Bake slice to the B2 store
-        env:
-          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
-          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
-          B2_STORE_BUCKET: taostudio-img
-          B2_STORE_REGION: us-east-005
-          BACKFILL_RANGE_START: ${{ inputs.range_start }}
-          BACKFILL_RANGE_END: ${{ inputs.range_end }}
-          BACKFILL_LIMIT: ${{ inputs.limit }}
         run: node scripts/backfill-case-images.mjs
 
       - name: Regenerate derived shards
