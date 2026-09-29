@@ -1,5 +1,28 @@
 [
   {
+    "id": "100314",
+    "title": "云间水晶玻璃质感3D悬浮标志",
+    "category": "品牌与标志",
+    "styles": [
+      "Brand"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "3D Render",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-09-30-case-crystal-glass-logo-clouds.jpg",
+    "imageAlt": "云间水晶玻璃质感3D悬浮标志",
+    "prompt": "A premium 3D stylized version of attached logo, rendered as thick, translucent crystal glass with high refraction. The object is floating amidst fluffy, realistic white cumulus clouds against a bright, clear blue sky. Soft natural sunlight creates bright caustic reflections and rainbow dispersion within the glass. Ethereal, airy, and highly polished 3D aesthetic",
+    "promptPreview": "A premium 3D stylized version of attached logo, rendered as thick, translucent crystal glass with high refraction. The object is floating amidst fluffy, realistic white cumulus clouds against a bright, clear blue sky. S…",
+    "source": "Community collected via @zazzygfx",
+    "createdAt": "2026-09-29T20:17:13.500Z"
+  },
+  {
     "id": "100313",
     "title": "照片转高端极简展览海报",
     "category": "海报与排版",
