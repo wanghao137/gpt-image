@@ -38,7 +38,7 @@ if (!externalIdx.length) {
   const failed = Object.values(manifest.entries || {}).filter((e) => e && e.source === "failed").length;
   if (!manifest.completed || manifest.completed !== true) {
     const next = { ...manifest, completed: failed === 0 ? true : "partial" };
-    fs.writeFileSync(MANIFEST_PATH, JSON.stringify(next));
+    writeFileSync(MANIFEST_PATH, JSON.stringify(next));
     console.log(`backfill: range drained — manifest.completed=${JSON.stringify(next.completed)} (failed=${failed})`);
   } else {
     console.log("backfill: nothing to bake in range — already drained and complete.");

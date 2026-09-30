@@ -136,6 +136,7 @@ jobs:
               # (store mode, idempotent vs the bucket) so the next daily bake
               # doesn't re-upload everything.
               node scripts/build-images.mjs --store
+              npm run check
             fi
             git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images
             if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images)" ]; then

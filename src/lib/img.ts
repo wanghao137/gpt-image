@@ -27,6 +27,7 @@ import {
   xOrigWsrvTransformUrl,
   xOriginalUrl,
 } from "./img-xorig-core.mjs";
+import { localImageBase } from "./img-local-core.mjs";
 
 const SITE_ORIGIN =
   typeof window !== "undefined"
@@ -127,17 +128,15 @@ export function originalBytesUrl(src: string): string {
 
 /**
  * Strip the canonical `.jpg`/`.jpeg` extension to recover the base name
- * used by build-images.mjs when emitting variants. Returns `null` for
- * paths that aren't a local /images/<base>.jpg — callers should fall
- * back to the original src when this returns null.
+ * used by build-images.mjs when emitting variants. Implementation lives in
+ * img-local-core.mjs (pure, unit-tested) and accepts ONE nested directory
+ * level so store-backed /images/cases/<base>.jpg paths resolve their WebP
+ * ladder too — without this the store cases silently fall back to the full
+ * 1200px JPEG (2026-09-30 P1 finding).
  *
  * Example: `/images/case123.jpg` → `/images/case123`
+ *          `/images/cases/case456.jpg` → `/images/cases/case456`
  */
-function localImageBase(src: string): string | null {
-  if (!isLocalImage(src)) return null;
-  const m = src.match(/^(\/images\/[^/?#]+)\.(?:jpg|jpeg|png)$/i);
-  return m ? m[1] : null;
-}
 
 /**
  * Build a same-origin WebP `srcset` for a local image. The `widths`

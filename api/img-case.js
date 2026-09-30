@@ -4,9 +4,10 @@
  * The B2 store bucket is PRIVATE (owner preference, 2026-09-29), so the
  * plain Vercel rewrite cannot fetch it — B2 rejects anonymous reads and
  * its download tokens live ≤1 day. This function SigV4-presigns a GET
- * against B2's S3 endpoint with the read credentials from env, streams
- * the bytes through, and stamps long edge-cache headers so each object
- * is fetched from B2 roughly once per edge region.
+ * against B2's S3 endpoint with the read credentials from env, buffers
+ * the object (≤ ~2MB per image, comfortably within the response limit)
+ * and stamps long edge-cache headers so each object is fetched from B2
+ * roughly once per edge region.
  *
  * MUST be ESM: package.json has "type": "module", so a CJS `require` here
  * crashes at invocation (FUNCTION_INVOCATION_FAILED, 2026-09-30).

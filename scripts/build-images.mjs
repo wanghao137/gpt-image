@@ -118,7 +118,9 @@ async function storeBakeOne(rec) {
   const canonicalPath = storeLocalUrlFor(baseName);
 
   const prior = storeManifest.entries?.[baseName];
-  if (prior && !FORCE) {
+  // "failed" markers are retry candidates, not completion — the backfill
+  // driver re-selects them, so the short-circuit must NOT skip them.
+  if (prior && prior.source !== "failed" && !FORCE) {
     return { ok: true, rec, canonicalPath, skipped: true };
   }
 
@@ -135,6 +137,7 @@ async function storeBakeOne(rec) {
   let raw = null;
   let source = null;
   let lastError = null;
+  const candidateErrors = [];
   for (const cand of bakeSourceCandidates(rec.url, xOriginalUrl)) {
     try {
       if (cand.kind === "x-orig") await jitterSleep();
@@ -143,20 +146,28 @@ async function storeBakeOne(rec) {
       break;
     } catch (err) {
       lastError = err;
+      candidateErrors.push(err);
     }
   }
   if (!raw) {
-    // Both sources dead (deleted tweet AND vanished YouMind copy). Record a
-    // failed marker so the gate allows the untouched external URL and the
-    // next backfill chunk retries this base automatically.
-    storeManifest = manifestUpsert(storeManifest, baseName, {
-      widths: [],
-      jpgBytes: 0,
-      webpBytes: {},
-      source: "failed",
-      bakedAt: new Date().toISOString(),
-    });
-    storeManifestDirty = true;
+    // A "failed" marker is only for CONFIRMED permanent death — 404/410 on
+    // every candidate (deleted tweet AND vanished YouMind copy). Transient
+    // failures (X soft-ban 429s, timeouts, 5xx blips) must stay unmarked so
+    // the next backfill chunk retries them; X soft-bans have already lasted
+    // minutes-to-hours in practice (2026-09-29 chunk-B) and must never
+    // permanently shelve thousands of live images.
+    const confirmedDead = candidateErrors.length > 0 &&
+      candidateErrors.every((e) => /^HTTP (404|410)\b/.test(String(e?.message || e)));
+    if (confirmedDead) {
+      storeManifest = manifestUpsert(storeManifest, baseName, {
+        widths: [],
+        jpgBytes: 0,
+        webpBytes: {},
+        source: "failed",
+        bakedAt: new Date().toISOString(),
+      });
+      storeManifestDirty = true;
+    }
     return { ok: false, rec, err: lastError };
   }
 

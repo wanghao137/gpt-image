@@ -94,6 +94,11 @@ jobs:
               git rebase --abort
               git reset --hard origin/main
               node scripts/backfill-case-images.mjs
+              # Regenerated from the rebased tree — shards + gate must re-run,
+              # else we can commit rewritten cases.json against stale shards
+              # (2026-09-30 review P1-4).
+              node scripts/split-data.mjs
+              npm run check
               git add public/data data/image-store.json public/images
               git commit -m "images(store): backfill retry slice [$BACKFILL_RANGE_START,$BACKFILL_RANGE_END)"
             fi
