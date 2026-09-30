@@ -52216,6 +52216,30 @@
       "prompt": "一幅高度精细的动漫风格肖像画，描绘了一位英俊的年轻男子，他留着凌乱的黑色头发，眼神深邃，瞳孔呈紫色。他头戴一顶小巧的黑色高顶礼帽，帽子上装饰着一个巨大的红紫相间格纹蝴蝶结。他嘴里叼着一支香烟，身穿一套精致的维多利亚哥特风格服装：黑色高领衬衫、配套的格纹领带（饰有红宝石胸针），以及多条金链，其中包括一个十字架吊坠。背景昏暗而充满情绪张力，点缀着各种哥特元素，如点燃的蜡烛、栖息在旧书上的乌鸦、扑克牌、骷髅头和一个鸟笼，所有这些都映衬在菱形图案的壁纸前。整幅图像被一个带有装饰性花纹的华丽金色边框所环绕。"
     }
   },
+  "35621": {
+    "en": {
+      "title": "Shopping Cart Rooftop Lifestyle Photo",
+      "description": "A photorealistic lifestyle prompt featuring a young woman relaxing in a shopping cart on a parking garage rooftop, with specific fashion details and urban background elements.",
+      "prompt": "A photorealistic lifestyle photo of a young woman relaxing inside a large metal shopping cart on the rooftop of a modern parking garage. She has long, straight dark hair and wears sleek white oval sunglasses, an oversized light-gray sweatshirt, white ankle socks, and pastel pink retro sneakers with white stripes. She sits comfortably with her legs stretched across the cart, creating a playful and carefree pose. A small cream-colored quilted shoulder bag hangs from the side of the cart, with a cardboard box placed behind her.\nThe rooftop parking area is spacious and mostly empty, with clearly marked parking spaces and EV charging stations along the wall. In the distance are modern high-rise residential buildings, power lines, and transmission towers beneath a clear blue sky. Warm late-afternoon sunlight casts long shadows across the asphalt and creates a soft golden glow. Candid street-fashion photography, realistic skin and hair texture, natural proportions, detailed clothing and metal cart, cinematic depth of field, high-resolution smartphone photo, slightly wide-angle perspective, vertical 4:5 composition."
+    },
+    "zh": {
+      "title": "购物车停车场生活方式",
+      "description": "一个用于创建逼真生活方式照片的提示词，展示了一位年轻女性在停车场屋顶的购物车中放松的场景，特色为复古运动鞋和黄金时刻的光线。",
+      "prompt": "一张逼真的生活方式照片，展示了一位年轻女性在现代停车场屋顶的大型金属购物车中放松。她留着长直黑发，戴着时尚的白色椭圆形太阳镜，穿着宽松浅灰色卫衣、白色短袜以及带白色条纹的淡粉色复古运动鞋。她舒适地坐着，双腿伸展在购物车内，营造出一种俏皮且无忧无虑的姿态。一个小巧的奶油色绗缝肩包挂在购物车侧面，身后放着一个纸箱。\n\n屋顶停车区宽敞且大部分为空，地面上有清晰标记的停车位，墙边设有电动汽车充电站。远处是现代化的高层住宅楼、电线和输电塔，背景是晴朗的蓝天。温暖的午后阳光在沥青路面上投下长长的阴影，营造出柔和的金色光晕。抓拍街头时尚摄影风格，真实的皮肤和头发纹理，自然的比例，细节丰富的服装和金属购物车，电影般的景深效果，高分辨率智能手机照片，略微广角视角，垂直 4:5 构图。"
+    }
+  },
+  "35622": {
+    "en": {
+      "title": "Hyper-realistic desert adventure portrait",
+      "description": "Generates a photorealistic outdoor scene of a woman in hiking gear on sand dunes, focusing on texture and lighting.",
+      "prompt": "Create a hyper-realistic full-body low-angle outdoor adventure portrait of the same young adult female character from the reference image, preserving her vivid violet-purple chin-length bob with straight bangs, fair porcelain skin, natural freckles across her nose and cheeks, hazel/light-brown eyes, delicate facial features, glossy lips, and slim physique.\nShe is walking across a textured sand dune while bending forward, one hand reaching down toward the sand and her head looking downward. She wears a beige and olive-green technical outdoor jacket over a neutral inner top, beige high-waisted outdoor shorts, tall tan-and-olive hiking boots with socks, a brown fabric beanie, black chest harness straps, and a small carabiner clip.\nThe background features beautiful desert sand dunes with detailed ripples, distant green trees, and a clear sky. Use warm natural daylight with soft shadows and a cinematic outdoor adventure atmosphere. Emphasize realistic sand texture, fabric details, hiking boots, individual hair strands, natural skin and freckles, cinematic depth of field, photorealistic quality, ultra-detailed 8K, premium outdoor editorial photography."
+    },
+    "zh": {
+      "title": "超写实沙漠探险人像",
+      "description": "用于生成女性角色在沙漠沙丘中的超写实全身户外探险人像的提示词，强调逼真的纹理和电影级光影效果。",
+      "prompt": "创建一张超写实的全身低角度户外探险人像，基于参考图像中的同一位年轻成年女性角色，保留她鲜艳的紫罗兰色齐下巴波波头、整齐的刘海、白皙如瓷的皮肤、鼻子和脸颊上自然的雀斑、淡褐色/浅棕色眼睛、精致的面部特征、光泽的嘴唇以及苗条的身材。\n她正弯腰穿过有质感的沙丘，一只手伸向沙子，头部向下看。她身穿一件米色和橄榄绿色的技术型户外夹克，内搭中性色上衣，下身穿着米色高腰户外短裤，脚穿棕褐色与橄榄绿相间的高筒登山靴并搭配袜子，头戴棕色针织帽，胸前佩戴黑色安全带背带，并挂有一个小型登山扣。\n背景是美丽的沙漠沙丘，具有详细的波纹纹理，远处有绿树，天空晴朗。使用温暖的自然日光，柔和的阴影，营造电影般的户外探险氛围。强调逼真的沙子纹理、织物细节、登山靴、发丝、自然皮肤和雀斑、电影级景深、照片级真实感、超高清 8K 细节、高端户外编辑摄影风格。"
+    }
+  },
   "35623": {
     "en": {
       "title": "Street Selfie with Cat in Matching Cap",
@@ -52228,6 +52252,30 @@
       "prompt": "一张逼真的特写街头自拍，画面中是一位年轻女性，留着浅棕色长卷发，妆容柔和自然。她戴着一顶复古蓝色牛仔棒球帽，身穿舒适的蓝色图案毛衣。她坐在城市人行道的户外，直视镜头，神情平静，略带嘟嘴的表情。她怀里抱着一只可爱的姜黄色虎斑猫，猫也戴着一顶小蓝色棒球帽，营造出俏皮的搭配效果。猫面向镜头，表情放松，毛发细节清晰。\n她们身后是一座优雅的欧式建筑，有着奶油色石墙、装饰着鲜艳红色窗帘的高窗、红色遮阳篷，以及停在街边的一辆深色汽车。自然日光照明，随意的智能手机自拍美学，真实的皮肤和头发质感，详细的猫毛纹理，浅景深，略微广角视角，色彩鲜艳但自然，高分辨率摄影，垂直构图。"
     }
   },
+  "35624": {
+    "en": {
+      "title": "Sci-Fi Cyan Lighting Image Effect",
+      "description": "An image transformation prompt applying futuristic sci-fi aesthetics with intense cyan side-lighting, glowing particles, and wet skin effects to an uploaded reference image.",
+      "prompt": "Apply the following effect to the attached image: the scene is illuminated by intense cyan side-lighting, with subtle particles of glowing light floating in the air. Detailed water droplets fall from wet hair and coat the skin with a realistic sheen. Lips with lip gloss. Futuristic sci-fi aesthetic, cold cinematic atmosphere, ultra-detailed."
+    },
+    "zh": {
+      "title": "科幻青色灯光效果",
+      "description": "适用于 GPT Image 2 的图像编辑提示词，可为参考图片添加强烈的青色侧光、漂浮粒子及湿润效果。",
+      "prompt": "对附加图片应用以下效果：场景被强烈的青色侧光照亮，空气中漂浮着细微的发光粒子。详细的水珠从湿润的头发上滴落，并在皮肤上形成逼真的光泽感。嘴唇涂有唇彩。未来主义科幻美学，冷色调电影氛围，超高清细节。"
+    }
+  },
+  "35626": {
+    "en": {
+      "title": "Painterly Warplane to Photorealism",
+      "description": "Reverse-engineered prompt to convert a hand-drawn illustration of a WWII fighter plane into a hyper-realistic, cinematic aerial shot.",
+      "prompt": "Using the provided reference image, transform this hand-painted digital artwork into a photorealistic cinematic photograph. Keep the composition of the weathered fighter plane and pilot identical, but render all surfaces with high-fidelity textures: replace the painterly brushstrokes on the fuselage with realistic oxidized metal, peeling paint, and rust. Render the pilot's gear as authentic leather and fabric. Convert the abstract background into a detailed aerial view of a burning landscape below, featuring volumetric smoke plumes, realistic fire glow, and atmospheric motion blur to simulate a high-speed dive."
+    },
+    "zh": {
+      "title": "写实战机视觉转化",
+      "description": "逆向工程提示词：将二战战斗机数字绘画转化为超写实电影级摄影作品。",
+      "prompt": "基于提供的参考图像，将手绘插图转化为写实电影镜头。保留原有构图，包括带有鲨鱼嘴鼻部涂装的做旧青绿色战斗机，以及佩戴铜色头盔和黄色护目镜的飞行员。模拟高端相机镜头拍摄效果：用逼真的金属质感、清晰可见的铆钉和机身划痕取代绘画笔触。增强背景细节，呈现体积云及下方燃烧景观的高空俯瞰视角，同时保持相同的拍摄角度与动态模糊效果。"
+    }
+  },
   "35628": {
     "en": {
       "title": "Seamless Retro Game Map Texture Generator",
@@ -52238,6 +52286,222 @@
       "title": "无缝复古游戏地图纹理生成器",
       "description": "通过移除分隔线并补全缺失的地形细节，将碎片化的垂直条带重构为完整的无缝方形游戏地图纹理。",
       "prompt": "使用提供的参考图像（包含五条由白色间隙分隔的复古像素艺术游戏地图垂直条带），将其转换为单个无缝方形瓦片。移除所有白色分隔线，并水平延伸地形特征（绿色森林、蓝色水域、橙色道路和灰色城堡结构）以填充条带之间的空白区域。确保每个条带的边缘与相邻条带自然融合，从而创建连续、统一的景观纹理，无可见接缝或缺失数据。"
+    }
+  },
+  "35674": {
+    "en": {
+      "title": "Elderly Couple Dancing Pixar Style",
+      "description": "A prompt for generating a cinematic 3D animated scene of an elderly couple dancing in a vintage hallway, styled like Pixar animation.",
+      "prompt": "Create a cinematic, heartwarming 3D animated scene of an elderly couple playfully dancing together inside a cozy vintage home hallway.\n\nAn elderly woman with white hair tied in a messy bun, round glasses, expressive eyes, and a warm playful smile is dancing toward her husband. She wears a colorful patterned cardigan over a light blouse, a dark green knee-length skirt, and brown ankle boots. Her body language is joyful and energetic.\n\nAn elderly man with fluffy white hair and glasses is kneeling playfully while holding up a smartphone, recording or photographing his wife. He wears a cream long-sleeve shirt, a colorful knitted patterned sweater vest, dark brown trousers, and oversized dark shoes. His expression is affectionate, amused, and full of joy.\n\nThe setting is a warm, narrow vintage hallway with wooden flooring, beige walls, classic doorways, a hanging ceiling lamp casting soft warm golden light, and subtle home details in the background. The couple is the clear focal point.\n\nPixar-inspired high-end 3D animation aesthetic, charming exaggerated elderly character proportions, expressive facial features, realistic fabric and hair details, cinematic composition, soft depth of field, warm ambient lighting, natural shadows, cozy nostalgic atmosphere, detailed wooden floor reflections, volumetric light, slightly low camera angle, full-body framing, vertical 9:16 composition, ultra-detailed, polished animated movie quality, photorealistic 3D rendering."
+    },
+    "zh": {
+      "title": "老年夫妇跳舞皮克斯风格",
+      "description": "一个用于生成电影级 3D 动画场景的提示词，描绘了一对老年夫妇在复古走廊中跳舞，采用皮克斯动画风格。",
+      "prompt": "创建一个充满电影感、温馨动人的 3D 动画场景，展现一对老年夫妇在舒适温馨的复古家庭走廊里欢快共舞。\n\n一位白发挽成随意发髻的老年女性，戴着圆框眼镜，眼神灵动，脸上洋溢着温暖俏皮的微笑，正朝丈夫翩翩起舞。她身穿一件色彩斑斓的图案开衫，内搭浅色衬衫，下身是深绿色及膝裙，脚穿棕色短靴。她的肢体语言充满活力与喜悦。\n\n一位头发蓬松花白、戴着眼镜的老年男性正俏皮地单膝跪地，高举智能手机，录制或拍摄他的妻子。他穿着米色长袖衬衫，外搭一件彩色针织图案毛衣背心，下身是深棕色长裤，脚踩一双超大的深色鞋子。他的表情充满爱意、愉悦和欢乐。\n\n场景设定在一个温暖狭窄的复古走廊，铺着木地板，墙壁呈米色，配有经典门框，天花板悬挂的灯具投射出柔和温暖的金色光线，背景中点缀着细微的家居细节。这对夫妇是画面的绝对焦点。\n\n受皮克斯启发的高端 3D 动画美学，迷人且略带夸张的老年人物比例，富有表现力的面部特征，逼真的织物和头发细节，电影般的构图，柔和的景深效果，温暖的环境光照明，自然的阴影，营造舒适怀旧的氛围，详细的木地板反射，体积光效果，略微低角度的摄像机视角，全身取景，垂直 9:16 构图，超精细细节，精致的动画电影品质，照片级真实感的 3D 渲染。"
+    }
+  },
+  "35675": {
+    "en": {
+      "title": "Realistic Street Portrait with GPT Image 2",
+      "description": "A prompt for generating a realistic candid street-style portrait of a young woman wearing sunglasses and a knit sweater, created with ChatGPT Image 2.",
+      "prompt": "A realistic candid street-style portrait of a young woman with light-brown hair tied into a loose ponytail, a few soft strands framing her face. She is turning slightly away from the camera and looking back over her shoulder with a subtle, playful smile. She wears narrow oval dark sunglasses lowered slightly on her nose, a white collared shirt layered under a chunky brown ribbed knit sweater, and carries a large black leather shoulder bag.\nThe photo is taken outdoors on a sunny city street, with warm golden sunlight illuminating her hair and face. The background shows modern buildings, trees, pedestrians, and urban street details softly blurred into beautiful bokeh. Natural skin texture, detailed hair strands, realistic clothing fibers, cinematic depth of field, warm backlighting, soft highlights, candid fashion photography, high-resolution smartphone camera look, vertical composition, photorealistic."
+    },
+    "zh": {
+      "title": "使用 GPT Image 2 生成逼真的街头人像",
+      "description": "这是一个用于生成逼真抓拍风格街头人像的提示词，画面中是一位戴着墨镜、身穿针织毛衣的年轻女性，由 ChatGPT Image 2 创作。",
+      "prompt": "一张逼真的抓拍风格街头人像照片，主角是一位浅棕色头发的年轻女性，头发随意扎成低马尾，几缕柔和的发丝垂在脸侧。她微微背对镜头，回头看向相机，脸上带着含蓄而俏皮的微笑。她戴着一副窄椭圆形深色墨镜，墨镜略微滑落到鼻梁上；身穿白色翻领衬衫，外搭一件厚实的棕色罗纹针织毛衣，肩上挎着一个大号黑色皮革单肩包。\n\n照片拍摄于阳光明媚的城市街道户外，温暖的金色阳光照亮了她的头发和脸庞。背景中的现代建筑、树木、行人以及城市街道细节被柔和地虚化，形成美丽的散景效果。皮肤纹理自然真实，发丝细节清晰可见，衣物纤维质感逼真，具有电影般的景深效果、温暖的逆光、柔和的高光、抓拍时尚摄影风格、高分辨率智能手机摄像头画质、竖构图、超写实主义。"
+    }
+  },
+  "35676": {
+    "en": {
+      "title": "Luxury Travel Fashion Portrait Prompt",
+      "description": "A detailed prompt for creating a realistic luxury travel fashion portrait of a woman on an airport tarmac, generated with GPT Image 2.",
+      "prompt": "Create a highly realistic luxury travel fashion portrait of an elegant young woman standing on a private airport tarmac beside a sleek private jet. She has long, voluminous wavy dark-brown hair flowing naturally in the breeze, stylish aviator sunglasses, bold red lipstick, and refined natural makeup. She is wearing a sophisticated deep teal fitted jumpsuit with a matching long tailored coat draped over her shoulders, a silver luxury wristwatch, and elegant earrings.\nShe is holding the handle of a premium brown designer-style rolling suitcase, standing confidently beside the aircraft stairs. Bright clear blue sky, private jet visible in the background, modern airport hangar and subtle vehicles in the distance. Strong natural daylight, realistic shadows, high-end executive-travel atmosphere, luxury fashion editorial photography, photorealistic skin texture, natural hair strands, realistic fabric details, cinematic depth of field, sharp focus, 4K, premium magazine photography, vertical 4:5 composition."
+    },
+    "zh": {
+      "title": "奢华旅行时尚人像提示词",
+      "description": "用于生成 GPT Image 2 的提示词，旨在创作一张逼真的奢华旅行时尚人像，展现一位女性站在机场停机坪上的场景。",
+      "prompt": "创作一张高度逼真的奢华旅行时尚人像，画面中一位优雅的年轻女性站在一架流线型私人飞机旁的私人机场停机坪上。她留着浓密飘逸的深棕色长卷发，发丝在微风中自然舞动，佩戴着时尚的飞行员墨镜、鲜艳的红色唇膏和精致的自然妆容。她身穿一件剪裁合体的深青色连体裤，肩上披着一件同色系的定制长款大衣，手腕上戴着银色奢华腕表，耳畔点缀着优雅耳环。\n\n她自信地站在飞机舷梯旁，手握一款高档棕色设计师款拉杆箱的把手。背景是明亮清澈的蓝天，隐约可见私人飞机、现代机场机库以及远处的车辆。强烈的自然日光营造出真实的阴影效果，整体呈现出高端商务旅行的氛围。采用奢华时尚杂志摄影风格，皮肤纹理逼真，发丝细节自然，面料质感真实，具有电影般的景深效果，焦点清晰，4K 分辨率，顶级杂志摄影品质，垂直 4:5 构图。"
+    }
+  },
+  "35677": {
+    "en": {
+      "title": "Fractured Mirror Portrait Editorial",
+      "description": "An ultra-realistic cinematic high-fashion editorial prompt depicting a handsome young man's face reflected through broken mirror fragments, emphasizing dramatic lighting and mysterious mood.",
+      "prompt": "Ultra-realistic cinematic high-fashion editorial photograph of a strikingly handsome young man in his early 20s, with thick naturally wavy jet-black hair, strong eyebrows, deep dark-brown eyes, a sharply defined sculpted jawline, subtle natural stubble, and realistic skin texture with visible pores.\n\nConcept: His face is seen through several large, irregularly broken mirror fragments, each piece reflecting a slightly different angle of his face — one showing his intense eyes, another capturing his sharp side profile, another revealing his jawline and lips, and the central fragment showing his face staring directly into the camera. The fractured mirror pieces create a mysterious, artistic composition, with sharp geometric edges and realistic reflections.\n\nExpression & Pose: Calm, mysterious and emotionally intense expression, deep captivating gaze directed toward the camera through the mirror fragments, head slightly tilted, with a subtle sense of introspection and hidden identity.\n\nOutfit: Elegant black high-neck shirt beneath a tailored black blazer, minimal luxury styling, sophisticated and timeless.\n\nLighting: Dramatic low-key cinematic lighting, deep shadows, subtle cool blue highlights along the mirror edges, soft light illuminating his eyes and facial features, realistic reflections and delicate specular highlights on the broken glass.\n\nBackground: Dark minimalist interior with a charcoal-black background, subtle atmospheric haze, faint reflections and a sophisticated noir aesthetic.\n\nPhotography: Extreme attention to facial details, photorealistic skin texture, natural facial proportions, 85mm portrait lens, shallow depth of field, cinematic color grading, high contrast, ultra-detailed 8K HDR, luxury fashion magazine editorial, masterpiece composition.\n\nMood: Mysterious, introspective, dark, elegant, psychologically intriguing and cinematic.\n\nVertical 9:16 composition, close-up portrait, face occupying the central area, mirror fragments artistically arranged around the face, realistic glass reflections, perfectly coherent facial features within each reflection, professional editorial photography.\n\nNo text, no typography, no watermark, no extra faces, no distorted facial features, no artificial-looking skin, no cartoon effects."
+    },
+    "zh": {
+      "title": "碎镜肖像时尚大片",
+      "description": "一个超写实电影感高级时尚编辑提示词，描绘了一位英俊年轻男子的面孔透过破碎的镜片碎片反射出来，强调戏剧性的灯光和神秘的氛围。",
+      "prompt": "一张超写实的电影感高级时尚编辑照片，主角是一位二十岁出头、极具魅力的英俊年轻男子。他拥有浓密自然的黑色波浪卷发、深邃的眉毛、深棕色眼睛、轮廓分明的雕塑般下颌线、淡淡的自然胡茬，以及带有可见毛孔的真实皮肤质感。\n\n概念：他的脸通过几块巨大且不规则破碎的镜片碎片呈现，每一块碎片都反射出他面部略微不同的角度——一块展示他锐利的眼神，另一块捕捉他锋利的侧脸轮廓，还有一块显露他的下颌线和嘴唇，而中央碎片则显示他直视镜头的面容。破碎的镜片营造出一种神秘的艺术构图，具有锐利的几何边缘和逼真的反射效果。\n\n表情与姿态：平静、神秘且情感强烈的表情，透过镜片碎片向镜头投射出深邃迷人的目光，头部微微倾斜，流露出一种内省和隐藏身份的感觉。\n\n服装：优雅的高领黑衬衫搭配剪裁合体的黑色西装外套，极简奢华风格，精致且永恒。\n\n灯光：戏剧性的低调电影照明，深沉的阴影，镜片边缘带有微妙的冷蓝色高光，柔和的光线照亮他的眼睛和面部特征，破碎玻璃上呈现出逼真的反射和精致的镜面高光。\n\n背景：深色极简室内环境，炭黑色背景，微妙的大气雾霭，隐约的反射和精致的黑色电影美学。\n\n摄影：极度关注面部细节，照片级真实皮肤纹理，自然的面部比例，85mm 人像镜头，浅景深，电影色彩分级，高对比度，超详细 8K HDR，奢侈时尚杂志编辑风格，杰作般的构图。\n\n氛围：神秘、内省、黑暗、优雅、心理引人入胜且具有电影感。\n\n垂直 9:16 构图，特写肖像，面部占据中心区域，镜片碎片艺术性地排列在面部周围，逼真的玻璃反射，每个反射中面部特征完美连贯，专业编辑摄影。\n\n无文字，无排版，无水印，无多余人脸，无扭曲的面部特征，无人工感的皮肤，无卡通效果。"
+    }
+  },
+  "35678": {
+    "en": {
+      "title": "Cozy Vintage Hallway Dance Scene",
+      "description": "A prompt for a heartwarming 3D animated cinematic scene of an elderly couple dancing and filming in a cozy vintage hallway, specified as being generated by GPT Image 2 via ChatGPT.",
+      "prompt": "Create a heartwarming 3D animated cinematic scene inside a cozy vintage hallway. An elderly woman with short white hair, round glasses, a mustard-yellow loose top, beige pants, and slippers playfully poses and dances while an elderly man in a light blue shirt and beige pants crouches nearby, recording her with a smartphone. Warm golden indoor lighting, wooden walls, framed artwork, patterned Persian rug, hanging lamp, cozy home atmosphere. The woman changes playful poses naturally—arms wide, pointing, smiling, raising both hands—while the man moves slightly as he films her. Expressive faces, charming comedic timing, smooth natural body movement, consistent character identity, detailed Pixar-like 3D animation, cinematic depth of field, realistic lighting, warm color grading, smooth camera movement, high detail, 4K."
+    },
+    "zh": {
+      "title": "温馨复古走廊舞蹈场景",
+      "description": "一个温馨感人的 3D 动画电影场景提示词，描绘了一对老年夫妇在舒适的复古走廊中跳舞并拍摄视频的画面，该场景由 GPT Image 2 通过 ChatGPT 生成。",
+      "prompt": "创建一个温馨感人的 3D 动画电影场景，背景设定在一个舒适的复古走廊内。一位留着白色短发、戴着圆框眼镜的老年女性身穿芥末黄宽松上衣、米色裤子和拖鞋，俏皮地摆姿势跳舞；旁边一位身穿浅蓝色衬衫和米色裤子的老年男性蹲在地上，用手机记录她的舞姿。室内采用温暖的金色灯光照明，木质墙壁上挂着装裱好的艺术品，地上铺着图案精美的波斯地毯，头顶悬挂着一盏吊灯，营造出温馨的居家氛围。这位女性自然地变换着俏皮的姿势——张开双臂、指向某处、微笑、举起双手——而男性在拍摄过程中也轻微移动身体。人物表情生动，充满迷人的喜剧节奏感，肢体动作流畅自然，角色形象保持一致。画面呈现类似皮克斯风格的精细 3D 动画效果，具有电影级的景深、逼真的光照、暖色调分级、平滑的镜头运动以及高细节表现，分辨率为 4K。"
+    }
+  },
+  "35679": {
+    "en": {
+      "title": "GPT Image Perfume Bottle Prompt",
+      "description": "A detailed prompt for generating a realistic perfume bottle with a miniature mossy valley inside, focusing on lighting and material physics rather than generic style keywords.",
+      "prompt": "A giant, rounded, light green transparent glass perfume bottle, containing a miniature mossy valley, bonsai trees, rocks, and small waterfalls sealed inside. Placed in a brutalist raw concrete space covered by water; cold daylight enters through architectural openings from the upper left, while warm sunset light forms a rim light from the back right. The glass exhibits real refraction, caustics, tiny water droplets, and highlight distortion; the water surface creates natural reflections. Low-angle product photography, subject positioned slightly to the right, large negative space, realistic optical depth of field, high-end fragrance advertising quality, no text, no logo, no plastic CGI look."
+    },
+    "zh": {
+      "title": "GPT Image Perfume Bottle Prompt",
+      "description": "A detailed prompt for generating a realistic perfume bottle with a miniature mossy valley inside, focusing on lighting and material physics rather than generic style keywords.",
+      "prompt": "一个巨大的、圆润的浅绿色透明玻璃香水瓶，内部封存着微型苔藓山谷、盆景树、岩石和小瀑布。放置在覆盖着水的粗野主义原始混凝土空间中；冷色调日光从左上方通过建筑开口射入，而暖色调夕阳光从右后方形成轮廓光。玻璃展现出真实的折射、焦散、微小水滴和高光畸变；水面产生自然反射。低角度产品摄影，主体略微偏右，大面积留白，真实的光学景深，高端香水广告品质，无文字，无 logo，无塑料 CGI 外观。"
+    }
+  },
+  "35680": {
+    "en": {
+      "title": "GPT Image 2 Prompt: White Dress on Rooftop Terrace",
+      "description": "A detailed prompt for generating a photorealistic portrait of a woman in a white dress sitting on a rooftop terrace under blue skies, specifying subject, clothing, pose, background, lighting, and composition.",
+      "prompt": "Subject:\nWhite dress on the rooftop.\n\nMain Subject:\nA woman wearing a white dress sitting on a chair on a rooftop terrace with blue sky is the protagonist, positioned from center to right.\n\nPerson/Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression is facing forward, looking at the camera with a gentle smile. Long black hair down, leaving thin bangs and strands swaying in the wind.\n\nClothing/Pose:\nLong dress with thin white straps, shallow drape at chest, sheer floor-length hem, white thin strap heels. Sitting on a gray armchair, supporting cheek with right hand, left arm on armrest, legs crossed high.\n\nBackground/Lighting:\nFrom left to right background: transparent glass railing, white low-rise buildings, potted plants, wide blue sky rooftop. Hard direct sunlight from top right brightly illuminates face, legs, and white cloth.\n\nComposition/Camera:\n3:4 vertical composition, frontal camera below knee level capturing full body from head to heels and dress hem. Portrait placing person largely center-right, occupying most of screen height. Chair and dress hem at bottom, focus on face and crossed legs, background lightly blurred.\n\nTexture/Style:\nPhotorealistic live-action photo. High definition natural skin, hair, costume materials, surrounding props, maintaining fresh daytime colors of white, blue, gray.\n\nNegative:\nChange leg crossing and cheek support; omit white dress hem"
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词：屋顶露台上的白裙",
+      "description": "一份详细的提示词，用于生成一位身穿白裙、坐在蓝天下的屋顶露台上的女性的写实肖像，具体描述了主体、服装、姿势、背景、光线和构图。",
+      "prompt": "主题：\n屋顶上的白裙。\n\n主要主体：\n一位身穿白裙的女性坐在屋顶露台的椅子上，背景是蓝天，她是画面的主角，位置居中偏右。\n\n人物/表情：\n小巧的椭圆形脸庞，深棕色大眼睛，细眉，轮廓分明的鼻子，光泽感的淡桃色嘴唇。表情正面朝向镜头，带着温柔的微笑。黑色长发披肩，留着稀疏的空气刘海，发丝随风飘动。\n\n服装/姿势：\n带有细白色肩带的长裙，胸前有浅褶皱垂坠感，裙摆为透肤及地长度，脚穿白色细带高跟鞋。坐在灰色扶手椅上，右手托腮，左臂搭在扶手上，双腿高高交叠。\n\n背景/光线：\n从左至右的背景依次为：透明玻璃栏杆、白色低层建筑、盆栽植物、宽阔蓝天下方的屋顶。来自右上方的强烈直射阳光明亮地照亮了面部、腿部和白色布料。\n\n构图/相机：\n3:4 竖幅构图，相机位于膝盖高度以下正面拍摄，捕捉从头部到脚跟及裙摆的全身像。人像占据画面大部分高度，人物主要位于中心偏右位置。椅子和裙摆位于底部，焦点集中在面部和交叠的双腿上，背景轻微虚化。\n\n纹理/风格：\n写实风格的真人照片。高清自然的皮肤、头发、服装材质及周边道具，保持白天清新的白色、蓝色和灰色色调。\n\n负面提示：\n改变腿部交叠方式和托腮动作；省略白色裙摆"
+    }
+  },
+  "35681": {
+    "en": {
+      "title": "Street Style Woman Portrait Prompt",
+      "description": "A detailed prompt in Kurdish for generating a spontaneous street-style portrait of a young woman outside a modern coffee shop, emphasizing pastel colors and casual fashion.",
+      "prompt": "A spontaneous full-body street-style portrait of a young woman standing outside a modern and trendy coffee shop, smiling softly with her eyes closed. She has long straight chestnut-brown hair; wearing a wide graphic white t-shirt tucked into high-waisted mint-green pastel wide-leg pants, along with clean white sneakers. She holds a pastel lavender shoulder bag and poses casually, holding the bag strap with one hand. Behind her are large glass doors and coffee shop windows, colorful framed paintings, vintage decor, wooden chairs and tables, and a retro boombox. Bright natural sunlight, soft pastel color palette, vibrant urban atmosphere, dreamy lifestyle photography, natural skin texture, light film grain, realistic photography, full-body composition, vertical 4:5 frame, high details."
+    },
+    "zh": {
+      "title": "街头风格女性人像提示词",
+      "description": "一段详细的库尔德语提示词，用于生成一位年轻女性在现代咖啡店外的随性街头风格人像，强调柔和色调与休闲时尚。",
+      "prompt": "一张随性的全身街头风格人像，画面中是一位站在现代潮流咖啡店外的年轻女性，她双眼轻闭，露出温柔的微笑。她留着一头长直栗棕色头发；身穿一件印有图案的宽松白色 T 恤，下摆塞进高腰薄荷绿柔和色调阔腿裤中，脚踩一双干净的白色运动鞋。她肩上挎着一个淡紫色柔和色调单肩包，姿态随意，一只手轻轻握住包带。背景是咖啡店的大玻璃门和橱窗、色彩鲜艳的装裱画作、复古装饰、木质桌椅以及一台复古收录机。明亮的自然阳光，柔和的粉彩色调，充满活力的都市氛围，梦幻生活方式摄影，自然的皮肤质感，轻微的胶片颗粒感，写实摄影风格，全身构图，竖版 4:5 画幅，细节丰富。"
+    }
+  },
+  "35683": {
+    "en": {
+      "title": "Surreal fashion bicycle garden",
+      "description": "JSON prompt for a surreal high-fashion editorial featuring a blonde woman riding a vintage bike through a garden with giant flowers.",
+      "prompt": "{\n  \"aspect_ratio\": \"9:16\",\n  \"style\": \"surreal colorful high-fashion editorial\",\n  \"subject\": {\n    \"character\": \"beautiful young European blonde woman\",\n    \"expression\": \"confident, playful\",\n    \"accessories\": \"elegant sunglasses\",\n    \"outfit\": \"bright orange cropped jacket, lime-green wide-leg trousers, cream sneakers\"\n  },\n  \"action\": \"riding a cream vintage bicycle through a surreal fantasy garden\",\n  \"pose\": \"dynamic three-quarter rear view, leaning naturally into the ride while turning her head toward the camera\",\n  \"bicycle\": \"cream-colored vintage bicycle with a small minimal flower basket\",\n  \"environment\": {\n    \"setting\": \"open surreal garden\",\n    \"flowers\": \"few enormous sculptural flowers placed far apart, oversized orange, yellow and turquoise petals\",\n    \"ground\": \"pale mint pathway with generous empty space\"\n  },\n  \"composition\": {\n    \"camera\": \"dramatic low-angle hero shot\",\n    \"framing\": \"full bicycle and full character visible\",\n    \"foreground\": \"one giant flower subtly framing the edge\",\n    \"negative_space\": \"strong, clean, uncluttered\"\n  },\n  \"lighting\": \"warm golden daylight with cinematic shadows\",\n  \"mood\": \"wild, playful, bizarre, luxurious, dreamlike\",\n  \"visual_quality\": \"exaggerated scale, vibrant color harmony, crisp textures, unconventional fashion editorial energy, striking visual impact\"\n}"
+    },
+    "zh": {
+      "title": "超现实时尚自行车花园",
+      "description": "用于生成超现实高级时装编辑风格的 JSON 提示词，画面中一位金发女性骑着复古自行车穿过开满巨型花朵的花园。",
+      "prompt": "{\n  \"aspect_ratio\": \"9:16\",\n  \"style\": \"超现实多彩高级时装编辑风格\",\n  \"subject\": {\n    \"character\": \"美丽的年轻欧洲金发女性\",\n    \"expression\": \"自信、俏皮\",\n    \"accessories\": \"优雅太阳镜\",\n    \"outfit\": \"亮橙色短款夹克、青柠绿阔腿裤、奶油色运动鞋\"\n  },\n  \"action\": \"骑着奶油色复古自行车穿越超现实奇幻花园\",\n  \"pose\": \"动态四分之三后视角度，自然前倾骑行姿态，同时转头看向镜头\",\n  \"bicycle\": \"奶油色复古自行车，配有小巧简约的花篮\",\n  \"environment\": {\n    \"setting\": \"开阔的超现实花园\",\n    \"flowers\": \"几朵巨大的雕塑感花朵分散排列，超大尺寸的橙色、黄色和绿松石色花瓣\",\n    \"ground\": \"淡薄荷色小径，留有大量空白空间\"\n  },\n  \"composition\": {\n    \"camera\": \"戏剧性低角度英雄镜头\",\n    \"framing\": \"完整呈现自行车与人物全身\",\n    \"foreground\": \"一朵巨型花朵微妙地框住边缘\",\n    \"negative_space\": \"强烈、干净、无杂乱元素\"\n  },\n  \"lighting\": \"温暖金色日光搭配电影感阴影\",\n  \"mood\": \"狂野、俏皮、奇异、奢华、梦幻\",\n  \"visual_quality\": \"夸张比例、鲜艳色彩和谐、清晰纹理、非传统时装编辑能量、强烈视觉冲击力\"\n}"
+    }
+  },
+  "35684": {
+    "en": {
+      "title": "Rain and Fire Warrior Portrait",
+      "description": "Prompt for a close-up cinematic portrait of a wet warrior-style woman amidst rain and fire light, emphasizing intense expression and detailed textures.",
+      "prompt": "Subject:\nWet battle gear in rain and flame.\n\nMain Subject:\nClose-up portrait of mud-wetted warrior-style woman amidst rain and fire light, centered in frame.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, neat nose, glossy pale pink lips. Expression is serious, head tilted slightly down from front, sharp gaze towards camera, lips closed. Wet long hair nearly black sticking to face, neck, and shoulders in thin strands.\n\nClothing & Pose:\nMud-stained beige deep V-neck leather top, metal studs and thin chains, brown leather strap on right shoulder, cloth wrap on right upper arm, gold necklace and earrings with blue stones. Upper body leaned low forward, right shoulder thrust towards camera.\n\nBackground & Light:\nWet stones and droplets in foreground; pale blue reflection on left background; orange flames and smoke on right. Hard flame light from rear-right and cold soft fill light from left illuminate wet contours.\n\nComposition & Camera:\n3:4 vertical composition, close-up overhead camera slightly above face capturing close-up from head to below chest. Person placed very large in center, occupying most of screen height. Hair, shoulders, arms boldly cropped at edges, focus on eyes and water droplets on wet face, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, costume materials, and props, maintaining cinematic colors of mud-brown, flame-orange, and cold-blue.\n\nNegative:\nDry clean skin/hair; omission of flames and warrior gear."
+    },
+    "zh": {
+      "title": "雨火战士肖像",
+      "description": "用于生成雨中火光下湿身女战士特写电影感肖像的提示词，强调强烈表情与细腻质感。",
+      "prompt": "主体：\n雨中火焰下的湿透战斗装备。\n\n主要对象：\n在雨中火光下，一位沾满泥浆的女战士风格人物的特写肖像，居中构图。\n\n角色与表情：\n小巧椭圆脸，深棕色大眼睛，细眉，挺鼻，光泽淡粉色嘴唇。表情严肃，头部从正面略微低垂，目光锐利直视镜头，双唇紧闭。湿漉漉的近乎黑色的长发以细缕状紧贴面部、颈部和肩部。\n\n服装与姿态：\n沾有泥渍的米色深 V 领皮革上衣，配有金属铆钉和细链条，右肩有棕色皮革带，右上臂缠有布带，佩戴镶蓝宝石的金项链和耳环。上半身前倾压低，右肩朝向镜头突出。\n\n背景与光线：\n前景为湿润石头和水滴；左侧背景呈现淡蓝色反光；右侧为橙色火焰与烟雾。来自右后方的硬光火焰照明与来自左侧的冷调柔和补光共同勾勒出湿润轮廓。\n\n构图与相机：\n3:4 竖幅构图，略高于面部的俯拍特写镜头，捕捉从头部至胸部以下的近景。人物在画面中央占据极大比例，几乎充满屏幕高度。头发、肩膀、手臂在边缘处大胆裁切，焦点集中在眼睛和湿润面庞上的水珠，背景轻微虚化。\n\n质感与风格：\n照片级真实感的实拍照片。高清自然皮肤、头发、服装材质及道具，保持泥褐色、火焰橙和冷蓝色的电影色调。\n\n负面提示：\n干燥洁净的皮肤/头发；缺失火焰和战士装备。"
+    }
+  },
+  "35685": {
+    "en": {
+      "title": "Autumn Cozy Casual Outfit Prompt",
+      "description": "English text prompt describing a dusty rose mohair sweater outfit with cream corduroy pants and Mary Janes for GPT Image 2 generation.",
+      "prompt": "OUTFIT:\n\nA soft oversized mohair sweater in dusty rose, worn slightly off-shoulder and layered over a thin white turtleneck, paired with high-waisted cream wide-leg corduroy pants with tiny embroidered floral patches on the pockets.\n\nStyled with chunky platform Mary Janes and a small leather crossbody bag.\n\nSoft, cozy, feminine casual fashion aesthetic.\nDusty rose, white, and cream color scheme.\nNo extra decorations."
+    },
+    "zh": {
+      "title": "秋季舒适休闲穿搭提示词",
+      "description": "用于 GPT Image 2 生成的英文文本提示词，描述了一套由灰玫瑰色马海毛毛衣、奶油色灯芯绒长裤和玛丽珍鞋组成的穿搭。",
+      "prompt": "穿搭：\n\n一件柔软的超大号灰玫瑰色马海毛毛衣，略微露肩穿着，内搭一件薄款白色高领衫，下身搭配高腰奶油色宽腿灯芯绒长裤，口袋上有小巧的刺绣花卉贴片。\n\n搭配厚底平台玛丽珍鞋和一个小型皮革斜挎包。\n\n柔和、舒适、女性化的休闲时尚美学。\n灰玫瑰色、白色和奶油色的配色方案。\n无额外装饰。"
+    }
+  },
+  "35686": {
+    "en": {
+      "title": "Studio Portrait of Woman with Sunglasses",
+      "description": "An ultra-realistic studio fashion portrait of a young woman in a white shirt and sunglasses against a blue background.",
+      "prompt": "A high-resolution, ultra-realistic studio portrait of a young East Asian woman with long dark brown hair styled in a half-up ponytail. She has black rectangular sunglasses resting on top of her head. Her expression is calm and neutral as she rests her left cheek gently against her left hand. She is wearing a crisp white button-down shirt with the sleeves rolled up to the elbows and light-wash blue denim jeans. A delicate silver necklace with a small pendant hangs around her neck. The background is a solid, vibrant royal blue seamless studio backdrop. The lighting is soft and professional, highlighting her clear skin texture and facial features."
+    },
+    "zh": {
+      "title": "戴墨镜女性的影棚人像",
+      "description": "一张超写实的影棚时尚人像，展示了一位身穿白衬衫、戴着墨镜的年轻女性，背景为蓝色。",
+      "prompt": "这是一张高分辨率、超写实的影棚人像，画面中是一位年轻的东亚女性，留着深棕色长发，扎成半马尾。她的头顶架着一副黑色矩形墨镜。她神情平静自然，左脸颊轻轻靠在左手上。她身穿一件挺括的白色纽扣衬衫，袖子卷至肘部，搭配浅蓝色水洗牛仔裤。脖子上挂着一条精致的银色项链，带有一个小吊坠。背景是纯色、鲜艳的宝蓝色无缝影棚幕布。光线柔和专业，突出了她清晰的皮肤质感和面部特征。"
+    }
+  },
+  "35687": {
+    "en": {
+      "title": "Urban Street Style Collage",
+      "description": "A stylish fashion collage showing a woman in an olive tee and denim skirt with an orange paisley scarf, set against a vibrant city backdrop.",
+      "prompt": "A high-resolution fashion collage featuring a young woman with long, dark brown hair and sunglasses. She is wearing an oversized olive green t-shirt tucked into wide-leg blue denim jeans, accessorized with layered silver necklaces, hoop earrings, and a small brown leather shoulder bag. The focal point of the outfit is a large orange paisley silk scarf tied around her head like a babushka, with the ends trailing down her back, and another matching scarf tied around her waist as a belt. The image is divided into three sections: on the left, a full-body shot of her walking confidently across a crosswalk in a busy city street; on the top right, a close-up portrait of her adjusting her sunglasses; and on the bottom right, a rear view of her walking away, showcasing the scarf's drape. The background features blurred urban architecture with vertical signage containing Japanese characters."
+    },
+    "zh": {
+      "title": "都市街头风格拼贴画",
+      "description": "时尚都市街头拼贴画，展示一位身穿橄榄绿 T 恤和牛仔裙、搭配橙色佩斯利围巾的女性，背景为充满活力的城市景观。",
+      "prompt": "这是一张高分辨率的时尚拼贴画，主角是一位留着深棕色长发、戴着墨镜的年轻女性。她身穿一件超大号橄榄绿 T 恤，下摆塞进宽腿蓝色牛仔裤中，并佩戴多层银色项链、圈形耳环和一个棕色小皮革单肩包。造型的焦点是一条系在头上的大号橙色佩斯利丝绸围巾，呈俄罗斯头巾（babushka）样式，两端垂至背部；腰间还系着一条同款围巾作为腰带。图像分为三个部分：左侧是她自信地走在繁忙城市街道斑马线上的全身照；右上角是她调整墨镜的特写肖像；右下角是她走远的背影，展示了围巾的自然垂坠感。背景是模糊的城市建筑，带有包含日文字符的垂直招牌。"
+    }
+  },
+  "35688": {
+    "en": {
+      "title": "Anime Girl Heterochromia Portrait",
+      "description": "A detailed digital illustration of an anime character with dual-colored eyes and gothic fashion elements.",
+      "prompt": "A close-up portrait of a young anime girl with long, dark hair styled in twin tails. She has striking heterochromia: her left eye is a glowing red with a vertical slit pupil, and her right eye is a bright blue with a similar slit pupil. Her expression is gentle with a slight smile, revealing small fangs. She wears an ornate Victorian-style dress featuring a high white lace collar, a dark blue bodice, and a large blue bow at the neck adorned with a purple gemstone pendant. Matching purple gem earrings hang from her ears, and delicate silver chains drape across her hair. The background is a soft, out-of-focus bokeh of purple and blue lights."
+    },
+    "zh": {
+      "title": "异色瞳动漫少女肖像",
+      "description": "一幅细节丰富的数字插画，描绘了一位拥有双色瞳孔和哥特式时尚元素的动漫角色。",
+      "prompt": "这是一张年轻动漫少女的特写肖像，她留着深色长发，扎成双马尾。她有着引人注目的异色瞳：左眼是发光的红色，带有垂直的狭缝状瞳孔；右眼则是明亮的蓝色，同样具有狭缝状瞳孔。她的表情温柔，嘴角带着淡淡的微笑，露出小小的尖牙。她身穿一件华丽的维多利亚风格连衣裙，配有高领白色蕾丝、深蓝色紧身胸衣，颈部装饰着一个大蓝色蝴蝶结，上面镶嵌着一颗紫色宝石吊坠。她的耳朵上挂着配套的紫色宝石耳环，精致的银色链条垂落在发间。背景是柔和失焦的紫色和蓝色光斑散景效果。"
+    }
+  },
+  "35689": {
+    "en": {
+      "title": "Serene Portrait with Silk Headscarf",
+      "description": "A photorealistic image prompt for a close-up portrait of an Asian woman wearing a blue-patterned silk headscarf against a backdrop of pink flowers.",
+      "prompt": "A close-up portrait of a young Asian woman with long dark hair, eyes gently closed and lips slightly pursed in a soft pout. She wears a white silk headscarf featuring a delicate blue floral pattern and navy trim, tied neatly over her head. A small gold hoop earring is visible on her left ear. Her outfit consists of a brown leather strap top layered over a cream-colored tank top. The background is softly blurred (bokeh effect), showing bright pink bougainvillea flowers climbing a white wall and a hint of a white chair to the left. Natural sunlight illuminates her face from the right side, creating a warm, serene atmosphere."
+    },
+    "zh": {
+      "title": "丝巾静谧人像",
+      "description": "一张写实风格的图像提示词，描绘了一位戴着蓝色花纹丝绸头巾的亚洲女性特写肖像，背景为粉色花朵。",
+      "prompt": "一位年轻亚洲女性的特写肖像，她留着深色长发，双眼轻闭，嘴唇微微嘟起，神情柔和。她头上整齐地系着一条白色丝绸头巾，上面印有精致的蓝色花卉图案和深海军蓝镶边。左耳佩戴着一枚小巧的金色圈形耳环。她的着装包括一件棕色皮革肩带上衣，内搭米色背心。背景呈现柔和的虚化效果（散景），可见明亮的粉色三角梅攀爬在白墙上，左侧隐约露出一把白色椅子的一角。自然阳光从右侧照亮她的脸庞，营造出温暖而宁静的氛围。"
+    }
+  },
+  "35690": {
+    "en": {
+      "title": "Cute Focus Desk Flat Lay and Kawaii Illustration",
+      "description": "A dual-panel image showing a realistic overhead shot of pastel stationery alongside a matching cute watercolor illustration of the items as characters.",
+      "prompt": "Goal: Create a vertical two-panel image contrasting a realistic top-down desk photo with a cute kawaii illustration of the same items.\n\nCanvas: Vertical 4:5 aspect ratio, split horizontally into two equal sections.\n\nTop Section (Realistic Photo): A high-angle flat-lay photograph on a clean white surface. Soft dappled sunlight shadows fall across the scene from the left. Items include: a mint green sticky note square labeled \"Focus.\" in white serif text; a small square photo of a blue and beige macaron; three copper wire spiral paper clips scattered around; a light blue marker pen with cap off; a sage green mechanical pencil with gold tip; a light blue ballpoint pen with gold tip; a light blue highlighter; a teal envelope or folder edge on the left; and a lined notepad corner at the bottom left.\n\nBottom Section (Kawaii Illustration): A hand-drawn watercolor-style illustration on a cream background featuring anthropomorphic versions of the items above. The characters have simple happy faces (two black dot eyes, pink blush circles, smiling mouths). Elements include: a stack of two macarons (blue top, beige bottom) with a face; a sage green sticky note character labeled \"Focus.\" holding a tiny heart; a tall green marker character standing upright; a lying down blue highlighter character; a lined paper sheet; a copper spiral clip; and yellow sparkle stars. Handwritten Korean text appears in two places: upper right says \"지금, 좋은 것에 집중해요.\" (Now, focus on good things.) with a heart symbol; lower left says \"작은 오늘이 좋은 하루를 만들어요.\" (Small todays make a good day.) underlined in green.\n\nVisual Style: The top is crisp, bright, and airy photography. The bottom is soft, pastel-colored, whimsical watercolor art with thin outlines."
+    },
+    "zh": {
+      "title": "可爱专注桌面平铺与卡哇伊插画",
+      "description": "双面板图像，展示柔和色调文具的真实俯拍照片，以及将这些物品拟人化的可爱水彩插画。",
+      "prompt": "目标：创建一张垂直两面板图像，对比真实的俯视桌面照片与相同物品的可爱卡哇伊风格插画。\n\n画布：垂直 4:5 宽高比，水平分为两个相等的部分。\n\n上半部分（真实照片）：在干净的白色表面上进行高角度平铺摄影。柔和的斑驳阳光阴影从左侧洒落在场景中。物品包括：一个薄荷绿色的便签方块，上面用白色衬线字体写着“Focus.”；一张蓝色和米色马卡龙的小方形照片；散落的三个铜丝螺旋回形针；一支打开笔帽的浅蓝色马克笔；一支金色笔尖的鼠尾草绿自动铅笔；一支金色笔尖的浅蓝色圆珠笔；一支浅蓝色荧光笔；左侧有一个青绿色信封或文件夹边缘；左下角有一角带横线的记事本。\n\n下半部分（卡哇伊插画）：在奶油色背景上绘制的手绘水彩风格插画，展示了上述物品的拟人化版本。角色拥有简单的快乐面孔（两个黑色圆点眼睛、粉色腮红圆圈、微笑嘴巴）。元素包括：一个带有面部表情的双层马卡龙堆叠（上层蓝色，下层米色）；一个标有“Focus.”并手持小爱心的鼠尾草绿便签角色；一个直立的高大绿色马克笔角色；一个躺着的蓝色荧光笔角色；一张带横线的纸张；一个铜制螺旋夹；以及黄色闪光星星。两处出现手写韩文文本：右上角写着“지금, 좋은 것에 집중해요.”（现在，专注于美好的事物。）并配有一个爱心符号；左下角写着“작은 오늘이 좋은 하루를 만들어요.”（微小的今天成就美好的一天。）下方有绿色下划线。\n\n视觉风格：上半部分是清晰、明亮且通透的摄影作品。下半部分是柔和、粉彩色调、充满奇思妙想的水彩艺术，带有细轮廓线。"
+    }
+  },
+  "35691": {
+    "en": {
+      "title": "Colossal MPD Robot Clearing Wreck",
+      "description": "A realistic depiction of a giant Japanese police mech lifting a destroyed car on a rainy Tokyo highway.",
+      "prompt": "A cinematic, photorealistic image of a colossal bipedal police robot standing on a wet Tokyo highway at dusk. The robot is constructed from heavy black mechanical joints and white armored plating, with \"警視庁\" and \"MPD\" clearly printed in black text on its chest plates. It has red emergency lights mounted on its shoulders and a complex sensor array head. In its left hand, the robot is lifting a heavily crushed, mangled black sedan off the ground. The scene is chaotic but organized: in the foreground, a Japanese police car with flashing red lights sits on the left, while officers wearing dark uniforms and high-visibility yellow vests labeled \"POLICE\" direct traffic with glowing batons. Orange traffic cones line the wet asphalt, which reflects the city lights. In the background, green overhead highway signs display directions for \"Shutoko Expwy,\" \"Ginza,\" \"Tokyo Sta.,\" and \"Hamamatsucho.\" A large tow truck with an orange crane arm is visible to the right. The atmosphere is moody and industrial, with rain-slicked surfaces and a backdrop of blurred skyscrapers."
+    },
+    "zh": {
+      "title": "巨型 MPD 机器人清理残骸",
+      "description": "一幅逼真的画面，描绘了巨型日本警察机甲在雨中的东京高速公路上吊起一辆损毁的汽车。",
+      "prompt": "一幅具有电影质感、照片级逼真的图像，展示了一个巨大的双足警用机器人矗立在黄昏时分湿滑的东京高速公路上。该机器人由厚重的黑色机械关节和白色装甲板构成，胸甲上清晰印有黑色的“警視庁”和“MPD”字样。其肩部装有红色警示灯，头部配备复杂的传感器阵列。机器人的左手正将一辆严重挤压变形、扭曲的黑色轿车从地面吊起。场景混乱但有序：前景左侧停着一辆闪烁着红光的日本警车，身穿深色制服和高能见度黄色背心（背心上标有“POLICE”）的警官们正挥舞着发光指挥棒疏导交通。橙色的交通锥排列在潮湿的沥青路面上，路面反射着城市的灯光。背景中，绿色的高速公路指示牌显示着“首都高”、“银座”、“东京站”和“滨松町”的方向。右侧可见一辆带有橙色吊臂的大型拖车。整体氛围阴郁而充满工业感，雨水打湿的表面与模糊的摩天大楼背景相映成趣。"
+    }
+  },
+  "35692": {
+    "en": {
+      "title": "Woman Reading in Snowy Street",
+      "description": "Generates a cinematic portrait of a woman holding a book on a snowy street at twilight, featuring warm lighting and falling snow.",
+      "prompt": "A vertical portrait of a young woman with long, dark hair and soft bangs standing in a snowy European street at dusk. She is wearing a thick, beige wool coat and a matching chunky scarf wrapped around her neck. She holds an old, brown leather-bound book against her chest with both hands. Her head is tilted slightly upward, gazing into the distance with a serene expression, and her breath forms a visible white mist in the cold air. Snowflakes are falling heavily, dusting her hair and shoulders. To her left, a vintage gas street lamp glows with warm yellow light. The background features blurred cobblestone streets and historic buildings with lit windows under a purple and blue twilight sky."
+    },
+    "zh": {
+      "title": "雪中街头阅读的女子",
+      "description": "生成一幅电影感肖像，描绘一位女子在黄昏的雪街上手持书籍，画面具有暖色调灯光和飘落的雪花。",
+      "prompt": "一张竖构图肖像，展示了一位留着深色长发和柔和刘海的年轻女子，站在黄昏时分的欧洲雪街中。她身穿一件厚实的米色羊毛大衣，脖子上围着一条同色系的粗针织围巾。她双手将一本陈旧的棕色皮革精装书抱在胸前。她的头微微上扬，神情宁静地凝视远方，呼出的气息在冷空气中形成可见的白色雾气。雪花纷纷扬扬地落下，点缀在她的头发和肩膀上。在她左侧，一盏复古煤气路灯散发着温暖的黄色光芒。背景是模糊的鹅卵石街道和历史建筑，窗户透出灯光，天空呈现出紫色与蓝色的暮光色调。"
     }
   }
 }

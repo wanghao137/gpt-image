@@ -1042,17 +1042,17 @@
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
     "cover": "/images/cases/templatederived-merchant-promo-poster.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35576 日式餐厅柠檬沙瓦菜单: 多伦多一家日式餐厅的桌面宣传菜单卡片，推广其招牌饮品柠檬沙瓦。\n- #35569 带配料表的写实风备餐罐: 生成一个写实的美食摄影场景的提示词，展示分层墨西哥风味鸡肉沙拉玻璃罐，并包含手写配料表叠加层。\n- #100312 芝士宇宙美食大片竖版广告: A hyper-realistic cinematic food advertisement in vertical 9:16 format featuring a stylish youn…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Studio / Realistic / Cinematic / Commerce / Product / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35681 街头风格女性人像提示词: 一段详细的库尔德语提示词，用于生成一位年轻女性在现代咖啡店外的随性街头风格人像，强调柔和色调与休闲时尚。\n- #35576 日式餐厅柠檬沙瓦菜单: 多伦多一家日式餐厅的桌面宣传菜单卡片，推广其招牌饮品柠檬沙瓦。\n- #35569 带配料表的写实风备餐罐: 生成一个写实的美食摄影场景的提示词，展示分层墨西哥风味鸡肉沙拉玻璃罐，并包含手写配料表叠加层。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35681",
       "35576",
       "35569",
       "100312",
-      "35524",
-      "35519"
+      "35524"
     ]
   },
   {
@@ -1090,17 +1090,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/cases/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35623 戴同款帽子的街头猫咪自拍: 生成一张逼真的街头自拍照的提示词：一位女士抱着一只猫，两人都戴着配套的蓝色帽子，背景是优雅的欧式建筑。\n- #35625 GPT Image 2 Crowded Train Portrait: Detailed prompt for generating a photorealistic portrait of a woman in a crowded train, specify…\n- #35622 Hyper-realistic Desert Adventure Portrait: A prompt for generating a hyper-realistic full-body outdoor adventure portrait of a female char…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35692 雪中街头阅读的女子: 生成一幅电影感肖像，描绘一位女子在黄昏的雪街上手持书籍，画面具有暖色调灯光和飘落的雪花。\n- #35689 丝巾静谧人像: 一张写实风格的图像提示词，描绘了一位戴着蓝色花纹丝绸头巾的亚洲女性特写肖像，背景为粉色花朵。\n- #35688 异色瞳动漫少女肖像: 一幅细节丰富的数字插画，描绘了一位拥有双色瞳孔和哥特式时尚元素的动漫角色。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "35623",
-      "35625",
-      "35622",
-      "35621",
-      "35620"
+      "35692",
+      "35689",
+      "35688",
+      "35686",
+      "35684"
     ]
   },
   {
@@ -1114,17 +1114,17 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "/images/cases/templatederived-travel-city-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Editorial / Cinematic / Minimal / Social / Commerce / Documentary\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35522 写实旅行摄影提示词: 一个详细的提示词，用于生成一张超写实的抓拍旅行照片，画面中一位女性坐在石墙上，专为 GPT Image 2 优化。\n- #100310 机场行李车上的时尚旅行杂志封面: Create a premium cinematic fashion-travel magazine cover in a vertical 4:5 composition. A styli…\n- #35404 Art Deco Travel Poster Template: A structured prompt template for generating vintage 1930s Art Deco travel posters with specific…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Realistic / Editorial / Cinematic / Minimal / Social / Commerce / Documentary\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35676 奢华旅行时尚人像提示词: 用于生成 GPT Image 2 的提示词，旨在创作一张逼真的奢华旅行时尚人像，展现一位女性站在机场停机坪上的场景。\n- #35522 写实旅行摄影提示词: 一个详细的提示词，用于生成一张超写实的抓拍旅行照片，画面中一位女性坐在石墙上，专为 GPT Image 2 优化。\n- #100310 机场行李车上的时尚旅行杂志封面: Create a premium cinematic fashion-travel magazine cover in a vertical 4:5 composition. A styli…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35676",
       "35522",
       "100310",
       "35404",
-      "100308",
-      "35341"
+      "100308"
     ]
   },
   {
@@ -1186,17 +1186,17 @@
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
     "cover": "/images/cases/templatederived-sticker-avatar-pack.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35567 身份替换模板提示词: 为 GPT Image 2 设计的结构化 JSON 提示词，将参考照片作为锁定模板，在保留姿势、服装和背景的同时，将主体的面部身份替换为不同的虚构人物。\n- #35527 身着绿色花卉缎面睡袍的女性: 一张写实风格的照片，展示了一位年轻女性身穿绿色花卉图案的缎面睡袍，置身于温馨的卧室环境中。\n- #35525 GPT Image 2 提示词：灰色健身房休憩: 用于生成一张写实照片的提示词，画面中一名女子戴着耳机躺在健身房地面上休息，身旁有一根杠铃。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35674 老年夫妇跳舞皮克斯风格: 一个用于生成电影级 3D 动画场景的提示词，描绘了一对老年夫妇在复古走廊中跳舞，采用皮克斯动画风格。\n- #35624 科幻青色灯光效果: 适用于 GPT Image 2 的图像编辑提示词，可为参考图片添加强烈的青色侧光、漂浮粒子及湿润效果。\n- #35567 身份替换模板提示词: 为 GPT Image 2 设计的结构化 JSON 提示词，将参考照片作为锁定模板，在保留姿势、服装和背景的同时，将主体的面部身份替换为不同的虚构人物。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35674",
+      "35624",
       "35567",
       "35527",
-      "35525",
-      "35521",
-      "35468"
+      "35525"
     ]
   },
   {
@@ -1258,17 +1258,17 @@
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
     "cover": "/images/cases/templatederived-game-character-sheet.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Illustration / Editorial / Minimal / Portrait / Commerce / Brand / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35629 Bloody Gothic Chibi Girl Character Design: A prompt to generate a cute yet creepy chibi character illustration featuring a blonde girl in …\n- #35577 Giant Police Robot in Rainy Tokyo Protest: A futuristic concept art piece featuring a colossal 'MPD' mech monitoring a rainy demonstration…\n- #35568 赛博朋克工业走廊飞溅场景: 生成赛博朋克风格数字插画的提示词，描绘模特身处工业走廊，服务器面板溅出明亮橙色液体，强调高对比度与超现实氛围。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet / Illustration / Editorial / Minimal / Portrait / Commerce / Brand / Concept Art\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35628 无缝复古游戏地图纹理生成器: 通过移除分隔线并补全缺失的地形细节，将碎片化的垂直条带重构为完整的无缝方形游戏地图纹理。\n- #35629 Bloody Gothic Chibi Girl Character Design: A prompt to generate a cute yet creepy chibi character illustration featuring a blonde girl in …\n- #35577 Giant Police Robot in Rainy Tokyo Protest: A futuristic concept art piece featuring a colossal 'MPD' mech monitoring a rainy demonstration…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35628",
       "35629",
       "35577",
       "35568",
-      "100307",
-      "35336"
+      "100307"
     ]
   },
   {
@@ -1354,17 +1354,17 @@
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
     "cover": "/images/cases/templatederived-anime-scene-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35629 Bloody Gothic Chibi Girl Character Design: A prompt to generate a cute yet creepy chibi character illustration featuring a blonde girl in …\n- #35575 Libra Constellation Girl Holding Opal: An anime illustration of a girl holding a glowing opal under the Libra constellation at night, …\n- #35568 赛博朋克工业走廊飞溅场景: 生成赛博朋克风格数字插画的提示词，描绘模特身处工业走廊，服务器面板溅出明亮橙色液体，强调高对比度与超现实氛围。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35690 可爱专注桌面平铺与卡哇伊插画: 双面板图像，展示柔和色调文具的真实俯拍照片，以及将这些物品拟人化的可爱水彩插画。\n- #35688 异色瞳动漫少女肖像: 一幅细节丰富的数字插画，描绘了一位拥有双色瞳孔和哥特式时尚元素的动漫角色。\n- #35687 都市街头风格拼贴画: 时尚都市街头拼贴画，展示一位身穿橄榄绿 T 恤和牛仔裙、搭配橙色佩斯利围巾的女性，背景为充满活力的城市景观。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35690",
+      "35688",
+      "35687",
       "35629",
-      "35575",
-      "35568",
-      "35526",
-      "35523"
+      "35575"
     ]
   },
   {
