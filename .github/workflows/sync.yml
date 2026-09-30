@@ -37,6 +37,12 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    # Job-level so the push-retry re-bake below also runs in store mode.
+    env:
+      B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+      B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+      B2_STORE_BUCKET: taostudio-img
+      B2_STORE_REGION: us-east-005
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -126,6 +132,10 @@ jobs:
               npm run sync
               npm run migrate
               node scripts/split-data.mjs
+              # reset --hard dropped this run's bake manifest — regenerate it
+              # (store mode, idempotent vs the bucket) so the next daily bake
+              # doesn't re-upload everything.
+              node scripts/build-images.mjs --store
             fi
             git add public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images
             if [ -z "$(git diff --cached --name-only -- public/data data/manual data/upstream-case-times.json data/upstream-locales.json data/image-store.json public/images)" ]; then

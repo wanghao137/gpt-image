@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import "dotenv/config";
 import react from "@vitejs/plugin-react";
 import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
+import { createHmac, createHash } from "node:crypto";
 import { resolve } from "node:path";
 
 /**
@@ -40,21 +41,69 @@ const staticEntryCopies = {
   },
 };
 
-export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), staticEntryCopies],
-  // Local dev: store-backed case images live in the B2 bucket behind a
-  // Vercel proxy rewrite on production; mirror that path here so dev pages
-  // render them without a deploy. Fill the region once the bucket exists.
-  server: {
-    proxy: {
-      "/images/cases": {
-        target: "https://f005.backblazeb2.com/file/taostudio-img",
-        changeOrigin: true,
-        headers: { Authorization: process.env.B2_STORE_APP_KEY || "" },
-        rewrite: (p: string) => p.replace(/^\/images\/cases/, "/cases"),
-      },
-    },
+// Local dev: store-backed case images live in the PRIVATE B2 bucket behind
+// the /api/img-case function on production. B2 friendly URLs need a ≤24h
+// download token, so a plain proxy with a static Authorization header 401s —
+// instead this dev middleware SigV4-presigns each GET against the S3
+// endpoint, same algorithm as api/img-case.js.
+const B2_REGION = "us-east-005";
+const B2_HOST = `s3.${B2_REGION}.backblazeb2.com`;
+const B2_BUCKET = "taostudio-img";
+const hmacSha = (key: Buffer | string, data: string) =>
+  createHmac("sha256", key).update(data).digest();
+function presignB2Get(key: string, expires = 300): string | null {
+  const keyId = process.env.B2_STORE_KEY_ID;
+  const appKey = process.env.B2_STORE_APP_KEY;
+  if (!keyId || !appKey) return null;
+  const amzDate = new Date().toISOString().replace(/[:-]|\.\d{3}/g, "");
+  const scope = `${amzDate.slice(0, 8)}/${B2_REGION}/s3/aws4_request`;
+  const params = new URLSearchParams({
+    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
+    "X-Amz-Credential": `${keyId}/${scope}`,
+    "X-Amz-Date": amzDate,
+    "X-Amz-Expires": String(expires),
+    "X-Amz-SignedHeaders": "host",
+  });
+  const canonical = ["GET", `/${B2_BUCKET}/${key}`, params.toString(), `host:${B2_HOST}\n`, "host", "UNSIGNED-PAYLOAD"].join("\n");
+  const toSign = ["AWS4-HMAC-SHA256", amzDate, scope, createHash("sha256").update(canonical).digest("hex")].join("\n");
+  const signing = hmacSha(hmacSha(hmacSha(hmacSha(`AWS4${appKey}`, amzDate.slice(0, 8)), B2_REGION), "s3"), "aws4_request");
+  params.set("X-Amz-Signature", createHmac("sha256", signing).update(toSign).digest("hex"));
+  return `https://${B2_HOST}/${B2_BUCKET}/${key}?${params.toString()}`;
+}
+const devStoreImages = {
+  name: "dev-store-images",
+  configureServer(server: { middlewares: { use: (p: string, h: (req: { url?: string }, res: { statusCode?: number; setHeader?: (k: string, v: string) => void; end: (b?: Buffer | string) => void }, n: () => void) => void) => void } }) {
+    server.middlewares.use("/images/cases", (req, res, next) => {
+      const key = String(req.url || "").replace(/^\//, "").split("?")[0];
+      if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/.test(key)) {
+        res.statusCode = 400;
+        res.end("bad key");
+        return;
+      }
+      const url = presignB2Get(`cases/${key}`);
+      if (!url) {
+        res.statusCode = 503;
+        res.end("B2_STORE_* missing from .env.local — store images unavailable in dev");
+        return;
+      }
+      fetch(url, { signal: AbortSignal.timeout(15000) })
+        .then((up) => {
+          res.statusCode = up.status;
+          const ct = up.headers.get("content-type");
+          if (ct && res.setHeader) res.setHeader("Content-Type", ct);
+          return up.arrayBuffer();
+        })
+        .then((buf) => res.end(Buffer.from(buf)))
+        .catch(() => {
+          res.statusCode = 504;
+          res.end();
+        });
+    });
   },
+};
+
+export default defineConfig(({ isSsrBuild }) => ({
+  plugins: [react(), staticEntryCopies, devStoreImages],
   build: {
     // SSR build needs top-level await (used in data.ts for conditional data
     // loading). Client build stays at es2020 for broader browser compat.
