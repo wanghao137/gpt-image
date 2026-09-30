@@ -1233,7 +1233,7 @@
       "Mascot"
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
-    "cover": "https://cms-assets.youmind.com/media/1790668327005_x0avsn_HTT74Ira0AAo94H.jpg",
+    "cover": "/images/cases/templatederived-3d-ip-mascot.jpg",
     "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35629 Bloody Gothic Chibi Girl Character Design: A prompt to generate a cute yet creepy chibi character illustration featuring a blonde girl in …\n- #100294 情侣照片定制3D收藏手办：温馨婚纱纪念雕塑: Create a cute premium 3D animated collectible figurine scene of the uploaded couple, using thei…\n- #34332 女性与同款 3D 大头公仔: 生成一张写实的摄影棚肖像，展示一位女性与她可爱的 3D 漫画版公仔并肩站立，适用于趣味社交媒体内容或角色概念视觉图。\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
