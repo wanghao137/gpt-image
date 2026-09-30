@@ -1090,17 +1090,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/cases/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35625 GPT Image 2 Crowded Train Portrait: Detailed prompt for generating a photorealistic portrait of a woman in a crowded train, specify…\n- #35622 Hyper-realistic Desert Adventure Portrait: A prompt for generating a hyper-realistic full-body outdoor adventure portrait of a female char…\n- #35621 Shopping Cart Parking Garage Lifestyle: A prompt for creating a photorealistic lifestyle photo of a young woman relaxing inside a shopp…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35623 戴同款帽子的街头猫咪自拍: 生成一张逼真的街头自拍照的提示词：一位女士抱着一只猫，两人都戴着配套的蓝色帽子，背景是优雅的欧式建筑。\n- #35625 GPT Image 2 Crowded Train Portrait: Detailed prompt for generating a photorealistic portrait of a woman in a crowded train, specify…\n- #35622 Hyper-realistic Desert Adventure Portrait: A prompt for generating a hyper-realistic full-body outdoor adventure portrait of a female char…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "35623",
       "35625",
       "35622",
       "35621",
-      "35620",
-      "35578"
+      "35620"
     ]
   },
   {
