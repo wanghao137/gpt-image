@@ -17,7 +17,9 @@ import { storeEnvReady, storeClient, B2_STORE_BUCKET } from "./image-store-clien
 
 loadDotenv({ path: ".env.local" });
 
-const WIDTHS = [320, 480, 640, 960, 1280];
+// 1280 is optional on the store: byte-identical duplicates of the 960 rung
+// are trimmed (see scripts/trim-duplicate-1280.mjs).
+const BASE_WIDTHS = [320, 480, 640, 960];
 const REWRITE = process.argv.includes("--rewrite");
 
 if (!storeEnvReady()) {
@@ -63,10 +65,10 @@ const manifest = JSON.parse(readFileSync("data/image-store.json", "utf8"));
 const entries = { ...(manifest.entries || {}) };
 let full = 0;
 for (const [base, e] of byBase) {
-  const widths = WIDTHS.filter((w) => (e.webp[w] || 0) > 0);
-  if (e.jpg > 0 && widths.length === WIDTHS.length) {
+  const widths = BASE_WIDTHS.filter((w) => (e.webp[w] || 0) > 0);
+  if (e.jpg > 0 && BASE_WIDTHS.every((w) => widths.includes(w))) {
     entries[base] = {
-      widths: WIDTHS,
+      widths: widths.sort((a, b) => a - b),
       jpgBytes: e.jpg,
       webpBytes: Object.fromEntries(widths.map((w) => [w, e.webp[w]])),
       // Preserve provenance; a bucket-observed ladder is real even when the
@@ -85,7 +87,7 @@ const covered = (c) =>
   /^https?:\/\//.test(String(c.imageUrl || "")) &&
   (() => {
     const e = entries[`case${c.id}`];
-    return e && e.source !== "failed" && e.jpgBytes > 0 && WIDTHS.every((w) => (e.webpBytes?.[w] || 0) > 0);
+    return e && e.source !== "failed" && e.jpgBytes > 0 && BASE_WIDTHS.every((w) => (e.webpBytes?.[w] || 0) > 0);
   })();
 
 if (REWRITE) {

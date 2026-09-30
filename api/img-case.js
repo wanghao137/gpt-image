@@ -76,9 +76,20 @@ export default async function handler(req, res) {
       res.statusCode = 503;
       return res.end("store credentials not configured");
     }
-    const upstream = await fetch(presignGet(`cases/${key}`), {
+    let upstream = await fetch(presignGet(`cases/${key}`), {
       signal: AbortSignal.timeout(20000),
     });
+    // Byte-identical duplicate 1280 rungs are trimmed from the bucket
+    // (scripts/trim-duplicate-1280.mjs) — for those bases the 960 bytes are
+    // the same image, so serve them losslessly instead of a 404.
+    if (upstream.status === 404) {
+      const m = key.match(/^(.+)-1280\.webp$/);
+      if (m) {
+        upstream = await fetch(presignGet(`cases/${m[1]}-960.webp`), {
+          signal: AbortSignal.timeout(20000),
+        });
+      }
+    }
     if (!upstream.ok || !upstream.body) {
       res.statusCode = upstream.status === 404 ? 404 : 502;
       return res.end();

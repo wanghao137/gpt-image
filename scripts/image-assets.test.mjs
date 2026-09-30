@@ -33,13 +33,17 @@ function assertLocalImageAsset(src, label) {
   }
 
   // Store-backed ladder: bytes live in the B2 image store (served same-origin
-  // via a Vercel proxy rewrite), so the contract is the committed manifest.
+  // via the /api/img-case proxy), so the contract is the committed manifest.
+  // The 1280 rung is OPTIONAL: for sources ≤960px wide it is byte-identical
+  // to the 960 rung and gets trimmed from the bucket
+  // (scripts/trim-duplicate-1280.mjs); the proxy serves 960 bytes for
+  // -1280.webp requests, so its absence is never user-visible.
   assert.ok(manifest, `${label} points at ${src} but data/image-store.json is missing`);
   const base = src.replace(/^\/images\/cases\//, "").replace(/\.(?:jpg|jpeg|png)$/i, "");
   const entry = manifest.entries?.[base];
   assert.ok(entry, `${label} (${base}) is missing from the image store manifest`);
   assert.ok(entry.jpgBytes > 0, `${label} (${base}) has an empty canonical JPEG`);
-  for (const width of WEBP_WIDTHS) {
+  for (const width of [320, 480, 640, 960]) {
     assert.ok(
       (entry.webpBytes?.[width] || 0) > 0,
       `${label} (${base}) is missing store width ${width}`,

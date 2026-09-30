@@ -172,19 +172,33 @@ async function storeBakeOne(rec) {
   }
 
   const webpBytes = {};
+  const storedWidths = [];
   let jpgBytes = 0;
   let bytesOut = 0;
   try {
+    let lastWebpBuf = null;
     for (const v of variants) {
       const encoded = await encodeVariant(raw, v.width, v.format);
+      if (v.format === "webp") {
+        // withoutEnlargement makes the top rung a byte-identical copy of the
+        // 960 rung whenever the source is ≤960px wide — skip storing that
+        // duplicate (api/img-case.js falls back to the 960 bytes for
+        // -1280.webp requests, so the visible ladder is unchanged).
+        if (v.width === 1280 && lastWebpBuf && encoded.equals(lastWebpBuf)) {
+          continue;
+        }
+        lastWebpBuf = encoded;
+      }
       await storePut(
         storeClientSingleton,
         v.key,
         encoded,
         v.format === "webp" ? "image/webp" : "image/jpeg",
       );
-      if (v.format === "webp") webpBytes[v.width] = encoded.length;
-      else jpgBytes = encoded.length;
+      if (v.format === "webp") {
+        webpBytes[v.width] = encoded.length;
+        storedWidths.push(v.width);
+      } else jpgBytes = encoded.length;
       bytesOut += encoded.length;
     }
   } catch (err) {
@@ -195,7 +209,7 @@ async function storeBakeOne(rec) {
   }
 
   storeManifest = manifestUpsert(storeManifest, baseName, {
-    widths: VARIANTS,
+    widths: storedWidths,
     jpgBytes,
     webpBytes,
     source,
