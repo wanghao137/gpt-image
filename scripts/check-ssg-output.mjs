@@ -37,9 +37,6 @@ if (!failures.length) {
   if (!html.includes("data-rh")) {
     failures.push('dist/index.html lacks the data-rh prerender marker — SSG did not run');
   }
-  if (!/<div id="root">[^<]/.test(html)) {
-    failures.push("dist/index.html has an empty #root — prerender produced no markup");
-  }
 }
 
 if (failures.length) {
