@@ -52276,6 +52276,18 @@
       "prompt": "基于提供的参考图像，将手绘插图转化为写实电影镜头。保留原有构图，包括带有鲨鱼嘴鼻部涂装的做旧青绿色战斗机，以及佩戴铜色头盔和黄色护目镜的飞行员。模拟高端相机镜头拍摄效果：用逼真的金属质感、清晰可见的铆钉和机身划痕取代绘画笔触。增强背景细节，呈现体积云及下方燃烧景观的高空俯瞰视角，同时保持相同的拍摄角度与动态模糊效果。"
     }
   },
+  "35627": {
+    "en": {
+      "title": "Poster / Flyer - Van Gogh Style Fish Head Soup Poem",
+      "description": "Generates a satirical image combining a Van Gogh-inspired painting of a man eating fish head soup with a poem layout on a black background.",
+      "prompt": "A split composition. The left side is a Van Gogh-style oil painting of an emaciated, scruffy man with wild black hair and a long nose, wearing a tattered blue coat. He sits at a wooden table eating from a large bowl containing a whole fish head and rice soup, holding a spoon. Behind him on the blue wall is a poster reading \"A FOOL AND HIS FISH HEAD SOUP\" featuring a caricature of a man in a top hat. To the far left, a window reveals hanging laundry and a bottle on the sill. The right side is a solid black background containing white text: a QR code at the top, followed by the poem \"he's a bungler / a man without scruples / scruffy and vile / subsisting on a fool's diet / of fish head and rice soup\", and credits below."
+    },
+    "zh": {
+      "title": "海报 / 传单 - 梵高风格鱼头汤诗歌",
+      "description": "生成一幅讽刺图像，将梵高风格的男子吃鱼头汤画作与黑色背景上的诗歌排版相结合。",
+      "prompt": "画面采用分割构图。左侧是一幅梵高风格的油画，描绘了一位瘦骨嶙峋、衣着邋遢的男子，他留着蓬乱的黑色长发和长鼻子，身穿一件破旧的蓝色外套。他坐在木桌前，手持勺子，正从一个大碗中吃着整颗鱼头和米粥。在他身后的蓝色墙壁上贴着一张海报，上面写着“A FOOL AND HIS FISH HEAD SOUP”（傻瓜和他的鱼头汤），并印有一位戴高帽男子的漫画像。最左侧的窗户透出晾晒的衣物，窗台上放着一个瓶子。右侧为纯黑背景，包含白色文字：顶部是一个二维码，下方是诗句“he's a bungler / a man without scruples / scruffy and vile / subsisting on a fool's diet / of fish head and rice soup”，底部附有署名信息。"
+    }
+  },
   "35628": {
     "en": {
       "title": "Seamless Retro Game Map Texture Generator",
@@ -52315,7 +52327,7 @@
   "35676": {
     "en": {
       "title": "Luxury Travel Fashion Portrait Prompt",
-      "description": "A detailed prompt for creating a realistic luxury travel fashion portrait of a woman on an airport tarmac, generated with GPT Image 2.",
+      "description": "A detailed prompt for generating a photorealistic portrait of an elegant woman on an airport tarmac with a private jet, suitable for luxury fashion or travel editorial content.",
       "prompt": "Create a highly realistic luxury travel fashion portrait of an elegant young woman standing on a private airport tarmac beside a sleek private jet. She has long, voluminous wavy dark-brown hair flowing naturally in the breeze, stylish aviator sunglasses, bold red lipstick, and refined natural makeup. She is wearing a sophisticated deep teal fitted jumpsuit with a matching long tailored coat draped over her shoulders, a silver luxury wristwatch, and elegant earrings.\nShe is holding the handle of a premium brown designer-style rolling suitcase, standing confidently beside the aircraft stairs. Bright clear blue sky, private jet visible in the background, modern airport hangar and subtle vehicles in the distance. Strong natural daylight, realistic shadows, high-end executive-travel atmosphere, luxury fashion editorial photography, photorealistic skin texture, natural hair strands, realistic fabric details, cinematic depth of field, sharp focus, 4K, premium magazine photography, vertical 4:5 composition."
     },
     "zh": {
@@ -52326,8 +52338,8 @@
   },
   "35677": {
     "en": {
-      "title": "Fractured Mirror Portrait Editorial",
-      "description": "An ultra-realistic cinematic high-fashion editorial prompt depicting a handsome young man's face reflected through broken mirror fragments, emphasizing dramatic lighting and mysterious mood.",
+      "title": "Broken Mirror Fashion Editorial Prompt",
+      "description": "A prompt for generating a high-fashion editorial photo of a young man seen through broken mirror fragments, creating a mysterious and artistic composition with realistic reflections.",
       "prompt": "Ultra-realistic cinematic high-fashion editorial photograph of a strikingly handsome young man in his early 20s, with thick naturally wavy jet-black hair, strong eyebrows, deep dark-brown eyes, a sharply defined sculpted jawline, subtle natural stubble, and realistic skin texture with visible pores.\n\nConcept: His face is seen through several large, irregularly broken mirror fragments, each piece reflecting a slightly different angle of his face — one showing his intense eyes, another capturing his sharp side profile, another revealing his jawline and lips, and the central fragment showing his face staring directly into the camera. The fractured mirror pieces create a mysterious, artistic composition, with sharp geometric edges and realistic reflections.\n\nExpression & Pose: Calm, mysterious and emotionally intense expression, deep captivating gaze directed toward the camera through the mirror fragments, head slightly tilted, with a subtle sense of introspection and hidden identity.\n\nOutfit: Elegant black high-neck shirt beneath a tailored black blazer, minimal luxury styling, sophisticated and timeless.\n\nLighting: Dramatic low-key cinematic lighting, deep shadows, subtle cool blue highlights along the mirror edges, soft light illuminating his eyes and facial features, realistic reflections and delicate specular highlights on the broken glass.\n\nBackground: Dark minimalist interior with a charcoal-black background, subtle atmospheric haze, faint reflections and a sophisticated noir aesthetic.\n\nPhotography: Extreme attention to facial details, photorealistic skin texture, natural facial proportions, 85mm portrait lens, shallow depth of field, cinematic color grading, high contrast, ultra-detailed 8K HDR, luxury fashion magazine editorial, masterpiece composition.\n\nMood: Mysterious, introspective, dark, elegant, psychologically intriguing and cinematic.\n\nVertical 9:16 composition, close-up portrait, face occupying the central area, mirror fragments artistically arranged around the face, realistic glass reflections, perfectly coherent facial features within each reflection, professional editorial photography.\n\nNo text, no typography, no watermark, no extra faces, no distorted facial features, no artificial-looking skin, no cartoon effects."
     },
     "zh": {
@@ -52384,6 +52396,18 @@
       "prompt": "一张随性的全身街头风格人像，画面中是一位站在现代潮流咖啡店外的年轻女性，她双眼轻闭，露出温柔的微笑。她留着一头长直栗棕色头发；身穿一件印有图案的宽松白色 T 恤，下摆塞进高腰薄荷绿柔和色调阔腿裤中，脚踩一双干净的白色运动鞋。她肩上挎着一个淡紫色柔和色调单肩包，姿态随意，一只手轻轻握住包带。背景是咖啡店的大玻璃门和橱窗、色彩鲜艳的装裱画作、复古装饰、木质桌椅以及一台复古收录机。明亮的自然阳光，柔和的粉彩色调，充满活力的都市氛围，梦幻生活方式摄影，自然的皮肤质感，轻微的胶片颗粒感，写实摄影风格，全身构图，竖版 4:5 画幅，细节丰富。"
     }
   },
+  "35682": {
+    "en": {
+      "title": "Poster / Flyer - GPT Image 2 Premium Poster Design Prompt",
+      "description": "A detailed prompt for generating premium posters with a split composition: preserving the original photo in the top half and creating a mid-century vernacular graphic illustration in the bottom half.",
+      "prompt": "Please create a separate, independently designed premium poster from each uploaded photo. Do not combine multiple photos into one composition; output one individual poster for each photo. Use a vertical 3:4 composition, with the upper and lower sections strictly divided 1:1, each occupying exactly 50% of the total height.\n\nUpper Half:  \nPreserve the original photograph, maintaining the subject’s identity, structure, pose, realistic texture, natural lighting, and original color atmosphere. Apply only subtle, sophisticated color grading to give it the visual quality of an art magazine, independent publication, or exhibition image. To adapt the image to the 3:4 format, the surrounding background may be naturally extended, but do not stretch, distort, or alter the subject.\n\nLower Half:  \nExtract the most recognizable subject, silhouette, structure, pose, and narrative relationship from the photograph and reconstruct it in the style of Mid-century vernacular graphic illustration + schematic line drawing + two-color spot printing.\n\nDo not completely trace or replicate the photograph. Instead, use diagrammatic abstraction to compress complex objects into a small number of clear geometric shapes, functional contours, and essential structural elements. The result should resemble an illustration from an old instruction manual, advertising card, technical label, or vernacular print: immediately recognizable, yet more direct, humorous, and symbolic than the realistic object itself.\n\nEmphasize economy of line: if a structure can be explained with a single line, do not use unnecessary strokes. Use direct black pen outlines, rectangles, circles, diamonds, straight lines, and simple planes to describe the objects. People, animals, and objects may have slightly exaggerated proportions, while machines, buildings, and complex structures should be simplified into clear boxes, openings, panels, and silhouette relationships.\n\nUse a flat, schematic diagrammatic perspective rather than realistic lighting or strictly accurate spatial depth. The visual language should exist somewhere between illustration and technical diagram, maintaining this distinctive character throughout the composition.\n\nReorganize the composition according to the most important narrative relationship in the original image. Maintain one clear primary subject, while using a small number of supporting objects, guide lines, directional relationships, or structural symbols to reinforce the story.\n\nPay close attention to visual hierarchy, geometric order, scale contrast, positive and negative space, and intentional whitespace. The image may feel slightly naïve, awkward, or handmade in a vernacular way, but it must never feel cluttered. Every visual element should appear to exist for the purpose of “explaining what is happening”, rather than simply serving as decoration."
+    },
+    "zh": {
+      "title": "海报 / 传单 - 高端海报分割构图",
+      "description": "创建一张垂直海报，分为上下两半：上半部分为写实照片，下半部分为示意图线条插画。",
+      "prompt": "请为每张上传的照片分别设计独立的高端海报。不要将多张照片合并为一个构图；每张照片输出一张单独的海报。使用垂直 3:4 构图，上下部分严格按 1:1 划分，各占总高度的 50%。\n\n上半部分：\n保留原始照片，维持主体的身份、结构、姿态、写实纹理、自然光照和原始色彩氛围。仅应用微妙且精致的调色处理，赋予其艺术杂志、独立出版物或展览图像的视觉质感。为了适应 3:4 格式，可以自然地延伸周围背景，但不得拉伸、扭曲或改变主体。\n\n下半部分：\n从照片中提取最具辨识度的主体、轮廓、结构、姿态和叙事关系，并以“世纪中期民间图形插画 + 示意图线条画 + 双色专色印刷”的风格进行重构。\n\n不要完全描摹或复制照片。相反，使用图解式抽象方法，将复杂对象压缩为少量清晰的几何形状、功能轮廓和基本结构元素。结果应类似于旧说明书、广告卡片、技术标签或民间印刷品中的插图：易于识别，但比写实物体本身更直接、幽默且具有象征意义。\n\n强调线条的经济性：如果可以用一条线解释结构，就不要使用多余的笔画。使用直接的黑色钢笔轮廓、矩形、圆形、菱形、直线和简单平面来描述物体。人物、动物和物体可以有略微夸张的比例，而机器、建筑和复杂结构则应简化为清晰的盒子、开口、面板和轮廓关系。\n\n使用扁平的示意图视角，而非写实光照或严格准确的空间深度。视觉语言应介于插画和技术图表之间，并在整个构图中保持这种独特特征。\n\n根据原图像中最重要的叙事关系重新组织构图。保持一个清晰的主要主体，同时使用少量辅助物体、引导线、方向关系或结构符号来强化故事。\n\n密切关注视觉层次、几何秩序、比例对比、正负空间以及有意的留白。图像可能略显天真、笨拙或以民间方式呈现手工感，但绝不能显得杂乱。每个视觉元素都应看似为了“解释正在发生的事情”而存在，而非仅仅作为装饰。"
+    }
+  },
   "35683": {
     "en": {
       "title": "Surreal fashion bicycle garden",
@@ -52398,9 +52422,9 @@
   },
   "35684": {
     "en": {
-      "title": "Rain and Fire Warrior Portrait",
-      "description": "Prompt for a close-up cinematic portrait of a wet warrior-style woman amidst rain and fire light, emphasizing intense expression and detailed textures.",
-      "prompt": "Subject:\nWet battle gear in rain and flame.\n\nMain Subject:\nClose-up portrait of mud-wetted warrior-style woman amidst rain and fire light, centered in frame.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, neat nose, glossy pale pink lips. Expression is serious, head tilted slightly down from front, sharp gaze towards camera, lips closed. Wet long hair nearly black sticking to face, neck, and shoulders in thin strands.\n\nClothing & Pose:\nMud-stained beige deep V-neck leather top, metal studs and thin chains, brown leather strap on right shoulder, cloth wrap on right upper arm, gold necklace and earrings with blue stones. Upper body leaned low forward, right shoulder thrust towards camera.\n\nBackground & Light:\nWet stones and droplets in foreground; pale blue reflection on left background; orange flames and smoke on right. Hard flame light from rear-right and cold soft fill light from left illuminate wet contours.\n\nComposition & Camera:\n3:4 vertical composition, close-up overhead camera slightly above face capturing close-up from head to below chest. Person placed very large in center, occupying most of screen height. Hair, shoulders, arms boldly cropped at edges, focus on eyes and water droplets on wet face, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, costume materials, and props, maintaining cinematic colors of mud-brown, flame-orange, and cold-blue.\n\nNegative:\nDry clean skin/hair; omission of flames and warrior gear."
+      "title": "Rain and Fire Warrior Portrait Prompt",
+      "description": "A detailed prompt for generating a photorealistic portrait of a female warrior covered in rain and firelight, focusing on wet textures, dramatic lighting, and intense expression.",
+      "prompt": "Subject:\nWet battle attire with rain and fire.\n\nMain Subject:\nCenter frame, close-up portrait of a female warrior-style character covered in mud amidst rain and firelight.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale pink lips. Expression is serious, looking slightly down from the front but with sharp gaze directed at the camera, lips closed. Wet long black hair clings to face, neck, and shoulders in thin strands.\n\nClothing & Pose:\nMud-stained beige deep V-neck leather top, metal studs and thin chains, brown leather strap on right shoulder, cloth wrap on upper right arm, gold necklace and earrings with blue stones. Upper body tilted low forward, right shoulder thrust towards the camera.\n\nBackground & Light:\nFrom left to right background: wet stones and water droplets in foreground, bluish reflections on left background, orange flames and smoke on right. Hard flame light from right rear and cold soft fill light from left illuminate wet outlines.\n\nComposition & Camera:\n3:4 vertical composition, close-up high-angle camera slightly above face capturing head to chest-down as a portrait. Character placed very large in center, occupying most of screen height. Hair, shoulders, arms boldly cropped at edges, focus on both eyes and water droplets on wet face, background lightly blurred.\n\nTexture & Style:\nPhotorealistic real photo. Natural skin and hair, costume materials, surrounding props highly detailed, maintaining cinematic colors of mud brown, flame orange, and cold blue.\n\nNegative:\nDry clean skin/hair; omission of fire and warrior equipment"
     },
     "zh": {
       "title": "雨火战士肖像",
@@ -52410,8 +52434,8 @@
   },
   "35685": {
     "en": {
-      "title": "Autumn Cozy Casual Outfit Prompt",
-      "description": "English text prompt describing a dusty rose mohair sweater outfit with cream corduroy pants and Mary Janes for GPT Image 2 generation.",
+      "title": "ChatGPT Image 2 Autumn Casual Outfit Prompt",
+      "description": "A prompt for generating an autumn casual fashion outfit description featuring dusty rose mohair sweater and cream corduroy pants. Text is in English within Japanese tweet context.",
       "prompt": "OUTFIT:\n\nA soft oversized mohair sweater in dusty rose, worn slightly off-shoulder and layered over a thin white turtleneck, paired with high-waisted cream wide-leg corduroy pants with tiny embroidered floral patches on the pockets.\n\nStyled with chunky platform Mary Janes and a small leather crossbody bag.\n\nSoft, cozy, feminine casual fashion aesthetic.\nDusty rose, white, and cream color scheme.\nNo extra decorations."
     },
     "zh": {
@@ -52494,14 +52518,194 @@
   },
   "35692": {
     "en": {
-      "title": "Woman Reading in Snowy Street",
-      "description": "Generates a cinematic portrait of a woman holding a book on a snowy street at twilight, featuring warm lighting and falling snow.",
-      "prompt": "A vertical portrait of a young woman with long, dark hair and soft bangs standing in a snowy European street at dusk. She is wearing a thick, beige wool coat and a matching chunky scarf wrapped around her neck. She holds an old, brown leather-bound book against her chest with both hands. Her head is tilted slightly upward, gazing into the distance with a serene expression, and her breath forms a visible white mist in the cold air. Snowflakes are falling heavily, dusting her hair and shoulders. To her left, a vintage gas street lamp glows with warm yellow light. The background features blurred cobblestone streets and historic buildings with lit windows under a purple and blue twilight sky."
+      "title": "Anime Girl in Snowy European Street",
+      "description": "A high-quality anime-style portrait of a girl holding an old book on a snowy street at twilight, featuring warm lighting and falling snow.",
+      "prompt": "Create a vertical digital illustration in a semi-realistic anime style depicting a young woman standing on a snowy cobblestone street during twilight. The subject has long, dark hair with bangs, dusted with white snowflakes, and fair skin with soft pink blush on her cheeks and nose. She is looking upward to the right with a gentle, wistful expression, exhaling a visible puff of white breath into the cold air. She wears a thick, textured beige wool coat and a matching chunky scarf wrapped around her neck. In her arms, she clutches a vintage brown leather-bound book with gold detailing on the cover. To the left, a classic black iron street lamp glows with a warm yellow light. The background features blurred European-style brick buildings with snow-covered roofs and distant church spires against a sky transitioning from deep blue to purple and orange. Falling snowflakes are scattered throughout the scene."
     },
     "zh": {
       "title": "雪中街头阅读的女子",
       "description": "生成一幅电影感肖像，描绘一位女子在黄昏的雪街上手持书籍，画面具有暖色调灯光和飘落的雪花。",
       "prompt": "一张竖构图肖像，展示了一位留着深色长发和柔和刘海的年轻女子，站在黄昏时分的欧洲雪街中。她身穿一件厚实的米色羊毛大衣，脖子上围着一条同色系的粗针织围巾。她双手将一本陈旧的棕色皮革精装书抱在胸前。她的头微微上扬，神情宁静地凝视远方，呼出的气息在冷空气中形成可见的白色雾气。雪花纷纷扬扬地落下，点缀在她的头发和肩膀上。在她左侧，一盏复古煤气路灯散发着温暖的黄色光芒。背景是模糊的鹅卵石街道和历史建筑，窗户透出灯光，天空呈现出紫色与蓝色的暮光色调。"
+    }
+  },
+  "35750": {
+    "en": {
+      "title": "Cyberpunk Japanese Portrait with Tattoos",
+      "description": "A prompt for generating a cinematic, ultra-detailed portrait of a woman with a Japanese cyberpunk aesthetic, featuring facial tattoos, irezumi-style arm tattoos, and katanas.",
+      "prompt": "Cinematic, ultra-detailed portrait of the attached model—preserving her original face and expression—featuring a Japanese cyberpunk aesthetic. Her face displays small linear tattoos and calligraphic characters, such as \"{argument name=\"facial_markings\" default=\"H19845\"},\" on her cheeks. She wears a red garment and rests her chin on her clasped hands, revealing arms fully covered in intricate *irezumi*-style tattoos (flowers and characters), while the hilts of two katanas cross behind her back. The image features bright natural lighting, sharp focus on the face, shallow depth of field with a blurred background, and a high-quality, hyper-realistic rendering style. 16:9 aspect ratio."
+    },
+    "zh": {
+      "title": "赛博朋克风格日本女性纹身肖像",
+      "description": "用于生成具有日本赛博朋克美学、面部纹身、刺青风格手臂纹身和武士刀的超精细电影感女性肖像的提示词。",
+      "prompt": "以附件中的模特为原型，保留其原始面部特征与表情，生成一幅具有日本赛博朋克美学的电影级超精细肖像。她的脸颊上绘有小型线性纹身及书法字符，例如“{argument name=\"facial_markings\" default=\"H19845\"}”。她身着红色服饰，双手交叠托住下巴，露出布满精致 *irezumi*（传统日式刺青）风格纹身的手臂，图案包含花卉与文字元素；背后交叉放置两把武士刀的刀柄。画面采用明亮的自然光照明，面部焦点清晰，背景虚化呈现浅景深效果，整体为高质量超写实渲染风格。宽高比为 16:9。"
+    }
+  },
+  "35751": {
+    "en": {
+      "title": "Dark Fantasy Warrior with Owl",
+      "description": "A prompt for generating a highly detailed portrait of a fierce tribal fantasy warrior woman leaning close to a majestic great horned owl in a dark, moody forest setting.",
+      "prompt": "A detailed portrait of a fierce tribal fantasy warrior woman leaning close to a massive, majestic great horned owl, cinematic lighting, dark moody atmosphere. The woman has long, wavy dark hair adorned with intricate silver chains, beads, and metallic headpieces. She has striking light green eyes, piercing the camera, with silver and icy-white war paint painted across her cheeks and nose. She wears dark leather armor decorated with silver pendants and turquoise gemstones Beside her the giant owl features sharp glowing orange eyes, patterned white and black feathers and an ornate silver circular medallion studded with a blue crystal resting on its forehead. The background is a shadowy, mystical forest in cool blue and dark gray tones. Highly detailed feathers, hyper-realistic, photorealistic textures, 8k resolution, dramatic dark fantasy aesthetic, masterpiece."
+    },
+    "zh": {
+      "title": "黑暗奇幻战士与猫头鹰",
+      "description": "用于生成高度细节肖像的提示词：描绘一位凶猛的部落奇幻女战士，在阴暗、氛围浓郁的森林中，靠近一只威严的大角猫头鹰。",
+      "prompt": "一幅细节丰富的肖像画，描绘了一位凶猛的部落奇幻女战士，她正靠近一只巨大而威严的大角猫头鹰，采用电影级布光，营造出黑暗且充满情绪的氛围。这位女性留着长而波浪状的深色头发，装饰着精致的银色链条、珠子和金属头饰。她拥有引人注目的浅绿色眼睛，直视镜头，脸颊和鼻梁上涂有银色和冰白色的战妆。她身穿深色皮革盔甲，点缀着银质吊坠和绿松石宝石。在她身旁，巨大的猫头鹰有着锐利发光的橙色眼睛，黑白相间的羽毛图案，额头上戴着一枚镶嵌蓝色水晶的华丽银色圆形徽章。背景是一片阴影笼罩的神秘森林，呈现冷蓝色和深灰色调。羽毛细节高度精细，超写实，照片级纹理，8k 分辨率，戏剧性的黑暗奇幻美学，杰作。"
+    }
+  },
+  "35752": {
+    "en": {
+      "title": "Riverside Fashion Photo with Identity Lock",
+      "description": "A detailed prompt for creating an ultra-realistic lifestyle fashion photograph of a woman walking along a sunlit riverside street, strictly preserving facial identity from a reference image.",
+      "prompt": "Use the uploaded female reference image as the ONLY identity reference.\n\nCreate an ultra-realistic cinematic lifestyle fashion photograph of the same woman. Preserve her exact facial identity, facial structure, eyes, eyebrows, nose, lips, skin tone, natural skin texture, hairstyle and overall appearance. Do not change or redesign her face.\n\nShe is walking along a beautiful sunlit riverside pedestrian street in a charming tropical Asian town. She turns naturally over her shoulder toward the camera with a gentle confident smile.\n\nOUTFIT: vibrant magenta-pink sleeveless tiered mini dress with thin shoulder straps, fitted ruched waist, soft gathered fabric and a flowing multi-layer skirt. Carry a natural woven straw shoulder bag. Wear clean white casual sneakers and minimal gold hoop earrings.\n\nHAIR: dark naturally wavy hair pulled into a high ponytail with loose strands framing the face.\n\nENVIRONMENT: lush bougainvillea flowers overflowing around the pathway, green trees, colorful riverside buildings, traditional hanging bamboo lanterns, small boats on the river, bright blue sky and peaceful vacation atmosphere.\n\nLIGHTING: bright natural midday sunlight, soft realistic shadows, subtle warm highlights, natural skin tones.\n\nCAMERA: full-body lifestyle fashion photograph, eye-level slightly behind-the-subject perspective, 50mm lens, realistic depth of field, sharp subject with naturally softened background.\n\nSTYLE: luxury travel editorial photography, photorealistic, realistic skin pores, authentic fabric texture, natural body proportions, cinematic color grading, high dynamic range, 4K/8K detail.\n\nSTRICT IDENTITY LOCK — preserve the woman's exact face from the uploaded reference."
+    },
+    "zh": {
+      "title": "河畔时尚摄影与身份锁定",
+      "description": "一个详细的提示词，用于创作一张超写实的街头时尚生活方式照片，展现一位女性走在阳光普照的河畔街道上，并严格保留参考图像中的面部身份特征。",
+      "prompt": "将上传的女性参考图像作为唯一的身份参考。\n\n创作一张超写实的电影感生活方式时尚摄影作品，主角为同一位女性。严格保留她精确的面部身份、面部结构、眼睛、眉毛、鼻子、嘴唇、肤色、自然皮肤纹理、发型及整体外观。不得改变或重新设计她的面部特征。\n\n她正漫步在一座迷人的热带亚洲小镇中一条阳光明媚的河畔步行街上。她自然地回头望向镜头，带着温柔而自信的微笑。\n\n服装：鲜艳的品红色粉色无袖分层迷你连衣裙，配有细肩带、修身褶皱腰部、柔软褶皱面料和飘逸的多层裙摆。携带一个天然编织草编单肩包。穿着干净的白色休闲运动鞋和极简金色圈形耳环。\n\n发型：深色自然波浪卷发扎成高马尾，几缕发丝垂落在脸庞周围。\n\n环境：繁茂的三角梅花朵溢满小径周围，绿树成荫，色彩斑斓的河畔建筑，传统悬挂竹灯笼，河面上停泊着小船，湛蓝的天空和宁静的度假氛围。\n\n光线：明亮的自然正午阳光，柔和真实的阴影，微妙的暖色高光，自然的肤色。\n\n相机：全身生活方式时尚摄影，略低于视平线的背后视角，50mm 镜头，真实的景深效果，主体清晰，背景自然柔化。\n\n风格：奢华旅行编辑摄影，照片级真实感，真实的皮肤毛孔细节，逼真的面料质感，自然的身体比例，电影级调色，高动态范围，4K/8K 细节。\n\n严格身份锁定 — 保留上传参考图中女性的精确面部特征。"
+    }
+  },
+  "35753": {
+    "en": {
+      "title": "GPT Image 2 Prompt: White Room Portrait",
+      "description": "A detailed prompt for GPT Image 2 to generate a photorealistic portrait of a woman sitting on a rattan chair in a white classical room with morning light. Includes specific instructions for subject appearance, clothing, pose, background, lighting, and composition.",
+      "prompt": "Subject:\nWoman sitting on a chair in a white palace-like room.\n\nMain Subject:\nThe protagonist is a woman sitting on a rattan chair in the center of a white classical interior, draped in raw fabric.\n\nPerson & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale pink lips. Expression is calm, turning her face over her right shoulder towards the front, gaze aligned with the camera. Long wavy dark brown hair flows down her back, with thin bangs falling onto her eyebrows.\n\nClothing & Pose:\nWearing a sheer long-sleeved dress with floor-length hem made of raw fabric, slipped off one shoulder and wrapped around the body. Sitting sideways on the rattan chair, right leg crossed over left thigh, one foot lifted, right hand holding the fabric at the chest.\n\nBackground & Light:\nFrom left to right background: large arched window and vase with white flowers on the left, plaster bust and sculpture desk on the right, white decorative walls and marble floor. Soft diffused morning light from the left window envelops the back, legs, and white interior.\n\nComposition & Camera:\n3:4 vertical composition, full-body portrait captured from a diagonal side angle at chair height, framing from head top to dress hem on the floor. Person placed slightly small in the center, occupying most of the image height. Vases and sculptures remain on left and right, focus on face and shoulder contours, background lightly blurred.\n\nTexture & Style:\nPhotorealistic real photography. High-definition natural skin, hair, costume materials, and surrounding props, maintaining high brightness of white, raw color, and pale wood tones.\n\nNegative:\nChange in chair leg assembly; omission of white sculpture room."
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词：白色房间人像",
+      "description": "为 GPT Image 2 生成的详细提示词，用于创作一张写实风格的女性肖像。画面中，一位女性坐在白色古典房间的藤椅上，沐浴在晨光之中。提示词包含对人物外貌、服装、姿态、背景、光线及构图的具体指令。",
+      "prompt": "主题：\n一位女性坐在白色宫殿般房间内的椅子上。\n\n主要主体：\n主角是一位女性，坐在白色古典室内中央的藤椅上，身上披着原色布料。\n\n人物与表情：\n小巧的鹅蛋脸，深褐色的大眼睛，细眉，轮廓分明的鼻子，光泽感的淡粉色嘴唇。神情平静，将脸转向右肩后方朝向镜头，目光与相机对齐。深褐色长卷发垂至背部，稀疏的刘海落在眉毛上。\n\n服装与姿态：\n身穿一件由原色布料制成的长袖透肤连衣裙，裙摆拖地，一侧肩膀滑落并缠绕在身上。侧身坐在藤椅上，右腿交叉搭在左大腿上，一只脚抬起，右手在胸前抓住布料。\n\n背景与光线：\n从左至右的背景依次为：左侧的大拱形窗户和插着白花的 vase（花瓶），右侧的石膏半身像和雕塑台，以及白色的装饰墙壁和大理石地板。柔和漫射的晨光从左侧窗户洒入，笼罩着背部、腿部及白色室内空间。\n\n构图与相机：\n3:4 竖幅构图，以椅子高度的对角线侧面角度拍摄全身肖像，取景范围从头顶到落地裙摆。人物位于中心略偏小位置，占据图像大部分高度。花瓶和雕塑保留在左右两侧，焦点集中在面部和肩部轮廓，背景轻微虚化。\n\n质感与风格：\n照片级真实摄影。高清自然的皮肤、头发、服装材质及周边道具，保持白色、原色和浅木色调的高亮度。\n\n负面提示：\n椅腿组装方式改变；遗漏白色雕塑房间。"
+    }
+  },
+  "35754": {
+    "en": {
+      "title": "Poster / Flyer - GPT Image 2 Travel Editorial Poster Prompts",
+      "description": "Prompts for creating premium vertical travel editorial posters that combine cinematic photography in the top half with minimalist flat illustrations in the bottom half.",
+      "prompt": "Create a premium vertical travel editorial poster inspired by modern minimalist travel journals, combining a cinematic destination photograph with a refined flat illustration.\n\nTOP HALF — PHOTOGRAPH:\nA breathtaking panoramic photograph of Paris at sunset, viewed from an elevated viewpoint. The Eiffel Tower stands prominently in the center, surrounded by dense Parisian rooftops and historic city architecture. The sky is filled with soft peach, blush pink, dusty orange, and warm lavender clouds. Golden-hour light gently illuminates the city, creating a romantic cinematic atmosphere. Natural photographic detail, realistic architecture, subtle film grain, warm analog color grading, sophisticated travel-magazine photography.\n\nBOTTOM HALF — ILLUSTRATION:\nOn a warm ivory/cream paper background, create a minimalist hand-drawn/flat vector interpretation of the same Paris scene. Feature a simplified Eiffel Tower rising above an abstract Paris skyline, small trees and architectural silhouettes, a large muted peach sun behind the tower, and a few thin stylized clouds.\n\nUse a restrained palette of warm ivory, cocoa brown, dusty peach, muted terracotta, soft beige, and subtle warm gray. Clean geometric shapes, elegant minimal linework, gentle texture, slight paper grain, and imperfect analog-print character.\n\nTYPOGRAPHY:\nLarge elegant high-fashion editorial serif typography reading:\n\n“Paris”\n\nBelow it, smaller widely spaced uppercase text:\n\n“SAME SKY”\n“DIFFERENT STORIES”\n\nKeep the typography sophisticated, minimal, and editorial. Use generous negative space. The title should be large but not overpower the illustration.\n\nCOMPOSITION:\nVertical 4:5 poster, clean horizontal division between photograph and illustrated section, balanced visual hierarchy, luxury travel magazine aesthetic, sophisticated European editorial design, timeless and nostalgic.\n\nPhotorealistic top section + minimalist illustrated bottom section. No 3D rendering, no cartoonish style, no excessive decoration, no clutter, no watermark.\n\nPrompt 2\nCreate a premium vertical travel editorial poster combining a cinematic coastal photograph with a minimalist illustrated travel poster.\n\nTOP HALF — PHOTOGRAPH:\nA beautiful coastal lighthouse at golden hour. A tall white lighthouse with a dark lantern room stands beside a classic coastal house with a warm red roof. Rugged dark rocks fill the foreground while powerful ocean waves crash against the shoreline. Deep blue water, clear blue sky, small soft clouds, warm sunlight illuminating the lighthouse and rocks. Authentic coastal atmosphere, realistic photography, subtle film grain, natural contrast, premium travel-magazine aesthetic.\n\nBOTTOM HALF — ILLUSTRATION:\nReinterpret the same lighthouse scene as a sophisticated minimalist flat illustration on warm ivory paper. Show the lighthouse, red-roofed coastal house, rocky shoreline, stylized ocean waves, distant horizon, a small sun, and two or three simple flying birds.\n\nUse"
+    },
+    "zh": {
+      "title": "海报 / 传单 - GPT Image 2 旅行编辑海报提示词",
+      "description": "用于创建高端竖版旅行编辑海报的提示词，将上半部分的电影感摄影与下半部分的极简扁平插画相结合。",
+      "prompt": "创作一张受现代极简主义旅行日志启发的高端竖版旅行编辑海报，将电影感的目的地照片与精致的扁平插画相结合。\n\n上半部分 — 摄影：\n一张令人叹为观止的巴黎日落全景照片，从高处俯瞰。埃菲尔铁塔矗立在中心位置，周围环绕着密集的巴黎屋顶和历史悠久的城市建筑。天空中布满了柔和的桃色、腮红粉、灰橙色和温暖的薰衣草色云朵。黄金时刻的光线温柔地照亮城市，营造出浪漫的电影氛围。自然的摄影细节，真实的建筑，微妙的胶片颗粒感，温暖的模拟色调分级，精致旅行杂志摄影风格。\n\n下半部分 — 插画：\n在温暖的象牙白/奶油色纸张背景上，对同一巴黎场景进行极简手绘/扁平矢量诠释。特色包括简化的埃菲尔铁塔耸立在抽象的巴黎天际线之上，小树和建筑剪影，塔后一轮巨大的柔和桃色太阳，以及几朵纤细的风格化云朵。\n\n使用克制的调色板，包括温暖象牙白、可可棕、灰桃色、柔和赤陶色、浅米色和微妙的暖灰色。干净的几何形状，优雅的极简线条，柔和的纹理，轻微的纸张颗粒感，以及不完美的模拟印刷特征。\n\n排版：\n大号优雅的高级时尚编辑衬线字体写着：\n\n“Paris”\n\n在其下方，较小且字间距宽的大写文本：\n\n“SAME SKY”\n“DIFFERENT STORIES”\n\n保持排版精致、极简且具有编辑风格。使用大量的负空间。标题应醒目但不要压倒插画。\n\n构图：\n4:5 竖版海报，照片与插画部分之间有清晰的水平分割，视觉层次平衡，奢华旅行杂志美学，精致的欧洲编辑设计，永恒且怀旧。\n\n写实风格的顶部部分 + 极简风格的底部插画部分。无 3D 渲染，无卡通风格，无过度装饰，无杂乱，无水印。\n\n提示词 2\n创作一张高端竖版旅行编辑海报，将电影感的海岸照片与极简风格的旅行插画海报相结合。\n\n上半部分 — 摄影：\n黄金时刻的美丽海岸灯塔。一座高大的白色灯塔，带有深色灯室，矗立在一座有着温暖红色屋顶的经典海滨房屋旁。前景布满崎岖的深色岩石，强大的海浪拍打着海岸线。深蓝色的海水，清澈的蓝天，小朵柔软的云，温暖的阳光照亮灯塔和岩石。真实的海岸氛围，逼真的摄影，微妙的胶片颗粒感，自然的对比度，高端旅行杂志美学。\n\n下半部分 — 插画：\n在温暖的象牙色纸上，将同一灯塔场景重新诠释为精致的极简扁平插画。展示灯塔、红顶海滨房屋、岩石海岸线、风格化的海浪、远处的地平线、一个小太阳，以及两到三只简单飞翔的海鸟。\n\n使用"
+    }
+  },
+  "35755": {
+    "en": {
+      "title": "Editorial Fashion Portrait Prompt (Kurmanji)",
+      "description": "A prompt in Kurmanji for creating an editorial fashion portrait of a woman with specific styling and lighting details using GPT Image 2.",
+      "prompt": "An editorial fashion portrait taken from a low angle, of a young woman with clear, porcelain-like skin. She is wearing a vibrant crimson red summer dress made of light fabric with visible texture. She has translucent cherry-red cat-eye sunglasses with gradient-tinted lenses. Her light brown hair is neatly tied in a low bun, sleek and clean, with a few loose strands escaping. Her lips have a soft rose-red gradient, her makeup is clean and minimalist, and she wears a delicate small stud earring. Background: a clean, overblown pale gray sky. Lighting: high-key studio lighting. Sharp focus on the face and textures. 85mm lens. Cinematic fashion editorial style. Ultra-detailed."
+    },
+    "zh": {
+      "title": "编辑时尚人像提示词（库尔曼吉语）",
+      "description": "使用 GPT Image 2 生成具有特定造型和灯光细节的女性编辑时尚人像的库尔曼吉语提示词。",
+      "prompt": "一张低角度拍摄的编辑时尚人像，主角是一位拥有如瓷器般通透肌肤的年轻女性。她身穿一件鲜艳的深红色夏季连衣裙，面料轻盈且纹理清晰可见。她佩戴着半透明的樱桃红猫眼太阳镜，镜片带有渐变色调。她的浅棕色头发整齐地挽成低发髻，光滑整洁，几缕碎发自然垂落。她的嘴唇呈现柔和的玫瑰红渐变妆效，妆容干净简约，耳畔点缀着一枚精致的小耳钉。背景：纯净、略微过曝的浅灰色天空。光线：高调影棚布光。面部与材质细节对焦锐利。85mm 镜头。电影感时尚编辑风格。超高清细节。"
+    }
+  },
+  "35756": {
+    "en": {
+      "title": "Tokyo Night Neon Dream Prompt",
+      "description": "A concise prompt for generating a dreamy, neon-lit night scene in Tokyo with specific color and lens effects using GPT Image 2.",
+      "prompt": "Tokyo after dark, through a dreamy file lens. A pastel blazer. Wind-tossed hair. Pink, cyan, and lavender neon dissolving into bokeh. A low-angle crossing shot with Kodak Gold warmth and soft lens flare."
+    },
+    "zh": {
+      "title": "东京霓虹夜梦提示词",
+      "description": "使用 GPT Image 2 生成梦幻般的东京霓虹夜景的简洁提示词，包含特定的色彩和镜头效果。",
+      "prompt": "夜幕下的东京，透过梦幻般的柔焦镜头呈现。一件粉彩西装外套。随风飘动的发丝。粉色、青色和淡紫色的霓虹灯光融入散景之中。低角度过街镜头，带有 Kodak Gold 胶片的温暖色调和柔和的镜头光晕。"
+    }
+  },
+  "35757": {
+    "en": {
+      "title": "GPT Image 2 Billiards Room Resort Portrait Prompt",
+      "description": "A prompt for generating a full-body photorealistic portrait of a woman in ivory attire standing by a billiard table in a sunlit resort-style room. Includes details on lighting, pose, and background elements.",
+      "prompt": "Subject:\nAfternoon Billiard Room\n\nMain Subject:\nVertical photorealistic full-body portrait. A woman in her 20s stands before a wooden billiard table, one hand resting on the edge, the other touching her neck. Ivory-colored attire and a bright resort-style interior with stone walls and large windows make up the scene.\n\nCharacter & Expression:\nFace slightly downward, gaze cast diagonally down. Small oval contour, smooth line from cheek to chin. Thin natural brown eyebrows, slightly elongated eyes, clear nose bridge, glossy pale pink-beige lips. Rose-toned light blush and delicate brown eye makeup for a transparent, modest finish. Dark brown hair loosely tied up, leaving thin bangs and wispy strands around face.\n\nOutfit & Pose:\nWearing an ivory-beige halter-neck top with a small circular ring and fine gathers at center chest. Natural rich volume at bust, slim waist. Same-color thin sarong tied large on one side of hip, deep slit revealing one leg. Clear heel sandals. Left arm lowered with hand on billiard table edge, right arm bent with hand near back of neck. One leg forward, knee slightly bent, hips relaxed sideways stance.\n\nBackground & Light:\nDark brown wooden billiard table in center-back, multiple colored balls visible on green felt. Background consists of pale beige stone wall, large wood-framed window, potted plant in back-left, gray sofa in back-right. Warm afternoon natural light enters diagonally from window, creating bright highlights on hair, shoulders, arms, legs contours. Long soft shadows extend on floor, overall warm-toned gentle contrast.\n\nComposition & Camera:\n3:4 vertical. Subject occupies large portion of center, full-body composition from top of head to feet. Billiard table crosses near waist, background horizon and window frames create depth. Slightly low natural viewpoint, focus on person, background softly blurred.\n\nTexture & Style:\nHigh-definition live-action photo. Bright ivory-beige skin with natural sheen on cheeks, nose tip, shoulders, collarbone, legs, avoiding excessive beauty correction. Realistic depiction of fine hair strands, sheer drape of thin sarong, deep texture of wood, fine surfaces of stone wall and floor. Calm warm tones centered on ivory, beige, brown, deep green.\n\nNegative:\nDo not omit center chest ring; do not change sarong hip tie and deep slit; do not remove contact of hand on billiard table"
+    },
+    "zh": {
+      "title": "GPT Image 2 台球室度假风人像提示词",
+      "description": "用于生成全身写实女性肖像的提示词，描绘一位身着象牙色服饰的女子站在阳光充足的度假风格房间内的台球桌旁。包含光线、姿势和背景元素的细节描述。",
+      "prompt": "主题：\n午后台球室\n\n主体对象：\n垂直构图的全身体写实肖像。一位 20 多岁的女性站在木质台球桌前，一只手搭在桌边，另一只手轻触颈部。象牙色服饰与带有石墙和大窗户的明亮度假风格室内环境构成场景。\n\n角色与表情：\n面部略微向下，目光斜视下方。小巧的椭圆形轮廓，从脸颊到下巴的线条流畅。纤细自然的棕色眉毛，略长的眼睛，清晰的鼻梁，光泽感的淡粉米色嘴唇。玫瑰色调的淡淡腮红和精致的棕色眼妆，营造出透明、谦逊的效果。深棕色头发松散地扎起，留下细刘海和脸旁的几缕发丝。\n\n服装与姿势：\n身穿象牙米色挂脖上衣，胸前中心有一个小圆环和细微褶皱。胸部自然丰满，腰部纤细。同色系薄纱裙在一侧臀部系成大结，深开叉露出一条腿。穿着露跟凉鞋。左臂下垂，手放在台球桌边缘，右臂弯曲，手靠近颈后。一条腿向前，膝盖微弯，臀部放松呈侧身姿态。\n\n背景与光线：\n中后方为深棕色木质台球桌，绿色台面上可见多个彩色球。背景由浅米色石墙、大木框窗户、左后方的盆栽植物和右后方的灰色沙发组成。温暖的午后自然光从窗户斜射入内，在头发、肩膀、手臂和腿部轮廓上形成明亮的高光。地板上延伸出长而柔和的阴影，整体呈现暖色调的温和对比。\n\n构图与相机：\n3:4 垂直比例。主体占据中心大部分区域，从头顶到脚部的全身构图。台球桌横跨腰部附近，背景地平线和窗框营造深度感。略微低角度的自然视角，聚焦于人物，背景柔和虚化。\n\n纹理与风格：\n高清实拍照片风格。明亮的象牙米色皮肤，脸颊、鼻尖、肩膀、锁骨和腿部具有自然光泽，避免过度美颜修正。真实描绘细发丝、薄纱裙的轻盈垂坠感、木材的深邃纹理以及石墙和地板的细腻表面。以象牙色、米色、棕色和深绿色为中心的平静暖色调。\n\n负面提示：\n不要省略胸前中心的圆环；不要改变纱裙在臀部的系法和深开叉；不要移除手与台球桌的接触"
+    }
+  },
+  "35758": {
+    "en": {
+      "title": "GPT Image 2 Coastal City Profile Portrait Prompt",
+      "description": "A prompt for generating a photorealistic portrait of a woman sitting on a stone terrace overlooking a coastal city. Focuses on profile view, summer dress, and Mediterranean color palette.",
+      "prompt": "Subject:\nCoastal City Profile\n\nMain Subject:\nWoman sitting on a stone terrace overlooking a cliffside coastal city, positioned in the right half of the frame.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression is profile view facing left, gaze flowing toward distant sea and town, faint smile. Light brown hair in high bun, large pearl-adorned metal clip, long loose strands remaining.\n\nOutfit & Pose:\nNatural linen thin straps, chest lace, pink and green floral pattern, center-tied one-piece dress, white thin robe dropped off shoulders. Sitting sideways on stone railing, torso turned left, both arms lowered near railing.\n\nBackground & Light:\nBackground from left to right: blue sea and ships, cliff town, domed church, pink flowers on left; stone wall and green leaves on right. Hard direct sunlight from upper-left illuminates profile, shoulder, sea.\n\nComposition & Camera:\n3:4 vertical composition, diagonal side camera at chest height capturing half-body from top of head to below waist. Portrait placing subject very large in right half, occupying most of screen height. Chest and arms cropped at bottom, leaving space for town on left half, focus on profile and coastal city, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, clothing materials, surrounding props, maintaining Mediterranean colors of blue, natural linen, pink, green.\n\nNegative:\nChange profile looking at sea; omit cliff city"
+    },
+    "zh": {
+      "title": "GPT Image 2 沿海城市侧面肖像提示词",
+      "description": "用于生成一位女性坐在俯瞰沿海城市的石质露台上的写实肖像的提示词。重点在于侧面视角、夏日连衣裙以及地中海色调。",
+      "prompt": "主题：\n沿海城市侧面像\n\n主要主体：\n一位女性坐在俯瞰悬崖边沿海城市的石质露台上，位于画面右半部分。\n\n人物与表情：\n小椭圆脸，深棕色大眼睛，细眉，轮廓分明的鼻子，光泽感淡桃色嘴唇。表情为面向左侧的侧面视角，目光投向远处的海洋和城镇，带着淡淡的微笑。浅棕色头发盘成高发髻，配有大型珍珠装饰金属发夹，留有长散落的发丝。\n\n服装与姿势：\n天然亚麻细肩带，胸部蕾丝装饰，粉绿花卉图案，中间系结的连身裙，白色薄袍从肩部滑落。侧坐在石栏杆上，躯干向左转，双臂垂于栏杆附近。\n\n背景与光线：\n背景从左至右依次为：蓝色海洋和船只，悬崖城镇，圆顶教堂，左侧粉色花朵；右侧石墙和绿叶。来自左上方的强烈直射阳光照亮侧面、肩膀和海面。\n\n构图与相机：\n3:4 垂直构图，对角线侧面相机在胸部高度拍摄，捕捉从头顶到腰部以下的半身像。肖像将主体置于右半部分非常大，占据大部分屏幕高度。胸部和手臂在底部被裁剪，左半部分留出空间展示城镇，焦点集中在侧面和沿海城市，背景轻微模糊。\n\n纹理与风格：\n写实真人照片。高清自然皮肤、头发、服装材质及周边道具，保持蓝色、天然亚麻色、粉色、绿色的地中海色彩。\n\n负面提示：\n改变侧面朝向看海；省略悬崖城市"
+    }
+  },
+  "35759": {
+    "en": {
+      "title": "GPT Image 2 Black Dress Marble Floor Night Prompt",
+      "description": "A prompt for generating a high-angle photorealistic portrait of a woman in a black satin dress sitting on a marble floor at night. Focuses on elegant, moody atmosphere and specific pose details.",
+      "prompt": "Subject:\nBlack Dress on Marble Floor\n\nMain Subject:\nWoman in black dress sitting with legs open on marble floor of luxury interior, centered in frame.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression tilted to lower-left, both eyes closed, lips slightly parted in tired look. Wet-looking long black hair flowing from left shoulder to floor, side-part exposing forehead.\n\nOutfit & Pose:\nTight mini dress of black glossy satin, thin straps, deep neckline, metal ornament on right hip; black thin strap heels. Sitting on glossy floor, legs widely open left/right, right hand on floor in front, left hand on inner thigh.\n\nBackground & Light:\nBackground from left to right: black marble round table and white flowers on left; beige sofa upper-right; gold wall lighting in background. Soft warm lighting from above and background illuminates skin, black cloth, floor reflections.\n\nComposition & Camera:\n3:4 vertical composition, high oblique overhead camera from above head capturing full body from top of head to both heels. Portrait placing subject large radially in center, occupying most of screen height. Both feet naturally cropped at lower left/right edges, focus on closed face and black dress, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, clothing materials, surrounding props, maintaining luxurious night colors of black, gold, natural linen.\n\nNegative:\nChange legs-closed posture; change high-angle overhead view"
+    },
+    "zh": {
+      "title": "GPT Image 2 黑色礼服大理石地板夜景提示词",
+      "description": "用于生成高角度写实人像的提示词，描绘一位身穿黑色缎面礼服的女性夜晚坐在大理石地板上。重点营造优雅、忧郁的氛围及具体的姿态细节。",
+      "prompt": "主题：\n大理石地板上的黑色礼服\n\n主要主体：\n身穿黑色礼服的女性，双腿分开坐在豪华室内的大理石地板上，位于画面中心。\n\n角色与表情：\n小巧的椭圆脸型，深棕色大眼睛，细眉，轮廓分明的鼻子，光泽感淡桃色嘴唇。头部向左下方倾斜，双眼闭合，嘴唇微张，呈现疲惫神态。湿润感的长黑发从左肩垂落至地面，侧分发型露出额头。\n\n服装与姿态：\n紧身黑色光泽缎面迷你裙，细肩带，深领口，右髋部有金属装饰；黑色细带高跟鞋。坐在光泽地板上，左右腿大幅张开，右手置于身前地面，左手放在大腿内侧。\n\n背景与光线：\n背景从左至右：左侧为黑色大理石圆桌和白色花朵；右上为米色沙发；背景有金色墙面照明。来自上方和背景的柔和暖光照亮皮肤、黑色布料及地板反射。\n\n构图与相机：\n3:4 竖版构图，从头顶上方拍摄的高角度斜俯视图，捕捉从头顶到双脚跟的全身。肖像将主体径向放大置于中心，占据屏幕大部分高度。双脚在左下/右下边缘自然裁剪，焦点集中在闭合的面部和黑色礼服上，背景轻微虚化。\n\n纹理与风格：\n写实真人照片。高清自然皮肤、头发、服装材质及周边道具，保持黑色、金色、天然亚麻色的奢华夜景色调。\n\n负面提示：\n改变并拢双腿的姿态；改变高角度俯视视角"
+    }
+  },
+  "35760": {
+    "en": {
+      "title": "GPT Image 2 Picnic Garden Turnaround Prompt",
+      "description": "A prompt for generating a photorealistic portrait of a woman lying prone on a picnic blanket in a flower garden, turning back to look at the camera. Includes details on outfit, basket, and dappled sunlight.",
+      "prompt": "Subject:\nFlower Picnic Turnaround\n\nMain Subject:\nWoman lying prone on blanket in blooming garden, turning back, positioned from lower-left to center.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression turning face to rear-left, gaze directed at camera, quiet look. Long dark brown wavy hair flowing down back, covered by natural linen openwork triangular scarf.\n\nOutfit & Pose:\nCamisole top and frill shorts with white base, pale blue pattern, thin straps, white lace trim; white lace socks. Lying prone on natural linen blanket, supporting torso with elbows, both legs extended straight backward.\n\nBackground & Light:\nBackground from left to right: foreground basket, white bouquet, plate of grapes; background wildflowers, grass, fruit trees. Soft direct dappled sunlight from upper-right falls in spots on back and legs.\n\nComposition & Camera:\n3:4 vertical composition, oblique rear camera slightly higher than waist capturing full body from top of head to sock tips. Portrait placing subject large from lower-left to center, occupying most of screen height. Blanket and feet naturally cropped at edges, focus on turning face and pale blue outfit, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, clothing materials, surrounding props, maintaining pastoral daytime colors of natural linen, pale blue, green.\n\nNegative:\nSupine or sitting posture; omit basket and flowers"
+    },
+    "zh": {
+      "title": "GPT Image 2 花园野餐回眸提示词",
+      "description": "用于生成写实人像的提示词：一位女性俯卧在花园野餐毯上，回头注视镜头。包含服装、篮子及斑驳阳光的细节描述。",
+      "prompt": "主题：\n花园野餐回眸\n\n主要主体：\n一位女性俯卧在盛开的花园中的毯子上，身体从左下角延伸至中心位置，正回头张望。\n\n人物与表情：\n小巧的椭圆形脸庞，深邃的大棕眼，细眉，轮廓分明的鼻子，光泽感淡桃色嘴唇。面部转向左后方，目光直视镜头，神情宁静。深棕色长卷发垂于背部，被天然亚麻镂空三角巾覆盖。\n\n服装与姿势：\n白色底色的吊带衫和荷叶边短裤，带有淡蓝色图案，细肩带，白色蕾丝饰边；搭配白色蕾丝袜。俯卧在天然亚麻毯上，用手肘支撑上半身，双腿向后笔直伸展。\n\n背景与光线：\n背景从左至右依次为：前景的篮子、白色花束、一盘葡萄；远景为野花、草地和果树。柔和直射的斑驳阳光从右上方洒落，在背部和腿部形成光斑。\n\n构图与相机：\n3:4 竖幅构图，斜后方相机略高于腰部，捕捉从头顶到袜尖的全身画面。肖像将主体置于左下角至中心位置，占据屏幕高度的大部分。毯子和脚部边缘自然裁剪，焦点集中在回头的脸部和淡蓝色服装上，背景轻微虚化。\n\n质感与风格：\n写实真人照片风格。高清呈现自然的皮肤、头发、衣物材质及周边道具，保持天然亚麻、淡蓝和绿色的田园日间色调。\n\n负面提示：\n仰卧或坐姿；省略篮子和花朵"
+    }
+  },
+  "35761": {
+    "en": {
+      "title": "GPT Image 2 Pink Dress Candlelight Dinner Prompt",
+      "description": "A prompt for generating a photorealistic portrait of a woman in a pink mini dress seated at a candlelit restaurant table. Focuses on warm evening atmosphere, dining setup, and elegant pose.",
+      "prompt": "Subject:\nPeach Dress by Candlelight\n\nMain Subject:\nWoman sitting in candlelit restaurant wearing peach mini dress, centered in frame.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression tilted slightly left from front, gaze meeting camera with gentle smile. Dark brown hair in high bun, thin bangs and long loose strands remaining on both cheeks.\n\nOutfit & Pose:\nTight mini dress of muted peach ribbed fabric, thick straps around neck, large oval opening at chest, cross-cut waist detail. Seated on chair, arms naturally opened left/right, thighs aligned facing front.\n\nBackground & Light:\nBackground from left to right: foreground left has white-clothed dining table, flowers, wine glasses, candles; background has dark seating area with many lights. Soft main light from front-left and surrounding warm candlelight illuminate face and peach fabric.\n\nComposition & Camera:\n3:4 vertical composition, frontal camera slightly higher than seat capturing three-quarter body from top of head to mid-thigh. Portrait placing subject very large in center, occupying most of screen height. Arms and thighs cropped at edges, focus on eyes and peach dress, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, clothing materials, surrounding props, maintaining warm night colors of peach, black, gold.\n\nNegative:\nChange sitting posture; change chest opening and peach color"
+    },
+    "zh": {
+      "title": "GPT Image 2 粉色连衣裙烛光晚餐提示词",
+      "description": "用于生成一位身穿粉色迷你连衣裙、坐在烛光餐厅桌旁的女性逼真肖像的提示词。重点营造温暖的夜晚氛围、精致的餐桌布置以及优雅的姿势。",
+      "prompt": "主题：\n烛光下的桃色连衣裙\n\n主要主体：\n一位女性坐在烛光摇曳的餐厅中，身穿桃色迷你连衣裙，位于画面中心。\n\n人物与表情：\n小巧的椭圆形脸庞，深邃的大眼睛，纤细的眉毛，轮廓分明的鼻子，光泽感十足的淡桃色嘴唇。头部微微向左倾斜，目光温柔地注视着镜头，带着浅浅的微笑。深棕色头发盘成高发髻，额前留有稀疏刘海，脸颊两侧垂下几缕长发。\n\n服装与姿势：\n紧身迷你连衣裙采用柔和桃色的罗纹面料，颈部有宽肩带，胸前为大椭圆镂空设计，腰部呈现交叉剪裁细节。她端坐在椅子上，双臂自然向左右展开，大腿并拢正对前方。\n\n背景与光线：\n从左至右的背景布局：前景左侧为铺着白色桌布的餐桌，摆放着鲜花、酒杯和蜡烛；背景为昏暗的就座区，点缀着众多灯光。柔和的主光源来自左前方，配合周围温暖的烛光，照亮面部及桃色面料。\n\n构图与相机：\n3:4 竖幅构图，正面相机位置略高于座位，捕捉从头顶到大腿中部的四分之三身姿。肖像将主体置于画面中央且占比极大，占据大部分屏幕高度。手臂和大腿在边缘处被裁剪，焦点集中在眼睛和桃色连衣裙上，背景轻微虚化。\n\n质感与风格：\n逼真的实拍照片风格。高清自然的皮肤、头发、衣物材质及周边道具细节，保持桃色、黑色和金色的温暖夜景色调。\n\n负面提示：\n改变坐姿；改变胸部开口形状或桃色颜色"
+    }
+  },
+  "35762": {
+    "en": {
+      "title": "GPT Image 2 Blue Floral Dress Garden Prompt",
+      "description": "A prompt for generating a photorealistic portrait of a woman in a blue floral mini dress leaning forward in a flower garden. Captures a candid moment with backlighting and natural poses.",
+      "prompt": "Subject:\nBlue Floral Mini Dress in Flower Garden\n\nMain Subject:\nWoman in small-floral-pattern mini dress leaning forward looking into distance in blooming garden, positioned from center to right.\n\nCharacter & Expression:\nSmall oval face, large dark brown eyes, thin eyebrows, well-defined nose, glossy pale peach lips. Expression facing left, gaze flowing to flowers outside frame, lips slightly parted in calm look. Long dark brown wavy hair half-up, large white lace ribbon attached behind.\n\nOutfit & Pose:\nMini-length one-piece dress fitting body with natural linen base, blue and yellow small floral pattern, wide frill shoulder straps, chest tie. Hips deeply bent forward, both hands placed behind waist, right shoulder forward standing pose.\n\nBackground & Light:\nBackground from left to right: white flowers in left foreground, black fence, potted plants; dense green leaves and white flowers in background. Soft backlight from upper-left illuminates contours of hair, cheeks, shoulders.\n\nComposition & Camera:\n3:4 vertical composition, oblique frontal camera at waist height capturing three-quarter body from top of head to mid-thigh. Portrait placing subject large from center to right, occupying most of screen height. Extended arms and thighs cropped at edges, focus on profile and floral dress, background lightly blurred.\n\nTexture & Style:\nPhotorealistic live-action photo. High-definition natural skin, hair, clothing materials, surrounding props, maintaining pale garden colors of natural linen, blue, green.\n\nNegative:\nChange leaning-forward posture and profile; omit floral pattern and shoulder frills"
+    },
+    "zh": {
+      "title": "GPT Image 2 蓝色碎花连衣裙花园场景提示词",
+      "description": "用于生成写实女性肖像的提示词：身穿蓝色碎花迷你连衣裙，在花园中前倾身体。捕捉逆光下的自然姿态与瞬间美感。",
+      "prompt": "主题：\n花园中的蓝色碎花迷你连衣裙\n\n主要人物：\n一位身穿小碎花图案迷你连衣裙的女性，在盛开的花园中向前倾斜身体，目光望向远方，位置居中偏右。\n\n角色与表情：\n小巧的椭圆形脸庞，深棕色大眼睛，细眉，轮廓分明的鼻子，光泽感淡桃色嘴唇。面部朝向左侧，视线延伸至画面外的花朵，双唇微启，神情宁静。深棕色长卷发半扎起，后方系有大号白色蕾丝蝴蝶结。\n\n服装与姿态：\n贴身剪裁的迷你长度连衣短裙，采用天然亚麻底色，饰有蓝色和黄色小碎花图案，宽边荷叶肩带，胸前系带设计。臀部深度前倾，双手置于腰后，右肩略微前探的站立姿态。\n\n背景与光线：\n背景从左至右依次为：左前景的白色花朵、黑色栅栏、盆栽植物；背景为茂密的绿叶与白花。柔和的逆光从左上方照射，勾勒出头发、脸颊和肩膀的轮廓。\n\n构图与相机：\n3:4 竖幅构图，腰部高度的斜侧前方视角，拍摄从头顶到大腿中部的四分之三身人像。主体位于中心偏右，占据大部分画面高度。伸展的手臂和大腿边缘被裁剪，焦点集中在侧面轮廓和碎花连衣裙上，背景轻微虚化。\n\n质感与风格：\n写实真人摄影风格。高清呈现自然的皮肤、头发、衣物材质及周边道具，保持天然亚麻、蓝色和绿色的淡雅花园色调。\n\n负面提示：\n改变前倾姿态和侧面轮廓；省略碎花图案和肩部荷叶边"
+    }
+  },
+  "35764": {
+    "en": {
+      "title": "Anime Girl on Green Screen",
+      "description": "Generates an anime character portrait isolated on a green screen for easy compositing or background replacement.",
+      "prompt": "A high-resolution anime-style portrait of a cute girl with long, voluminous white hair styled in twin tails. She has large, expressive red eyes and is wearing a black and red gothic lolita dress featuring intricate lace details, heart-shaped buckles, and multiple ribbons. The background is a solid chroma key green screen."
+    },
+    "zh": {
+      "title": "绿幕上的动漫少女",
+      "description": "生成隔离在绿幕上的动漫角色肖像，便于合成或替换背景。",
+      "prompt": "一张高分辨率的动漫风格肖像，描绘了一位可爱的女孩，她留着长而蓬松的白色双马尾发型。她有着大而富有表现力的红色眼睛，身穿一件黑红相间的哥特洛丽塔连衣裙，裙子上饰有精致的蕾丝细节、心形扣环和多条丝带。背景为纯色的色度键绿幕。"
+    }
+  },
+  "35765": {
+    "en": {
+      "title": "Cyber-Japanese King & Floating Fortress",
+      "description": "A portrait of a male deity wearing tech-infused traditional robes against a backdrop of a massive waterfall fortress and a red moon.",
+      "prompt": "A majestic, hyper-detailed digital illustration of a male deity or ancient king standing in a three-quarter view. He has long, flowing black hair with red highlights and wears an elaborate, multi-layered traditional Japanese court robe (sokutai) that fuses ancient aesthetics with futuristic technology. The garment features intricate gold patterns on black silk, but the fabric is interwoven with glowing neon blue circuitry, holographic data streams, and translucent geometric panels. He wears a golden halo-like crown structure behind his head. His expression is calm and regal. The background depicts a colossal, vertical fortress-city built into a mountain cliff, resembling an ancient Japanese castle mixed with cyberpunk skyscrapers. Massive waterfalls cascade down the sides of the city. A giant, ominous blood-red moon dominates the sky, surrounded by swirling clouds and floating torii gates. Red petals drift through the air. The lighting is dramatic, contrasting the warm red glow of the moon and lanterns with the cool cyan light of the character's digital armor."
+    },
+    "zh": {
+      "title": "赛博日本天王与浮空要塞",
+      "description": "一位身着融合科技元素传统长袍的男性神祇肖像，背景为巨大的瀑布要塞与红月。",
+      "prompt": "一幅宏伟且细节丰富的数字插画，描绘了一位男性神祇或古代国王以四分之三侧身姿态站立。他留着飘逸的黑色长发，发梢带有红色高光，身穿一件精致繁复的多层传统日本宫廷礼服（束带装），将古老美学与未来科技完美融合。黑色丝绸上饰有复杂的金色图案，但织物中交织着发光的霓虹蓝色电路、全息数据流和半透明几何面板。他的头部后方佩戴着一个类似光环的金色冠冕结构。神情平静而威严。背景展现了一座依山崖而建、垂直耸立的巨型要塞城市，融合了古代日本城堡与赛博朋克摩天大楼的特征。巨大的瀑布从城市两侧倾泻而下。天空中悬挂着一轮巨大而不祥的血红色月亮，周围环绕着漩涡状云层和漂浮的鸟居。红色花瓣在空中飘散。光影效果极具戏剧性，温暖的月光与灯笼红光同角色数字装甲发出的冷青色光芒形成鲜明对比。"
     }
   }
 }
