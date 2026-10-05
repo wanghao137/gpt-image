@@ -1,5 +1,27 @@
 [
   {
+    "id": "100317",
+    "title": "黑金唐制汉服夜景月下写真",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-10-05-case-hanfu-night-portrait.jpg",
+    "imageAlt": "黑金唐制汉服夜景月下写真",
+    "prompt": "18歲中國美女，成年女性，精緻五官，長髮，身材修長，穿著性感但高雅的黑金色唐制齊胸襦裙改良漢服，薄紗披帛，金色雲紋刺繡，精緻髮飾，正面全身照，完整身體入鏡，細緻刺繡，輕薄飄逸布料，露肩或開衩設計但不裸露，時尚寫真風格，隨機姿勢，隨機戶外場景或庭院背景，白天或夜晚皆可，高品質，寫實細節，柔和皮膚質感，電影感光影，清晰臉部，高清，8k，masterpiece，9:16。漢服可自由變化領口、袖型、披帛、裙層、裙擺、刺繡與配飾。全身照，正面為主，時尚性感但不色情。\n\n負面提示詞：nudity, nude, explicit, pornographic, underage, childlike, teen-looking, bad anatomy, extra fingers, missing fingers, deformed hands, distorted face, blurry, low quality, cropped body, half body, out of frame, duplicate person, different character, text, watermark, logo",
+    "promptPreview": "18歲中國美女，成年女性，精緻五官，長髮，身材修長，穿著性感但高雅的黑金色唐制齊胸襦裙改良漢服，薄紗披帛，金色雲紋刺繡，精緻髮飾，正面全身照，完整身體入鏡，細緻刺繡，輕薄飄逸布料，露肩或開衩設計但不裸露，時尚寫真風格，隨機姿勢，隨機戶外場景或庭院背景，白天或夜晚皆可，高品質，寫實細節，柔和皮膚質感，電影感光影，清晰臉部，高清，8k，masterpiece，9:16。漢服可自由變化領口、袖型、披帛、裙層、裙擺、刺繡與配飾。全身照，正面為…",
+    "source": "Community collected via @fdtreesky",
+    "createdAt": "2026-10-05T02:09:00.770Z"
+  },
+  {
     "id": "100316",
     "title": "复古少女漫画风黑白卷发少女插画",
     "category": "插画与艺术",
