@@ -53442,9 +53442,9 @@
   },
   "36035": {
     "en": {
-      "title": "Vintage Photo of Woman in Traditional Japan",
-      "description": "This prompt generates a nostalgic, retro-styled photograph capturing a young woman in casual attire within a historic Japanese setting, evoking mid-20th century aesthetics.",
-      "prompt": "A vintage-style photograph of a young woman standing on a narrow street in a traditional Japanese town, likely from the 1950s or 60s. She has short, curly dark brown hair and is smiling gently at the camera while holding both hands up to her head, adjusting her hair. She wears a cream-colored hooded sweatshirt with drawstrings and a plaid skirt featuring red, blue, and beige tones. A brown leather shoulder bag hangs across her body. The background includes wooden buildings with tiled roofs, utility poles, and an old bicycle parked nearby. The image has a faded, nostalgic quality with light leaks, dust spots, and warm color tones typical of aged film photography."
+      "title": "Vintage Portrait of Woman in Hoodie",
+      "description": "A retro-styled photograph capturing a smiling young woman in a hoodie and plaid skirt within a rustic Japanese setting.",
+      "prompt": "A vintage-style portrait of a young woman standing in a traditional Japanese alleyway. She has short, curly dark brown hair and is wearing a cream-colored hooded sweatshirt with drawstrings and a plaid skirt. Her hands are raised to her head as she smiles gently at the camera. A brown leather shoulder bag hangs from her left side. The background features weathered wooden houses with tiled roofs, a utility pole, and an old bicycle leaning against a fence. The image has a nostalgic film grain texture with light leaks on the edges."
     },
     "zh": {
       "title": "传统日本街头女性的复古照片",
@@ -53474,6 +53474,66 @@
       "title": "复古早餐熟食店人行道立牌",
       "description": "生成一张逼真的照片，展示一个宣传美食熟食店早餐菜单的人字形 A 型立牌，具有复古排版风格和诱人的食物摄影。",
       "prompt": "一张逼真的高角度照片，展示了一个黑色框架的人行道立牌，立在城市街道上有纹理的灰色橡胶底座上。立牌采用复古风格的早餐菜单设计，背景为奶油色，字体优雅。顶部中央是手写体文字“Start Your Day”，下方是大号粗体衬线字母拼写的“BREAKFAST”，接着是标语“MADE FRESH. MADE TO ORDER.”。右上角有一个深色圆形徽章，内含金色文字：“FRESH COFFEE. FRESH JUICE. GREAT START. EVERY DAY.”，旁边是一个小咖啡杯图标。\n\n左侧栏以深红色和黑色文字列出菜单类别：“BREAKFAST SANDWICHES”（早餐三明治），副标题为“MADE YOUR WAY”（按您的喜好制作），配料包括“EGG • BACON • SAUSAGE HAM • CHEESE & MORE”（鸡蛋 • 培根 • 香肠火腿 • 奶酪等）；其下是“HEARTY PLATTERS”（丰盛拼盘），包含“EGGS • MEATS • HOMEFRIES TOAST & MORE”（鸡蛋 • 肉类 • 家常薯条吐司等）；以及带星号的列表：“BAGELS”（贝果）、“PANCAKES”（松饼）、“FRENCH TOAST”（法式吐司），最后以手写短语“Fuel Your Morning.”（为您的早晨充电）结尾。\n\n右侧主要由垂直排列的诱人食物摄影拼贴组成：顶部是放在木板上的培根芝士贝果三明治；中间是一个白色盘子，盛有两个单面煎蛋、脆培根条和家常薯条；旁边是一叠涂有黄油和草莓的松饼，以及半个上面放着牛油果的贝果；底部是一片撒有糖粉和浆果的法式吐司。左下角附近有两款饮品：一杯标有“FRESH ORANGE JUICE”（新鲜橙汁）的玻璃杯，以及一杯标有“FRESHLY BREWED COFFEE.”（现煮咖啡）的白色拉花咖啡马克杯。\n\n最底部居中显示手写体文字“Sixth Ave”（第六大道），上方是粗体衬线大写字母“GARDEN GOURMET DELI”（花园美食熟食店），页脚为“MADE FRESH. MADE WITH LOVE.”（新鲜制作，用心制作），两侧饰有小爱心。底部角落点缀着新鲜薄荷叶。背景展示了模糊的城市人行道场景，有行人和建筑物。"
+    }
+  },
+  "36078": {
+    "en": {
+      "title": "Cinematic Fantasy Portrait Prompt",
+      "description": "A detailed prompt for generating a cinematic fantasy portrait of a woman on a moonlit terrace, optimized for GPT Image 2.",
+      "prompt": "A highly detailed cinematic fantasy portrait of a beautiful young woman standing on an elegant flower-covered terrace at twilight. She has long, naturally wavy dark brown hair, soft glowing skin, expressive hazel-brown eyes, delicate facial features, subtle rosy cheeks, and glossy natural lips. She is wearing a sophisticated flowing black dress with intricate silver floral embroidery, sheer sleeves, elegant dangling earrings, and a delicate hair ornament. She stands in a graceful three-quarter pose, body turned slightly away while looking back over her shoulder directly at the camera, one hand gently holding her dress and the other relaxed by her side.\nBehind her is a breathtaking moonlit lake with a distant magical city, glowing domes and towers, mountains, and reflections across the water. Warm vintage lanterns surround the terrace, with white flowers and green vines framing the scene. A crescent moon and soft purple-blue clouds fill the sky. Romantic warm-and-cool cinematic lighting, realistic skin texture, detailed hair strands, natural proportions, shallow depth of field, soft bokeh, dreamy atmosphere, photorealistic fantasy realism, professional photography, 85mm lens, eye-level camera, full-body composition, vertical 9:16."
+    },
+    "zh": {
+      "title": "电影感奇幻肖像提示词",
+      "description": "专为 GPT Image 2 优化的详细提示词，用于生成月光露台上女性角色的电影感奇幻肖像。",
+      "prompt": "一幅高度精细的电影感奇幻肖像，描绘了一位美丽的年轻女子伫立在暮色中优雅的花卉露台上。她留着深棕色的自然长卷发，肌肤柔和透亮，拥有一双富有表现力的榛褐色眼睛，五官精致，脸颊微红，嘴唇呈现自然光泽。她身穿一件考究的黑色飘逸长裙，裙身饰有复杂的银色花卉刺绣，搭配透明薄纱袖、优雅的垂坠耳环和精致的发饰。她以优美的四分之三侧身姿态站立，身体微微转向一侧，回眸直视镜头，一只手轻抚裙摆，另一只手自然垂于身侧。\n\n在她身后，是一幅令人屏息的月光湖景：远处坐落着一座充满魔力的城市，圆顶与塔楼散发着光芒，群山环绕，湖面倒映着璀璨光影。露台周围点缀着温暖的复古灯笼，白色花朵与绿色藤蔓勾勒出画面边框。天空中悬挂着一弯新月，柔和的紫蓝色云朵漂浮其间。整体采用浪漫且冷暖对比鲜明的电影级布光，展现逼真的皮肤质感、细致的发丝纹理、自然的身体比例、浅景深效果、柔和散景以及梦幻氛围，呈现出照片级的奇幻写实风格。专业摄影构图，85mm 镜头，平视视角，全身取景，竖屏 9:16 比例。"
+    }
+  },
+  "36079": {
+    "en": {
+      "title": "Nostalgic Schoolgirl Drawing on Chalkboard",
+      "description": "A cinematic portrait of a Japanese schoolgirl drawing a rabbit on a chalkboard in an empty classroom, featuring vintage film grain and soft lighting.",
+      "prompt": "A vertical, medium-shot photograph with a nostalgic film aesthetic captures a young Asian female student in an empty classroom. She has short, dark bobbed hair with bangs and wears a traditional navy blue sailor-style school uniform (seifuku) with white stripes on the collar and cuffs. Her expression is calm and slightly melancholic as she looks directly at the camera. She stands beside a green chalkboard, holding a piece of pink chalk in her right hand, having just drawn a cute cartoon rabbit face with a heart next to it. In the foreground, resting on a worn wooden desk, is a large orange triangular ruler. The background features rows of empty wooden desks and chairs, tall windows letting in soft natural light, and blurred calligraphy posters on the far wall. The image has visible film grain, dust specks, and scratches, enhancing the retro atmosphere."
+    },
+    "zh": {
+      "title": "怀旧女学生在黑板上绘画",
+      "description": "一幅电影感肖像，描绘了一名日本女学生在空教室的黑板上画兔子的场景，具有复古胶片颗粒感和柔和光线。",
+      "prompt": "一张采用怀旧胶片美学的竖幅中景照片，捕捉了一位年轻亚洲女学生在空教室中的身影。她留着齐刘海的深色短发波波头，身穿传统海军蓝水手服校服（seifuku），领口和袖口饰有白色条纹。她的神情平静而略带忧郁，直视镜头。她站在绿色黑板旁，右手拿着一支粉色粉笔，刚刚画了一个可爱的卡通兔子脸，旁边还有一颗爱心。前景中，一张磨损的木桌上放着一把巨大的橙色三角尺。背景是一排排空的木制桌椅，高大的窗户透进柔和的自然光，远处墙上挂着模糊的书法海报。图像呈现出明显的胶片颗粒、灰尘斑点和划痕，增强了复古氛围。"
+    }
+  },
+  "36080": {
+    "en": {
+      "title": "Vintage River Angler",
+      "description": "A retro-styled image of a smiling woman holding up her catch while standing in a mountain river.",
+      "prompt": "A vintage-style photograph of a young woman standing waist-deep in a clear, rocky river. She is wearing a beige bucket hat, a white short-sleeved blouse with a small floral pattern, and dark waders. Her hair is styled in two braids. She holds a bamboo fishing rod in her right hand and raises her left arm to display two freshly caught fish hanging from the line. A woven basket hangs at her hip, and a red mesh landing net is visible in the foreground. The background features lush green mountains under a blue sky."
+    },
+    "zh": {
+      "title": "复古河畔垂钓者",
+      "description": "一张复古风格的图片，展示了一位面带微笑的女士站在山间河流中，高举着她的渔获。",
+      "prompt": "一张复古风格的照片，画面中一位年轻女士站在清澈多石的河流中，水深及腰。她头戴米色渔夫帽，身穿带有小碎花图案的白色短袖衬衫和深色防水裤。她的头发梳成两条辫子。右手握着一根竹制钓竿，左臂抬起，展示着挂在鱼线上的两条刚捕获的鱼。腰间挂着一个编织篮，前景中可见一个红色网兜。背景是蓝天下的郁郁葱葱的青山。"
+    }
+  },
+  "36081": {
+    "en": {
+      "title": "Pixar-Style Elderly Woman Character Sheet",
+      "description": "A character turnaround sheet for a cute 3D animated grandmother figure, displaying a facial close-up, back view, and front view.",
+      "prompt": "A character design sheet featuring three views of a stylized 3D animated elderly woman, rendered in a Pixar-like aesthetic against a plain white background. On the left is a large close-up portrait of her face; she has warm brown skin, silver-gray hair pulled back into a high bun, thick dark eyebrows, and large expressive brown eyes looking slightly upward with a gentle smile. She wears small gold hoop earrings. In the center is a full-body rear view showing her outfit: a knee-length dress with short sleeves featuring a dense floral pattern of orange, yellow, and red flowers on a teal-green background, covered by a beige apron with a subtle floral print tied in a bow at the lower back. On the right is a full-body front view where she stands confidently with hands on hips, wearing the same floral dress and apron which has a large central pocket. The lighting is soft and even, highlighting the smooth texture of the skin and fabric."
+    },
+    "zh": {
+      "title": "皮克斯风格老年女性角色设定图",
+      "description": "一张可爱 3D 动画祖母角色的三视图，展示面部特写、背面和正面视角。",
+      "prompt": "这是一张角色设计图，展示了三位不同视角的风格化 3D 动画老年女性，采用类似皮克斯的美学风格，背景为纯白色。左侧是她面部的特写肖像；她拥有温暖的棕色皮肤，银灰色的头发梳成高发髻，浓密的深色眉毛，以及一双富有表现力的大棕色眼睛，微微向上看，带着温柔的微笑。她戴着小巧的金色圈形耳环。中间是全身背面视图，展示了她的服装：一件及膝连衣裙，短袖上印有橙色、黄色和红色花朵组成的密集花卉图案，底色为青绿色，外面罩着一件米色围裙，围裙上有细微的花卉印花，并在后腰下方系成蝴蝶结。右侧是全身正面视图，她自信地站立，双手叉腰，穿着同样的花卉连衣裙和围裙，围裙中央有一个大口袋。光线柔和均匀，突出了皮肤和织物光滑的质感。"
+    }
+  },
+  "36082": {
+    "en": {
+      "title": "Cozy Lamb and Coffee Illustration",
+      "description": "A warm, watercolor-style digital art piece featuring a cute grey lamb sitting at a table with coffee and cookies, surrounded by inspirational quotes.",
+      "prompt": "A cozy, watercolor-style illustration of a cute, fluffy charcoal-grey lamb sitting on a rustic wooden table. The lamb has large, expressive dark eyes and rosy cheeks. To its right sits a steaming white ceramic mug with the handwritten text \"Good Things Take Time\" and a small heart. In the foreground left is a plate with chocolate chip cookies, and in the foreground right is a green book titled \"A Brighter Tomorrow.\" The background features a sunlit window, a shelf with books, and a sign reading \"Coffee Books Kindness A Better Day,\" along with pillows displaying the phrases \"Small Moments Big Happiness\" and \"Be Kind to Yourself.\""
+    },
+    "zh": {
+      "title": "温馨小羊与咖啡插画",
+      "description": "一幅温暖的水彩风格数字艺术作品，描绘了一只可爱的灰色小羊坐在桌旁享用咖啡和饼干，周围环绕着励志语录。",
+      "prompt": "一幅温馨的水彩风格插画，描绘了一只可爱、毛茸茸的炭灰色小羊坐在质朴的木桌上。小羊有着大而富有表现力的深色眼睛和红润的脸颊。它的右侧放着一个冒着热气的白色陶瓷马克杯，上面手写着 \"Good Things Take Time\" 并画有一个小心形图案。前景左侧是一盘巧克力豆饼干，前景右侧是一本名为 \"A Brighter Tomorrow\" 的绿色书籍。背景中有一扇洒满阳光的窗户、一个摆满书籍的架子，以及一块写着 \"Coffee Books Kindness A Better Day\" 的标牌，还有印有 \"Small Moments Big Happiness\" 和 \"Be Kind to Yourself\" 字样的抱枕。"
     }
   }
 }
