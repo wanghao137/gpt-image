@@ -53535,5 +53535,161 @@
       "description": "一幅温暖的水彩风格数字艺术作品，描绘了一只可爱的灰色小羊坐在桌旁享用咖啡和饼干，周围环绕着励志语录。",
       "prompt": "一幅温馨的水彩风格插画，描绘了一只可爱、毛茸茸的炭灰色小羊坐在质朴的木桌上。小羊有着大而富有表现力的深色眼睛和红润的脸颊。它的右侧放着一个冒着热气的白色陶瓷马克杯，上面手写着 \"Good Things Take Time\" 并画有一个小心形图案。前景左侧是一盘巧克力豆饼干，前景右侧是一本名为 \"A Brighter Tomorrow\" 的绿色书籍。背景中有一扇洒满阳光的窗户、一个摆满书籍的架子，以及一块写着 \"Coffee Books Kindness A Better Day\" 的标牌，还有印有 \"Small Moments Big Happiness\" 和 \"Be Kind to Yourself\" 字样的抱枕。"
     }
+  },
+  "36103": {
+    "en": {
+      "title": "Realistic Cafe Portrait Prompt for GPT Image 2",
+      "description": "A detailed prompt for generating a realistic iPhone-style photo of a woman in a cafe using GPT Image 2, focusing on faithful character reproduction from a reference image and specific lighting/composition details.",
+      "prompt": "Shot on an iPhone. The woman’s appearance should be 100% faithful to the uploaded reference photo, sitting at a café table outdoors under an autumn tree, centered in the frame. Her body is facing forward, her head slightly tilted, with one cheek gently resting on one hand while the other hand is relaxed on the table, holding the stem of a wide red-wine glass with a very thin, long, delicate stem and thin glass walls. Only a small amount of wine remains at the bottom.\n\nShe is wearing a voluminous black trench coat with structured shoulder pads and oversized long sleeves covering her fingers, with a black turtleneck underneath. Hair exactly matching the uploaded photo.\n\nWhite tablecloth, elegant white plates, a classic European-style building façade in the background, with an autumn tree filling the upper part of the frame.\n\nTrue-to-life iPhone realism, subtle natural film grain, authentic skin texture and lighting. Do not blur the background; maintain realistic environmental detail throughout the scene.\n\nShort square French-tip manicure.\n\n9:16 vertical format.\n\nShe is wearing narrow black rimless cat-eye sunglasses.\n\nOvercast daytime with no direct sunlight. Slightly slower shutter speed for a subtle natural motion/film feel while keeping the subject realistic and recognizable."
+    },
+    "zh": {
+      "title": "GPT Image 2 写实咖啡馆人像提示词",
+      "description": "用于 GPT Image 2 生成 iPhone 风格写实照片的详细提示词，聚焦于基于参考图的人物忠实还原及特定的光影与构图细节。",
+      "prompt": "使用 iPhone 拍摄。女性的外貌必须 100% 忠实于上传的参考照片，她坐在户外咖啡馆的桌旁，位于一棵秋树下，处于画面中心。她的身体朝前，头部微微倾斜，一侧脸颊轻轻靠在手背上，另一只手放松地放在桌上，握着一个宽口红酒杯的杯梗，该酒杯拥有极细、修长且精致的杯梗和薄玻璃壁。杯底仅残留少量红酒。\n\n她身穿一件廓形宽松的黑色风衣，带有结构感肩垫和超长袖管遮住手指，内搭黑色高领衫。发型需与上传的照片完全一致。\n\n白色桌布，优雅的白色餐盘，背景为经典的欧式建筑立面，一棵秋树占据画面上部。\n\n逼真的 iPhone 摄影质感，细腻自然的胶片颗粒感，真实的皮肤纹理与光影。不要模糊背景；保持整个场景的环境细节真实清晰。\n\n短款方形法式美甲。\n\n9:16 竖屏格式。\n\n她佩戴着窄边黑色无框猫眼太阳镜。\n\n阴天白昼，无直射阳光。采用稍慢的快门速度以营造微妙的自然动态/胶片感，同时保持主体真实且可辨识。"
+    }
+  },
+  "36105": {
+    "en": {
+      "title": "Scrapbook Collage Transformation Prompt",
+      "description": "A detailed prompt for GPT Image 2 to transform an uploaded photo into a premium editorial scrapbook collage with torn-paper effects and hand-drawn illustrations.",
+      "prompt": "Transform the uploaded photo into a premium editorial scrapbook / torn-paper collage artwork. Keep the main subject of the original photo photorealistic, sharp, and clearly recognizable, with natural lighting, realistic textures, and authentic colors. Place the photo on a warm ivory handmade paper background with subtle paper grain and an imperfect tactile texture. Create an organic ripped-paper transition where parts of the original photograph appear to tear open and naturally continue into the lower area as a minimal hand-drawn ink illustration / sketch, blending the real photograph with the illustrated extension.\n\nAdd subtle vintage editorial details, delicate handwritten-style typography, tiny hand-drawn doodles, imperfect ink lines, small decorative elements, and artistic negative space. Let selected objects from the photograph flow beyond the torn edge and interact with the illustration, creating a playful 3D collage effect. Use soft shadows beneath the paper layers and realistic paper edges for depth.\n\nColor palette: warm cream, beige, muted brown, soft earthy tones with the original photo’s natural colors preserved.\nLighting: warm golden-hour / nostalgic sunlight, soft highlights and gentle shadows.\nComposition: sophisticated, minimal, balanced, artistic, lots of breathing room, premium magazine/editorial aesthetic.\nTexture: handmade paper, subtle grain, torn fibers, slightly imperfect printing and ink texture.\n\nThe final image should feel like a real photograph physically pasted onto handmade paper and partially transformed into a delicate illustration, rather than a digital filter.\n\nImportant: Do not alter the main subject’s identity, proportions, objects, or important details. Avoid excessive decorations, cartoonish rendering, overly clean digital edges, neon colors, or a generic AI-art look. High-end contemporary scrapbook editorial design, photorealistic + hand-drawn mixed-media collage, 4:5 or 3:4 vertical composition.\n\n[OPTIONAL] Add this concept-specific element: {argument name=\"transformation_object\" default=\"describe the object/scene you want the photograph to transform into\"}\n\n[OPTIONAL TEXT]: Add a short handwritten phrase: \"{argument name=\"handwritten_text\" default=\"your text\"}\" in a subtle black/charcoal ink style."
+    },
+    "zh": {
+      "title": "剪贴簿拼贴画转换提示词",
+      "description": "为 GPT Image 2 设计的详细提示词，可将上传的照片转换为带有撕纸效果和手绘插图的高端编辑风格剪贴簿拼贴画。",
+      "prompt": "将上传的照片转换为高端编辑风格的剪贴簿 / 撕纸拼贴艺术作品。保持原始照片中的主体写实、清晰且易于识别，具有自然的光线、逼真的纹理和真实的色彩。将照片放置在温暖的象牙色手工纸背景上，带有细微的纸张颗粒感和不完美的触感纹理。创造一种有机的撕纸过渡效果，使原始照片的部分内容看起来像是撕裂开来，并自然地向下延伸为极简的手绘墨水插图 / 素描，将真实照片与插画延伸部分融合在一起。\n\n添加微妙的复古编辑细节、精致的手写体排版、微小的手绘涂鸦、不完美的墨线、小型装饰元素以及艺术性的留白。让照片中选定的物体越过撕裂边缘并与插图互动，营造出俏皮的 3D 拼贴效果。在纸层下方使用柔和的阴影和逼真的纸张边缘以增强深度感。\n\n调色板：暖奶油色、米色、柔和棕色、柔和的大地色调，同时保留原始照片的自然色彩。\n光线：温暖的黄金时刻 / 怀旧阳光，柔和的高光和温和的阴影。\n构图：精致、简约、平衡、富有艺术感，留有大量呼吸空间，呈现高端杂志 / 编辑美学。\n纹理：手工纸、细微颗粒、撕裂纤维、略显不完美的印刷和墨水质感。\n\n最终图像应感觉像是一张真实照片物理粘贴在手工纸上，并部分转化为精致的插图，而不是数字滤镜效果。\n\n重要提示：不要改变主体的身份、比例、物体或重要细节。避免过度装饰、卡通化渲染、过于干净的数字边缘、霓虹色或通用的 AI 艺术外观。高端现代剪贴簿编辑设计，写实 + 手绘混合媒介拼贴，4:5 或 3:4 垂直构图。\n\n[可选] 添加此概念特定元素：{argument name=\"transformation_object\" default=\"描述你希望照片转化成的物体/场景\"}\n\n[可选文本]：添加一个简短的手写短语：“{argument name=\"handwritten_text\" default=\"你的文本\"}”，采用微妙的黑色/炭笔墨水风格。"
+    }
+  },
+  "36106": {
+    "en": {
+      "title": "Fisheye Prop Product Ad Prompt",
+      "description": "A prompt for creating a retro Japanese magazine-style product advertisement using fisheye perspective, where a character holds a prop close to the lens.",
+      "prompt": "[Character], clearly adult photorealistic, retaining hairstyle outline, hair color, eyes, main clothing colors, and iconic accessories.\n\n1980s Japanese magazine product ad × Fisheye close-up photography × Character prop still life × High-purity yellow color field.\n\nCharacter holds their most identity-defining prop, extending it toward the lens. Fisheye lens close to prop, abnormally magnifying foreground object, shrinking person into background, fingers, prop, and face forming strong perspective distortion. Skewed composition, casual pose, clear gaze, face retains realistic photographic texture.\n\nLarge yellow background, vermilion, cobalt blue, and black as accents. Hard flash, distinct shadows, plastic and metal highlights, mirror reflections, slight old offset print grain. Catalog-style visual hierarchy, private snapshot character state.\n\n2:3 vertical, text element is tiny 'voxcat' signature bottom right."
+    },
+    "zh": {
+      "title": "鱼眼道具产品广告提示词",
+      "description": "用于创建复古日本杂志风格产品广告的提示词，采用鱼眼透视效果，角色将道具贴近镜头。",
+      "prompt": "[角色]，清晰的成人写实照片风格，保留发型轮廓、发色、眼睛、主要服装颜色及标志性配饰。\n\n1980 年代日本杂志产品广告 × 鱼眼特写摄影 × 角色道具静物 × 高纯度黄色色块。\n\n角色手持最能代表其身份的道具，将其伸向镜头。鱼眼镜头紧贴道具，异常放大前景物体，使人物缩小为背景，手指、道具和面部形成强烈的透视畸变。构图倾斜，姿态随意，目光清晰，面部保留真实的摄影质感。\n\n大面积黄色背景，朱红、钴蓝和黑色作为点缀。硬闪光灯照明，阴影分明，塑料和金属高光，镜面反射，带有轻微的旧式胶印颗粒感。目录式视觉层级，私密快照般的角色状态。\n\n2:3 竖版比例，右下角有极小的 'voxcat' 签名文字元素。"
+    }
+  },
+  "36107": {
+    "en": {
+      "title": "Close-up Phone Snap Portrait Prompt",
+      "description": "A detailed prompt for generating realistic close-up phone snapshots with flash lighting, distorted angles, and casual expressions using GPT Image 2.",
+      "prompt": "[Character], clearly adult photorealistic, close-up phone snapshot, face extremely close to lens, slight wide-angle perspective, head tilted to one side, squinting or suddenly widened eyes, random uncontrolled expressions like sticking out tongue, pursing lips, or strange smiles. One hand raised from foreground near camera, randomly making peace signs, heart shapes, pointing at lens, covering half face, or other casual gestures. Direct front phone flash, face and skin illuminated by hard flash, background quickly darkened to near black. Extreme close-up, slight edge cropping, non-standard composition, private phone album snapshot feel, slight wide-angle facial distortion, realistic digital sharpening and JPEG texture. Tiny 'voxcat' signature bottom right."
+    },
+    "zh": {
+      "title": "特写手机抓拍人像提示词",
+      "description": "使用 GPT Image 2 生成逼真特写手机快照的详细提示词，包含闪光灯照明、扭曲角度和随意表情。",
+      "prompt": "[角色]，明确为成年人的写实照片风格，特写手机抓拍，脸部极度贴近镜头，轻微广角透视，头部向一侧倾斜，眯眼或突然睁大眼睛，随机且不受控制的表情，如吐舌头、撅嘴或奇怪的笑容。一只手从前景靠近相机处抬起，随机做出剪刀手、比心、指向镜头、遮住半张脸或其他随意手势。直接正面手机闪光灯，面部和皮肤被硬闪光灯照亮，背景迅速变暗至接近黑色。极端特写，轻微边缘裁剪，非标准构图，私人手机相册抓拍的感觉，轻微广角面部畸变，逼真的数字锐化和 JPEG 纹理。右下角有微小的 'voxcat' 签名。"
+    }
+  },
+  "36110": {
+    "en": {
+      "title": "Dreamcore Night Flash Prompt",
+      "description": "A prompt for creating dreamcore night portraits with harsh flash lighting, frozen motion, and colorful bokeh against a black background.",
+      "prompt": "[Character], clearly adult photorealistic, retaining hairstyle outline, hair color, eyes, main clothing colors, and iconic accessories.\n\nDreamcore night portrait × Black field photography × Flash freeze × Star cluster bokeh × Private snapshot.\n\nPerson in large deep black space, body sideways, suddenly looking back at camera, one hand raised to side of face blocking flash. Close-range skewed half-body composition, tilted shoulders, palm near lens, forming natural depth scale difference.\n\nStrong on-camera direct flash freezes face, eyes, and moment. Light-colored jacket forms nearly overexposed glowing white block, character main color clearly shown in inner wear or accessories. Flash intensity decays rapidly with distance, some body contours merge into black field.\n\nArms, hem, and contour edges retain slight motion afterimages and soft focus, face remains clear. Scattered few red, blue, yellow light points in distance, varying size and blur, forming ambiguous spatial star cluster bokeh.\n\n2:3 vertical, text element is tiny 'voxcat' signature bottom right."
+    },
+    "zh": {
+      "title": "梦幻核心夜景闪光提示词",
+      "description": "用于创建具有强烈闪光灯照明、定格动作和黑色背景彩色散景的梦幻核心（Dreamcore）夜景人像提示词。",
+      "prompt": "[角色]，清晰成人写实风格，保留发型轮廓、发色、眼睛、主要服装颜色及标志性配饰。\n\n梦幻核心夜景人像 × 黑场摄影 × 闪光定格 × 星团散景 × 私密快照。\n\n人物处于大面积深黑空间中，身体侧向，突然回头看向镜头，一只手抬起至脸侧遮挡闪光。近距离倾斜半身构图，肩膀倾斜，手掌靠近镜头，形成自然的深度比例差异。\n\n强烈的机顶直射闪光定格面部、眼睛和瞬间。浅色夹克形成近乎过曝的发光白色块面，角色主色调在内搭或配饰中清晰呈现。闪光强度随距离迅速衰减，部分身体轮廓融入黑场。\n\n手臂、衣摆和轮廓边缘保留轻微的运动残影和柔焦效果，面部保持清晰。远处散布着少量红色、蓝色、黄色光点，大小和模糊度各异，形成朦胧的空间星团散景。\n\n2:3 竖幅，右下角有微小的 'voxcat' 签名文字元素。"
+    }
+  },
+  "36111": {
+    "en": {
+      "title": "Old Nokia Selfie Style Dog Cosplay",
+      "description": "Prompt to generate a selfie with dog cosplay elements using old Nokia phone camera aesthetics.",
+      "prompt": "Adult female Cosplayer, dog-themed outfit, long black hair, plush floppy ears, plush collar with bell, brown-white plush costume and paw accessories. Character taking selfie close to lens, body slightly leaning forward, head tilted, slight pout, confused yet cute expression, looking directly at camera.\n\nHappy Golden Retriever beside character, rattan basket in foreground containing fluffy yellow chick and dark purple grapes. Character, dog, chick, grapes naturally squeezed into same frame, forming absurd yet daily private group photo.\n\nEarly 2000s old Nokia phone photography, low-pixel color digital photography, low resolution, slight out-of-focus, rough digital noise, JPEG compression artifacts, slight skin tone shift, uneven white balance, limited dynamic range, soft edges, dirty noise in shadows.\n\nSmall ordinary bedroom, old bed, wooden furniture, vintage CRT TV naturally entering background. Dim indoor ambient light combined with direct flash, face slightly overexposed, background rapidly decaying to dark. Close-range wide-angle selfie perspective, arm extending towards lens creating strong near-large-far-small effect, casual composition, slightly tilted, like a friend casually taking a private photo with an old phone.\n\nOverall real, cheap, rough, snapshot style, no modern high-definition photographic texture. Only tiny voxcat signature retained in image."
+    },
+    "zh": {
+      "title": "老式诺基亚风格狗狗 Cosplay 自拍",
+      "description": "使用老式诺基亚手机相机美学生成带有狗狗 Cosplay 元素的自拍照的提示词。",
+      "prompt": "成年女性 Cosplayer，身穿狗狗主题服装，黑色长发，毛绒垂耳，带铃铛的毛绒项圈，棕白色毛绒服装及爪部配饰。角色贴近镜头自拍，身体微微前倾，头部倾斜，轻微嘟嘴，表情困惑又可爱，直视镜头。\n\n一只快乐的金毛寻回犬在角色身旁，前景有一个藤编篮子，里面装着毛茸茸的黄色小鸡和深紫色葡萄。角色、狗、小鸡和葡萄自然地挤在同一画面中，形成荒诞却日常的私人合影。\n\n2000 年代初的老式诺基亚手机摄影风格，低像素彩色数码摄影，低分辨率，轻微失焦，粗糙的数字噪点，JPEG 压缩伪影，轻微的肤色偏移，白平衡不均，动态范围有限，边缘柔和，阴影中有脏噪点。\n\n普通的小卧室，旧床，木制家具，复古 CRT 电视自然进入背景。昏暗的室内环境光结合直接闪光灯，面部略微过曝，背景迅速变暗。近距离广角自拍视角，手臂伸向镜头产生强烈的近大远小效果，构图随意，略微倾斜，就像朋友用旧手机随手拍下的私人照片。\n\n整体真实、廉价、粗糙的快照风格，没有现代高清摄影质感。仅保留图像中微小的 voxcat 签名。"
+    }
+  },
+  "36112": {
+    "en": {
+      "title": "Monkey Cosplay BBQ Night Selfie",
+      "description": "Prompt for monkey-themed cosplay at a summer night BBQ stall with old phone camera quality.",
+      "prompt": "Adult female Cosplayer, monkey-themed outfit, natural long black hair loose, some strands sticking to forehead, cheeks and neck due to heat and sweat. Wearing brown-white plush round ears, brown plush short-sleeve dress, cream-white plush trim on collar and cuffs, simple lace-up structure on chest, brown plush curled tail connected at waist, wearing thin gold necklace.\n\nCharacter sitting on red plastic chair at summer night open-air BBQ stall, body leaning forward close to lens, head slightly tilted, looking directly at camera, cheeks flushed, small sweat beads on forehead and nose tip, lips slightly parted, playful expression from being heated by steam. One hand holding freshly grilled bone-in meat, meat close to side of face, surface charred brown, oily, bones clearly visible. Small monkey tightly beside character, monkey's front paws resting on table edge, looking up at meat in hand, forming natural private group photo squeezed into same frame.\n\nClose-range skewed half-body composition, slight phone wide-angle perspective, face and meat close to lens, shoulders, arms and monkey naturally cropped at frame edges. Foreground has stainless steel grill tray, charcoal grill and several pieces of meat, grease reflection and smoke clearly visible. Background is real night market BBQ stall, plastic tables/chairs, diners' backs, simple sheds and warm yellow bulbs creating messy yet daily spatial layers.\n\nEarly 2000s old Nokia phone photography, low-pixel color digital photography, close-range direct flash, face and plush clothing illuminated by frontal flash, skin showing direct and slightly hard highlights, background brightness rapidly decaying, distant bulbs locally overexposed. Low resolution, slight out-of-focus, soft edges, rough digital noise, JPEG compression artifacts, limited dynamic range, uneven white balance, skin tone slightly cool gray and pink shift, background warm yellow lights mixed with cyan-gray shadows. Real snapshot, private record feel, retaining hot night sweat, messy hair and natural demeanor.\n\n3:4 vertical format, only text in image is tiny handwritten signature \"voxcat\" in bottom right corner."
+    },
+    "zh": {
+      "title": "猴子 Cosplay 烧烤夜自拍",
+      "description": "猴子主题 Cosplay 夏日夜市烧烤摊自拍提示词，呈现老式手机相机画质。",
+      "prompt": "成年女性 Cosplayer，身着猴子主题服装，自然黑色长发披散，因炎热和汗水导致几缕发丝贴在额头、脸颊和颈部。佩戴棕白色毛绒圆耳饰，身穿棕色毛绒短袖连衣裙，领口和袖口有奶油白毛绒镶边，胸前为简约系带结构，腰部连接棕色毛绒卷尾，颈间佩戴细金项链。\n\n角色坐在夏日夜晚露天烧烤摊的红色塑料椅上，身体前倾靠近镜头，头部微侧，直视相机，双颊泛红，额头和鼻尖挂着细小汗珠，嘴唇微张，呈现出被热气熏蒸后的俏皮神态。一只手拿着刚烤好的带骨肉块，肉块贴近脸侧，表面焦黄油亮，骨头清晰可见。一只小猴子紧挨在角色身旁，前爪搭在桌沿，抬头望着手中的肉，形成一张挤入同一画面的自然私密合影。\n\n近距离倾斜半身构图，带有轻微的手机广角透视效果，面部和肉块贴近镜头，肩膀、手臂和小猴子在画面边缘自然裁切。前景可见不锈钢烤盘、炭火烤炉及几块烤肉，油脂反光和烟雾清晰可辨。背景是真实的夜市烧烤摊，包括塑料桌椅、食客背影、简易棚架和暖黄灯泡，营造出杂乱却充满生活气息的空间层次。\n\n2000 年代初老式诺基亚手机摄影风格，低像素彩色数码照片，近距离直闪拍摄，面部和毛绒衣物受正面闪光灯照射，皮肤呈现直接且略硬的高光，背景亮度迅速衰减，远处灯泡局部过曝。低分辨率，轻微失焦，边缘柔和，粗糙的数字噪点，JPEG 压缩伪影，动态范围有限，白平衡不均，肤色略带冷灰与粉调偏移，背景暖黄灯光与青灰阴影交织。真实快照感，私密记录氛围，保留热夜汗水、凌乱发丝和自然神态。\n\n3:4 竖版格式，图中唯一文字为右下角微小的手写签名 \"voxcat\"。"
+    }
+  },
+  "36113": {
+    "en": {
+      "title": "Minimalist Doodle Composition Prompts",
+      "description": "Prompts for generating minimalist cartoon doodles with various composition paths and negative space.",
+      "prompt": "{argument name=\"characters\" default=\"[Character A / Character B / Character C / Character D]\"}, minimalist cartoon doodle illustration x huge negative space x micro-character action chain.\n\nPure white or very light colored background, more than 65% of the area remains blank. Characters are extremely small in proportion, retaining only hairstyle outlines, main colors, iconic accessories and clothing color blocks, transformed into simplified, easily recognizable cartoon figures.\n\nEach image randomly selects one composition: central vertical queue, S-shaped serpentine, diagonal fall, single-side hanging, U-shaped path, micro ring, spiral trajectory, intermittent floating nodes, top horizontal event followed by vertical fall, bottom character tower. Overall visual trajectory is slender and clear, characters concentrated in local areas, large negative space around them.\n\nSet a micro target object related to the character's worldview along the trajectory, such as fruit, food, badge, weapon, gemstone or doll. Target object located at start/end of path or center of ring/spiral, characters' gaze and actions naturally point to it.\n\nEach character adopts different exaggerated actions: running, jumping, reaching, lifting, surprised, falling, mouth open, turning back, being pressed or pulling each other. Through hand/foot contact, clothing pulling, gaze direction and spacing changes, characters form continuous, readable action relationships. Specific actions and character order are random, maintaining clear visual rhythm.\n\nRelaxed hand-drawn black outline lines, slightly jittery, flying lines and irregularity, like animation drafts or children's doodles. Small amount of high-purity flat color blocks, simple palette of black lines, white background and red, yellow, blue, green, character main color as identity anchor.\n\nOverall relaxed, absurd, cute, like animation stickers, character journal illustrations or minimalist phone wallpaper. Vertical format, tiny voxcat in bottom right."
+    },
+    "zh": {
+      "title": "极简涂鸦构图提示词",
+      "description": "用于生成具有多种构图路径和留白效果的极简卡通涂鸦的提示词。",
+      "prompt": "{argument name=\"characters\" default=\"[角色 A / 角色 B / 角色 C / 角色 D]\"}，极简卡通涂鸦插画 x 巨大留白 x 微缩角色动作链。\n\n纯白色或极浅色背景，超过 65% 的区域保持空白。角色比例极小，仅保留发型轮廓、主色调、标志性配饰和服装色块，转化为简化且易于识别的卡通形象。\n\n每张图像随机选择一种构图：中心垂直队列、S 形蜿蜒、对角线坠落、单侧悬挂、U 形路径、微型环形、螺旋轨迹、间歇性浮动节点、顶部水平事件后接垂直坠落、底部角色塔。整体视觉轨迹细长清晰，角色集中在局部区域，周围有大面积留白。\n\n沿轨迹设置一个与角色世界观相关的微缩目标物体，例如水果、食物、徽章、武器、宝石或玩偶。目标物体位于路径的起点/终点或环形/螺旋的中心，角色的视线和动作自然指向它。\n\n每个角色采用不同的夸张动作：奔跑、跳跃、伸手、举起、惊讶、跌倒、张嘴、回头、被按压或互相拉扯。通过手/脚接触、衣物拉扯、视线方向和间距变化，角色形成连续、可读的动作关系。具体动作和角色顺序随机，保持清晰的视觉节奏。\n\n轻松的手绘黑色轮廓线，略带抖动、飞线和不规则感，如同动画草稿或儿童涂鸦。少量高纯度平涂色块，简单的调色板包括黑线、白底以及红、黄、蓝、绿，角色主色作为身份锚点。\n\n整体风格轻松、荒诞、可爱，类似动画贴纸、角色日记插画或极简手机壁纸。竖版格式，右下角有微小的 voxcat。"
+    }
+  },
+  "36114": {
+    "en": {
+      "title": "Hybrid Cartoon Photo Event Banner",
+      "description": "Prompt for creating a horizontal event banner combining cartoon stickers, real photography and hand-drawn titles.",
+      "prompt": "{argument name=\"theme\" default=\"[Theme]\"}, {argument name=\"character\" default=\"[Character]\"}, contemporary trendy cartoon illustration x Cartoon Graffiti x Sticker Art x playful editorial illustration x neo-retro American cartoon x commercial event KV visual design.\n\nVisual style:\nThick dark brown hand-drawn outer contours, uneven line thickness, rounded exaggerated cartoon shapes, irregular organic geometric color blocks, flat vector coloring, small amount of hand-drawn texture. Characters use exaggerated head-to-body ratios, simplified facial features, fun expressions and rhythmic actions. High saturation clashing colors, randomly design 3-5 main colors based on theme, large solid color fields, clear contrast in warmth/coolness and brightness.\n\nCore composition:\nHorizontal commercial banner, asymmetric left-right zoning, overall dense surround collage composition.\n\nLeft ~40% is visual title area, placing huge, irregular, thick brushstroke feel hand-drawn theme title. Text can be tilted, offset, partially overlapping, forming highly recognizable graphical text blocks, surrounded by small decorative patterns.\n\nRight ~60% is main visual narrative area, a large circular framing window occupying about 70% of screen height, with thick white border and dark hand-drawn outer contour. Inside circle presents HD realistic photography scene related to [Theme], with real spatial depth, natural light/shadow and rich environmental details.\n\nOutside circular window place 5-8 cartoon sticker elements, including [Character], theme props, environmental symbols, plants, animals, vehicles or other related objects. Elements vary in size, interpenetrating, some crossing circular border, some extending from screen edges to center, forming foreground/midground/background spatial relationships.\n\nCharacters distributed at bottom-left, top or sides of circular window, performing interaction actions related to theme. Props form irregular C-shape or ring visual flow around circular window, top elements gathering inward, bottom elements bearing visual weight.\n\nComposition details:\nSuper large title and circular main visual form dual focus, characters and props connect two visual areas. Partial occlusion, boundary cropping, asymmetric balance, size ratio contrast, contour interlacing, sticker-style layering. Small starbursts, dots, short lines and geometric shapes fill visual gaps.\n\nMixed media:\n2D hand-drawn cartoon periphery x real photography inside circular window. Realistic scenes maintain real photography light/material/depth/scale, cartoon elements maintain uniform thick outlines, flat coloring and organic contours.\n\nOverall effect:\nHigh information density, clear visual hierarchy, relaxed, interesting, lively internet commercial illustration. Distinct theme recognition, unified colors, complete event main visual design sense.\n\nHorizontal 16:9, tiny signature voxcat naturally integrated in bottom right corner."
+    },
+    "zh": {
+      "title": "混合卡通照片活动横幅",
+      "description": "用于创建结合卡通贴纸、真实摄影和手绘标题的横向活动横幅的提示词。",
+      "prompt": "{argument name=\"theme\" default=\"[主题]\"}, {argument name=\"character\" default=\"[角色]\"}, 当代潮流卡通插画 x 卡通涂鸦 x 贴纸艺术 x 趣味编辑插画 x 新复古美式卡通 x 商业活动 KV 视觉设计。\n\n视觉风格：\n粗深棕色手绘外轮廓，线条粗细不均，圆润夸张的卡通形状，不规则有机几何色块，扁平矢量着色，少量手绘纹理。角色采用夸张的头身比例，简化的面部特征，有趣的表情和富有节奏感的动作。高饱和度撞色，根据主题随机设计 3-5 种主色，大面积纯色块，冷暖和明暗对比清晰。\n\n核心构图：\n横向商业横幅，左右非对称分区，整体为密集的环绕拼贴构图。\n\n左侧约 40% 为视觉标题区，放置巨大、不规则、具有粗笔触质感的手绘主题标题。文字可倾斜、偏移、部分重叠，形成高识别度的图形化文字块，周围环绕小型装饰图案。\n\n右侧约 60% 为主视觉叙事区，一个占据屏幕高度约 70% 的大型圆形取景窗，带有粗白边框和深色手绘外轮廓。圆圈内呈现与 [主题] 相关的高清写实摄影场景，具有真实的空间深度、自然光影和丰富的环境细节。\n\n在圆形窗口外部放置 5-8 个卡通贴纸元素，包括 [角色]、主题道具、环境符号、植物、动物、车辆或其他相关物体。元素大小不一，相互穿插，部分跨越圆形边界，部分从屏幕边缘延伸至中心，形成前景/中景/背景的空间关系。\n\n角色分布在圆形窗口的左下、顶部或侧面，执行与主题相关的互动动作。道具围绕圆形窗口形成不规则 C 形或环形视觉流，顶部元素向内聚集，底部元素承载视觉重量。\n\n构图细节：\n超大标题与圆形主视觉形成双焦点，角色和道具连接两个视觉区域。局部遮挡、边界裁剪、非对称平衡、尺寸比例对比、轮廓交错、贴纸式分层。小星爆、点、短线和几何形状填充视觉空隙。\n\n混合媒介：\n2D 手绘卡通外围 x 圆形窗口内的真实摄影。写实场景保持真实摄影的光线/材质/深度/尺度，卡通元素保持统一的粗轮廓、扁平着色和有机轮廓。\n\n整体效果：\n高信息密度，清晰的视觉层次，轻松、有趣、活泼的网络商业插画。鲜明的主题辨识度，统一的色彩，完整的活动主视觉设计感。\n\n横向 16:9，右下角自然融入微小签名 voxcat。"
+    }
+  },
+  "36116": {
+    "en": {
+      "title": "Forest Flash Photography Portrait",
+      "description": "Prompt for a portrait in a deep green forest with flash exposure techniques.",
+      "prompt": "{argument name=\"character\" default=\"[Character]\"}, clearly adult photorealistic, Ilfochrome / dye-transfer high color density photography x liminal forest x private photography x partial overexposure fade-out.\n\nRetain core character identity: hairstyle outline, hair color, eyes, clothing main color and iconic accessories.\n\nCharacter placed in humid dark forest, body sideways, looking back at camera. Close-range tree trunks and branches/leaves invade from screen edges, forming foreground/background occlusion, face clearly revealed through foliage.\n\nPartial direct flash makes face, arms and light-colored clothing approach glowing white volumes, some fabric details blending into highlights. Background maintains deep green-black and cool cyan shadows, small amount of red identity elements as high-purity color anchors. Wet leaves create fine reflections, foreground branches/leaves slightly out of focus, combined with colorful bokeh and partial motion blur, presenting private record feel of accidental night capture.\n\n2:3 vertical format, text element is tiny \"voxcat\" signature in bottom right corner."
+    },
+    "zh": {
+      "title": "森林闪光灯人像摄影",
+      "description": "适用于深绿色森林场景并采用闪光灯曝光技巧的人像提示词。",
+      "prompt": "{argument name=\"character\" default=\"[Character]\"}，清晰成人写实风格，Ilfochrome / 染料转印高色彩密度摄影 x 阈限森林 x 私密摄影 x 局部过曝淡出。\n\n保留核心角色特征：发型轮廓、发色、眼睛、服装主色调及标志性配饰。\n\n角色置于潮湿幽暗的森林中，身体侧向，回头注视镜头。近景树干与枝叶从画面边缘侵入，形成前景/背景遮挡，面部透过叶隙清晰显露。\n\n局部直射闪光灯使面部、手臂及浅色衣物呈现接近发光白色的体积感，部分织物细节融入高光之中。背景保持深绿黑色与冷青色阴影，少量红色身份元素作为高纯度色彩锚点。湿润叶片产生细微反光，前景枝叶略微失焦，结合彩色散景与部分运动模糊，呈现意外夜间抓拍的私密记录感。\n\n2:3 竖版格式，右下角带有微小 \"voxcat\" 签名文字元素。"
+    }
+  },
+  "36118": {
+    "en": {
+      "title": "Handsome Young Man as Monkey Zodiac",
+      "description": "A prompt to generate a realistic portrait of a young man styled as the Monkey zodiac sign, complete with a pet monkey and traditional attire.",
+      "prompt": "A cinematic, hyper-realistic portrait of a handsome young man representing the Monkey zodiac. He has messy dark brown hair with loose strands falling over his forehead and wears a thin golden headband. His expression is calm and confident, looking directly at the viewer. He is dressed in traditional Chinese robes featuring intricate gold brocade patterns on black fabric, with a textured ochre sash draped across his chest. Perched on his left shoulder is a small, realistic monkey wearing a miniature matching vest. Behind him, he carries a long, ornate golden staff (Ruyi Jingu Bang) that extends vertically out of the frame. The background is a soft-focus landscape of misty mountains and ancient temple roofs. In the top left corner, there is a large, bold calligraphy character '猴' in beige ink. On the right side, vertical text reads 'CHINESE ZODIAC MONKEY'. On the left side, vertical white text reads '天生我材必有用' followed by smaller text '灵动聪慧·机敏过人·自由无畏'. A red seal stamp is visible near the text."
+    },
+    "zh": {
+      "title": "英俊青年猴生肖形象",
+      "description": "一个用于生成年轻男子写实肖像的提示词，该男子以猴生肖为主题，配有宠物猴和传统服饰。",
+      "prompt": "一幅电影感、超写实的肖像画，描绘了一位代表猴生肖的英俊青年。他留着凌乱的深棕色头发，几缕发丝垂在额前，头戴一条细金箍。他的表情平静而自信，直视观众。他身穿中国传统长袍，黑色面料上饰有精致的金色锦缎图案，胸前斜披一条质感粗糙的赭色腰带。他的左肩上蹲着一只小巧逼真的猴子，穿着配套的迷你马甲。在他身后，一根长而华丽的金色棍棒（如意金箍棒）垂直延伸出画面。背景是柔焦处理的雾霭山峦和古老寺庙屋顶。左上角有一个用米色墨水书写的巨大粗体书法字“猴”。右侧竖排文字写着“CHINESE ZODIAC MONKEY”。左侧竖排白色文字写着“天生我材必有用”，下方是小字“灵动聪慧·机敏过人·自由无畏”。文字附近可见一枚红色印章。"
+    }
+  },
+  "36119": {
+    "en": {
+      "title": "Cozy Purple Halloween Living Room",
+      "description": "Generates a photorealistic interior shot of a living room decorated for a purple-themed Halloween party with a fireplace and projector screen.",
+      "prompt": "A cozy, dimly lit living room decorated for a purple-themed Halloween party. The scene features deep plum-colored walls and dark wooden ceiling beams. In the center, a stone fireplace glows with a warm fire, topped by a garland of red berries, candles, and a jack-o'-lantern. A framed painting of a spooky castle under a full moon hangs above the mantel. To the left, a plush burgundy sofa is adorned with a white crocheted blanket and pillows featuring ghost and skull patterns. A large orange pumpkin sits on the floor near a round rug with a star pattern. On the right, a large projection screen displays a skeleton dancing alongside a numbered list of songs or items in yellow text. Small pumpkins and glowing lights are scattered across the floor and shelves, creating an inviting, festive atmosphere."
+    },
+    "zh": {
+      "title": "温馨紫色万圣节客厅",
+      "description": "生成一张逼真的室内照片，展示一个为紫色主题万圣节派对装饰的客厅，配有壁炉和投影屏幕。",
+      "prompt": "一间温馨且灯光昏暗的客厅，专为紫色主题的万圣节派对而装饰。场景以深梅子色的墙壁和深色木质天花板横梁为特色。中央是一座石砌壁炉，温暖的火焰在其中跳跃，壁炉架上摆放着由红浆果、蜡烛和南瓜灯组成的花环。壁炉上方悬挂着一幅描绘满月下阴森城堡的镶框画作。左侧是一张舒适的酒红色沙发，上面铺着白色钩针编织毯，并点缀着印有幽灵和骷髅图案的抱枕。地板上靠近带有星星图案的圆形地毯处，放置着一个大橙色南瓜。右侧的大投影屏幕上显示着一个跳舞的骷髅，旁边是黄色文字列出的歌曲或物品编号列表。小南瓜和发光灯饰散落在地板和架子上，营造出一种诱人且喜庆的氛围。"
+    }
+  },
+  "36121": {
+    "en": {
+      "title": "White Dragon Zodiac Portrait",
+      "description": "An AI-generated portrait of a woman in traditional white attire accompanied by a majestic white dragon, featuring Chinese zodiac text overlays.",
+      "prompt": "A vertical portrait of an elegant young woman with fair skin and dark hair styled in a traditional updo adorned with delicate silver floral hairpins. She wears a white, intricately embroidered Hanfu-style dress and has a small red decorative mark on her forehead. Behind her looms a massive, ethereal white dragon with detailed scales and flowing whiskers, its head positioned near hers as if protecting her. The background is a soft, misty grey-white. In the top left corner, there is a large golden Chinese character '龙' (Dragon) written in calligraphy style, next to a vertical red seal containing the text '十二生肖'. Below the seal, small black text reads 'CHINESE ZODIAC DRAGON'. On the right side, vertical Chinese text reads '瑞气盈门' and '祥龙纳福'. In the bottom left corner, small text reads 'CHINESE ZODIAC', followed by '龙 / 年 / 大 / 吉' and '万 / 事 / 如 / 意', and finally 'NEW YEAR'S DAY'. A small orange logo for 'popcraft.ai' is visible in the bottom right corner."
+    },
+    "zh": {
+      "title": "白龙生肖人像",
+      "description": "一张 AI 生成的女性肖像，身着传统白色服饰，身旁伴有威严的白龙，画面叠加了中国生肖文字元素。",
+      "prompt": "这是一幅竖版肖像画，描绘了一位优雅年轻的女性，她皮肤白皙，黑发盘成传统的发髻，并点缀着精致的银色花卉发簪。她身穿一件绣工繁复的白色汉服风格长裙，额头中央有一枚小巧的红色装饰印记。在她身后盘旋着一条巨大而空灵的白龙，鳞片细节清晰可见，龙须飘逸，龙头靠近她的头部，仿佛在守护着她。背景是柔和朦胧的灰白色调。左上角有一个用书法风格书写的大型金色汉字“龙”，旁边是一枚垂直的红色印章，内含文字“十二生肖”。印章下方的小号黑色文字写着“CHINESE ZODIAC DRAGON”。右侧有垂直排列的中文文字“瑞气盈门”和“祥龙纳福”。左下角有小字“CHINESE ZODIAC”，随后是“龙 / 年 / 大 / 吉”和“万 / 事 / 如 / 意”，最后是“NEW YEAR'S DAY”。右下角可见一个小型橙色 logo，标注为“popcraft.ai”。"
+    }
   }
 }
