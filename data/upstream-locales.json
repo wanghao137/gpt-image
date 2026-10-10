@@ -53671,8 +53671,8 @@
   "36119": {
     "en": {
       "title": "Cozy Purple Halloween Living Room",
-      "description": "Generates a photorealistic interior shot of a living room decorated for a purple-themed Halloween party with a fireplace and projector screen.",
-      "prompt": "A cozy, dimly lit living room decorated for a purple-themed Halloween party. The scene features deep plum-colored walls and dark wooden ceiling beams. In the center, a stone fireplace glows with a warm fire, topped by a garland of red berries, candles, and a jack-o'-lantern. A framed painting of a spooky castle under a full moon hangs above the mantel. To the left, a plush burgundy sofa is adorned with a white crocheted blanket and pillows featuring ghost and skull patterns. A large orange pumpkin sits on the floor near a round rug with a star pattern. On the right, a large projection screen displays a skeleton dancing alongside a numbered list of songs or items in yellow text. Small pumpkins and glowing lights are scattered across the floor and shelves, creating an inviting, festive atmosphere."
+      "description": "Generates a detailed 3D render of a spooky but comfortable living room decorated for Halloween with purple walls, a fireplace, pumpkins, and themed furniture.",
+      "prompt": "A cozy, dimly lit interior of a spooky Halloween-themed living room. The walls are painted a deep purple, and the ceiling features dark wooden beams. A large stone fireplace sits in the center back wall with a roaring fire inside; above it hangs a framed picture of a haunted house under a full moon, flanked by candelabras and draped with red garland featuring a jack-o'-lantern face. To the left is a plush burgundy sofa adorned with various pillows, including one shaped like a white ghost and another with a skull pattern, along with a knitted throw blanket. In the foreground, an armchair has a black pillow with white skulls on it. On the floor lies a circular rug with a starry night pattern. Several orange pumpkins are scattered around the room, some glowing from within. To the right, a large flat-screen TV displays a yellow background with a skeleton character and a long list of song titles or text. Beside the TV stands a tall wooden bookshelf filled with books. A small window on the far left shows a twilight sky outside. The overall atmosphere is warm yet eerie, illuminated primarily by the fireplace glow and ambient lighting."
     },
     "zh": {
       "title": "温馨紫色万圣节客厅",
@@ -53694,8 +53694,8 @@
   },
   "36159": {
     "en": {
-      "title": "Tsingtao Beer Inspired Clothing Design",
-      "description": "A prompt for generating cool-style women's clothing designs inspired by Tsingtao beer branding, created with GPT Image 2.",
+      "title": "Cool Style Women's Clothing Inspired by Tsingtao Beer",
+      "description": "A prompt to design a set of cool-style women's clothing inspired by the Tsingtao beer brand aesthetic using GPT Image 2.",
       "prompt": "Inspired by this product, design a set of cool-style women's clothing"
     },
     "zh": {
@@ -53706,9 +53706,9 @@
   },
   "36160": {
     "en": {
-      "title": "Nostalgic Editorial Scrapbook Template",
-      "description": "A comprehensive prompt template for creating a split-composition image combining a photorealistic top section with a hand-drawn scrapbook bottom section, designed for GPT Image 2.",
-      "prompt": "Create a nostalgic editorial scrapbook-style image combining one main photorealistic lifestyle photograph with a hand-drawn illustrated section underneath.\n\nThe top 50–55% should be a cinematic, highly realistic photograph of {argument name=\"subject\" default=\"[SUBJECT / SCENE]\"}, captured like an authentic film photograph. Natural candid composition, warm nostalgic atmosphere, soft diffused light, subtle film grain, realistic textures, slightly muted vintage colors, autumnal/warm earthy tones, shallow depth of field where appropriate, beautifully composed but not overly polished.\n\nThe bottom 45–50% should look like a vintage handmade scrapbook / travel journal page, printed on warm cream textured paper. Recreate small elements from the photograph as loose colored-pencil and watercolor doodle illustrations arranged in a clean 3×3 or balanced grid. Include simple hand-drawn objects related to the scene such as {argument name=\"object_1\" default=\"[OBJECT 1]\"}, {argument name=\"object_2\" default=\"[OBJECT 2]\"}, {argument name=\"object_3\" default=\"[OBJECT 3]\"}. Use imperfect sketch lines, subtle pencil strokes, watercolor bleed, slightly uneven coloring and authentic handmade imperfections.\n\nAdd a short handwritten title at the top of the illustrated section: \"{argument name=\"title\" default=\"[TITLE]\"}\", in casual imperfect black/gray handwritten lettering. Add tiny decorative elements such as hearts, dots, clouds, leaves, stars, waves or small doodles around the illustrations.\n\nAt the very bottom, add a small handwritten caption: \"{argument name=\"caption\" default=\"[SHORT CAPTION]\"}\".\n\nOverall aesthetic: cozy Pinterest editorial, nostalgic travel diary, vintage film photography + children’s sketchbook illustration, warm analog memories, premium lifestyle magazine composition, tactile paper texture, understated and elegant, emotionally warm, authentic rather than overly digital.\n\nComposition: vertical 4:5, clean separation between photograph and illustration, balanced negative space, consistent visual storytelling between the photo and drawings.\n\nImportant: preserve realistic photography in the top section; do not turn the photograph into an illustration. The lower section should clearly look hand-drawn. Avoid excessive text, distorted lettering, photorealistic doodles, CGI appearance, oversaturation, clutter, or overly perfect vector graphics."
+      "title": "Nostalgic Scrapbook Photo Prompt",
+      "description": "A prompt template for creating a nostalgic editorial scrapbook image that combines a realistic photograph with hand-drawn illustrations using GPT Image 2.",
+      "prompt": "Create a nostalgic editorial scrapbook-style image combining one main photorealistic lifestyle photograph with a hand-drawn illustrated section underneath.\n\nThe top 50–55% should be a cinematic, highly realistic photograph of {argument name=\"subject scene\" default=\"[SUBJECT / SCENE]\"}, captured like an authentic film photograph. Natural candid composition, warm nostalgic atmosphere, soft diffused light, subtle film grain, realistic textures, slightly muted vintage colors, autumnal/warm earthy tones, shallow depth of field where appropriate, beautifully composed but not overly polished.\n\nThe bottom 45–50% should look like a vintage handmade scrapbook / travel journal page, printed on warm cream textured paper. Recreate small elements from the photograph as loose colored-pencil and watercolor doodle illustrations arranged in a clean 3×3 or balanced grid. Include simple hand-drawn objects related to the scene such as {argument name=\"object 1\" default=\"[OBJECT 1]\"}, {argument name=\"object 2\" default=\"[OBJECT 2]\"}. Use imperfect sketch lines, subtle pencil strokes, watercolor bleed, slightly uneven coloring and authentic handmade imperfections.\n\nAdd a short handwritten title at the top of the illustrated section: “{argument name=\"title\" default=\"[TITLE]\"}”, in casual imperfect black/gray handwritten lettering. Add tiny decorative elements such as hearts, dots, clouds, leaves, stars, waves or small doodles around the illustrations.\n\nAt the very bottom, add a small handwritten caption: “{argument name=\"short caption\" default=\"[SHORT CAPTION]\"}”.\n\nOverall aesthetic: cozy Pinterest editorial, nostalgic travel diary, vintage film photography + children’s sketchbook illustration, warm analog memories, premium lifestyle magazine composition, tactile paper texture, understated and elegant, emotionally warm, authentic rather than overly digital.\n\nComposition: vertical 4:5, clean separation between photograph and illustration, balanced negative space, consistent visual storytelling between the photo and drawings.\n\nImportant: preserve realistic photography in the top section; do not turn the photograph into an illustration. The lower section should clearly look hand-drawn. Avoid excessive text, distorted lettering, photorealistic doodles, CGI appearance, oversaturation, clutter, or overly perfect vector graphics."
     },
     "zh": {
       "title": "怀旧编辑风格剪贴簿模板",
@@ -53834,6 +53834,138 @@
       "title": "清华艺术节海报设计",
       "description": "2025 年清华大学艺术节双联宣传海报，采用鲜艳的花卉插画，结合锐利矢量风格与柔焦效果。",
       "prompt": "为“2025 春之清华艺术节”创建分屏平面设计海报。左侧以纯白背景为主，展示色彩鲜艳的扁平化矢量风格花卉插图，包括大雏菊、粉色百合、蓝色绣球花和紫色丁香。最左侧垂直排列中文文字“2025 春之清華藝術節”，旁侧配有英文文字“Spring x Tsing Hua Arts Festival”。左下角包含四个不同的活动类别：“音樂會暨大師班”、“創作展覽”、“藝術工作坊”和“研討論壇”，每个类别均标注具体日期（4/15-5/28）及小型二维码。右侧则在温暖朦胧的奶油色背景上，呈现同一组花卉安排的柔焦梦幻版本。顶部采用大号衬线字体显示“2025 Spring x Tsing Hua Arts Festival”，下方辅以较小文字“ART CULTURE PEOPLE IN BLOOM”。右下角显示日期“4.15 — 5.28”以及标志“TSING HUA UNIVERSITY”。"
+    }
+  },
+  "36216": {
+    "en": {
+      "title": "Readable Headline Poster and Product Edit",
+      "description": "Generates a poster with legible typography and performs a product edit moving earbuds from a studio cube to a wet rock.",
+      "prompt": "A poster whose headline you can actually read, plus a product edit: same earbuds, studio cube to a wet rock."
+    },
+    "zh": {
+      "title": "清晰易读的标题海报与产品编辑",
+      "description": "生成具有清晰排版的海报，并执行产品编辑：将耳机从摄影棚立方体移至湿润岩石上。",
+      "prompt": "一张标题真正清晰可读的海报，外加一次产品编辑：同一款耳机，从摄影棚立方体移至湿润岩石上。"
+    }
+  },
+  "36218": {
+    "en": {
+      "title": "Soft Preppy Outfit Design Prompt",
+      "description": "A fashion design prompt for creating a soft preppy outfit with gingham shirt, knit vest, and wide-leg trousers using ChatGPT Image 2.",
+      "prompt": "OUTFIT:\n\nAn oversized pale-blue gingham collared shirt, tied in a knot at the waist and layered under a short sleeveless knit vest, paired with high-waisted wide-leg trousers with subtle pinstripes.\n\nStyled with white crew socks and black Mary Jane flats.\n\nClean, smart, softly preppy fashion aesthetic.\nPale blue, white, black, and soft neutral color scheme.\nNo extra decorations."
+    },
+    "zh": {
+      "title": "柔和学院风穿搭设计提示词",
+      "description": "使用 ChatGPT Image 2 生成柔和学院风穿搭的时尚设计提示词，包含格纹衬衫、针织马甲和阔腿裤。",
+      "prompt": "穿搭：\n\n一件超大号的浅蓝色格纹翻领衬衫，在腰部打结，叠穿在一件短袖无袖针织马甲内，搭配带有细微条纹的高腰阔腿裤。\n\n搭配白色中筒袜和黑色玛丽珍平底鞋。\n\n干净、精致、柔和的学院风时尚美学。\n浅蓝、白、黑及柔和中性色调配色方案。\n无额外装饰。"
+    }
+  },
+  "36219": {
+    "en": {
+      "title": "Nokia Phone Selfie with Ragdoll Cat Cosplay",
+      "description": "A prompt for generating a low-resolution, early 2000s Nokia phone-style selfie featuring a woman in ragdoll cat cosplay, including specific noise, lighting, and background details.",
+      "prompt": "Based on the reference image of an adult female cosplayer, maintain the protagonist's face, ragdoll cat themed costume, black long hair, brown-white plush outfit and cat paw accessories.\n\nCharacter taking a close-up selfie, leaning slightly forward, tilting head, slight pout, with an expression of confusion, disdain, yet cute, looking directly at the camera.\n\nRagdoll cat fur color and styling details as per source material.\n\nNext to the person is a ragdoll cat, in the foreground is a rattan basket containing a fluffy yellow chick and a bunch of deep purple grapes.\nThe person, cat, chick, and grapes naturally squeeze into the same frame, forming an absurd yet everyday private photo.\n\nShot with an early 2000s old Nokia phone, low-pixel color digital photography, low resolution, slight defocus, rough digital noise, JPEG compression artifacts, slight skin tone shift, uneven white balance, limited dynamic range, soft edges, obvious dirty noise in shadows.\n\nSmall ordinary bedroom, old bed, wooden furniture, old CRT TV naturally entering the background. Dim indoor ambient light combined with direct phone flash, face slightly overexposed, background rapidly decaying into darkness. Close-range wide-angle selfie perspective, arm extending towards lens creating obvious near-large far-small effect, casual composition, slightly tilted, like a private photo taken by a friend with an old phone.\n\nOverall real, cheap, rough, snap-shot quality, no modern high-definition photographic texture. Only keep a very small fanfan signature."
+    },
+    "zh": {
+      "title": "诺基亚手机自拍：布偶猫 Cosplay",
+      "description": "生成低分辨率、2000 年代初诺基亚手机风格自拍的提示词，展示一位身着布偶猫 cosplay 服装的女性，包含特定的噪点、光照和背景细节。",
+      "prompt": "基于参考图中的成年女性 cosplayer，保持主角的面部特征、布偶猫主题服装、黑色长发、棕白色毛绒套装以及猫爪配饰。\n\n角色正在拍摄近距离自拍，身体微微前倾，头部倾斜，略带撅嘴表情，呈现出困惑、不屑却又可爱的神态，直视镜头。\n\n布偶猫的毛色和造型细节需严格遵循原始素材。\n\n人物旁边有一只布偶猫，前景是一个藤编篮子，里面装着一只毛茸茸的黄色小鸡和一串深紫色葡萄。\n人物、猫、小鸡和葡萄自然地挤在同一画面中，形成一种荒诞却充满生活气息的私密照片感。\n\n使用 2000 年代初的老式诺基亚手机拍摄，低像素彩色数码摄影，低分辨率，轻微失焦，粗糙的数字噪点，JPEG 压缩伪影，肤色轻微偏移，白平衡不均，动态范围有限，边缘柔和，阴影中有明显的脏污噪点。\n\n狭小普通的卧室，旧床，木制家具，老式 CRT 电视自然进入背景。昏暗的室内环境光结合手机闪光灯直射，面部略微过曝，背景迅速衰减至黑暗。近距广角自拍视角，手臂伸向镜头造成明显的近大远小效果，构图随意，略微倾斜，就像朋友用旧手机拍摄的私密照片。\n\n整体呈现真实、廉价、粗糙的快照质感，无现代高清摄影纹理。仅保留一个非常小的 fanfan 签名。"
+    }
+  },
+  "36221": {
+    "en": {
+      "title": "Indigo Denim Street Outfit Design",
+      "description": "Detailed prompt for generating a Japanese indigo denim street outfit with kimono elements.",
+      "prompt": "Dress the person in the reference image in this exact Japanese indigo denim street outfit, preserving their face and hairstyle. Cropped dark-indigo kimono jacket with a deep overlapping collar, wide three-quarter sleeves, sashiko stitching, floral prints and patchwork panels. Back: fully covered cropped denim jacket with structured seams, embroidered white flowers and broad kimono sleeves. Wide embroidered obi belt with brass rings and hanging tassels. Replace any skirt with full-length, extremely wide-leg denim hakama trousers reaching the shoes, featuring layered asymmetrical fabric panels, raw frayed hems, faded indigo patches, white wave and geometric motifs. Long side drapes extend from the waist. Black inner top, chunky black platform boots, indigo hair ornaments, tassel earrings and embroidered shoulder bag. Full-body fashion portrait, not a design sheet."
+    },
+    "zh": {
+      "title": "靛蓝牛仔街头穿搭设计",
+      "description": "生成融合和服元素的日式靛蓝牛仔街头穿搭的详细提示词。",
+      "prompt": "让参考图中的人物穿着这套完全一致的日式靛蓝牛仔街头服饰，保留其面部特征和发型。短款深靛蓝和服夹克，采用深交领、宽大的七分袖、刺子绣工艺、花卉印花及拼接面料。背面：全包覆式短款牛仔夹克，具有结构化缝线、白色刺绣花朵和宽大的和服袖。宽幅刺绣腰带（obi），配有黄铜环扣和垂坠流苏。将任何裙子替换为全长、极宽裤腿的牛仔袴裤，裤脚触及鞋面，特点包括层叠不对称布料面板、毛边下摆、褪色靛蓝补丁、白色波浪纹和几何图案。长侧褶从腰部延伸而下。内搭黑色上衣，搭配厚底黑色平台靴、靛蓝发饰、流苏耳环以及刺绣单肩包。全身时尚人像摄影，非设计图纸。"
+    }
+  },
+  "36222": {
+    "en": {
+      "title": "Nokia Photo with Handwritten Diary Doodles",
+      "description": "A prompt for generating images combining old Nokia phone photography aesthetics with handwritten diary doodles and scrapbook elements, featuring a specific character in a daily scene.",
+      "prompt": "{argument name=\"character\" default=\"Anime Character\"}, clearly adult live-action adaptation, preserve facial structure, hairstyle, hair color, eyes, main character color, iconic clothing silhouette and identity accessories.\n\n2000s old Nokia phone photography × private handwritten diary × analog scrapbook × experimental fashion photography.\n\nCharacter placed in a real daily space, performing an action with a sense of life or slightly unconventional meaning. Action, expression, camera position, shot size, clothing details and space are autonomously designed by the model based on character identity.\n\nClose-range phone direct flash snapshot, slight wide-angle distortion, low pixels, JPEG compression, partial defocus, direct flash highlights and rough digital colors. Character retains real facial structure and natural skin texture, presenting the accidental moment of the action occurring.\n\nColorful handwritten doodles, simple symbols, date codes and private notes directly overlaid on the photo surface. Some lines extend along the character's body contour, some marks emphasize gaze, gestures and action direction; a few photo fragments and paper edges form scrapbook layers. Handwritten content naturally derives from character identity and current situation.\n\nPhotographic subject is clear, manual markings and real space interpenetrate. Colors are autonomously organized based on character main color and scene lighting, overall presenting an experimental vibe of fused colorful private imagery and handwritten records.\n\n3:4 portrait, very small vertical lowercase signature \"voxcat\" on the right edge."
+    },
+    "zh": {
+      "title": "诺基亚照片风格与手写日记涂鸦",
+      "description": "一个用于生成图像的提示词，将老式诺基亚手机摄影美学与手写日记涂鸦和剪贴簿元素相结合，展现特定角色在日常场景中的形象。",
+      "prompt": "{argument name=\"character\" default=\"Anime Character\"}，明确的成人真人改编，保留面部结构、发型、发色、眼睛、主要角色配色、标志性服装轮廓及身份配饰。\n\n2000 年代老式诺基亚手机摄影 × 私人手写日记 × 模拟剪贴簿 × 实验性时尚摄影。\n\n角色置于真实的日常空间中，执行具有生活感或略带非常规意味的动作。动作、表情、相机位置、景别、服装细节和空间由模型根据角色身份自主设计。\n\n近距离手机直闪快照，轻微广角畸变，低像素，JPEG 压缩，部分失焦，直闪高光以及粗糙的数字色彩。角色保留真实的面部结构和自然的皮肤纹理，呈现动作发生时的偶然瞬间。\n\n彩色手写涂鸦、简单符号、日期代码和私人笔记直接叠加在照片表面。部分线条沿角色身体轮廓延伸，部分标记强调视线、手势和动作方向；少量照片碎片和纸张边缘形成剪贴簿层次。手写内容自然源自角色身份和当前情境。\n\n摄影主体清晰，手动标记与真实空间相互渗透。颜色基于角色主色调和场景光照自主组织，整体呈现出融合多彩私人意象与手写记录的实验性氛围。\n\n3:4 竖构图，右侧边缘有极小的垂直小写签名 \"voxcat\"。"
+    }
+  },
+  "36223": {
+    "en": {
+      "title": "Anime Kinetic Couture Fashion Model",
+      "description": "A detailed prompt for generating an adult anime fashion model wearing kinetic couture inspired by China, featuring specific color palettes and futuristic elegance.",
+      "prompt": "adult anime fashion model, original kinetic couture inspired by China, pale blue as the only retained heritage color, combined with graphite gray, frost white and restrained burnished copper, premium anime key visual, futuristic elegance, strong heroine presence,"
+    },
+    "zh": {
+      "title": "动漫动能高定时装模特",
+      "description": "一个详细的提示词，用于生成一位穿着受中国启发的动能高级定制时装的成年动漫时尚模特，具有特定的色彩搭配和未来主义优雅感。",
+      "prompt": "adult anime fashion model, original kinetic couture inspired by China, pale blue as the only retained heritage color, combined with graphite gray, frost white and restrained burnished copper, premium anime key visual, futuristic elegance, strong heroine presence,"
+    }
+  },
+  "36225": {
+    "en": {
+      "title": "Harbor Street Coffee Fall Menu",
+      "description": "A photorealistic overhead view of a coffee shop's seasonal fall menu card resting on a sunlit wooden table next to a latte.",
+      "prompt": "A high-angle, photorealistic shot of a rustic wooden table bathed in warm, dappled sunlight. On the left side of the frame lies a vertical menu card printed on cream-colored paper with a thin dark green double-line border. The text on the card is arranged as follows: at the top, 'HARBOR STREET COFFEE' in small uppercase serif letters; below that, 'Fall Menu' in large, elegant dark green serif font; followed by a decorative horizontal line with a leaf motif in the center. The menu items are listed in dark green serif text: 'Maple Oat Latte $5.50', 'Pumpkin Cold Brew $5.00', and 'Cardamom Bun $4.25'. At the bottom of the card is another leaf motif and the text 'Open daily 7am - 3pm'. To the right of the menu sits a ceramic mug filled with a latte featuring intricate white rosetta latte art. In the upper left corner, the leaves of a potted plant are partially visible, casting soft shadows across the scene."
+    },
+    "zh": {
+      "title": "Harbor Street Coffee 秋季菜单",
+      "description": "一张逼真的俯视图，展示了一家咖啡店放在阳光照射的木桌上的季节性秋季菜单卡，旁边是一杯拿铁。",
+      "prompt": "一张高角度、逼真的照片，展示了沐浴在温暖斑驳阳光下的质朴木桌。画面左侧放着一张垂直的菜单卡，印在奶油色纸张上，带有细深绿色双线边框。卡片上的文字排列如下：顶部是小写衬线字母“HARBOR STREET COFFEE”；其下方是大而优雅的深绿色衬线字体“Fall Menu”；接着是一条装饰性水平线，中间有一个叶子图案。菜单项目以深绿色衬线文本列出：“Maple Oat Latte $5.50”、“Pumpkin Cold Brew $5.00”和“Cardamom Bun $4.25”。卡片底部还有另一个叶子图案以及文字“Open daily 7am - 3pm”。菜单右侧是一个装满拿铁的陶瓷马克杯，上面有复杂的白色玫瑰拉花艺术。左上角可以看到部分盆栽植物的叶子，在场景中投下柔和的阴影。"
+    }
+  },
+  "36227": {
+    "en": {
+      "title": "Realistic Anime Warrior in Medieval Battle",
+      "description": "A prompt for generating a realistic image of a girl in a modified school uniform fighting zombies in a burning medieval village.",
+      "prompt": "A hyper-realistic, cinematic action shot of a young Japanese female warrior in the midst of a chaotic medieval battle. She has long black hair tied back with two gold hair clips and wears a modified dark blue sailor-style school uniform (seifuku) reinforced with heavy leather armor on her shoulders and arms. Her face is dirty with soot and blood splatters, showing an intense, determined expression as she lunges forward. In the foreground, blurred zombie-like creatures are attacking. The background depicts a burning village with wooden structures, smoke rising into the sky, and other soldiers fighting amidst the chaos. The lighting is dramatic and gritty, emphasizing the realism of the scene."
+    },
+    "zh": {
+      "title": "中世纪战场上的写实动漫战士",
+      "description": "一个用于生成写实图像的提示词，描绘了一名身穿改良校服的少女在燃烧的中世纪村庄中与僵尸战斗的场景。",
+      "prompt": "一张超写实、电影感的动作镜头，展示了一位年轻日本女战士身处混乱的中世纪战场之中。她留着黑色长发，用两个金色发夹束起，身穿深蓝色水手服风格的改良校服（seifuku），肩部和手臂配有厚重的皮革护甲加固。她的脸上沾满烟灰和血迹，神情激烈而坚定，正向前突进。前景中，模糊的类僵尸生物正在发起攻击。背景描绘了一个燃烧的村庄，木质建筑倒塌，浓烟升腾至天空，其他士兵也在混乱中激战。光线戏剧化且粗粝，强调了场景的真实感。"
+    }
+  },
+  "36228": {
+    "en": {
+      "title": "Vintage Department Store Portrait",
+      "description": "This prompt generates an image capturing a nostalgic scene of a young woman posing inside a classic Japanese department store, perfect for creating retro-themed visuals.",
+      "prompt": "A vintage-style photograph of a young woman standing in a Japanese department store. She has short, dark bobbed hair with bangs and is looking directly at the camera with a gentle expression. She wears a cream-colored long-sleeved blouse with a Peter Pan collar, tucked into a brown plaid pleated skirt that falls just above her knees. A small brown leather satchel hangs from her shoulder, and she holds a book or pamphlet in her hands. Her outfit is completed with white ankle socks and dark brown loafers. The background shows glass display cases filled with perfumes and cosmetics on the left, with a sign reading '化粧品' (cosmetics). To the right, there are clothing racks and another sign reading '婦人服' (women's clothing). The floor is polished tile reflecting the warm lighting overhead. The overall atmosphere evokes nostalgia, reminiscent of late 20th-century Japan."
+    },
+    "zh": {
+      "title": "复古百货商店人像",
+      "description": "此提示词生成一幅捕捉年轻女性在经典日本百货商店内摆姿势的怀旧场景图像，非常适合创作复古主题的视觉效果。",
+      "prompt": "一张复古风格的照片，展示了一位年轻女性站在日本百货商店内。她留着深色短发波波头，有刘海，面带温柔的表情直视镜头。她身穿一件奶油色长袖衬衫，带有彼得潘领，下摆塞进一条棕色格纹百褶裙中，裙长及膝上方。肩上挂着一个小巧的棕色皮革挎包，手中拿着一本书或宣传册。她的整体造型搭配白色短袜和深棕色乐福鞋。背景左侧是装满香水和化妆品的玻璃展示柜，上面写着“化粧品”（化妆品）。右侧则有服装架和另一块写着“婦人服”（女装）的标牌。地板是抛光瓷砖，反射着头顶温暖的灯光。整体氛围唤起怀旧感，让人联想到 20 世纪末的日本。"
+    }
+  },
+  "36230": {
+    "en": {
+      "title": "Budweiser Streetwear Fashion Concept Board",
+      "description": "Transforms a product photo of a beer can into a comprehensive women's streetwear collection mood board featuring apparel and accessories.",
+      "prompt": "Using the provided reference image of a Budweiser beer can, transform it into a high-end fashion concept board titled \"Budweiser Women's Collection.\" The design should feature a clean white background with a streetwear aesthetic. Include two models: one on the left wearing a red cropped hoodie and white sweatpants, and another on the right in a denim vest and red track pants. Surround them with a curated selection of branded items including a red spaghetti-strap top, a white crop tee, denim shorts, a satin bomber jacket, a belt, knee-high socks, a cap, a tote bag, sunglasses, and sneakers. Ensure all clothing and accessories prominently display the Budweiser logo and 'King of Beers' text extracted from the reference."
+    },
+    "zh": {
+      "title": "Budweiser 街头潮流时尚概念项目",
+      "description": "将啤酒罐产品照片转化为包含服装与配饰的女性街头服饰系列情绪板。",
+      "prompt": "使用提供的 Budweiser 啤酒罐参考图片，将其转化为名为“Budweiser Women's Collection”的高端时尚概念项目。设计应采用干净的白色背景，并呈现街头潮流美学风格。画面中包含两位模特：左侧模特身穿红色短款连帽卫衣和白色运动裤，右侧模特则穿着牛仔马甲搭配红色运动长裤。在她们周围精心陈列一系列品牌单品，包括红色细带上衣、白色短款 T 恤、牛仔短裤、缎面飞行员夹克、腰带、过膝袜、棒球帽、托特包、太阳镜以及运动鞋。确保所有服装和配饰均醒目展示从参考图中提取的 Budweiser 标志及“King of Beers”文字。"
+    }
+  },
+  "36231": {
+    "en": {
+      "title": "Chibi Girls Making Pancakes",
+      "description": "A cute anime-style illustration of three chibi girls in animal costumes cooking pancakes together in a colorful kitchen.",
+      "prompt": "Using the provided reference image, transform the scene into a cozy kitchen setting where three chibi girls are making pancakes. Keep the character designs (the yellow chick costume and blue shark hoodie) consistent with the reference style but add a third character in a white sheep costume. Change the background from a candy shop to a warm, pastel-colored kitchen with shelves of dishes and hanging utensils. \n\nAction details: The girl in the yellow chick suit is whisking batter in a pink bowl. The girl in the blue shark suit is pouring batter onto a pink electric griddle using a ladle. The new girl in the white sheep suit is holding a bowl of flour/mix. All three characters must have a small smudge of pancake mix on their noses.\n\nProps & Text: Include a bag labeled \"Fluffy Pancake Mix\", a jar labeled \"HONEY\", a bottle labeled \"MILK\", and a jar labeled \"SUGAR\". Add a stack of finished pancakes topped with strawberries and cream in the foreground. In the top right corner, include a chalkboard sign that reads \"Purin-chan & Same-chan & Koharu-chan Pancake Party\"."
+    },
+    "zh": {
+      "title": "Q 版女孩做松饼",
+      "description": "一幅可爱的动漫风格插画，描绘了三位身穿动物服装的 Q 版女孩在色彩缤纷的厨房里一起制作松饼。",
+      "prompt": "使用提供的参考图片，将场景转换为一个温馨的厨房环境，三位 Q 版女孩正在制作松饼。保持角色设计（黄色小鸡服装和蓝色鲨鱼连帽衫）与参考风格一致，并添加第三位穿着白色绵羊服装的角色。将背景从糖果店改为温暖、柔和色调的厨房，配有摆放餐具的架子和悬挂的厨具。\n\n动作细节：穿黄色小鸡服的女孩正在粉色碗中搅拌面糊。穿蓝色鲨鱼服的女孩正用勺子将面糊倒入粉色电烤盘上。新加入的穿白色绵羊服的女孩正拿着一碗面粉/混合料。所有三个角色的鼻子上都必须有一点松饼面糊的痕迹。\n\n道具与文字：包含一袋标有“Fluffy Pancake Mix”（蓬松松饼粉）、一罐标有“HONEY”（蜂蜜）、一瓶标有“MILK”（牛奶）和一罐标有“SUGAR”（糖）。在前景中添加一叠顶部装饰有草莓和奶油的成品松饼。在右上角，包含一块黑板标牌，上面写着“Purin-chan & Same-chan & Koharu-chan Pancake Party”（布丁酱、鲨鱼酱和小春酱的松饼派对）。"
     }
   }
 }
