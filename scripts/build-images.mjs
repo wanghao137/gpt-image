@@ -70,17 +70,30 @@ import {
   isRetriableImageFetchFailure,
   shouldProcessExistingVariants,
   storeBaseForCase,
+  storeBaseForRecord,
   storeLocalUrlFor,
   storeKeysFor,
   bakeSourceCandidates,
   manifestUpsert,
   localisedShare,
+  holdOutDeferredRecords,
 } from "./build-images-core.mjs";
+import {
+  B2_FREE_TIER_BYTES,
+  CAP_SAFETY_MARGIN_BYTES,
+  EVICTABLE_WIDTHS,
+  manifestBytes,
+  storeBudgetBytes,
+  planEviction,
+  evictionPoolStatus,
+  applyEvictionToEntry,
+} from "./image-store-capacity.mjs";
 import { xOriginalUrl } from "../src/lib/img-xorig-core.mjs";
 import {
   storeEnvReady,
   storeClient,
   storePut,
+  storeDelete,
   B2_STORE_BUCKET,
 } from "./image-store-client.mjs";
 
@@ -120,7 +133,14 @@ async function storeBakeOne(rec) {
   const prior = storeManifest.entries?.[baseName];
   // "failed" markers are retry candidates, not completion — the backfill
   // driver re-selects them, so the short-circuit must NOT skip them.
-  if (prior && prior.source !== "failed" && !FORCE) {
+  // "deferred" (capacity) markers likewise: a later run with evicted
+  // headroom must retry them, so they re-enter published data.
+  if (
+    prior &&
+    prior.source !== "failed" &&
+    !prior.deferred &&
+    !FORCE
+  ) {
     return { ok: true, rec, canonicalPath, skipped: true };
   }
 
@@ -171,10 +191,9 @@ async function storeBakeOne(rec) {
     return { ok: false, rec, err: lastError };
   }
 
-  const webpBytes = {};
-  const storedWidths = [];
-  let jpgBytes = 0;
-  let bytesOut = 0;
+  // Encode every variant first so the admission decision sees the exact
+  // byte cost (the variant set is small; buffers are ~0.5MB per record).
+  const encodedVariants = [];
   try {
     let lastWebpBuf = null;
     for (const v of variants) {
@@ -189,23 +208,71 @@ async function storeBakeOne(rec) {
         }
         lastWebpBuf = encoded;
       }
-      await storePut(
-        storeClientSingleton,
-        v.key,
-        encoded,
-        v.format === "webp" ? "image/webp" : "image/jpeg",
-      );
-      if (v.format === "webp") {
-        webpBytes[v.width] = encoded.length;
-        storedWidths.push(v.width);
-      } else jpgBytes = encoded.length;
-      bytesOut += encoded.length;
+      encodedVariants.push({ ...v, encoded });
     }
   } catch (err) {
-    // Transient store failure (one B2 PUT blip must NOT kill the whole
-    // chunk — 2026-09-29 chunk-B incident). No manifest marker: the next
-    // run retries this base (unlike the both-sources-dead "failed" mark).
     return { ok: false, rec, err };
+  }
+  const bytesOut = encodedVariants.reduce((a, v) => a + v.encoded.length, 0);
+
+  // Capacity admission: evict old top rungs when the bucket is full; defer
+  // (never publish hot-linked) when even the drained pool cannot admit.
+  if (!(await reserveStoreBytes(bytesOut))) {
+    markDeferred(baseName, prior, "cap");
+    storeDeferredCount += 1;
+    console.warn(
+      `  DEFERRED ${rec.kind}#${rec.id} <- store bucket full and 1280 pool exhausted; ` +
+        `will retry on a later run`,
+    );
+    return { ok: false, rec, deferred: true };
+  }
+
+  const webpBytes = {};
+  const storedWidths = [];
+  let jpgBytes = 0;
+  // B2's cap counter lags real deletes by minutes — observed ~10 min on
+  // 2026-10-13 — so a just-evicted admission can still read "full"
+  // server-side. Retry across the lag window before deferring: 45+90+135+
+  // 180s ≈ 7.5 min of bridge. The next cron would heal it too, but
+  // same-run recovery keeps the day's content flowing.
+  const capRetries = Number(process.env.IMAGE_STORE_CAP_RETRIES || 4);
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      for (const v of encodedVariants) {
+        await storePut(
+          storeClientSingleton,
+          v.key,
+          v.encoded,
+          v.format === "webp" ? "image/webp" : "image/jpeg",
+        );
+        if (v.format === "webp") {
+          webpBytes[v.width] = v.encoded.length;
+          storedWidths.push(v.width);
+        } else jpgBytes = v.encoded.length;
+      }
+      break;
+    } catch (err) {
+      if (isCapacityError(err) && attempt < capRetries) {
+        const waitMs = 45_000 * (attempt + 1);
+        console.warn(
+          `  cap lag on ${rec.kind}#${rec.id} — retrying in ${waitMs / 1000}s ` +
+            `(${attempt + 1}/${capRetries})`,
+        );
+        await sleep(waitMs);
+        continue;
+      }
+      if (isCapacityError(err)) {
+        // Still rejected past the lag window — defer instead of leaving the
+        // record hot-linked (the strict gate would fail the whole run).
+        markDeferred(baseName, prior, "cap-put");
+        storeDeferredCount += 1;
+        return { ok: false, rec, deferred: true };
+      }
+      // Transient store failure (one B2 PUT blip must NOT kill the whole
+      // chunk — 2026-09-29 chunk-B incident). No manifest marker: the next
+      // run retries this base (unlike the both-sources-dead "failed" mark).
+      return { ok: false, rec, err };
+    }
   }
 
   storeManifest = manifestUpsert(storeManifest, baseName, {
@@ -281,6 +348,102 @@ let storeManifest = existsSync(MANIFEST_PATH)
   : { version: 1, entries: {} };
 let storeManifestDirty = false;
 const storeClientSingleton = STORE ? storeClient() : null;
+
+// ─── store capacity guard (2026-10-11..13 freeze fix) ──────────────────────
+// The B2 free tier (10GB decimal) is finite and upstream intake is ~0.5GB/
+// month. When uploads start hitting the cap, bake records used to keep their
+// external URLs and the strict hot-link gate failed the whole daily sync —
+// freezing the site for days. The guard admits each record by evicting the
+// 1280 rung of the OLDEST entries first (api/img-case.js serves the 960
+// bytes for missing 1280 rungs — browsers never notice), and DEFERS a record
+// only when even the drained pool cannot admit it. Deferred records are held
+// out of published data (never hot-linked) and retried on the next run.
+let storeBytes = 0;
+let storeDeferredCount = 0;
+let storeEvictedCount = 0;
+let storeEvictedBytes = 0;
+const evictionQueue = { items: [], cursor: 0 };
+
+function resetCapacityState() {
+  storeBytes = manifestBytes(storeManifest.entries);
+  // Full candidate list, oldest bakedAt first; reserveStoreBytes consumes it.
+  evictionQueue.items = planEviction(storeManifest.entries, Number.MAX_SAFE_INTEGER).plan;
+  evictionQueue.cursor = 0;
+}
+
+/**
+ * Effective upload budget. IMAGE_STORE_BUDGET_BYTES exists so local runs can
+ * exercise the defer/hold-out path against a full real bucket (CI never sets
+ * it and gets the fixed 10GB-decimal free-tier budget).
+ */
+function storeBudget() {
+  const override = Number(process.env.IMAGE_STORE_BUDGET_BYTES);
+  return Number.isFinite(override) && override > 0
+    ? override
+    : storeBudgetBytes();
+}
+
+/** B2's cap rejection, so a lagging counter can be handled as policy. */
+function isCapacityError(err) {
+  return /storage cap exceeded/i.test(String(err?.message || err));
+}
+
+/** Mark a record deferred: retryable later, never published hot-linked. */
+function markDeferred(baseName, prior, reason) {
+  storeManifest = {
+    ...storeManifest,
+    entries: {
+      ...storeManifest.entries,
+      [baseName]: {
+        deferred: true,
+        deferredAt: new Date().toISOString(),
+        deferredReason: reason,
+        source: prior?.source,
+      },
+    },
+  };
+  storeManifestDirty = true;
+}
+
+/**
+ * Reserve `needed` bucket bytes for one record, evicting from the 1280 pool
+ * as needed. All shared-counter mutations happen synchronously before any
+ * await, so concurrent bake workers always see consistent state; only the
+ * S3 deletes are awaited at the end. Returns false when the record cannot
+ * be admitted — the caller must defer it.
+ */
+async function reserveStoreBytes(needed) {
+  const budget = storeBudget();
+  let over = storeBytes + needed - budget;
+  if (over > 0) {
+    const deletes = [];
+    while (over > 0) {
+      const cand = evictionQueue.items[evictionQueue.cursor];
+      if (!cand) break;
+      evictionQueue.cursor += 1;
+      // Re-validate against the live manifest: the entry may have been
+      // re-baked (fresh bakedAt) or evicted since the queue was built —
+      // never delete a rung this run just baked.
+      const entry = storeManifest.entries[cand.base];
+      if (!entry || entry.deferred) continue;
+      if (entry.bakedAt !== cand.bakedAt) continue;
+      if (entry.webpBytes?.[cand.width] !== cand.bytes) continue;
+      applyEvictionToEntry(entry, cand.width);
+      storeBytes -= cand.bytes;
+      over -= cand.bytes;
+      storeEvictedCount += 1;
+      storeEvictedBytes += cand.bytes;
+      deletes.push(
+        storeDelete(storeClientSingleton, `cases/${cand.base}-${cand.width}.webp`),
+      );
+    }
+    await Promise.all(deletes);
+    storeManifestDirty = storeManifestDirty || deletes.length > 0;
+    if (over > 0) return false;
+  }
+  storeBytes += needed;
+  return true;
+}
 
 function jitterSleep() {
   return sleep(STORE_JITTER_MS * (0.5 + Math.random()));
@@ -599,6 +762,8 @@ async function processOne(rec) {
 }
 
 async function main() {
+  if (STORE) resetCapacityState();
+
   // Step 1: collect every image we need to localise.
   /** @type {Array<{kind: 'case'|'template'|'upload', id: string, url: string, localFile?: string}>} */
   const tasks = [];
@@ -726,6 +891,7 @@ async function main() {
   let recordsProcessed = 0;
   let recordsSkipped = 0;
   let recordsRecovered = 0;
+  let recordsDeferred = 0;
   let variantsWritten = 0;
   let bytesIn = 0;
   let bytesOut = 0;
@@ -734,6 +900,13 @@ async function main() {
   for (const r of results) {
     if (!r) continue;
     if (!r.ok) {
+      // Deferred-by-capacity records are policy, not failure: they are held
+      // out of published data and retried on the next run (the workflow's
+      // capacity watchdog alerts when this starts happening).
+      if (r.deferred) {
+        recordsDeferred += 1;
+        continue;
+      }
       failed += 1;
       const e = r.err instanceof Error ? r.err.message : String(r.err);
       // rec can be absent on failure entries from concurrent workers —
@@ -766,13 +939,44 @@ async function main() {
     results,
   });
 
-  if (casesRewrites > 0) {
-    writeJson(CASES_PATH, cases);
-    console.log(`  rewrote imageUrl on ${casesRewrites} cases -> ${CASES_PATH}`);
+  // Hold deferred records out of the published set (2026-10 capacity fix).
+  // They still carry their external upstream URL and the strict hot-link
+  // gate must never see one; the upstream caches keep them, so the first
+  // run that can bake them re-enters them into published data.
+  let heldOutCases = 0;
+  let heldOutTemplates = 0;
+  if (STORE) {
+    const holdOut = holdOutDeferredRecords({
+      cases,
+      templates,
+      entries: storeManifest.entries,
+    });
+    heldOutCases = holdOut.heldOutCases.length;
+    heldOutTemplates = holdOut.heldOutTemplates.length;
+    if (heldOutCases || heldOutTemplates) {
+      console.warn(
+        `  holding out ${heldOutCases} case(s) + ` +
+          `${heldOutTemplates} template(s) deferred by store ` +
+          `capacity — they re-enter published data once their bake succeeds`,
+      );
+      cases = holdOut.cases;
+      templates = holdOut.templates;
+    }
   }
-  if (templatesRewrites > 0) {
+
+  // Write whenever content changed, INCLUDING pure hold-outs: an
+  // all-deferred run has zero rewrites but must still publish the filtered
+  // set, or the gate sees the deferred cases' external URLs and fails.
+  if (casesRewrites > 0 || heldOutCases > 0) {
+    writeJson(CASES_PATH, cases);
+    console.log(
+      `  wrote ${cases.length} cases -> ${CASES_PATH}` +
+        (casesRewrites ? ` (rewrote imageUrl on ${casesRewrites})` : ""),
+    );
+  }
+  if (templatesRewrites > 0 || heldOutTemplates > 0) {
     writeJson(TEMPLATES_PATH, templates, { pretty: true });
-    console.log(`  rewrote cover on ${templatesRewrites} templates -> ${TEMPLATES_PATH}`);
+    console.log(`  wrote ${templates.length} templates -> ${TEMPLATES_PATH}`);
   }
 
   if (STORE) {
@@ -783,6 +987,16 @@ async function main() {
         `(${Object.keys(storeManifest.entries).length} bases, bucket=${B2_STORE_BUCKET}, ` +
         `localised ${(share * 100).toFixed(2)}%)`,
     );
+    const pool = evictionPoolStatus(storeManifest.entries, EVICTABLE_WIDTHS[0]);
+    console.log(
+      `  store capacity: used=${(manifestBytes(storeManifest.entries) / 1e9).toFixed(2)}GB ` +
+        `budget=${(storeBudget() / 1e9).toFixed(2)}GB of ` +
+        `${(B2_FREE_TIER_BYTES / 1e9).toFixed(0)}GB ` +
+        `evictable-pool=${pool.rungs} rungs/${(pool.bytes / 1e9).toFixed(2)}GB ` +
+        `(margin=${(CAP_SAFETY_MARGIN_BYTES / 1e9).toFixed(2)}GB) ` +
+        `evicted=${storeEvictedCount}/${(storeEvictedBytes / 1048576).toFixed(0)}MB ` +
+        `deferred=${storeDeferredCount}`,
+    );
   }
 
   const ratio =
@@ -790,7 +1004,7 @@ async function main() {
       ? `${((1 - bytesOut / bytesIn) * 100).toFixed(0)}% saved on encoded variants`
       : "n/a";
   console.log(
-    `done. records: processed=${recordsProcessed} skipped=${recordsSkipped} recovered=${recordsRecovered} failed=${failed}\n` +
+    `done. records: processed=${recordsProcessed} skipped=${recordsSkipped} recovered=${recordsRecovered} failed=${failed} deferred=${recordsDeferred}\n` +
       `      variants written=${variantsWritten} (${ratio})`,
   );
   if (failed > 0) {

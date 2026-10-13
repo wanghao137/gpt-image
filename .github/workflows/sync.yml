@@ -17,7 +17,12 @@ name: Daily Upstream Sync
 on:
   schedule:
     # 18:17 UTC ≈ 02:17 CST. Off-peak for both upstream CDNs and Vercel.
+    # Second slot: GitHub skips/delays scheduled runs occasionally (the
+    # 2026-10-12 run vanished entirely, extending a bake-gate freeze by a
+    # full day) — the evening slot reconciles a missed nightly run the same
+    # night. sync is idempotent, so a double run costs nothing.
     - cron: "17 18 * * *"
+    - cron: "47 21 * * *"
   workflow_dispatch:
 
 permissions:
@@ -74,6 +79,20 @@ jobs:
         # Doing it here keeps a manual sync + commit path producing the
         # exact same on-disk shape as a full local `npm run build`.
         run: npm run migrate
+
+      - name: Purge noncurrent object versions
+        # The bucket is versioned: overwrites (failed-bake retries, force
+        # re-bakes) leave noncurrent versions that still count against the
+        # 10GB free cap. Left alone they silently re-fill the bucket — the
+        # hidden co-conspirator of the 2026-10-13 freeze (0.35GB in 2407
+        # versions on day one). Sweeping every run keeps
+        # current+noncurrent equal to the manifest the capacity guard
+        # plans against. ~100 free-tier list calls per run.
+        env:
+          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+          B2_STORE_BUCKET: taostudio-img
+        run: node scripts/purge-noncurrent-versions.mjs
 
       - name: Bake case images to the B2 store
         # Store mode: localise every external case/template image into the
@@ -183,7 +202,7 @@ jobs:
             echo "ℹ️ Upstream is already in sync — no commit, no redeploy." >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upstream freshness watchdog
+      - name: Freshness & capacity watchdog
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -197,18 +216,94 @@ jobs:
             echo "- new upstream cases in 3d: **${new3:-unknown}**"
             echo "- new upstream cases in 7d: **${new7:-unknown}**"
           } >> "$GITHUB_STEP_SUMMARY"
-          if [ "${new3:-1}" != "0" ] && [ "${new7:-1}" != "0" ]; then
+          if [ "${new3:-1}" = "0" ] || [ "${new7:-1}" = "0" ]; then
+            gh label create upstream-stale --color D93F0B --description "YouMind export stalled" 2>/dev/null || true
+            open_count=$(gh issue list --label upstream-stale --state open --json number --jq length)
+            if [ "${open_count:-0}" -eq 0 ]; then
+              gh issue create \
+                --label upstream-stale \
+                --title "上游 YouMind 同步近期零新增" \
+                --body "daily sync 成功但最近窗口无新增上游案例 (3d=${new3:-?}, 7d=${new7:-?})。上次断供发生在 2026-08-01 并于当月中旬自愈；排查入口：references manifest 是否仍在更新。"
+              echo "::warning::Created upstream-staleness issue."
+            else
+              echo "Staleness issue already open (${open_count}) — not duplicating."
+            fi
+          else
             echo "Upstream is flowing — no alert needed."
-            exit 0
           fi
-          gh label create upstream-stale --color D93F0B --description "YouMind export stalled" 2>/dev/null || true
-          open_count=$(gh issue list --label upstream-stale --state open --json number --jq length)
+
+          # Store capacity (root cause of the 2026-10-11..13 freeze): bake
+          # uploads died on B2's 10GB cap, the hot-link gate failed, and the
+          # daily sync froze for days with no in-repo signal. The guard now
+          # self-evicts, but the pool is finite — surface its runway loudly
+          # before anything user-visible goes stale.
+          if [ -f data/image-store.json ]; then
+            node -e '
+              const m = JSON.parse(require("fs").readFileSync("data/image-store.json","utf8"));
+              const entries = Object.values(m.entries || {});
+              let used = 0, poolRungs = 0, poolBytes = 0, deferred = 0;
+              for (const e of entries) {
+                if (!e || e.deferred) { if (e && e.deferred) deferred += 1; continue; }
+                used += e.jpgBytes || 0;
+                for (const b of Object.values(e.webpBytes || {})) used += b || 0;
+                const r = e.webpBytes && e.webpBytes[1280];
+                if (r) { poolRungs += 1; poolBytes += r; }
+              }
+              console.log(`store_used_gb=${(used / 1e9).toFixed(2)}`);
+              console.log(`store_pool_rungs=${poolRungs}`);
+              console.log(`store_pool_gb=${(poolBytes / 1e9).toFixed(2)}`);
+              console.log(`store_deferred=${deferred}`);
+            ' | tee capacity.txt
+            used_gb=$(sed -n 's/^store_used_gb=//p' capacity.txt)
+            pool_rungs=$(sed -n 's/^store_pool_rungs=//p' capacity.txt)
+            pool_gb=$(sed -n 's/^store_pool_gb=//p' capacity.txt)
+            deferred=$(sed -n 's/^store_deferred=//p' capacity.txt)
+            {
+              echo "### Store capacity"
+              echo "- used: **${used_gb:-?} GB** / 10 GB hard cap (budget 9.65 GB — the bake auto-evicts old 1280 rungs to stay under)"
+              echo "- evictable 1280 pool: ${pool_rungs:-?} rungs / ${pool_gb:-?} GB"
+              echo "- deferred (held out of the site until their bake succeeds): **${deferred:-0}**"
+            } >> "$GITHUB_STEP_SUMMARY"
+            gh label create image-store-capacity --color D93F0B --description "B2 image store nearing/exceeding free cap" 2>/dev/null || true
+            needs_issue=0
+            title=""
+            body=""
+            if [ "${deferred:-0}" != "0" ]; then
+              needs_issue=1
+              title="图片桶容量耗尽：${deferred} 个新案例延迟入库"
+              body="容量守卫已淘汰全部可淘汰的 1280 档仍放不下新烘焙。受影响案例暂时不上站（绝不外链发布，站内其余内容不受影响，烘焙成功后自动补上）。扩容选项：R2 溢出桶 / 档位瘦身 / B2 付费层。运行：${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            else
+              low=$(node -e "console.log(${pool_gb:-0} < 0.5 ? 1 : 0)")
+              if [ "$low" = "1" ]; then
+                needs_issue=1
+                title="图片桶 1280 淘汰池接近枯竭（剩 ${pool_gb:-?} GB）"
+                body="按 ~28MB/天 增量，约两周后新案例将开始延迟入库。扩容选项：R2 溢出桶 / 档位瘦身 / B2 付费层。运行：${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+              fi
+            fi
+            if [ "$needs_issue" = "1" ]; then
+              open_count=$(gh issue list --label image-store-capacity --state open --json number --jq length)
+              if [ "${open_count:-0}" -eq 0 ]; then
+                gh issue create --label image-store-capacity --title "$title" --body "$body"
+                echo "::warning::Created image-store-capacity issue."
+              else
+                echo "Capacity issue already open (${open_count}) — not duplicating."
+              fi
+            fi
+          fi
+
+      - name: Alert on sync failure (site data goes stale)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create data-sync-failed --color D93F0B --description "sync.yml failed; upstream data going stale on the site" 2>/dev/null || true
+          open_count=$(gh issue list --label data-sync-failed --state open --json number --jq length)
           if [ "${open_count:-0}" -eq 0 ]; then
             gh issue create \
-              --label upstream-stale \
-              --title "上游 YouMind 同步近期零新增" \
-              --body "daily sync 成功但最近窗口无新增上游案例 (3d=${new3:-?}, 7d=${new7:-?})。上次断供发生在 2026-08-01 并于当月中旬自愈；排查入口：references manifest 是否仍在更新。"
-            echo "::warning::Created upstream-staleness issue."
+              --label data-sync-failed \
+              --title "sync.yml 每日同步失败：站点上游数据停更" \
+              --body "运行链接：${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID} 。已知根因先例（2026-10-13）：B2 桶容量超限 → 烘焙失败 → 外链门禁红。修复后手动 dispatch「Daily Upstream Sync」即可补上线。"
+            echo "::warning::Created data-sync-failed issue."
           else
-            echo "Staleness issue already open (${open_count}) — not duplicating."
+            echo "Failure issue already open (${open_count}) — not duplicating."
           fi

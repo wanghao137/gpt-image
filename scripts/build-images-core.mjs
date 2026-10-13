@@ -133,3 +133,55 @@ export function localisedShare(records) {
   ).length;
   return local / records.length;
 }
+
+/**
+ * A manifest entry marked `deferred` means the store bucket could not admit
+ * this record (capacity exhausted past the eviction pool, 2026-10). Deferred
+ * is a RETRY state like "failed": the short-circuit must not skip it, and a
+ * later successful bake replaces the entry wholesale (manifestUpsert), which
+ * clears the marker. Deferred records are held out of published data by
+ * holdOutDeferredRecords so the strict hot-link gate never sees them.
+ */
+export function isDeferredEntry(entry) {
+  return Boolean(entry && entry.deferred);
+}
+
+/** Store manifest base name for a case/template record. */
+export function storeBaseForRecord(kind, id) {
+  return `${kind === "template" ? "template" : "case"}${id}`;
+}
+
+/**
+ * Hold deferred records out of the published arrays (pure). Returns new
+ * arrays plus what was held out, for logging/alerting. Published data must
+ * never contain a record whose store bake was deferred: it would carry its
+ * external upstream URL and fail the strict hot-link gate. The record stays
+ * in the upstream caches and re-enters published data on the day its bake
+ * finally succeeds (next runs retry deferred entries).
+ */
+export function holdOutDeferredRecords({ cases, templates, entries }) {
+  const heldOutCases = [];
+  const heldOutTemplates = [];
+  const keptCases = [];
+  const keptTemplates = [];
+  for (const c of cases || []) {
+    if (isDeferredEntry(entries?.[storeBaseForRecord("case", c.id)])) {
+      heldOutCases.push(c.id);
+    } else {
+      keptCases.push(c);
+    }
+  }
+  for (const t of templates || []) {
+    if (isDeferredEntry(entries?.[storeBaseForRecord("template", t.id)])) {
+      heldOutTemplates.push(t.id);
+    } else {
+      keptTemplates.push(t);
+    }
+  }
+  return {
+    cases: keptCases,
+    templates: keptTemplates,
+    heldOutCases,
+    heldOutTemplates,
+  };
+}

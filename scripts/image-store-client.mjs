@@ -27,6 +27,8 @@ import {
   HeadObjectCommand,
   PutObjectCommand,
   GetObjectCommand,
+  DeleteObjectCommand,
+  ListObjectVersionsCommand,
 } from "@aws-sdk/client-s3";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -107,5 +109,54 @@ export async function storeGet(client, key) {
   } catch (err) {
     if (err?.$metadata?.httpStatusCode === 404 || err?.name === "NoSuchKey") return null;
     throw err;
+  }
+}
+
+/**
+ * Hard-delete one object and ALL its stored versions. The bucket is
+ * versioned: a plain DeleteObject only demotes the current version to a
+ * still-billed noncurrent one (the 2026-10-13 eviction run freed nothing
+ * until purged — 2407 versions kept 0.35GB hostage). Listing the key's
+ * versions and deleting each one frees space immediately.
+ */
+export async function storeDelete(client, key) {
+  try {
+    let keyMarker;
+    let versionMarker;
+    for (;;) {
+      const listed = await client.send(
+        new ListObjectVersionsCommand({
+          Bucket: BUCKET,
+          Prefix: key,
+          MaxKeys: 100,
+          KeyMarker: keyMarker,
+          VersionIdMarker: versionMarker,
+        }),
+      );
+      const doomed = [
+        ...(listed.Versions || []).filter((v) => v.Key === key),
+        ...(listed.DeleteMarkers || []).filter((v) => v.Key === key),
+      ];
+      for (const v of doomed) {
+        try {
+          await client.send(
+            new DeleteObjectCommand({
+              Bucket: BUCKET,
+              Key: key,
+              VersionId: v.VersionId,
+            }),
+          );
+        } catch (err) {
+          console.warn(`  store delete failed ${key}@${v.VersionId}: ${err?.message || err}`);
+          return false;
+        }
+      }
+      if (!listed.IsTruncated) return true;
+      keyMarker = listed.NextKeyMarker;
+      versionMarker = listed.NextVersionIdMarker;
+    }
+  } catch (err) {
+    console.warn(`  store delete failed ${key}: ${err?.message || err}`);
+    return false;
   }
 }

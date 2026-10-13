@@ -84,6 +84,16 @@ jobs:
       - name: Apply v2 field migrations
         run: npm run migrate
 
+      - name: Purge noncurrent object versions
+        # Versioned bucket: re-bake overwrites leave still-billed noncurrent
+        # versions. Sweep before baking so the capacity guard plans against
+        # the real bucket (see sync.yml for the full rationale).
+        env:
+          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
+          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
+          B2_STORE_BUCKET: taostudio-img
+        run: node scripts/purge-noncurrent-versions.mjs
+
       - name: Bake case images to the B2 store
         # Store mode: localise every external case/template image into the
         # B2 store and rewrite imageUrl to /images/cases/* (served same-origin
