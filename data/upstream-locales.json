@@ -53886,9 +53886,9 @@
   },
   "36222": {
     "en": {
-      "title": "Nokia Photo with Handwritten Diary Doodles",
-      "description": "A prompt for generating images combining old Nokia phone photography aesthetics with handwritten diary doodles and scrapbook elements, featuring a specific character in a daily scene.",
-      "prompt": "{argument name=\"character\" default=\"Anime Character\"}, clearly adult live-action adaptation, preserve facial structure, hairstyle, hair color, eyes, main character color, iconic clothing silhouette and identity accessories.\n\n2000s old Nokia phone photography × private handwritten diary × analog scrapbook × experimental fashion photography.\n\nCharacter placed in a real daily space, performing an action with a sense of life or slightly unconventional meaning. Action, expression, camera position, shot size, clothing details and space are autonomously designed by the model based on character identity.\n\nClose-range phone direct flash snapshot, slight wide-angle distortion, low pixels, JPEG compression, partial defocus, direct flash highlights and rough digital colors. Character retains real facial structure and natural skin texture, presenting the accidental moment of the action occurring.\n\nColorful handwritten doodles, simple symbols, date codes and private notes directly overlaid on the photo surface. Some lines extend along the character's body contour, some marks emphasize gaze, gestures and action direction; a few photo fragments and paper edges form scrapbook layers. Handwritten content naturally derives from character identity and current situation.\n\nPhotographic subject is clear, manual markings and real space interpenetrate. Colors are autonomously organized based on character main color and scene lighting, overall presenting an experimental vibe of fused colorful private imagery and handwritten records.\n\n3:4 portrait, very small vertical lowercase signature \"voxcat\" on the right edge."
+      "title": "Nokia Phone Diary Aesthetic Prompt",
+      "description": "Detailed prompt for generating images with a low-quality Nokia phone camera aesthetic combined with handwritten diary overlays.",
+      "prompt": "{argument name=\"character\" default=\"[Character Description]\"}, clearly adult realism, preserving facial structure, hairstyle, hair color, eyes, character's main colors, iconic clothing contours, and identity accessories.\n\n2000s old Nokia mobile phone photography × private handwritten diary × analog scrapbook × experimental fashion photography.\n\nThe character is placed in a real everyday space, completing an action that feels lived-in or slightly unconventional. Action, expression, camera position, shot size, clothing details, and space are autonomously designed by the model based on the character's identity.\n\nClose-up direct flash snapshot, slight wide-angle distortion, low pixel count, JPEG compression, partial defocus, direct flash highlights, and rough digital colors. The character retains realistic facial structure and natural skin texture, presenting a moment where the action is happening.\n\nColorful handwritten doodles, simple symbols, date codes, and private notes are directly overlaid on the photo surface. Some lines extend along the character's body contours, some marks emphasize eye contact, gestures, and action direction; small photo fragments and paper edges form scrapbook layers. Handwritten content naturally derives from the character's identity and current situation.\n\nThe photographic subject is clear, with manual markings interwoven with the real space. Colors are autonomously organized based on the character's main colors and ambient light, presenting an experimental fusion of colorful private imagery and handwritten records.\n\n3:4 vertical format, extremely small vertical lowercase signature \"voxcat\" on the right edge."
     },
     "zh": {
       "title": "诺基亚照片风格与手写日记涂鸦",
@@ -53966,6 +53966,222 @@
       "title": "Q 版女孩做松饼",
       "description": "一幅可爱的动漫风格插画，描绘了三位身穿动物服装的 Q 版女孩在色彩缤纷的厨房里一起制作松饼。",
       "prompt": "使用提供的参考图片，将场景转换为一个温馨的厨房环境，三位 Q 版女孩正在制作松饼。保持角色设计（黄色小鸡服装和蓝色鲨鱼连帽衫）与参考风格一致，并添加第三位穿着白色绵羊服装的角色。将背景从糖果店改为温暖、柔和色调的厨房，配有摆放餐具的架子和悬挂的厨具。\n\n动作细节：穿黄色小鸡服的女孩正在粉色碗中搅拌面糊。穿蓝色鲨鱼服的女孩正用勺子将面糊倒入粉色电烤盘上。新加入的穿白色绵羊服的女孩正拿着一碗面粉/混合料。所有三个角色的鼻子上都必须有一点松饼面糊的痕迹。\n\n道具与文字：包含一袋标有“Fluffy Pancake Mix”（蓬松松饼粉）、一罐标有“HONEY”（蜂蜜）、一瓶标有“MILK”（牛奶）和一罐标有“SUGAR”（糖）。在前景中添加一叠顶部装饰有草莓和奶油的成品松饼。在右上角，包含一块黑板标牌，上面写着“Purin-chan & Same-chan & Koharu-chan Pancake Party”（布丁酱、鲨鱼酱和小春酱的松饼派对）。"
+    }
+  },
+  "36258": {
+    "en": {
+      "title": "Mummified Anime Girl Costume Prompt",
+      "description": "Creates an anime-style image of a girl wrapped in beige thread instead of bandages for Halloween, wearing a purple dress underneath.",
+      "prompt": "Soft pastel anime style.\nA mummy girl for Halloween costume, loosely wrapped in ecru cotton thread.\n\nThe wrapping is not medical white bandages, but thin ecru threads.\nUnevenly distributed on arms, legs, and torso, sparse like stitches.\nShe holds the end of the loose thread herself, with the thread caught on her finger.\nUnder the outfit is a light purple sleeveless dress.\nVisible through the gaps in the threads.\nThe head is not fully covered; only bangs and one eye are hidden by threads.\nOne eye is visible. A small wooden spool next to her head.\n\nColors are ecru, light purple, wood color, night blue.\nNo blood, wounds, or dirt.\nFull body, slightly troubled cute face."
+    },
+    "zh": {
+      "title": "粉彩动漫风格的万圣节木乃伊少女",
+      "description": "生成一位可爱的粉彩动漫风格女孩，身穿浅紫色连衣裙，以米色棉线代替绷带装扮成木乃伊。",
+      "prompt": "淡雅的粉彩动漫风格。\n一位为万圣节装扮成木乃伊的女孩，身上松散地缠绕着米色棉线。\n\n缠绕物并非医用白色绷带，而是细长的米色棉线。\n棉线不均匀地分布在手臂、腿部和躯干上，稀疏如缝线般。\n她自己捏着一根松开的线头，线头勾在手指上。\n服装内层是一件浅紫色无袖连衣裙。\n透过棉线的缝隙隐约可见。\n头部并未完全覆盖；仅刘海和一只眼睛被棉线遮挡。\n另一只眼睛清晰可见。她头旁放着一个小木线轴。\n\n配色：米色、浅紫色、木色、夜蓝色。\n无血迹、伤口或污渍。\n全身构图，表情略带困扰但十分可爱。"
+    }
+  },
+  "36261": {
+    "en": {
+      "title": "Cinematic Monochrome Double Exposure Fashion Portrait Prompt",
+      "description": "A structured JSON prompt for GPT Image 2 generating a cinematic monochrome double-exposure fashion portrait. It specifies a stylish woman on a rock with an oversized semi-transparent portrait overlay, detailing outfit, lighting, camera settings, and negative prompts.",
+      "prompt": "{\n\"prompt\": {\n\"style\": \"Cinematic monochrome double-exposure fashion photography\",\n\"aspect_ratio\": \"9:16\",\n\"subject\": {\n\"type\": \"Stylish adult woman\",\n\"pose\": \"Standing confidently on a large rugged rock beside the ocean, body slightly turned sideways, looking toward the left, one hand inside her trouser pocket\",\n\"expression\": \"Calm, serious, elegant and mysterious\",\n\"hair\": \"Long straight dark hair flowing naturally over the shoulders\",\n\"outfit\": {\n\"hat\": \"Black leather newsboy cap with a short curved brim and visible stitched panels\",\n\"coat\": \"Long black leather trench coat with structured shoulders, wide lapels, belted waist and realistic leather texture\",\n\"innerwear\": \"Fitted dark ribbed V-neck jumpsuit\",\n\"trousers\": \"Tailored straight-to-wide-leg trousers matching the jumpsuit\",\n\"shoes\": \"Minimal black pointed-toe ankle boots\"\n}\n},\n\"background\": {\n\"location\": \"Open ocean coastline\",\n\"details\": [\n\"Rugged dark coastal rock in the foreground\",\n\"Ocean waves breaking into white sea foam\",\n\"Flat distant horizon\",\n\"Soft overcast sky\",\n\"Minimal empty background\"\n]\n},\n\"composition\": {\n\"foreground\": \"Full-body woman positioned in the lower center, standing on the rock\",\n\"background_overlay\": \"An enormous semi-transparent close-up portrait of the same woman in left-facing side profile, wearing the same leather newsboy cap\",\n\"overlay_position\": \"Dominating the upper two-thirds of the image\",\n\"blend\": \"Seamless double exposure with the oversized portrait fading into the cloudy sky and ocean\",\n\"transparency\": \"Soft translucent effect with the sea horizon subtly visible through the portrait\",\n\"depth\": \"Strong contrast between the smaller sharply defined full-body figure and the giant faded portrait\"\n},\n\"lighting\": {\n\"type\": \"Soft diffused overcast daylight\",\n\"contrast\": \"Rich blacks, smooth gray midtones and luminous silver highlights\",\n\"mood\": \"Moody, sophisticated, dramatic and timeless\"\n},\n\"camera\": {\n\"shot\": \"Vertical full-body editorial portrait\",\n\"angle\": \"Slightly low eye-level perspective\",\n\"lens\": \"85mm portrait lens aesthetic\",\n\"focus\": \"Detailed clothing, realistic facial profile and softly atmospheric background\"\n},\n\"color_grading\": {\n\"palette\": \"Pure black, white and silver gray\",\n\"texture\": \"Fine analog film grain\",\n\"finish\": \"Vintage silver-gelatin fine-art photography\"\n},\n\"quality\": \"Photorealistic, highly detailed leather texture, natural anatomy, realistic ocean waves, seamless double exposure, premium fashion magazine aesthetic\",\n\"negative_prompt\": [\n\"Color photography\",\n\"Multiple foreground people\",\n\"Different faces in the two portraits\",\n\"Distorted facial features\",\n\"Extra limbs\",\n\"Deformed hands\",\n\"Unnatural anatomy\",\n\"Hard overlay edges\",\n\"Cartoon illustration\",\n\"Excessive blur\",\n\"Text\",\n\"Watermarks\",\n\"Oversaturated highlights\"\n]\n}\n}"
+    },
+    "zh": {
+      "title": "电影感单色双重曝光时尚人像提示词",
+      "description": "适用于 GPT Image 2 的结构化 JSON 提示词，用于生成电影感单色双重曝光时尚人像。该提示词详细指定了一位站在岩石上的时尚女性，叠加了超大尺寸的半透明人像，并描述了服装、灯光、相机设置及负面提示词。",
+      "prompt": "{\n\"prompt\": {\n\"style\": \"电影感单色双重曝光时尚摄影\",\n\"aspect_ratio\": \"9:16\",\n\"subject\": {\n\"type\": \"时尚成年女性\",\n\"pose\": \"自信地站在海边一块巨大的粗糙岩石上，身体略微侧转，目光投向左侧，一只手插在裤袋中\",\n\"expression\": \"平静、严肃、优雅且神秘\",\n\"hair\": \"深色长直发自然垂落在肩头\",\n\"outfit\": {\n\"hat\": \"黑色皮革报童帽，带有短弧形帽檐和可见的缝线拼接面板\",\n\"coat\": \"长款黑色皮革风衣，具有挺括的肩部结构、宽翻领、束腰设计以及逼真的皮革纹理\",\n\"innerwear\": \"修身深色罗纹 V 领连体衣\",\n\"trousers\": \"剪裁合身的直筒至阔腿长裤，与连体衣风格统一\",\n\"shoes\": \"极简风格黑色尖头踝靴\"\n}\n},\n\"background\": {\n\"location\": \"开阔的海洋海岸线\",\n\"details\": [\n\"前景中崎岖的深色海岸岩石\",\n\"海浪拍打激起白色泡沫\",\n\"平坦遥远的海平线\",\n\"柔和阴沉的天空\",\n\"极简空旷的背景\"\n]\n},\n\"composition\": {\n\"foreground\": \"全身女性位于画面下方中央，站立在岩石上\",\n\"background_overlay\": \"同一位女性的巨大半透明特写人像叠加层，呈左侧面轮廓，佩戴相同的皮革报童帽\",\n\"overlay_position\": \"占据画面上方三分之二的区域\",\n\"blend\": \"无缝双重曝光效果，超大人像逐渐融入多云天空和海洋中\",\n\"transparency\": \"柔和的半透明效果，透过人像可隐约看到海平线\",\n\"depth\": \"较小且清晰定义的全身人物与巨大褪色人像之间形成强烈对比\"\n},\n\"lighting\": {\n\"type\": \"柔和漫射的阴天日光\",\n\"contrast\": \"丰富的黑色、平滑的灰色中间调以及明亮的银色高光\",\n\"mood\": \"情绪化、精致、戏剧性且永恒\"\n},\n\"camera\": {\n\"shot\": \"垂直全身编辑类人像\",\n\"angle\": \"略低的视平线视角\",\n\"lens\": \"85mm 人像镜头美学\",\n\"focus\": \"细节丰富的服装、逼真的面部轮廓以及柔和大气的背景\"\n},\n\"color_grading\": {\n\"palette\": \"纯黑、纯白和银灰色\",\n\"texture\": \"细腻的模拟胶片颗粒\",\n\"finish\": \"复古银盐艺术摄影质感\"\n},\n\"quality\": \"照片级真实感、高度详细的皮革纹理、自然的解剖结构、逼真的海浪、无缝双重曝光、高端时尚杂志美学\",\n\"negative_prompt\": [\n\"彩色摄影\",\n\"多个前景人物\",\n\"两个人像中出现不同的面孔\",\n\"扭曲的面部特征\",\n\"多余的肢体\",\n\"变形的手\",\n\"不自然的解剖结构\",\n\"生硬的叠加边缘\",\n\"卡通插画\",\n\"过度模糊\",\n\"文字\",\n\"水印\",\n\"过饱和的高光\"\n]\n}\n}"
+    }
+  },
+  "36263": {
+    "en": {
+      "title": "Thermal Imaging Photo of Person",
+      "description": "Generates a realistic thermal camera image of a person indoors, complete with FLIR branding, timestamp overlays, and a temperature scale.",
+      "prompt": "A realistic thermal imaging photograph of a person standing in an indoor environment, captured with a FLIR camera. The subject is wearing a long-sleeved shirt and pants, rendered in the classic rainbow color palette where hot areas (face, hands, feet) appear white/yellow/red and cooler areas (clothing, background) appear blue/purple. In the top left corner, there is digital overlay text reading '2026-10-10 14:23:51' and 'CAM 01 THERMAL'. In the top right corner, the white 'FLIR' logo is visible. On the far right edge, a vertical temperature scale bar ranges from 20.0°C at the bottom to 40.0°C at the top. The background shows a dimly lit room with a plant on the left and a door frame on the right."
+    },
+    "zh": {
+      "title": "人物热成像照片",
+      "description": "生成逼真的室内人物热成像相机图像，包含 FLIR 品牌标识、时间戳叠加层和温度刻度。",
+      "prompt": "一张逼真的人物热成像照片，展示了一个站在室内环境中的人，由 FLIR 相机拍摄。主体穿着长袖衬衫和裤子，采用经典的彩虹配色方案渲染：高温区域（面部、手部、脚部）呈现白色/黄色/红色，低温区域（衣物、背景）呈现蓝色/紫色。左上角有数字叠加文字显示“2026-10-10 14:23:51”和“CAM 01 THERMAL”。右上角可见白色的“FLIR”标志。最右侧边缘有一条垂直温度刻度条，范围从底部的 20.0°C 到顶部的 40.0°C。背景显示一个光线昏暗的房间，左侧有一株植物，右侧有一个门框。"
+    }
+  },
+  "36264": {
+    "en": {
+      "title": "Line Art Typography Poster",
+      "description": "A minimalist poster design featuring large Chinese characters constructed from blue parallel lines, accented with a yellow sun motif and orange gradients.",
+      "prompt": "Goal: Create a vertical poster design featuring large, stylized Chinese typography for the greeting \"早安诸位\" (Good Morning Everyone) in a modern line-art style.\n\nCanvas: Vertical aspect ratio with a clean off-white background. The color palette is primarily cool blue (#4A90E2) with accents of warm yellow/orange (#F5A623).\n\nLayout:\n- Top Header: Left side has \"GOOD MORNING — 早安诸位\" in blue sans-serif. Right side displays the date \"2026-10-10\" and lunar calendar info \"星期六 农历八月三十\".\n- Central Visual: Four massive Chinese characters arranged in a 2x2 grid. These characters are constructed entirely from parallel horizontal and vertical lines (stripes), creating a wireframe or barcode effect. \n    - Top-left character (早): Contains a solid yellow circle representing the sun rising behind the stripes.\n    - Top-right character (安): Features curved striped strokes that transition from blue to orange at the ends.\n    - Bottom-left character (诸): Includes a small fan-like burst of radiating lines on its left radical.\n    - Bottom-right character (位): Has one vertical stroke block colored in orange stripes instead of blue.\n- Side Margins: Small vertical text blocks flank the main graphic. Left margin reads \"向着明亮的方向，一起出发。\" and \"平凡的日子也可以闪闪发光。\" Right margin lists keywords like \"清醒\", \"温柔\", \"专注\", \"前行\".\n- Footer: A horizontal divider separates the bottom section containing \"Morning Bulletin Visual Greeting System\", edition details, and copyright text.\n\nVisual Style: Minimalist, typographic, geometric, flat design, high contrast between the thin blue lines and the white space."
+    },
+    "zh": {
+      "title": "线条艺术字体海报",
+      "description": "一款极简主义海报设计，以蓝色平行线构建大号中文字体，点缀黄色太阳图案和橙色渐变。",
+      "prompt": "目标：创建一款垂直海报设计，采用现代线条艺术风格，呈现大型、风格化的中文问候语“早安诸位”。\n\n画布：垂直比例，干净的米白色背景。配色方案以冷蓝色 (#4A90E2) 为主，辅以暖黄色/橙色 (#F5A623) 作为点缀。\n\n布局：\n- 顶部页眉：左侧为蓝色无衬线字体的 “GOOD MORNING — 早安诸位”。右侧显示日期 “2026-10-10” 以及农历信息 “星期六 农历八月三十”。\n- 中心视觉：四个巨大的中文字符排列成 2x2 网格。这些字符完全由平行的水平和垂直线条（条纹）构成，营造出线框或条形码效果。\n    - 左上角字符 (早)：包含一个实心黄色圆圈，代表从条纹后升起的太阳。\n    - 右上角字符 (安)：具有弯曲的条纹笔画，末端从蓝色过渡到橙色。\n    - 左下角字符 (诸)：其左侧偏旁包含一小簇放射状线条形成的扇形爆发效果。\n    - 右下角字符 (位)：其中一个垂直笔画块使用橙色条纹而非蓝色。\n- 侧边距：主图形两侧有小型垂直文本块。左边缘写着 “向着明亮的方向，一起出发。” 和 “平凡的日子也可以闪闪发光。” 右边缘列出关键词如 “清醒”, “温柔”, “专注”, “前行”。\n- 页脚：一条水平分隔线将底部区域分开，其中包含 “Morning Bulletin Visual Greeting System”，版本详情和版权文本。\n\n视觉风格：极简主义，排版设计，几何感，扁平化设计，细蓝线与留白之间形成高对比度。"
+    }
+  },
+  "36265": {
+    "en": {
+      "title": "Point Nemo Infographic",
+      "description": "An educational infographic detailing Point Nemo, the oceanic pole of inaccessibility, showing its location relative to continents and interesting facts about its remoteness.",
+      "prompt": "Goal: Create an educational infographic explaining {argument name=\"topic\" default=\"Point Nemo, the most remote place on Earth located in the ocean\"}.\n\nCanvas: Vertical portrait layout with a deep navy blue background and a subtle starry night sky texture at the top. The style is clean, modern, and informative, using gold and white text for high contrast.\n\nLayout:\n1. **Header:** Large serif title \"THE MOST REMOTE PLACE ON EARTH IS IN THE OCEAN\" (with \"IN THE OCEAN\" highlighted in light blue). Below it, a small introductory paragraph defining Point Nemo as the location farthest from land, mentioning the distance of 2,688 km (1,671 miles).\n2. **Central Map:** A stylized world map centered on the South Pacific Ocean. Continents are rendered in muted earth tones (greens, browns) against dark blue oceans. Labels include NORTH AMERICA, SOUTH AMERICA, EUROPE, ASIA, AFRICA, AUSTRALIA, and ANTARCTICA.\n3. **Data Visualization:** A bright yellow dot marks \"POINT NEMO\" in the ocean south of Easter Island. Three dashed yellow arrows radiate from this point to the nearest landmasses, labeled with distances: \"2,688 km (1,671 miles)\" to Antarctica, \"2,754 km (1,711 miles)\" to South America, and \"2,966 km (1,843 miles)\" to Australia.\n4. **Info Box (Left):** A rectangular box with a compass icon containing the coordinates \"48°52.6'S 123°23.6'W\" and the nickname \"oceanic pole of inaccessibility.\"\n5. **Bottom Section:** A section titled \"WHY IS IT INTERESTING?\" with three columns featuring icons and text:\n   - Icon: Satellite dish. Text: \"It's the farthest point from any land, making it the most isolated place on the planet.\"\n   - Icon: Space station/satellite. Text: \"Spacecraft and the International Space Station use it as the safest place to reenter or drop objects.\"\n   - Icon: Ship. Text: \"It's so remote that the closest humans are usually astronauts — not sailors.\"\n6. **Footer:** A concluding statement next to a globe icon: \"Point Nemo shows us that even in our well-explored planet, there are places more remote than anywhere on land.\"\n\nVisual Style: Professional infographic design. Use clear sans-serif fonts for body text and serif fonts for headings. Ensure the map projection clearly highlights the isolation of the central point."
+    },
+    "zh": {
+      "title": "尼莫点信息图",
+      "description": "一张教育性信息图，详细介绍了尼莫点（Point Nemo），即海洋不可达极点，展示了其相对于各大洲的位置以及关于其偏远程度的有趣事实。",
+      "prompt": "目标：创建一张教育性信息图，解释 {argument name=\"topic\" default=\"尼莫点，地球上位于海洋中的最偏远地点\"}。\n\n画布：垂直肖像布局，采用深海军蓝背景，顶部带有微妙的星空夜空纹理。风格简洁、现代且信息丰富，使用金色和白色文字以确保高对比度。\n\n布局：\n1. **标题：** 大号衬线字体标题 \"THE MOST REMOTE PLACE ON EARTH IS IN THE OCEAN\"（其中 \"IN THE OCEAN\" 以浅蓝色高亮显示）。下方是一个简短的介绍段落，将尼莫点定义为距离陆地最远的位置，并提及距离为 2,688 km (1,671 miles)。\n2. **中心地图：** 以南太平洋为中心的风格化世界地图。大陆以柔和的大地色调（绿色、棕色）渲染，与深蓝色海洋形成对比。标签包括 NORTH AMERICA, SOUTH AMERICA, EUROPE, ASIA, AFRICA, AUSTRALIA 和 ANTARCTICA。\n3. **数据可视化：** 一个明亮的黄色圆点在复活节岛南部的海洋中标记出 \"POINT NEMO\"。三条虚线黄色箭头从该点辐射至最近的陆地，并标注了距离：到南极洲 \"2,688 km (1,671 miles)\"，到南美洲 \"2,754 km (1,711 miles)\"，到澳大利亚 \"2,966 km (1,843 miles)\"。\n4. **信息框（左侧）：** 一个包含指南针图标的矩形框，内含坐标 \"48°52.6'S 123°23.6'W\" 和昵称 \"oceanic pole of inaccessibility\"。\n5. **底部部分：** 标题为 \"WHY IS IT INTERESTING?\" 的部分，包含三列带有图标和文本的内容：\n   - 图标：卫星天线。文本：\"它是距离任何陆地最远的点，使其成为地球上最孤立的地方。\"\n   - 图标：空间站/卫星。文本：\"航天器和国际空间站将其用作重新进入大气层或投放物体的最安全地点。\"\n   - 图标：船只。文本：\"它如此偏远，以至于最近的人类通常是宇航员——而不是水手。\"\n6. **页脚：** 地球图标旁边的结语：\"尼莫点向我们展示，即使在我们探索充分的星球上，也有比陆地上任何地方都更偏远的地方。\"\n\n视觉风格：专业信息图设计。正文使用清晰的无衬线字体，标题使用衬线字体。确保地图投影清晰地突出中心点的孤立性。"
+    }
+  },
+  "36267": {
+    "en": {
+      "title": "Shanghai Good Morning Food Poster",
+      "description": "A stylish digital poster combining macro food photography of pan-fried buns with Shanghai cityscape elements and weather information.",
+      "prompt": "A high-resolution, appetizing food photography poster featuring a close-up of freshly cooked Shanghai pan-fried buns (Shengjianbao). The buns are golden-brown and crispy on the bottom, topped with black sesame seeds and chopped green onions. Wisps of steam rise from the hot buns, emphasizing their freshness. The background is a dark teal gradient that transitions into a silhouette of the Shanghai skyline at night, including landmarks like the Oriental Pearl Tower. On the left side, there is a vertical layout of text and icons: large white Chinese characters '上海早安' (Good Morning Shanghai), followed by the date '2026-10-11 | Cloudy 23°C | Today starts with Shengjianbao'. Below this are three circular weather icons showing temperature (23°C), humidity (63%), and wind force (Level 2). Further down, stylized handwritten text reads '一座城 从一口热气开始' (A city begins with a mouthful of heat). At the very bottom left, English text says 'GOOD MORNING SHANGHAI' with a sun icon and smaller text '美好的一天 · 从上海味道开始' (A beautiful day starts with the taste of Shanghai). On the right edge, vertical red seal-style text reads '上海生煎包' (Shanghai Pan-Fried Buns) and '一口烟火 一座上海' (A bite of life, one Shanghai)."
+    },
+    "zh": {
+      "title": "上海早安美食海报",
+      "description": "一张时尚的数字海报，将生煎包的微距美食摄影与上海城市景观元素及天气信息相结合。",
+      "prompt": "这是一张高分辨率、令人垂涎欲滴的美食摄影海报，特写展示了刚出锅的上海生煎包。生煎包底部金黄酥脆，表面撒有黑芝麻和葱花。热气腾腾的生煎包上方飘散着缕缕蒸汽，凸显其新鲜出炉的状态。背景采用深青色渐变，逐渐过渡为夜晚上海天际线的剪影，包括东方明珠塔等地标建筑。左侧采用垂直排版设计：醒目的白色中文字体“上海早安”，下方标注日期“2026-10-11 | 多云 23°C | 今日从生煎包开始”。再往下是三个圆形天气图标，分别显示温度（23°C）、湿度（63%）和风力（2 级）。接着是一行风格化的手写文字：“一座城 从一口热气开始”。左下角印有英文“GOOD MORNING SHANGHAI”并配有太阳图标，以及较小的中文标语“美好的一天 · 从上海味道开始”。右侧边缘则是竖排的红色印章风格文字：“上海生煎包”和“一口烟火 一座上海”。"
+    }
+  },
+  "36269": {
+    "en": {
+      "title": "Mad Crow Popping Yellow Balloon",
+      "description": "A humorous illustration of a frantic black crow popping a yellow balloon stuck on a telephone wire above city rooftops.",
+      "prompt": "A whimsical, hand-drawn illustration in a storybook style depicts a chaotic scene on a telephone wire. On the left, a large, frantic black crow with wide, bulging eyes and an open beak is perched on the wire, its wings spread in agitation. To the right of the crow, a bright yellow balloon is caught on the wire and has just burst, with jagged yellow shards flying outward in all directions against a backdrop of fluffy white clouds and blue sky. Below the wire, the tops of several European-style rooftops are visible, featuring red tiles and chimneys. The artwork uses textured lines and watercolor-like shading."
+    },
+    "zh": {
+      "title": "疯狂的乌鸦戳破黄色气球",
+      "description": "一幅幽默的插画，描绘了一只惊慌失措的黑乌鸦在城市屋顶上方的电话线上戳破了一个卡住的黄色气球。",
+      "prompt": "这幅充满奇思妙想的手绘插图采用故事书风格，描绘了电话线上的一幕混乱场景。左侧，一只体型硕大、神情慌张的黑乌鸦栖息在线上，双眼圆睁凸出，喙部张开，翅膀因激动而展开。在乌鸦右侧，一个明亮的黄色气球卡在电线上并刚刚爆裂，锯齿状的黄色碎片向四面八方飞散，背景是蓬松的白云和蓝天。电线下方，可以看到几座欧式建筑的屋顶顶部，配有红色瓦片和烟囱。该艺术作品运用了富有质感的线条和水彩般的阴影处理。"
+    }
+  },
+  "36317": {
+    "en": {
+      "title": "Warhammer 40k Fall of Cadia Scene",
+      "description": "A prompt for generating a dramatic Warhammer 40,000 battle scene depicting the destruction of the planet Cadia during the 13th Black Crusade, featuring Chaos forces and Imperial Guard amidst apocalyptic ruins.",
+      "prompt": "The Fall of Cadia during the 13th Black Crusade. The blackstone pylons crack as the Eye of Terror tears the sky open. Cadian Shock Troops and Chaos Space Marines clash in the ruins while the planet breaks beneath them."
+    },
+    "zh": {
+      "title": "战锤 40K：卡迪亚陷落场景",
+      "description": "生成《战锤 40,000》中第 13 次黑色十字军期间卡迪亚星球毁灭场景的提示词，描绘混沌势力与帝国卫队在末日废墟中的激战。",
+      "prompt": "第 13 次黑色十字军期间的卡迪亚陷落。黑石方尖碑崩裂，恐惧之眼撕裂天空。卡迪亚突击部队与混沌星际战士在废墟中激烈交锋，而脚下的星球正逐渐破碎。"
+    }
+  },
+  "36318": {
+    "en": {
+      "title": "Halloween Pastry Repair Girl Prompt",
+      "description": "Generates an anime-style illustration of a girl repairing a gingerbread house with icing, featuring pastel colors and specific costume details.",
+      "prompt": "Soft pastel anime style.\nA girl fixing a Halloween candy house.\n\nThe outfit is an ecru apron dress. The skirt is above the knee, shoulder straps are thin ribbons.\nOn top, a short lavender cape.\nFrom the tool bag at her waist, an icing piping bag and konpeito candies peek out.\nInstead of a work cap, only a small hairpin shaped like a cookie pumpkin on her head.\n\nMidway through repairing cracked gingerbread walls with white icing.\nColors are light brown cookies, ecru, lavender, and pale strawberry red.\nFull body visible, hands visible. A slightly proud smile."
+    },
+    "zh": {
+      "title": "万圣节糕点修复少女提示词",
+      "description": "生成一幅动漫风格的插画，描绘一位女孩正在用糖霜修补姜饼屋，画面采用柔和的粉彩色调，并包含特定的服装细节。",
+      "prompt": "柔和粉彩动漫风格。\n一位女孩正在修复万圣节糖果屋。\n\n她身穿米色围裙连衣裙。裙摆长度在膝盖以上，肩带为细丝带设计。\n上身搭配一件短款淡紫色披风。\n腰间的工具袋中露出裱花袋和星糖（konpeito）。\n头上没有戴工作帽，只别着一枚饼干南瓜造型的小发夹。\n\n她正用白色糖霜修补开裂的姜饼墙。\n配色包括浅棕色饼干、米色、淡紫色和淡草莓红。\n全身可见，双手清晰可见。脸上带着略带自豪的微笑。"
+    }
+  },
+  "36319": {
+    "en": {
+      "title": "Luxury Ruby Red Velvet Evening Gown Portrait",
+      "description": "A prompt for creating a stunning ultra-realistic luxury fashion editorial portrait of a woman wearing a deep ruby-red velvet evening gown in an elegant ballroom setting.",
+      "prompt": "A stunning ultra-realistic 8K luxury fashion editorial portrait of an elegant adult woman with long, voluminous chestnut-brown waves, soft face-framing strands, luminous fair skin, hazel-green eyes, delicate facial features, and glossy rose-pink lips, wearing an exquisite deep ruby-red velvet evening gown featuring a sculpted sweetheart neckline, intricate pleated draping across the bodice, an off-the-shoulder design, flowing floor-length fabric, and dramatic cape-like sleeves cascading elegantly from her arms, paired with a sparkling diamond statement necklace, matching chandelier earrings, and a luxurious diamond bracelet. She poses gracefully with her hands resting delicately near her thigh, gazing directly into the camera with a confident, soft expression. The setting is an elegant upscale ballroom with a dark, warm-toned background, golden ambient lights, and a subtle mirror reflection behind her, creating a glamorous red-carpet atmosphere. Professional luxury fashion photography, cinematic warm lighting, soft highlights on the skin, realistic velvet texture, intricate fabric details, natural body proportions, shallow depth of field, 85mm portrait lens, crisp facial focus, sophisticated color grading, photorealistic skin texture, high-end magazine cover aesthetic, vertical 9:16 composition."
+    },
+    "zh": {
+      "title": "奢华红宝石红天鹅绒晚礼服肖像",
+      "description": "用于创建一位身穿深红宝石色天鹅绒晚礼服、身处优雅舞厅场景中的女性超写实奢华时尚编辑肖像的提示词。",
+      "prompt": "一幅令人惊叹的超写实 8K 奢华时尚编辑肖像，描绘了一位优雅的成年女性，她留着长而蓬松的栗棕色波浪卷发，柔和的发丝修饰脸型，肌肤白皙透亮，拥有榛绿色眼睛、精致的五官和光泽的玫瑰粉色嘴唇。她身穿一件精美的深红宝石色天鹅绒晚礼服，具有雕塑般的甜心领口、紧身胸衣上复杂的褶皱垂坠设计、露肩款式、飘逸的及地面料以及从手臂优雅垂下的戏剧性斗篷式袖子。搭配闪耀的钻石项链、配套的吊灯耳环和奢华的钻石手链。她姿态优雅，双手轻柔地放在大腿附近，带着自信而柔和的表情直视镜头。背景是一个优雅的高档舞厅，色调温暖深沉，金色环境光环绕，身后有微妙的镜面反射，营造出迷人的红毯氛围。专业奢华时尚摄影，电影感暖光照明，皮肤上的柔和高光，逼真的天鹅绒质感，精细的面料细节，自然的人体比例，浅景深，85mm 人像镜头，清晰的面部焦点，精致的色彩分级，照片级真实感的皮肤纹理，高端杂志封面美学，垂直 9:16 构图。"
+    }
+  },
+  "36320": {
+    "en": {
+      "title": "GPT-Image Coffee Japanese Editorial Poster Prompt",
+      "description": "A detailed prompt for generating four independent Japanese editorial coffee posters using GPT-Image.",
+      "prompt": "Create 4 independent \"Japanese Editorial Coffee Posters\" belonging to the same series, but each must have different subject representations, composition paths, and visual events; do not just change colors or brand names.\n\nAll four images share the visual language of modern Japanese museum publications, independent design exhibition posters, and restrained editorial design. The aspect ratio is unified as 9:16 vertical portrait, output independently without collage. The background is unified as warm ivory paper with very subtle real paper fibers and low-intensity printing grain. Use a palette of warm ivory, ink black, coffee brown, and a touch of dark vermilion; neon, high-saturation gradients, and commercial gloss are prohibited.\n\nAll posters use a few circular visual anchors, thin measurement lines, arcs, registration marks, and structural markers. Lines must serve the subject and reading path, not become random decoration. Text uses only short, readable English labels; do not generate long pseudo-text, random logos, QR codes, or watermarks.\n\nImage 1: Pour-over coffee. Ceramic dripper and glass server in a calm three-quarter tabletop view. Top left features a large circular detail showing coffee bloom and concentric ripples; bottom right shows real equipment; water flow is translated into a measurement arc. Add short label \"COFFEE STUDY 01 / POUR OVER\".\n\nImage 2: Cold brew coffee. Transparent tall cup of iced coffee on the left, add a vertical slice showing layers of coffee, ice, and reflections; use fine vertical lines to establish a cool rhythm. Add short label \"COFFEE STUDY 02 / COLD BREW\".\n\nImage 3: Latte. Handmade ceramic cup at bottom right, behind it place an offset disc cropped by the edge, echoing milk foam swirls; add two small material detail circles. Add short label \"COFFEE STUDY 03 / MILK FORM\".\n\nImage 4: Coffee beans and tools. Roasted beans, hand grinder, metal scoop, and folded paper bag form a diagonal object map in isometric three-quarter view; thin outlines and route nodes connect objects, retaining large white space. Add short label \"COFFEE STUDY 04 / ORIGIN / TOOL / ROAST\".\n\nAll four images must maintain realistic textures of coffee, glass, ceramic, metal, paper, and wood; clear subjects, natural lighting, mature editorial typography. Prohibit ordinary cafe menus, messy collages, fixed grids, average layouts, cheap plastic 3D, complex UI, garbled text, excessive props, and watermarks.\n\nFinal output is 4 independent 9:16 posters, maintaining series unity while ensuring distinct differences in subject, composition, visual focus, and interaction mechanisms."
+    },
+    "zh": {
+      "title": "GPT-Image 日式编辑风格咖啡海报提示词",
+      "description": "使用 GPT-Image 生成四张独立日式编辑风格咖啡海报的详细提示词。",
+      "prompt": "创建 4 张属于同一系列的“日式编辑风格咖啡海报”，但每张必须具有不同的主体表现、构图路径和视觉事件；不要仅仅改变颜色或品牌名称。\n\n所有四张图片共享现代日本博物馆出版物、独立设计展览海报和克制编辑设计的视觉语言。宽高比统一为 9:16 竖版肖像，独立输出而不进行拼贴。背景统一为暖象牙色纸张，带有非常细微的真实纸纤维和低强度印刷颗粒感。使用暖象牙色、墨黑色、咖啡棕色和少许深朱红色的调色板；禁止使用霓虹色、高饱和度渐变和商业光泽。\n\n所有海报使用少量圆形视觉锚点、细测量线、弧线、套准标记和结构标记。线条必须服务于主体和阅读路径，而不是成为随机装饰。文本仅使用简短易读的英文标签；不要生成长伪文本、随机标志、二维码或水印。\n\n图片 1：手冲咖啡。陶瓷滤杯和玻璃分享壶以平静的三分之四桌面视角呈现。左上角有一个大圆形细节，展示咖啡闷蒸和同心涟漪；右下角显示真实设备；水流转化为测量弧线。添加短标签 \"COFFEE STUDY 01 / POUR OVER\"。\n\n图片 2：冷萃咖啡。左侧是一个装有冰咖啡的透明高杯，添加一个垂直切片展示咖啡、冰块和反射的层次；使用细垂直线建立冷静的节奏。添加短标签 \"COFFEE STUDY 02 / COLD BREW\"。\n\n图片 3：拿铁。右下角是手工陶瓷杯，其后方放置一个被边缘裁剪的偏移圆盘，呼应奶泡漩涡；添加两个小的材质细节圆圈。添加短标签 \"COFFEE STUDY 03 / MILK FORM\"。\n\n图片 4：咖啡豆和工具。烘焙豆、手摇磨豆机、金属勺和折叠纸袋在等距三分之四视图中形成对角物体地图；细轮廓和路线节点连接物体，保留大量留白。添加短标签 \"COFFEE STUDY 04 / ORIGIN / TOOL / ROAST\"。\n\n所有四张图片必须保持咖啡、玻璃、陶瓷、金属、纸张和木材的真实质感；清晰的主体、自然的光照、成熟的编辑排版。禁止普通咖啡馆菜单、杂乱的拼贴、固定网格、平庸布局、廉价塑料 3D、复杂 UI、乱码文本、过多道具和水印。\n\n最终输出为 4 张独立的 9:16 海报，在保持系列统一性的同时，确保主体、构图、视觉焦点和交互机制的显著差异。"
+    }
+  },
+  "36321": {
+    "en": {
+      "title": "Saint Celestine Warhammer Scene",
+      "description": "Generates an image of Saint Celestine fighting Chaos Space Marines in golden armor with white wings.",
+      "prompt": "Saint Celestine rises above the Chaos Space Marines. Golden armor, white wings, and the Ardent Blade cut through the fight in the ruins. The Living Saint holds the line."
+    },
+    "zh": {
+      "title": "圣塞莱斯汀战锤场景",
+      "description": "生成一张身穿金色铠甲、拥有白色羽翼的圣塞莱斯汀与混沌星际战士战斗的图片。",
+      "prompt": "圣塞莱斯汀凌驾于混沌星际战士之上。金色的铠甲、洁白的羽翼以及炽热之刃在废墟中的战斗中划破长空。这位活圣人坚守着防线。"
+    }
+  },
+  "36322": {
+    "en": {
+      "title": "Craftworld Iyanden Tyranid Battle",
+      "description": "Generates an image of Ghost Warriors defending Craftworld Iyanden against Tyranids.",
+      "prompt": "Craftworld Iyanden burns under the Tyranid swarm. Ghost Warriors stand in the cracked wraithbone halls as the living and the dying fight to hold the dying Craftworld."
+    },
+    "zh": {
+      "title": "Craftworld Iyanden 泰伦虫族战役",
+      "description": "生成一张幽灵战士在 Craftworld Iyanden 抵御泰伦虫群入侵的图像。",
+      "prompt": "Craftworld Iyanden 在泰伦虫群的侵袭下燃烧。幽灵战士伫立于破碎的灵骨大厅中，生者与逝者共同奋战，誓死守护这濒临毁灭的方舟世界。"
+    }
+  },
+  "36323": {
+    "en": {
+      "title": "Girl in Swimsuit on Orange Stairs",
+      "description": "A prompt to generate a nostalgic-style portrait of a girl in a swimsuit and boots sitting on orange stairs.",
+      "prompt": "A high-angle, full-body portrait of a young East Asian woman sitting on a set of outdoor concrete stairs. The risers of the stairs are painted a vibrant orange-red, while the treads are light grey concrete. She is wearing a navy blue one-piece swimsuit (sukumizu) and carrying a vintage black leather school backpack with silver buckles. On her feet, she wears chunky white lace-up combat boots with thick black soles. Her dark hair is styled in a ponytail with wispy bangs framing her face. She has a natural look with visible freckles across her nose and cheeks, looking up at the camera with a gentle, shy smile. The lighting is soft and diffused, creating a nostalgic, film-like aesthetic with slightly faded colors."
+    },
+    "zh": {
+      "title": "橙色楼梯上的泳装女孩",
+      "description": "生成一张怀旧风格肖像的提示词，描绘了一位穿着泳衣和靴子的女孩坐在橙色楼梯上。",
+      "prompt": "这是一张高角度全身肖像照，画面中一位年轻的东亚女性坐在一组户外混凝土台阶上。台阶的立面被涂成鲜艳的橙红色，而踏面则是浅灰色的混凝土。她身穿一件深蓝色连体泳衣（日式校服泳装），背着一个带有银色搭扣的复古黑色皮革书包。脚上穿着一双厚底白色系带战斗靴，鞋底为黑色。她的深色头发扎成马尾，几缕刘海轻柔地垂在脸侧。她面容自然，鼻梁和脸颊上有清晰可见的雀斑，正抬头看向镜头，露出温柔而羞涩的微笑。光线柔和且漫射，营造出一种怀旧的胶片质感，色彩略显褪色。"
+    }
+  },
+  "36324": {
+    "en": {
+      "title": "Stylized Western Character Illustration",
+      "description": "Generates a humorous, caricature-style illustration of a cowboy and cowgirl duo in a desert setting.",
+      "prompt": "A stylized, caricature-style illustration of two Western characters standing in a desert landscape. On the left is a tall, gaunt male figure with an elongated face, wearing a black cowboy hat, a dark vest over a white shirt, and a red neckerchief. He has a long mustache and holds his hands near his belt. Beside him stands a female character with a wide-brimmed straw hat, curly reddish-brown hair, a white blouse, a green skirt, and a gun holster on her hip. She has a confident expression with rosy cheeks. Behind them are large saguaro cacti and distant mesas under a blue sky with scattered clouds. The art style features visible brushstrokes and a slightly exaggerated, humorous aesthetic."
+    },
+    "zh": {
+      "title": "风格化西部角色插画",
+      "description": "生成一幅幽默的漫画风格插画，描绘沙漠场景中的牛仔和女牛仔二人组。",
+      "prompt": "一幅风格化的漫画式插画，展示了两位站在沙漠景观中的西部角色。左侧是一位身材高大、面容瘦削的男性人物，脸型狭长，头戴黑色牛仔帽，身穿深色马甲搭配白衬衫，并系着红色领巾。他留着长长的八字胡，双手放在腰带附近。在他身旁站着一位女性角色，戴着宽边草帽，有着卷曲的红棕色头发，身穿白色上衣和绿色裙子，腰间佩戴着枪套。她面带自信的表情，双颊红润。他们身后是巨大的仙人掌和远处的台地，头顶是点缀着零星云朵的蓝天。这种艺术风格具有明显的笔触感和略带夸张的幽默美学。"
+    }
+  },
+  "36325": {
+    "en": {
+      "title": "Shibuya Street Style Portrait",
+      "description": "A prompt for generating a retro-style film photograph of a young woman squatting in casual streetwear in a busy Tokyo neighborhood.",
+      "prompt": "A vertical portrait of a young woman squatting on a sunlit street in Shibuya, Tokyo. She has short dark hair and wears a beige baseball cap with a black brim. Her outfit consists of an oversized teal windbreaker jacket over a white graphic t-shirt, denim shorts, white ribbed socks, and red canvas sneakers. A large cream-colored tote bag with blue text hangs from her shoulder. She rests her chin on her left hand, looking directly at the camera with a calm expression. The background features blurred storefronts with Japanese signage, including a prominent 'Cafe' sign and vertical banners, along with potted plants to the side. The image has a warm, grainy film photography aesthetic."
+    },
+    "zh": {
+      "title": "涩谷街头风人像",
+      "description": "生成一张复古风格胶片照片的提示词，画面中一位年轻女性穿着休闲街头服饰蹲在东京繁华街区。",
+      "prompt": "一张竖构图人像，展示了一位年轻女性蹲在东京涩谷阳光明媚的街道上。她留着深色短发，戴着一顶米色棒球帽，帽檐为黑色。她的穿搭包括一件宽大的青色防风夹克，内搭白色图案 T 恤，下身是牛仔短裤、白色罗纹袜和红色帆布运动鞋。一个印有蓝色文字的大号奶油色托特包挂在肩上。她用左手托着下巴，神情平静地直视镜头。背景是模糊的店面，带有日文招牌，其中“Cafe”标志和垂直横幅尤为醒目，旁边还有盆栽植物。整张图片呈现出温暖、颗粒感的胶片摄影美学。"
+    }
+  },
+  "36326": {
+    "en": {
+      "title": "Corona Brand Fashion Concept Board",
+      "description": "A prompt to transform a Corona beer can reference into a full women's fashion collection lookbook featuring apparel mockups and lifestyle photography.",
+      "prompt": "Using the provided reference image of a Corona Extra beer can, generate a comprehensive fashion concept board for a 'Corona Women's Collection'.\n\nGoal: Transform the visual identity of the beer brand into a premium streetwear and beachwear line.\n\nLayout & Composition:\n1. Top Left: Display the extracted Corona logo (gothic text, crown, two griffins) on a cream background with the subtext 'WOMEN'S COLLECTION' and a short description about Mexican heritage.\n2. Center: Feature two AI-generated models (front and back view). The front model wears a white cropped jersey tee with the gold/blue branding; the back model wears an oversized navy tee with large back-printing and denim shorts.\n3. Right Side ('THE COLLECTION'): Arrange six individual product mockups in a grid: Cropped Jersey Tee, Racerback Tank, Oversized Hoodie, Relaxed Shorts, Tote Bag, and Dad Cap. All items must feature the blue-and-gold color scheme from the can.\n4. Bottom Section: Include a 'COLOR PALETTE' swatch area (Navy Blue, Gold, Cream), a close-up detail shot of embroidery, and a row of four lifestyle photos showing the models wearing the collection in sunny, outdoor settings.\n5. Footer: A dark blue banner with gold text reading 'SINCE 1925', 'BREWED IN MEXICO', and 'HECHA CON ORGULLO'.\n\nStyle: High-end commercial fashion lookbook, clean typography, realistic fabric textures, and vibrant summer lighting."
+    },
+    "zh": {
+      "title": "Corona 品牌时尚概念项目",
+      "description": "一个提示词，将 Corona 啤酒罐参考图转化为完整的女性时尚系列 Lookbook，包含服装样机和生活化摄影。",
+      "prompt": "使用提供的 Corona Extra 啤酒罐参考图片，生成一份完整的“Corona 女性系列”时尚概念项目。\n\n目标：将啤酒品牌的视觉识别转化为高端街头服饰和海滩度假风系列。\n\n布局与构图：\n1. 左上角：在奶油色背景上展示提取出的 Corona 标志（哥特式字体、皇冠、两只狮鹫），下方配有副标题“WOMEN'S COLLECTION”以及一段关于墨西哥传统工艺的简短描述。\n2. 中心位置：展示两位 AI 生成的模特（正面和背面视图）。正面模特穿着带有金/蓝品牌标识的白色短款运动 T 恤；背面模特穿着超大号海军蓝 T 恤，背部有大面积印花，搭配牛仔短裤。\n3. 右侧（“THE COLLECTION”）：以网格形式排列六个独立的产品样机：短款运动 T 恤、工字背心、超大号连帽衫、宽松短裤、托特包和老爹帽。所有单品必须采用源自啤酒罐的蓝金配色方案。\n4. 底部区域：包含“COLOR PALETTE”色板区（海军蓝、金色、奶油色）、刺绣细节特写镜头，以及一排四张生活照，展示模特在阳光明媚的户外环境中穿着该系列的场景。\n5. 页脚：深蓝色横幅，配以金色文字“SINCE 1925”、“BREWED IN MEXICO”和“HECHA CON ORGULLO”。\n\n风格：高端商业时尚 Lookbook，排版简洁，面料纹理逼真，充满活力的夏日光影。"
+    }
+  },
+  "36327": {
+    "en": {
+      "title": "Cute Penguin Girl Comic Strip",
+      "description": "A four-panel comic featuring a realistic 3D chibi girl in a penguin suit discovering a trash can.",
+      "prompt": "A four-panel vertical comic strip featuring a cute chibi girl character wearing a fluffy black penguin costume with a large pink satin bow tie. The art style is hyper-realistic 3D render (Pixar/Blender style) with soft lighting and shallow depth of field.\n\nPanel 1: Medium shot of the girl walking on a sunny park path, smiling happily. Speech bubble text: \"いい天気だな〜♪\" (Nice weather~).\nPanel 2: Rear view of the girl looking at a silver metal trash can in the grass. Speech bubble text: \"……あれ？なんだろう\" (...Huh? What's that?).\nPanel 3: Extreme close-up of the girl's face with wide blue eyes and an open mouth, looking surprised. Speech bubble text: \"おっきい！\" (It's big!).\nPanel 4: Side view of the girl sniffing the trash can curiously. The can has a label reading \"一斗缶 18L\". Speech bubble text: \"くんくん…\" (Sniff sniff...)."
+    },
+    "zh": {
+      "title": "可爱企鹅女孩四格漫画",
+      "description": "四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。",
+      "prompt": "一幅四格竖版漫画，主角是一个可爱的 Q 版女孩角色，身穿毛茸茸的黑色企鹅服装，系着一个大大的粉色缎面蝴蝶结领结。艺术风格为超写实 3D 渲染（类似 Pixar/Blender 风格），采用柔和的光线和浅景深效果。\n\n第 1 格：中景镜头，女孩走在阳光明媚的公园小径上，开心地微笑着。对话气泡文字：“いい天気だな〜♪”（天气真好~）。\n第 2 格：女孩的背面视角，她正看着草地上的一个银色金属垃圾桶。对话气泡文字：“……あれ？なんだろう”（……咦？那是什么？）。\n第 3 格：女孩脸部的特写镜头，她睁大蓝色的眼睛，张着嘴，看起来很惊讶。对话气泡文字：“おっきい！”（好大！）。\n第 4 格：女孩的侧面视角，她好奇地嗅着垃圾桶。垃圾桶上贴有标签，写着“一斗缶 18L”。对话气泡文字：“くんくん…”（嗅嗅…）。"
     }
   }
 }
