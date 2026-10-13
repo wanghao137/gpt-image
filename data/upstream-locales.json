@@ -54183,5 +54183,29 @@
       "description": "四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。",
       "prompt": "一幅四格竖版漫画，主角是一个可爱的 Q 版女孩角色，身穿毛茸茸的黑色企鹅服装，系着一个大大的粉色缎面蝴蝶结领结。艺术风格为超写实 3D 渲染（类似 Pixar/Blender 风格），采用柔和的光线和浅景深效果。\n\n第 1 格：中景镜头，女孩走在阳光明媚的公园小径上，开心地微笑着。对话气泡文字：“いい天気だな〜♪”（天气真好~）。\n第 2 格：女孩的背面视角，她正看着草地上的一个银色金属垃圾桶。对话气泡文字：“……あれ？なんだろう”（……咦？那是什么？）。\n第 3 格：女孩脸部的特写镜头，她睁大蓝色的眼睛，张着嘴，看起来很惊讶。对话气泡文字：“おっきい！”（好大！）。\n第 4 格：女孩的侧面视角，她好奇地嗅着垃圾桶。垃圾桶上贴有标签，写着“一斗缶 18L”。对话气泡文字：“くんくん…”（嗅嗅…）。"
     }
+  },
+  "36328": {
+    "en": {
+      "title": "Chainsaw Man Makima Character Design Sheet",
+      "description": "A comprehensive character design sheet for Makima from Chainsaw Man, featuring a central full-body pose surrounded by detailed breakdowns of her costume, physical traits, weapons, and profile information.",
+      "prompt": "Goal: Create a detailed anime character design sheet for Makima from Chainsaw Man.\nCanvas: Vertical layout, clean white background with black text and line art.\nLayout: Central full-body illustration of the character. Surrounding panels detail specific costume elements, physical traits, and profile information.\nSubject details: Makima stands in the center wearing a long-sleeved white button-down shirt tucked into high-waisted black trousers, a black necktie, and a long black coat draped over her shoulders like a cape. She has red hair braided at the back with bangs framing her face, golden eyes with distinct rings, and black leather shoes. Her expression is calm and composed.\nSections:\n- Top Left: Title \"Makima\" (真纪真) and subtitle \"Character Setting / Costume Breakdown\".\n- Top Right: Profile box listing Affiliation (Public Safety Devil Extermination Bureau), Identity (Divine of Control), and Ability (Control).\n- Left Column (Costume Breakdown): Panels for Shirt, Necktie, Suit Jacket, Suit Pants, Leather Shoes, and Historical Reference (showing photos of women in suits).\n- Right Column (Physical & Props): Panels for Hairstyle (front/side/back views), Eye Color (close-up of golden eye), Weapon/Chain (illustration of chains), Historical Reference (chains/handcuffs), Accessory (earring/hand gesture), Prop (contract document and stamp), Color Palette (swatches of red, beige, black, gold), and Keywords (Control, Rationality, Calm, Mystery, Danger).\nVisual style: High-quality anime illustration mixed with technical fashion sketching. Clean lines, precise shading on clothing folds, and elegant typography.\nText content: Include bilingual labels (English/Japanese) for each section header as seen in the reference image."
+    },
+    "zh": {
+      "title": "动漫角色设计表提示词",
+      "description": "生成包含服装分解的详细角色设计表，适用于角色扮演游戏或同人艺术参考。",
+      "prompt": "目标：为《电锯人》中的 {argument name=\"character name\" default=\"Makima\"} 创建详细的动漫角色设计表和服装分解。\n画布：垂直肖像布局，背景为略带纹理的米白色纸张。风格简洁、专业，类似概念艺术参考页。\n布局：角色全身插图位于中心。周围环绕着带有线条草图和中英文描述文本的标注部分。细红线将她的服装特定部位连接到相应的细节框。\n主体细节：Makima 自信地站立，身穿黑色长尾外套，内搭挺括的白色纽扣衬衫，系着细黑领带，穿着高腰黑色长裤和擦亮的黑色皮鞋。她留着齐肩的红棕色头发，有直刘海和两缕垂在脸侧的发辫。她的眼睛是金黄色的，具有明显的同心圆环。\n部分：\n- 左上角：标题 \"真纪真 MAKIMA\" 和副标题 \"角色设定 · 服饰解析 / CHARACTER SETTING · COSTUME BREAKDOWN\"。下方有一句引言：\"人类……终极的滋味是绝望。\"\n- 左列（从上到下）：五个矩形面板，详细说明服装单品：衬衫（白色长袖）、领带（黑色窄款）、西装外套（黑色长尾）、西装裤（高腰）、皮鞋（黑色）。每个面板包含该单品的草图和双语描述。\n- 右列（从上到下）：六个面板，详细说明特征：档案（隶属：公安对魔特异课，身份：支配恶魔，能力：支配）；发型（红发，脑后编成单股辫）；瞳色（深邃的金黄色眼睛）；武器/锁链（由支配之力具现化的锁链）；历史参考（灵感源自中世纪锁链和手铐）；配饰（极简主义风格）。\n- 左下角：一个名为 \"Historical Reference\" 的部分，展示三张穿职业装女性的照片小图，参考昭和时代的美学风格。\n- 底部中央：Logo \"チェンソーマン CHAINSAW MAN\"。\n- 右下角：最后两个面板：道具（带印章的合同文件）和配色方案（红色、米色、白色、黑色、金色的色块）。下方是一个关键词部分，列出：Control, Rationality, Calm, Mystery, Danger。\n视觉风格：高质量数字插画与技术图表美学相结合。英文文本使用衬线字体，中文标签使用标准无衬线字体。"
+    }
+  },
+  "36362": {
+    "en": {
+      "title": "Autumn Street Style Outfit Prompt",
+      "description": "A prompt for generating a cute girl in brown gingham shorts, oversized gray hoodie, and ear muff cap in a relaxed autumn street style pose.",
+      "prompt": "1girl, cute, brown gingham short pants, oversized gray hoodie, ear muff cap, casual autumn outfit, relaxed pose, street style, detailed clothing, masterpiece, best quality"
+    },
+    "zh": {
+      "title": "秋季街头风格穿搭提示词",
+      "description": "用于生成穿着棕色格纹短裤、宽松灰色连帽衫和耳罩帽的可爱女孩，呈现轻松秋日街头风格的提示词。",
+      "prompt": "1girl, cute, brown gingham short pants, oversized gray hoodie, ear muff cap, casual autumn outfit, relaxed pose, street style, detailed clothing, masterpiece, best quality"
+    }
   }
 }
