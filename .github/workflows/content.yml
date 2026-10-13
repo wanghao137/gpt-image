@@ -92,7 +92,7 @@ jobs:
           B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
           B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
           B2_STORE_BUCKET: taostudio-img
-        run: node scripts/purge-noncurrent-versions.mjs
+        run: node scripts/purge-noncurrent-versions.mjs || echo "::warning::noncurrent purge skipped (likely daily transaction cap) — margin absorbs residue"
 
       - name: Bake case images to the B2 store
         # Store mode: localise every external case/template image into the

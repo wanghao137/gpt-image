@@ -252,6 +252,13 @@ async function storeBakeOne(rec) {
       }
       break;
     } catch (err) {
+      if (isTransactionCapError(err)) {
+        // Daily free-tier transaction caps are hard until the
+        // Pacific-midnight reset — retrying inside this run cannot help.
+        markDeferred(baseName, prior, "txn-cap");
+        storeDeferredCount += 1;
+        return { ok: false, rec, deferred: true };
+      }
       if (isCapacityError(err) && attempt < capRetries) {
         const waitMs = 45_000 * (attempt + 1);
         console.warn(
@@ -383,9 +390,25 @@ function storeBudget() {
     : storeBudgetBytes();
 }
 
-/** B2's cap rejection, so a lagging counter can be handled as policy. */
+/**
+ * B2 caps that must be handled as policy, not failure: the STORAGE cap
+ * (bucket full) and the daily TRANSACTION caps (free tier = 2500 Class B
+ * reads + 2500 Class C lists/deletes per day; a mass-eviction day blows
+ * through Class C and the site's own img-case reads then lose Class B —
+ * 2026-10-13). A bake that dies on either used to freeze the whole daily
+ * sync via the hot-link gate; both now defer.
+ */
 function isCapacityError(err) {
-  return /storage cap exceeded/i.test(String(err?.message || err));
+  return /storage cap exceeded|transaction cap exceeded/i.test(
+    String(err?.message || err),
+  );
+}
+
+/** Daily transaction caps are hard until the Pacific-midnight reset —
+ *  retrying inside the run cannot help (unlike the storage-cap counter
+ *  lag, which clears in minutes). */
+function isTransactionCapError(err) {
+  return /transaction cap exceeded/i.test(String(err?.message || err));
 }
 
 /** Mark a record deferred: retryable later, never published hot-linked. */
@@ -411,13 +434,28 @@ function markDeferred(baseName, prior, reason) {
  * await, so concurrent bake workers always see consistent state; only the
  * S3 deletes are awaited at the end. Returns false when the record cannot
  * be admitted — the caller must defer it.
+ *
+ * Evictions cost one Class C transaction each against B2's 2500/day free
+ * allowance, so a single run never evicts more than IMAGE_STORE_EVICT_MAX
+ * rungs: a big backlog deficit spreads across days (records defer in the
+ * meantime — pipeline stays green) instead of exhausting the day's
+ * transaction cap and breaking the site's own image reads (2026-10-13).
  */
+const EVICT_MAX_PER_RUN = Number(process.env.IMAGE_STORE_EVICT_MAX || 1000);
+
 async function reserveStoreBytes(needed) {
   const budget = storeBudget();
   let over = storeBytes + needed - budget;
   if (over > 0) {
     const deletes = [];
     while (over > 0) {
+      if (storeEvictedCount >= EVICT_MAX_PER_RUN) {
+        console.warn(
+          `  eviction cap for this run reached (${EVICT_MAX_PER_RUN} rungs) — ` +
+            `remaining records defer and retry on a later run`,
+        );
+        break;
+      }
       const cand = evictionQueue.items[evictionQueue.cursor];
       if (!cand) break;
       evictionQueue.cursor += 1;

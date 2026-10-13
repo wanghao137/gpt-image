@@ -28,7 +28,6 @@ import {
   PutObjectCommand,
   GetObjectCommand,
   DeleteObjectCommand,
-  ListObjectVersionsCommand,
 } from "@aws-sdk/client-s3";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -113,48 +112,21 @@ export async function storeGet(client, key) {
 }
 
 /**
- * Hard-delete one object and ALL its stored versions. The bucket is
- * versioned: a plain DeleteObject only demotes the current version to a
- * still-billed noncurrent one (the 2026-10-13 eviction run freed nothing
- * until purged — 2407 versions kept 0.35GB hostage). Listing the key's
- * versions and deleting each one frees space immediately.
+ * Delete an object's current version (one Class C transaction).
+ *
+ * On this versioned bucket a plain delete demotes the version to a
+ * still-billed noncurrent one rather than freeing space — that residue is
+ * cleaned by the purge-noncurrent-versions.mjs sweep that runs before every
+ * bake in CI (and permanently by the bucket's "keep only last version"
+ * lifecycle rule, if set in the B2 console). Eviction loops call this once
+ * per rung; the old list-then-hard-delete-every-version variant burned ~3
+ * Class C calls per rung and blew the 2500/day free transaction cap on the
+ * 2026-10-13 catch-up (2400 rungs).
  */
 export async function storeDelete(client, key) {
   try {
-    let keyMarker;
-    let versionMarker;
-    for (;;) {
-      const listed = await client.send(
-        new ListObjectVersionsCommand({
-          Bucket: BUCKET,
-          Prefix: key,
-          MaxKeys: 100,
-          KeyMarker: keyMarker,
-          VersionIdMarker: versionMarker,
-        }),
-      );
-      const doomed = [
-        ...(listed.Versions || []).filter((v) => v.Key === key),
-        ...(listed.DeleteMarkers || []).filter((v) => v.Key === key),
-      ];
-      for (const v of doomed) {
-        try {
-          await client.send(
-            new DeleteObjectCommand({
-              Bucket: BUCKET,
-              Key: key,
-              VersionId: v.VersionId,
-            }),
-          );
-        } catch (err) {
-          console.warn(`  store delete failed ${key}@${v.VersionId}: ${err?.message || err}`);
-          return false;
-        }
-      }
-      if (!listed.IsTruncated) return true;
-      keyMarker = listed.NextKeyMarker;
-      versionMarker = listed.NextVersionIdMarker;
-    }
+    await client.send(new DeleteObjectCommand({ Bucket: BUCKET, Key: key }));
+    return true;
   } catch (err) {
     console.warn(`  store delete failed ${key}: ${err?.message || err}`);
     return false;
