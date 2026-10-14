@@ -54196,16 +54196,148 @@
       "prompt": "目标：为《电锯人》中的 {argument name=\"character name\" default=\"Makima\"} 创建详细的动漫角色设计表和服装分解。\n画布：垂直肖像布局，背景为略带纹理的米白色纸张。风格简洁、专业，类似概念艺术参考页。\n布局：角色全身插图位于中心。周围环绕着带有线条草图和中英文描述文本的标注部分。细红线将她的服装特定部位连接到相应的细节框。\n主体细节：Makima 自信地站立，身穿黑色长尾外套，内搭挺括的白色纽扣衬衫，系着细黑领带，穿着高腰黑色长裤和擦亮的黑色皮鞋。她留着齐肩的红棕色头发，有直刘海和两缕垂在脸侧的发辫。她的眼睛是金黄色的，具有明显的同心圆环。\n部分：\n- 左上角：标题 \"真纪真 MAKIMA\" 和副标题 \"角色设定 · 服饰解析 / CHARACTER SETTING · COSTUME BREAKDOWN\"。下方有一句引言：\"人类……终极的滋味是绝望。\"\n- 左列（从上到下）：五个矩形面板，详细说明服装单品：衬衫（白色长袖）、领带（黑色窄款）、西装外套（黑色长尾）、西装裤（高腰）、皮鞋（黑色）。每个面板包含该单品的草图和双语描述。\n- 右列（从上到下）：六个面板，详细说明特征：档案（隶属：公安对魔特异课，身份：支配恶魔，能力：支配）；发型（红发，脑后编成单股辫）；瞳色（深邃的金黄色眼睛）；武器/锁链（由支配之力具现化的锁链）；历史参考（灵感源自中世纪锁链和手铐）；配饰（极简主义风格）。\n- 左下角：一个名为 \"Historical Reference\" 的部分，展示三张穿职业装女性的照片小图，参考昭和时代的美学风格。\n- 底部中央：Logo \"チェンソーマン CHAINSAW MAN\"。\n- 右下角：最后两个面板：道具（带印章的合同文件）和配色方案（红色、米色、白色、黑色、金色的色块）。下方是一个关键词部分，列出：Control, Rationality, Calm, Mystery, Danger。\n视觉风格：高质量数字插画与技术图表美学相结合。英文文本使用衬线字体，中文标签使用标准无衬线字体。"
     }
   },
+  "36360": {
+    "en": {
+      "title": "Eastern Minimalist Gongbi Style Prompts for GPT Image 2",
+      "description": "Prompts combining fine line drawing, high-purity Eastern color fields, and symbolic actions to create modern minimalist posters with traditional Chinese painting aesthetics.",
+      "prompt": "[Character / Subject], Gongbi fine-line illustration × Eastern allegorical narrative × Japanese painting-style dense biological description. The subject is shaped with extremely fine ink lines and transparent light washes; skin, hands, hair, or fabrics are depicted with high-density directional fine lines, precise in detail but maintaining overall flatness. The background uses a large area of single cinnabar red or other high-purity Eastern comprehensive color fields, establishing no real spatial perspective. The scene revolves around a highly explicit symbolic action, such as touching the forehead, handing over an object, pointing, stroking, or bowing, letting the action itself carry spirituality or allegory. Add cyan-green, gold, swirling clouds, Ruyi patterns, or classical borders to parts of the clothing, forming a visual fusion between Gongbi figure painting and modern minimalist posters."
+    },
+    "zh": {
+      "title": "东方极简主义海报风格提示词",
+      "description": "适用于生成具有精细线条艺术和高纯度东方色块的图像，适合以极简海报风格表现神话或象征性角色。",
+      "prompt": "{argument name=\"subject\" default=\"角色 / 主体\"}，工笔白描插画 x 东方寓言叙事 x 日式绘画风格的生物细节描绘。主体由极细的墨线和透明浅色塑造；皮肤、手部、头发或织物通过高密度定向细线表现，细节精准但保持整体平面感。背景采用大面积单一朱砂红或其他高纯度东方复合色块，不建立真实空间透视。图像围绕一个高度明确的象征性动作展开，如触碰额头、递送物品、指点、抚摸或鞠躬，让动作本身承载灵性或寓意。服装局部添加青绿、金色、祥云、如意纹样或古典边框，形成工笔人物画与现代极简海报之间的视觉融合。"
+    }
+  },
   "36362": {
     "en": {
-      "title": "Autumn Street Style Outfit Prompt",
-      "description": "A prompt for generating a cute girl in brown gingham shorts, oversized gray hoodie, and ear muff cap in a relaxed autumn street style pose.",
+      "title": "Brown Gingham Street Style Prompt",
+      "description": "A prompt for creating a casual autumn street style image with brown gingham shorts and a gray hoodie using GPT Image 2.",
       "prompt": "1girl, cute, brown gingham short pants, oversized gray hoodie, ear muff cap, casual autumn outfit, relaxed pose, street style, detailed clothing, masterpiece, best quality"
     },
     "zh": {
       "title": "秋季街头风格穿搭提示词",
       "description": "用于生成穿着棕色格纹短裤、宽松灰色连帽衫和耳罩帽的可爱女孩，呈现轻松秋日街头风格的提示词。",
       "prompt": "1girl, cute, brown gingham short pants, oversized gray hoodie, ear muff cap, casual autumn outfit, relaxed pose, street style, detailed clothing, masterpiece, best quality"
+    }
+  },
+  "36365": {
+    "en": {
+      "title": "Dunhuang Flying Apsara Playing Pipa",
+      "description": "A cinematic fantasy portrait of a Dunhuang Flying Apsara musician playing a pipa amidst a moonlit lotus pond and ancient cave temples.",
+      "prompt": "A breathtaking cinematic portrait of a young Asian woman styled as a Dunhuang Flying Apsara musician, playing a pipa. She has long, flowing black hair adorned with an elaborate silver floral headdress featuring dangling beaded tassels and a delicate forehead ornament. Her eyes are closed in a serene expression, showcasing flawless porcelain skin with soft makeup. She wears luxurious white and pale blue silk robes with intricate gold embroidery and sheer, translucent ribbons that float dynamically around her, creating a sense of weightlessness. The scene is set at night under a bright full moon. In the background to the right, ancient stone cave temples carved into cliffs glow warmly from within, filled with Buddha statues and hundreds of flickering candles. To the left, faded traditional Buddhist murals adorn the rock walls. In the foreground, a tranquil lotus pond features blooming white lotus flowers and floating lanterns. The lighting is ethereal and dreamlike, combining cool moonlight with warm candlelight, enhanced by a Pro-Mist diffusion effect that creates a soft bloom around highlights and a glowing halo on the subject's hair."
+    },
+    "zh": {
+      "title": "敦煌飞天弹琵琶",
+      "description": "生成一幅奇幻肖像，描绘一位中国天界乐师在月光下的洞穴与莲花池背景下弹奏琵琶。",
+      "prompt": "一幅电影级、高分辨率的数字绘画，描绘了夜晚中一位敦煌飞天（Feitian）正在弹奏琵琶。画面中央是一位优雅年轻的女性，皮肤白皙，五官精致，双眼微闭，神情宁静专注。她身着华丽的银白色天界长裙，裙上绣有繁复的花卉图案，轻盈飘逸的蓝色丝带在她身体周围动态旋转，营造出一种失重感。她的头发梳成复杂的传统发髻，头戴镶嵌珠宝的银色冠冕，垂挂着珍珠流苏，头部后方环绕着发光的光环效果。她垂直持握着一把木质琵琶，手指置于琴弦之上。背景展现了神秘古老的石窟寺庙，雕刻于右侧岩石峭壁之中，被温暖的金色烛光所照亮，与清冷的月光氛围形成对比。右下角前景处，一个宁静的莲花池散发着光芒，池中盛开着白色的莲花并漂浮着灯笼。一轮巨大明亮的满月悬挂在悬崖上方深蓝色的星空之中。光线柔和而空灵，运用了“Pro-Mist”效果，使月光产生奶油般的光晕，边缘光勾勒出她头发和丝带的轮廓。整体色调平衡了冰蓝色、银色与暖金色、棕色。"
+    }
+  },
+  "36401": {
+    "en": {
+      "title": "Horus Heresy Final Duel",
+      "description": "Generates a dramatic Warhammer 40k scene featuring the Emperor and Warmaster Horus aboard the Vengeful Spirit.",
+      "prompt": "The final duel of the Horus Heresy. Aboard the Vengeful Spirit in orbit above a burning Terra, the Emperor of Mankind faces his favored son, Warmaster Horus, now fully consumed by Chaos."
+    },
+    "zh": {
+      "title": "荷鲁斯之乱最终决斗",
+      "description": "生成一个戏剧性的战锤 40k 场景，描绘帝皇与荷鲁斯在复仇之魂号上的对决。",
+      "prompt": "荷鲁斯之乱的最终决斗。在燃烧中的泰拉轨道上，人类帝皇于复仇之魂号内直面他曾经最宠爱的儿子——已被混沌彻底吞噬的战争领主荷鲁斯。"
+    }
+  },
+  "36402": {
+    "en": {
+      "title": "Anime Character Behind Real Subject Prompt",
+      "description": "A detailed prompt for generating an image where a small anime version of the subject stands behind them holding a flashlight, creating rim lighting effects. Uses GPT Image 2 on ChatGPT.",
+      "prompt": "Transform the main subject into a realistic photographic scene featuring a small full-body anime/cartoon version of the same person positioned directly behind them.\n\nSUBJECT PRESERVATION:\nKeep the real subject completely unchanged. Preserve their exact identity, facial features, hairstyle, clothing, accessories, body proportions, pose, position, framing and recognizable details. Do not modify the original subject.\n\nANIME CHARACTER:\nCreate a small full-body anime/cartoon version of the same subject. Match the original hairstyle, outfit, accessories, colors and recognizable visual details precisely. Use a clean modern anime aesthetic with sharp controlled linework, slightly oversized head, compact body proportions, expressive facial details and subtle cel shading. The character should clearly resemble the original subject while remaining intentionally stylized.\n\nPOSITION & ACTION:\nPlace the anime character directly behind the real subject, naturally aligned with the original body position. The anime character is holding a flashlight with both hands and aiming it forward toward the subject's back.\n\nLIGHTING:\nCreate an intense, realistic white flashlight beam originating from behind the subject. The beam should visibly illuminate the subject from the rear, creating strong natural rim lighting along the silhouette, subtle atmospheric glow and realistic light spill across the surrounding environment.\n\nAdd controlled volumetric light within the beam, with a soft falloff rather than an artificial solid cone. The illuminated edges should glow naturally without creating excessive bloom.\n\nENVIRONMENT:\nSlightly dim the existing outdoor ambient light to create stronger cinematic contrast while preserving the original environment, colors, textures and lighting logic. Keep the background realistic and photographic.\n\nSHADOWS & DEPTH:\nCreate physically believable shadows based on the flashlight direction. Maintain realistic contact shadows, light falloff and depth between the anime character, real subject and environment.\n\nCOMPOSITION LOCK:\nPreserve the original camera angle, perspective, framing, spatial arrangement and overall composition. Do not move, crop, replace, add or remove environmental elements except for the anime character and its flashlight.\n\nSTYLE:\nPhotorealistic outdoor photography combined with a clean modern anime character integration. The anime character should look intentionally illustrated while the real subject and environment remain fully photographic. Seamless lighting interaction between the stylized character and the real-world scene.\n\nQUALITY:\nUltra-realistic lighting, cinematic contrast, realistic white light, natural rim glow, subtle volumetric atmosphere, detailed textures, sharp subject separation, high dynamic range, professional photography, 4K.\n\nDO NOT:\nDo not alter the real subject's identity, face, hairstyle, clothing, accessories, pose or proportions. Do not turn the real subject"
+    },
+    "zh": {
+      "title": "真实主体背后的动漫角色提示词",
+      "description": "一个详细的提示词，用于生成一张图片：主体的小型动漫版本站在其身后，手持手电筒，营造出轮廓光效果。使用 ChatGPT 上的 GPT Image 2。",
+      "prompt": "将主要主体转化为逼真的摄影场景，其中包含一个位于主体正后方的小型全身动漫/卡通版本的同一个人。\n\n主体保留：\n保持真实主体完全不变。保留其确切身份、面部特征、发型、服装、配饰、身体比例、姿势、位置、构图和可识别的细节。不要修改原始主体。\n\n动漫角色：\n创建一个与同一主体匹配的小型全身动漫/卡通版本。精确匹配原始发型、服装、配饰、颜色和可识别的视觉细节。采用简洁的现代动漫美学，具有锐利且受控的线条、略大的头部、紧凑的身体比例、富有表现力的面部细节和微妙的赛璐璐阴影。该角色应明显类似于原始主体，同时保持有意为之的风格化。\n\n位置与动作：\n将动漫角色直接放置在真实主体身后，自然对齐原始身体位置。动漫角色双手持手电筒，并将其向前瞄准主体的背部。\n\n光照：\n从主体背后产生强烈、逼真的白色手电筒光束。光束应从后方照亮主体，沿剪影形成强烈的自然轮廓光、微妙的大气辉光以及周围环境中逼真的光线溢出。\n\n在光束中添加受控的体积光，具有柔和的衰减而非人工的实心锥体。被照亮的边缘应自然发光，不会产生过度的泛光。\n\n环境：\n略微调暗现有的户外环境光，以创造更强的电影感对比度，同时保留原始环境、颜色、纹理和光照逻辑。保持背景逼真且具有摄影感。\n\n阴影与深度：\n根据手电筒方向创建物理上可信的阴影。保持动漫角色、真实主体和环境之间逼真的接触阴影、光线衰减和深度。\n\n构图锁定：\n保留原始相机角度、透视、构图、空间排列和整体布局。除了动漫角色及其手电筒外，不要移动、裁剪、替换、添加或移除环境元素。\n\n风格：\n逼真的户外摄影结合简洁的现代动漫角色集成。动漫角色看起来应是有意绘制的，而真实主体和环境则保持完全的摄影感。风格化角色与现实世界场景之间的无缝光照互动。\n\n质量：\n超逼真的光照、电影感对比度、逼真的白光、自然的轮廓辉光、微妙的大气体积感、详细的纹理、清晰的主体分离、高动态范围、专业摄影、4K。\n\n禁止事项：\n不要改变真实主体的身份、面部、发型、服装、配饰、姿势或比例。不要将真实主体"
+    }
+  },
+  "36403": {
+    "en": {
+      "title": "Find What Makes You Happy Collage",
+      "description": "Creates an ultra-photorealistic lifestyle photography collage with a 3x3 grid of imaginative scenes featuring a South Asian woman interacting with oversized objects like pencils, books, and coffee mugs.",
+      "prompt": "Create an ultra-photorealistic, premium 8K Ultra HD conceptual lifestyle photography collage in a vertical 4:5 aspect ratio (4320 × 5400 pixels), inspired by the uploaded reference image. Design a beautiful minimalist white poster with a bold black rectangular frame containing a perfectly aligned 3×3 grid of nine imaginative scenes featuring the same cheerful adult South Asian woman with shoulder-length dark hair, a warm smile, and natural facial features. Preserve consistent facial identity, realistic skin texture, and natural body proportions across all nine scenes.\nTop row: The woman walks playfully on an oversized yellow pencil surrounded by hand-drawn clouds and mountains; climbs a giant stack of books beside a glowing lightbulb illustration; and balances joyfully on a giant silver spoon floating in creamy white milk splashes.\nMiddle row: She sits on a giant folded paper airplane above a charming hand-drawn cityscape; rides a friendly oversized snail through a whimsical illustrated landscape; and relaxes cozily inside a giant white coffee mug decorated with a heart.\nBottom row: She sits on a swing suspended between oversized black headphones, surrounded by musical notes; stands confidently inside a large hand-drawn maze with a question mark above her head; and sits on a colorful giant Rubik’s Cube surrounded by floating mathematical formulas.\nGive each scene a unique stylish outfit in soft pastel colors, including beige, white, sage green, mustard yellow, blush pink, and lavender, paired with clean white sneakers. Use a soft white studio background, diffused natural lighting, realistic shadows, intricate textures, playful forced perspective, seamless compositing, and a sophisticated editorial photography aesthetic. On the left side of the poster, add large, vertically arranged, hand-lettered charcoal-black typography reading exactly: “FIND WHAT MAKES YOU HAPPY”. Decorate the headline with three small pastel flowers at the top and three pastel-colored hearts at the bottom. Maintain clean spacing, crisp panel divisions, a premium black frame, and a balanced composition. Ensure all text is correctly spelled and legible, with no extra text, watermarks, or logos. The final image should feel inspirational, artistic, joyful, and highly shareable on social media, with exceptional detail and 8K-quality rendering."
+    },
+    "zh": {
+      "title": "寻找快乐源泉拼贴画",
+      "description": "创建一张超写实生活方式摄影拼贴画，采用 3x3 网格布局，展示富有想象力的场景：一位南亚女性与铅笔、书籍和咖啡杯等超大物体互动。",
+      "prompt": "创作一张超写实、高端的 8K Ultra HD 概念生活方式摄影拼贴画，采用垂直 4:5 宽高比（4320 × 5400 像素），灵感源自上传的参考图像。设计一张精美的极简主义白色海报，带有醒目的黑色矩形边框，内含完美对齐的 3×3 网格，包含九个富有想象力的场景，主角均为同一位开朗的成年南亚女性，留着齐肩深色头发，面带温暖微笑，五官自然。在所有九个场景中保持一致的面部特征、逼真的皮肤纹理和自然的身体比例。\n\n顶行：女子俏皮地走在巨大的黄色铅笔上，周围环绕着手绘云朵和山脉；攀爬在发光灯泡插图旁的一摞巨大书籍；并快乐地平衡在漂浮于奶油般白色牛奶飞溅中的巨大银勺上。\n\n中行：她坐在巨大的折叠纸飞机上，下方是迷人的手绘城市景观；骑着一只友好的巨型蜗牛穿过异想天开的插画风景；舒适地放松在装饰有心形的巨大白色咖啡杯中。\n\n底行：她坐在悬挂于巨大黑色耳机之间的秋千上，周围环绕着音符；自信地站在一个大型手绘迷宫中，头顶上方有一个问号；坐在色彩缤纷的巨大魔方上，周围漂浮着数学公式。\n\n为每个场景搭配独特的时尚服装，采用柔和的粉彩色调，包括米色、白色、鼠尾草绿、芥末黄、腮红粉和薰衣草紫，搭配干净的白色运动鞋。使用柔和的白色工作室背景、漫射自然光、逼真阴影、复杂纹理、俏皮的强制透视、无缝合成以及精致的编辑摄影美学。在海报左侧添加大号垂直排列的手写炭黑色字体，内容严格为：“FIND WHAT MAKES YOU HAPPY”。标题顶部装饰三朵小粉彩花朵，底部装饰三颗粉彩心形。保持整洁间距、清晰面板分隔、高端黑色边框和平衡构图。确保所有文本拼写正确且清晰可读，无额外文本、水印或标志。最终图像应感觉鼓舞人心、充满艺术感、愉悦，并在社交媒体上极具分享价值，拥有卓越细节和 8K 质量渲染。"
+    }
+  },
+  "36406": {
+    "en": {
+      "title": "Debonair Man with Bowling Gear Prompt",
+      "description": "A prompt for generating an image of a man in a brown trench coat holding a green bowling ball and wearing multi-colored shoes, styled to look debonair.",
+      "prompt": "a man appears\nwearing a brown trench coat\nlooking debonair\ndespite his green bowling ball\nand multi-colored bowling shoes"
+    },
+    "zh": {
+      "title": "优雅男士保龄球装备提示词",
+      "description": "用于生成一张图片的提示词，画面中一位身穿棕色风衣、手持绿色保龄球并穿着多彩鞋子的男士，呈现出优雅迷人的风格。",
+      "prompt": "一位男士出现\n身着棕色风衣\n气质优雅迷人\n尽管他手持绿色保龄球\n脚穿多彩保龄球鞋"
+    }
+  },
+  "36407": {
+    "en": {
+      "title": "Dancer Pose with Strip Light Prompt",
+      "description": "A prompt for generating an image of a dancer held at the last count of a phrase, arm curved over head, lit by a single cold strip light from the right.",
+      "prompt": "A dancer held at the last count of a phrase, one arm curved over his head, a single cold strip light from the right."
+    },
+    "zh": {
+      "title": "舞者姿态与条形灯提示词",
+      "description": "用于生成舞者图像的提示词：捕捉乐句最后一个节拍的定格瞬间，手臂弯曲置于头顶，右侧单根冷色条形灯照明。",
+      "prompt": "捕捉乐句最后一个节拍的定格瞬间，一只手臂弯曲置于头顶，右侧单根冷色条形灯照明。"
+    }
+  },
+  "36408": {
+    "en": {
+      "title": "Wireless Doorbell Camera Instructions Prompt",
+      "description": "A prompt for generating an image of packages arriving with a wireless doorbell camera and unreadably small instructions.",
+      "prompt": "packages arrive…\na wireless doorbell camera\nwith instructions\nwhich would be confusing\nif they weren’t too small to read"
+    },
+    "zh": {
+      "title": "无线门铃摄像头说明书提示词",
+      "description": "用于生成包裹到达时附带无线门铃摄像头及无法辨认的微型说明书图像的提示词。",
+      "prompt": "包裹送达…\n一个无线门铃摄像头\n附带说明书\n如果字迹不是小到无法阅读\n这些说明本会让人困惑"
+    }
+  },
+  "36409": {
+    "en": {
+      "title": "TV Director Anime Girl",
+      "description": "An anime illustration of a female TV director working in a control room, featuring Japanese text overlays and a busy broadcast background.",
+      "prompt": "A vertical anime-style illustration of a young woman working as a television director in a control room. She has short, messy blonde hair and is wearing a headset with a microphone. Her outfit consists of an oversized black jacket worn off one shoulder over a white top. She holds a pen near her chin with one hand while operating a mixing console with the other. The background is filled with multiple monitors displaying various TV show scenes and Japanese text overlays like 'ON AIR' and timestamps. There are sticky notes on the screens with handwritten Japanese notes about show planning. A coffee cup sits on the desk to the right. Large, stylized yellow and white Japanese text overlays the bottom foreground: '一文字で、空気が変わる。'. The lighting is vibrant and colorful, typical of a busy broadcast environment."
+    },
+    "zh": {
+      "title": "电视导播动漫少女",
+      "description": "一幅描绘女性电视导播在控制室工作的动漫插画，画面包含日文字幕叠加层和繁忙的广播背景。",
+      "prompt": "这是一幅竖版动漫风格插画，描绘了一位年轻女性在控制室担任电视导播的场景。她留着凌乱的金色短发，佩戴着带麦克风的耳机。身穿一件宽松黑色夹克，随意地滑落至一侧肩膀，内搭白色上衣。她一手将笔轻抵在下巴附近，另一手正在操作混音控制台。背景中布满了多个显示器，屏幕上播放着各种电视节目画面，并叠加有“ON AIR”字样和时间戳等日文文字。屏幕上还贴着写有关于节目策划手写笔记的便利贴。右侧桌面上放着一杯咖啡。前景底部覆盖着醒目的黄色与白色艺术字日文标语：“一文字で、空気が変わる。”（一字之差，氛围迥异）。整体光线鲜艳多彩，呈现出典型繁忙广播环境下的视觉效果。"
+    }
+  },
+  "36410": {
+    "en": {
+      "title": "Multi-Symbol Composite Expression System",
+      "description": "A prompt for GPT-image-2 to generate realistic faces combining multiple conflicting emoji symbols into a single natural expression.",
+      "prompt": "[Character], adult realistic style, preserve core identity features of the character.\nMulti-symbol composite expression: 🥺 😢 😼 (｡•́︿•̀｡) (¬‿¬).\nInner eyebrows raised, eye sockets appear moist, lower lip lightly pursed, yet one side of the mouth corner reveals suppressed smugness.\nUnify multiple emotions into one natural, real face, clear facial details, close-up portrait photography, 3:4 vertical format, tiny voxcat signature on the right edge."
+    },
+    "zh": {
+      "title": "多符号复合表情系统",
+      "description": "为 GPT-image-2 设计的提示词，用于生成将多个冲突的 emoji 符号融合为单一自然表情的逼真面部图像。",
+      "prompt": "[角色], 成人写实风格, 保留角色的核心身份特征。\n多符号复合表情: 🥺 😢 😼 (｡•́︿•̀｡) (¬‿¬).\n内侧眉毛上扬, 眼眶湿润, 下唇微微抿起, 但嘴角一侧流露出压抑的得意神情。\n将多种情绪统一为一张自然、真实的面孔, 面部细节清晰, 特写人像摄影, 3:4 竖版格式, 右侧边缘带有微小的 voxcat 签名。"
+    }
+  },
+  "36411": {
+    "en": {
+      "title": "Silhouette on Mountain Peak at Cosmic Sunset",
+      "description": "Generates a dramatic image of a person silhouetted against a curved planetary horizon where night meets day.",
+      "prompt": "A majestic, surreal landscape featuring a lone silhouette of a person standing on a jagged rocky peak in the foreground. The figure has one arm raised triumphantly toward the sky. Above them, the horizon curves dramatically like the edge of a planet, separating a sea of clouds below from an epic sky above. The sky is split into two distinct zones: the upper portion is a deep blue starry night with swirling nebulae and constellations, while the lower band glows with intense golden-orange sunset light, creating a fiery contrast. Below the curved horizon, layers of fluffy white and grey clouds drift among distant mountain ranges, illuminated by the warm glow of the setting sun. The overall atmosphere is awe-inspiring, cinematic, and fantastical, blending elements of space exploration with terrestrial beauty."
+    },
+    "zh": {
+      "title": "宇宙日落下的山峰剪影",
+      "description": "生成一张戏剧性的图像，展示一个人物的剪影映衬在昼夜交界的弯曲行星地平线上。",
+      "prompt": "一幅宏伟而超现实的风景画，前景中一个孤独的人影站在崎岖的岩石峰顶。人物高举一只手臂，胜利地伸向天空。在他们上方，地平线如行星边缘般剧烈弯曲，将下方的云海与上方壮丽的天空分隔开来。天空分为两个截然不同的区域：上部是深蓝色的星空，点缀着旋转的星云和星座；下部则闪烁着强烈的金橙色日落光芒，形成炽热的对比。在弯曲的地平线下方，层层蓬松的白色和灰色云朵漂浮在远处的山脉之间，被夕阳的温暖光辉照亮。整体氛围令人敬畏、具有电影感且充满奇幻色彩，融合了太空探索的元素与大地的自然之美。"
     }
   }
 }
