@@ -54234,8 +54234,8 @@
   },
   "36401": {
     "en": {
-      "title": "Horus Heresy Final Duel",
-      "description": "Generates a dramatic Warhammer 40k scene featuring the Emperor and Warmaster Horus aboard the Vengeful Spirit.",
+      "title": "Horus Heresy Final Duel Scene",
+      "description": "A prompt for generating a dramatic Warhammer 40k scene depicting the final duel between the Emperor and Horus aboard the Vengeful Spirit.",
       "prompt": "The final duel of the Horus Heresy. Aboard the Vengeful Spirit in orbit above a burning Terra, the Emperor of Mankind faces his favored son, Warmaster Horus, now fully consumed by Chaos."
     },
     "zh": {
@@ -54318,9 +54318,9 @@
   },
   "36410": {
     "en": {
-      "title": "Multi-Symbol Composite Expression System",
-      "description": "A prompt for GPT-image-2 to generate realistic faces combining multiple conflicting emoji symbols into a single natural expression.",
-      "prompt": "[Character], adult realistic style, preserve core identity features of the character.\nMulti-symbol composite expression: 🥺 😢 😼 (｡•́︿•̀｡) (¬‿¬).\nInner eyebrows raised, eye sockets appear moist, lower lip lightly pursed, yet one side of the mouth corner reveals suppressed smugness.\nUnify multiple emotions into one natural, real face, clear facial details, close-up portrait photography, 3:4 vertical format, tiny voxcat signature on the right edge."
+      "title": "Multi-Symbol Composite Expression Portrait",
+      "description": "A prompt for generating a realistic portrait that fuses multiple emoji expressions (sad, crying, smug) into a natural human face using GPT Image 2.",
+      "prompt": "{argument name=\"character\" default=\"[Character Description]\"}, adult realistic humanization, retaining core identity features of the character.\nMulti-symbol composite expression: 🥺 😢 😼 (｡•́︿•̀｡) (¬‿¬).\nInner eyebrows raised, eyes appearing moist, lower lip lightly pressed, while one side of the mouth reveals suppressed smugness.\nUnify multiple emotions into one natural, realistic face, with clear facial details, close-range portrait photography, 3:4 vertical format, tiny voxcat signature on the right edge."
     },
     "zh": {
       "title": "多符号复合表情系统",
@@ -54338,6 +54338,186 @@
       "title": "宇宙日落下的山峰剪影",
       "description": "生成一张戏剧性的图像，展示一个人物的剪影映衬在昼夜交界的弯曲行星地平线上。",
       "prompt": "一幅宏伟而超现实的风景画，前景中一个孤独的人影站在崎岖的岩石峰顶。人物高举一只手臂，胜利地伸向天空。在他们上方，地平线如行星边缘般剧烈弯曲，将下方的云海与上方壮丽的天空分隔开来。天空分为两个截然不同的区域：上部是深蓝色的星空，点缀着旋转的星云和星座；下部则闪烁着强烈的金橙色日落光芒，形成炽热的对比。在弯曲的地平线下方，层层蓬松的白色和灰色云朵漂浮在远处的山脉之间，被夕阳的温暖光辉照亮。整体氛围令人敬畏、具有电影感且充满奇幻色彩，融合了太空探索的元素与大地的自然之美。"
+    }
+  },
+  "36446": {
+    "en": {
+      "title": "Purple Blouse Black Shorts Outfit Prompt",
+      "description": "A prompt for generating an elegant purple and black outfit image using ChatGPT Image 2.",
+      "prompt": "OUTFIT:\n\nA soft purple blouse paired with simple black shorts.\n\nStyled with high heels.\n\nClean, feminine, lightly elegant fashion aesthetic.\nPurple and black color scheme.\nNo extra decorations."
+    },
+    "zh": {
+      "title": "紫色衬衫黑色短裤穿搭提示词",
+      "description": "使用 ChatGPT Image 2 生成优雅紫色与黑色搭配服装图像的提示词。",
+      "prompt": "穿搭：\n\n一件柔和的紫色衬衫，搭配简约的黑色短裤。\n\n配以高跟鞋。\n\n干净、女性化且略带优雅的时尚美学。\n紫色与黑色的配色方案。\n无多余装饰。"
+    }
+  },
+  "36447": {
+    "en": {
+      "title": "Halloween Spider Web Lace Dress Prompt",
+      "description": "A detailed prompt for generating a Halloween-themed spider web lace dress image using ChatGPT Image 2.",
+      "prompt": "🕸️ Moonlit Halloween Night Ball - Spider Web Lace Dress\n\n[Aspect Ratio] 4:5 Vertical\n\n[Most Important: Character Reproduction]\n\nUse the attached character image as the most important reference.\n\nFaithfully maintain facial features, eye color and shape, hairstyle, hair color, bangs, contour, age impression, and the person's soft atmosphere. Do not change the identity.\n\nHigh-definition pastel-colored shoujo manga/anime style. Delicate line art and transparent, soft coloring.\n\n[Theme]\n\nA cute adult woman heading to a Halloween night ball under moonlight.\n\nAdd subtle gothic vibes with spider web lace to an elegant and romantic atmosphere.\n\n[Outfit]\n\nLavender off-shoulder mini one-piece dress.\n\nDelicate frills and small pearl decorations on the chest.\n\nTie a thin black satin ribbon around the waist to emphasize the slender silhouette.\n\nThe skirt is made of soft lavender fabric overlaid with sheer cream tulle, creating a fluffy, expanding design.\n\n🕸️ Spider Web Embroidery (Important)\n\nExpress spider webs not just as lace patterns, but as beautiful embroidery symbolizing Halloween.\n\nPlace delicate spider web embroidery of various sizes across the entire hem of the skirt.\n\nAdd more spider web embroidery spaced out in the middle section of the skirt.\n\nBase the web threads on near-white cream color, using extremely fine ink-black threads in some parts.\n\nEnsure the radial and arc-shaped threads of the web are visible, forming natural and beautiful shapes.\n\nMedium density of embroidery. Leave sufficient whitespace and transparency in the fabric.\n\nExpression where the spider web stands out three-dimensionally due to overlapping lace layers.\n\nEnsure moderate contrast with the background lavender so the spider web pattern is recognizable from a distance.\n\n[Capelet]\n\nShort cream-colored capelet on the shoulders.\n\nApply delicate spider web embroidery along the edges, weaving in extremely fine ink-black threads in several places.\n\nUnify with the same spider web motif as the skirt for a light and elegant finish.\n\n[Accessories]\n\nNo hat.\n\nSmall, cute deformed spider brooch at the neck. Delicate design combining black and lavender gems.\n\nOne small spider charm hanging from the edge of the capelet.\n\nHair accessory is a subdued cream-colored ribbon.\n\nShoes are pale lavender pumps with ribbons.\n\n[Pose & Expression]\n\nComposition where the full body looks natural.\n\nLightly hold both ends of the skirt with both hands to show the beautiful spread of the spider web embroidery.\n\nElegant and natural standing pose with one foot slightly forward.\n\nQuiet, happy smile looking towards the viewer.\n\nNatural physique and limb balance typical of an adult woman.\n\n[Background]\n\nHalloween night illuminated by a large full moon.\n\nThin clouds and small stars in the deep blue night sky.\n\nSoftly lit Gothic mansion in the background.\n\nPlace only one small Jack-o'-lantern in the distance.\n\nKeep the background subdued to highlight the outfit, making the person and spider web lace the main focus.\n\n[Color Scheme]\n\nMain: Pale Lavender\nSub: Near-white Cream\nAccent: Thin Ink Black\nBackground: Deep Night Blue\nLight: Soft Silver-white Moonlight\n\nDo not use vivid orange, excessive black, or overly strong contrasts.\n\n[Finish]\n\nElegant, cute, and fantastical pastel Halloween.\n\nSpider web embroidery is clearly visible but does not cover the entire dress.\n\nDescribe delicate lace, soft frills, and moonlight-translucent tulle in high definition.\n\nA beautiful single image balancing \"Cute Night Ball Dress\" and \"Halloween Spider Web Vibes\".\n\nNo text. No hat. No excessive spiders or pumpkin decorations. Natural fingers and legs. Full body fits within the frame."
+    },
+    "zh": {
+      "title": "万圣节蜘蛛网蕾丝连衣裙提示词",
+      "description": "使用 ChatGPT Image 2 生成万圣节主题蜘蛛网蕾丝连衣裙图像的详细提示词。",
+      "prompt": "🕸️ 月光下的万圣节舞会 - 蜘蛛网蕾丝连衣裙\n\n[宽高比] 4:5 竖版\n\n[最重要：角色还原]\n\n将附带的角色图像作为最重要的参考。\n\n忠实保留面部特征、眼睛颜色与形状、发型、发色、刘海、轮廓、年龄感以及人物柔和的气质。不要改变身份。\n\n高清粉彩少女漫画/动漫风格。精致的线条艺术和透明、柔和的上色。\n\n[主题]\n\n一位可爱的成年女性前往月光下的万圣节舞会。\n\n在优雅浪漫的氛围中，通过蜘蛛网蕾丝增添微妙的哥特风情。\n\n[服装]\n\n淡紫色露肩迷你连衣裙。\n\n胸前有精致的荷叶边和小珍珠装饰。\n\n腰间系一条细黑色缎带，以强调纤细的剪影。\n\n裙摆由柔软的淡紫色面料制成，外层覆盖透明的奶油色薄纱，营造出蓬松、展开的设计效果。\n\n🕸️ 蜘蛛网刺绣（重要）\n\n将蜘蛛网表现为象征万圣节的美丽刺绣，而不仅仅是蕾丝图案。\n\n在裙摆底部均匀分布各种尺寸的精致蜘蛛网刺绣。\n\n在裙子中部间隔添加更多蜘蛛网刺绣。\n\n蛛丝以接近白色的奶油色为主，部分区域使用极细的墨黑色线。\n\n确保蛛网的放射状和弧形线条清晰可见，形成自然优美的形状。\n\n中等密度的刺绣。在面料上保留足够的留白和透明度。\n\n通过重叠的蕾丝层，使蜘蛛网呈现出立体突出的效果。\n\n确保与背景的淡紫色保持适度对比，以便从远处也能识别出蜘蛛网图案。\n\n[短披肩]\n\n肩部搭配短款奶油色披肩。\n\n沿边缘应用精致的蜘蛛网刺绣，并在多处织入极细的墨黑色线。\n\n与裙子的蜘蛛网主题保持一致，呈现轻盈优雅的质感。\n\n[配饰]\n\n不戴帽子。\n\n颈部佩戴小巧可爱的变形蜘蛛胸针。结合黑色和淡紫色宝石的精致设计。\n\n披肩边缘悬挂一个小蜘蛛吊坠。\n\n发饰为低调的奶油色丝带。\n\n鞋子是带有丝带的淡紫色高跟鞋。\n\n[姿势与表情]\n\n构图使全身看起来自然。\n\n双手轻轻提起裙摆两端，展示蜘蛛网刺绣的美丽展开效果。\n\n一只脚略微向前的优雅自然站姿。\n\n面向观众，带着安静、快乐的微笑。\n\n符合成年女性特征的匀称身材和肢体比例。\n\n[背景]\n\n被巨大满月照亮的万圣节夜晚。\n\n深蓝色夜空中有薄云和小星星。\n\n背景中是灯光柔和的哥特式豪宅。\n\n远处只放置一个小型杰克南瓜灯。\n\n保持背景低调以突出服装，使人物和蜘蛛网蕾丝成为主要焦点。\n\n[配色方案]\n\n主色：淡紫色\n辅色：近白色奶油色\n点缀色：细墨黑色\n背景色：深夜蓝\n光线：柔和银白色月光\n\n不要使用鲜艳的橙色、过多的黑色或过强的对比度。\n\n[完成效果]\n\n优雅、可爱且充满幻想色彩的粉彩万圣节风格。\n\n蜘蛛网刺绣清晰可见，但不会覆盖整条裙子。\n\n以高清方式描述精致的蕾丝、柔软的荷叶边和月光下透光的薄纱。\n\n平衡“可爱舞会礼服”和“万圣节蜘蛛网氛围”的一张美丽单图。\n\n无文字。无帽子。无过多的蜘蛛或南瓜装饰。自然的手指和腿部。全身完整包含在画面内。"
+    }
+  },
+  "36448": {
+    "en": {
+      "title": "Lady Death Fighting Demons",
+      "description": "An image generation prompt depicting Brian Pulido's Lady Death character battling horned demons in a fantasy setting.",
+      "prompt": "Brian Pulido’s Lady Death (Hope) cutting through several horned demons and lesser fiends."
+    },
+    "zh": {
+      "title": "Lady Death 大战恶魔",
+      "description": "一个图像生成提示词，描绘了 Brian Pulido 笔下的 Lady Death 角色在奇幻场景中对抗长角恶魔的画面。",
+      "prompt": "Brian Pulido 创作的 Lady Death（Hope）斩杀数个长角恶魔和低阶魔物。"
+    }
+  },
+  "36449": {
+    "en": {
+      "title": "Warhammer Knight vs Bio-Titan",
+      "description": "An image generation prompt featuring a lone Knight of House Terryn standing against a Hive Fleet Hierophant Bio-titan swallowing an Imperial world.",
+      "prompt": "As Hive Fleet Hierophant Bio-titan swallows another Imperial world, one lone Knight of House Terryn stands against it."
+    },
+    "zh": {
+      "title": "战锤骑士 vs 生物泰坦",
+      "description": "一个图像生成提示词，描绘了泰林家族的一名孤独骑士对抗正在吞噬帝国世界的蜂巢舰队祭司级生物泰坦。",
+      "prompt": "当蜂巢舰队祭司级生物泰坦吞噬另一个帝国世界时，泰林家族的一名孤独骑士挺身而出与之对抗。"
+    }
+  },
+  "36450": {
+    "en": {
+      "title": "Sister of Battle Rising",
+      "description": "An image generation prompt depicting a wounded Sister of Battle rising with her boltgun under the gaze of Saint Celestine.",
+      "prompt": "Her blessed chainsword lies shattered, she is bleeding, surrounded and outnumbered. Yet beneath the burning gaze of Saint Celestine, this Sister of Battle rises with her boltgun roaring and the Emperor's name on her lips."
+    },
+    "zh": {
+      "title": "浴火重生的战斗修女",
+      "description": "一张图像生成提示词，描绘了一位受伤的圣血天使姐妹在圣塞莱斯汀的注视下，手持爆弹枪重新站起的场景。",
+      "prompt": "她神圣的链锯剑已破碎，浑身是血，被敌人包围且寡不敌众。然而，在圣塞莱斯汀炽热的注视下，这位战斗修女重新站起，手中的爆弹枪轰鸣作响，口中高呼帝皇之名。"
+    }
+  },
+  "36451": {
+    "en": {
+      "title": "Ultramarines vs World Eaters Clash",
+      "description": "An image generation prompt depicting a brutal close-quarters battle between Ultramarines and World Eaters Space Marines on a burning hilltop.",
+      "prompt": "A brutal close-quarters clash between Ultramarines Space Marines and World Eaters Chaos Space Marines on a scorched, ash-covered hilltop of a burning hive world."
+    },
+    "zh": {
+      "title": "极限战士与吞世者激战",
+      "description": "一个图像生成提示词，描绘了极限战士与吞世者星际战士在燃烧的山顶上进行残酷的近身搏斗。",
+      "prompt": "在一个被烧焦、覆盖着灰烬的巢都世界山顶上，极限战士星际战士与吞世者混沌星际战士之间展开了一场残酷的近身激战。"
+    }
+  },
+  "36452": {
+    "en": {
+      "title": "Japanese Magazine Style Portrait with Foggy Purple Grey Tone",
+      "description": "A prompt for generating a realistic portrait in a Japanese magazine layout style with low-saturation foggy purple and grey tones, featuring soft lighting and archival aesthetic.",
+      "prompt": "{argument name=\"character\" default=\"[Character Description]\"}, real person character, shot on Nokia.\nSoft character setting portrait × Japanese flat magazine layout × Smooth digital gradients with fine hair rendering × Continuous subtle light and shadow gradient shaping on the face.\nFrontal full soft light, almost no obvious shadow breaks.\nThe overall color palette uses foggy purple / ivory white / light gray, extremely low saturation cool tones.\nThe subject is centered in a frontal head-and-shoulders close-up composition, with clear facial structure, leaving space around the edges for small typography and archival label areas."
+    },
+    "zh": {
+      "title": "雾紫灰调日式杂志风人像",
+      "description": "一个用于生成日式杂志排版风格写实人像的提示词，具有低饱和度的雾紫色和灰色调，柔和的光线以及档案美学。",
+      "prompt": "{argument name=\"character\" default=\"[角色描述]\"}，真人角色，使用 Nokia 拍摄。\n柔和的角色设定肖像 × 日式平面杂志排版 × 带有细腻发丝渲染的平滑数字渐变 × 面部连续微妙的光影渐变塑造。\n正面全柔光，几乎没有明显的阴影断裂。\n整体配色采用雾紫色 / 象牙白 / 浅灰色，极低饱和度的冷色调。\n主体居中，采用正面头肩特写构图，面部结构清晰，边缘留出空间用于小字排版和档案标签区域。"
+    }
+  },
+  "36453": {
+    "en": {
+      "title": "Overhead Shot of Person Sleeping on Sofa",
+      "description": "A prompt for generating a top-down lifestyle photo of a character sleeping on a sofa, hugging a pillow and using a plush toy as a headrest.",
+      "prompt": "{argument name=\"subject\" default=\"[Subject Description]\"}, indoor lifestyle photography, overhead composition.\n\nThe character is lying on a soft sofa resting or sleeping deeply, body naturally sideways or slightly curled, hands holding a soft pillow, head resting on a plush toy using it as a pillow. Overall sleeping posture is relaxed, natural, and quiet, with a homey feel and slight cuteness. Legs can be naturally bent or gently tucked, body forming a soft fit with the sofa, relationship between pillow, toy, and person clearly visible.\n\nScene is a cozy indoor space, sofa is soft and comfortable, surroundings can naturally include cushions, blankets, carpets, bedside lamps, curtains, books, magazines, or other small life items, creating a quiet, relaxing, warm home atmosphere. Focus highlights the intimate relationship between person, pillow, plush toy, and sofa, space is simple and orderly.\n\nCamera shoots from above downwards, adopting a distinct overhead top-down perspective, clearly showing the complete lying posture, sofa layout, and positional relationship of pillow and toy. Composition is natural, image is clean, moderate negative space.\n\nLighting is soft, can use daytime indoor diffused natural light or warm soft indoor lighting. Overall atmosphere is quiet, healing, comfortable, high-quality lifestyle photography texture, clear details, soft realistic materials. 3:4 vertical image, tiny voxcat signature in bottom right corner."
+    },
+    "zh": {
+      "title": "人物在沙发上睡觉的俯拍镜头",
+      "description": "用于生成角色在沙发上睡觉、抱着枕头并用毛绒玩具当枕头的俯视生活方式照片提示词。",
+      "prompt": "{argument name=\"subject\" default=\"[Subject Description]\"}，室内生活方式摄影，俯视构图。\n\n角色躺在柔软的沙发上休息或熟睡，身体自然侧卧或微微蜷缩，双手抱着一个柔软的枕头，头枕在毛绒玩具上将其当作枕头使用。整体睡姿放松、自然且安静，带有居家感和一丝可爱气息。腿部可以自然弯曲或轻轻收拢，身体与沙发形成柔和贴合，枕头、玩具与人之间的关系清晰可见。\n\n场景为温馨的室内空间，沙发柔软舒适，周围可自然包含靠垫、毯子、地毯、床头灯、窗帘、书籍、杂志或其他生活小物，营造出安静、放松、温暖的家庭氛围。焦点突出人、枕头、毛绒玩具和沙发之间的亲密关系，空间简洁有序。\n\n相机从上往下拍摄，采用明显的垂直俯视视角，清晰展示完整的躺卧姿态、沙发布局以及枕头和玩具的位置关系。构图自然，画面干净，留白适度。\n\n光线柔和，可使用白天室内的漫射自然光或温暖的室内柔光。整体氛围安静、治愈、舒适，具有高品质生活方式摄影质感，细节清晰，材质真实柔和。3:4 竖版图像，右下角有微小的 voxcat 签名。"
+    }
+  },
+  "36454": {
+    "en": {
+      "title": "Surreal Camping Scene Inside Teacup",
+      "description": "A prompt for creating a surreal miniature scene where a camping setup (tent, trees, path) exists inside a ceramic teacup.",
+      "prompt": "Generate a 1:1 square surreal miniature scene poster. A large cream-white ceramic teacup occupies the center, inside is not liquid but a small moss forest, two small pine trees, a warm orange tent, and a curved gravel path form a complete campsite. Tent emits warm soft light, no open fire, no people. Cup placed against deep ink-green background, three-quarters side overhead view, handle clear and intact, macro photography, realistic ceramic glaze and moss details, shallow depth of field. Large text at top \"{argument name=\"main_title\" default=\"Pack the weekend into a cup\"}\", small text bottom right \"{argument name=\"sub_title\" default=\"AI Generated Example\"}\". Text clear, no logos, URLs, prices, or other text."
+    },
+    "zh": {
+      "title": "茶杯内的超现实露营场景",
+      "description": "用于创建超现实微缩场景的提示词，其中露营装备（帐篷、树木、小径）存在于陶瓷茶杯内。",
+      "prompt": "生成一张 1:1 正方形超现实微缩场景海报。画面中央放置一个大号奶油白陶瓷茶杯，杯内并非液体，而是一片小型苔藓森林：两棵小松树、一顶暖橙色帐篷以及一条弯曲的碎石小径共同构成完整的露营地。帐篷散发温暖柔和的光线，无明火，无人物。茶杯置于深墨绿色背景前，采用四分之三侧俯视角拍摄，杯柄清晰完整。使用微距摄影风格，呈现逼真的陶瓷釉面与苔藓细节，浅景深效果。顶部大号文字显示 \"{argument name=\"main_title\" default=\"Pack the weekend into a cup\"}\"，右下角小号文字显示 \"{argument name=\"sub_title\" default=\"AI Generated Example\"}\"。文字清晰，不含 Logo、URL、价格或其他文本。"
+    }
+  },
+  "36455": {
+    "en": {
+      "title": "Dark Silhouette Poster Design from Photo",
+      "description": "A complex prompt for transforming uploaded photos into a split-layout poster: original photo on top, flat silhouette still life on dark ground below, with specific artistic constraints.",
+      "prompt": "Please turn each uploaded photo into an independent high-end design poster, do not stitch images together, output each photo separately. Use a 3:4 vertical composition, split into two halves like a folded card, with the fold line exactly on the horizontal centerline, both halves equal height, do not draw the fold line itself.\n\nTop half retains the original photo, preserving subject identity, structure, pose, realistic texture, natural lighting, and original color atmosphere, only applying slight high-end color grading to give it an art magazine, indie publication, and exhibition image quality. To fit the aspect ratio, naturally extend the environment background but do not stretch, distort, or change the subject; crop as panorama, leave sky above the subject's head, do not crop the top. No text in the top half, all text appears only in the bottom half.\n\nBottom half extracts only the most recognizable **subject, outline, structure, pose, and narrative relationships** from the photo, reconstructing them as a **Flat Silhouette Still Life on a Dark Ground**. Do not copy the photo completely, but compress the subject and a few adjacent items into flat silhouettes without outlines or internal details, making the correspondence with the top photo immediately identifiable. **Must have several unoutlined flat silhouettes overlapping into a cluster standing on a solid dark background, with only one block noticeably brightest, popping out as if lit**, this defines the style, missing it fails.\n\nBottom half requires new artistic judgment. Even if the original has poor composition, messy background, or small subject, save it by **removing environment, converting to front/side view, moving scattered items close into a cluster**; arrange silhouettes of varying heights staggered, as if quietly placed on an invisible surface. If the photo is a scene (street, corridor, landscape, interior), take only the most representative single object or fragment, do not draw the rest, do not draw the whole scene.\n\nForm focuses on **unoutlined front/side silhouette blocks**: each shape expressed with one color block, soft edges with slight hand-cut undulations, almost no internal structure, only using darker same-color small blocks where necessary to indicate openings, gaps, or turns. People, animals, buildings, objects, plants, and landscapes are unified into flat front or side silhouettes, depth read only through occlusion and color shade, no perspective or projection.\n\nTexture is **fine dry-brush gouache granules**: dark background and each silhouette covered with very fine powdery speckles, making color surfaces soft and slightly velvety; stop here, no scratches, stains, folds, or aging effects.\n\nComposition uses **a medium-sized silhouette cluster + large dark negative space**. Bottom half drawn as **panorama**, as if photographer stepped back, subject complete with empty space around, smaller than intuition suggests; **leave sky** above subject, like mounting header wider than footer, nothing touches the central fold. Silhouette cluster slightly off-center, base line on invisible horizontal, other side left for text. Prefer things quietly crowded together rather than spread across the canvas.\n\nColor extracted from the top photo's most emotional hues, remixed into **deep ground plus low-saturation pink-grey blocks**: darkest photo color further dimmed keeping some hue as majority background; other colors desaturated mixed with grey/white becoming soft pink-grey blocks; only one block lifted brightest near warm-white, sole highlight. Adjust warmth/coolness per photo, avoid pure black, high saturation, and gradients.\n\nText minimal editorial intervention, any language, no fixed title. Only one short name or word taken from specific things, places, actions, or details in the photo, no subtitles or second lines; text very small, much smaller than subject, using **thin serif uppercase glyphs** in dark space beside silhouette cluster, color one shade lighter than brightest, separated by quiet distance. No generic inspirational slogans.\n\nOverall like a still life illustration in indie publication or art postcard: dark ground, unoutlined silhouettes, overlapping layers, one bright color plane and thin small text composing quiet, warm, slightly nocturnal atmosphere.\n\nAvoid full scene replication, filled backgrounds, cartoonish feel, template poster look, avoid isolated silhouettes, adding outlines, multiple equally bright blocks without focus, 3D lighting, vivid candy colors, and overly neat vector edges."
+    },
+    "zh": {
+      "title": "基于照片的暗色剪影海报设计",
+      "description": "一个复杂的提示词，用于将上传的照片转换为分栏布局的海报：上半部分为原始照片，下半部分为深色背景上的扁平剪影静物，并包含特定的艺术约束。",
+      "prompt": "请将每张上传的照片独立转化为高端设计海报，不要拼接图像，需分别输出每张照片。采用 3:4 竖版构图，像折叠卡片一样分为上下两半，折痕线位于水平中心线上，两半高度相等，但不要画出折痕线本身。\n\n上半部分保留原始照片，保持主体的身份、结构、姿态、写实纹理、自然光照和原始色彩氛围，仅应用轻微的高端调色，赋予其艺术杂志、独立出版物和展览图片的质感。为了适应宽高比，自然地延伸环境背景，但不得拉伸、扭曲或改变主体；按全景方式裁剪，在主体头部上方留出天空，不要裁剪顶部。上半部分不包含任何文字，所有文字仅出现在下半部分。\n\n下半部分仅提取照片中**最具辨识度的主体、轮廓、结构、姿态和叙事关系**，将其重构为**深色背景上的扁平剪影静物**。不要完全复制照片，而是将主体和几个相邻物品压缩成无轮廓、无内部细节的扁平剪影，使其与上方照片的对应关系一目了然。**必须有多个无轮廓的扁平剪影重叠成一簇，立于纯色深色背景之上，其中只有一块明显最亮，仿佛被照亮般突出**，这定义了风格，缺失则失败。\n\n下半部分需要新的艺术判断。即使原图构图不佳、背景杂乱或主体较小，也要通过**移除环境、转换为正面/侧面视图、将分散的物品聚拢成一簇**来挽救画面；安排高低错落的剪影，仿佛安静地放置在不可见的表面上。如果照片是场景（街道、走廊、风景、室内），只取最具代表性的单个物体或片段，不绘制其余部分，不绘制整个场景。\n\n形式聚焦于**无轮廓的正面/侧面剪影块**：每个形状用单色块表达，边缘柔和带有轻微的手工切割起伏感，几乎没有内部结构，仅在必要时使用同色系的较深小块来表示开口、间隙或转折。人物、动物、建筑、物体、植物和景观统一为扁平的正面或侧面剪影，深度仅通过遮挡和色彩明暗来体现，无透视或投影。\n\n纹理为**细腻的干笔水粉颗粒感**：深色背景和每个剪影都覆盖着极细的粉末状斑点，使色彩表面显得柔和且略带天鹅绒质感；到此为止，不要划痕、污渍、褶皱或老化效果。\n\n构图采用**中等大小的剪影簇 + 大面积深色留白**。下半部分绘制为**全景**，仿佛摄影师后退一步，主体完整且周围有空隙，比直觉感觉的要小；在主体上方**留出天空**，如同装裱时页眉宽于页脚，没有任何元素触及中央折痕。剪影簇略微偏离中心，基线位于不可见的水平线上，另一侧留给文字。偏好安静聚集的元素，而非散布在整个画布上。\n\n颜色从上方照片中最具情感色彩的色调中提取，重新混合为**深色背景加低饱和度的粉灰色块**：将照片中最深的颜色进一步调暗，保留部分色相作为主要背景；其他颜色降低饱和度并与灰/白混合，成为柔和的粉灰色块；仅提升一块至接近暖白色的最亮处，作为唯一的高光。根据每张照片调整冷暖色调，避免纯黑、高饱和度和渐变。\n\n文字进行极简编辑干预，可使用任何语言，无固定标题。仅从照片中的特定事物、地点、动作或细节中选取一个简短的名称或单词，无副标题或第二行；文字非常小，远小于主体，使用**细衬线大写字母字形**，置于剪影簇旁的深色空间中，颜色比最亮块浅一度，保持安静的间距。不使用通用的励志标语。\n\n整体风格类似独立出版物或艺术明信片中的静物插画：深色背景、无轮廓剪影、重叠层次、一个明亮的色块和细小的文字，构成安静、温暖、略带夜色的氛围。\n\n避免完整场景复制、填满的背景、卡通感、模板化海报外观，避免孤立的剪影、添加轮廓、多个同等明亮的块而无焦点、3D 光照、鲜艳的糖果色以及过于整洁的矢量边缘。"
+    }
+  },
+  "36456": {
+    "en": {
+      "title": "Vespa Scooter: Real vs Miniature Diorama",
+      "description": "A split-screen comparison showing a realistic photograph of a vintage yellow Vespa scooter above a cute, miniature 3D clay-model version of the same scene.",
+      "prompt": "A vertical diptych image split into two distinct panels. The top panel is a photorealistic, eye-level shot of a vintage yellow Vespa scooter parked on a cobblestone street in front of a cafe with large glass windows and potted plants. The scooter features a pastel green front fender, an orange handlebar assembly, a round chrome headlight, and a tan leather seat. The bottom panel displays the same scooter as a miniature 3D clay-style model or diorama placed on a square grey base with tiled pavement texture. This miniature version includes small props like a potted succulent plant, a tiny bollard, and scattered leaves, rendered with soft studio lighting against a plain cream background."
+    },
+    "zh": {
+      "title": "Vespa 踏板摩托车：真实照片与微缩景观对比",
+      "description": "分屏对比展示：上方为复古黄色 Vespa 踏板摩托车的写实照片，下方为同一场景的可爱迷你 3D 黏土模型版本。",
+      "prompt": "一张垂直双联图，分为两个截然不同的面板。上半部分是一张逼真的平视照片，展示了一辆停在鹅卵石街道上的复古黄色 Vespa 踏板摩托车，背景是一家拥有大玻璃窗和盆栽植物的咖啡馆。这辆摩托车配有淡绿色前挡泥板、橙色车把组件、圆形镀铬前灯以及棕褐色皮革座椅。下半部分展示了同一辆摩托车的微缩 3D 黏土风格模型或景观，放置在带有铺路石纹理的方形灰色底座上。这个微型版本包含小道具，如盆栽多肉植物、微型护柱和散落的树叶，在纯奶油色背景下以柔和的工作室灯光渲染而成。"
+    }
+  },
+  "36457": {
+    "en": {
+      "title": "Minimalist Staircase Morning Poster",
+      "description": "A motivational graphic design featuring a diagonal staircase, a walking figure, and bilingual typography suitable for daily greetings.",
+      "prompt": "A minimalist vertical poster design featuring a long, steep staircase ascending diagonally from the bottom left to the top right against a clean white background. The stairs are rendered in deep navy blue with crisp white edges, creating a strong geometric contrast. A small silhouette of a person carrying a briefcase is walking up the middle section of the stairs, next to a simple line-art clock on a pole. At the very top right, a soft orange sun or light source glows behind the peak of the stairs. \n\nText elements:\n- Top Left: Large bold Chinese characters \"早安,\" (Good Morning) in black, followed by \"准时上行\" (On Time Ascending) where \"准\" is highlighted in orange and the rest in black.\n- Below Title: Small text \"2026-10-15\" and \"ON TIME MORNING\".\n- Middle Left: Three lines of small grey Chinese text: \"准时出发\", \"让更好的自己\", \"更快抵达\", followed by English translation \"A MORE FOCUSED DAY\", \"A BRIGHTER YOU\".\n- Bottom Right: Vertical stack of small white text on the dark stair side: \"ON TIME\", \"HIGHER\", \"FARTHER\", \"A BRIGHTER YOU\"."
+    },
+    "zh": {
+      "title": "极简主义楼梯早安海报",
+      "description": "一款励志平面设计作品，包含对角线楼梯、行走人物及适合日常问候的双语排版。",
+      "prompt": "一张极简风格的竖版海报设计，画面主体为一条从左下角向右上角延伸的陡峭长楼梯，背景为纯净的白色。楼梯采用深海军蓝填充，边缘勾勒清晰的白色线条，形成强烈的几何对比。一个提着公文包的人物剪影正行走在楼梯中段，旁边立着一根杆子，上面挂着一个简约的线条时钟。在右上角的最高处，一轮柔和的橙色太阳或光源在楼梯顶端后方散发光芒。\n\n文字元素：\n- 左上角：大号粗体黑色中文字符“早安，”（Good Morning），紧随其后的是“准时上行”，其中“准”字以橙色高亮显示，其余部分为黑色。\n- 标题下方：小号文字“2026-10-15”和“ON TIME MORNING”。\n- 左侧中部：三行灰色小号中文文字：“准时出发”、“让更好的自己”、“更快抵达”，随后是英文翻译“A MORE FOCUSED DAY”、“A BRIGHTER YOU”。\n- 右下角：深色楼梯侧面垂直排列的小号白色文字：“ON TIME”、“HIGHER”、“FARTHER”、“A BRIGHTER YOU”。"
+    }
+  },
+  "36458": {
+    "en": {
+      "title": "Handmade Paper Collage Morning Coffee Illustration",
+      "description": "A prompt to generate a cozy, textured paper-cut style illustration featuring a smiling sun rising from a coffee mug, accompanied by Chinese morning greetings and a 'Claude' tea bag tag.",
+      "prompt": "Create a vertical digital collage illustration in a warm, handmade paper-cut style. The background is a textured off-white paper surface with subtle creases and torn edges. In the center, there is a large coffee mug made of brown kraft paper with visible tape marks. Rising from the mug are three wavy strips of white paper representing steam. Above the mug sits a cheerful yellow sun character made of crumpled yellow paper, featuring simple black dot eyes, a curved smile, and pink circular cheeks. Attached to the side of the mug is a tea bag tag made of white paper with a small orange flower doodle and the text 'Claude' written in a handwritten font. At the bottom right, there are three dark brown coffee beans and two green dried leaves taped onto the background. On the right side, there is a vertical column of Chinese calligraphy text: '早安' (Good Morning) at the top, followed by smaller text '问候' (Greetings), then a sentence '今天也请温柔地开始。' (Please start gently today as well). Below that is the date '2026-10-14' and the English text 'Morning Note'. The overall aesthetic should be cozy, tactile, and artistic."
+    },
+    "zh": {
+      "title": "手工纸拼贴晨间咖啡插画",
+      "description": "一个用于生成温馨、质感剪纸风格插画的提示词，画面包含从咖啡杯中升起的微笑太阳，配有中文早安问候语及“Claude”茶包标签。",
+      "prompt": "创作一幅垂直构图的数字拼贴插画，采用温暖的手工剪纸风格。背景为带有细微褶皱和撕裂边缘的米白色纹理纸面。画面中央是一个由棕色牛皮纸制成的大咖啡杯，表面可见胶带痕迹。杯口上方升起三条波浪状的白色纸条，象征蒸汽。杯子上方坐落着一个欢快的黄色太阳角色，由揉皱的黄纸制成，拥有简单的黑色圆点眼睛、弯曲的微笑和粉色圆形脸颊。杯子侧面附有一个白色纸质茶包标签，上面绘有橙色小花涂鸦，并以手写字体写着“Claude”。右下角有三颗深棕色咖啡豆和两片绿色干叶被胶带固定在背景上。右侧有一列竖排中文书法文字：顶部为“早安”，下方是较小的“问候”，接着是一句“今天也请温柔地开始。”其下是日期“2026-10-14”和英文文本“Morning Note”。整体美学应呈现舒适、触感丰富且富有艺术感的效果。"
+    }
+  },
+  "36459": {
+    "en": {
+      "title": "Photorealistic Lighthouse to Pixel Art",
+      "description": "A split-screen prompt that transforms a realistic sunset lighthouse scene into a floating pixel art aesthetic.",
+      "prompt": "Create a vertical two-panel comparison image. The top panel is a photorealistic landscape of a white lighthouse with an illuminated lamp, standing on a rocky coastal cliff next to red-roofed keeper houses at sunset. A cruise ship sails in the distance under a dramatic sky filled with dark clouds and orange light. The bottom panel shows the exact same scene reimagined as a floating pixel art illustration centered on a clean white background. The pixel art features chunky square blocks, a soft drop shadow beneath it, and a color palette matching the photo above. Below the pixel art, include the Chinese title '海岸灯塔' followed by a small horizontal line and the subtitle '暮色中，灯火仍在。'"
+    },
+    "zh": {
+      "title": "从写实灯塔到像素艺术",
+      "description": "一个分屏提示词，将写实的日落灯塔场景转化为悬浮的像素艺术风格。",
+      "prompt": "创建一张垂直双面板对比图。上方面板是一幅写实的风景画：一座白色灯塔矗立在岩石海岸悬崖上，灯光明亮，旁边是红顶看守人小屋，正值日落时分。远处一艘邮轮在戏剧性的天空下航行，天空中乌云密布，透着橙色光芒。下方面板展示完全相同的场景，但被重新构想为悬浮在干净白色背景中央的像素艺术插图。像素艺术采用粗大的方块像素块，下方带有柔和的投影，配色方案与上方照片一致。在像素艺术下方，包含中文标题“海岸灯塔”，随后是一条小水平线和副标题“暮色中，灯火仍在。”"
+    }
+  },
+  "36460": {
+    "en": {
+      "title": "Vintage Japanese Swimsuit Portrait",
+      "description": "A retro-style portrait of a young woman in a swimsuit pointing at the camera, featuring Japanese text overlays reminiscent of a vintage magazine scan.",
+      "prompt": "A vertical, full-body shot of a young Japanese woman standing by an outdoor swimming pool. She has short black bob hair and is wearing a dark navy blue one-piece swimsuit. She points directly at the camera with her right hand while her left arm rests naturally by her side. Her expression is calm and slightly serious. The background features a public swimming pool with other swimmers in the water and a building structure behind them. The image has a vintage, grainy texture typical of Showa-era photography (1970s/80s). There are vertical columns of Japanese text on both the left and right sides of the image, resembling a magazine layout or photo book page. The lighting is bright daylight."
+    },
+    "zh": {
+      "title": "复古日式泳装人像",
+      "description": "一张复古风格的年轻女性泳装肖像，她指向镜头，画面带有类似旧杂志扫描的日文文字叠加层。",
+      "prompt": "这是一张垂直构图的全身照，展示了一位站在户外游泳池旁的年轻日本女性。她留着黑色短发波波头，身穿深藏青色连体泳衣。她用右手指向镜头，左臂自然垂于身侧。她的表情平静且略带严肃。背景是一个公共游泳池，水中有其他游泳者，后方有建筑结构。图像呈现出昭和时代（20 世纪 70/80 年代）摄影特有的复古颗粒质感。图片左右两侧均有竖排日文文字，模仿杂志排版或写真集页面风格。光线为明亮的日光。"
     }
   }
 }
