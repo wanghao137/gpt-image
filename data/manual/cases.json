@@ -1,5 +1,30 @@
 [
   {
+    "id": "100321",
+    "title": "怪诞几何头型扁平卡通人物海报",
+    "category": "角色与人物",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-10-16-case-100321-flat-cartoon.jpg",
+    "imageAlt": "怪诞几何头型扁平卡通人物海报",
+    "prompt": "Vertical bizarre flat cartoon portrait of [Boy From Photo] with a high geometric head shape, a long narrow neck, huge round eyes, a tiny mouth and an unflappable laugh dressed in [Clothes From Photo], with a [Puppy] sitting on his head like a living hat. Pure black outline, smooth color fills, simple face shapes, rare drawings on animal fur or skin, playful surreal character design, bold graphic palette [Blue]. Background decorations: [Room Decorations From Coffee Shop], made using simplified shapes, clear depth, a small amount of scenery from the environment and a clear cartoon perspective. Clear digital illustration, vertical framing in the form of a poster, no realism, no 3D rendering, no picturesque shading, aspect ratio 4:5.",
+    "promptPreview": "Vertical bizarre flat cartoon portrait of [Boy From Photo] with a high geometric head shape, a long narrow neck, huge round eyes, a tiny mouth and an unflappable laugh dressed in [Clothes From Photo], with a [Puppy] sit…",
+    "source": "Community collected via @rovvmut_",
+    "createdAt": "2026-10-15T20:05:27.292Z"
+  },
+  {
     "id": "100320",
     "title": "天然鹅卵石马赛克镶嵌女性肖像",
     "category": "历史与古典",
