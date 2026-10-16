@@ -54342,9 +54342,9 @@
   },
   "36446": {
     "en": {
-      "title": "Purple Blouse Black Shorts Outfit Prompt",
-      "description": "A prompt for generating an elegant purple and black outfit image using ChatGPT Image 2.",
-      "prompt": "OUTFIT:\n\nA soft purple blouse paired with simple black shorts.\n\nStyled with high heels.\n\nClean, feminine, lightly elegant fashion aesthetic.\nPurple and black color scheme.\nNo extra decorations."
+      "title": "Purple Blouse and Black Shorts Outfit Prompt",
+      "description": "A text-to-image prompt for ChatGPT Image 2 describing a feminine outfit with a soft purple blouse, black shorts, and high heels.",
+      "prompt": "OUTFIT:\n\nA {argument name=\"blouse color\" default=\"soft purple\"} blouse paired with simple {argument name=\"bottoms\" default=\"black shorts\"}.\n\nStyled with {argument name=\"shoes\" default=\"high heels\"}.\n\nClean, feminine, lightly elegant fashion aesthetic.\n{argument name=\"color scheme\" default=\"Purple and black\"} color scheme.\nNo extra decorations."
     },
     "zh": {
       "title": "紫色衬衫黑色短裤穿搭提示词",
@@ -54354,9 +54354,9 @@
   },
   "36447": {
     "en": {
-      "title": "Halloween Spider Web Lace Dress Prompt",
-      "description": "A detailed prompt for generating a Halloween-themed spider web lace dress image using ChatGPT Image 2.",
-      "prompt": "🕸️ Moonlit Halloween Night Ball - Spider Web Lace Dress\n\n[Aspect Ratio] 4:5 Vertical\n\n[Most Important: Character Reproduction]\n\nUse the attached character image as the most important reference.\n\nFaithfully maintain facial features, eye color and shape, hairstyle, hair color, bangs, contour, age impression, and the person's soft atmosphere. Do not change the identity.\n\nHigh-definition pastel-colored shoujo manga/anime style. Delicate line art and transparent, soft coloring.\n\n[Theme]\n\nA cute adult woman heading to a Halloween night ball under moonlight.\n\nAdd subtle gothic vibes with spider web lace to an elegant and romantic atmosphere.\n\n[Outfit]\n\nLavender off-shoulder mini one-piece dress.\n\nDelicate frills and small pearl decorations on the chest.\n\nTie a thin black satin ribbon around the waist to emphasize the slender silhouette.\n\nThe skirt is made of soft lavender fabric overlaid with sheer cream tulle, creating a fluffy, expanding design.\n\n🕸️ Spider Web Embroidery (Important)\n\nExpress spider webs not just as lace patterns, but as beautiful embroidery symbolizing Halloween.\n\nPlace delicate spider web embroidery of various sizes across the entire hem of the skirt.\n\nAdd more spider web embroidery spaced out in the middle section of the skirt.\n\nBase the web threads on near-white cream color, using extremely fine ink-black threads in some parts.\n\nEnsure the radial and arc-shaped threads of the web are visible, forming natural and beautiful shapes.\n\nMedium density of embroidery. Leave sufficient whitespace and transparency in the fabric.\n\nExpression where the spider web stands out three-dimensionally due to overlapping lace layers.\n\nEnsure moderate contrast with the background lavender so the spider web pattern is recognizable from a distance.\n\n[Capelet]\n\nShort cream-colored capelet on the shoulders.\n\nApply delicate spider web embroidery along the edges, weaving in extremely fine ink-black threads in several places.\n\nUnify with the same spider web motif as the skirt for a light and elegant finish.\n\n[Accessories]\n\nNo hat.\n\nSmall, cute deformed spider brooch at the neck. Delicate design combining black and lavender gems.\n\nOne small spider charm hanging from the edge of the capelet.\n\nHair accessory is a subdued cream-colored ribbon.\n\nShoes are pale lavender pumps with ribbons.\n\n[Pose & Expression]\n\nComposition where the full body looks natural.\n\nLightly hold both ends of the skirt with both hands to show the beautiful spread of the spider web embroidery.\n\nElegant and natural standing pose with one foot slightly forward.\n\nQuiet, happy smile looking towards the viewer.\n\nNatural physique and limb balance typical of an adult woman.\n\n[Background]\n\nHalloween night illuminated by a large full moon.\n\nThin clouds and small stars in the deep blue night sky.\n\nSoftly lit Gothic mansion in the background.\n\nPlace only one small Jack-o'-lantern in the distance.\n\nKeep the background subdued to highlight the outfit, making the person and spider web lace the main focus.\n\n[Color Scheme]\n\nMain: Pale Lavender\nSub: Near-white Cream\nAccent: Thin Ink Black\nBackground: Deep Night Blue\nLight: Soft Silver-white Moonlight\n\nDo not use vivid orange, excessive black, or overly strong contrasts.\n\n[Finish]\n\nElegant, cute, and fantastical pastel Halloween.\n\nSpider web embroidery is clearly visible but does not cover the entire dress.\n\nDescribe delicate lace, soft frills, and moonlight-translucent tulle in high definition.\n\nA beautiful single image balancing \"Cute Night Ball Dress\" and \"Halloween Spider Web Vibes\".\n\nNo text. No hat. No excessive spiders or pumpkin decorations. Natural fingers and legs. Full body fits within the frame."
+      "title": "Halloween Spiderweb Lace Dress Prompt",
+      "description": "A detailed prompt for generating an anime-style character in a lavender off-shoulder dress with spiderweb embroidery, set against a moonlit Halloween background.",
+      "prompt": "🕸️ Moonlit Halloween Ball · Spiderweb Lace Dress\n\n[Aspect Ratio] 4:5 Vertical\n\n[Most Important: Character Reproduction]\n\nPlease use the attached character image as the most important reference.\n\nFaithfully maintain facial features, eye color and shape, hairstyle, hair color, bangs, contour, age impression, and the soft atmosphere appropriate for the person; do not change their identity.\n\nHigh-definition pastel-colored shoujo manga/anime style. Delicate line art and transparent, soft coloring.\n\n[Theme]\n\nA cute adult woman heading to a Halloween ball under the moonlight.\n\nAdd subtle Gothic elements with spiderweb lace to an elegant and romantic atmosphere.\n\n[Outfit]\n\nLavender off-shoulder mini one-piece dress.\n\nDelicate frills and small pearl decorations at the chest.\n\nTie a thin black satin ribbon at the waist to emphasize a slender silhouette.\n\nThe skirt is made of soft lavender fabric layered with sheer natural-color tulle, creating a fluffy, spreading design.\n\n🕸️ Spiderweb Embroidery (Important)\n\nExpress the spiderweb not just as a lace pattern, but as beautiful embroidery symbolizing Halloween.\n\nPlace delicate spiderweb embroidery of varying sizes across the entire hem of the skirt.\n\nAdd spaced-out spiderweb embroidery on the middle section of the skirt as well.\n\nThe web threads should be primarily near-white/natural color, with some extremely thin ink-black used.\n\nThe spiderwebs should have recognizable radial and curved threads, appearing natural and beautiful.\n\nEmbroidery density should be moderate. Leave sufficient whitespace and transparency on the fabric.\n\nUse overlapping lace to make the spiderwebs appear three-dimensional.\n\nEnsure the spiderweb pattern is recognizable from a distance by maintaining appropriate contrast with the lavender background.\n\n[Capelet]\n\nShort natural-color capelet on the shoulders.\n\nApply delicate spiderweb embroidery along the edges, weaving in extremely thin ink-black threads in a few places.\n\nUnify with the same spiderweb motif as the skirt for a light and elegant finish.\n\n[Accessories]\n\nNo hat.\n\nSmall cute deformed spider brooch at the neck. Delicate design combining black and lavender gems.\n\nOne small spider charm hanging from the edge of the capelet.\n\nHair accessory is a modest natural-color ribbon.\n\nShoes are pale lavender ribbon-tied pumps.\n\n[Pose & Expression]\n\nComposition where the full body looks natural.\n\nLightly lift both sides of the skirt with both hands to show the beautiful spread of the spiderweb embroidery.\n\nElegant and natural standing pose with one foot slightly forward.\n\nQuiet, happy smile looking towards the viewer.\n\nNatural physique and limb balance typical of an adult woman.\n\n[Background]\n\nHalloween night with a large shining full moon.\n\nNight blue sky with thin clouds and small stars.\n\nGothic-style Western mansion with soft lights glowing in the distance.\n\nPlace only one small Jack-o'-lantern in the distance.\n\nKeep the background subdued to highlight the outfit, making the person and spiderweb lace the main subjects.\n\n[Color Palette]\n\nMain: Pale Lavender\nSub: Near-white/Natural\nAccent: Thin Ink Black\nBackground: Deep Night Blue\nLight: Soft Silver-White Moonlight\n\nDo not use vivid orange, excessive black, or overly strong contrast.\n\n[Finish]\n\nElegant, cute, and fantastical pastel Halloween.\n\nSpiderweb embroidery is clearly visible but does not cover the entire dress.\n\nDescribe delicate lace, soft frills, and tulle translucent in moonlight with high definition.\n\nA beautiful piece balancing 'cute evening dress' and 'spiderweb Halloween vibes'.\n\nNo text. No hat. No excessive spider or pumpkin decorations. Natural fingers and legs. Full body fits within the frame."
     },
     "zh": {
       "title": "万圣节蜘蛛网蕾丝连衣裙提示词",
@@ -54378,8 +54378,8 @@
   },
   "36449": {
     "en": {
-      "title": "Warhammer Knight vs Bio-Titan",
-      "description": "An image generation prompt featuring a lone Knight of House Terryn standing against a Hive Fleet Hierophant Bio-titan swallowing an Imperial world.",
+      "title": "Warhammer Titan vs Knight Scene",
+      "description": "A prompt for generating an epic Warhammer 40k scene featuring a Hive Fleet Hierophant Bio-titan and a lone Knight of House Terryn.",
       "prompt": "As Hive Fleet Hierophant Bio-titan swallows another Imperial world, one lone Knight of House Terryn stands against it."
     },
     "zh": {
@@ -54402,8 +54402,8 @@
   },
   "36451": {
     "en": {
-      "title": "Ultramarines vs World Eaters Clash",
-      "description": "An image generation prompt depicting a brutal close-quarters battle between Ultramarines and World Eaters Space Marines on a burning hilltop.",
+      "title": "Warhammer Space Marines Battle Scene",
+      "description": "A prompt for generating a brutal close-quarters battle scene between Ultramarines and World Eaters on a burning hive world hilltop.",
       "prompt": "A brutal close-quarters clash between Ultramarines Space Marines and World Eaters Chaos Space Marines on a scorched, ash-covered hilltop of a burning hive world."
     },
     "zh": {
@@ -54474,9 +54474,9 @@
   },
   "36457": {
     "en": {
-      "title": "Minimalist Staircase Morning Poster",
-      "description": "A motivational graphic design featuring a diagonal staircase, a walking figure, and bilingual typography suitable for daily greetings.",
-      "prompt": "A minimalist vertical poster design featuring a long, steep staircase ascending diagonally from the bottom left to the top right against a clean white background. The stairs are rendered in deep navy blue with crisp white edges, creating a strong geometric contrast. A small silhouette of a person carrying a briefcase is walking up the middle section of the stairs, next to a simple line-art clock on a pole. At the very top right, a soft orange sun or light source glows behind the peak of the stairs. \n\nText elements:\n- Top Left: Large bold Chinese characters \"早安,\" (Good Morning) in black, followed by \"准时上行\" (On Time Ascending) where \"准\" is highlighted in orange and the rest in black.\n- Below Title: Small text \"2026-10-15\" and \"ON TIME MORNING\".\n- Middle Left: Three lines of small grey Chinese text: \"准时出发\", \"让更好的自己\", \"更快抵达\", followed by English translation \"A MORE FOCUSED DAY\", \"A BRIGHTER YOU\".\n- Bottom Right: Vertical stack of small white text on the dark stair side: \"ON TIME\", \"HIGHER\", \"FARTHER\", \"A BRIGHTER YOU\"."
+      "title": "Minimalist Morning Staircase Poster",
+      "description": "Generates a motivational graphic design poster featuring a diagonal staircase, a walking figure, and bilingual typography suitable for daily greetings or corporate inspiration.",
+      "prompt": "A minimalist vertical poster featuring a long, steep staircase ascending diagonally from the bottom left to the top right against a clean white background. The steps are rendered in deep navy blue with crisp white edges, creating a strong geometric rhythm. A small silhouette of a person carrying a briefcase walks up the stairs near the middle section, next to a simple line-art clock on a pole. At the top right corner, a warm orange sun rises behind the peak of the stairs, casting a soft glow. Large bold Chinese text \"早安，\" and \"准时上行\" appears in the top left, with the second line partially highlighted in orange. Below it is the date \"2026-10-15\" and English text \"ON TIME MORNING\". Smaller inspirational text lines appear on the left side: \"准时出发\", \"让更好的自己\", \"更快抵达\", followed by \"A MORE FOCUSED DAY\" and \"A BRIGHTER YOU\". In the bottom right corner, faint white text reads \"ON TIME\", \"HIGHER\", \"FARTHER\", \"A BRIGHTER YOU\". An orange arrow points rightward from the main title."
     },
     "zh": {
       "title": "极简主义楼梯早安海报",
@@ -54510,14 +54510,158 @@
   },
   "36460": {
     "en": {
-      "title": "Vintage Japanese Swimsuit Portrait",
-      "description": "A retro-style portrait of a young woman in a swimsuit pointing at the camera, featuring Japanese text overlays reminiscent of a vintage magazine scan.",
-      "prompt": "A vertical, full-body shot of a young Japanese woman standing by an outdoor swimming pool. She has short black bob hair and is wearing a dark navy blue one-piece swimsuit. She points directly at the camera with her right hand while her left arm rests naturally by her side. Her expression is calm and slightly serious. The background features a public swimming pool with other swimmers in the water and a building structure behind them. The image has a vintage, grainy texture typical of Showa-era photography (1970s/80s). There are vertical columns of Japanese text on both the left and right sides of the image, resembling a magazine layout or photo book page. The lighting is bright daylight."
+      "title": "Retro Japanese Swimsuit Portrait",
+      "description": "A vintage-style portrait of a young woman in a navy swimsuit pointing at the camera, featuring a retro magazine layout with Japanese text overlays.",
+      "prompt": "A vertical, full-body portrait of a young Japanese woman with a short, dark bob haircut and bangs, standing at the edge of an outdoor swimming pool. She is wearing a vintage-style, solid navy blue one-piece swimsuit. Her pose is dynamic; she leans slightly forward, pointing her right index finger directly at the camera lens with a confident, engaging expression, while her left arm hangs relaxed by her side. The background features a blurred public swimming pool scene with other swimmers in the water and a concrete building structure behind them. The image has a distinct retro aesthetic, mimicking a scanned photograph from a 1970s or 1980s Japanese photo magazine. This includes visible film grain, faded colors, and a paper texture overlay. Vertical Japanese text runs down the left and right margins, resembling magazine captions."
     },
     "zh": {
       "title": "复古日式泳装人像",
       "description": "一张复古风格的年轻女性泳装肖像，她指向镜头，画面带有类似旧杂志扫描的日文文字叠加层。",
       "prompt": "这是一张垂直构图的全身照，展示了一位站在户外游泳池旁的年轻日本女性。她留着黑色短发波波头，身穿深藏青色连体泳衣。她用右手指向镜头，左臂自然垂于身侧。她的表情平静且略带严肃。背景是一个公共游泳池，水中有其他游泳者，后方有建筑结构。图像呈现出昭和时代（20 世纪 70/80 年代）摄影特有的复古颗粒质感。图片左右两侧均有竖排日文文字，模仿杂志排版或写真集页面风格。光线为明亮的日光。"
+    }
+  },
+  "36498": {
+    "en": {
+      "title": "GPT Image 2 Liquor Poster Design Prompt",
+      "description": "A highly detailed prompt for generating liquor advertisement posters using GPT Image 2, focusing on material textures and light refraction.",
+      "prompt": "[Brand]: {argument name=\"brand_en\" default=\"HOLLOW\"}\n[Product]: {argument name=\"product_en\" default=\"Short-shouldered transparent square bottle with amber whisky, black cap\"}\n[Title]: {argument name=\"title_en\" default=\"EMBER\"}\n[Category]: {argument name=\"category_en\" default=\"WHISKY\"}\n[Side Materials]: {argument name=\"side_materials_en\" default=\"Dark oak cross-section / Thick-walled amber glass\"}\n[Scene & Camera]: {argument name=\"scene_camera_en\" default=\"Wine cellar oak countertop, low-angle three-quarter view, warm side backlighting\"}\n[Optical Event]: {argument name=\"optical_event_en\" default=\"The liquid locally tints the title amber and slightly magnifies it; restrained caustics appear on the surface\"}\n[Main Color]: {argument name=\"main_color_en\" default=\"Amber Brown\"}\n\nCreate a 4:5 vertical liquor advertising poster, outputting one independent finished piece at a time.\n\nFixed visual language: Realistic commercial still-life photography, warm ivory negative space, huge high-contrast serif titles, restrained editorial layout. Use the wine bottle and transparent medium to refract text, combined with bright channels formed by side materials; avoid neon, glowing outlines, generic e-commerce cards, or golden luxury decorations.\n\nArrange [Product] according to [Scene & Camera]. Let [Side Materials] enter the frame as close-ups with partial cropping, forming asymmetric vertical negative space; openings can slowly expand/contract with the camera, do not make them mirror-image door frames. The bottle occupies about half to two-thirds of the screen height, fully recognizable within the negative space, with slight occlusion from one side material; upper part must have breathing room. Side materials must come from the storage, packaging, or drinking context of this liquor type; do not add irrelevant caves, flower fields, or uniformly copied photographic backgrounds.\n\nPlace the large title [Title] across layers in the middle-upper area, letting a small segment of strokes pass behind the wine bottle or transparent medium, undergoing local magnification, displacement, or color filtering in [Optical Event]. Parts of the text not passing through the medium remain normally clear; distortion is limited to the translucent area, do not twist the entire title into waves. Use [Main Color] as the only strong color, with warm ivory and charcoal black as auxiliaries; liquid translucency, glass thickness, contact shadows, condensation, and projections must be believable; do not draw optical effects as lasers.\n\nPlace [Brand] at the top in a small, sparse sans-serif font; place [Category] and \"Drink Responsibly\" at the bottom as two lines of small text. Bottle labels use only brand and category, leaving clean information density. Only the above text is allowed in the entire image; do not automatically add slogans, vintages, alcohol content, awards, origins, prices, or unprovided product claims. No people in the scene, do not express excessive drinking.\n\nPreserve delicate natural material textures and precise glass highlights; avoid heavy CGI, floating products, extra bottles, random letters, glare stacking, collages, and watermarks. Scene, camera, bottle shape, and optical events change with variables, but the visual language of warm ivory negative space, serif main titles, and localized refraction remains consistent."
+    },
+    "zh": {
+      "title": "GPT Image 2 酒类海报设计提示词",
+      "description": "一份用于使用 GPT Image 2 生成酒类广告海报的高度详细提示词，重点在于材质纹理和光线折射。",
+      "prompt": "[品牌]: {argument name=\"brand_en\" default=\"HOLLOW\"}\n[产品]: {argument name=\"product_en\" default=\"Short-shouldered transparent square bottle with amber whisky, black cap\"}\n[标题]: {argument name=\"title_en\" default=\"EMBER\"}\n[类别]: {argument name=\"category_en\" default=\"WHISKY\"}\n[侧面材质]: {argument name=\"side_materials_en\" default=\"Dark oak cross-section / Thick-walled amber glass\"}\n[场景与镜头]: {argument name=\"scene_camera_en\" default=\"Wine cellar oak countertop, low-angle three-quarter view, warm side backlighting\"}\n[光学事件]: {argument name=\"optical_event_en\" default=\"The liquid locally tints the title amber and slightly magnifies it; restrained caustics appear on the surface\"}\n[主色调]: {argument name=\"main_color_en\" default=\"Amber Brown\"}\n\n创建一张 4:5 竖版酒类广告海报，每次输出一张独立的成品。\n\n固定视觉语言：写实商业静物摄影，暖象牙色留白，巨大高对比度衬线标题，克制的编辑式排版。利用酒瓶和透明介质折射文字，结合侧面材质形成的明亮通道；避免霓虹灯、发光轮廓、通用电商卡片或金色奢华装饰。\n\n根据 [场景与镜头] 布置 [产品]。让 [侧面材质] 以特写形式进入画面并进行部分裁剪，形成不对称的垂直负空间；开口可以随着镜头缓慢扩张/收缩，不要将其做成镜像门框。酒瓶占据屏幕高度的一半到三分之二，在负空间中完全可识别，并被一侧材质轻微遮挡；上部必须有呼吸感。侧面材质必须来自这种酒类的存储、包装或饮用语境；不要添加无关的洞穴、花田或统一复制的摄影背景。\n\n将大标题 [标题] 跨层放置在中间偏上区域，让一小段笔画穿过酒瓶或透明介质后方，经历局部放大、位移或颜色过滤（参见 [光学事件]）。未穿过介质的文本部分保持正常清晰；扭曲仅限于半透明区域，不要将整个标题扭曲成波浪状。使用 [主色调] 作为唯一的强色，暖象牙色和炭黑色作为辅助色；液体透明度、玻璃厚度、接触阴影、冷凝水和投影必须可信；不要将光学效果绘制成激光束。\n\n将 [品牌] 以小号稀疏无衬线字体置于顶部；将 [类别] 和 \"Drink Responsibly\" 作为两行小字置于底部。瓶身标签仅使用品牌和类别，保持干净的信息密度。整张图片中只允许出现上述文字；不要自动添加标语、年份、酒精含量、奖项、产地、价格或未提供的产品声明。场景中没有人，不要表达过度饮酒。\n\n保留细腻自然的材质纹理和精确的玻璃高光；避免厚重的 CGI、悬浮产品、多余的瓶子、随机字母、眩光堆叠、拼贴和水印。场景、镜头、瓶型和光学事件随变量变化，但暖象牙色留白、衬线主标题和局部折射的视觉语言保持一致。"
+    }
+  },
+  "36499": {
+    "en": {
+      "title": "ChatGPT Image 2 Autumn Outfit Prompt",
+      "description": "A prompt for generating cute autumn fashion images with gingham checks and leather jackets using ChatGPT Image 2.",
+      "prompt": "cute, gingham blouse, gingham short pants, leather jacket, mixed material autumn styling, cool and cute, stylish pose, masterpiece, best quality"
+    },
+    "zh": {
+      "title": "ChatGPT Image 2 秋季穿搭提示词",
+      "description": "使用 ChatGPT Image 2 生成带有格纹元素和皮夹克的可爱秋季时尚图片的提示词。",
+      "prompt": "可爱, 格纹衬衫, 格纹短裤, 皮夹克, 混合材质秋季造型, 酷飒又可爱, 时尚姿势, 杰作, 最佳质量"
+    }
+  },
+  "36500": {
+    "en": {
+      "title": "Premium Editorial Poster with Cut-Paper Collage Lower Half",
+      "description": "Generates a premium editorial poster split horizontally: top half preserves the original photo, bottom half transforms the subject into a minimalist cut-paper collage.",
+      "prompt": "Create one premium editorial poster for each uploaded photo, outputting each separately without combining images or reusing other photos’ designs.\n\nFORMAT: Strict vertical 3:4 composition, divided into two equal horizontal halves. The upper 50% preserves the original photograph’s subject, identity, pose, colors, textures, and natural lighting, with only subtle editorial color grading. Never distort the subject.\n\nLOWER HALF: Transform the main subject into a minimalist cut-paper collage using simplified silhouettes, geometric shapes, layered paper, and subtle grain. Remove unnecessary background details while preserving the subject’s recognizable identity and story.\n\nCOMPOSITION: Use a split color-field layout with generous near-white negative space above and a solid-color base spanning the entire bottom width. Position the subject near the boundary, optionally adding a simple geometric background panel. Maintain clean horizontal edges, asymmetrical balance, and strong visual hierarchy.\n\nCOLORS & TEXTURES: Extract 2–4 colors from the original photo and refine them into a soft, bright pastel palette. Use subtle paper grain, handcrafted edges, and delicate layering. Create depth through overlapping shapes rather than realistic shadows or perspective.\n\nTYPOGRAPHY: Use minimal, elegant editorial text only when appropriate, placed discreetly within the negative space or near the composition’s edges.\n\nSTYLE: Sophisticated art-magazine aesthetic combining authentic photography, minimalist paper-art collage, clean color blocks, generous negative space, and refined editorial design.\n\nAVOID: Clutter, complete scene redraws, gradients, heavy shadows, excessive details, distorted subjects, cartoon styles, 3D effects, and generic template-like layouts.\n\nGoal: Create a distinctive, gallery-worthy poster that preserves the original photograph above and artistically reinterprets its essence below."
+    },
+    "zh": {
+      "title": "高端编辑风格海报：下半部分剪纸拼贴设计",
+      "description": "生成一张高端编辑风格的海报，画面水平分割：上半部分保留原始照片，下半部分将主体转化为极简主义剪纸拼贴。",
+      "prompt": "为每张上传的照片创建一张高端编辑风格海报，分别输出，不要合并图像或复用其他照片的设计。\n\n格式：严格采用垂直 3:4 构图，分为两个相等的水平半区。上半部分（50%）保留原始照片的主体、身份、姿势、颜色、纹理和自然光照，仅进行细微的编辑级色彩调整。切勿扭曲主体。\n\n下半部分：使用简化的剪影、几何形状、分层纸张和细微颗粒感，将主要主体转化为极简主义剪纸拼贴。去除不必要的背景细节，同时保留主体的可识别身份和故事性。\n\n构图：采用分色块布局，上方留有大量接近白色的负空间，底部横跨整个宽度的纯色基底。将主体放置在边界附近，可选添加简单的几何背景面板。保持清晰的水平边缘、不对称平衡和强烈的视觉层次。\n\n颜色与纹理：从原始照片中提取 2–4 种颜色，并将其提炼为柔和明亮的粉彩调色板。使用细微的纸张纹理、手工边缘和精致的分层。通过重叠形状而非逼真的阴影或透视来创造深度。\n\n排版：仅在适当时使用极简、优雅的编辑文本，低调地放置在负空间内或靠近构图边缘的位置。\n\n风格：精致的艺术杂志美学，结合真实摄影、极简纸艺拼贴、干净的色块、大量的负空间和精致的编辑设计。\n\n避免：杂乱、完全重绘场景、渐变、浓重阴影、过多细节、扭曲的主体、卡通风格、3D 效果和通用模板式布局。\n\n目标：创建一张独特、具有画廊品质的海报，上方保留原始照片，下方艺术性地重新诠释其精髓。"
+    }
+  },
+  "36501": {
+    "en": {
+      "title": "3D Scrapbook Composition with Floating Paper Cutouts",
+      "description": "Creates a creative minimalist 3D scrapbook composition featuring realistic photographs transformed into thick floating paper cutouts with stick-figure characters.",
+      "prompt": "Create a creative minimalist 3D scrapbook composition featuring a realistic photograph transformed into a thick, floating paper cutout on a warm ivory textured background. For the first scene, showcase a beautiful sunlit modern bedroom with an olive-green bed, walnut furniture, large windows, lush indoor plants, a round mirror, and soft natural sunlight. For the second scene, depict dramatic white coastal cliffs covered in vibrant green grass, deep blue ocean waves, and a striking red-and-white lighthouse beneath a cloudy sky. Make the photograph appear as a curved, folded sheet of thick paper with realistic depth, visible layered edges, soft shadows, and a floating effect. Add tiny hand-drawn black stick-figure characters interacting with the paper, pushing, lifting, or holding its edges, alongside playful handwritten captions such as \"{argument name=\"caption1\" default=\"Another version of my room\"}\" and \"{argument name=\"caption2\" default=\"Same place, different layer.\"} Elegant editorial photography, realistic textures, subtle imperfections, minimalist art direction, soft beige palette, creative visual storytelling, premium design magazine aesthetic, crisp details, balanced composition, vertical poster layout."
+    },
+    "zh": {
+      "title": "带有悬浮纸片剪影的 3D 剪贴簿构图",
+      "description": "创作一个富有创意的极简主义 3D 剪贴簿构图，将逼真的照片转化为厚实的悬浮纸片剪影，并搭配火柴人角色。",
+      "prompt": "创建一个富有创意的极简主义 3D 剪贴簿构图，将一张逼真的照片转化为温暖象牙色纹理背景上厚实、悬浮的纸片剪影。第一个场景展示一间阳光充足的现代卧室，配有橄榄绿床铺、胡桃木家具、大窗户、茂盛的室内植物、圆形镜子以及柔和的自然光。第二个场景描绘戏剧性的白色海岸悬崖，覆盖着生机勃勃的绿草，深蓝色的海浪，以及多云天空下一座醒目的红白相间灯塔。使照片呈现为弯曲、折叠的厚纸片效果，具有逼真的深度、可见的分层边缘、柔和阴影和悬浮感。添加微小的手绘黑色火柴人角色与纸片互动，如推、举或抓住其边缘，并配上俏皮的手写标题，例如“{argument name=\"caption1\" default=\"我房间的另一个版本\"}”和“{argument name=\"caption2\" default=\"同一个地方，不同的层次。\"}”。优雅编辑摄影风格，逼真纹理，细微瑕疵，极简艺术指导，柔和米色调色板，创意视觉叙事，高端设计杂志美学，清晰细节，平衡构图，垂直海报布局。"
+    }
+  },
+  "36502": {
+    "en": {
+      "title": "GPT-2 Sneaker Ad Poster Prompt",
+      "description": "A prompt for generating modern sneaker advertising posters with specific scene-based performance visuals and typography integration using GPT Image 2.",
+      "prompt": "Create a modern sneaker promotional poster featuring a [shoe type] with [shoe appearance] as the main foreground visual. Use a fixed visual system of warm white, graphite black, and burning orange. Realistic commercial product photography with clear details of fabric, foam, rubber, and unified lighting. The shoe is complete and occupies about half of the frame; the scene serves the shoe's purpose.\n\nExecute corresponding scenes based on [shoe type]:\nRoad Running Shoes: Early morning city elevated track, low-angle three-quarter view, toe pointing upper right; ground lines converge into the distance, combined with moderate motion blur to express propulsion.\nTrail Shoes: Rock layers, forest slopes, and cold gray sky, wide angle close to the ground side-front; deep-toothed sole crosses gravel, kicking up a little dust, burning orange path climbs along the slope.\nCity Training Shoes: Warm white concrete training space, skylights and side light, low-angle upward shot, toe pointing upper left; short orange folded lines around the sole to express turning and stable support.\n\nIntegrate large [English action words] into the selected environment: Road models become perspective-thick track components; Trail models are embedded in cut rock layers; Training models fold along walls, columns, and floors. The font uses warm white front faces and burning orange cuts, with realistic occlusion, thickness, and shadows, maintaining recognizability.\n\nPlace [Product Name] and \"CONCEPT FOOTWEAR\" at the top; place [Slogan] and [Structure Labels] at the bottom. Small text should be concise and clear, using modern sans-serif fonts, ensuring hierarchy between product, spatial title, and auxiliary information.\n\nOutput only one independent poster each time. Avoid real brand logos, people, fictional performance numbers, irrelevant text, shoe deformities, plastic textures, and excessive decoration."
+    },
+    "zh": {
+      "title": "GPT-2 运动鞋广告海报提示词",
+      "description": "使用 GPT Image 2 生成现代运动鞋广告海报的提示词，包含基于场景的性能视觉呈现和排版整合。",
+      "prompt": "创建一张现代运动鞋宣传海报，以 [鞋款类型] 搭配 [鞋款外观] 作为主要前景视觉元素。采用暖白、石墨黑和燃烧橙组成的固定视觉系统。使用逼真的商业产品摄影风格，清晰展现织物、泡沫、橡胶细节及统一的光照效果。鞋子完整且占据画面约一半空间；场景服务于鞋子的功能展示。\n\n根据 [鞋款类型] 执行相应的场景设定：\n公路跑鞋：清晨城市高架跑道，低角度四分之三视角，鞋尖指向右上方；地面线条向远处汇聚，结合适度的运动模糊以表现推进感。\n越野鞋：岩层、森林斜坡和冷灰色天空，广角贴近地面的侧前视角；深齿鞋底跨越碎石，扬起少许尘土，燃烧橙色的路径沿坡道向上延伸。\n城市训练鞋：暖白色混凝土训练空间，天窗和侧光照明，低角度仰拍，鞋尖指向左上方；鞋底周围有短橙色折叠线条，以表现转向动作和稳定支撑。\n\n将大型 [英文动作词汇] 融入所选环境：公路模型成为具有透视厚度的跑道组件；越野模型嵌入切割的岩层中；训练模型沿墙壁、柱子和地板折叠。字体使用暖白色正面和燃烧橙色切面，具备真实的遮挡、厚度和阴影效果，同时保持可识别性。\n\n在顶部放置 [产品名称] 和 \"CONCEPT FOOTWEAR\"；在底部放置 [标语] 和 [结构标签]。小字部分应简洁清晰，使用现代无衬线字体，确保产品、空间标题和辅助信息之间的层级关系。\n\n每次仅输出一张独立的海报。避免使用真实品牌标志、人物、虚构的性能数据、无关文字、鞋子变形、塑料质感以及过度装饰。"
+    }
+  },
+  "36503": {
+    "en": {
+      "title": "Second World Editorial Photography Poster",
+      "description": "Creates a vertical poster where the lower half transforms the main subject of an uploaded photo into a tangible 3D photographic object on paper.",
+      "prompt": "Create a vertical 3:4 “Second World” editorial photography poster based on the uploaded photo.\n\n### COMPOSITION\nDivide the image into two perfectly equal horizontal halves.\n\nUpper Half: Preserve the original photograph exactly, allowing only proportional cropping. Keep the original subject, colors, composition, natural lighting, and realistic textures. No redraws or illustrations.\n\nLower Half: Use a warm ivory-white paper background with generous negative space.\n\n### CORE CONCEPT\nIdentify the photograph’s most recognizable visual structure and transform it into a tangible, three-dimensional photographic object in the lower half.\n\nThe object must retain the original photographic textures and look physically real, with visible thickness, subtle folds or curves, natural shadows, perspective, and realistic contact with the paper.\n\nSubject preservation is essential: If the photo contains a recognizable person, building, animal, landmark, or distinct object, make it the centerpiece of the lower half. Preserve its identity, realistic texture, and most of its complete silhouette. Never replace the main subject with background elements.\n\nThe lower half must clearly display a substantial photographic object, not merely torn paper or a tiny character.\n\n### CHARACTERS & CAPTION\nInclude 0–2 minimalist black line-art characters interacting meaningfully with the photographic object, such as lifting, unfolding, pushing, repairing, or entering it.\n\nAdd one short, casual, slightly humorous handwritten English caption. Avoid motivational quotes and clichés.\n\n### VISUAL STYLE\nRealistic photography + warm ivory paper + minimalist black doodles + subtle handmade collage + independent magazine aesthetics.\n\nKeep the design clean, bright, minimal, and visually striking.\n\n### AVOID\nFull-image illustration, generic torn-paper templates, tiny decorative characters, unrelated ornaments, clutter, complex illustrations, and commercial aesthetics.\n\nFINAL RULE: The lower half must feel like a real, three-dimensional piece of the original photograph brought into a second world. The main subject must remain immediately recognizable at first glance, even if its physical properties are creatively transformed."
+    },
+    "zh": {
+      "title": "第二世界编辑摄影海报",
+      "description": "创建一张垂直海报，将上传照片的下半部分主体转化为纸上的实体 3D 摄影对象。",
+      "prompt": "基于上传的照片，创建一张垂直的 3:4 “第二世界”编辑摄影海报。\n\n### 构图\n将图像完美地分为两个相等的水平半部。\n\n上半部分：完全保留原始照片，仅允许按比例裁剪。保持原始主体、色彩、构图、自然光照和真实纹理。禁止重绘或插图。\n\n下半部分：使用温暖的象牙白纸张背景，并留有充足的负空间。\n\n### 核心概念\n识别照片中最具辨识度的视觉结构，并将其在下半部分转化为一个有形的三维摄影对象。\n\n该对象必须保留原始的摄影纹理，看起来具有物理真实性，具备可见的厚度、细微的褶皱或曲线、自然的阴影、透视感以及与纸张的真实接触。\n\n主体保留至关重要：如果照片中包含可识别的人物、建筑、动物、地标或独特物体，请将其作为下半部分的中心。保留其身份、真实纹理以及大部分完整的轮廓。切勿用背景元素替换主要主体。\n\n下半部分必须清晰展示一个实质性的摄影对象，而不仅仅是撕碎的纸张或微小的角色。\n\n### 角色与说明文字\n包含 0–2 个极简的黑色线条艺术角色，与摄影对象进行有意义的互动，例如抬起、展开、推动、修复或进入其中。\n\n添加一句简短、随意且略带幽默的手写英文说明文字。避免励志名言和陈词滥调。\n\n### 视觉风格\n写实摄影 + 温暖象牙纸 + 极简黑色涂鸦 + 微妙的手工拼贴 + 独立杂志美学。\n\n保持设计干净、明亮、极简且具有视觉冲击力。\n\n### 避免事项\n全图插画、通用的撕纸模板、微小的装饰性角色、无关的装饰品、杂乱、复杂的插画以及商业美学。\n\n最终规则：下半部分必须感觉像是原始照片的一个真实的三维片段被带入了第二个世界。即使其物理属性经过创意转化，主要主体必须在第一眼就立即被识别出来。"
+    }
+  },
+  "36504": {
+    "en": {
+      "title": "Halloween Candy Pocket Dress Prompt",
+      "description": "A detailed Japanese prompt for ChatGPT Image 2 to generate an anime-style girl wearing a Halloween dress with large pockets filled with candy.",
+      "prompt": "Soft pastel anime style. A girl wearing a Trick-or-Treat themed Halloween dress.\nThe outfit is an off-shoulder mini dress in natural beige. On one side of the skirt, there is a large pocket resembling a snack bag.\nCandies and small cookies peek out from the pocket opening.\nA thin orange ribbon around the waist.\nA short cape on the shoulders, with the ends of the cape tied like bag strings.\nNo hat on the head. Holding a snack bag in one hand and showing the pocket with the other.\nBackground is in front of a house at night, with lights.\nColors are natural beige, honey, pale orange, and night blue.\nFull body, trying to share sweets. A happy smile."
+    },
+    "zh": {
+      "title": "万圣节糖果口袋连衣裙提示词",
+      "description": "适用于 ChatGPT Image 2 的详细日语风格提示词，用于生成一位穿着带有装满糖果大口袋的万圣节连衣裙的动漫少女。",
+      "prompt": "柔和粉彩动漫风格。一位身穿“不给糖就捣蛋”主题万圣节连衣裙的女孩。\n服装为自然米色的露肩迷你连衣裙。裙摆一侧有一个类似零食袋的大口袋。\n糖果和小饼干从口袋开口处探出。\n腰间系着一条细橙色丝带。\n肩部披着短披风，披风末端像束口袋一样打结。\n头上没有戴帽子。一只手拿着零食袋，另一只手展示口袋。\n背景是夜晚房屋前，有灯光点缀。\n配色包括自然米色、蜂蜜色、淡橙色和夜蓝色。\n全身构图，女孩正试图分享甜点，脸上洋溢着幸福的笑容。"
+    }
+  },
+  "36505": {
+    "en": {
+      "title": "Hooded Traveller in Ruined Cathedral",
+      "description": "A prompt for generating a moody night scene inside a ruined cathedral with moonlight through a rose window illuminating a hooded traveller.",
+      "prompt": "A ruined cathedral at night. Moonlight through the rose window lays its tracery down the aisle as a path, and one hooded traveller stands on it."
+    },
+    "zh": {
+      "title": "废墟教堂中的兜帽旅人",
+      "description": "用于生成月光透过玫瑰窗照亮废墟教堂内兜帽旅人的阴郁夜景提示词。",
+      "prompt": "夜晚的废墟教堂。月光穿过玫瑰窗，将花窗格影投射在过道上宛如一条小径，一位兜帽旅人伫立其上。"
+    }
+  },
+  "36506": {
+    "en": {
+      "title": "Haiku About Neglected Wine Cellar",
+      "description": "A poetic prompt describing rats in a neglected wine cellar, generated by GPT Image 2 Low.",
+      "prompt": "the abbot\nhas neglected the wine cellar\nand the rats\ncontent to eat rancid grapes\nhave the run of the place"
+    },
+    "zh": {
+      "title": "关于被遗忘酒窖的俳句",
+      "description": "一段由 GPT Image 2 Low 生成的诗意提示词，描绘了被忽视的酒窖中的老鼠。",
+      "prompt": "住持\n疏于打理酒窖\n鼠群\n安享腐坏葡萄\n肆意横行其间"
+    }
+  },
+  "36507": {
+    "en": {
+      "title": "Retro Showa Girl in Yukata",
+      "description": "A nostalgic portrait of a young woman in a blue floral yukata holding a Ramune soda bottle against a traditional red shop curtain background.",
+      "prompt": "A vertical portrait photograph in a retro Showa-era style, featuring a young Asian woman looking back over her shoulder directly at the camera. She has long dark brown hair with wispy bangs and wears an elaborate floral kanzashi hair ornament on the left side of her head, consisting of light blue and white fabric flowers with dangling pearl strands. Her skin is fair with visible natural texture, including freckles and small blemishes, giving a raw, unretouched look. She is wearing a traditional yukata (summer kimono) patterned with large blue morning glory flowers on a white background, secured with a solid light blue obi sash. In her hands, she holds a clear glass Ramune soda bottle with a marble stopper near her chest. The background is slightly out of focus but clearly shows a red noren curtain with white Japanese calligraphy and a drawing of a maneki-neko (beckoning cat), suggesting a traditional shop or festival setting. The image has a vintage film aesthetic with warm tones, slight grain, and distressed white borders around the edges."
+    },
+    "zh": {
+      "title": "昭和复古风浴衣少女",
+      "description": "一幅充满怀旧气息的肖像，描绘了一位身着蓝色花卉浴衣的年轻女子，手持 Ramune 汽水，背景为传统的红色暖帘。",
+      "prompt": "这是一张垂直构图的肖像照片，采用复古昭和时代风格，画面中一位年轻的亚洲女性回眸直视镜头。她留着深棕色长发，额前有轻盈的空气刘海，头部左侧佩戴着精致的花朵发饰（簪），由浅蓝色和白色的布艺花朵组成，并垂挂着珍珠串链。她的皮肤白皙，保留了自然的纹理细节，包括雀斑和细微瑕疵，呈现出未经修饰的真实感。她身穿一件传统浴衣（夏季和服），白色底色上印有大朵蓝色牵牛花图案，腰间系着纯浅蓝色的腰带（obi）。她双手在胸前握着一瓶带有玻璃弹珠塞的透明 Ramune 汽水。背景略微虚化，但清晰可见印有白色日文书法和招财猫图案的红色暖帘，暗示了传统店铺或祭典的场景。整张图片具有复古胶片美学特征，色调温暖，带有轻微颗粒感，边缘环绕着做旧的白色边框。"
+    }
+  },
+  "36508": {
+    "en": {
+      "title": "Alien Bride in Ruined Lab",
+      "description": "A surreal portrait of a female alien wearing a wedding dress and headphones, seated in a destroyed laboratory setting.",
+      "prompt": "A hyper-realistic, full-body shot of a female alien with pale grey skin and large black eyes sitting in a worn-out leather armchair. She is wearing a voluminous white tulle wedding dress and white platform high heels. She has silver headphones on her head and is holding one ear cup with her left hand, looking directly at the camera with a serious expression. The setting is a dilapidated, ruined laboratory or industrial space with debris scattered on the floor, broken glass, old computer monitors, and scientific equipment like beakers on a table to the left. In the background, there is a view of a destroyed city skyline under an overcast sky. The lighting is moody and cinematic, emphasizing the texture of the tulle fabric against the gritty environment."
+    },
+    "zh": {
+      "title": "废墟实验室中的外星新娘",
+      "description": "一位身穿婚纱、佩戴耳机的女性外星人坐在被摧毁的实验室中的超现实肖像。",
+      "prompt": "一张超写实的全景照片，展示了一位皮肤呈浅灰色、拥有巨大黑眼睛的女性外星人，她正坐在一把破旧的皮革扶手椅上。她身穿一件蓬松的白色薄纱婚纱，脚踩白色厚底高跟鞋。头上戴着银色耳机，左手轻扶耳罩，神情严肃地直视镜头。背景是一个破败不堪、满目疮痍的实验室或工业空间，地板上散落着碎片和碎玻璃，左侧桌子上摆放着烧杯等科学仪器以及老旧的电脑显示器。远处背景中，在阴沉的天空下，可以看到一座被摧毁的城市天际线。光线充满情绪感且具有电影质感，突出了薄纱面料在粗粝环境中的纹理细节。"
+    }
+  },
+  "36509": {
+    "en": {
+      "title": "Autumn Creative Plans Collage",
+      "description": "A vibrant digital collage poster combining a central portrait of a woman with purple hair and various fantastical characters against an autumn-themed background with falling leaves and Russian calligraphy.",
+      "prompt": "A vertical digital collage poster featuring a central young woman with messy purple hair, freckles, and a mustard-yellow sleeveless top. She is looking over her shoulder at the viewer with a confident expression, raising one hand to point her index finger upward. Surrounding her are five distinct character portraits arranged in a fan-like layout: top-left shows a punk figure with blue skin, pink mohawk, and sharp teeth; top-center features an anthropomorphic orange cat with yellow eyes wearing a green jacket and black pants; top-right displays a fluffy white creature resembling a sheep or cloud made of petals; middle-left is a grayscale image of a person with dreadlocks, sunglasses, and a gas mask making a peace sign; middle-right shows a surreal baby-like figure with a large head, red sweater, and green pants carrying a bag shaped like another face. The background is a textured beige paper style filled with scattered autumn maple leaves and clusters of red rowan berries. At the bottom, elegant black cursive text reads \"Мои планы на осень — Творить!\"."
+    },
+    "zh": {
+      "title": "秋季创意计划拼贴画",
+      "description": "一幅充满活力的数字拼贴海报，将一位紫发女性的中心肖像与各种奇幻角色相结合，背景为秋季主题，伴有落叶和俄语书法。",
+      "prompt": "这是一幅垂直构图的数字拼贴海报，中心是一位留着凌乱紫色头发、脸上有雀斑的年轻女性，身穿芥末黄色无袖上衣。她回头自信地注视着观众，并抬起一只手竖起食指指向天空。围绕着她的是五个风格迥异的角色肖像，呈扇形排列：左上角是一个朋克形象，有着蓝色皮肤、粉色莫霍克发型和尖锐的牙齿；顶部中央是一只拟人化的橙色猫，长着黄色的眼睛，穿着绿色夹克和黑色裤子；右上角展示了一个毛茸茸的白色生物，看起来像由花瓣组成的绵羊或云朵；中间左侧是一张灰度图像，显示一个留着脏辫、戴着墨镜和防毒面具的人比着剪刀手；中间右侧是一个超现实的婴儿状人物，头很大，穿着红色毛衣和绿色裤子，背着一个形状像另一张脸的包。背景是带有纹理的米色纸张风格，点缀着散落的秋季枫叶和成簇的红色花楸果。底部有一行优雅的黑色草书文字写着“Мои планы на осень — Творить!”。"
     }
   }
 }
