@@ -1,5 +1,31 @@
 [
   {
+    "id": "100322",
+    "title": "写实俯视国家地理立体沙盘地图",
+    "category": "图表与信息图",
+    "styles": [
+      "Infographic"
+    ],
+    "scenes": [
+      "Infographic",
+      "Travel"
+    ],
+    "tags": [
+      "Minimal",
+      "Realistic",
+      "3D Render",
+      "Cinematic",
+      "Studio",
+      "Infographic"
+    ],
+    "imageUrl": "/uploads/2026-10-18-case-topographic-diorama-map.jpg",
+    "imageAlt": "写实俯视国家地理立体沙盘地图",
+    "prompt": "Ultra-realistic top-down geographic map with precise cartographic accuracy, clearly defining the true geographic context of [COUNTRY].\n\nFrom the exact real-world coordinates of [CITY], a highly detailed miniature 3D diorama rises organically from the map surface, perfectly aligned with its true location.\n\nThe diorama features iconic architecture, signature natural landmarks, and authentic cultural elements of the city, seamlessly integrated into the map as if sculpted from it.\n\nPhysically accurate materials, realistic surface textures, and true-to-scale proportions.\n\nShallow depth of field with macro-lens realism, subtle atmospheric perspective.\n\nSoft neutral studio lighting with controlled shadows to enhance depth and realism.\n\nCinematic composition, premium architectural-model photography style.\n\nUltra-sharp detail, high dynamic range, photorealistic finish.\nSquare 1:1 format, realistic scale, museum-quality visual output.",
+    "promptPreview": "Ultra-realistic top-down geographic map with precise cartographic accuracy, clearly defining the true geographic context of [COUNTRY]. From the exact real-world coordinates of [CITY], a highly detailed miniature 3D dior…",
+    "source": "Community collected via @TechieBySA",
+    "createdAt": "2026-10-17T20:04:22.367Z"
+  },
+  {
     "id": "100321",
     "title": "怪诞几何头型扁平卡通人物海报",
     "category": "角色与人物",
