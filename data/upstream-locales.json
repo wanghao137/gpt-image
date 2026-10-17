@@ -54522,9 +54522,9 @@
   },
   "36498": {
     "en": {
-      "title": "GPT Image 2 Liquor Poster Design Prompt",
-      "description": "A highly detailed prompt for generating liquor advertisement posters using GPT Image 2, focusing on material textures and light refraction.",
-      "prompt": "[Brand]: {argument name=\"brand_en\" default=\"HOLLOW\"}\n[Product]: {argument name=\"product_en\" default=\"Short-shouldered transparent square bottle with amber whisky, black cap\"}\n[Title]: {argument name=\"title_en\" default=\"EMBER\"}\n[Category]: {argument name=\"category_en\" default=\"WHISKY\"}\n[Side Materials]: {argument name=\"side_materials_en\" default=\"Dark oak cross-section / Thick-walled amber glass\"}\n[Scene & Camera]: {argument name=\"scene_camera_en\" default=\"Wine cellar oak countertop, low-angle three-quarter view, warm side backlighting\"}\n[Optical Event]: {argument name=\"optical_event_en\" default=\"The liquid locally tints the title amber and slightly magnifies it; restrained caustics appear on the surface\"}\n[Main Color]: {argument name=\"main_color_en\" default=\"Amber Brown\"}\n\nCreate a 4:5 vertical liquor advertising poster, outputting one independent finished piece at a time.\n\nFixed visual language: Realistic commercial still-life photography, warm ivory negative space, huge high-contrast serif titles, restrained editorial layout. Use the wine bottle and transparent medium to refract text, combined with bright channels formed by side materials; avoid neon, glowing outlines, generic e-commerce cards, or golden luxury decorations.\n\nArrange [Product] according to [Scene & Camera]. Let [Side Materials] enter the frame as close-ups with partial cropping, forming asymmetric vertical negative space; openings can slowly expand/contract with the camera, do not make them mirror-image door frames. The bottle occupies about half to two-thirds of the screen height, fully recognizable within the negative space, with slight occlusion from one side material; upper part must have breathing room. Side materials must come from the storage, packaging, or drinking context of this liquor type; do not add irrelevant caves, flower fields, or uniformly copied photographic backgrounds.\n\nPlace the large title [Title] across layers in the middle-upper area, letting a small segment of strokes pass behind the wine bottle or transparent medium, undergoing local magnification, displacement, or color filtering in [Optical Event]. Parts of the text not passing through the medium remain normally clear; distortion is limited to the translucent area, do not twist the entire title into waves. Use [Main Color] as the only strong color, with warm ivory and charcoal black as auxiliaries; liquid translucency, glass thickness, contact shadows, condensation, and projections must be believable; do not draw optical effects as lasers.\n\nPlace [Brand] at the top in a small, sparse sans-serif font; place [Category] and \"Drink Responsibly\" at the bottom as two lines of small text. Bottle labels use only brand and category, leaving clean information density. Only the above text is allowed in the entire image; do not automatically add slogans, vintages, alcohol content, awards, origins, prices, or unprovided product claims. No people in the scene, do not express excessive drinking.\n\nPreserve delicate natural material textures and precise glass highlights; avoid heavy CGI, floating products, extra bottles, random letters, glare stacking, collages, and watermarks. Scene, camera, bottle shape, and optical events change with variables, but the visual language of warm ivory negative space, serif main titles, and localized refraction remains consistent."
+      "title": "GPT-Image-2 Alcohol Poster Prompt",
+      "description": "A detailed prompt for generating realistic commercial alcohol posters with specific material interactions and lighting effects using GPT-Image-2.",
+      "prompt": "Create a 4:5 vertical alcohol promotional poster, outputting only one independent finished piece at a time.\n\nFixed visual language: Realistic commercial still life photography, warm ivory negative space, huge high-contrast serif titles, restrained editorial typography. Use the wine bottle and transparent medium to refract text, combined with bright channels formed by materials on both sides; no neon, glowing outlines, generic e-commerce cards, or golden luxury decorations.\n\nArrange [product] according to [scene and lens]. Let [materials on both sides] enter the frame in close-up, partially cropped, forming asymmetric vertical negative space. The opening can slowly expand and contract with the lens, do not make it a mirrored doorframe. The bottle occupies about half to two-thirds of the screen height, fully recognizable in the negative space, with slight occlusion from one side's material; the upper part should still have breathing room. The materials on both sides must come from the storage, packaging, or drinking context of this liquor, without adding irrelevant caves, flower fields, or uniformly replicated photographic backgrounds.\n\nPlace the large title [title] across layers in the upper middle section, letting a small segment of its strokes pass behind the wine bottle or transparent medium, undergoing local magnification, displacement, or color filtering in the [optical event]. Parts of the text not passing through the medium remain normally clear; deformation is limited to the light-transmitting area, cannot twist the entire title into waves. Use [primary color] as the only strong color, assisted by warm ivory and charcoal black; light transmission through the liquid, glass thickness, contact shadows, condensation, and projections must be credible, do not draw optical effects as lasers.\n\n[Brand] is placed at the top in a small, sparse sans-serif font; [Category] and \"Drink Responsibly\" are at the bottom as two lines of small text. The bottle label uses only the brand and category, leaving clean information density. Only the above text is allowed in the entire image, do not automatically add slogans, vintages, alcohol content, awards, origins, prices, or unprovided product claims. No people in the scene, do not depict excessive drinking.\n\nPreserve delicate natural material textures and precise glass highlights, avoid heavy CGI, floating products, extra bottles, random letters, glare stacking, collages, and watermarks. Scene, lens, bottle shape, and optical events change with variables, but the visual language of warm ivory negative space, serif main titles, and local refraction remains consistent."
     },
     "zh": {
       "title": "GPT Image 2 酒类海报设计提示词",
@@ -54642,9 +54642,9 @@
   },
   "36508": {
     "en": {
-      "title": "Alien Bride in Ruined Lab",
-      "description": "A surreal portrait of a female alien wearing a wedding dress and headphones, seated in a destroyed laboratory setting.",
-      "prompt": "A hyper-realistic, full-body shot of a female alien with pale grey skin and large black eyes sitting in a worn-out leather armchair. She is wearing a voluminous white tulle wedding dress and white platform high heels. She has silver headphones on her head and is holding one ear cup with her left hand, looking directly at the camera with a serious expression. The setting is a dilapidated, ruined laboratory or industrial space with debris scattered on the floor, broken glass, old computer monitors, and scientific equipment like beakers on a table to the left. In the background, there is a view of a destroyed city skyline under an overcast sky. The lighting is moody and cinematic, emphasizing the texture of the tulle fabric against the gritty environment."
+      "title": "Alien Bride in Post-Apocalyptic Lab",
+      "description": "A surreal digital artwork depicting a female alien wearing a wedding dress and headphones, seated in a destroyed laboratory environment.",
+      "prompt": "A hyper-realistic, full-body portrait of a female alien with pale, smooth skin and an elongated head, sitting elegantly in a worn, dark leather armchair. She is wearing a voluminous, sheer white tulle wedding dress that cascades around her legs and onto the floor, paired with high-heeled platform shoes. Large silver over-ear headphones rest on her head, with one hand gently touching the ear cup as if listening to music. Her expression is calm and slightly melancholic, with large, dark almond-shaped eyes typical of extraterrestrial depictions. The setting is a dilapidated, post-apocalyptic laboratory or abandoned facility, featuring broken computer monitors with cracked screens, scattered glass beakers, debris-strewn floors, and crumbling concrete walls. Through a large hole in the background wall, a desolate cityscape with ruined skyscrapers is visible under a grey, overcast sky. The lighting is soft and diffused, highlighting the texture of the tulle fabric against the gritty, industrial surroundings."
     },
     "zh": {
       "title": "废墟实验室中的外星新娘",
@@ -54662,6 +54662,138 @@
       "title": "秋季创意计划拼贴画",
       "description": "一幅充满活力的数字拼贴海报，将一位紫发女性的中心肖像与各种奇幻角色相结合，背景为秋季主题，伴有落叶和俄语书法。",
       "prompt": "这是一幅垂直构图的数字拼贴海报，中心是一位留着凌乱紫色头发、脸上有雀斑的年轻女性，身穿芥末黄色无袖上衣。她回头自信地注视着观众，并抬起一只手竖起食指指向天空。围绕着她的是五个风格迥异的角色肖像，呈扇形排列：左上角是一个朋克形象，有着蓝色皮肤、粉色莫霍克发型和尖锐的牙齿；顶部中央是一只拟人化的橙色猫，长着黄色的眼睛，穿着绿色夹克和黑色裤子；右上角展示了一个毛茸茸的白色生物，看起来像由花瓣组成的绵羊或云朵；中间左侧是一张灰度图像，显示一个留着脏辫、戴着墨镜和防毒面具的人比着剪刀手；中间右侧是一个超现实的婴儿状人物，头很大，穿着红色毛衣和绿色裤子，背着一个形状像另一张脸的包。背景是带有纹理的米色纸张风格，点缀着散落的秋季枫叶和成簇的红色花楸果。底部有一行优雅的黑色草书文字写着“Мои планы на осень — Творить!”。"
+    }
+  },
+  "36536": {
+    "en": {
+      "title": "Virgo Zodiac Portrait with Golden Cosmic Energy",
+      "description": "A prompt for generating a realistic illustration of a person (from an attached reference image) integrated with the Virgo zodiac symbol, featuring golden energy and sacred geometry aesthetics.",
+      "prompt": "A realistic illustration of the model in the attached image, preserving her face and expression. Retain the head from the background of the original image, with the {argument name=\"zodiac sign\" default=\"Virgo\"} symbol positioned at the top. The entire setting is suffused with a glow of {argument name=\"energy color\" default=\"golden\"} energy, luminous sacred geometry particles, and cosmic {argument name=\"nebula type\" default=\"golden nebulae\"}. Color palette: pure gold, neon amber, and deep black. High-resolution visual quality with a metallic finish."
+    },
+    "zh": {
+      "title": "处女座星座肖像与金色宇宙能量",
+      "description": "用于生成逼真插画的提示词，将人物（基于附加参考图）与处女座符号融合，呈现金色能量与神圣几何美学。",
+      "prompt": "根据附图中的模特生成一张逼真的插画，保留她的面部特征和表情。保留原图背景中的人物头部，并将 {argument name=\"zodiac sign\" default=\"Virgo\"} 符号置于顶部。整个场景弥漫着 {argument name=\"energy color\" default=\"golden\"} 能量的光芒、发光的神圣几何粒子以及宇宙 {argument name=\"nebula type\" default=\"golden nebulae\"}。配色方案：纯金、霓虹琥珀色和深黑色。具有金属质感的高分辨率视觉效果。"
+    }
+  },
+  "36537": {
+    "en": {
+      "title": "GPT-Image-2 Dessert Poster Prompt",
+      "description": "A specialized prompt for creating dessert-themed commercial posters with temperature-based typography effects using GPT-Image-2.",
+      "prompt": "Output a single independent 4:5 vertical commercial poster, no collage, no multi-grid generation. Use an original fictional brand, do not imitate existing brand packaging, logos, or advertisements. Text should only use the brand name, main title, and category explicitly listed in the prompt, do not fabricate prices, award information, parameters, dates, origins, or slogans. The image should reach a level of completion suitable for creative direction review, with realistic structure, credible materials, clear layout, and no watermarks.\n\nTheme: Dessert audit sample. Original brand \"SOFT LAB\", product \"CARAMEL PUDDING\", main title \"MELT\".\n\nUse a warm cream-colored seamless background. Place a real caramel pudding slightly below center, with a smooth surface featuring fine air bubbles, caramel sauce flowing slowly down one side, and soft contact shadows on the white porcelain plate. In the middle background, stand four thick but not exaggerated cream-colored letters \"MELT\", with letter material resembling cooled fine sugar frost.\n\nCore composition type: \"Single Dessert - Temperature Direction - Typeface Gradient\". Establish a clear temperature change from left to right: M remains dry crystalline; E edges show slight caramel wetness; L lower part slightly softens; T's bottom corner contacts caramel sauce and slowly melts. Changes must be continuous, restrained, and gravity-compliant, with all four letters remaining fully readable. Use two or three extremely thin hand-drawn arrows to annotate \"Cooling / Contact / Softening\", do not add long explanations. Write \"SOFT LAB\" at the top, \"CARAMEL PUDDING\" at the bottom.\n\nColors should only use cream white, caramel brown, and a small amount of dark coffee. Avoid multiple desserts, food splashes, exaggerated lava, cartoon expressions, recipe information, prices, promotional stickers, or children's illustrations."
+    },
+    "zh": {
+      "title": "GPT-Image-2 甜点海报提示词",
+      "description": "专为 GPT-Image-2 设计的提示词，用于创建带有基于温度排版效果的甜点主题商业海报。",
+      "prompt": "输出单张独立的 4:5 竖版商业海报，禁止拼贴或多网格生成。使用原创虚构品牌，不得模仿现有品牌的包装、Logo 或广告。文本仅可使用提示词中明确列出的品牌名称、主标题和品类，严禁捏造价格、奖项信息、参数、日期、产地或标语。图像需达到适合创意总监审核的完成度，具备真实结构、可信材质、清晰布局且无水印。\n\n主题：甜点审计样本。原创品牌 \"SOFT LAB\"，产品 \"CARAMEL PUDDING\"（焦糖布丁），主标题 \"MELT\"。\n\n采用暖奶油色无缝背景。将真实的焦糖布丁放置在略低于中心的位置，表面光滑并带有细微气泡，焦糖酱缓慢沿一侧流下，白色瓷盘上呈现柔和的接触阴影。在中景处，竖立四个厚实但不夸张的奶油色字母 \"MELT\"，字母材质类似冷却后的细砂糖霜。\n\n核心构图类型：“单一甜点 - 温度方向 - 字体渐变”。建立从左至右清晰的温度变化：M 保持干燥结晶状态；E 边缘显示轻微的焦糖湿润感；L 下部略微软化；T 的底角接触焦糖酱并缓慢融化。变化必须连续、克制且符合重力规律，确保四个字母完全可读。使用两到三个极细的手绘箭头标注“冷却 / 接触 / 软化”，不要添加冗长解释。顶部书写 \"SOFT LAB\"，底部书写 \"CARAMEL PUDDING\"。\n\n颜色仅限使用奶油白、焦糖棕和少量深咖啡色。避免多种甜点、食物飞溅、夸张的熔岩效果、卡通表情、食谱信息、价格、促销贴纸或儿童插画风格。"
+    }
+  },
+  "36538": {
+    "en": {
+      "title": "GPT-Image-2 Wildlife Photography Prompt",
+      "description": "A prompt for generating dynamic wildlife photography with decisive moments and minimal environment narrative using gpt-image-2.",
+      "prompt": "[Subject] and [Animal] dynamic interaction photography, person not fully in frame, entering only with partial hands, forearms, or body edges, establishing direct contact with [Animal] through [Interactive Prop].\n\nThe animal is captured in the instant of action: pouncing, reaching, holding, grabbing, lightly touching, or approaching the prop, forming a strong decisive moment.\n\nComposition emphasizes action connection, prominent subject, minimalist background, realistic environment, natural daylight, high-speed shutter freezing motion, with a sense of authentic snapshot, life feel, and narrative. Background uses large areas of simple natural environment color fields, highlighting the subject and interaction relationship."
+    },
+    "zh": {
+      "title": "GPT-Image-2 野生动物摄影提示词",
+      "description": "使用 gpt-image-2 生成具有决定性瞬间和极简环境叙事的动态野生动物摄影提示词。",
+      "prompt": "[主体] 与 [动物] 的动态互动摄影，人物不完全入镜，仅通过部分手部、前臂或身体边缘进入画面，并通过 [互动道具] 与 [动物] 建立直接联系。\n\n捕捉动物动作发生的瞬间：扑击、伸展、抓握、轻触或接近道具，形成强烈的决定性时刻。\n\n构图强调动作连接、突出主体、极简背景、真实环境、自然日光，利用高速快门定格运动，营造真实的抓拍感、生活气息和叙事性。背景采用大面积简洁的自然环境色块，以凸显主体及其互动关系。"
+    }
+  },
+  "36539": {
+    "en": {
+      "title": "Vintage Travel-Journal Photo Collage",
+      "description": "A prompt for GPT Image 2 to transform an uploaded photograph into a minimalist vintage travel-journal collage, splitting the canvas between the original photo and a flat watercolor illustration of the same scene.",
+      "prompt": "Transform the uploaded photograph into a minimalist vintage travel-journal collage. Match the provided two-panel reference style as closely as possible.\n\nCANVAS:\nVertical 3:4 composition with two horizontal sections of approximately equal height.\n\nTOP HALF — ORIGINAL PHOTO:\nPreserve the uploaded photograph and its original composition, location, architecture, objects, colors, and perspective. Keep the image photographic, natural, slightly soft-focused, and cinematic. Do not turn the top half into an illustration.\n\nBOTTOM HALF — SIMPLE FLAT ILLUSTRATION:\nCreate a deliberately simplified, minimalist watercolor-and-ink illustration of the EXACT SAME SCENE.\n\nIMPORTANT: The bottom illustration must look like the simple, faded illustration in the reference image, NOT a detailed watercolor painting.\n\nUse:\n\nSimplified architectural silhouettes\n\nFlat, translucent watercolor washes\n\nMinimal outlines and loose brushwork\n\nFaded terracotta and dusty blue\n\nMuted olive green and charcoal\n\nLarge areas of empty cream paper\n\nSimple human silhouettes\n\nVery few architectural details\n\nSoft, imperfect edges\n\nDo not reproduce every photographic detail. Preserve only the most recognizable elements of the original scene.\n\nThe illustration should feel understated, airy, slightly faded, and hand-painted on vintage paper.\n\nLAYOUT:\nKeep the photograph in the upper half and the illustration in the lower half. Separate them with a simple, subtly irregular horizontal edge. Avoid elaborate torn-paper effects.\n\nPAPER:\nWarm ivory paper with subtle natural grain and a matte finish. The lower section should have plenty of empty space.\n\nTEXT:\nAt the bottom of the illustrated section, add a small lowercase typewriter-style heading followed by two short lines of reflective text relevant to the scene.\n\nUse dark gray monospaced letters, slightly faded ink, and generous spacing. Keep the text small and understated.\n\nSTRICT STYLE RULES:\nThe top must remain a photograph.\nThe bottom must remain a simple flat illustration.\nDo not make the bottom photorealistic.\nDo not use highly detailed watercolor rendering.\nDo not fill the entire paper with paint.\nDo not add extra panels, borders, decorative elements, or random text.\nPreserve the original scene's recognizable identity.\n\nThe final image must resemble a minimalist travel-journal page with a photograph above and a simple illustrated interpretation below.\n\nAspect ratio: 3:4 vertical."
+    },
+    "zh": {
+      "title": "复古旅行手账照片拼贴",
+      "description": "GPT Image 2 提示词，用于将上传的照片转换为极简复古旅行手账拼贴画，画面分为两部分：上半部分保留原始照片，下半部分为同一场景的扁平水彩插画。",
+      "prompt": "将上传的照片转换为极简复古旅行手账拼贴画。尽可能贴近提供的双栏参考风格。\n\n画布：\n垂直 3:4 构图，分为上下两个高度大致相等的水平区域。\n\n上半部分 — 原始照片：\n保留上传照片及其原始构图、地点、建筑、物体、色彩和透视效果。保持图像的摄影质感、自然感、轻微柔焦效果和电影感。切勿将上半部分转化为插画。\n\n下半部分 — 简约扁平插画：\n创作一幅刻意简化、极简主义的水墨与淡彩插画，描绘完全相同的场景。\n\n重要提示：底部插画必须看起来像参考图中那种简单、褪色的插画，而非细节丰富的水彩画。\n\n使用以下元素：\n\n简化的建筑轮廓\n\n平坦、半透明的水彩渲染\n\n极少的线条勾勒和松散的笔触\n\n褪色的赤陶色和灰蓝色\n\n柔和的橄榄绿和炭灰色\n\n大面积留白的奶油色纸张\n\n简单的人物剪影\n\n极少的建筑细节\n\n柔和、不完美的边缘\n\n不要重现每一个摄影细节。仅保留原始场景中最具辨识度的元素。\n\n插画应给人低调、轻盈、略带褪色感且手绘于复古纸张上的感觉。\n\n布局：\n照片位于上半部分，插画位于下半部分。两者之间用一条简单、略微不规则的水平边缘分隔。避免复杂的撕纸效果。\n\n纸张：\n温暖的象牙色纸张，带有细微的自然纹理和哑光质感。下半部分应有大量空白空间。\n\n文字：\n在插画部分的底部，添加一个小写打字机风格的小标题，随后是两行简短的、与场景相关的反思性文字。\n\n使用深灰色等宽字体，墨水略显褪色，间距宽松。保持文字小巧且低调。\n\n严格风格规则：\n顶部必须保持为照片。\n底部必须保持为简单的扁平插画。\n不要让底部变得逼真写实。\n不要使用高细节的水彩渲染。\n不要用颜料填满整张纸。\n不要添加额外的面板、边框、装饰元素或随机文字。\n保留原始场景的可识别特征。\n\n最终图像必须看起来像一页极简主义的旅行手账，上方是照片，下方是简单的插画诠释。\n\n宽高比：3:4 垂直。"
+    }
+  },
+  "36540": {
+    "en": {
+      "title": "Hand-Drawn 2D Cartoon Illustration",
+      "description": "A prompt for GPT Image 2 to convert uploaded photographs into clean, colorful, hand-drawn 2D cartoon illustrations while preserving composition and identities.",
+      "prompt": "Convert the entire uploaded photograph into a clean, colorful, hand-drawn 2D cartoon illustration. Preserve the original composition, camera angle, poses, facial expressions, recognizable identities, hairstyles, clothing, accessories, and all important background elements.\n\nILLUSTRATION STYLE:\n•Clean black outlines with slightly varied, hand-drawn line weight.\n•Flat pastel colors with minimal cel shading.\n•Simplified characters with cute proportions, expressive faces, and natural poses.\n•Smooth, slightly imperfect lines for an authentic illustrated feel.\n•Simplify realistic textures into clean shapes while retaining recognizable details.\n•Recreate the original environment, including buildings, trees, fountains, pathways, and other objects, in the same cartoon style.\n•Use a soft pastel palette with light blue skies, muted greens, warm skin tones, and gentle pinks.\n•Add subtle artistic details while maintaining the original scene’s atmosphere.\n\nPRESERVE THE ORIGINAL:\nKeep the same number of people, their positions, body proportions, clothing colors, interactions, and relative sizes. Maintain the original background layout and perspective. Do not add, remove, or reposition important objects.\n\nOUTPUT REQUIREMENTS:\nA polished, full-frame 2D illustration with consistent outlines, flat colors, and a playful, storybook aesthetic. The entire image must be illustrated, with zero photorealistic elements.\n\nAVOID: 3D rendering, photorealism, excessive shading, watercolor textures, blurry lines, distorted faces, extra fingers or limbs, changed outfits, altered poses, missing background details, and unwanted text or watermarks.\n\nAspect ratio: Match the uploaded photo exactly.\n\nPro tip: Upload one photo at a time and use this same prompt to transform different photos into a consistent cartoon style."
+    },
+    "zh": {
+      "title": "手绘 2D 卡通插画",
+      "description": "适用于 GPT Image 2 的提示词，可将上传的照片转换为干净、色彩丰富且保留构图与人物特征的手绘 2D 卡通插画。",
+      "prompt": "将整张上传的照片转换为干净、色彩丰富且风格统一的手绘 2D 卡通插画。请保留原始构图、拍摄角度、姿势、面部表情、可识别的人物身份、发型、服装、配饰以及所有重要的背景元素。\n\n插画风格：\n• 使用清晰的黑色轮廓线，线条粗细略有变化，呈现手绘质感。\n• 采用扁平化的柔和色调，仅保留极少量的赛璐珞式阴影。\n• 角色设计简化，比例可爱，表情生动，姿态自然。\n• 线条流畅但略带不完美的手工感，营造真实的插画氛围。\n• 将写实质感简化为干净的形状，同时保留可辨识的细节。\n• 以相同的卡通风格重现原始环境，包括建筑物、树木、喷泉、小径及其他物体。\n• 使用柔和的粉彩调色板，包含淡蓝色天空、低饱和度的绿色、温暖的肤色和柔和的粉色。\n• 在保持原场景氛围的同时，添加细微的艺术细节。\n\n保留原始内容：\n保持相同的人数、位置、身体比例、服装颜色、互动关系及相对大小。维持原始背景的布局和透视效果。不要添加、移除或重新定位重要物体。\n\n输出要求：\n生成一张精致的全画幅 2D 插画，具有统一的轮廓、扁平的色彩以及俏皮的故事书美学风格。整张图片必须完全插画化，不得包含任何写实摄影元素。\n\n避免事项：3D 渲染、写实主义、过度阴影、水彩纹理、模糊线条、面部扭曲、多余的手指或肢体、改变服装、调整姿势、缺失背景细节以及不需要的文字或水印。\n\n宽高比：严格匹配上传照片的比例。\n\n专业建议：每次上传一张照片，并使用此相同的提示词，将不同的照片转换为风格一致的卡通图像。"
+    }
+  },
+  "36542": {
+    "en": {
+      "title": "Werewolf at Abandoned Playground",
+      "description": "Generates a realistic horror image of a werewolf prowling through a rainy, ruined playground at night.",
+      "prompt": "A hyper-realistic, cinematic horror scene featuring a massive werewolf crouching atop the rusted remains of an abandoned merry-go-round in a desolate playground. The creature is covered in matted dark fur and tattered rags, with glowing orange eyes and sharp teeth bared in a ferocious snarl. Its claws grip the metal bars tightly. To the left, a rusty swing set hangs empty; to the right, a weathered wooden sign reads \"PLAYGROUND RULES: HAVE FUN BE SAFE SHARE SMILE\". In the background, a dilapidated gazebo stands among bare trees under a stormy night sky illuminated by a full moon and jagged lightning bolts. Heavy rain falls throughout the scene, creating wet reflections on the ground and enhancing the ominous atmosphere."
+    },
+    "zh": {
+      "title": "废弃游乐场的狼人",
+      "description": "生成一张逼真的恐怖图像，展示狼人在雨夜中穿过一座破败的游乐场。",
+      "prompt": "一个超写实的电影级恐怖场景：一只巨大的狼人蹲伏在一座荒废游乐场里生锈旋转木马的残骸上。这只生物浑身覆盖着纠结的黑色毛发和破烂不堪的衣物，橙色的眼睛闪烁着光芒，龇牙咧嘴地发出凶猛的咆哮。它的爪子紧紧抓住金属栏杆。左侧，一套锈迹斑斑的秋千架空荡荡地悬挂着；右侧，一块风化严重的木牌上写着“PLAYGROUND RULES: HAVE FUN BE SAFE SHARE SMILE”。背景中，一座破旧的凉亭矗立在光秃秃的树木之间，暴风雨般的夜空被满月和锯齿状的闪电照亮。大雨倾盆而下，在地面上形成湿滑的反光，增强了不祥的氛围。"
+    }
+  },
+  "36543": {
+    "en": {
+      "title": "Quiet vs Abandoned Train Station Comparison",
+      "description": "Generates a side-by-side comparison showing how changing one word from 'quiet' to 'abandoned' dramatically alters a train station scene at dusk, useful for demonstrating AI prompt sensitivity.",
+      "prompt": "A split-screen comparison of two train station scenes at dusk, separated by a thin vertical line. Left panel: A quiet, well-maintained train station named \"RIVERDALE\" with warm yellow lighting under the platform canopy, a wooden bench, a round clock on the wall, clean concrete platform with yellow tactile paving edge, curved railway tracks leading into the distance, signal lights glowing red, and a vibrant sunset sky with orange and purple hues over distant hills. Right panel: An abandoned, dilapidated train station named \"RAVENSBROOK\" with peeling paint, broken windows, overgrown weeds and grass between cracked concrete platforms, rusted railway tracks, weathered wooden support beams, dark and eerie atmosphere, similar sunset sky but more muted and cloudy. Bottom labels: \"QUIET\" in white text on dark background beneath left image, \"ABANDONED\" in white text on dark background beneath right image."
+    },
+    "zh": {
+      "title": "安静与废弃火车站对比",
+      "description": "生成并排对比图，展示将提示词中的“quiet”（安静）改为“abandoned”（废弃）如何显著改变黄昏火车站的场景，适用于演示 AI 对提示词的敏感性。",
+      "prompt": "两幅黄昏火车站场景的分屏对比图，中间由一条细垂直线分隔。左侧面板：一座名为“RIVERDALE”的安静且维护良好的火车站，站台雨棚下亮着温暖的黄色灯光，有一张木制长椅，墙上挂着一个圆形时钟，干净的混凝土站台边缘铺有黄色盲道砖，弯曲的铁轨延伸至远方，信号灯发出红光，远处山丘上空是橙色和紫色交织的绚丽晚霞。右侧面板：一座名为“RAVENSBROOK”的废弃破败火车站，油漆剥落，窗户破碎，开裂的混凝土站台间杂草丛生，铁轨生锈，风化的木质支撑梁，氛围阴暗诡异，类似的晚霞天空但色调更暗淡多云。底部标签：左图下方深色背景上的白色文字“QUIET”，右图下方深色背景上的白色文字“ABANDONED”。"
+    }
+  },
+  "36544": {
+    "en": {
+      "title": "Vintage Beach Portrait",
+      "description": "Generate a retro-style image of a smiling woman wearing a straw hat and white lace top at the beach.",
+      "prompt": "A vintage-style photograph of a young woman at the beach, shot on film with visible grain and light leaks. She is looking back over her shoulder with a bright, genuine smile. She wears a large woven straw sun hat with a dark brown trim and a white eyelet lace top. Her hair is styled in two low braids or pigtails. The lighting is warm and sunny, casting dappled shadows from the hat onto her face. In the background, there are blurred figures swimming in the ocean and a green hillside."
+    },
+    "zh": {
+      "title": "复古海滩人像",
+      "description": "生成一张复古风格的图片，展示一位戴着草帽、身穿白色蕾丝上衣的女性在海滩上微笑。",
+      "prompt": "一张复古风格的照片，画面中是一位年轻女性站在海滩上，采用胶片拍摄，带有明显的颗粒感和漏光效果。她回头望向镜头，脸上洋溢着灿烂而真诚的笑容。她戴着一顶宽大的编织草帽，帽檐有深棕色饰边，身穿白色孔眼蕾丝上衣。她的头发梳成两条低垂的辫子或双马尾。光线温暖明媚，阳光透过帽子在她的脸上投下斑驳的光影。背景中可以看到模糊的人影在海里游泳，以及一片绿色的山坡。"
+    }
+  },
+  "36545": {
+    "en": {
+      "title": "Showa Retro Gym Girl",
+      "description": "Generates a vintage-style photo of a girl in a red tracksuit holding a volleyball in a gym.",
+      "prompt": "A nostalgic, film-grain photograph of a young Japanese girl sitting on the polished wooden floor of a school gymnasium. She is wearing a classic red velour tracksuit with white piping along the sleeves and legs, typical of Showa-era retro fashion. Her dark hair is tied in low pigtails secured with small red beads, and she has a gentle, natural smile. A white towel is draped around her neck, suggesting she has just finished physical activity. She holds a worn, off-white leather volleyball against her chest with both arms crossed over it. The background features blurred details of a gym setting, including a metal rack holding more volleyballs and large windows letting in soft daylight. The image has a warm, slightly faded color palette characteristic of vintage 1980s photography."
+    },
+    "zh": {
+      "title": "昭和复古风体操服少女",
+      "description": "生成一张复古风格的照片，展示一名身穿红色运动服、在体育馆内手持排球的女孩。",
+      "prompt": "这是一张充满怀旧气息、带有胶片颗粒感的照片，画面中一名年轻的日本女孩坐在学校体育馆光亮的木地板上。她身穿一件经典的红色天鹅绒运动服，袖子和裤腿边缘饰有白色滚边，呈现出典型的昭和时代复古时尚风格。她的深色头发扎成低双马尾，并用小红色珠子固定，脸上带着温柔自然的微笑。脖子上搭着一条白色毛巾，暗示她刚刚结束体育活动。她双臂交叉抱在胸前，紧紧抱着一个略显陈旧的米白色皮革排球。背景是模糊的体育馆场景，包括存放更多排球的金属架以及透入柔和日光的大窗户。整张图片色调温暖且略微褪色，具有 1980 年代复古摄影的典型特征。"
+    }
+  },
+  "36546": {
+    "en": {
+      "title": "Retro Film Portrait of Girl in Sailor Uniform",
+      "description": "Generates a nostalgic, vintage-style photograph of a young woman in a Japanese school uniform sitting on a rocky beach.",
+      "prompt": "A vertical medium-full shot of a young Asian woman sitting on a rocky pebble beach, looking directly at the camera with a calm, slightly melancholic expression. She has dark hair tied back in a low ponytail with loose bangs framing her face. She is wearing a traditional Japanese sailor school uniform (seifuku) consisting of a white short-sleeved blouse with a navy blue collar featuring white stripes and a red neckerchief, paired with a dark navy pleated skirt. On her feet, she wears white ankle socks and brown leather loafers. Her pose is relaxed, sitting with her legs extended forward and slightly bent, hands resting near her lap. The background features a bright blue sea with gentle waves crashing against the shore, scattered rocks, and a clear sky with faint clouds. The image has a strong retro film aesthetic, characterized by warm tones, visible grain, soft focus, and light leaks or color shifts along the edges typical of vintage instant film photography."
+    },
+    "zh": {
+      "title": "水手服少女复古胶片人像",
+      "description": "生成一张充满怀旧感的复古风格照片，画面中一位身穿日本校服的年轻女子坐在岩石海滩上。",
+      "prompt": "这是一张竖构图的全身中景照片，画面中一位年轻的亚洲女性坐在布满鹅卵石的岩石海滩上，神情平静且略带忧郁地直视镜头。她留着深色头发，扎成低马尾，额前的碎发自然垂落，修饰着脸型。她身穿传统的日本水手服校服（seifuku），包括一件白色短袖衬衫，搭配带有白色条纹的海军蓝领子和红色领巾，下身穿着深海军蓝百褶裙。脚上穿着白色短袜和棕色皮革乐福鞋。她的姿势放松，双腿向前伸展并微微弯曲，双手自然地放在大腿附近。背景是明亮的蓝色大海，轻柔的波浪拍打着岸边，散落着岩石，天空晴朗，点缀着淡淡的云彩。整张图片具有强烈的复古胶片美学风格，特点是暖色调、明显的颗粒感、柔和的焦点，以及边缘处类似老式即时成像摄影的光漏或色彩偏移效果。"
+    }
+  },
+  "36547": {
+    "en": {
+      "title": "Vintage Photo of Two Women Holding Flowers",
+      "description": "Generates a retro-styled portrait of two young women holding flower bouquets in front of a traditional Japanese shop, capturing a nostalgic Showa-era aesthetic.",
+      "prompt": "A vintage-style photograph of two young East Asian women standing close together in front of a traditional Japanese shop. The woman on the left has dark hair styled in two braided buns and wears a navy blue dress with a small white floral pattern and ruffled collar, holding a bouquet of blue flowers. The woman on the right has short, choppy black hair and wears a maroon sweater over a white collared shirt, holding a bouquet of pink cosmos flowers. Both have natural skin textures with visible freckles and slight acne, looking directly at the camera with neutral expressions. The background features wooden shelves stocked with various bottles and boxes, including signage with Japanese characters like '清酒' (sake) and '白鶴'. The image has a warm, faded color palette typical of old film photography, with soft lighting and a slightly grainy texture."
+    },
+    "zh": {
+      "title": "两位手持鲜花的女性复古照片",
+      "description": "生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。",
+      "prompt": "一张复古风格的照片，展示两位年轻的东亚女性并肩站立在传统日本店铺前。左侧女性深色头发梳成两个编发发髻，身穿带有白色小花图案和荷叶边领口的深蓝色连衣裙，手持一束蓝色花朵。右侧女性留着短而凌乱的黑色头发，穿着酒红色毛衣搭配白色翻领衬衫，手持一束粉色波斯菊花束。两人均呈现自然肌肤质感，可见雀斑和轻微痤疮，以中性表情直视镜头。背景为木质货架，摆放着各种瓶子和盒子，包括写有“清酒”和“白鹤”等日文字符的招牌。图像采用暖色调且褪色的色彩方案，具有老式胶片摄影的典型特征，光线柔和并带有轻微的颗粒感。"
     }
   }
 }
