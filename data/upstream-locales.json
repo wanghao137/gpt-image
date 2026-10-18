@@ -54690,9 +54690,9 @@
   },
   "36538": {
     "en": {
-      "title": "GPT-Image-2 Wildlife Photography Prompt",
-      "description": "A prompt for generating dynamic wildlife photography with decisive moments and minimal environment narrative using gpt-image-2.",
-      "prompt": "[Subject] and [Animal] dynamic interaction photography, person not fully in frame, entering only with partial hands, forearms, or body edges, establishing direct contact with [Animal] through [Interactive Prop].\n\nThe animal is captured in the instant of action: pouncing, reaching, holding, grabbing, lightly touching, or approaching the prop, forming a strong decisive moment.\n\nComposition emphasizes action connection, prominent subject, minimalist background, realistic environment, natural daylight, high-speed shutter freezing motion, with a sense of authentic snapshot, life feel, and narrative. Background uses large areas of simple natural environment color fields, highlighting the subject and interaction relationship."
+      "title": "Wildlife Dynamic Photography Prompt Template",
+      "description": "A template prompt for generating wildlife dynamic photography featuring interaction between a person's hand/arm and an animal using a prop.",
+      "prompt": "Wildlife dynamic photography × decisive moment × minimalist environmental narrative.\n\nThe key for this type of image is placing the [interaction prop] on the action path, letting hand, prop, and animal form a clear action line, then using high-speed shutter to freeze the 'about to touch' moment, making the image more lively than simple posing.\n\nModel: gpt-image2\n\nPrompt:\n\nDynamic interaction photography between [Subject] and [Animal], person not fully shown, only partial hand, forearm, or body edge entering frame, establishing direct contact with [Animal] through [Interaction Prop].\n\nAnimal is in a moment of action: pouncing, reaching, biting, grabbing, lightly touching, or approaching the prop, forming a strong decisive moment.\n\nComposition emphasizes action line, prominent subject, minimalist background, realistic environment, natural daylight, high-speed shutter freezing action, with real snapshot feel, life feel, and narrative feel. Background uses large area of simple natural environment color field, highlighting subject and interaction relationship."
     },
     "zh": {
       "title": "GPT-Image-2 野生动物摄影提示词",
@@ -54794,6 +54794,102 @@
       "title": "两位手持鲜花的女性复古照片",
       "description": "生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。",
       "prompt": "一张复古风格的照片，展示两位年轻的东亚女性并肩站立在传统日本店铺前。左侧女性深色头发梳成两个编发发髻，身穿带有白色小花图案和荷叶边领口的深蓝色连衣裙，手持一束蓝色花朵。右侧女性留着短而凌乱的黑色头发，穿着酒红色毛衣搭配白色翻领衬衫，手持一束粉色波斯菊花束。两人均呈现自然肌肤质感，可见雀斑和轻微痤疮，以中性表情直视镜头。背景为木质货架，摆放着各种瓶子和盒子，包括写有“清酒”和“白鹤”等日文字符的招牌。图像采用暖色调且褪色的色彩方案，具有老式胶片摄影的典型特征，光线柔和并带有轻微的颗粒感。"
+    }
+  },
+  "36588": {
+    "en": {
+      "title": "GPT Image 2 Streetwear Tartan Outfit Prompt",
+      "description": "An image generation prompt for GPT Image 2 featuring a cool-casual streetwear aesthetic with a tartan flannel shirt over a slip dress.",
+      "prompt": "OUTFIT:\n\nAn oversized black and red tartan check flannel shirt, worn partially unbuttoned over a simple black slip dress.\n\nStyled with layered necklaces and optional combat boots.\n\nCool-casual, edgy streetwear aesthetic.\nBlack, red, and black color scheme.\nNo extra decorations."
+    },
+    "zh": {
+      "title": "GPT Image 2 街头风格纹穿搭提示词",
+      "description": "适用于 GPT Image 2 的图像生成提示词，展现酷感休闲街头风格，以格纹法兰绒衬衫搭配吊带裙。",
+      "prompt": "穿搭：\n\n一件超大号黑红格纹法兰绒衬衫，部分解开扣子，内搭简约黑色吊带裙。\n\n搭配叠戴项链和可选的马丁靴。\n\n酷感休闲、前卫的街头美学。\n黑、红配色方案。\n无多余装饰。"
+    }
+  },
+  "36590": {
+    "en": {
+      "title": "GPT Image 2 Pen Poster Prompt: Ink Fold Path",
+      "description": "A prompt for creating a high-end fountain pen poster featuring a Z-fold paper path with ink flowing along it, using specific lighting and composition details.",
+      "prompt": "Create a 4:5 vertical premium fountain pen promotional poster, with the core composition being \"Ink Fold Path.\" A dark ink-green metallic fountain pen is placed diagonally from the top right to the bottom left of the frame, with the cap open and parallel in the top right corner, and the gold nib positioned in the center. Below the pen is a continuous sheet of warm white cotton paper, entering from the top left and undergoing three wide folds to form a high-to-low Z-shaped paper path, with realistic fold thickness, fibers, and soft shadows.\n\nA deep blue-black ink flow starts from the nib and moves strictly along the center of the paper path. The ink begins as a thin line in the first segment, spreads into broad strokes in the second fold, splits into several parallel dry brush marks in the third fold, and finally converges into the clear word \"TRACE\" in the bottom left. The text must be formed naturally by the same ink flow, without adding computer fonts. The ink accumulates realistically and slightly penetrates at the creases but does not flow off the paper.\n\nOnly three tiny embossed coordinates are added on both sides of the paper path: NIB, FLOW, PAPER; no arrows or explanatory boxes. The background is a matte dark cyan tabletop, with a color palette limited to dark cyan, warm white, blue-black ink, and a touch of gold.\n\nUse close-up still life photography, with soft light from the top right emphasizing the metal body, nib engraving, and paper fibers, while retaining deeper shadows in the bottom left. Full opaque rectangular background covering the canvas, no transparent corners, no Alpha masks, no edge feathering. No hands, no calligraphy scrolls, no ink splatters, no Eastern decorative patterns, no existing brand logos, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 钢笔海报提示词：墨迹折痕路径",
+      "description": "用于创作高端钢笔海报的提示词，特色为 Z 形折叠纸路径与沿其流动的墨水，包含特定的光影和构图细节。",
+      "prompt": "创作一张 4:5 竖版高端钢笔宣传海报，核心构图为“墨迹折痕路径”。一支深墨绿色金属质感钢笔从画面右上角向左下角对角线放置，笔帽打开并平行置于右上角，金色笔尖位于中心位置。钢笔下方是一张连续的暖白色棉纸，从左上角进入，经过三次宽幅折叠形成从高到低的 Z 字形纸路径，具有逼真的折叠厚度、纤维质感和柔和阴影。\n\n一股深蓝黑色墨流从笔尖开始，严格沿着纸路径的中心移动。墨水在第一段呈细线状，在第二个折痕处扩散为宽笔画，在第三个折痕处分化为几条平行的干笔触痕迹，最终在左下角汇聚成清晰的单词 \"TRACE\"。文字必须由同一股墨流自然形成，不得添加电脑字体。墨水在折痕处真实积聚并轻微渗透，但不会流出纸张边缘。\n\n仅在纸路径两侧添加三个微小的压印坐标：NIB, FLOW, PAPER；无箭头或说明框。背景为哑光深青色桌面，色彩限制在深青色、暖白色、蓝黑墨水和少许金色。\n\n使用特写静物摄影风格，来自右上方的柔光突出金属笔身、笔尖雕刻和纸张纤维，同时保留左下角更深的阴影。全不透明矩形背景覆盖画布，无透明角落，无 Alpha 遮罩，无边缘羽化。无手部，无书法卷轴，无墨点飞溅，无东方装饰图案，无现有品牌标志，无水印。"
+    }
+  },
+  "36591": {
+    "en": {
+      "title": "GPT Image 2 Cycling Helmet Poster Prompt: Airflow Profile",
+      "description": "A prompt for creating a professional cycling helmet poster visualizing airflow passing through vents and wind tunnel gates with engineering aesthetics.",
+      "prompt": "Create a 4:5 vertical professional cycling helmet promotional poster, with the core composition being \"Airflow Profile Gates.\" A structurally realistic road cycling helmet is suspended in the center at a side two-thirds angle, with a matte ivory white shell; internal EPS cushioning and black webbing are naturally visible only at the vents. Three evenly spaced thin rectangular wind tunnel gate frames stand vertically in front of the helmet, and two narrower frames stand behind, creating clear foreground and background space.\n\nFour semi-transparent cobalt blue airflow bands with real volume enter from the left, passing through the front gate frames and helmet vents; each band is compressed and split in different channels, then re-merges into two smooth wakes behind. The airflow bands cannot pass through the solid shell nor become glowing neon lines. The gate frames have a light gray metal surface with extremely thin fluorescent orange edges at the cross-sections to emphasize airflow entry and exit points.\n\nThe title \"AERO\" is placed vertically on the far right with large spacing between letters; two wake streams pass through the negative space between letters without obscuring readability. Only \"VENT 18 / ROAD HELMET\" is kept in the bottom left corner. The background is a clean cool gray studio, with soft shadows on the ground formed by the helmet, gate frames, and airflow.\n\nCombine high-speed product photography with engineering aesthetics, emphasizing real shell curvature, vent channels, and airflow logic. Full opaque rectangular background, no transparent corners, no Alpha masks, no edge feathering. No riders, no bicycles, no exploded views, no HUD parameters, no cyberpunk, no existing brand logos, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 自行车头盔海报提示词：气流剖面",
+      "description": "用于创建专业自行车头盔海报的提示词，通过通风口和风洞门可视化气流，展现工程美学。",
+      "prompt": "创建一个 4:5 竖版的专业自行车头盔宣传海报，核心构图为“气流剖面门”。一个结构逼真的公路自行车头盔以侧前方三分之二角度悬浮在画面中央，外壳为哑光象牙白；仅在通风口处自然露出内部 EPS 缓冲层和黑色织带。三个间距均匀的细长矩形风洞门框垂直立于头盔前方，两个较窄的门框立于后方，营造出清晰的前后空间层次。\n\n四条半透明的钴蓝色气流带具有真实体积感，从左侧进入，穿过前部门框和头盔通风口；每条气流带在不同通道中被压缩和分流，随后在后方重新合并成两条平滑的尾流。气流带不能穿透实心外壳，也不能变成发光的霓虹线条。门框表面为浅灰色金属材质，截面边缘带有极细的荧光橙色高光，以强调气流的进出点。\n\n标题“AERO”垂直排列在最右侧，字母间距较大；两股尾流穿过字母间的负空间，但不遮挡文字的可读性。左下角仅保留“VENT 18 / ROAD HELMET”字样。背景为干净的冷灰色摄影棚，地面有由头盔、门框和气流形成的柔和阴影。\n\n结合高速产品摄影与工程美学，强调真实的外壳曲率、通风通道和气流逻辑。使用完全不透明的矩形背景，无透明角，无 Alpha 遮罩，无边缘羽化。无骑手，无自行车，无爆炸视图，无 HUD 参数，无赛博朋克风格，无现有品牌标志，无水印。"
+    }
+  },
+  "36592": {
+    "en": {
+      "title": "GPT Image 2 Camping Tent Poster Prompt: Night Coordinates",
+      "description": "A prompt for generating a high-end camping tent poster featuring a glowing coordinate ground plane and ropes lifting into luminous lines under moonlight.",
+      "prompt": "Create a 4:5 vertical high-end camping tent promotional poster, with the core composition being \"Night Glow Coordinates.\" Use a slightly high-angle long shot, placing a realistic two-person dome tent in the lower center. The tent is made of deep pine green waterproof fabric, with the front door half-open revealing soft warm yellow light inside; poles, guy lines, stakes, and seams are accurately positioned—do not make the tent look like conceptual architecture.\n\nThe scene is not a realistic forest but a flat midnight-blue camping coordinate plane. Six fine, restrained milky-white latitude/longitude arcs are printed on the ground, forming incomplete star map coordinates around the tent; each line naturally lifts at the guy line anchors, becoming a segment of real glowing rope before falling back to the ground to continue extending. Four anchors correspond to North Wind, Rain, Low Temperature, and Slope, represented by four very small geometric markers without complex parameters.\n\nBehind the tent stands a huge semi-transparent deep blue disc, resembling a low-hanging night moon, but with a matte fabric surface rather than a glowing celestial body. The title \"RIDGE\" is arranged in an arc along the bottom edge of the disc, with some letters slightly obscured by the tent top. Small text \"TWO PERSON SHELTER\" is in the top left, and \"NIGHT COORDINATES\" is in the bottom right.\n\nLighting consists of warm light from inside the tent, low-positioned cool moonlight, and faint rope glow. Colors are controlled to midnight blue, pine green, warm yellow, and milky white. Full opaque rectangular background covering the canvas, no transparent corners, no Alpha, no edge feathering. No real starry sky photos, no bonfires, no cars, no people, no fairy tale mist, no brand logos, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 露营帐篷海报提示词：夜间坐标",
+      "description": "用于生成高端露营帐篷海报的提示词，特色为发光的坐标地面平面以及在月光下升腾成发光线条的绳索。",
+      "prompt": "创建一个 4:5 竖版高端露营帐篷宣传海报，核心构图为“夜间发光坐标”。采用略微高角度的远景镜头，将逼真的双人圆顶帐篷置于画面下方中央。帐篷由深松绿色防水面料制成，前门半开，露出内部柔和的暖黄色灯光；杆件、拉绳、地钉和接缝位置准确——避免让帐篷看起来像概念建筑。\n\n场景并非写实的森林，而是一个平坦的午夜蓝露营坐标平面。地面上印有六条纤细、克制的乳白色经纬弧线，在帐篷周围形成不完整的星图坐标；每条线在地钉锚点处自然升起，变成一段真实的发光绳索，随后落回地面继续延伸。四个锚点对应北风、雨水、低温和坡度，由四个极小的几何标记表示，不含复杂参数。\n\n帐篷后方矗立着一个巨大的半透明深蓝色圆盘，类似低垂的夜月，但表面呈哑光织物质感，而非发光的天体。标题“RIDGE”沿圆盘底边呈弧形排列，部分字母被帐篷顶部轻微遮挡。左上角有小字“TWO PERSON SHELTER”，右下角为“NIGHT COORDINATES”。\n\n光照由帐篷内部的暖光、低位置的冷月光以及微弱的绳索辉光组成。色彩控制在午夜蓝、松绿、暖黄和乳白之间。背景为完全不透明的矩形，覆盖整个画布，无透明角落，无 Alpha 通道，无边框羽化。不使用真实星空照片、篝火、汽车、人物、童话般的雾气、品牌标志或水印。"
+    }
+  },
+  "36593": {
+    "en": {
+      "title": "GPT Image 2 Ceramic Pottery Poster Prompt: Kiln Rings",
+      "description": "A prompt for generating a contemporary ceramic poster featuring a celadon tea bowl surrounded by concentric rings representing kiln firing stages and material textures.",
+      "prompt": "Create a 4:5 vertical contemporary ceramic promotional poster, with the core composition being \"Kiln Fire Tree Rings.\" Present the scene with a direct top-down view, placing an irregular hand-thrown celadon tea bowl in the center. The bowl rim is slightly oval, with glaze flowing naturally from grey-cyan to moon-white, retaining a very thin iron-brown line at the edge; glaze thickness, micro-bubbles, and handmade traces are realistically visible.\n\nAround the tea bowl is not a regular table, but six concentric material bands shaped by kiln firing temperatures: the innermost ring is wet dark clay, moving outward through semi-dry mud, bisque ware, initial melting glaze, and a celadon vitrified layer, with the outermost ring becoming an ivory white glazed surface with slight crazing. Each ring is not a flat color band but a material slice with real thickness, grain, and firing variations; local crazing extends from the outer ring inward but cannot cross the complete tea bowl.\n\nThe title \"KILN\" is arranged along the left arc, using restrained high-contrast serif fonts; only \"CELADON / 1280°C\" is written in the bottom right corner. Add a small rectangular glaze sample chip in the top right corner showing the three-stage change from grey-cyan to moon-white, without using explanatory board arrows.\n\nLight comes from a large softbox in the top left, highlighting the height of the rings, subtle glaze reflections, and the tea bowl shadow. The overall look combines museum artifact photography with material experiment posters, but the reading center remains the product. Full opaque rectangular background covering the canvas, no transparency channels, no black corners, no feathered cuts. No people, no flower branches, no piling of Eastern symbols, no gold borders, no existing brands, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 陶瓷海报提示词：窑火年轮",
+      "description": "用于生成当代陶瓷海报的提示词，画面中心为青瓷茶碗，周围环绕代表烧制阶段与材质纹理的同心圆环。",
+      "prompt": "创作一张 4:5 竖幅的当代陶瓷宣传海报，核心构图为“窑火年轮”。采用正俯视视角呈现场景，将一只不规则手工拉坯的青瓷茶碗置于画面中心。碗口略呈椭圆形，釉色自然地从灰青色过渡到月白色，边缘保留极细的铁褐色线条；釉层厚度、微小气泡及手工痕迹清晰可见，极具真实感。\n\n茶碗周围并非普通的桌面，而是由窑炉烧制温度形成的六圈同心材质带：最内圈是湿润的深色陶土，向外依次经过半干泥坯、素烧胎体、初熔釉层和青瓷玻化层，最外圈则变为带有细微开片的象牙白釉面。每一圈都不是平面的色块，而是具有真实厚度、颗粒感和烧制变化的材质切片；局部的开片裂纹从外圈向内延伸，但不会跨越完整的茶碗主体。\n\n标题 “KILN” 沿左侧弧线排列，使用克制的高对比度衬线字体；右下角仅标注 “CELADON / 1280°C”。右上角添加一个小的矩形釉料样本芯片，展示从灰青色到月白色的三阶段变化，不使用任何解释性的指示箭头或标签板。\n\n光线来自左上方的大型柔光箱，突出圆环的高度层次、微妙的釉面反光以及茶碗的阴影。整体视觉效果结合了博物馆文物摄影与材料实验海报的风格，但视觉焦点始终保持在产品本身。背景为完全不透明的矩形画布，无透明通道，无黑角，无羽化切割边缘。画面中无人物、无花枝、无堆砌的东方符号、无金边装饰、无现有品牌标识、无水印。"
+    }
+  },
+  "36594": {
+    "en": {
+      "title": "GPT Image 2 Pet Food Poster Prompt: Bowl Shadow Character",
+      "description": "A creative prompt for a pet food poster where the shadow cast by a bowl and its contents forms the silhouette of a dog against a wall.",
+      "prompt": "Create a 4:5 vertical mature yet fun pet food promotional poster, with the core composition being \"Bowl Shadow Character.\" Use a low-angle perspective slightly above the ground, placing a matte coral-orange pet food bowl in the lower center. The bowl contains realistically identifiable brown baked kibble, a few freeze-dried chicken pieces, and green vegetable bits. Food proportions should be natural, not looking like plastic beads or candy.\n\nSet a distinct afternoon sunlight beam from the top left, causing the bowl, kibble, and three upright freeze-dried chunks to cast a complete shadow of a side-profile puppy on the cream-colored wall behind: the bowl forms the body, freeze-dried chunks form ears and tail, and a few kibbles form the four-legged outline. The physical objects themselves remain just a bowl and food, not directly made into a cartoon dog. The shadow must be produced by a logical light direction, recognizable at a glance but maintaining natural soft edges.\n\nPlace the title \"GOOD BOWL\" in the top right of the wall, using rounded but mature bold sans-serif fonts; the puppy shadow's tail passes between the two words, forming a lightweight visual connection. Place only two short lines of info \"BAKED DAILY / CHICKEN + GREENS\" in the bottom left corner. Colors are coral orange, cream white, natural food brown, and a touch of leaf green.\n\nCombine real food photography, graphic branding, and humorous visual illusion, keeping it clean, bright, and credible. Full opaque rectangular background covering the canvas, no transparent pixels, no black corners, no Alpha masks, no edge feathering. No real pets, no cartoon mascots, no paw print patterns, no snack packaging bags, no excessive ingredient labels, no existing brand logos, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 宠物食品海报提示词：碗影角色",
+      "description": "一个富有创意的宠物食品海报提示词，其中碗及其内容物在墙上投射出的阴影形成了狗的剪影。",
+      "prompt": "创作一张 4:5 竖版、成熟又不失趣味的宠物食品宣传海报，核心构图为“碗影角色”。采用略高于地面的低角度视角，将一只哑光珊瑚橙色的宠物食盆放置在画面下方中央。碗中盛有清晰可辨的棕色烘焙颗粒粮、几块冻干鸡肉以及绿色蔬菜碎。食物比例应自然真实，避免看起来像塑料珠子或糖果。\n\n设定一束明显的午后阳光从左上方射入，使食盆、颗粒粮和三块竖立的冻干肉块在后方奶油色墙壁上投射出一只侧身小狗的完整阴影：食盆构成身体，冻干肉块形成耳朵和尾巴，几颗颗粒粮勾勒出四条腿的轮廓。实物本身仍只是食盆和食物，并未直接变成卡通狗形象。阴影必须由符合逻辑的光源方向产生，一眼即可识别，同时保持边缘柔和自然。\n\n在墙壁右上方放置标题“GOOD BOWL”，使用圆润但成熟的粗体无衬线字体；小狗阴影的尾巴穿过两个单词之间，形成轻盈的视觉连接。仅在左下角放置两行简短信息：“BAKED DAILY / CHICKEN + GREENS”。配色包括珊瑚橙、奶油白、天然食物棕以及一抹叶绿色。\n\n结合真实食物摄影、图形品牌设计与幽默的视觉错觉，保持画面干净、明亮且可信。背景为完全不透明的矩形，覆盖整个画布，无透明像素、无黑角、无 Alpha 遮罩、无边缘羽化。不包含真实宠物、卡通吉祥物、爪印图案、零食包装袋、过多成分标签、现有品牌 Logo 或水印。"
+    }
+  },
+  "36595": {
+    "en": {
+      "title": "GPT Image 2 Vinyl Turntable Poster Prompt: Groove City",
+      "description": "A prompt for a music product poster featuring a turntable where vinyl grooves rise into curved walls forming an abstract sound city.",
+      "prompt": "Create a 4:5 vertical vinyl record player promotional poster, with the core composition being \"Groove Sound City.\" Use a direct top-down view, with a minimalist square turntable occupying about 60% of the bottom of the frame. The body is deep walnut wood and matte black metal, with the vinyl record spinning, accurate tonearm structure, and stylus realistically touching the record grooves.\n\nThe six concentric grooves on the upper half of the record gradually lift off the surface, transforming into six black curved walls with real height. The curved walls are arranged from low to high along the rotation direction, with each wall top having extremely thin electric blue frequency textures; forming an abstract circular sound city between the walls. The grooves must remain concentric with the record center, not turning into arbitrary waves or equalizer bar charts.\n\nThe title \"SPIN\" is arranged from the record center outwards along four sectors, with each letter lying flat on the disc surface and slightly elongated according to perspective and rotation direction; the tonearm grazes past the outside of the letter N but does not obscure it. Leave a large area of warm gray negative space at the top, placing only small text \"ANALOG TURNTABLE\" and a short sentence \"THE GROOVE BECOMES SPACE.\"\n\nUse hard light from the side-top to create clear and slender ring wall shadows, and use soft ambient light to preserve wood grain and metal details. Color palette is matte black, deep walnut, warm gray, and a touch of electric blue. Full opaque rectangular background, no transparent pixels, no black corners, no Alpha masks, no edge feathering. No human arms, no DJ stage, no neon bar, no dense audio UI, no existing brand logos, no watermarks."
+    },
+    "zh": {
+      "title": "GPT Image 2 黑胶唱机海报提示词：Groove City",
+      "description": "一款音乐产品海报的提示词，展示了一台黑胶唱机，其唱片纹路升起形成弯曲墙壁，构成一座抽象的声音之城。",
+      "prompt": "创作一张 4:5 竖构图的黑胶唱机宣传海报，核心构图为“Groove Sound City”。采用直接俯视视角，一个极简风格的方形唱机占据画面底部约 60% 的空间。机身由深胡桃木和哑光黑色金属制成，黑胶唱片正在旋转，唱臂结构精准，唱针真实地接触唱片纹路。\n\n唱片上半部分的六条同心纹路逐渐从表面升起，转变为六堵具有真实高度的黑色弯曲墙壁。这些弯曲墙壁沿旋转方向从低到高排列，每堵墙的顶部带有极细的电蓝色频率纹理；在墙壁之间形成一座抽象的圆形声音之城。纹路必须保持与唱片中心同心，不能变成任意波浪或均衡器条形图。\n\n标题“SPIN”从唱片中心向外沿四个扇区排列，每个字母平铺在圆盘表面上，并根据透视和旋转方向略微拉长；唱臂掠过字母 N 的外侧但不遮挡它。顶部留有大面积的暖灰色负空间，仅放置小字“ANALOG TURNTABLE”和短句“THE GROOVE BECOMES SPACE.”\n\n使用来自侧上方的硬光，营造清晰细长的环形墙阴影，并使用柔和的环境光保留木纹和金属细节。配色方案为哑光黑、深胡桃木色、暖灰色以及一抹电蓝色。背景为完全不透明的矩形，无透明像素，无黑角，无 Alpha 遮罩，无边缘羽化。无人手臂，无 DJ 舞台，无霓虹酒吧，无密集音频 UI，无现有品牌 Logo，无水印。"
+    }
+  },
+  "36596": {
+    "en": {
+      "title": "Healing Home Product Ad Prompt",
+      "description": "Prompt for a healing-style home product advertisement featuring a character wrapped in macaron-colored blankets, soft lighting, and minimal composition.",
+      "prompt": "Healing home product ad × cream high brightness × macaron fabric × soft light low contrast × lazy character close-up.\n\nTip: The blanket really makes the difference in these images. Clearly describe chenille/flannel fibers, fluffy volume, macaron color blocks, let face emerge only from large fabric area, naturally creating soft, reassuring, product-ad wrapping feel.\n\nModel: gpt-image2\n\nPrompt:\n\nVertical healing home product advertising photography, soft light low contrast, off-white cream tone, macaron contrasting color fabric texture as core visual tone. Top whitespace for large handwritten brush-style Chinese title font, ochre brown.\nMain visual is close-up of [Character/Subject], lying lazily, body wrapped in fluffy blanket exposing only head and upper body, chin resting on blanket edge, eyelids slightly squinted, expression reassured and relaxed.\nBlanket is chenille/flannel texture, pink, light blue, light green, yellow-brown color block patchwork, fibers fluffy. Background is off-white to cream yellow solid color or simple home scene, sofa outline blurred visible.\nLight source is large area soft light diffusion, no obvious hard shadows, highlights concentrated on subject and blanket fluff creating glow. Lens medium-telephoto compressed perspective, eye-level slight downward angle, shallow depth of field blurring background. Overall high brightness low saturation, balanced warm/cool.\nTop-left place small Logo composed of V letter and cat shape; right approx 5% edge mark tiny lowercase voxcat, end with lapis blue dot; if subject can wear accessories, add small VOXCAT tag; logo position fixed, size restrained, not distracting."
+    },
+    "zh": {
+      "title": "治愈系家居产品广告提示词",
+      "description": "适用于治愈风格家居产品广告的提示词，画面特色包括裹着马卡龙色毛毯的人物、柔和光线及极简构图。",
+      "prompt": "治愈系家居产品广告 × 奶油高亮度 × 马卡龙面料 × 柔光低对比度 × 慵懒人物特写。\n\n提示：在这些图片中，毛毯真的起到了关键作用。请清晰描述雪尼尔/法兰绒纤维、蓬松体积感、马卡龙色块，让面部仅从大面积织物中露出，自然营造出柔软、令人安心且具有产品广告质感的包裹氛围。\n\n模型：gpt-image2\n\n提示词：\n\n竖幅治愈系家居产品广告摄影，柔光低对比度，米白奶油色调，以马卡龙撞色面料纹理为核心视觉基调。顶部留白用于放置大号手写笔刷风格中文标题字体，赭石棕色。\n主视觉为 [角色/主体] 的特写，姿态慵懒躺卧，身体被蓬松毛毯包裹，仅露出头部和上半身，下巴抵在毛毯边缘，眼睑微眯，神情安心放松。\n毛毯采用雪尼尔/法兰绒质感，粉色、浅蓝、浅绿、黄褐色块拼接，纤维蓬松。背景为米白至奶油黄的纯色或简约家居场景，隐约可见模糊的沙发轮廓。\n光源为大范围柔光漫射，无明显硬阴影，高光集中在主体和毛毯绒毛上形成光晕。镜头为中长焦压缩透视，平视略带俯角，浅景深虚化背景。整体高亮度低饱和度，冷暖平衡。\n左上角放置由字母 V 和猫形组成的小型 Logo；右侧约 5% 边缘处标记微小的小写 voxcat，末尾带青金石蓝色圆点；若主体可佩戴配饰，添加小型 VOXCAT 标签；Logo 位置固定，尺寸克制，不喧宾夺主。"
     }
   }
 }

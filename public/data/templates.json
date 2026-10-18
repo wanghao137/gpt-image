@@ -1058,17 +1058,17 @@
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
     "cover": "/images/cases/templatederived-merchant-promo-poster.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Cinematic / Documentary / Architecture / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36456 Vespa 踏板摩托车：真实照片与微缩景观对比: 分屏对比展示：上方为复古黄色 Vespa 踏板摩托车的写实照片，下方为同一场景的可爱迷你 3D 黏土模型版本。\n- #100319 火车车厢里的印度传统移动住宅: Create an original, ultra-realistic editorial photograph of a beautiful traditional Indian home…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Cinematic / Documentary / Architecture / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36587 Warhammer 40k Space Marine Stand: Generates a dramatic scene of an Ultramarines Primaris Space Marine defending against Tyranids …\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36456 Vespa 踏板摩托车：真实照片与微缩景观对比: 分屏对比展示：上方为复古黄色 Vespa 踏板摩托车的写实照片，下方为同一场景的可爱迷你 3D 黏土模型版本。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36587",
       "36547",
       "36456",
       "100319",
-      "36267",
-      "36266"
+      "36267"
     ]
   },
   {
