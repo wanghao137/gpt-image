@@ -1,5 +1,30 @@
 [
   {
+    "id": "100325",
+    "title": "纯白极简品牌工业设计概念展示",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "Minimal",
+      "Studio",
+      "Brand",
+      "Commerce"
+    ],
+    "imageUrl": "/uploads/2026-10-19-case-100325-white-industrial-concept.jpg",
+    "imageAlt": "纯白极简品牌工业设计概念展示",
+    "prompt": "[BRAND NAME]: The core identity.\n\n[CATEGORY]: Clothing / Food / Automotive / Lifestyle.\n\nGoal: Generate a premium industrial design concept on a PURE WHITE background. \n\n1. INNOVATION & OBJECT\n\n- Select one mundane functional object from [CATEGORY].\n\n- Redesign it using unconventional, architectural, or origami-inspired geometry.\n\n- The object must look like a high-end designer invention, not a standard product.\n\n2. UNIFIED COMPOSITION\n\n- Environment: A seamless, pure white studio background with a flat white floor.\n\n- Interaction: A human hand (natural texture) is shown using the object in the foreground, demonstrating its unique ergonomics.\n\n- Static Display: Right next to the hand, the same object is placed in a static, perfect pose to show its full silhouette and branding.\n\n- Shadows: Soft, realistic grey drop shadows on the white floor to provide depth and ground the objects.\n\n3. BRANDING & TEXT\n\n- Identity: Apply the \"[BRAND NAME]\" logo in a high-contrast dark color (Black or Navy) directly onto the object's surface.\n\n- Technical Detail: Add small, elegant blocks of justified \"specification text\" in the white negative space around the objects for an editorial look.\n\n- Pattern: Use a subtle, oversized abstract fragment of the brand's logo as a texture on the object's material.\n\n4. MATERIALS & FINISH\n\n- High-quality matte materials only: heavy-duty recycled paper, sandblasted metal, or soft-touch polymer.\n\n- Sharp architectural lines and clean, premium craftsmanship.",
+    "promptPreview": "[BRAND NAME]: The core identity. [CATEGORY]: Clothing / Food / Automotive / Lifestyle. Goal: Generate a premium industrial design concept on a PURE WHITE background. 1. INNOVATION & OBJECT - Select one mundane functiona…",
+    "source": "Community collected via @AmirMushich",
+    "createdAt": "2026-10-18T20:04:05.813Z"
+  },
+  {
     "id": "100324",
     "title": "金融科技品牌网格化广告版式系统",
     "category": "UI 与界面",
