@@ -1,5 +1,31 @@
 [
   {
+    "id": "100324",
+    "title": "金融科技品牌网格化广告版式系统",
+    "category": "UI 与界面",
+    "styles": [
+      "Minimal"
+    ],
+    "scenes": [
+      "Tech",
+      "Brand"
+    ],
+    "tags": [
+      "Minimal",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Studio",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-10-19-case-100324-fintech-brand-grid.jpg",
+    "imageAlt": "金融科技品牌网格化广告版式系统",
+    "prompt": "You are a world class creative director, brand strategist, editorial art director, and visual identity designer specializing in high impact campaign systems for global fintech and technology brands.\n\nYour task is to create a bold, intelligent, visually striking campaign board that feels like a professional brand identity presentation for a modern fintech startup.\n\nCreate a campaign layout composed of multiple tiles arranged in a dynamic brand grid layout (not a strict 3x3 grid).\n\nLAYOUT STRUCTURE:\n\nTop Row\n• one wide landscape hero tile\n• one square tile\n\nMiddle Row\n• three square tiles\n\nBottom Row\n• one square tile on the left\n• one wide landscape tile on the right\n\nEach tile should look like a piece of a professional brand campaign or identity board.\n\nBRAND NAME: [INSERT BRAND NAME]\n\nPRIMARY BRAND COLOR: [INSERT COLOR]\n\nSECONDARY BRAND COLOR: [INSERT COLOR]\n\nACCENT COLOR: [INSERT COLOR]\n\nAPP NAME: [INSERT APP NAME]\n\nOPTIONAL SLOGAN: [INSERT SLOGAN]\n\nPRODUCT TYPE:\ndigital bank / fintech app / payment platform / neobank / crypto wallet / financial platform\n\nVISUAL STYLE:\n\nModern fintech brand campaign mixing:\n\n• lifestyle photography  \n• fintech product shots  \n• smartphone UI screens  \n• credit card product visuals  \n• bold brand color graphics  \n• abstract tech textures  \n• minimal brand design layouts  \n• outdoor advertising visuals  \n\nThe aesthetic should feel like a hybrid between:\n\nStripe  \nNubank  \nCash App  \nRevolut  \nmodern startup branding  \npremium tech product advertising\n\nART DIRECTION:\n\nThe grid should combine multiple brand communication assets such as:\n\n• hero brand visual  \n• mobile app interface  \n• credit card product shot  \n• lifestyle photos of people using the app  \n• brand merchandise  \n• color palette graphics  \n• billboard campaign mockups  \n• technology inspired abstract visuals  \n\nEach tile should feel unique but visually cohesive within the same brand system.\n\nTILE IDEAS:\n\nTOP LANDSCAPE TILE  \nAbstract fintech hero visual using brand colors with glass / liquid / digital textures and the brand logo centered.\n\nTOP RIGHT SQUARE TILE  \nBranded merchandise such as hoodie, tote bag, or apparel with the brand logo and patterns.\n\nMIDDLE LEFT TILE  \nSmartwatch or smartphone displaying the fintech app UI.\n\nMIDDLE CENTER TILE  \nClose-up iPhone screen showing the fintech app dashboard.\n\nMIDDLE RIGHT TILE  \nBrand color palette tile showing the official colors and minimal identity elements.\n\nBOTTOM LEFT TILE  \nLifestyle image of a young person using the app on their phone.\n\nBOTTOM RIGHT LANDSCAPE TILE  \nOutdoor campaign billboard on a modern building with the slogan and brand campaign visual.\n\nVISUAL CHARACTERISTICS:\n\n• premium fintech branding  \n• modern startup identity  \n• bold brand color usage  \n• editorial lifestyle photography  \n• clean UI design visuals  \n• modern advertising aesthetic  \n• cohesive brand campaign system  \n• high-end commercial photography  \n\nIMPORTANT:\n\nThis board should feel like a professional brand launch presentation for a global fintech company.\n\nEach tile should look like a different campaign asset but visually belong to the same brand identity system.\n\nAI GENERATION NOTES:\n\nclean modern layout  \nbrand presentation board  \ndesign system grid  \nminimal spacing between tiles  \nprofessional brand identity board  \nbalanced grid composition  \npremium advertising photography  \nultra high detail  \n\nvisualized as a modern startup brand identity board similar to a design presentation on Behance or Dribbble, cohesive campaign layout",
+    "promptPreview": "You are a world class creative director, brand strategist, editorial art director, and visual identity designer specializing in high impact campaign systems for global fintech and technology brands. Your task is to crea…",
+    "source": "Community collected via @egeberkina",
+    "createdAt": "2026-10-18T20:04:01.812Z"
+  },
+  {
     "id": "100323",
     "title": "旅行速写本风格地标建筑手绘演进",
     "category": "建筑与空间",
