@@ -1,5 +1,29 @@
 [
   {
+    "id": "100327",
+    "title": "沙漠巨型棋盘上的超现实时尚大片",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Editorial",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-10-20-case-desert-chess-fashion.jpg",
+    "imageAlt": "沙漠巨型棋盘上的超现实时尚大片",
+    "prompt": "{   \"prompt\": {     \"aspect_ratio\": \"9:16\",     \"style\": \"surreal high-fashion editorial photography, cinematic realism\",     \"scene\": \"vast orange desert with a giant orange-and-white marble chessboard under a deep blue sky\",     \"character\": {       \"subject\": \"young European woman with a sleek dark-brown bob haircut, fair skin and elegant features\",       \"outfit\": \"burnt-orange patterned luxury dress with blue, white and beige details, tall glossy red knee-high boots, dark oval sunglasses\",       \"pose\": \"sitting sideways on a white pedestal, one leg extended forward and the other bent, one elbow resting casually on her raised knee while she turns toward the camera with a confident fashion-editorial attitude\",       \"expression\": \"cool, confident, slightly mysterious\"     },     \"composition\": {       \"framing\": \"medium-full shot, slightly closer than the original\",       \"camera_angle\": \"low-angle three-quarter view\",       \"focus\": \"character dominates the frame while oversized chess pieces remain visible around her\",       \"foreground\": \"large orange chess piece partially framing one side of the image\",       \"background\": \"softly visible desert dunes and deep blue sky\"     },     \"props\": \"oversized glossy orange and white chess pieces, vintage camera and brown leather camera bag near the pedestal\",     \"lighting\": \"warm directional sunlight, crisp shadows, rich contrast\",     \"camera\": \"35mm fashion photography, realistic depth, sharp facial and fabric details\",     \"color_palette\": \"burnt orange, deep blue, white, cream and dark red\",     \"quality\": \"photorealistic, ultra-detailed, premium fashion editorial, realistic skin and fabric texture\",     \"negative_prompt\": \"text, logo, watermark, extra fingers, extra limbs, duplicate objects, distorted face, plastic skin, cartoon, CGI look\"   } }",
+    "promptPreview": "{ \"prompt\": { \"aspect_ratio\": \"9:16\", \"style\": \"surreal high-fashion editorial photography, cinematic realism\", \"scene\": \"vast orange desert with a giant orange-and-white marble chessboard under a deep blue sky\", \"chara…",
+    "source": "Community collected via @Just_Anika_Here",
+    "createdAt": "2026-10-19T20:05:25.655Z"
+  },
+  {
     "id": "100326",
     "title": "旧书店窗光中的沉浸阅读纪实摄影",
     "category": "摄影与写实",
