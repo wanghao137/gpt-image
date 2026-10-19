@@ -1124,17 +1124,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/cases/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36546 水手服少女复古胶片人像: 生成一张充满怀旧感的复古风格照片，画面中一位身穿日本校服的年轻女子坐在岩石海滩上。\n- #36545 昭和复古风体操服少女: 生成一张复古风格的照片，展示一名身穿红色运动服、在体育馆内手持排球的女孩。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36654 昭和复古巴士小憩人像: 生成一幅充满怀旧气息的肖像，描绘一位年轻女子在复古巴士上小憩的画面，具有复古胶片美学风格。\n- #36653 动漫少女投掷棒球: 此提示词生成一张动漫少女投掷棒球的图片，带有魔法特效，风格类似运动漫画分镜。\n- #36651 穿棕色百褶裙行走的学生: 一张侧面照片，展示了一位留着黑色长发的女孩，身穿白色上衣和棕色百褶裙，背着背包在户外行走。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "36547",
-      "36546",
-      "36545",
-      "36544",
-      "36536"
+      "36654",
+      "36653",
+      "36651",
+      "36647",
+      "36646"
     ]
   },
   {
@@ -1172,17 +1172,17 @@
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
     "cover": "/images/cases/templatederived-festival-campaign.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #35571 新年蜕变海报: 用于创建具有严格面部保留和分裂视觉主题的电影感新年蜕变海报的详细提示词。\n- #34929 中秋节排版海报提示词: 用于生成极简主义、实验性排版海报的提示词，以中秋节为主题，特色为大号无衬线字体和 Gucci 红色点缀。\n- #34658 中秋排版海报: 一张黑白极简主义排版海报，以大型中文字体和英文点缀为特色，庆祝中秋节。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36642 Halloween Frankenstein Style Dress Girl: A prompt for generating an anime-style girl in a Frankenstein-inspired Halloween dress with bla…\n- #36640 Halloween Candy Corn Dress Girl: A prompt for generating an anime-style girl wearing a Halloween candy corn colored dress with s…\n- #35571 新年蜕变海报: 用于创建具有严格面部保留和分裂视觉主题的电影感新年蜕变海报的详细提示词。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36642",
+      "36640",
       "35571",
       "34929",
-      "34658",
-      "31825",
-      "31561"
+      "34658"
     ]
   },
   {
@@ -1268,17 +1268,17 @@
     ],
     "description": "把品牌或人物设定转成可落地的 3D 角色资产。",
     "cover": "/images/cases/templatederived-3d-ip-mascot.jpg",
-    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36327 可爱企鹅女孩四格漫画: 四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。\n- #36231 Q 版女孩做松饼: 一幅可爱的动漫风格插画，描绘了三位身穿动物服装的 Q 版女孩在色彩缤纷的厨房里一起制作松饼。\n- #35629 Bloody Gothic Chibi Girl Character Design: A prompt to generate a cute yet creepy chibi character illustration featuring a blonde girl in …\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
+    "prompt": "模板：3D IP 吉祥物\n用途：用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。\n视觉方向：3D / IP / Mascot / Illustration / Realistic / 3D Render / Editorial / Cinematic / Minimal / Portrait\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色轮廓、材质、表情、道具、比例和商业化展示角度」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36638 真人与巨型 Q 版涂鸦壁画合影: 生成一张超写实照片的综合提示词，展示一位真实女性与墙上巨大的可爱 Q 版涂鸦壁画互动。\n- #36327 可爱企鹅女孩四格漫画: 四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。\n- #36231 Q 版女孩做松饼: 一幅可爱的动漫风格插画，描绘了三位身穿动物服装的 Q 版女孩在色彩缤纷的厨房里一起制作松饼。\n\n使用建议：\n- 先锁定 角色轮廓、材质、表情、道具、比例和商业化展示角度。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免塑料廉价感、五官失控、手脚畸形和背景喧宾夺主。",
     "useWhen": "用于潮玩、盲盒、品牌吉祥物、收藏玩具和角色海报。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36638",
       "36327",
       "36231",
       "35629",
-      "100294",
-      "34332"
+      "100294"
     ]
   },
   {
@@ -1292,17 +1292,17 @@
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
     "cover": "/images/cases/templatederived-game-character-sheet.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36364 MPD Heavy Rescue Robot Climbing Mountain: A realistic depiction of a giant Metropolitan Police Department rescue robot scaling a cliff du…\n- #36363 Dunhuang Flying Apsara Playing Pipa: A prompt to generate a cinematic image of a celestial musician from Dunhuang murals playing a p…\n- #36361 Warhammer 40K Ghazghkull Assault on Armageddon: Generates a chaotic battle scene from Warhammer 40K featuring Ghazghkull's Orks storming Armage…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36650 Immortal Palace Above Sea of Clouds: A prompt for generating an epic Eastern fantasy scene of an immortal palace above a sea of clou…\n- #36649 Eastern Immortal Sect Landscape Prompt: A detailed prompt for generating an epic Eastern fantasy immortal sect landscape with tradition…\n- #36646 GPT Image Prompt: Jiangnan Water Town Spring Beauty with Umbrella: A detailed prompt for generating a hyper-realistic portrait of a classical beauty holding an oi…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "36364",
-      "36363",
-      "36361",
-      "36359",
-      "36328"
+      "36650",
+      "36649",
+      "36646",
+      "36643",
+      "36364"
     ]
   },
   {
@@ -1316,17 +1316,17 @@
     ],
     "description": "把一个动作或剧情拆成镜头清晰的分镜画面。",
     "cover": "/images/cases/templatederived-storyboard-sequence.jpg",
-    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Minimal / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36327 可爱企鹅女孩四格漫画: 四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。\n- #36269 疯狂的乌鸦戳破黄色气球: 一幅幽默的插画，描绘了一只惊慌失措的黑乌鸦在城市屋顶上方的电话线上戳破了一个卡住的黄色气球。\n- #36029 新天真风格角色打斗插画提示词: 用于生成新天真/局外人艺术风格图像的详细提示词，描绘角色笨拙地打斗。明确指定生成模型为 GPT-image2。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
+    "prompt": "模板：电影分镜序列\n用途：用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。\n视觉方向：Storyboard / Cinema / Sequence / Cinematic / Realistic / Editorial / Minimal / Brand / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36653 动漫少女投掷棒球: 此提示词生成一张动漫少女投掷棒球的图片，带有魔法特效，风格类似运动漫画分镜。\n- #36327 可爱企鹅女孩四格漫画: 四格漫画，展示一个逼真的 3D Q 版企鹅装女孩发现垃圾桶的场景。\n- #36269 疯狂的乌鸦戳破黄色气球: 一幅幽默的插画，描绘了一只惊慌失措的黑乌鸦在城市屋顶上方的电话线上戳破了一个卡住的黄色气球。\n\n使用建议：\n- 先锁定 镜头顺序、景别变化、动作连续性、情绪推进和画幅一致性。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免镜头跳跃、角色服装不连续和每格构图雷同。",
     "useWhen": "用于电影分镜、广告脚本、短视频镜头规划和漫画叙事。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36653",
       "36327",
       "36269",
       "36029",
-      "100309",
-      "34852"
+      "100309"
     ]
   },
   {
@@ -1388,17 +1388,17 @@
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
     "cover": "/images/cases/templatederived-anime-scene-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / Poster / 3D Render / Minimal / Architecture / Travel\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36541 Rat Magician at Mad Hatter's Tea Party: Generates an illustration of a rat magician performing for a crowd at the Mad Hatter's exclusiv…\n- #36540 手绘 2D 卡通插画: 适用于 GPT Image 2 的提示词，可将上传的照片转换为干净、色彩丰富且保留构图与人物特征的手绘 2D 卡通插画。\n- #36539 复古旅行手账照片拼贴: GPT Image 2 提示词，用于将上传的照片转换为极简复古旅行手账拼贴画，画面分为两部分：上半部分保留原始照片，下半部分为同一场景的扁平水彩插画。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36650 Immortal Palace Above Sea of Clouds: A prompt for generating an epic Eastern fantasy scene of an immortal palace above a sea of clou…\n- #36644 Photo to Illustrated Memory Poster: This prompt instructs the model to create a vertical editorial poster where the top half preser…\n- #36643 GPT Image Prompt: Majestic South Gate of Heaven Scene: A detailed prompt for generating a hyper-realistic, cinematic Eastern fantasy scene featuring t…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "36541",
-      "36540",
-      "36539",
-      "36536",
-      "100323"
+      "36650",
+      "36644",
+      "36643",
+      "36637",
+      "36636"
     ]
   },
   {
@@ -1484,17 +1484,17 @@
     ],
     "description": "模拟胶片、拍立得或年代感摄影的怀旧风格。",
     "cover": "/images/cases/templatederived-vintage-retro-photo.jpg",
-    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36546 水手服少女复古胶片人像: 生成一张充满怀旧感的复古风格照片，画面中一位身穿日本校服的年轻女子坐在岩石海滩上。\n- #36545 昭和复古风体操服少女: 生成一张复古风格的照片，展示一名身穿红色运动服、在体育馆内手持排球的女孩。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
+    "prompt": "模板：复古怀旧摄影\n用途：用于复古写真、怀旧场景、年代剧照和胶片感生活记录。\n视觉方向：Vintage / Retro / Photo\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「胶片颗粒、年代色调、自然光影和怀旧情绪」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36654 昭和复古巴士小憩人像: 生成一幅充满怀旧气息的肖像，描绘一位年轻女子在复古巴士上小憩的画面，具有复古胶片美学风格。\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36546 水手服少女复古胶片人像: 生成一张充满怀旧感的复古风格照片，画面中一位身穿日本校服的年轻女子坐在岩石海滩上。\n\n使用建议：\n- 先锁定 胶片颗粒、年代色调、自然光影和怀旧情绪。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度滤镜化、色彩失真和失去真实质感。",
     "useWhen": "用于复古写真、怀旧场景、年代剧照和胶片感生活记录。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36654",
       "36547",
       "36546",
       "36545",
-      "36544",
-      "36507"
+      "36544"
     ]
   }
 ]
