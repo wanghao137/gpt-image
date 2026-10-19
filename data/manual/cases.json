@@ -1,5 +1,30 @@
 [
   {
+    "id": "100326",
+    "title": "旧书店窗光中的沉浸阅读纪实摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Cinematic",
+      "Documentary",
+      "Portrait",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-10-20-case-bookshop-reading.jpg",
+    "imageAlt": "旧书店窗光中的沉浸阅读纪实摄影",
+    "prompt": "Scene / Background:\nA candid, realistic photograph inside a small, dimly lit bookshop. Closely packed wooden shelves, worn book spines, and narrow aisles surround a woman absorbed in reading. Bright sunlight enters through a side window, creating a pronounced contrast between illuminated areas and the darker interior.\n\nSubject / Action:\nA beautiful 20-year-old adult East Asian woman with delicate, youthful Japanese-idol-like features, tasteful Korean-idol-inspired makeup, and a graceful figure. She wears understated everyday clothing and has naturally arranged hair. Standing beside a bookshelf near the window, she holds an open book with both hands, her eyes lowered toward the pages. Her posture is relaxed, her expression quietly absorbed; she is unaware of the camera.\n\nComposition / Camera:\nAn observational three-quarter view from across the aisle, framed from approximately mid-thigh upward. Include her hands and the open book, with shelves and part of the window establishing her position within the shop. An out-of-focus shelf edge lightly frames one side of the image. Thoughtful photographic composition without a staged portrait pose; retain enough environmental detail to make the bookshop feel present.\n\nLighting / Realism:\nDirect sunlight enters from camera-left, striking the window-facing side of her hair, cheek, hands, and parts of the open pages. Her opposite cheek and the shelves behind her remain in shade. Window-frame shadows continue across nearby surfaces according to their position. Reflected light from the pages provides a small, localized contribution beneath her face, not uniform frontal illumination.\n\nExpose for the sunlit skin and paper while allowing the shop interior to remain substantially darker. Preserve the directional contrast and natural shadow transitions; do not brighten her face independently of the room. Use only the window light and its environmental reflections, without added portrait fill.\n\nPhotographic Treatment:\nNatural color, ordinary fabric and paper textures, and unretouched skin with restrained detail. Capture the quiet immediacy of someone reading rather than a beauty campaign. No stylized filter, exaggerated skin sharpening, or flattened HDR shadows.\n\nNatural Variation:\nAllow restrained variation in hairstyle, casual clothing, book selection, shelf arrangement, and hand placement while preserving her adult appearance, absorbed reading, candid framing, dim bookshop, and strong directional sunlight.\n\nGeneration preferences:\nquality: medium",
+    "promptPreview": "Scene / Background: A candid, realistic photograph inside a small, dimly lit bookshop. Closely packed wooden shelves, worn book spines, and narrow aisles surround a woman absorbed in reading. Bright sunlight enters thro…",
+    "source": "Community collected via @luccaaiart",
+    "createdAt": "2026-10-19T20:05:20.804Z"
+  },
+  {
     "id": "100325",
     "title": "纯白极简品牌工业设计概念展示",
     "category": "品牌与标志",
