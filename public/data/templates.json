@@ -1076,17 +1076,17 @@
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
     "cover": "/images/cases/templatederived-merchant-promo-poster.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Cinematic / Documentary / Architecture / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36587 Warhammer 40k Space Marine Stand: Generates a dramatic scene of an Ultramarines Primaris Space Marine defending against Tyranids …\n- #36547 两位手持鲜花的女性复古照片: 生成一张复古风格的肖像，描绘两位年轻女性手持花束站在传统日本店铺前，捕捉怀旧的昭和时代美学。\n- #36456 Vespa 踏板摩托车：真实照片与微缩景观对比: 分屏对比展示：上方为复古黄色 Vespa 踏板摩托车的写实照片，下方为同一场景的可爱迷你 3D 黏土模型版本。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Realistic / Editorial / Social / Commerce / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36688 GPT Image 2 民间艺术风格前后对比转换: 适用于 GPT Image 2 的提示词，可生成垂直堆叠的前后对比图，将原始照片转换为扁平、纹理密集的朴素民间艺术印刷品，同时保留构图。\n- #100329 法式烘焙门店异形桌牌四宫格陈列: 请生成一张[味多美]门店异形桌牌展示图。纯白背景。 品牌名称： [味多美 (Wedome)] 空间风格： 温暖法式烘焙感，温馨治愈，高级感。 主色调： 奶油色、香槟金、咖啡褐。 产品清单： …\n- #36587 Warhammer 40k Space Marine Stand: Generates a dramatic scene of an Ultramarines Primaris Space Marine defending against Tyranids …\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36688",
+      "100329",
       "36587",
       "36547",
-      "36456",
-      "100319",
-      "36267"
+      "36456"
     ]
   },
   {
@@ -1124,17 +1124,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/cases/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36654 昭和复古巴士小憩人像: 生成一幅充满怀旧气息的肖像，描绘一位年轻女子在复古巴士上小憩的画面，具有复古胶片美学风格。\n- #36653 动漫少女投掷棒球: 此提示词生成一张动漫少女投掷棒球的图片，带有魔法特效，风格类似运动漫画分镜。\n- #36651 穿棕色百褶裙行走的学生: 一张侧面照片，展示了一位留着黑色长发的女孩，身穿白色上衣和棕色百褶裙，背着背包在户外行走。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series / Realistic / Poster / Illustration / Editorial / Cinematic / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36695 地中海花园人像: 一个用于生成逼真照片级人像的提示词，描绘了一位身穿薰衣草渐变连衣裙的年轻女子，站在带有大理石栏杆和花卉的地中海湖畔花园中。\n- #36689 写实风格唐代汉服人像: 一个高度详细的提示词，用于生成一位身着传统唐代服饰的年轻东亚女性写实肖像，包含特定的灯光、妆容和姿势指令。\n- #100328 AI全息界面中的职业女性科技品牌人像: Create an ultra-realistic, premium-quality 9:16 vertical portrait of a beautiful young professi…\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36695",
+      "36689",
+      "100328",
       "36654",
-      "36653",
-      "36651",
-      "36647",
-      "36646"
+      "36653"
     ]
   },
   {
@@ -1172,17 +1172,17 @@
     ],
     "description": "为节日节点生成有销售目标的主视觉和传播图。",
     "cover": "/images/cases/templatederived-festival-campaign.jpg",
-    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36642 Halloween Frankenstein Style Dress Girl: A prompt for generating an anime-style girl in a Frankenstein-inspired Halloween dress with bla…\n- #36640 Halloween Candy Corn Dress Girl: A prompt for generating an anime-style girl wearing a Halloween candy corn colored dress with s…\n- #35571 新年蜕变海报: 用于创建具有严格面部保留和分裂视觉主题的电影感新年蜕变海报的详细提示词。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
+    "prompt": "模板：节日营销主视觉\n用途：用于春节、中秋、圣诞、生日、双十一等节点活动。\n视觉方向：Festival / Campaign / KV\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「节日符号、品牌商品、活动标题、促销利益和氛围光色」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36640 Halloween Candy Corn Dress Girl: A prompt for generating an anime-style girl wearing a Halloween candy corn colored dress with s…\n- #35571 新年蜕变海报: 用于创建具有严格面部保留和分裂视觉主题的电影感新年蜕变海报的详细提示词。\n- #34929 中秋节排版海报提示词: 用于生成极简主义、实验性排版海报的提示词，以中秋节为主题，特色为大号无衬线字体和 Gucci 红色点缀。\n\n使用建议：\n- 先锁定 节日符号、品牌商品、活动标题、促销利益和氛围光色。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免堆砌符号、错用节日元素和难读的装饰字体。",
     "useWhen": "用于春节、中秋、圣诞、生日、双十一等节点活动。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
-      "36642",
       "36640",
       "35571",
       "34929",
-      "34658"
+      "34658",
+      "31825"
     ]
   },
   {
@@ -1220,17 +1220,17 @@
     ],
     "description": "生成统一角色、表情和动作体系的头像或贴纸套装。",
     "cover": "/images/cases/templatederived-sticker-avatar-pack.jpg",
-    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36505 废墟教堂中的兜帽旅人: 用于生成月光透过玫瑰窗照亮废墟教堂内兜帽旅人的阴郁夜景提示词。\n- #36504 万圣节糖果口袋连衣裙提示词: 适用于 ChatGPT Image 2 的详细日语风格提示词，用于生成一位穿着带有装满糖果大口袋的万圣节连衣裙的动漫少女。\n- #36499 ChatGPT Image 2 秋季穿搭提示词: 使用 ChatGPT Image 2 生成带有格纹元素和皮夹克的可爱秋季时尚图片的提示词。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
+    "prompt": "模板：头像表情包套装\n用途：用于微信表情、头像、社群贴纸、品牌吉祥物表情。\n视觉方向：Sticker / Avatar / Pack\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、表情列表、动作差异、透明背景和统一描边」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36691 单色优雅秋季穿搭: 一个以时尚为重点的提示词，用于生成一套可爱的单色秋季穿搭，包含格纹裙和针织毛衣。\n- #36642 万圣节弗兰肯斯坦风格连衣裙女孩: 生成动漫风格女孩的提示词，她穿着带有黑色缝线和绿色丝带的弗兰肯斯坦灵感万圣节连衣裙。\n- #36639 GPT Image 2 可爱小熊卫衣穿搭提示词: 使用 GPT Image 2 生成蓬松薄荷绿抓绒连帽衫（带熊耳设计）及运动休闲风格穿搭的详细提示词。\n\n使用建议：\n- 先锁定 角色身份、表情列表、动作差异、透明背景和统一描边。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色前后不一致、表情重复和水印平台标识。",
     "useWhen": "用于微信表情、头像、社群贴纸、品牌吉祥物表情。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36691",
+      "36642",
+      "36639",
       "36505",
-      "36504",
-      "36499",
-      "36453",
-      "36447"
+      "36504"
     ]
   },
   {
@@ -1292,17 +1292,17 @@
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
     "cover": "/images/cases/templatederived-game-character-sheet.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36650 Immortal Palace Above Sea of Clouds: A prompt for generating an epic Eastern fantasy scene of an immortal palace above a sea of clou…\n- #36649 Eastern Immortal Sect Landscape Prompt: A detailed prompt for generating an epic Eastern fantasy immortal sect landscape with tradition…\n- #36646 GPT Image Prompt: Jiangnan Water Town Spring Beauty with Umbrella: A detailed prompt for generating a hyper-realistic portrait of a classical beauty holding an oi…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36697 赛博舞台角色概念设定图: 生成一份详细的角色设计文档，塑造未来感偶像战士混合体，包含多角度视图、表情、材质、武器及战斗姿态，适用于游戏开发或动画项目。\n- #36696 Medieval MMORPG Inventory UI Screenshot: A detailed mockup of a fantasy game's user interface showing a shared bank chest and character …\n- #36690 Warhammer Scene: Rylanor vs Fulgrim: An AI-generated image depicting Ancient Rylanor facing Fulgrim beneath Istvaan III, created wit…\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36697",
+      "36696",
+      "36690",
       "36650",
-      "36649",
-      "36646",
-      "36643",
-      "36364"
+      "36649"
     ]
   },
   {
@@ -1388,17 +1388,17 @@
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
     "cover": "/images/cases/templatederived-anime-scene-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36650 Immortal Palace Above Sea of Clouds: A prompt for generating an epic Eastern fantasy scene of an immortal palace above a sea of clou…\n- #36644 Photo to Illustrated Memory Poster: This prompt instructs the model to create a vertical editorial poster where the top half preser…\n- #36643 GPT Image Prompt: Majestic South Gate of Heaven Scene: A detailed prompt for generating a hyper-realistic, cinematic Eastern fantasy scene featuring t…\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36687 水彩风家居内饰改造: 将温馨家居室内照片转化为复古纸张上的精致水彩插画，并以带有手写注释的编辑式排版呈现。\n- #36650 Immortal Palace Above Sea of Clouds: A prompt for generating an epic Eastern fantasy scene of an immortal palace above a sea of clou…\n- #36644 照片转手绘记忆海报: 此提示词指导模型创建一张垂直编辑风格的海报，上半部分保留上传的照片，下半部分将其转化为带有水彩素描和手写说明的手绘剪贴簿插图。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "36687",
       "36650",
       "36644",
       "36643",
-      "36637",
-      "36636"
+      "36637"
     ]
   },
   {
