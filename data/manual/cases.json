@@ -1,5 +1,31 @@
 [
   {
+    "id": "100328",
+    "title": "AI全息界面中的职业女性科技品牌人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Tech"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Illustration",
+      "Editorial",
+      "Cinematic",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-10-21-case-100328-ai-hologram-portrait.jpg",
+    "imageAlt": "AI全息界面中的职业女性科技品牌人像",
+    "prompt": "Create an ultra-realistic, premium-quality 9:16 vertical portrait of a beautiful young professional woman interacting with advanced AI technology. She is standing in a modern futuristic workspace, thoughtfully analyzing data while making natural hand gestures toward floating holographic AI interfaces. Her facial expression shows deep thinking, creativity, and strategic decision-making.\n\nSurround her with elegant transparent AI elements including neural network visualizations, digital brain graphics, data streams, machine learning icons, analytics dashboards, futuristic HUD interfaces, glowing particles, and intelligent automation symbols. The holograms should appear responsive to her gestures, creating a seamless human-AI collaboration experience.\n\nCinematic lighting, blue and cyan neon accents, soft depth of field, professional corporate atmosphere, luxury tech aesthetic, highly detailed eyes and skin, realistic reflections, volumetric lighting, shallow focus, photorealistic, 8K UHD, HDR, ultra-sharp details, award-winning commercial photography, magazine cover quality, futuristic innovation concept, premium AI technology branding style.\n\nNegative Prompt:\nLow quality, blurry, cartoon, anime, extra fingers, distorted hands, duplicate objects, watermark, text, logo, overexposed lighting, unrealistic face, poor anatomy, low resolution, pixelated, noisy background.\n\nSettings:\n\nAspect Ratio: 9:16\nQuality: Ultra HD 8K\nStyle: Photorealistic Corporate Technology\nLighting: Cinematic Volumetric Lighting\nCamera: Sony A7R V, 85mm Lens, f/1.8, HDR\nMood: Intelligent, Innovative, Future-Focused, Professional.",
+    "promptPreview": "Create an ultra-realistic, premium-quality 9:16 vertical portrait of a beautiful young professional woman interacting with advanced AI technology. She is standing in a modern futuristic workspace, thoughtfully analyzing…",
+    "source": "Community collected via @OxBairan",
+    "createdAt": "2026-10-20T20:05:32.261Z"
+  },
+  {
     "id": "100327",
     "title": "沙漠巨型棋盘上的超现实时尚大片",
     "category": "场景与叙事",
