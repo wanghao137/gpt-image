@@ -55108,6 +55108,18 @@
       "prompt": "午后，地中海湖畔花园。阳光从高处斜洒而下。远处湖面湛蓝静谧，群山薄雾缭绕。浅色别墅与修长的柏树错落散布于湖畔。前景为欧式石砌露台。白色大理石栏杆、雕花立柱，大型花盆沿步道依次排开。盛开的纯白与浅紫色花朵，从拱门、墙面和花器中自然垂落。\n\n一位年轻女子伫立在花园露台中央。她身着一袭浅紫与乳白渐变的轻薄透视长裙。层层半透明薄纱被微风轻轻托起，裙摆自然舒展。她微微侧身，一手轻提裙摆，另一手搭在锁骨附近。长发随风向后飘拂，发间点缀着白色花朵配饰。姿态毫不刻意，仿佛只是湖畔漫步时的短暂驻足，恰好被阳光温柔定格的一瞬。\n\n整体氛围宁静、明亮而柔和，没有强烈的戏剧张力。更像是欧洲私人湖区花园里一个暮春午后。色调以乳白、浅紫、湖蓝、淡绿为主。空气通透澄澈。花瓣、薄纱与水面泛着细腻的微光倒影。质感介于高端婚纱摄影与梦幻生活方式摄影之间。"
     }
   },
+  "36696": {
+    "en": {
+      "title": "Medieval MMORPG Inventory UI Screenshot",
+      "description": "A detailed mockup of a fantasy game's user interface showing a shared bank chest and character inventory screen with equipment slots and item grids.",
+      "prompt": "Goal: Create a realistic screenshot of a medieval MMORPG inventory and storage interface, specifically featuring a chest (Baúl) and character equipment panel.\nCanvas: Landscape orientation, high resolution, mimicking a game client window.\nLayout: Split composition. The left third shows the 3D game world with a cobblestone street, a wooden cart, an NPC, and a player character standing next to a large open treasure chest. The right two-thirds are occupied by two vertical UI panels overlaying the scene.\nSections:\n1. Left Panel (Storage): Header reads \"BAÚL\" in gold serif font on a dark metal background. Contains a grid of empty dark slots. Top row has three items: a sword (+15), a purple robe (+15), and black boots (+15). Bottom section displays \"ORO EN EL BAÚL\" with value 0, and buttons labeled \"Cantidad\", \"GUARDAR\", and \"SACAR\".\n2. Right Panel (Inventory): Header reads \"INVENTARIO\". Top section is an equipment paper-doll layout with slots labeled \"CUELLO\", \"ARMADURA\", \"ESCUDO\" containing a helmet, breastplate, and shield icons. Below is a mixed grid of inventory items including potions, keys, axes, and armor pieces. Bottom section displays total \"ORO\" as 34.181.599.\nVisual style: Dark fantasy aesthetic. UI frames have ornate gold filigree corners and riveted metal textures. Fonts are classic serif (Times New Roman style) in white and gold. Lighting is ambient daylight.\nText content: Preserve Spanish labels exactly as seen: \"BAÚL\", \"INVENTARIO\", \"ORO EN EL BAÚL\", \"GUARDAR\", \"SACAR\", \"CANTIDAD\", \"CUELLO\", \"ARMADURA\", \"ESCUDO\", \"ORO\"."
+    },
+    "zh": {
+      "title": "中世纪 MMORPG 库存 UI 截图",
+      "description": "奇幻游戏用户界面的详细模型，展示共享银行宝箱和角色库存屏幕，包含装备槽位和物品网格。",
+      "prompt": "目标：创建一张逼真的中世纪 MMORPG 背包与仓库界面截图，重点展示一个宝箱（Baúl）和角色装备面板。\n画布：横向构图，高分辨率，模拟游戏客户端窗口。\n布局：分屏式构图。左侧三分之一展示 3D 游戏世界，包含一条鹅卵石街道、一辆木制手推车、一个 NPC，以及一名站在敞开的大型宝箱旁的玩家角色。右侧三分之二被两个叠加在场景之上的垂直 UI 面板占据。\n分区：\n1. 左侧面板（仓库）：标题为深色金属背景上的金色衬线字体“BAÚL”。内部是由空白暗色格子组成的网格。第一行有三件物品：一把剑（+15）、一件紫色长袍（+15）和一双黑色靴子（+15）。底部区域显示“ORO EN EL BAÚL”，数值为 0，并带有标着“Cantidad”、“GUARDAR”和“SACAR”的按钮。\n2. 右侧面板（背包）：标题为“INVENTARIO”。顶部是纸娃娃式的装备布局，槽位分别标有“CUELLO”、“ARMADURA”、“ESCUDO”，内含头盔、胸甲和盾牌图标。下方是混合排列的背包物品网格，包括药水、钥匙、斧头和防具部件。底部区域显示“ORO”总数为 34.181.599。\n视觉风格：暗黑奇幻美学。UI 边框带有华丽的金色花丝边角和铆钉金属纹理。字体采用经典的白色与金色衬线体（类似 Times New Roman 风格）。光照为环境自然光。\n文本内容：请完全按照原样保留以下西班牙语标签：“BAÚL”、“INVENTARIO”、“ORO EN EL BAÚL”、“GUARDAR”、“SACAR”、“CANTIDAD”、“CUELLO”、“ARMADURA”、“ESCUDO”、“ORO”。"
+    }
+  },
   "36697": {
     "en": {
       "title": "Cyber Stage Character Concept Sheet",
@@ -55134,8 +55146,8 @@
   },
   "36722": {
     "en": {
-      "title": "GPT Image 2 Prompt: Experimental Texture Diptych",
-      "description": "A sophisticated prompt for GPT Image 2 to create a vertical diptych comparing an original photo with seven experimental texture overlays like reeded glass, engraving, and halftone.",
+      "title": "Swiss Editorial Diptych with Texture Zones",
+      "description": "A detailed GPT Image 2 prompt for creating a vertical diptych from an uploaded photo. The top half preserves the original image, while the bottom half applies seven experimental texture zones (Reeded Glass, Engraving, Stipple, Halftone, Pixel Mosaic, Overlay, Duotone) in a Swiss editorial style.",
       "prompt": "Create one vertical 3:4 diptych for each uploaded photo, divided into equal top and bottom halves with a seamless join. No divider, frame, or collage. Swiss editorial design, experimental photography, and vintage print aesthetics.\n\nTOP HALF — ORIGINAL PHOTOGRAPH\nPreserve the original identity, pose, scene, composition, perspective, lighting, and colors. Allow only subtle color grading and background extension. No text.\n\nBOTTOM HALF — SEVEN EXPERIMENTAL TEXTURE ZONES\nRepeat the entire original photo. Overlay seven asymmetrical rectangular zones of different sizes directly onto the image pixels, crossing non-critical details. Maintain visual continuity inside and outside every zone. Never crop, zoom, shift, duplicate, or redraw the image. Keep all important focal features visible.\n\nSEVEN NUMBERED TECHNIQUES\n\n01. Reeded Glass: Vertical optical refraction.\n\n02. Black-and-White Engraving: Fine etched lines and crosshatching.\n\n03. American Stipple: Black-and-white microdot texture.\n\n04. Vintage Halftone: CMYK printing dots.\n\n05. Pixel Mosaic: Square pixel blocks.\n\n06. Transparent Overlay: 2–4 translucent overlapping layers.\n\n07. Duotone Screen Print: Two-color screen-printing effect.\n\nDESIGN DETAILS\nAdd hairline borders, tiny corner squares, and fine leader lines to identify each rectangular zone. Label every technique with its corresponding number and English name. Keep all areas outside the seven zones photographic and realistic.\n\nSTRICT REQUIREMENTS\nNo logos, watermarks, extra images, or unnecessary decorative elements. Preserve the original photograph's integrity and maintain a clean, sophisticated editorial layout.\n\nOUTPUT: One high-definition 3:4 vertical poster with equal top and bottom halves."
     },
     "zh": {
@@ -55158,9 +55170,9 @@
   },
   "36724": {
     "en": {
-      "title": "Halloween Zombie Girl Outfit Prompt",
-      "description": "A prompt for generating a cute zombie-themed girl in a distressed off-shoulder mini dress with bandage ribbons.",
-      "prompt": "A girl wearing a Halloween zombie-style one-piece dress.\nThe costume is an off-shoulder mini dress in ecru color. There are intentionally torn slits and curled fabric edges at several places on the shoulders, waist, and skirt.\nFrom the torn parts, a light purple layer underneath is visible.\nThin black stitching on the torn edges.\nA small bandage-style ribbon (clean) at the neck.\nNo hat on the head.\nColors are ecru, light purple, black, and night indigo. No dirt or blood.\nFull body view where the torn design is clearly visible. A cute face looking slightly troubled."
+      "title": "Zombie Style One-Piece Dress",
+      "description": "A prompt for generating a girl in a torn zombie-style one-piece dress with bandage ribbons.",
+      "prompt": "A girl wearing a Halloween zombie-style one-piece dress.\nThe outfit is an off-white off-shoulder mini one-piece. Intentionally torn slits and frayed edges on shoulders, waist, and several spots on the skirt.\nLight purple layers visible through the torn parts.\nThin black stitching on the torn edges.\nSmall bandage-style ribbon at the neck (clean).\nNo hat on the head.\nColors are off-white, light purple, black, and night blue. No dirt or blood.\nFull body visible with clear torn design. A cute face looking slightly troubled."
     },
     "zh": {
       "title": "万圣节僵尸女孩服装提示词",
@@ -55170,9 +55182,9 @@
   },
   "36725": {
     "en": {
-      "title": "Comical Wanted Poster Character Prompt",
-      "description": "A prompt for turning a character into a comical wanted poster or arrest scene with random funny crimes.",
-      "prompt": "Please make the character in the attached image [Name: {argument name=\"character_name\" default=\"Unknown\"}] into a comical wanted poster/arrest style visual where \"they probably aren't guilty but are being led away for a strange crime.\"\n\nDecide the charges randomly. Make the content light, fun, and comical.\n\nFor composition, use a pose standing in front of height marks, or a moment of being lightly restrained. Additionally, place weird small items around as \"evidence.\" It can be two cuts (front and side) or a single image. Do not use real police or national marks; keep it completely fictional humor. Leave space to add charges later."
+      "title": "GPT Image 2 Wanted Poster Character Prompt",
+      "description": "A prompt for generating a humorous wanted poster or arrest visual of an anime character, featuring random light-hearted crimes and evidence props.",
+      "prompt": "Please turn the character in the attached image [Name: {argument name=\"character_name\" default=\"[Character Name]\"}] into a comical wanted poster/arrest-style visual where they are being taken away for a strange crime, even though they probably aren't at fault.\n\nDecide the charges randomly. Make the content light, fun, and comical.\n\nThe composition should be a pose standing in front of a height line, or the moment they are being lightly restrained. Additionally, place weird small items around them as \"evidence.\" It can be two cuts (front and side) or a single image. Do not use real police or national marks; keep it completely fictional and humorous. Leave space to write additional charges later."
     },
     "zh": {
       "title": "滑稽通缉令角色提示词",
@@ -55226,6 +55238,126 @@
       "title": "杭州早安微缩茶景",
       "description": "一张垂直海报设计，展示了围绕茶碗和石桥的微缩人物场景，并叠加了杭州早安问候语及天气信息。",
       "prompt": "创作一张宁静雅致的高清竖版海报，画面主体为微缩景观场景，置于湿润且带有倒影的石面上。视觉焦点是一只盛满茶水的青瓷茶碗，旁边紧挨着一座长满青苔的小型石拱桥。一朵洁白的莲花静静倚靠在茶碗底部。周围散落着约 6 个微缩人偶：有的正站着拍照，一个坐在桥上，其余的则在漫步。画面顶部中央垂下一根细线，悬挂着一枚半透明的绿色树叶吊坠，叶尖缀着一颗水滴，正好悬于茶碗正上方。背景采用柔和的虚化处理，呈现浅灰与米色交织的朦胧色调。右上角叠加中英文优雅排版：大号棕色衬线字体的“早安”，深绿色衬线字体的“杭州”，下方依次为“HANGZHOU GOOD MORNING”、日期“2026-10-20”、天气信息“天气：晴转雷阵雨 22-32°C”，以及诗意金句“今日金句：心有清风，步步自有回响。”。整体采用微距摄影风格，营造浅景深效果。"
+    }
+  },
+  "36756": {
+    "en": {
+      "title": "Hand-Drawn Storybook Illustration Prompt",
+      "description": "A GPT Image 2 prompt to transform an uploaded photo into a heartwarming, hand-drawn storybook illustration. It specifies warm pastel colors, colored-pencil textures, simplified backgrounds, and preservation of subject identities and emotional connections.",
+      "prompt": "Transform the uploaded photo into a beautiful, heartwarming, hand-drawn storybook illustration. Preserve the original subjects’ recognizable features, hairstyles, poses, expressions, clothing, body language, and emotional connection. Keep the composition and interaction faithful to the reference photo.\n\nART STYLE: Warm, playful, modern children's book illustration with a soft hand-painted, colored-pencil, and crayon texture. Use expressive black-brown sketch outlines, slightly imperfect lines, simplified organic shapes, gentle facial features, rosy cheeks, and natural, joyful expressions. Apply a warm pastel palette with coral pink, dusty blue, caramel brown, soft peach, and creamy off-white.\n\nTEXTURE & DETAILS: Visible pencil strokes, subtle paper grain, lightly uneven coloring, sketchy hair strands, minimal shading, and charming handmade imperfections. Create a cozy, nostalgic, affectionate atmosphere full of warmth and personality.\n\nBACKGROUND: Simplify the original background into a clean, minimal cream-colored paper backdrop. Add a few small, hand-drawn decorative marks, playful lines, tiny hearts, or expressive doodles that complement the scene without distracting from the subjects.\n\nCOMPOSITION: Maintain the original framing, subject placement, pose, and interaction. Make the subjects the clear focal point. Use clean shapes, balanced negative space, and an organic editorial storybook aesthetic.\n\nIMPORTANT: Illustrate the actual uploaded photo rather than inventing a new scene. Preserve the subjects' identities and defining characteristics. Avoid photorealism, 3D rendering, glossy digital painting, excessive detail, harsh shadows, complex backgrounds, and overly polished vector graphics. No text, watermark, or border.\n\nOUTPUT: A high-quality, charming, hand-drawn storybook illustration with a soft vintage print feel, warm colors, visible artistic texture, and genuine emotional expression. Adapt the illustration naturally to the uploaded photo, regardless of the subjects or setting."
+    },
+    "zh": {
+      "title": "手绘绘本风格插画提示词",
+      "description": "这是一个 GPT Image 2 提示词，可将上传的照片转化为温馨的手绘绘本风格插画。它指定了温暖的粉彩色调、彩铅质感纹理、简化的背景，并强调保留主体的身份特征及情感联系。",
+      "prompt": "将上传的照片转化为温馨动人的手绘故事书插画。请保留原图中人物的可辨识特征、发型、姿势、表情、服装、肢体语言以及彼此间的情感互动，构图与人物关系需忠实于参考照片。\n\n艺术风格：温暖俏皮的现代儿童绘本风格，呈现柔和的手绘水彩、彩色铅笔与蜡笔质感。使用富有表现力的黑褐色素描轮廓线，线条略带随性的不完美感；造型简化自然，五官柔和，脸颊微红，神态生动愉悦。配色采用温暖的粉彩色调，包括珊瑚粉、灰蓝色、焦糖棕、柔桃色和奶油白。\n\n纹理与细节：保留清晰可见的铅笔笔触、淡淡的纸张纹理、略微不均匀的上色效果、随性的发丝线条、极简的阴影处理，以及充满魅力的手工痕迹。营造出温馨、怀旧、充满爱意与个性的氛围。\n\n背景：将原图背景简化为干净纯粹的奶油色纸质底纹。可点缀少量手绘装饰符号、俏皮线条、小爱心或生动的涂鸦，起到烘托画面的作用，但不喧宾夺主。\n\n构图：保持原图的取景范围、人物位置、姿势与互动方式，确保人物始终是视觉焦点。运用简洁的造型、均衡的留白，打造自然质朴的故事书美学。\n\n重要提示：必须基于实际上传的照片进行创作，切勿凭空虚构新场景。务必保留人物的身份特征与标志性细节。避免照片级写实、3D 渲染、光滑的数字绘画、过度复杂的细节、生硬的阴影、繁杂的背景以及过于精致的矢量图形。画面中不得出现文字、水印或边框。\n\n输出要求：一幅高品质、充满魅力的手绘故事书插画，带有柔和的复古印刷质感、温暖的色调、清晰的艺术肌理与真挚的情感表达。无论照片中的人物或场景如何，都请自然地将其转化为这种插画风格。"
+    }
+  },
+  "36758": {
+    "en": {
+      "title": "Halloween Wolf Dress Girl",
+      "description": "A detailed prompt for generating a girl in a Halloween wolf-themed dress with fur trim and fang accessories.",
+      "prompt": "A girl wearing a Halloween wolf-motif dress.\nThe outfit is a dark navy off-shoulder mini dress. Thick grey fur trim on the collar, cuffs, and skirt hem.\nLarge prints of white wolf fangs and paw prints on the skirt.\nThin black ribbon at the waist with a fang-shaped charm at the end.\nShort fur cape on the shoulders.\nNo ears on the head. Small fang pins in the hair.\nColors are navy, grey, white, and night blue.\nFull body visible with fur trim and fang patterns. A slightly wild smile."
+    },
+    "zh": {
+      "title": "万圣节狼装女孩",
+      "description": "用于生成身穿万圣节狼主题连衣裙的女孩的详细提示词，包含毛皮饰边和獠牙配饰。",
+      "prompt": "一个穿着万圣节狼主题连衣裙的女孩。\n这套服装是一件深藏青色的露肩迷你裙。领口、袖口和裙摆处饰有厚实的灰色毛边。\n裙身上印着巨大的白色狼牙和狼爪图案。\n腰间系着一根细黑丝带，末端挂着一个狼牙形状的吊坠。\n肩上披着一件短款毛皮斗篷。\n头上没有戴耳朵发饰。头发上别着小狼牙发夹。\n整体配色为藏青色、灰色、白色和夜蓝色。\n全身可见，毛边装饰与狼牙图案清晰呈现。脸上带着一抹略带野性的微笑。"
+    }
+  },
+  "36759": {
+    "en": {
+      "title": "Shallow Depth of Field I2I",
+      "description": "An image-to-image prompt for adding shallow depth of field effects to illustrations using GPT.",
+      "prompt": "Maintain the person, costume, composition, and art style of the original image, and apply a three-dimensional focus expression with shallow depth of field.\n\nFocus center on eyes and face. Keep pupils, eyelashes, and main facial lines clear. As you move away from the focal plane of the face, smoothly blur hair, shoulders, costume, and background according to distance. Create natural focus differences within the person as well.\n\nAdd soft foreground bokeh to hair and shoulders close to the camera, and large melting background bokeh for the background. Describe point light sources in the background as soft circular bokeh.\n\nIlluminate hair and skin contours thinly with warm diagonal backlighting, adding subtle bloom and light bleed only to strong highlights. Maintain calm darkness in shadows to create cinematic depth that draws the eye to the face.\n\nUniform blurring across the entire screen is prohibited. Do not erase facial details; maintain the original line art and drawing texture."
+    },
+    "zh": {
+      "title": "浅景深 I2I",
+      "description": "一个用于 GPT 的图生图提示词，可为插画添加浅景深效果。",
+      "prompt": "保持原图的人物、服装、构图与画风，并应用浅景深的立体对焦表现。\n\n将焦点中心对准眼睛和面部。保持瞳孔、睫毛及主要面部线条清晰锐利。随着距离面部焦平面越来越远，根据远近关系对头发、肩膀、服装和背景进行平滑的虚化处理。人物自身也要呈现出自然的焦点差异。\n\n为靠近镜头的头发和肩膀添加柔和的前景散景，背景则使用大面积融化的背景散景。将背景中的点光源描绘成柔和的圆形光斑。\n\n用温暖的斜向逆光轻轻勾勒头发与皮肤轮廓，仅在强烈高光处添加微妙的泛光（bloom）与光线溢出效果。阴影部分保持沉稳的暗度，营造出能将视线引向面部的电影感纵深。\n\n禁止全画面均匀模糊。不要抹除面部细节；保留原有的线稿与绘画质感。"
+    }
+  },
+  "36760": {
+    "en": {
+      "title": "GPT Image 2 Hand-drawn Infographic Prompt",
+      "description": "A prompt for GPT Image 2 to create a hand-drawn style infographic card explaining the water cycle, with specific layout and color instructions.",
+      "prompt": "Two vertically connected rounded rectangular panels are anchored by extremely thick, slightly undulating black hand-drawn outlines, with white buckles crossing the panel edges, forming striking paired modules and clear vertical rhythm. Content is organized using Gestalt proximity and layout zoning, with each panel internally divided into a stable left-image/right-text column, balancing left and right weights, titles and information read top-to-bottom in the right column; the overall visual center falls on the junction of the two panels and their respective prominent large titles, keeping the page header area independent with logos and main title. Images and text connect via juxtaposition and backing: the left side is reserved for character or theme illustrations, placed on irregular rounded clean light-colored bases; the right side uses prominent large characters to lead multiple lines of explanation, accompanied by small line-drawing symbols adjacent to text to indicate content. Text hierarchy is always distinct, large titles are thick and striking, explanatory text is thinner with generous line spacing, small text and symbols create rhythm points; glyph construction is upright and readable, with clear counters, crisp endings, and compact faces complementing handwritten images, maintaining this hierarchy regardless of text volume; when text is insufficient, secondary small text is supplemented based on the theme. Text edges are flat and clear, forming a clean typography layer outside the hand-drawn lines. Whitespace includes gaps between panels, backing whitespace around image bases, reading gaps between text lines, and pauses between header and body; each remains spacious, allowing thick frames, illustrations, and titles to stand out clearly. Illustration content is provided by the appended theme, adopting a complete, concentrated, slightly tilted hand-drawn composition within the left column, with simple main outlines, light dynamic details, and upright load-bearing parts; content density is about half-frame, mainly concentrated in the left column of each panel, the rest being white or light-colored rounded bases, flat panel color blocks, and bottom whitespace, generating no scenery. Uses a composite of techniques: outlining frames and characters with continuous, slightly shaky thick black lines; spreading large panel areas and local illustration colors with clean, smooth digital flat coloring; pressing information areas with crisp text typesetting; overall resembling an illustration arrangement synthesized from hand-drawn lines, computer flat coloring, and clear typesetting. Color scheme maintains a high-brightness keynote, colors vivid, saturated but not glaring, the most intense color surfaces fall within the paired panels echoed by character locals; pairing warm light backgrounds with varying brightness levels of light color surfaces, stabilizing layers with strong black-and-white line text contrast. Overall warm and cheerful, friendly and energetic, resembling matte digital color blocks combined with dense marker lines; hue follows the theme, but brightness/darkness, thickness/thinness, saturation/dilution, warm tendencies, and cheerful friendly psychological feelings maintain this personality regardless of theme. Overall temperament is light, friendly, and orderly. Appended theme, accurate text, usage, and aspect ratio take priority; grouping of upper/lower panels, left-image/right-text, thick black hand-drawn borders, image backing, clear text hierarchy, and high-brightness warm-thick color schemes remain unchanged.\n\n------\nTheme: Water Cycle Educational Poster"
+    },
+    "zh": {
+      "title": "GPT Image 2 手绘信息图提示词",
+      "description": "用于 GPT Image 2 的提示词，旨在创建手绘风格的信息图卡片以解释水循环，包含具体的布局和颜色说明。",
+      "prompt": "两个纵向相连的圆角矩形面板由极粗、略带起伏的黑色手绘轮廓线锚定，白色卡扣横跨面板边缘，构成醒目的成对模块与清晰的纵向节奏。内容依托格式塔邻近性与版面分区进行组织，每个面板内部划分为稳定的左图右文双栏，左右视觉比重均衡，标题与信息在右栏自上而下阅读；整体视觉重心落在两块面板的交界处及各自醒目的大标题上，页眉区域保持独立，放置 logo 与主标题。图文通过并置与衬底相互衔接：左侧预留给角色或主题插画，置于不规则的圆角浅色干净底座之上；右侧以醒目的大字引领多行说明文字，并在文本旁搭配小型线描符号以提示内容。文字层级始终分明，大标题粗重醒目，说明文字较细且行距宽松，小字与符号形成节奏点；字形结构端正易读，字怀清晰、收笔利落、字面紧凑，与手绘图像相得益彰，无论文字多少均维持该层级；文字不足时，则根据主题补充次要小字。文本边缘平整清晰，在手绘线条之外形成干净的排版层。留白涵盖面板间距、图像底座周围的衬底留白、文本行间的阅读间隙以及页眉与正文之间的停顿；各处均保持宽裕，使粗边框、插画与标题得以清晰凸显。插画内容由所附主题提供，在左栏内采用完整、集中、略微倾斜的手绘构图，主体轮廓简洁，动态细节轻盈，承重部位端正；内容密度约占半幅画面，主要集中在各面板的左栏，其余部分为白色或浅色圆角底座、平整的面板色块及底部留白，不生成任何场景。采用复合技法：以连贯、略带抖动的粗黑线条勾勒边框与角色；以干净平滑的数字平涂铺展大面积面板与局部插画色彩；以利落的文字排版压住信息区；整体呈现出由手绘线条、电脑平涂与清晰排版合成的插画编排效果。配色保持高明度基调，色彩鲜活、饱和而不刺眼，最浓烈的色面落在成对面板内，并与角色局部色彩相呼应；暖调浅色背景与不同明度的浅色色面相互搭配，以强烈的黑白线文对比稳定层次。整体温暖明快、亲切有活力，宛如哑光数字色块与密集马克笔线条的结合；色调随主题变化，但明暗、粗细、饱和度、偏暖倾向以及欢快亲切的心理感受不受主题影响，始终保持这一性格。整体气质轻盈、友好且有序。所附主题、准确文案、用途与宽高比优先；上下面板分组、左图右文、粗黑手绘边框、图像衬底、清晰的文字层级以及高明度暖厚配色方案保持不变。\n\n------\n主题：水循环科普海报"
+    }
+  },
+  "36761": {
+    "en": {
+      "title": "GPT Image 2 Prompt Length Comparison",
+      "description": "A side-by-side visual comparison showing how GPT Image 2 renders a space library concept using 5-word, 25-word, and 100-word prompts.",
+      "prompt": "A horizontal triptych comparison image with a dark navy background, divided into three equal vertical panels. Each panel displays a photorealistic 3D render of a fantastical 'Space Library' scene, illustrating the difference in prompt complexity.\n\nLeft Panel: Labeled \"5 WORDS\" at the bottom in white sans-serif text. The image shows an exterior wide shot of a grand, ornate library building floating in deep space. It features a large glass dome revealing a galaxy interior, surrounded by nebulae and stars, with a reflection on a water-like surface below.\n\nCenter Panel: Labeled \"25 WORDS\" at the bottom. The image is an interior perspective looking out through a massive curved window at a giant ringed planet (resembling Saturn). Inside, there are tall wooden bookshelves lining the walls, a cozy leather armchair, a small table with a lamp, and a patterned rug on a polished floor.\n\nRight Panel: Labeled \"100 WORDS\" at the bottom. The image is a close-up interior detail shot featuring a wooden desk with an open book, a brass banker's lamp, and a globe. Behind it, large arched windows look out onto the same ringed planet and starry sky, with warm lighting contrasting against the cool blue space background."
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词长度对比",
+      "description": "并排视觉对比展示 GPT Image 2 如何使用 5 词、25 词和 100 词的提示词来渲染太空图书馆概念。",
+      "prompt": "一张横向三联画对比图，深藏青色背景，被均分为三个垂直面板。每个面板展示一幅照片级逼真的 3D 渲染图，呈现奇幻的“太空图书馆”场景，以此体现提示词复杂度的差异。\n\n左侧面板：底部以白色无衬线字体标注“5 WORDS”。画面为远景外观镜头，展现一座宏伟华丽的图书馆建筑漂浮在深邃太空中。建筑顶部是巨大的玻璃穹顶，内部可见星系景象，四周环绕着星云与繁星，下方如水面般的材质上映出倒影。\n\n中间面板：底部标注“25 WORDS”。画面为室内视角，透过巨大的弧形窗户向外望去，可见一颗带光环的巨型行星（形似土星）。室内墙壁旁排列着高大的木质书架，摆放着一张舒适的皮质扶手椅、一张带台灯的小桌，光洁的地板上铺着一块花纹地毯。\n\n右侧面板：底部标注“100 WORDS”。画面为室内细节特写，呈现一张木桌，桌上放着一本翻开的书、一盏黄铜银行家台灯和一个地球仪。后方是巨大的拱形窗户，窗外同样是那颗带光环的行星与星空，温暖的灯光与冷蓝色的太空背景形成鲜明对比。"
+    }
+  },
+  "36762": {
+    "en": {
+      "title": "Synthwave Sports Car at Sunset",
+      "description": "Generates a vibrant synthwave scene featuring a neon-lit supercar on a reflective grid road beneath a banded sunset sky, ideal for wallpapers, album art, or retro-futuristic branding.",
+      "prompt": "A vertical 9:16 synthwave-style digital illustration of a sleek, low-profile sports car resembling a Lamborghini Countach, parked on a wet asphalt surface that reflects neon light. The car is angled slightly toward the viewer from the front-left three-quarter view, with glowing pink and cyan underglow lighting along its chassis and headlights emitting warm amber beams. Behind the car stretches an infinite grid road made of luminous blue lines receding into the horizon, flanked by jagged mountain silhouettes bathed in magenta and violet hues. Dominating the sky is a massive setting sun rendered as concentric horizontal bands of orange, yellow, and deep red, partially obscured by wispy clouds tinged with purple. The overall atmosphere is dreamlike, retro-futuristic, and saturated with electric pinks, purples, blues, and oranges — evoking 1980s arcade aesthetics and vaporwave vibes. No text or logos are visible."
+    },
+    "zh": {
+      "title": "日落下的合成波跑车",
+      "description": "生成充满活力的合成波场景，展示一辆霓虹灯照亮的超级跑车行驶在反射网格道路上，背景为条纹状日落天空，适用于壁纸、专辑封面或复古未来主义品牌设计。",
+      "prompt": "一幅 9:16 竖版合成波（synthwave）风格数字插画，画面中是一辆线条流畅、车身低趴的跑车，造型神似 Lamborghini Countach，停放在倒映着霓虹灯光的湿滑柏油路面上。车辆呈左前侧四分之三视角，微微朝向观者，底盘边缘环绕着粉色与青色的发光底灯，车头大灯则投射出温暖的琥珀色光束。车后是一条由幽蓝光带铺就的无尽网格公路，一路延伸至地平线尽头；道路两侧是锯齿状的山峦剪影，沐浴在洋红与紫罗兰色的光影之中。天空被一轮巨大的落日占据，由橙色、黄色与深红色的同心横纹层层叠加而成，几缕染上紫色的薄云半遮其间。整体氛围如梦似幻，充满复古未来感，电光粉、紫色、蓝色与橙色交织碰撞，浓郁饱满——瞬间唤起 80 年代街机美学与蒸汽波的迷幻气息。画面中无任何文字或标志。"
+    }
+  },
+  "36763": {
+    "en": {
+      "title": "Showa Retro Beach Portrait",
+      "description": "Generates a nostalgic, film-style portrait of a smiling young woman wearing a straw hat and white lace top at a sunny beach.",
+      "prompt": "A vertical medium-shot portrait of a young East Asian woman at the beach, styled with a nostalgic Showa-era retro film aesthetic. She is looking back over her left shoulder directly at the camera with a bright, genuine smile showing teeth. Her hair is dark brown, tied into two low braids or pigtails secured with small bands, and she wears a black hair clip on the side of her bangs. A large, wide-brimmed woven straw hat with a dark brown rim sits on her head, casting dappled shadows across her forehead and eyes. She wears a white eyelet lace top with thin straps, exposing her bare shoulders and upper back which show natural skin texture including small moles and freckles. Her right hand is raised, gently holding the brim of her hat near her cheek. The background features a sunny coastal scene with blue ocean water, white foaming waves crashing on a rocky shore, and a green forested hill in the distance under a clear blue sky. Two blurred figures are visible swimming in the water to the right. The image has a grainy, warm color palette typical of vintage 1970s or 80s Japanese idol photography."
+    },
+    "zh": {
+      "title": "昭和复古海滩人像",
+      "description": "生成一张怀旧胶片风格的人像照片，画面中一位戴着草帽、身穿白色蕾丝上衣的年轻女子在阳光明媚的海滩上微笑。",
+      "prompt": "一张竖版中景人像照片，画面中是一位身处海滩的东亚年轻女性，整体呈现出充满怀旧感的昭和复古胶片风格。她向左肩后方回眸，目光直视镜头，露齿绽放出灿烂而真诚的笑容。她的头发呈深棕色，扎成两条低垂的麻花辫或双马尾，用小发圈固定，刘海侧边别着一枚黑色发夹。头上戴着一顶宽檐编织草帽，帽檐为深棕色，在额头和双眼处投下斑驳的光影。她身穿一件白色镂空蕾丝细吊带背心，露出双肩与上背部，肌肤纹理自然真实，隐约可见细小的痣与雀斑。右手轻轻抬起，在脸颊旁扶住帽檐。背景是阳光明媚的海滨风光：湛蓝的海水、拍打礁石海岸的白色浪花，以及晴朗蓝天下远处绿意葱茏的山丘。画面右侧的水中，有两个略微虚化的人影正在游泳。整张照片色调温暖且带有颗粒感，完美复刻了 20 世纪 70 至 80 年代日本偶像写真的经典质感。"
+    }
+  },
+  "36764": {
+    "en": {
+      "title": "Showa Retro Portrait of Girl in Floral Kimono",
+      "description": "Generates a nostalgic, film-style portrait of a young woman in a floral kimono sitting on the floor, capturing a vintage Japanese aesthetic.",
+      "prompt": "A vertical portrait of a young woman with short, dark bobbed hair and bangs sitting on a brown tiled floor. She is wearing a loose, semi-sheer floral kimono-style robe in muted tones of cream, navy, and olive green. Her knees are pulled up to her chest, and she rests her chin on her clasped hands, looking directly at the camera with a melancholic expression. On her feet, she wears chunky platform sandals with ruffled white straps. A small flower clip is visible in her hair. The background features a textured white lace curtain. The image has a distinct Showa-era retro aesthetic, characterized by soft focus, warm color grading, and a nostalgic film grain texture."
+    },
+    "zh": {
+      "title": "昭和复古风：身着花卉和服的少女肖像",
+      "description": "生成一张怀旧胶片风格的肖像，描绘一位身穿花卉和服、席地而坐的年轻女性，捕捉复古日式美学。",
+      "prompt": "一幅年轻女性的竖版人像，她留着深色齐刘海短发波波头，坐在棕色瓷砖地面上。她身穿一件宽松的微透碎花和服式长袍，色调柔和，由米白、藏青与橄榄绿交织而成。她双膝蜷缩贴向胸前，下巴轻搁在交握的双手上，神情忧郁地直视镜头。脚上穿着一双厚底松糕凉鞋，搭配白色荷叶边绑带。发间别着一枚小巧的花朵发夹。背景是一面带有纹理的白色蕾丝窗帘。整幅画面散发着浓郁的昭和复古美学气息，柔焦效果、暖调色彩以及充满怀旧感的胶片颗粒质感相得益彰。"
+    }
+  },
+  "36765": {
+    "en": {
+      "title": "Giant MPD Robots Carrying Heavy Load",
+      "description": "Two colossal police robots carrying an industrial load at a busy harbor, surrounded by human workers.",
+      "prompt": "A photorealistic, wide-angle shot of two massive bipedal humanoid robots standing on a wet concrete surface at a Japanese port. The robots are painted in white and dark grey armor plating with red emergency lights on their shoulders and heads. Each robot has '警視庁' (Metropolitan Police Department) and 'MPD' written in black text on their chest plates and shoulder guards. They are jointly holding a large, heavy industrial metal container or piece of machinery between them. In the background, there is a suspension bridge (resembling Tokyo Rainbow Bridge), city skyscrapers, and a blue sky with scattered clouds. On the ground level, numerous construction workers wearing yellow safety vests and hard hats are visible, along with police officers in dark uniforms directing traffic. A black police truck with similar markings is parked to the left."
+    },
+    "zh": {
+      "title": "巨型 MPD 机器人搬运重物",
+      "description": "两台巨大的警用机器人在繁忙的港口搬运工业重物，周围有工作人员。",
+      "prompt": "一张照片级写实的广角镜头画面：两台巨大的双足人形机器人伫立在日本某港口湿漉漉的混凝土地面上。机器人通体覆盖着白色与深灰色相间的装甲板，肩部和头部装有红色警示灯。每台机器人的胸甲和肩甲上，都用黑色字体印有“警視庁”（东京都警视厅）以及“MPD”字样。它们正合力抬起中间一个沉重的大型工业金属集装箱或机械设备。背景中可见一座悬索桥（形似东京彩虹大桥）、城市摩天大楼，以及点缀着朵朵白云的蓝天。地面上，众多身穿黄色反光背心、头戴安全帽的建筑工人清晰可见，还有身着深色制服的警察正在指挥交通。左侧停放着一辆带有相同标识的黑色警用卡车。"
+    }
+  },
+  "36766": {
+    "en": {
+      "title": "Kiyomizu-dera Travel LP with Anime Mascot",
+      "description": "A detailed vertical infographic-style landing page for Kiyomizu-dera tourism, combining an anime character guide with real scenic photos, app UI mockups, and structured travel information.",
+      "prompt": "Goal: Create a comprehensive, high-density vertical travel landing page (LP) for Kiyomizu-dera in Kyoto.\nCanvas: Vertical aspect ratio (approx. 4:5), featuring a vibrant mix of anime illustration and realistic photography with a clean white background accented by orange and purple brushstrokes.\nLayout:\n1. Header: Top navigation bar with logo 'あぽろ塾 APOLLO JUKU' on the left, menu items (Search, Model Course, Spot, Gourmet, Access) in center, and an orange CTA button '今すぐ旅に出る' on right.\n2. Hero Section: Large title '清水寺 Kiyomizu-dera' in bold black serif font. Subtitle '京都・東山の絶景と歴史をめぐる'. A central anime character (orange hair, cat ears, streetwear jacket with 'KYOTO' text) pointing right, accompanied by a tuxedo cat. Background shows a panoramic view of Kyoto with autumn foliage and pagodas. Floating handwritten text: '見たことのない京都に、きっと出会える。' and 'ここにしかない景色がある。'. Location info block: '京都・東山', '早朝散策がおすすめ', '春は桜、秋は紅葉が人気'. World Heritage badge and coordinates '34.9945, 135.7843'.\n3. Highlights Section ('見どころ'): Horizontal scrollable cards showing photos of '清水の舞台', '音羽の滝', '三年坂・二年坂', '京都の街並みを一望', '世界遺産'. Each card has a photo, title, and short description.\n4. App & Features Section: Left side features a smartphone mockup displaying a map app interface with pins for Kiyomizu-dera, Otowa Waterfall, etc. Center column lists 'アプリの主な機能' (App Main Features) with icons: Spot Search, Model Course, Favorites, Offline Map. Right side is 'モデルコース' (Model Course) with numbered steps 01-04 showing route thumbnails.\n5. Seasonal Recommendations ('おすすめの季節'): Four distinct seasonal blocks (Spring, Summer, Autumn, Winter) with corresponding landscape photos and brief text descriptions.\n6. Access Section ('アクセス'): Bottom right area listing transport options (Train, Bus, Car) with specific station names and walking times. Includes a small silhouette of a pagoda and 'Kyoto' script.\nVisual style: Modern Japanese web design aesthetic. High contrast between the colorful anime mascot and the serene real-world photography. Use of orange (#FF5722 approx) and purple accents. Clean sans-serif typography for body text, elegant serif for headings.\nText content: Preserve all Japanese text exactly as shown in the image, including section headers like '見どころ', 'モデルコース', 'アクセス', and the specific location names."
+    },
+    "zh": {
+      "title": "动漫吉祥物版清水寺旅游 LP",
+      "description": "清水寺旅游垂直信息图风格落地页，融合动漫角色导览、实景照片、App UI 样机及结构化旅行资讯。",
+      "prompt": "目标：为京都清水寺打造一个内容丰富、信息密集的竖版旅游落地页（LP）。\n画布：竖版比例（约 4:5），采用动漫插画与写实摄影的活力混搭风格，以干净的白色为背景，点缀橙色和紫色的笔触。\n布局：\n1. 头部导航：顶部导航栏左侧为 Logo“あぽろ塾 APOLLO JUKU”，中间为菜单项（Search、Model Course、Spot、Gourmet、Access），右侧为橙色 CTA 按钮“今すぐ旅に出る”。\n2. 首屏区域（Hero Section）：大标题“清水寺 Kiyomizu-dera”使用粗体黑色衬线字体。副标题为“京都・東山の絶景と歴史をめぐる”。画面中央是一位动漫角色（橙色头发、猫耳、印有“KYOTO”字样的街头风外套）手指向右方，身旁伴有一只燕尾服猫。背景是京都红叶与古塔交相辉映的全景图。悬浮的手写文字：“見たことのない京都に、きっと出会える。”和“ここにしかない景色がある。”。地点信息区块：“京都・東山”、“早朝散策がおすすめ”、“春は桜、秋は紅葉が人気”。世界遗产徽章及坐标“34.9945, 135.7843”。\n3. 亮点区域（“見どころ”）：横向可滑动卡片，展示“清水の舞台”、“音羽の滝”、“三年坂・二年坂”、“京都の街並みを一望”、“世界遺産”的照片。每张卡片包含一张照片、标题和简短描述。\n4. 应用与功能区域：左侧是一部智能手机样机，屏幕显示地图应用界面，标注了清水寺、音羽瀑布等地点的图钉。中间一列列出“アプリの主な機能”（App 主要功能）并配有图标：Spot Search、Model Course、Favorites、Offline Map。右侧为“モデルコース”（推荐路线），用编号步骤 01-04 展示路线缩略图。\n5. 季节推荐区域（“おすすめの季節”）：四个鲜明的季节区块（春、夏、秋、冬），分别配有对应的风景照片和简短的文字描述。\n6. 交通指南区域（“アクセス”）：右下方区域列出交通方式（电车、公交、自驾），并标明具体车站名称和步行时间。包含一个小小的古塔剪影和“Kyoto”字样。\n视觉风格：现代日式网页设计美学。色彩丰富的动漫吉祥物与宁静写实的摄影作品形成强烈对比。使用橙色（约 #FF5722）和紫色作为点缀色。正文采用干净的无衬线字体，标题则使用优雅的衬线字体。\n文本内容：请完全按照图片所示保留所有日文文本，包括“見どころ”、“モデルコース”、“アクセス”等版块标题以及具体的地名。"
     }
   }
 }
