@@ -1,5 +1,32 @@
 [
   {
+    "id": "100332",
+    "title": "奶油质感美妆产品ASMR微距特写",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Commerce",
+      "Product"
+    ],
+    "imageUrl": "/uploads/2026-10-23-case-100332-asmr-makeup-texture.jpg",
+    "imageAlt": "奶油质感美妆产品ASMR微距特写",
+    "prompt": "{\n  \"prompt_type\": \"viral_makeup_product_visual\",\n  \"scene\": \"ASMR-style product texture showcase\",\n  \"products\": [\n    \"cream blush being swirled with spatula\",\n    \"foundation drops merging smoothly\"\n  ],\n  \"details\": {\n    \"texture_focus\": \"creamy, buttery, ultra-smooth consistency\",\n    \"lighting\": \"soft diffused lighting\",\n    \"color_theme\": \"nude, peach, soft rose\"\n  },\n  \"mood\": \"satisfying, calming, premium\",\n  \"camera\": \"extreme macro shot\",\n  \"background\": \"clean pastel surface\"\n}",
+    "promptPreview": "{ \"prompt_type\": \"viral_makeup_product_visual\", \"scene\": \"ASMR-style product texture showcase\", \"products\": [ \"cream blush being swirled with spatula\", \"foundation drops merging smoothly\" ], \"details\": { \"texture_focus\"…",
+    "source": "Community collected via @sassyhazel_",
+    "createdAt": "2026-10-22T20:06:36.492Z"
+  },
+  {
     "id": "100331",
     "title": "美妆杂志风妆容分析指南信息图",
     "category": "图表与信息图",
