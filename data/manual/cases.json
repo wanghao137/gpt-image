@@ -1,5 +1,31 @@
 [
   {
+    "id": "100331",
+    "title": "美妆杂志风妆容分析指南信息图",
+    "category": "图表与信息图",
+    "styles": [
+      "Minimal"
+    ],
+    "scenes": [
+      "Infographic",
+      "Education"
+    ],
+    "tags": [
+      "Minimal",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Infographic",
+      "Education"
+    ],
+    "imageUrl": "/uploads/2026-10-23-case-100331-makeup-analysis-guide.jpg",
+    "imageAlt": "美妆杂志风妆容分析指南信息图",
+    "prompt": "Makeup Analysis Guide Infographic (9:16)\n\nCreate a luxury beauty magazine style infographic using the uploaded portrait while preserving the person's exact facial identity, facial proportions, smile, eyes, nose, lips, skin texture, and natural expression. Apply only realistic editorial retouching.\n\nStyling: Soft glamorous layered hair with subtle balayage highlights, elegant off-shoulder ivory knit top, minimal gold necklace, relaxed pose with one hand under the chin.\n\nBackground: Soft lavender to cream gradient with a premium editorial aesthetic.\n\nTitle: MAKEUP ANALYSIS GUIDE\nSubtitle: Natural. Balanced. Radiant.\nInclude:\n\nUndertone: Warm Neutral (3 overlapping skin-tone circles)\n\nContrast Level: Medium (minimal grayscale slider)\nBest Shades: Circular swatches for Eyes, Cheeks, Lips\nFace Analysis: Dotted callouts for Brows, Eyes, Skin, Lips with short notes\nFeature Breakdown: Close-up crops of Brows, Eyes, Skin, Cheeks, Lips with concise descriptions\nRecommended Products: Foundation, Concealer, Bronzer, Blush, Eyeshadow Palette, Mascara, Lipstick with one-line recommendations\nQuick Tips: Dewy finish, Lifted lashes, High blush placement, Natural lip shade, Less is more\nUse elegant serif headings, modern sans-serif text, muted lavender and champagne gold accents, clean grid layout, realistic cosmetic product mockups, vector beauty icons, subtle shadows, and luxury editorial spacing.\n\nQuality: Ultra-realistic, 8K, HDR, crisp skin texture, highly legible typography, photorealistic beauty campaign aesthetic, no AI artifacts.",
+    "promptPreview": "Makeup Analysis Guide Infographic (9:16) Create a luxury beauty magazine style infographic using the uploaded portrait while preserving the person's exact facial identity, facial proportions, smile, eyes, nose, lips, sk…",
+    "source": "Community collected via @Chaemate_",
+    "createdAt": "2026-10-22T20:06:30.994Z"
+  },
+  {
     "id": "100330",
     "title": "锁脸级金棕暖调高级时装人像写真",
     "category": "摄影与写实",
