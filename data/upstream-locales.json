@@ -55242,8 +55242,8 @@
   },
   "36756": {
     "en": {
-      "title": "Hand-Drawn Storybook Illustration Prompt",
-      "description": "A GPT Image 2 prompt to transform an uploaded photo into a heartwarming, hand-drawn storybook illustration. It specifies warm pastel colors, colored-pencil textures, simplified backgrounds, and preservation of subject identities and emotional connections.",
+      "title": "Hand-Drawn Storybook Illustration",
+      "description": "A prompt for GPT Image 2 that converts a photo into a warm, heartwarming children's book illustration with colored-pencil textures, preserving the subjects' identities and emotional connection.",
       "prompt": "Transform the uploaded photo into a beautiful, heartwarming, hand-drawn storybook illustration. Preserve the original subjects’ recognizable features, hairstyles, poses, expressions, clothing, body language, and emotional connection. Keep the composition and interaction faithful to the reference photo.\n\nART STYLE: Warm, playful, modern children's book illustration with a soft hand-painted, colored-pencil, and crayon texture. Use expressive black-brown sketch outlines, slightly imperfect lines, simplified organic shapes, gentle facial features, rosy cheeks, and natural, joyful expressions. Apply a warm pastel palette with coral pink, dusty blue, caramel brown, soft peach, and creamy off-white.\n\nTEXTURE & DETAILS: Visible pencil strokes, subtle paper grain, lightly uneven coloring, sketchy hair strands, minimal shading, and charming handmade imperfections. Create a cozy, nostalgic, affectionate atmosphere full of warmth and personality.\n\nBACKGROUND: Simplify the original background into a clean, minimal cream-colored paper backdrop. Add a few small, hand-drawn decorative marks, playful lines, tiny hearts, or expressive doodles that complement the scene without distracting from the subjects.\n\nCOMPOSITION: Maintain the original framing, subject placement, pose, and interaction. Make the subjects the clear focal point. Use clean shapes, balanced negative space, and an organic editorial storybook aesthetic.\n\nIMPORTANT: Illustrate the actual uploaded photo rather than inventing a new scene. Preserve the subjects' identities and defining characteristics. Avoid photorealism, 3D rendering, glossy digital painting, excessive detail, harsh shadows, complex backgrounds, and overly polished vector graphics. No text, watermark, or border.\n\nOUTPUT: A high-quality, charming, hand-drawn storybook illustration with a soft vintage print feel, warm colors, visible artistic texture, and genuine emotional expression. Adapt the illustration naturally to the uploaded photo, regardless of the subjects or setting."
     },
     "zh": {
@@ -55254,9 +55254,9 @@
   },
   "36758": {
     "en": {
-      "title": "Halloween Wolf Dress Girl",
-      "description": "A detailed prompt for generating a girl in a Halloween wolf-themed dress with fur trim and fang accessories.",
-      "prompt": "A girl wearing a Halloween wolf-motif dress.\nThe outfit is a dark navy off-shoulder mini dress. Thick grey fur trim on the collar, cuffs, and skirt hem.\nLarge prints of white wolf fangs and paw prints on the skirt.\nThin black ribbon at the waist with a fang-shaped charm at the end.\nShort fur cape on the shoulders.\nNo ears on the head. Small fang pins in the hair.\nColors are navy, grey, white, and night blue.\nFull body visible with fur trim and fang patterns. A slightly wild smile."
+      "title": "GPT Image 2 Halloween Wolf Dress Prompt",
+      "description": "A detailed prompt for generating an anime-style girl wearing a dark navy off-shoulder mini dress with wolf fur trim and fang prints, suitable for Halloween-themed AI art.",
+      "prompt": "A girl wearing a Halloween wolf-motif dress.\nThe outfit is a dark navy off-shoulder mini dress. There is thick gray fur trim on the collar, cuffs, and skirt hem.\nLarge prints of white wolf fangs and paw tracks on the skirt.\nA thin black ribbon at the waist with a fang-shaped charm at the tip.\nA short fur-trimmed cape on the shoulders.\nNo ears on the head. Small fang pins in the hair.\nColors are navy, gray, white, and night blue.\nFull body visible with fur trim and fang patterns. A slightly wild smile."
     },
     "zh": {
       "title": "万圣节狼装女孩",
@@ -55358,6 +55358,114 @@
       "title": "动漫吉祥物版清水寺旅游 LP",
       "description": "清水寺旅游垂直信息图风格落地页，融合动漫角色导览、实景照片、App UI 样机及结构化旅行资讯。",
       "prompt": "目标：为京都清水寺打造一个内容丰富、信息密集的竖版旅游落地页（LP）。\n画布：竖版比例（约 4:5），采用动漫插画与写实摄影的活力混搭风格，以干净的白色为背景，点缀橙色和紫色的笔触。\n布局：\n1. 头部导航：顶部导航栏左侧为 Logo“あぽろ塾 APOLLO JUKU”，中间为菜单项（Search、Model Course、Spot、Gourmet、Access），右侧为橙色 CTA 按钮“今すぐ旅に出る”。\n2. 首屏区域（Hero Section）：大标题“清水寺 Kiyomizu-dera”使用粗体黑色衬线字体。副标题为“京都・東山の絶景と歴史をめぐる”。画面中央是一位动漫角色（橙色头发、猫耳、印有“KYOTO”字样的街头风外套）手指向右方，身旁伴有一只燕尾服猫。背景是京都红叶与古塔交相辉映的全景图。悬浮的手写文字：“見たことのない京都に、きっと出会える。”和“ここにしかない景色がある。”。地点信息区块：“京都・東山”、“早朝散策がおすすめ”、“春は桜、秋は紅葉が人気”。世界遗产徽章及坐标“34.9945, 135.7843”。\n3. 亮点区域（“見どころ”）：横向可滑动卡片，展示“清水の舞台”、“音羽の滝”、“三年坂・二年坂”、“京都の街並みを一望”、“世界遺産”的照片。每张卡片包含一张照片、标题和简短描述。\n4. 应用与功能区域：左侧是一部智能手机样机，屏幕显示地图应用界面，标注了清水寺、音羽瀑布等地点的图钉。中间一列列出“アプリの主な機能”（App 主要功能）并配有图标：Spot Search、Model Course、Favorites、Offline Map。右侧为“モデルコース”（推荐路线），用编号步骤 01-04 展示路线缩略图。\n5. 季节推荐区域（“おすすめの季節”）：四个鲜明的季节区块（春、夏、秋、冬），分别配有对应的风景照片和简短的文字描述。\n6. 交通指南区域（“アクセス”）：右下方区域列出交通方式（电车、公交、自驾），并标明具体车站名称和步行时间。包含一个小小的古塔剪影和“Kyoto”字样。\n视觉风格：现代日式网页设计美学。色彩丰富的动漫吉祥物与宁静写实的摄影作品形成强烈对比。使用橙色（约 #FF5722）和紫色作为点缀色。正文采用干净的无衬线字体，标题则使用优雅的衬线字体。\n文本内容：请完全按照图片所示保留所有日文文本，包括“見どころ”、“モデルコース”、“アクセス”等版块标题以及具体的地名。"
+    }
+  },
+  "36791": {
+    "en": {
+      "title": "Cinematic Matchstick Portrait",
+      "description": "An ultra-realistic, cinematic close-up portrait of a woman holding a lit matchstick with dramatic chiaroscuro lighting.",
+      "prompt": "Create an ultra-realistic, cinematic close-up portrait of a beautiful young woman with long, messy, flowing dark hair, thick eyebrows, long eyelashes, and slightly parted lips. Her eyes are gently closed, with a calm, dreamy, emotional expression. She is holding a lit matchstick near her face with her right hand. The warm orange and golden flame light illuminates one side of her face, nose, lips, neck, and fingers, while the other half remains in deep, soft shadows. Loose strands of hair frame her face naturally. Dark moody atmosphere, dramatic chiaroscuro lighting, realistic skin texture, detailed facial features, artistic photography, warm amber tones, soft shadows, shallow depth of field, fine details, 4K quality, vertical portrait, 9:16 aspect ratio. Preserve natural facial proportions and create an elegant, mysterious aesthetic."
+    },
+    "zh": {
+      "title": "电影感火柴人像",
+      "description": "一张超写实的电影感特写人像，画面中一位女性手持点燃的火柴，呈现出戏剧性的明暗对比光影效果。",
+      "prompt": "生成一张超写实、电影感的年轻美女特写肖像：她拥有一头凌乱飘逸的深色长发，眉毛浓密，睫毛纤长，双唇微启。双眼轻闭，神情宁静、梦幻而饱含情绪。她的右手在脸庞附近举着一根点燃的火柴。温暖的金橙色火焰照亮了她的一侧脸颊、鼻梁、嘴唇、脖颈与手指，另一半面容则隐没在深邃柔和的阴影之中。几缕散落的发丝自然地垂落在脸庞两侧。暗调氛围感，戏剧性的明暗对比光影，逼真的皮肤纹理，精致的五官细节，艺术摄影风格，温暖的琥珀色调，柔和阴影，浅景深，细腻入微，4K 画质，竖版人像，9:16 画幅比例。保持自然的面部比例，营造优雅神秘的美学意境。"
+    }
+  },
+  "36792": {
+    "en": {
+      "title": "Halloween Devil Dress Character",
+      "description": "A prompt for generating a girl in a Halloween devil-style dress with specific horn and tail details integrated into the outfit structure.",
+      "prompt": "A girl wearing a Halloween-style devil dress.\nThe outfit is a pale red off-shoulder mini dress. Small horns made of the same fabric as the dress grow from both sides of the head (not hair accessories, but structurally connected to the shoulder straps).\nFrom the back, a thin tail extends integrated with the skirt, ending in a heart shape. A black ribbon at the waist. Small flame embroidery on the hem of the skirt. No hat otherwise.\nColors: pale red, black, ecru, night blue. Full body view at an angle where horns and tail are visible. Mischievous smile."
+    },
+    "zh": {
+      "title": "万圣节恶魔裙角色",
+      "description": "用于生成身穿万圣节风格恶魔裙的女孩的提示词，其中包含与服装结构完美融合的特定角和尾巴细节。",
+      "prompt": "一个穿着万圣节风格恶魔装的女孩。\n服装是一件浅红色一字肩迷你连衣裙。头部两侧长有与裙子同材质的小角（不是发饰，而是与肩带在结构上相连）。\n从背后看，一条细尾巴与裙摆连为一体，尾端呈心形。腰间系着黑色缎带。裙摆处绣有小火焰图案。除此之外不戴帽子。\n颜色：浅红、黑色、米白、夜蓝。全身视角，角度需能同时看到小角和尾巴。调皮的微笑。"
+    }
+  },
+  "36793": {
+    "en": {
+      "title": "Japanese Watercolor Travel Illustration",
+      "description": "A prompt for GPT Image 2 that transforms an uploaded photo into a delicate Japanese travel-journal illustration with watercolor and ink aesthetics, preserving the subject's identity while simplifying the background.",
+      "prompt": "Transform the uploaded photo into a beautiful Japanese travel-journal illustration with a delicate watercolor and hand-drawn ink aesthetic.\n\nSTYLE: Traditional Japanese watercolor painting blended with modern anime-inspired illustration, subtle ink outlines, visible paper grain, dry-brush strokes, soft watercolor washes, gentle color bleeding, and an elegant vintage travel-poster feel.\n\nSUBJECT: Preserve the original subject's recognizable identity, facial features, hairstyle, pose, clothing, and proportions. Illustrate the subject with delicate linework, natural expressions, soft shading, and detailed hair. Keep the subject as the main focal point.\n\nBACKGROUND: Recreate the original surroundings as a picturesque Japanese travel scene. Preserve recognizable landmarks, mountains, lakes, architecture, trees, and other environmental details. Simplify distant elements into expressive watercolor brushstrokes while maintaining depth and perspective.\n\nCOMPOSITION: Vertical 3:4 poster, subject positioned in the lower half, scenic background extending behind them, generous empty space in the upper half, and organically painted edges that fade into the paper.\n\nCOLORS & TEXTURE: Warm ivory handmade paper, muted sky blue, dusty navy, soft beige, charcoal gray, and subtle pastel accents. Visible paper fibers, lightly distressed pigment, imperfect brush edges, and a soft vintage print texture.\n\nLIGHTING: Natural daylight, soft shadows, gentle highlights, peaceful atmosphere, and balanced contrast.\n\nFINAL RESULT: A sophisticated, minimalist Japanese watercolor travel illustration that feels hand-painted on textured paper, combining realistic scenery with charming anime-inspired character art.\n\nNo text, no typography, no borders, no frames, no photorealism, no 3D rendering, no excessive saturation, no glossy digital finish, and no unnecessary decorative elements. Maintain a clean, airy, artistic composition."
+    },
+    "zh": {
+      "title": "日式水彩旅行插画",
+      "description": "适用于 GPT Image 2 的提示词，可将上传的照片转化为精致的日式旅行手账插画，融合水彩与墨绘美学，在简化背景的同时保留主体特征。",
+      "prompt": "将上传的照片转化为精美的日系旅行手账插画，呈现细腻的水彩与手绘墨线质感。\n\n风格：传统日式水彩画与现代动漫风插画相融合，搭配淡雅的墨线轮廓、清晰可见的纸张纹理、干笔触、柔和的水彩晕染与自然渗色效果，营造优雅复古的旅行海报氛围。\n\n主体：保留原图人物的辨识度，包括五官特征、发型、姿势、服装及身体比例。以细腻的线条、自然的神态、柔和的明暗过渡和精致的发丝细节来刻画人物，确保人物始终是画面的视觉焦点。\n\n背景：将原始场景重塑为如诗如画的日系旅行风光。保留具有辨识度的地标、山脉、湖泊、建筑、树木及其他环境细节。远处的景物可简化为写意的水彩笔触，同时保持画面的纵深感与透视关系。\n\n构图：采用 3:4 竖版海报比例，人物置于画面下半部分，风景背景向身后延伸，上半部分留出大面积空白，边缘以自然的笔触渐渐融入纸面。\n\n色彩与质感：暖象牙色手工纸底色，搭配低饱和的天空蓝、灰调藏青、柔和米色、炭灰色以及淡雅的粉彩色点缀。呈现清晰的纸张纤维、略带斑驳的颜料肌理、随性不规则的笔触边缘，以及柔和的复古印刷质感。\n\n光影：自然日光照明，阴影柔和，高光温润，氛围宁静祥和，明暗对比均衡。\n\n最终效果：一幅精致极简的日系水彩旅行插画，宛如在纹理纸上亲手绘制而成，将写实风景与迷人的动漫风人物完美融合。\n\n画面中不出现任何文字、排版、边框或画框；不使用照片级写实或 3D 渲染效果；避免色彩过度饱和、光滑的数字质感以及多余的装饰元素。整体构图需保持干净、通透且富有艺术感。"
+    }
+  },
+  "36794": {
+    "en": {
+      "title": "Editorial Photography with Texture Samples",
+      "description": "A prompt for GPT Image 2 that creates a split-composition editorial photo featuring a stylish woman with oversized props, overlaying the bottom half with seven distinct visual texture samples like halftone and pixel mosaic.",
+      "prompt": "Create a high-quality editorial photography and graphic design composition using the reference image. Feature a stylish young woman in a dynamic, playful pose, holding oversized props—bright red balloons against a vivid blue sky with mountains in the background, or an oversized orange megaphone against a textured green urban wall. Present the original photorealistic scene in the upper half and a creative experimental art direction version in the lower half. Overlay the lower image with seven clearly defined visual texture samples: reeded glass, black-and-white engraving, American stipple, vintage halftone, pixel mosaic, transparent overlays, and duotone screen printing. Add fine white annotation lines, small numbered labels, and rectangular sample frames to explain each effect. Preserve the subject’s pose, clothing, lighting, and composition. Use vibrant colors, cinematic natural lighting, detailed textures, contemporary Japanese editorial aesthetics, and a sophisticated art-school design layout. Ultra-realistic photography combined with experimental mixed-media graphics, crisp details, balanced composition, high resolution, vertical 4:5 aspect ratio."
+    },
+    "zh": {
+      "title": "带纹理样本的编辑风格摄影",
+      "description": "为 GPT Image 2 设计的提示词，可生成具有分屏构图的时尚编辑摄影作品。画面主体为一位搭配超大道具的时尚女性，下半部分叠加了七种独特的视觉纹理样本（如半色调和像素马赛克）。",
+      "prompt": "以参考图像为基础，创作一幅高品质的编辑类摄影与平面设计合成作品。画面主体为一位时尚年轻女性，姿态动感俏皮，手持超大号道具——可以是鲜艳蓝天下、远山映衬中的大红色气球，也可以是纹理丰富的绿色城市墙面前的一只巨型橙色扩音器。上半部分呈现原始的照片级写实场景，下半部分则展示富有创意的实验性艺术指导版本。在下半部分的图像上叠加七种清晰可辨的视觉纹理样本：竖纹玻璃、黑白雕版、美式点刻、复古半调、像素马赛克、透明叠层以及双色调丝网印刷。添加精细的白色标注线、小型数字标签和矩形样本框，以说明每种效果。保留人物的姿态、服装、光线与构图。采用明艳的色彩、电影感的自然光效、细腻的纹理质感，融入当代日式编辑美学与精致的艺术院校设计风格。超写实摄影与实验性混合媒介图形相结合，细节锐利，构图均衡，高分辨率，垂直 4:5 画幅比例。"
+    }
+  },
+  "36795": {
+    "en": {
+      "title": "Convenience Store Mirror Collage",
+      "description": "A prompt for GPT Image 2 that generates a 3x3 photo collage of a woman in various scenes inside a convenience store, viewed through a convex security mirror with fisheye distortion.",
+      "prompt": "Create an ultra-realistic 3×3 photo collage featuring the same woman from the uploaded reference image, preserving her exact facial identity, face shape, eyes, nose, lips, skin tone, and natural features across all nine frames.\n\nCONCEPT & COMPOSITION: A fun, candid convenience-store photoshoot captured from a high-angle convex security mirror. Each frame features the woman looking up toward the mirror with realistic fisheye distortion, curved mirror edges, and a wide view of the store aisles.\n\nNINE DIFFERENT SCENES:\n\n1. Smiling and winking while holding an iced coffee, wearing a cream knit sweater.\n\n2. Wearing a black top and reaching toward a snack shelf while holding a shopping basket.\n\n3. Wearing a pink hoodie, making a cute pout while hugging instant noodles and colorful snacks.\n\n4. Wearing a black-and-white striped top and laughing while holding a basket full of groceries.\n\n5. Wearing a white long-sleeve top and blue jeans, crouching down to pick up spilled snacks from the floor.\n\n6. Wearing a light-blue cardigan, smiling brightly while holding a strawberry cream cake beside her face.\n\n7. Wearing a gray hoodie and beige baseball cap, making a peace sign while holding an iced drink.\n\n8. Wearing a black sleeveless top with sunglasses on her head, examining a cup of instant noodles with a curious expression.\n\n9. Wearing a cream knit sweater, happily hugging a large pack of toilet paper.\n\nENVIRONMENT: A brightly illuminated modern convenience store with colorful snack shelves, refrigerated beverage displays, glossy cream-colored tiled floors, shopping baskets, and a few distant shoppers. Include realistic reflections, curved black-and-red mirror frames, and natural overhead store lighting.\n\nPHOTOGRAPHY STYLE: Ultra-photorealistic photography, overhead fisheye perspective, wide-angle lens, realistic proportions, natural skin texture, detailed hair strands, authentic expressions, crisp product packaging, balanced exposure, and candid lifestyle photography.\n\nCOLLAGE LAYOUT: Perfectly aligned 3×3 grid with nine distinct vertical panels, thin white dividers, consistent image quality, and varied poses and facial expressions. Maintain the same recognizable woman throughout all nine frames.\n\nSTRICT REQUIREMENTS: Preserve the reference woman's facial identity. Keep hands, fingers, and body proportions realistic. Avoid duplicated faces, distorted anatomy, blurry details, excessive beauty filters, cartoon effects, text, logos, and watermarks.\n\nAspect Ratio: Vertical 9:16\nQuality: Ultra-realistic, high detail, 8K, professional lifestyle photography."
+    },
+    "zh": {
+      "title": "便利店镜面拼贴",
+      "description": "适用于 GPT Image 2 的提示词，可生成一张 3x3 的照片拼贴画，展示一位女性在便利店内的各种场景，通过带有鱼眼畸变的凸面安防镜观看。",
+      "prompt": "制作一张超写实的 3×3 照片拼图，画面中需为上传参考图中的同一位女性。在全部九个画格中，必须严格保持她完全一致的面部特征，包括脸型、眼睛、鼻子、嘴唇、肤色及所有自然外貌细节。\n\n概念与构图：一场趣味十足的便利店抓拍，视角来自高处的凸面安防镜。每个画格中的女性都抬头望向镜子，呈现逼真的鱼眼畸变效果、弯曲的镜面边缘以及开阔的店内货架通道视野。\n\n九个不同场景：\n\n1. 身穿米白色针织毛衣，手持冰咖啡，面带微笑并俏皮眨眼。\n\n2. 身穿黑色上衣，一手提着购物篮，另一只手伸向零食货架。\n\n3. 身穿粉色连帽卫衣，怀抱泡面和五颜六色的零食，嘟嘴卖萌。\n\n4. 身穿黑白条纹上衣，手捧装满商品的购物篮，开怀大笑。\n\n5. 身穿白色长袖上衣搭配蓝色牛仔裤，蹲下捡拾散落在地上的零食。\n\n6. 身穿浅蓝色开衫，将草莓奶油蛋糕举在脸旁，笑容灿烂。\n\n7. 身穿灰色连帽卫衣，头戴米色棒球帽，一手拿着冰饮，一手比出剪刀手。\n\n8. 身穿黑色无袖上衣，墨镜架在头顶，神情好奇地端详着一杯泡面。\n\n9. 身穿米白色针织毛衣，开心地抱着一大提卫生纸。\n\n环境：灯光明亮的现代便利店，配有色彩缤纷的零食货架、冷藏饮料展示柜、光洁的米色瓷砖地面、购物篮，以及远处零星几位顾客。需包含逼真的反射倒影、黑红相间的弧形镜框，以及自然的店内顶部照明。\n\n摄影风格：超写实摄影，俯视鱼眼视角，广角镜头，比例真实，皮肤纹理自然，发丝细节清晰，神态生动逼真，商品包装锐利，曝光均衡，充满生活气息的随性抓拍风格。\n\n拼图排版：完美对齐的 3×3 网格，由九个独立的竖版画面组成，以细白线分隔。各画格画质保持一致，姿势与表情各不相同。九个画格中必须始终为同一位极具辨识度的女性。\n\n严格要求：必须保留参考图中女性的面部特征。手部、手指及身体比例需符合真实人体结构。避免出现重复面孔、人体结构变形、细节模糊、过度美颜滤镜、卡通效果、文字、Logo 及水印。\n\n宽高比：竖版 9:16\n画质：超写实、高细节、8K、专业生活方式摄影。"
+    }
+  },
+  "36796": {
+    "en": {
+      "title": "Vintage Autumn Portrait",
+      "description": "A retro-styled portrait of a woman wearing an autumn floral headdress and black lace dress, sitting on a leather sofa with a distressed photo effect.",
+      "prompt": "A vintage-style portrait of a young Asian woman with long, dark hair styled in an updo. She is wearing an elaborate autumnal headpiece featuring a large peach-colored dahlia, small orange pumpkins, blue gourds, red maple leaves, and sprigs of berries. Her makeup includes faux freckles across her nose and cheeks, and she wears delicate gold earrings with dark teardrop stones. She is dressed in an off-the-shoulder black lace gown with sheer sleeves and a cameo brooch pinned to the bodice. She sits on a worn, tufted black leather Chesterfield sofa, looking thoughtfully to the side. The image has a heavy retro filter applied, mimicking an old photograph with visible scratches, dust, faded colors, and a distressed white border."
+    },
+    "zh": {
+      "title": "复古秋日人像",
+      "description": "一位身着黑色蕾丝连衣裙、头戴秋季花卉头饰的女性，坐在皮革沙发上，画面呈现做旧照片效果。",
+      "prompt": "一幅复古风格的肖像画，画中是一位年轻的亚洲女性，深色长发盘成发髻。她头戴精致的秋日主题头饰，上面点缀着一朵硕大的桃色大丽花、几个橙色小南瓜、蓝色葫芦、红枫叶以及几枝浆果。她的妆容在鼻梁和双颊处点缀着仿雀斑，耳畔佩戴着镶嵌深色水滴形宝石的精致金耳环。她身着一袭黑色露肩蕾丝礼服，薄纱长袖轻盈飘逸，胸前别着一枚浮雕胸针。她坐在一张略显陈旧的黑色拉扣皮质 Chesterfield 沙发上，若有所思地望向一侧。整幅画面叠加了浓郁的复古滤镜，刻意模仿老照片的质感，带有清晰可见的划痕、灰尘颗粒、褪色的色调以及做旧泛黄的白色边框。"
+    }
+  },
+  "36797": {
+    "en": {
+      "title": "3D Caricature Portrait with Bead Texture",
+      "description": "A prompt for GPT Image 2 that transforms a reference photo into a highly detailed 3D caricature portrait with bead textures, spiky hair, and studio lighting.",
+      "prompt": "Transform the reference photo into a highly detailed, professional 3D caricature portrait. Preserve the person's recognizable facial features while giving them a creative, slightly exaggerated cartoon appearance. Create intricate textures using thousands of tiny beads, fine engraved lines, and flowing 3D filaments across the face, neck, hair, and clothing.\n\nGive the character wild, oversized, spiky orange hair made from individual curved strands, inspired by expressive modern cartoon sculptures. Add large round black glasses if suitable for the character, expressive eyes, and a distinctive facial expression.\n\nUse a sophisticated gray studio background with abstract geometric lines, circular outlines, floating dots, tiny splashes, and minimalist technical details. Apply cinematic studio lighting, realistic shadows, sharp focus, rich textures, and premium 3D rendering. Maintain the person's original outfit style and recognizable identity while adapting the entire image to this artistic aesthetic.\n\nUltra-HD, intricate micro-details, professional digital art, sculptural depth, polished CGI, high contrast, clean composition, vertical 2:3 aspect ratio. No text, no watermark."
+    },
+    "zh": {
+      "title": "3D 珠粒纹理漫画肖像",
+      "description": "适用于 GPT Image 2 的提示词，可将参考照片转换为具有珠粒纹理、尖刺发型和影棚布光的高细节 3D 漫画肖像。",
+      "prompt": "将参考照片转化为细节丰富、极具专业质感的 3D 漫画肖像。在保留人物标志性面部特征的同时，赋予其富有创意且略带夸张的卡通形象。利用成千上万颗微小珠粒、精细雕刻线条以及流畅的 3D 丝线纹理，在面部、颈部、头发和衣物上打造出精致复杂的质感。\n\n为角色设计狂野蓬松、超大号的橙色刺猬头，发丝由一根根弯曲的线条构成，灵感源自极具表现力的现代卡通雕塑。若契合角色气质，可添加大号黑色圆框眼镜，并刻画出传神的双眼与个性鲜明的面部表情。\n\n背景采用高级灰摄影棚风格，融入抽象几何线条、圆形轮廓、悬浮光点、细微飞溅效果及极简科技元素。搭配电影级影棚布光、逼真阴影、锐利对焦、丰富纹理与高品质 3D 渲染效果。在将整体画面统一于这一艺术美学的同时，完整保留人物原本的穿搭风格与辨识度。\n\n超高清画质，极致微观细节，专业数字艺术，雕塑般立体纵深感，精良 CGI 渲染，高对比度，构图干净利落，2:3 竖版比例。无文字，无水印。"
+    }
+  },
+  "36798": {
+    "en": {
+      "title": "Giant Robot Traffic Control",
+      "description": "A massive black and white police robot directs traffic at a rainy Tokyo intersection alongside human officers and cars.",
+      "prompt": "A cinematic, photorealistic night scene in Tokyo featuring a colossal bipedal police robot towering over a busy intersection. The robot is constructed from heavy-duty black and white mechanical armor plating with exposed hydraulic joints and pistons. Its head consists of a horizontal sensor array with multiple camera lenses instead of a face, and it has glowing red warning lights on its shoulders. The text \"警視庁 MPD\" (Metropolitan Police Department) is printed in white on the robot's chest, shoulder pads, and legs. The robot is actively directing traffic, with one hand raised high in a stop signal and the other extended to the side. In the foreground, wet asphalt reflects the city lights, where several orange and white traffic cones are placed. A human police officer wearing a dark blue uniform, a white helmet, and a reflective vest with \"MPD\" on the back stands with his back to the viewer, holding a glowing red baton. To the left, a white Japanese police car with flashing red and blue lights is partially visible. The background features a dense urban skyline with illuminated skyscrapers and the iconic Tokyo Skytree glowing blue against the night sky. Overhead highway signs indicate directions for Ginza, Ueno, and the Shuto Expressway."
+    },
+    "zh": {
+      "title": "巨型机器人指挥交通",
+      "description": "在雨中的东京十字路口，一个巨大的黑白警察机器人与人类交警和汽车一起指挥交通。",
+      "prompt": "一幅电影感十足的超写实东京夜景，一台巨大的双足警用机器人矗立在繁忙的十字路口中央，身形高耸入云。机器人由厚重的黑白机械装甲板拼装而成，液压关节与活塞结构裸露在外。它的头部没有面孔，取而代之的是一排横向传感器阵列和多个摄像头镜头，双肩上的红色警示灯正闪烁着光芒。机器人的胸口、肩甲和腿部均印有白色的“警視庁 MPD”（警视厅）字样。它正在指挥交通：一只手高高举起示意停止，另一只手向侧方平伸引导车流。前景中，湿漉漉的柏油路面倒映着城市的霓虹灯光，地上摆放着几个橙白相间的交通锥。一名人类警察背对镜头站立，身穿深蓝色制服、头戴白色头盔，反光背心背面印有“MPD”字样，手中握着一根发着红光的指挥棒。画面左侧，一辆闪着红蓝警灯的白色日本警车若隐若现。背景是高楼林立的都市天际线，摩天大楼灯火通明，标志性的 Tokyo Skytree 在夜色中泛着幽蓝的光芒。头顶的高架路牌指示着通往 Ginza、Ueno 以及 Shuto Expressway 的方向。"
+    }
+  },
+  "36800": {
+    "en": {
+      "title": "Anti-AI Rhetoric Reactions Part 1",
+      "description": "A comic-style illustration of a pink-haired woman in a hi-vis vest sitting in an office chair, holding a beer and pointing at the viewer with a speech bubble saying 'Skill Issue.'",
+      "prompt": "Using the provided reference image, regenerate the character in a new pose and context. Keep the character's design (pink hair, glasses, cap, bandana, hi-vis vest) unchanged. Change the scene to show her sitting back in an office chair with legs crossed, pointing directly at the viewer with one hand while holding a can of 'Lite' beer in the other. Update the speech bubble text to read: \"SKILL ISSUE.\" Change the background posters to feature a rabbit skull logo and text reading \"CANS CATS PLANES ETC.\" Add a mug on the desk that says \"BAD PLANS TODAY\"."
+    },
+    "zh": {
+      "title": "反 AI 言论反应 Part 1",
+      "description": "一幅漫画风格的插图，描绘了一位粉色头发、身穿高能见度背心的女性坐在办公椅上，手持啤酒并指向观众，旁边的对话气泡写着“Skill Issue”。",
+      "prompt": "使用提供的参考图，以全新的姿势和场景重新生成该角色。保持角色的设计（粉色头发、眼镜、鸭舌帽、头巾、反光背心）不变。将场景改为她向后靠在办公椅上，双腿交叉，一只手指向观看者，另一只手拿着一罐 \"Lite\" 啤酒。将对话气泡中的文字更新为：\"SKILL ISSUE.\"。将背景海报修改为带有兔子骷髅标志以及写着 \"CANS CATS PLANES ETC.\" 的文字。在桌上添加一个印有 \"BAD PLANS TODAY\" 字样的马克杯。"
     }
   }
 }
