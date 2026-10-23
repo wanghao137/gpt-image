@@ -1147,18 +1147,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/images/cases/templatederived-travel-city-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Editorial / Cinematic / Education / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36801 Good Morning Shenzhen Daily City Poster: Generates a vertical morning-greeting city poster for Shenzhen that blends a dawn skyline-and-m…\n- #36793 日式水彩旅行插画: 适用于 GPT Image 2 的提示词，可将上传的照片转化为精致的日式旅行手账插画，融合水彩与墨绘美学，在简化背景的同时保留主体特征。\n- #100334 首尔字母藏景：王朝工艺复古旅行海报: Create a vintage editorial-style travel poster of South Korea on an aged cream parchment backgr…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/images/2026-10-24-case-100334-korea-vintage-travel-poster.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Editorial / Cinematic / Education / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100336 首尔字母藏景：王朝工艺复古旅行海报: Create a vintage editorial-style travel poster of South Korea on an aged cream parchment backgr…\n- #36801 Good Morning Shenzhen Daily City Poster: Generates a vertical morning-greeting city poster for Shenzhen that blends a dawn skyline-and-m…\n- #36793 日式水彩旅行插画: 适用于 GPT Image 2 的提示词，可将上传的照片转化为精致的日式旅行手账插画，融合水彩与墨绘美学，在简化背景的同时保留主体特征。\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100336",
       "36801",
       "36793",
       "100334",
-      "36766",
-      "36539"
+      "36766"
     ]
   },
   {
@@ -1387,18 +1387,18 @@
       "Illustration"
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
-    "cover": "/images/cases/templatederived-anime-scene-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #36800 反 AI 言论反应 Part 1: 一幅漫画风格的插图，描绘了一位粉色头发、身穿高能见度背心的女性坐在办公椅上，手持啤酒并指向观众，旁边的对话气泡写着“Skill Issue”。\n- #36795 便利店镜面拼贴: 适用于 GPT Image 2 的提示词，可生成一张 3x3 的照片拼贴画，展示一位女性在便利店内的各种场景，通过带有鱼眼畸变的凸面安防镜观看。\n- #36793 日式水彩旅行插画: 适用于 GPT Image 2 的提示词，可将上传的照片转化为精致的日式旅行手账插画，融合水彩与墨绘美学，在简化背景的同时保留主体特征。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "cover": "/images/2026-10-24-case-100333-folk-art-naive-painting.jpg",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Editorial\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100335 质朴民俗风：象征纹样叙事装饰画: A naive folk art painting of [subject], surrounded by symbolic plants, stars, and decorative bo…\n- #36800 反 AI 言论反应 Part 1: 一幅漫画风格的插图，描绘了一位粉色头发、身穿高能见度背心的女性坐在办公椅上，手持啤酒并指向观众，旁边的对话气泡写着“Skill Issue”。\n- #36795 便利店镜面拼贴: 适用于 GPT Image 2 的提示词，可生成一张 3x3 的照片拼贴画，展示一位女性在便利店内的各种场景，通过带有鱼眼畸变的凸面安防镜观看。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100335",
       "36800",
       "36795",
       "36793",
-      "100333",
-      "36760"
+      "100333"
     ]
   },
   {
