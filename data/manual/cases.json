@@ -1,5 +1,26 @@
 [
   {
+    "id": "100333",
+    "title": "质朴民俗风：象征纹样叙事装饰画",
+    "category": "插画与艺术",
+    "styles": [
+      "Illustration"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Editorial"
+    ],
+    "imageUrl": "/images/2026-10-24-case-100333-folk-art-naive-painting.jpg",
+    "imageAlt": "质朴民俗风：象征纹样叙事装饰画",
+    "prompt": "A naive folk art painting of [subject], surrounded by symbolic plants, stars, and decorative borders. Flat perspective, hand-painted textures, joyful storytelling, earthy [color1] and bright [color2] tones, rustic and expressive composition.",
+    "promptPreview": "A naive folk art painting of [subject], surrounded by symbolic plants, stars, and decorative borders. Flat perspective, hand-painted textures, joyful storytelling, earthy [color1] and bright [color2] tones, rustic and e…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-10-23T20:06:21.884Z"
+  },
+  {
     "id": "100332",
     "title": "奶油质感美妆产品ASMR微距特写",
     "category": "产品与电商",
