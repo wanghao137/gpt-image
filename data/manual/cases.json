@@ -1,5 +1,29 @@
 [
   {
+    "id": "100337",
+    "title": "幕后花絮感高对比夜景人像摄影",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Portrait",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-10-25-case-100337-bts-night-portrait.jpg",
+    "imageAlt": "幕后花絮感高对比夜景人像摄影",
+    "prompt": "Behind-the-scenes indoor photography at night, high-contrast. The subject is Karina from aespa, featuring her signature sharp V-shaped jawline, large almond-shaped eyes with soft makeup, and porcelain skin. She has long, voluminous dark hair in a layered 'wolf-cut' style. Karina is sitting, tilted slightly toward the camera with her eyes closed, her right arm raised with her hand resting on her head, highlighting her visible collarbones. She wears a soft white eyelet embroidery camisole with a small bow tie at the chest and black bottoms. To the right, a professional camera and photographer's hands are visible in the foreground. Background features a window overlooking a dark city with a digital screen and a distant lit building. Side-lit from the left, soft but high-contrast, shallow depth of field. --ar 9:16",
+    "promptPreview": "Behind-the-scenes indoor photography at night, high-contrast. The subject is Karina from aespa, featuring her signature sharp V-shaped jawline, large almond-shaped eyes with soft makeup, and porcelain skin. She has long…",
+    "source": "Community collected via @youngcatwoman",
+    "createdAt": "2026-10-24T20:05:25.961Z"
+  },
+  {
     "id": "100336",
     "title": "首尔字母藏景：王朝工艺复古旅行海报",
     "category": "历史与古典",
