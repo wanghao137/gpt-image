@@ -1,5 +1,24 @@
 [
   {
+    "id": "derived-poetic-scroll-world-poster",
+    "title": "诗画卷轴世界海报：悬浮手卷生长诗意微缩景观",
+    "category": "历史与古典",
+    "tags": [
+      "poster",
+      "oriental",
+      "editorial",
+      "knowledge",
+      "3d"
+    ],
+    "description": "输入城市名/诗词名/成语名/作品名，生成悬浮卷轴上生长诗意微缩世界的东方高级海报。",
+    "cover": "/images/template-derived-poetic-scroll-world-poster.jpg",
+    "prompt": "Create an ultra-refined Chinese-chic 3D scroll-world poster.\n\nUse a floating scroll, rolled paper, or suspended handscroll as the core visual body. The scroll must be the origin and structural anchor of the entire image, not a decorative prop. As the scroll unfolds, a poetic miniature world should grow naturally from the paper itself, with terrain, architecture, foliage, atmosphere, and content visually fused into one coherent system.\n\nThe composition must feel stable, grand, highly professional, and poster-like, with one dominant visual anchor, strong hierarchy, elegant balance, controlled asymmetry, and generous negative space on a clean solid-color background. The image should feel breathtaking at first glance and rewarding on closer inspection.\n\nThe visual quality should be airy, luminous, translucent, ethereal, and subtly celestial. Emphasize transparent material feeling, soft glow, misty depth, gentle atmospheric layering, clean light, and a dreamlike floating mood. The paper, landscape, architecture, text, and graphic elements should feel naturally integrated, not collaged or mechanically assembled.\n\nVisually reinterpret the user’s theme intelligently rather than literally. Select only the most fitting Eastern elements — such as refined Chinese architecture, stylized rocks, pines or seasonal trees, lawns, water, clouds, birds, pathways, and tiny figures — and arrange them with restraint. The content should feel meaningful, curated, and aesthetically elevated, never generic or empty.\n\nEnrich the scene with curated informational content related to the theme. Integrate meaningful background information into the poster in an elegant editorial way, such as key numbers, dates, cultural references, literary fragments, historical clues, symbolic meanings, or concise annotations. Present the subject from multiple dimensions so the viewer gains both visual pleasure and knowledge. The information should feel curated, insightful, and aesthetically integrated, not crowded or academic.\n\nAdd a refined editorial typography system as an essential visual layer. Distill the user’s input into one dominant headline, one supporting line, and several smaller annotations or side notes. The main headline should have premium hot-stamped foil and laminated print qualities, with elegant color interplay and strong visual tension. Smaller text may function as poetic notes, humanistic commentary, knowledge labels, or visual footnotes. Use variation in text size, spacing, density, and direction to create a lively, sophisticated poster layout. Add tasteful graphic aids such as thin lines, markers, frames, callout pointers, seal-like accents, or modular information blocks.\n\nUse the unfolding scroll as a narrative structure. As the scroll opens, different facets of the theme should be gradually revealed through scene fragments, text blocks, annotations, and symbolic visual details. The viewer should intuitively understand the subject through the unfolding composition. Make the scroll format feel conceptually meaningful, naturally integrated, and creatively indispensable to the whole design.\n\nColor must be intelligently derived from the theme. Use a fresh, subtle, refined, high-end palette with nuanced gradients, breathable light, translucent beauty, and one or two memorable accent tones. Avoid muddy, old-looking, dull, heavy, or overly saturated color.\n\nAvoid: generic ancient-town illustration, disconnected scroll and content, weak composition, clutter, cheap commercial guochao, toy-like plastic texture, dark heavy rendering, random text placement, meaningless decoration, watermark, or logo.\n\nTheme / Inspiration / Source Text:\n{argument name=\"主题\" default=\"苏轼《水调歌头》·明月几时有，卷轴徐展，宋韵山水与月色楼台相融\"}",
+    "useWhen": "需要把诗词、城市、成语、文学作品、品牌主题可视化为卷轴式东方美学海报时。",
+    "createdAt": "2026-10-25T21:07:57.646Z",
+    "sourceType": "manual",
+    "sourceLabel": "@xiaoxiaodong01 GPT-Image-2 案例库"
+  },
+  {
     "id": "derived-scientific-encyclopedia-card",
     "title": "科学百科图鉴卡片：3D主体弹出×手绘注释知识网",
     "category": "图表与信息图",
