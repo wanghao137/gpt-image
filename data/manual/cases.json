@@ -1,5 +1,30 @@
 [
   {
+    "id": "100339",
+    "title": "日常物件上的繁忙小人国微缩景观",
+    "category": "场景与叙事",
+    "styles": [
+      "Cinematic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Cinematic",
+      "Realistic",
+      "Editorial",
+      "Brand",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-10-26-case-100339-miniature-macro-scene.jpg",
+    "imageAlt": "日常物件上的繁忙小人国微缩景观",
+    "prompt": "Create a hyper-realistic macro photograph of a miniature surreal scene. The environment is dominated by a giant, oversized <everyday object>, which has been repurposed as a bustling landscape. Tiny, highly detailed miniature human figures are interacting around and on the object. Shot on an 85mm macro lens with a shallow depth of field (f/1.8) to heavily blur the distant background. Lighting is soft, directional, and casts appropriate micro-shadows to emphasize the massive scale of the object relative to the figures. Intricate environmental details like dust particles and surface scratches are visible on the object. Cinematic, photorealistic, 4K.",
+    "promptPreview": "Create a hyper-realistic macro photograph of a miniature surreal scene. The environment is dominated by a giant, oversized <everyday object>, which has been repurposed as a bustling landscape. Tiny, highly detailed mini…",
+    "source": "Community collected via @DrSadek_",
+    "createdAt": "2026-10-25T20:04:43.308Z"
+  },
+  {
     "id": "100338",
     "title": "指尖微距：极简广告风产品质感特写",
     "category": "产品与电商",
