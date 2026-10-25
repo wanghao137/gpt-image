@@ -1,5 +1,32 @@
 [
   {
+    "id": "100338",
+    "title": "指尖微距：极简广告风产品质感特写",
+    "category": "产品与电商",
+    "styles": [
+      "Studio",
+      "Realistic"
+    ],
+    "scenes": [
+      "Product",
+      "Commerce"
+    ],
+    "tags": [
+      "Studio",
+      "Realistic",
+      "Minimal",
+      "Commerce",
+      "Product",
+      "Tech"
+    ],
+    "imageUrl": "/uploads/2026-10-26-case-100338-macro-minimalist-product.jpg",
+    "imageAlt": "指尖微距：极简广告风产品质感特写",
+    "prompt": "macro photograph, minimalist advertising style, a hyper-realistic miniature [PRODUCT] crafted from [MATERIAL], delicately poised between a person's thumb and forefinger against a seamless, matte [BG_COLOR] cyclorama under professional Top-Down_Spotlight that casts subtle, soft shadows, with the impeccably groomed hand accentuating the object's intricate contours while the composition remains perfectly centered with a shallow depth of field to highlight its exquisite craftsmanship",
+    "promptPreview": "macro photograph, minimalist advertising style, a hyper-realistic miniature [PRODUCT] crafted from [MATERIAL], delicately poised between a person's thumb and forefinger against a seamless, matte [BG_COLOR] cyclorama und…",
+    "source": "Community collected via @icreatelife",
+    "createdAt": "2026-10-25T20:04:39.087Z"
+  },
+  {
     "id": "100337",
     "title": "幕后花絮感高对比夜景人像摄影",
     "category": "摄影与写实",
