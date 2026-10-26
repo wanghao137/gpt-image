@@ -1,5 +1,30 @@
 [
   {
+    "id": "100340",
+    "title": "画中画构图：车内化妆镜黄金时刻自拍人像",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Documentary",
+      "Portrait",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-10-27-case-100340-car-mirror-selfie.jpg",
+    "imageAlt": "画中画构图：车内化妆镜黄金时刻自拍人像",
+    "prompt": "{\n  \"meta\": {\n    \"aspect_ratio\": \"9:16\",\n    \"quality\": \"ultra_photorealistic\",\n    \"resolution\": \"8K\",\n    \"camera\": \"iPhone front camera\",\n    \"lens\": \"24mm\",\n    \"style\": \"raw iphone realism, pinterest girl aesthetic, natural skin texture, zero plastic look\"\n  },\n\n  \"composition\": {\n    \"concept\": \"frame within a frame\",\n    \"framing\": \"extreme close-up face reflection inside car sun visor vanity mirror\",\n    \"mirror_frame\": {\n      \"material\": \"thick beige / cream plastic\",\n      \"visibility\": \"dominant around edges of photo, slightly worn texture\"\n    },\n    \"phone_visibility\": {\n      \"type\": \"iPhone\",\n      \"detail\": \"partial phone edge visible on left side of mirror, controlling the shot\",\n      \"camera_bump\": \"subtle, realistic\"\n    }\n  },\n\n  \"scene\": {\n    \"location\": \"inside parked car\",\n    \"environment\": [\n      \"dark car interior\",\n      \"black leather seats\",\n      \"headrest visible in reflection\"\n    ],\n    \"time\": \"golden hour\",\n    \"atmosphere\": \"quiet, intimate, candid daily life moment\"\n  },\n\n  \"lighting\": {\n    \"type\": \"direct golden hour sunlight\",\n    \"direction\": \"sharp side sunlight from afternoon sun\",\n    \"color_temperature\": \"warm golden\",\n    \"contrast\": \"high\",\n    \"effects\": [\n      \"strong highlights on skin\",\n      \"abstract hair shadow patterns across forehead and cheek\",\n      \"natural light bloom on lips and eyes\"\n    ]\n  },\n\n  \"subject\": {\n    \"gender\": \"female\",\n    \"age\": \"early 20s (clearly adult)\",\n    \"ethnicity\": \"East Asian / mixed pale tone\",\n\n    \"face_structure\": {\n      \"shape\": \"soft oval\",\n      \"cheeks\": \"full, youthful, slightly flushed\",\n      \"jawline\": \"delicate and smooth\",\n      \"nose\": \"small, straight, soft rounded tip\"\n    },\n\n    \"eyes\": {\n      \"size\": \"large\",\n      \"shape\": \"round-almond hybrid\",\n      \"color\": \"grey-green / light hazel\",\n      \"vibe\": \"doll-like, calm, distant\",\n      \"lashes\": \"long, natural, softly separated\",\n      \"under_eye\": \"subtle natural shadow for soft tired-cute look\",\n      \"gaze\": \"looking directly into mirror/lens\"\n    },\n\n    \"lips\": {\n      \"size\": \"full\",\n      \"shape\": \"soft cupid’s bow\",\n      \"color\": \"natural pink\",\n      \"finish\": \"slightly glossy\",\n      \"state\": \"relaxed, faint pout\"\n    },\n\n    \"skin\": {\n      \"tone\": \"very pale porcelain\",\n      \"undertone\": \"cool pink\",\n      \"texture\": \"real skin with visible pores\",\n      \"finish\": \"natural glow, no smoothing\",\n      \"blush\": \"soft pink blush across cheeks and nose bridge\"\n    },\n\n    \"hair\": {\n      \"color\": \"deep black\",\n      \"length\": \"long\",\n      \"style\": \"straight\",\n      \"bangs\": \"full blunt bangs just above the eyes\",\n      \"behavior\": \"hair framing face symmetrically, strands catching sunlight\"\n    },\n\n    \"makeup\": {\n      \"style\": \"no-makeup makeup\",\n      \"base\": \"sheer skin tint\",\n      \"eyes\": \"very subtle eyeliner, emphasis on lashes\",\n      \"cheeks\": \"natural pink flush\",\n      \"lips\": \"clear or soft pink gloss\"\n    },\n\n    \"outfit\": {\n      \"visibility\": \"minimal\",\n      \"detail\": \"only hint of bare shoulders or thin strap visible\",\n      \"color\": \"dark clothing\",\n      \"note\": \"no bra visible, focus remains entirely on face\"\n    }\n  },\n\n  \"vibe\": {\n    \"aesthetic\": [\n      \"pinterest girl\",\n      \"soft doll face\",\n      \"car mirror selfie\",\n      \"candid\",\n      \"raw photography\"\n    ],\n    \"mood\": \"quiet, slightly melancholic confidence\",\n    \"social_feel\": \"looks like an accidental golden hour story shot\"\n  }\n}",
+    "promptPreview": "{ \"meta\": { \"aspect_ratio\": \"9:16\", \"quality\": \"ultra_photorealistic\", \"resolution\": \"8K\", \"camera\": \"iPhone front camera\", \"lens\": \"24mm\", \"style\": \"raw iphone realism, pinterest girl aesthetic, natural skin texture, z…",
+    "source": "Community collected via @bananababydoll",
+    "createdAt": "2026-10-26T20:05:18.428Z"
+  },
+  {
     "id": "100339",
     "title": "日常物件上的繁忙小人国微缩景观",
     "category": "场景与叙事",
