@@ -55578,8 +55578,8 @@
   },
   "36881": {
     "en": {
-      "title": "Watercolor Editorial Illustration from Photo",
-      "description": "Transforms an uploaded photo into a minimalist watercolor and gouache travel poster with soft pastel colors and textured paper grain.",
+      "title": "GPT Image 2 Watercolor Travel Poster Style",
+      "description": "Transforms photos into minimalist editorial illustrations with a vintage watercolor and gouache travel poster aesthetic.",
       "prompt": "Transform the uploaded photo into a beautiful minimalist editorial illustration with a soft, hand-painted watercolor and gouache aesthetic.\n\nART STYLE: Vintage travel-poster illustration, delicate watercolor washes, subtle gouache brushstrokes, visible handmade paper grain, soft pigment textures, imperfect painted edges, muted pastel colors, and a dreamy romantic atmosphere.\n\nCOMPOSITION: Vertical 2:3 poster. Place the main subjects in the lower third of the frame, leaving approximately 65–70% of the upper area as clean, warm ivory paper with subtle natural texture. Keep the composition airy, peaceful, understated, and balanced.\n\nSUBJECT: Preserve the recognizable identity, hairstyle, clothing, pose, and emotional connection of the people in the reference photo. Simplify their features into elegant hand-painted shapes with minimal facial details and natural proportions. Maintain a candid, intimate, storytelling feel.\n\nBACKGROUND: Illustrate the surroundings using loose, impressionistic brushstrokes and simplified silhouettes. Famous landmarks, landscapes, trees, buildings, or cityscapes should remain recognizable but understated. Use soft navy blue, dusty blue, warm beige, muted blush pink, and gentle golden yellow accents.\n\nLIGHTING & TEXTURE: Soft natural daylight, delicate shadows, subtle color bleeding, layered watercolor washes, matte finish, and authentic textured paper. Keep details concentrated around the subjects and lower background.\n\nOVERALL MOOD: Romantic, nostalgic, peaceful, poetic, timeless, and intimate—like a page from a beautifully illustrated travel journal.\n\nSTRICT RULES: Minimalist composition, generous negative space, no photorealism, no 3D rendering, no harsh outlines, no oversaturated colors, no unnecessary details, no borders, no typography, and no watermark. The final image must look genuinely hand-painted on textured paper."
     },
     "zh": {
@@ -55602,8 +55602,8 @@
   },
   "36883": {
     "en": {
-      "title": "Cinematic Road Trip Portrait in Car",
-      "description": "Generates a hyper-realistic portrait of a woman relaxing in a moving car, featuring motion-blurred backgrounds and warm sunlight.",
+      "title": "GPT Image 2 Cinematic Car Portrait Prompt",
+      "description": "Generates a candid lifestyle portrait of a woman in a moving car with specific cinematic lighting and motion blur effects.",
       "prompt": "Candid lifestyle portrait of a young woman sitting in the back seat of a moving car, head tilted back against the seat with eyes gently closed, face turned toward the open window and soaking in the sunlight and breeze. Long, dark brown-black hair with wispy bangs, blowing back in the wind with loose strands flying. Soft, natural makeup, dewy skin, relaxed peaceful expression with slightly parted peach-toned lips. Wearing a plain white oversized crew-neck t-shirt and light grey sweatpants, one knee pulled up with her arms wrapped around it. Dark car interior with a black door panel and silver door handle in the foreground. Outside the window, fast-moving green trees heavily blurred by motion. Warm, bright midday sunlight streaming in, with soft highlights on her face and neck. Dreamy, carefree summer road-trip mood, Korean-style cinematic aesthetic, motion blur in the background, shallow depth of field, 50mm lens, f/2, photorealistic, ultra-detailed skin and hair texture, vertical 9:16 composition."
     },
     "zh": {
@@ -55638,9 +55638,9 @@
   },
   "36886": {
     "en": {
-      "title": "Verdigris Bronze Statue of Seated Woman",
-      "description": "A photorealistic image of a weathered bronze statue of a veiled woman sitting in a cemetery, featuring a rich green patina and moody lighting.",
-      "prompt": "A photorealistic, vertical portrait of a weathered bronze statue of a seated woman in a cemetery. The statue has a heavy green verdigris patina with dark brown oxidation in the crevices. She is draped in flowing robes that cover her head like a veil and pool around her feet on a stone pedestal. Her face is tilted upward toward the sky with eyes closed in an expression of serene surrender or prayer. One hand rests on her knee while the other hangs loosely at her side. Behind her is a simple, moss-covered gravestone. The background features out-of-focus trees with autumn foliage in muted greens and browns, creating a shallow depth of field. The lighting is moody and dramatic, highlighting the texture of the metal against the darker surroundings."
+      "title": "Weeping Angel Statue in Cemetery",
+      "description": "A photorealistic image of a green-patinated bronze statue of a mourning woman seated on a tombstone in a forest cemetery.",
+      "prompt": "A photorealistic, vertical portrait of a weathered bronze statue of a woman sitting on a stone bench in an old cemetery. The statue is heavily oxidized with a vibrant green patina and dark brown tones. She wears a long, flowing dress that drapes over her legs and the sides of the seat. Her head is tilted back toward the sky, eyes closed, with a veil covering her hair, conveying a sense of deep sorrow or longing for release. Her hands rest gently on the edges of the stone slab behind her. The background features blurred trees with hints of autumn foliage and mossy ground, creating a moody, atmospheric setting with soft, natural lighting."
     },
     "zh": {
       "title": "铜绿青铜坐姿女性雕像",
@@ -55658,6 +55658,78 @@
       "title": "地下偶像牙科护士舞台表演",
       "description": "生成一张逼真照片的提示词，展示身着牙科护士服装的日本偶像在舞台上表演并与观众互动。",
       "prompt": "一张写实风格的照片，画面中一位年轻的日本女性偶像正在小型地下舞台上表演。她身穿一套可爱的造型牙科护士服：白色短袖连衣裙搭配粉色滚边、前拉链设计，胸前印有牙齿形状的 logo。头上戴着配套的白色护士帽，帽子上饰有牙齿徽章。她的头发呈深棕色，梳着双马尾并留有刘海。她一手将黑色麦克风举至嘴边，另一只手比出俏皮的手指爱心手势。灯光采用极具戏剧感的舞台布光，深色天花板背景下可见明亮的聚光灯。前景处是虚化的观众头部轮廓，营造出丰富的空间层次感与现场演出的氛围。"
+    }
+  },
+  "36911": {
+    "en": {
+      "title": "GPT Image 2 Miniature Forced Perspective Prompt",
+      "description": "A prompt for generating an ultra-realistic overhead photo with forced perspective, creating a miniature body and large head from a selfie reference.",
+      "prompt": "Create a 1:1 square, ultra-realistic overhead photograph based on the uploaded selfie. The selfie is the sole reference for the person's identity. Preserve the same recognizable adult face, natural facial proportions, skin tone, hairstyle, original expression, visible clothing (including existing prints), and accessories. Naturally complete any unseen trousers and shoes to match the original outfit.\n\nCAMERA & ENVIRONMENT\nPosition the camera almost directly above the person, looking vertically downward. The setting is a clean, spacious, light-colored indoor stone floor or outdoor paved surface that matches the aesthetic of the original selfie. Use large paving slabs with only 2–3 thin, widely spaced seams across the entire frame. Each slab should be approximately twice the height of the miniature full-body figure. Keep the stone texture subtle and refined, with no props, plants, or clutter. A distant wall base may appear along the top edge.\n\nCOMPOSITION & PROPORTIONS\nOnly one person stands slightly below the center of the frame, fully visible from head to toe. The entire figure occupies just 40% of the image height, leaving extensive empty floor space above the head and on both sides.\n\nUse extreme wide-angle forced perspective to create an enormous, realistic head and a miniature body. The head, from crown to chin, occupies 75% of the figure's total silhouette height. The shoulder width is only 50% of the head width. Below the head, create an extremely short, narrow torso, miniature arms, perspective-compressed short legs, and two tiny shoes placed close together.\n\nThe head and body must connect seamlessly. Both arms hang naturally close to the sides. The person tilts their head upward and looks directly toward the elevated camera. Preserve realistic facial anatomy, natural skin texture, and lifelike eyes. Absolutely no cartoon styling or collage effects.\n\nLIGHTING & REALISM\nUse natural lighting, realistic individual hair strands, authentic fabric textures, finely detailed stone surfaces, physically accurate contact shadows, and subtle film grain. The final image must look like a genuine photograph captured with a real camera."
+    },
+    "zh": {
+      "title": "GPT Image 2 微缩强制透视提示词",
+      "description": "用于生成超写实俯拍照片的提示词，通过强制透视效果，基于自拍参考图创建微缩身体和巨大头部的视觉效果。",
+      "prompt": "根据上传的自拍照片，生成一张 1:1 正方形、超写实的俯拍照片。该自拍是确认人物身份的唯一参考依据。请保留清晰可辨的成人面部特征、自然的面部比例、肤色、发型、原始表情、可见衣物（包括原有图案）以及配饰。对于画面中未露出的裤子和鞋子，请自然地补全，使其与原有穿搭保持一致。\n\n相机与环境\n将相机置于人物几乎正上方，垂直向下俯拍。场景为干净、宽敞的浅色室内石材地面或室外铺装路面，整体风格需与原自拍的美学氛围相契合。使用大尺寸铺路石板，整个画面中仅出现 2–3 条细窄且间距较宽的接缝。每块石板的尺寸约为微缩全身人像高度的两倍。石材纹理应保持细腻低调，画面中不得出现任何道具、植物或杂物。画面上边缘可隐约露出远处的墙根。\n\n构图与比例\n画面中仅有一人，位置略低于中心点，从头到脚完整可见。整个人物仅占画面高度的 40%，头部上方及两侧留出大面积的地面留白。\n\n运用超广角强制透视手法，打造出巨大逼真的头部与微缩的身体。从头顶到下巴，头部占人物整体轮廓高度的 75%。肩宽仅为头宽的 50%。头部以下，呈现极短且窄小的躯干、微缩的手臂、因透视压缩而显得短小的双腿，以及两只紧挨在一起的迷你鞋子。\n\n头部与身体必须无缝衔接。双臂自然下垂并贴近身体两侧。人物微微仰头，直视位于高处的相机镜头。请保持真实的人体面部结构、自然的皮肤纹理和栩栩如生的双眼。严禁出现任何卡通风格或拼贴效果。\n\n光影与写实感\n采用自然光照，呈现逼真的发丝细节、真实的布料质感、精细的石材表面、符合物理规律的接触阴影以及淡淡的胶片颗粒感。最终图像必须看起来像是用真实相机拍摄的照片。"
+    }
+  },
+  "36912": {
+    "en": {
+      "title": "Retro Portrait: Girl with Plush Dog",
+      "description": "A vintage-style portrait of a young woman sitting on a wooden chair with a plush dog on her head, featuring a melancholic expression and film grain effects.",
+      "prompt": "A nostalgic, retro-style photograph of a young Asian woman sitting on a wooden chair. She has short black hair with bangs and is wearing a cream-colored floral blouse and denim shorts. A large beige plush dog toy rests on top of her head. Her expression is melancholic and distant as she looks directly at the camera, hugging her knees to her chest. The background features dark wooden louvered doors or shutters. The image has a vintage film aesthetic with visible grain, scratches, and warm, faded tones typical of Showa-era photography."
+    },
+    "zh": {
+      "title": "复古肖像：头顶毛绒狗的女孩",
+      "description": "一幅复古风格的肖像画，描绘了一位年轻女子坐在木椅上，头顶放着一只毛绒狗，神情忧郁，并带有胶片颗粒效果。",
+      "prompt": "一张充满怀旧气息的复古风格照片，画面中一位年轻的亚洲女性坐在木椅上。她留着带刘海的黑色短发，身穿米白色碎花衬衫搭配牛仔短裤。一只米色的大毛绒玩具狗趴在她的头顶。她双膝抱在胸前，直视镜头，神情忧郁而疏离。背景是深色的木质百叶门或百叶窗。整张照片呈现出老胶片般的质感，带有明显的颗粒感与划痕，色调温暖而泛旧，颇具昭和时代摄影的典型韵味。"
+    }
+  },
+  "36913": {
+    "en": {
+      "title": "Abandoned Road Under Bridge",
+      "description": "A moody, photorealistic prompt for generating a scene of an abandoned road under a bridge at night.",
+      "prompt": "Create a photorealistic image of an abandoned road at night. The scene should be dark and eerie, with the road curving gently into the distance. On the left side, there is a tall metal utility pole with wires extending from it. A concrete retaining wall runs along the right side of the road, covered in patches of moss and overgrown weeds. Above the wall, there is a large concrete bridge structure supported by thick pillars. The ground is wet, reflecting some light, and scattered with dead leaves and debris. Sparse tufts of dry grass grow through cracks in the asphalt. The overall atmosphere is desolate and mysterious, typical of urban decay."
+    },
+    "zh": {
+      "title": "桥下的废弃道路",
+      "description": "一个充满氛围感的写实风格提示词，用于生成夜晚桥下废弃道路的场景。",
+      "prompt": "生成一张夜间废弃道路的照片级写实图像。画面应黑暗而诡异，道路向远方蜿蜒延伸。左侧矗立着一根高大的金属电线杆，几根电线从杆上向外延伸。道路右侧是一道混凝土挡土墙，墙面斑驳，长满了青苔和杂草。挡土墙上方是一座由粗大立柱支撑的大型混凝土桥梁结构。地面湿漉漉的，泛着微弱的光泽，散落着枯叶与杂物。稀疏的干草从柏油路面的裂缝中钻出。整体氛围荒凉神秘，尽显典型的城市衰败气息。"
+    }
+  },
+  "36914": {
+    "en": {
+      "title": "Suica Penguin in Akihabara",
+      "description": "A colorful pop-art illustration of the Suica Penguin mascot exploring the neon-lit streets of Akihabara, Japan.",
+      "prompt": "A vibrant, pop-art style illustration of the Suica Penguin mascot standing in the middle of a busy Akihabara street. The penguin is anthropomorphic with black skin and white eyes, wearing a trendy yellow varsity jacket over a white t-shirt with a pink star, teal cargo pants with yellow stars, and colorful sneakers. It has large headphones around its neck and carries a shopping bag labeled 'メイド CAFE' (Maid Cafe). To the left is a green and white Yamanote line train with 'AKIHABARA AKB' on the display. The background is filled with colorful vertical signs featuring anime characters and text like '電気街' (Electric Town), 'PCパーツ' (PC Parts), 'アニメ' (Anime), and 'ゲーム' (Game). The overall aesthetic is high-contrast, saturated colors with thick outlines."
+    },
+    "zh": {
+      "title": "秋叶原的 Suica 企鹅",
+      "description": "一幅色彩鲜艳的波普艺术插画，描绘了 Suica 企鹅吉祥物漫步在日本秋叶原霓虹闪烁的街道上。",
+      "prompt": "一幅充满活力的波普艺术风格插画，描绘了 Suica 企鹅吉祥物站在繁忙的秋叶原街道中央。这只企鹅被拟人化，拥有黑色皮肤和白色眼睛，身穿一件时髦的黄色棒球夹克，内搭印有粉色星星的白色 T 恤，下穿带黄色星星的青绿色工装裤，脚踩彩色运动鞋。它脖子上挂着一副大耳机，手里提着一个标有“メイド CAFE”（女仆咖啡厅）字样的购物袋。画面左侧是一列绿白相间的山手线列车，显示屏上写着“AKIHABARA AKB”。背景中布满了色彩鲜艳的竖立招牌，上面绘有动漫角色，并写有“電気街”（电器街）、“PCパーツ”（电脑配件）、“アニメ”（动漫）和“ゲーム”（游戏）等字样。整体视觉呈现高对比度、高饱和度的色彩搭配，并辅以粗线条轮廓。"
+    }
+  },
+  "36915": {
+    "en": {
+      "title": "Anime Adventurer Character Sheet",
+      "description": "A comprehensive 3D character turnaround sheet for a fantasy adventurer, displaying front, side, back, and headshot views.",
+      "prompt": "A high-quality 3D character design sheet featuring a young male adventurer in an anime-inspired style. The layout consists of four distinct views arranged horizontally against a clean, neutral light gray studio background. From left to right: the first view is labeled 'FRONT' showing the character standing with arms slightly out; the second is labeled 'RIGHT' showing a side profile; the third is labeled 'BACK' showing the rear view; and the fourth is a close-up bust shot labeled 'HEAD 3/4'. The character has messy dark blue-gray hair and large amber eyes. He wears a short teal-blue capelet with white crescent moon patterns on the sides and a central circular bronze clasp over a white collared shirt with rolled sleeves. A brown leather strap crosses his chest diagonally. He wears dark navy cargo pants with multiple pockets, a brown belt with a small leather pouch, fingerless dark gloves, and tall cream-colored boots with brown straps and buckles. The lighting is soft and even, highlighting the smooth textures of the clothing and skin."
+    },
+    "zh": {
+      "title": "动漫冒险者角色设定图",
+      "description": "为奇幻冒险者设计的全面 3D 角色三视图，展示正面、侧面、背面及头部特写。",
+      "prompt": "一张高质量的 3D 角色设计图，呈现了一位动漫风格的年轻男性冒险者。画面采用横向排列的四个不同视角，背景为干净的中性浅灰色影棚底色。从左至右依次为：第一个视角标注为“FRONT”，展示角色双臂微张的正面站姿；第二个视角标注为“RIGHT”，展示右侧面轮廓；第三个视角标注为“BACK”，展示背面视角；第四个视角为半身特写，标注为“HEAD 3/4”。该角色留着一头凌乱的深蓝灰色短发，拥有一双硕大的琥珀色眼睛。他身穿一件青蓝色短披肩，两侧饰有白色新月图案，中央以圆形青铜搭扣固定，内搭一件卷起袖口的白色翻领衬衫。一条棕色皮带斜跨胸前。下身穿着带有多口袋设计的深藏青色工装裤，腰系棕色皮带并配有一个小皮袋，双手戴着深色半指手套，脚穿米白色高筒靴，配有棕色绑带与金属扣。整体光线柔和均匀，细腻地凸显出衣物与肌肤的光滑质感。"
+    }
+  },
+  "36916": {
+    "en": {
+      "title": "Capybara Yuzu Hot Spring Sticker",
+      "description": "A kawaii-style sticker illustration of a capybara relaxing in a yuzu bath with a stack of fruit on its head.",
+      "prompt": "A cute, flat-style vector illustration of a capybara soaking in a yuzu hot spring. The capybara has a deadpan, relaxed expression with half-closed eyes and is holding a single yellow yuzu fruit in its mouth. A stack of three wobbling yuzu fruits rests on top of its head. The hot spring is filled with pale yellow water and surrounded by smooth grey stones. To the left, there is a small white drawstring pouch containing a yuzu. Wisps of steam rise from the water. The entire scene is rendered as a sticker with a thick white outline against a solid mint green background."
+    },
+    "zh": {
+      "title": "水豚柚子温泉贴纸",
+      "description": "可爱风格的水豚贴纸插画，展示了一只水豚在柚子浴中放松，头顶叠放着水果。",
+      "prompt": "一幅可爱的扁平风格矢量插画，描绘了一只正在泡柚子温泉的水豚。水豚双眼半闭，神情呆萌又放松，嘴里叼着一颗黄色的柚子。它头顶上叠放着三颗摇摇晃晃的柚子。温泉水呈淡黄色，四周环绕着光滑的灰色石头。左侧有一个白色小束口袋，里面装着一颗柚子。水面上飘起缕缕热气。整个画面被设计成一枚贴纸，带有粗白描边，背景为纯薄荷绿色。"
     }
   }
 }
