@@ -55662,8 +55662,8 @@
   },
   "36911": {
     "en": {
-      "title": "GPT Image 2 Miniature Forced Perspective Prompt",
-      "description": "A prompt for generating an ultra-realistic overhead photo with forced perspective, creating a miniature body and large head from a selfie reference.",
+      "title": "Giant Head Miniature Body Photo Prompt",
+      "description": "A prompt for GPT Image 2 to create a surreal overhead photograph from a selfie, featuring extreme forced perspective with a giant head and miniature body on a stone floor.",
       "prompt": "Create a 1:1 square, ultra-realistic overhead photograph based on the uploaded selfie. The selfie is the sole reference for the person's identity. Preserve the same recognizable adult face, natural facial proportions, skin tone, hairstyle, original expression, visible clothing (including existing prints), and accessories. Naturally complete any unseen trousers and shoes to match the original outfit.\n\nCAMERA & ENVIRONMENT\nPosition the camera almost directly above the person, looking vertically downward. The setting is a clean, spacious, light-colored indoor stone floor or outdoor paved surface that matches the aesthetic of the original selfie. Use large paving slabs with only 2–3 thin, widely spaced seams across the entire frame. Each slab should be approximately twice the height of the miniature full-body figure. Keep the stone texture subtle and refined, with no props, plants, or clutter. A distant wall base may appear along the top edge.\n\nCOMPOSITION & PROPORTIONS\nOnly one person stands slightly below the center of the frame, fully visible from head to toe. The entire figure occupies just 40% of the image height, leaving extensive empty floor space above the head and on both sides.\n\nUse extreme wide-angle forced perspective to create an enormous, realistic head and a miniature body. The head, from crown to chin, occupies 75% of the figure's total silhouette height. The shoulder width is only 50% of the head width. Below the head, create an extremely short, narrow torso, miniature arms, perspective-compressed short legs, and two tiny shoes placed close together.\n\nThe head and body must connect seamlessly. Both arms hang naturally close to the sides. The person tilts their head upward and looks directly toward the elevated camera. Preserve realistic facial anatomy, natural skin texture, and lifelike eyes. Absolutely no cartoon styling or collage effects.\n\nLIGHTING & REALISM\nUse natural lighting, realistic individual hair strands, authentic fabric textures, finely detailed stone surfaces, physically accurate contact shadows, and subtle film grain. The final image must look like a genuine photograph captured with a real camera."
     },
     "zh": {
@@ -55730,6 +55730,162 @@
       "title": "水豚柚子温泉贴纸",
       "description": "可爱风格的水豚贴纸插画，展示了一只水豚在柚子浴中放松，头顶叠放着水果。",
       "prompt": "一幅可爱的扁平风格矢量插画，描绘了一只正在泡柚子温泉的水豚。水豚双眼半闭，神情呆萌又放松，嘴里叼着一颗黄色的柚子。它头顶上叠放着三颗摇摇晃晃的柚子。温泉水呈淡黄色，四周环绕着光滑的灰色石头。左侧有一个白色小束口袋，里面装着一颗柚子。水面上飘起缕缕热气。整个画面被设计成一枚贴纸，带有粗白描边，背景为纯薄荷绿色。"
+    }
+  },
+  "36950": {
+    "en": {
+      "title": "Vintage Sketchbook Illustration of Cozy Scenes",
+      "description": "Creates a nostalgic hand-drawn editorial illustration featuring two cozy scenes: a woman arranging flowers and a couple sharing a moment on street steps, in a consistent vintage sketchbook style.",
+      "prompt": "Create a beautiful, nostalgic hand-drawn editorial illustration combining two cozy everyday scenes in a consistent vintage sketchbook style. In the first scene, a young woman with dark brown hair in a messy bun and black glasses, wearing a black outfit, arranges colorful pink roses, coral flowers, tiny white blossoms, and lush greenery inside a charming flower shop, holding a large bouquet wrapped in brown kraft paper. Surround her with potted plants, tropical leaves, blooming flowers, and tall vintage windows. In the second scene, a young couple sits closely together on stone steps along a charming European city street. The man wears a navy baseball cap, headphones, a gray hoodie, a long black coat, blue jeans, and sneakers, while the woman wears a black coat, a soft blue scarf, cream trousers, black sneakers, and carries a brown leather shoulder bag. They share a quiet, affectionate moment surrounded by elegant old buildings, a cozy café, glowing street lamps, bicycles, leafy trees, and pedestrians. Use a harmonious palette of warm cream, olive green, mustard yellow, dusty blue, navy, coral, and soft pink. Add textured colored-pencil strokes, delicate ink outlines, subtle watercolor shading, vintage paper grain, charming hand-drawn accents, and warm natural lighting. Whimsical slice-of-life storytelling, cozy nostalgic atmosphere, artistic imperfections, highly detailed illustration, premium handmade sketchbook aesthetic, consistent art style across both scenes, vertical composition, no photorealism."
+    },
+    "zh": {
+      "title": "温馨场景复古素描本插画",
+      "description": "创作怀旧手绘编辑风格插图，包含两个温馨场景：一位女士整理鲜花和一对情侣在街边台阶上共享美好时光，整体呈现一致复古素描本风格。",
+      "prompt": "创作一幅唯美怀旧的手绘编辑插画，以统一的复古速写本风格将两个温馨的日常场景巧妙融合。第一个场景中，一位年轻女子留着深棕色头发、随意挽着丸子头，戴着黑框眼镜，身穿黑色服装，正在一家迷人的花店里整理色彩缤纷的粉色玫瑰、珊瑚色花朵、细碎的白色小花和繁茂的绿叶，手中捧着一大束用棕色牛皮纸包裹的花束。四周环绕着盆栽植物、热带阔叶、盛开的鲜花和高挑的复古窗户。第二个场景中，一对年轻情侣亲密地依偎在一条迷人的欧洲城市街道的石阶上。男子头戴藏青色棒球帽，佩戴耳机，身穿灰色连帽衫、黑色长款大衣、蓝色牛仔裤和运动鞋；女子则穿着黑色大衣，搭配浅蓝色柔软围巾、米白色长裤和黑色运动鞋，斜挎着一个棕色皮质单肩包。两人共享一段静谧而甜蜜的时光，周围是典雅的老建筑、温馨的咖啡馆、散发着暖光的街灯、自行车、枝繁叶茂的树木和来往的行人。整体采用和谐的色彩搭配，包括暖米色、橄榄绿、芥末黄、灰蓝色、藏青色、珊瑚色和柔粉色。融入彩色铅笔的肌理笔触、细腻的墨水轮廓线、淡雅的水彩晕染、复古纸张纹理、别致的手绘细节以及温暖的自然光线。充满奇思妙想的生活片段叙事，温馨怀旧的氛围，保留艺术性的不完美痕迹，高度精细的插画，高级手工速写本质感，两个场景保持统一的艺术风格，竖版构图，非照片写实风格。"
+    }
+  },
+  "36951": {
+    "en": {
+      "title": "Convenience Store Photoshoot Collage via Security Mirror",
+      "description": "Generates an ultra-realistic 3x3 photo collage showing a woman in various candid poses inside a convenience store, captured through a convex security mirror with fisheye distortion.",
+      "prompt": "Create an ultra-realistic 3×3 photo collage featuring the same woman from the uploaded reference image, preserving her exact facial identity, face shape, eyes, nose, lips, skin tone, and natural features across all nine frames.\n\nCONCEPT & COMPOSITION: A fun, candid convenience-store photoshoot captured from a high-angle convex security mirror. Each frame features the woman looking up toward the mirror with realistic fisheye distortion, curved mirror edges, and a wide view of the store aisles.\n\nNINE DIFFERENT SCENES:\n\n1. Smiling and winking while holding an iced coffee, wearing a cream knit sweater.\n\n2. Wearing a black top and reaching toward a snack shelf while holding a shopping basket.\n\n3. Wearing a pink hoodie, making a cute pout while hugging instant noodles and colorful snacks.\n\n4. Wearing a black-and-white striped top and laughing while holding a basket full of groceries.\n\n5. Wearing a white long-sleeve top and blue jeans, crouching down to pick up spilled snacks from the floor.\n\n6. Wearing a light-blue cardigan, smiling brightly while holding a strawberry cream cake beside her face.\n\n7. Wearing a gray hoodie and beige baseball cap, making a peace sign while holding an iced drink.\n\n8. Wearing a black sleeveless top with sunglasses on her head, examining a cup of instant noodles with a curious expression.\n\n9. Wearing a cream knit sweater, happily hugging a large pack of toilet paper.\n\nENVIRONMENT: A brightly illuminated modern convenience store with colorful snack shelves, refrigerated beverage displays, glossy cream-colored tiled floors, shopping baskets, and a few distant shoppers. Include realistic reflections, curved black-and-red mirror frames, and natural overhead store lighting.\n\nPHOTOGRAPHY STYLE: Ultra-photorealistic photography, overhead fisheye perspective, wide-angle lens, realistic proportions, natural skin texture, detailed hair strands, authentic expressions, crisp product packaging, balanced exposure, and candid lifestyle photography.\n\nCOLLAGE LAYOUT: Perfectly aligned 3×3 grid with nine distinct vertical panels, thin white dividers, consistent image quality, and varied poses and facial expressions. Maintain the same recognizable woman throughout all nine frames.\n\nSTRICT REQUIREMENTS: Preserve the reference woman's facial identity. Keep hands, fingers, and body proportions realistic. Avoid duplicated faces, distorted anatomy, blurry details, excessive beauty filters, cartoon effects, text, logos, and watermarks.\n\nAspect Ratio: Vertical 9:16\nQuality: Ultra-realistic, high detail, 8K, professional lifestyle photography."
+    },
+    "zh": {
+      "title": "透过安防镜拍摄的便利店照片拼贴",
+      "description": "生成超逼真的 3x3 照片拼贴，展示一位女性在便利店内的各种抓拍姿势，通过凸面安防镜拍摄，呈现鱼眼畸变效果。",
+      "prompt": "制作一张超写实的 3×3 照片拼图，画面中需为上传参考图中的同一位女性。在全部九个画格中，必须精准保留她的面部特征，包括脸型、眼睛、鼻子、嘴唇、肤色及所有自然细节。\n\n概念与构图：一场趣味十足的便利店抓拍，视角来自高处的凸面安防镜。每个画格中的女性都抬头望向镜子，呈现逼真的鱼眼畸变效果、弯曲的镜面边缘以及开阔的店内货架通道视野。\n\n九个不同场景：\n\n1. 身穿米白色针织毛衣，手持冰咖啡，面带微笑并俏皮眨眼。\n\n2. 身穿黑色上衣，一手提着购物篮，另一只手伸向零食货架。\n\n3. 身穿粉色连帽卫衣，怀抱泡面和五颜六色的零食，嘟嘴卖萌。\n\n4. 身穿黑白条纹上衣，手捧装满商品的购物篮，开怀大笑。\n\n5. 身穿白色长袖上衣和蓝色牛仔裤，蹲下捡拾散落在地上的零食。\n\n6. 身穿浅蓝色开衫，将草莓奶油蛋糕举在脸旁，笑容灿烂。\n\n7. 身穿灰色连帽卫衣，头戴米色棒球帽，一手拿着冰饮，一手比出剪刀手。\n\n8. 身穿黑色无袖上衣，墨镜架在头顶，神情好奇地打量着一杯泡面。\n\n9. 身穿米白色针织毛衣，开心地抱着一大提卷纸。\n\n环境：灯光明亮的现代便利店，配有色彩缤纷的零食货架、冷藏饮料展示柜、光洁的奶油色瓷砖地面、购物篮，以及远处几位顾客。需包含逼真的反射倒影、黑红相间的弧形镜框，以及自然的顶部店铺照明。\n\n摄影风格：超写实摄影，俯视鱼眼视角，广角镜头，比例真实，皮肤纹理自然，发丝清晰可见，表情生动真实，商品包装锐利，曝光均衡，生活化抓拍风格。\n\n拼图排版：完美对齐的 3×3 网格，由九个独立的竖版画面组成，以细白线分隔；画质保持一致，姿势与面部表情各不相同。九个画格中必须始终为同一位极具辨识度的女性。\n\n严格要求：必须保留参考图中女性的面部特征。手部、手指及身体比例需符合真实人体结构。避免出现重复面孔、肢体变形、细节模糊、过度美颜滤镜、卡通效果、文字、Logo 和水印。\n\n宽高比：竖版 9:16\n画质：超写实、高细节、8K、专业生活方式摄影。"
+    }
+  },
+  "36952": {
+    "en": {
+      "title": "Split-Screen Photo to Anime Transformation Prompt",
+      "description": "A prompt for GPT Image 2 that transforms an uploaded photograph into a split-screen image, with the left half remaining realistic and the right half reimagined as a cute anime illustration with hand-drawn doodles.",
+      "prompt": "Transform the uploaded photograph into a beautiful split-screen, half-realistic and half-anime illustration with a cute, playful, hand-drawn aesthetic.\n\nCOMPOSITION & FORMAT\nVertical 3:4 aspect ratio. Create one seamless-looking image divided vertically down the center by an irregular, torn white paper edge. The left half shows the original photograph in realistic photographic detail, while the right half reimagines the exact same photograph as a polished, high-quality anime-inspired digital illustration. Both halves must align perfectly, with the same subject, pose, facial direction, hairstyle, clothing, accessories, camera angle, and background placement. The torn-paper edge should look naturally ripped, with rough white fibers and an organic, imperfect shape.\n\nLEFT HALF — ORIGINAL PHOTOGRAPH\nPreserve the uploaded photo as faithfully as possible. Maintain the subject's original identity, facial features, skin tone, hairstyle, expression, clothing, accessories, pose, lighting, and surroundings. Keep realistic photographic textures, natural shadows, and authentic colors. Add a few delicate, hand-drawn doodles around the subject without covering important facial features.\n\nRIGHT HALF — ANIME ILLUSTRATION\nRecreate the same scene in a sophisticated Japanese anime-inspired illustration style blended with soft Korean webtoon aesthetics. Preserve the subject's recognizable identity and original appearance. Use clean, expressive linework, delicate facial details, softly rendered skin, subtle blush, beautifully illustrated hair strands, gentle highlights, smooth shading, and refined color gradients. Keep the original outfit and accessories recognizable. Translate the background into a softly illustrated version of the original environment, preserving its composition and atmosphere.\n\nCUTE HAND-DRAWN DOODLES\nDecorate the illustrated half with charming, colorful doodles drawn directly over the image:\n- Small pink and red hearts.\n- Yellow and golden stars, sparkles, and flower outlines.\n- Tiny white or pastel-colored cartoon cats and bunnies.\n- Blue paper airplanes, dotted flight paths, and playful symbols.\n- Hand-drawn curved lines, tiny crowns, cheerful accents, and whimsical decorative marks.\n\nUse a loose, sketchbook-inspired drawing style with slightly imperfect outlines, subtle sticker-like borders, and a harmonious pastel color palette of baby blue, blush pink, butter yellow, cream, and white. Arrange the doodles naturally around the subject, following the composition and leaving the face unobstructed.\n\nART DIRECTION\nCute, dreamy, youthful, romantic, playful, and aesthetically pleasing. Combine authentic photography with premium anime fan-art illustration and scrapbook-inspired doodle art. Use delicate details, soft natural lighting, balanced colors, and a clean, professionally finished appearance.\n\nIMPORTANT RULES\n1. Preserve the original person's identity and recognizable appearance.\n2. Keep the left half photographic"
+    },
+    "zh": {
+      "title": "分屏照片转动漫风格提示词",
+      "description": "适用于 GPT Image 2 的提示词，可将上传的照片转换为分屏图像：左半部分保持写实风格，右半部分则重新构想为带有手绘涂鸦的可爱动漫插画。",
+      "prompt": "将上传的照片转化为精美的分屏插画，一半写实、一半动漫风格，呈现可爱俏皮的手绘美感。\n\n构图与格式\n采用 3:4 竖版比例。生成一张视觉连贯的完整图像，从画面中央垂直分割，分割线为不规则的撕纸白边。左半部分保留原照片的写实摄影细节，右半部分则将同一张照片重新演绎为精致的高品质日系动漫风数字插画。左右两半必须完美对齐，主体、姿势、面部朝向、发型、服装、配饰、拍摄角度及背景位置均保持一致。撕纸边缘需呈现自然撕裂的效果，带有粗糙的白色纤维和不规则的有机形状。\n\n左半部分 —— 原始照片\n尽可能忠实地还原上传的照片。保留人物的原有特征、五官、肤色、发型、表情、服装、配饰、姿势、光线和环境。维持写实的摄影质感、自然阴影和真实色彩。在人物周围添加少量精致的手绘涂鸦，注意不要遮挡重要的面部特征。\n\n右半部分 —— 动漫插画\n以精致的日系动漫插画风格重现同一场景，并融入柔和的韩系条漫美学。保留人物可辨识的特征与原始外貌。使用干净且富有表现力的线条、细腻的面部刻画、柔和的肤质渲染、淡淡的腮红、丝丝分明的秀发、轻柔的高光、平滑的阴影过渡以及精致的色彩渐变。确保原有的服装和配饰清晰可辨。将背景转化为柔和插画风格的原始环境，同时保留其构图与氛围。\n\n可爱手绘涂鸦\n在插画一侧直接叠加迷人多彩的手绘涂鸦进行装饰：\n- 粉色和红色的小爱心。\n- 黄色与金色的星星、闪光和花朵轮廓。\n- 白色或马卡龙色系的迷你卡通猫咪和小兔子。\n- 蓝色纸飞机、虚线飞行轨迹和俏皮的符号。\n- 手绘曲线、小皇冠、欢快的点缀元素和充满奇思妙想的装饰标记。\n\n采用随性的手账速写风格，线条略带不完美的手工感，搭配类似贴纸的细微描边，并使用婴儿蓝、樱花粉、奶油黄、米白和纯白等和谐柔和的马卡龙色系。让涂鸦自然地分布在人物周围，顺应整体构图，切勿遮挡面部。\n\n艺术指导\n可爱、梦幻、青春、浪漫、俏皮且极具美感。将真实的摄影作品与高品质的动漫同人插画、手账风涂鸦艺术巧妙结合。注重细腻的细节刻画、柔和的自然光线、均衡的色彩搭配，呈现干净专业的最终效果。\n\n重要规则\n1. 保留原图中人物的身份特征与可辨识的外貌。\n2. 左半部分保持照片的写实"
+    }
+  },
+  "36953": {
+    "en": {
+      "title": "Candid Subway Photo Prompt",
+      "description": "A prompt for generating a realistic candid photo of a woman on the subway using GPT-image-2.",
+      "prompt": "A beautiful woman looking at her phone on the subway; a candid photo."
+    },
+    "zh": {
+      "title": "地铁抓拍照片提示词",
+      "description": "使用 GPT-image-2 生成逼真的地铁女性抓拍照片的提示词。",
+      "prompt": "地铁上一位漂亮女子正在看手机；一张抓拍照片。"
+    }
+  },
+  "36954": {
+    "en": {
+      "title": "Honey Candle Dress Halloween Girl",
+      "description": "Generates a girl wearing a melting honey-colored candle dress with wax details and flame patterns for a sweet, fantasy Halloween theme.",
+      "prompt": "A girl wearing a dripping wax dress for Halloween. The outfit is a honey-colored off-shoulder mini dress. Three-dimensional details resembling white wax dripping from the shoulders and skirt edges are attached. The surface of the wax has a slight gloss, with small flame patterns scattered throughout.\nA thin black ribbon at the waist. No cape. No hat on the head. A small candle charm around the neck.\nColors: honey, white, light orange, night blue. Full body view at an angle where the wax drip details are visible. Quiet smile."
+    },
+    "zh": {
+      "title": "蜂蜜蜡烛裙万圣节女孩",
+      "description": "生成一位穿着融化蜂蜜色蜡烛裙的女孩，带有蜡质细节和火焰图案，营造甜美奇幻的万圣节主题。",
+      "prompt": "一个女孩穿着滴蜡造型的连衣裙庆祝万圣节。服装是一件蜂蜜色的露肩迷你裙。肩膀和裙摆边缘装饰着仿白色蜡油滴落的立体细节。蜡面带有微微的光泽，上面零星点缀着小火焰图案。\n腰间系着一条细黑丝带。没有披风。头上没戴帽子。脖子上挂着一个蜡烛小吊坠。\n颜色：蜂蜜色、白色、浅橙色、夜蓝色。全身视角，角度需能清晰展现滴蜡细节。恬静的微笑。"
+    }
+  },
+  "36955": {
+    "en": {
+      "title": "Cinematic Golden B Logo",
+      "description": "Generates a futuristic, cinematic image featuring a glowing golden abstract logo and a silhouetted figure, suitable for tech branding or concept art.",
+      "prompt": "A cinematic, wide-angle shot of a lone figure standing with their back to the viewer on a dark, reflective surface. The figure is silhouetted against a massive, glowing golden structure resembling an abstract, stylized letter 'B' or a twisted ribbon, which appears to be made of polished metal and emits a warm light. This structure is positioned in front of a large, luminous sphere that resembles a rising sun or planet, casting a soft glow across the scene. The overall atmosphere is futuristic and awe-inspiring, with a color palette dominated by deep blacks and rich golds. In the upper center of the image, the text \"B.AI\" is displayed in a clean, white, sans-serif font."
+    },
+    "zh": {
+      "title": "电影感金色 B Logo",
+      "description": "生成一张充满未来感的电影级图像，包含发光的金色抽象标志和剪影人物，适用于科技品牌宣传或概念艺术。",
+      "prompt": "电影质感的广角镜头中，一个孤独的身影背对观者，伫立在幽暗而反光的表面上。人物的剪影映衬着一座巨大的金色发光结构体，其造型宛如抽象艺术化的字母“B”，又似一条扭曲的缎带，仿佛由抛光金属铸就，散发着温暖的光芒。这座结构体矗立在一个硕大的发光球体前方，球体犹如一轮初升的旭日或一颗行星，为整个场景披上一层柔和的光晕。整体氛围充满未来感，令人叹为观止，画面色调以深邃的黑色与浓郁的金色为主。图像上方居中位置，以简洁的白色无衬线字体显示着“B.AI”字样。"
+    }
+  },
+  "36956": {
+    "en": {
+      "title": "Black Cat Halloween Dress Anime Girl",
+      "description": "A prompt for generating an anime-style illustration of a young woman wearing a cute black cat-themed Halloween dress with cat ears, tail, and accessories, set against a moonlit alley background.",
+      "prompt": "A cute adult woman wearing a Halloween black cat dress.\n\nThe outfit is an off-shoulder mini dress in jet black and dark navy. The hem of the flaring skirt features fluffy black fur and white paw pad embroidery. From the back, a decoration resembling a long black cat tail extends elegantly. A large black ribbon with a golden bell sits at the waist. On the chest is a black cat brooch with emerald eyes. Short beige capes rest on the shoulders, lined with cat silhouettes.\n\nOn her head is a fluffy black cat-ear headband. The inner ears are pale pink, with small black ribbons and golden bells at the base. It's a cute black cat style that blends naturally with hair accessories. One hand holds a fish-shaped candy, while the other makes a cat-paw pose.\n\nThe background is a night alley glowing with a full moon. A small black cat is at her feet.\nFull-body composition including head to toes. A slight glance back showing the black cat tail and paw pads. A mischievous, cute smile."
+    },
+    "zh": {
+      "title": "黑猫万圣节连衣裙动漫少女",
+      "description": "用于生成动漫风格插画的提示词，描绘一位身穿可爱黑猫主题万圣节连衣裙的年轻女性，配有猫耳、尾巴和配饰，背景为月光下的巷道。",
+      "prompt": "一位可爱的成年女性，身穿万圣节黑猫主题连衣裙。\n\n服装是一件纯黑与深藏青色拼接的一字肩迷你裙。外扩的裙摆边缘点缀着蓬松的黑色绒毛和白色肉垫刺绣。背后优雅地延伸出一条形似黑猫长尾的装饰。腰间系着一个带有金色铃铛的大号黑色蝴蝶结。胸前别着一枚绿宝石眼睛的黑猫胸针。肩上搭着米色短款小披肩，内衬印有猫咪剪影图案。\n\n头上戴着毛茸茸的黑猫耳发箍。耳朵内侧呈浅粉色，根部系着黑色小蝴蝶结和金色铃铛。整体造型俏皮可爱，黑猫风格与发饰自然融为一体。她一手拿着鱼形糖果，另一只手比出猫爪姿势。\n\n背景是满月映照下的夜晚小巷。脚边卧着一只小黑猫。\n全身构图，从头到脚完整呈现。微微回眸，露出黑猫尾巴和肉垫。脸上挂着调皮又可爱的笑容。"
+    }
+  },
+  "36957": {
+    "en": {
+      "title": "Realistic Wall Calendar with Portrait",
+      "description": "Prompt for generating a realistic wall calendar featuring an uploaded portrait photo in a cinematic style.",
+      "prompt": "Create a realistic wall calendar hanging on a textured concrete wall, framed in a warm wooden frame. The top half features my uploaded portrait photo in a soft cinematic style, shallow depth of field, warm bokeh lights in the background, natural skin tones, calm confident expression. The bottom half displays a clean, modern calendar layout for current date, with bold month text on the left and year on the right, neatly aligned date grid below, Sundays to Saturdays clearly labeled. Minimal beige and brown color palette, elegant typography, realistic paper texture, soft natural sunlight casting gentle shadows, premium lifestyle photography look, ultra-high resolution."
+    },
+    "zh": {
+      "title": "带人像的逼真挂历",
+      "description": "用于生成包含上传人像照片的电影风格逼真挂历的提示词。",
+      "prompt": "生成一本逼真的挂历，悬挂在带有纹理的混凝土墙面上，外搭温暖的木质画框。上半部分展示我上传的人像照片，采用柔和的电影感风格，浅景深效果，背景点缀温暖的散景光斑，肤色自然真实，人物神态从容自信。下半部分呈现简洁现代的日历排版，显示当前日期：左侧为加粗的月份文字，右侧为年份，下方是排列整齐的日期网格，星期日到星期六标注清晰。整体采用极简的米色与棕色配色方案，字体优雅考究，纸张纹理逼真，柔和的自然阳光投下淡淡的阴影，呈现出高端生活方式摄影质感，超高分辨率。"
+    }
+  },
+  "36958": {
+    "en": {
+      "title": "Colossal MPD Robot in Rainy Tokyo",
+      "description": "A photorealistic image of a giant, mechanical police robot standing in a rainy city intersection, surrounded by tiny officers and patrol cars.",
+      "prompt": "A colossal, bipedal police robot towering over a rainy Tokyo street. The robot is constructed from heavy industrial machinery parts, featuring exposed gears, hydraulic pistons, and thick black cables connecting segmented white armor plates. It has no human face; instead, its head is a rectangular sensor array with multiple camera lenses. Red emergency lights flash on its shoulders and chest. The text \"警視庁 MPD\" (Metropolitan Police Department) is stenciled in black on the white armor plating of its torso and thighs. In the foreground, wet asphalt reflects the red and blue lights of surrounding police cars and traffic signals. Several small human police officers in dark tactical gear stand near the robot's feet, emphasizing its massive scale. A blue road sign indicating directions to \"Tokyo Sta.\" and \"Ginza\" is visible on the right. A helicopter hovers in the grey, overcast sky above."
+    },
+    "zh": {
+      "title": "雨中东京的巨型 MPD 机器人",
+      "description": "一张逼真的图像，展示了一个巨大的机械警察机器人站在雨中的城市十字路口，周围环绕着微小的警官和巡逻车。",
+      "prompt": "一台巨大的双足警用机器人矗立在雨中的东京街头，身形高耸入云。它由重型工业机械部件拼装而成，裸露的齿轮、液压活塞清晰可见，粗黑的线缆将分节式的白色装甲板串联在一起。它没有人类的面孔，头部取而代之的是一个矩形传感器阵列，上面密布着多个摄像头镜头。双肩与胸前的红色警示灯不停闪烁。躯干和大腿的白色装甲板上，用黑色模板喷涂着“警視庁 MPD”（东京警视厅）字样。前景中，湿漉漉的柏油路面倒映着周围警车与交通信号灯的蓝红光芒。几名身穿深色战术装备的人类警察站在机器人脚边，身形显得格外渺小，愈发衬托出它的庞大体量。右侧立着一块蓝色路牌，标示着通往“Tokyo Sta.”（东京站）和“Ginza”（银座）的方向。灰蒙蒙的阴沉天空中，一架直升机正在盘旋。"
+    }
+  },
+  "36959": {
+    "en": {
+      "title": "Music Tech YouTube Thumbnails",
+      "description": "A prompt to generate a series of expressive YouTube thumbnails for music technology reviews and news, featuring a consistent host character.",
+      "prompt": "Using the provided reference image as a style guide, generate a vertical compilation of six distinct YouTube thumbnail designs. Each thumbnail must feature the same male subject (a bearded man wearing headphones) but with different exaggerated facial expressions and poses to match the specific topic of each video.\n\n1. **SoundCloud News:** The subject looks shocked/skeptical. Background features the SoundCloud logo and text 'BIG NEWS' in large yellow/white font. Duration: 11:41.\n2. **Tembo Product:** The subject looks confused/questioning. Features an orange grid-like device (Tembo) and large text 'WHY??'. Duration: 16:54.\n3. **Akai MPC Live II:** The subject looks surprised. Features a white Akai MPC controller and large text 'WHY??'. Duration: 11:16.\n4. **Free Plugins:** The subject is smiling broadly. Features a dark plugin interface and large text 'FREE PLUGINS'. Duration: 12:03.\n5. **Soothe2 Plugin:** The subject looks distressed/intense. Features the Soothe2 plugin interface and text 'FREE'. Duration: 18:16.\n6. **Cheating?:** The subject looks suspicious/shocked. Features a purple plugin interface with waveform comparisons labeled A and B, and large red text 'CHEATING?'. Duration: 14:26.\n\nEnsure all thumbnails have high contrast, vibrant colors, and professional lighting typical of tech/music production content."
+    },
+    "zh": {
+      "title": "音乐科技类 YouTube 缩略图",
+      "description": "用于生成一系列富有表现力的 YouTube 缩略图的提示词，适用于音乐科技评测与新闻内容，并包含统一的主持人角色形象。",
+      "prompt": "以提供的参考图片为风格指南，生成一张包含 6 个不同 YouTube 缩略图设计的纵向拼图。每张缩略图必须使用同一位男性人物（戴耳机的蓄须男子），但需搭配不同的夸张面部表情和姿势，以契合各期视频的具体主题。\n\n1. **SoundCloud 新闻：** 人物表情震惊/怀疑。背景包含 SoundCloud logo 以及黄色/白色大字的“BIG NEWS”。时长：11:41。\n2. **Tembo 产品：** 人物表情困惑/疑惑。画面中有一个橙色网格状设备（Tembo）和大字“WHY??”。时长：16:54。\n3. **Akai MPC Live II：** 人物表情惊讶。画面中有一台白色 Akai MPC 控制器和大字“WHY??”。时长：11:16。\n4. **免费插件：** 人物开怀大笑。画面中有一个深色插件界面和大字“FREE PLUGINS”。时长：12:03。\n5. **Soothe2 插件：** 人物表情痛苦/激动。画面中有 Soothe2 插件界面和文字“FREE”。时长：18:16。\n6. **作弊？：** 人物表情可疑/震惊。画面中有一个紫色插件界面，带有标注 A 和 B 的波形对比图，以及红色大字“CHEATING?”。时长：14:26。\n\n请确保所有缩略图都具备高对比度、鲜艳的色彩以及专业的布光效果，符合科技/音乐制作类内容的典型视觉风格。"
+    }
+  },
+  "36960": {
+    "en": {
+      "title": "Cozy Morning Illustration",
+      "description": "A hand-drawn watercolor-style illustration of a girl stretching in bed with a sleeping cat, featuring warm lighting and inspirational Chinese text about taking it slow.",
+      "prompt": "A warm, hand-drawn illustration in a cozy watercolor style depicting a young woman waking up in bed. She has messy dark hair and is wearing an oversized white long-sleeved shirt and grey plaid pajama pants with socks. She sits on the edge of a wooden bed frame, stretching her arms high above her head with her eyes closed and a peaceful expression. The bed has rumpled white sheets, blue pillows, and a checkered pillow. An orange tabby cat is curled up asleep at the foot of the bed. To the left, there is a small wooden nightstand holding a blue alarm clock, a white mug with a flower design, and a stack of books. A trailing green plant hangs from the side of the nightstand. In the background, a window shows bright sunlight streaming in, illuminating the room. On the floor near the bed are a pair of striped slippers. At the top of the image, large red handwritten Chinese text reads \"早安，慢一点也没关系\" (Good morning, it's okay to be slow). Below that, smaller black text reads \"醒来这件事，可以慢慢进行。\" (Waking up can happen slowly). At the bottom left, small English text says \"MORNING MOOD POSTER / good morning\" followed by Chinese text \"给今天留一个温柔开场\" (Leave a gentle opening for today)."
+    },
+    "zh": {
+      "title": "温馨晨间插画",
+      "description": "手绘水彩风格插画，描绘女孩在床上伸展、猫咪安睡的场景，暖色调灯光搭配关于慢生活的中文励志文字。",
+      "prompt": "一幅温馨的手绘插画，采用舒适的水彩风格，描绘了一位年轻女子在床上醒来的场景。她留着一头凌乱的深色头发，身穿一件宽松的白色长袖衬衫和灰色格纹睡裤，脚上穿着袜子。她坐在木质床架的边缘，闭着双眼，神情安详，双臂高高举过头顶伸着懒腰。床上铺着皱巴巴的白色床单，放着蓝色枕头和一个格子图案的抱枕。一只橘猫蜷缩在床尾熟睡。画面左侧有一个小巧的木质床头柜，上面摆着一个蓝色闹钟、一个印有花朵图案的白色马克杯和一摞书。一株垂蔓绿植从床头柜一侧垂落下来。背景中，一扇窗户透进明亮的阳光，照亮了整个房间。床边的地板上放着一双条纹拖鞋。图片顶部是醒目的红色手写中文大字“早安，慢一点也没关系”。下方是较小的黑色文字“醒来这件事，可以慢慢进行。”左下角是小号英文“MORNING MOOD POSTER / good morning”，紧接着是中文“给今天留一个温柔开场”。"
+    }
+  },
+  "36962": {
+    "en": {
+      "title": "Showa Retro Portrait: Woman and Stone Statue",
+      "description": "Generates a nostalgic, film-grain portrait of a young woman in retro clothing posing beside a weathered stone statue, capturing a specific Japanese Showa-era atmosphere.",
+      "prompt": "A vintage-style photograph with a nostalgic Showa-era aesthetic, featuring a young Asian woman with short black hair crouching next to an old, weathered stone komainu (lion-dog) statue. She is wearing a beige short-sleeved button-up shirt with a small brown floral pattern and dark brown shorts. Her expression is calm and slightly melancholic as she looks directly at the camera. The scene is set outdoors on gravel ground near a building wall with visible pipes in the background. The image has a warm, faded color palette typical of 1970s film photography."
+    },
+    "zh": {
+      "title": "昭和复古人像：女子与石像",
+      "description": "生成一张充满怀旧感的胶片颗粒风格人像，展现身着复古服饰的年轻女子在风化石像旁摆姿势的画面，捕捉独特的日本昭和时代氛围。",
+      "prompt": "一张充满昭和时代怀旧气息的复古风格照片。画面中，一位留着黑色短发的年轻亚洲女性蹲在一尊饱经风霜的古老石制狛犬（狮子狗）雕像旁。她身穿一件米色短袖纽扣衬衫，上面点缀着棕色小碎花图案，搭配深棕色短裤。她直视镜头，神情平静，略带一丝忧郁。场景位于户外，脚下是碎石地面，背景是一面建筑墙壁，墙上的管道清晰可见。整张照片呈现出 20 世纪 70 年代胶片摄影特有的温暖褪色色调。"
+    }
+  },
+  "36963": {
+    "en": {
+      "title": "Showa Retro Street Portrait",
+      "description": "Generates a nostalgic 1980s-style film photograph of a young woman in winter clothing standing on a busy Japanese street.",
+      "prompt": "A vertical medium-shot portrait of a young East Asian woman standing on a busy city sidewalk, captured in the style of authentic 1980s Japanese film photography. She has short dark hair with a small gold barrette clipped to one side and is tilting her head slightly toward the camera with a gentle, candid smile. Her skin shows natural texture with visible freckles across her nose and cheeks. She wears an oversized olive-green wool coat over a plaid skirt, with a thick brown and beige striped knit scarf wrapped around her neck. A thin leather strap from a shoulder bag crosses her chest. The background features a bustling street scene with parked bicycles, vintage cars, pedestrians walking away, and blurred storefront signs with Japanese text. The lighting is soft and warm, characteristic of analog film stock, with noticeable grain and a nostalgic color palette."
+    },
+    "zh": {
+      "title": "昭和复古街头人像",
+      "description": "生成一张充满怀旧感的 1980 年代风格胶片照片，画面中一位身着冬装的年轻女性站在日本繁华的街头。",
+      "prompt": "一幅竖构图的中景人像，一位年轻的东亚女性站在熙熙攘攘的城市人行道上，画面呈现出 20 世纪 80 年代日本胶片摄影的纯正质感。她留着深色短发，一侧别着一枚小巧的金色发夹，头微微偏向镜头，露出自然柔和的微笑。肌肤保留了真实的纹理，鼻梁与双颊上隐约可见几粒雀斑。她身穿一件宽松的橄榄绿羊毛大衣，内搭格纹半裙，颈间围着一条厚实的棕米相间条纹针织围巾。斜挎包的细皮带从胸前穿过。背景是热闹的街景：路边停着自行车，街上跑着老式汽车，行人正渐渐走远，带有日文的店铺招牌在远处虚化。光线柔和温暖，带着模拟胶片特有的质感，颗粒感明显，色调怀旧动人。"
     }
   }
 }
