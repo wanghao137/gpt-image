@@ -1,5 +1,31 @@
 [
   {
+    "id": "100341",
+    "title": "黑白光影：粗野主义柱廊时装人像大片",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Portrait",
+      "Editorial"
+    ],
+    "tags": [
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Portrait",
+      "Brand",
+      "Architecture"
+    ],
+    "imageUrl": "/uploads/2026-10-28-case-100341-bw-brutalist-colonnade.jpg",
+    "imageAlt": "黑白光影：粗野主义柱廊时装人像大片",
+    "prompt": "A cinematic black and white fashion editorial photograph of a young handsome man with wavy textured dark hair, wearing a black turtleneck and a long unbuttoned black leather trench coat. He is leaning his left shoulder against a large smooth concrete pillar in an endless architectural colonnade. He has both hands in his coat pockets, right leg crossed casually over the left. He is looking off-camera to the right with a serious, contemplative expression. The setting features strong one-point perspective with repeating archways receding deeply to the left. Highly directional, high-contrast natural light entering from the left, casting harsh geometric shadows on the concrete floor and walls, but providing soft dramatic light on the man's face. Shot on 35mm film, tack sharp subject, moody, sophisticated, striking geometry.\n\nAlternative concise version:\nB&W photography, full body portrait of a man in a dark overcoat leaning on a structural column. Deep one-point perspective corridor on the left. High contrast, directional side lighting, distinct shadows, brutalist concrete architecture, moody, editorial fashion style.",
+    "promptPreview": "A cinematic black and white fashion editorial photograph of a young handsome man with wavy textured dark hair, wearing a black turtleneck and a long unbuttoned black leather trench coat. He is leaning his left shoulder …",
+    "source": "Community collected via @pictsbyai",
+    "createdAt": "2026-10-27T20:05:18.005Z"
+  },
+  {
     "id": "100340",
     "title": "画中画构图：车内化妆镜黄金时刻自拍人像",
     "category": "摄影与写实",
