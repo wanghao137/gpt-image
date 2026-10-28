@@ -1214,18 +1214,18 @@
       "Story"
     ],
     "description": "把生活记录、活动过程或旅行故事拆成九宫格画面。",
-    "cover": "/images/cases/templatederived-wechat-grid-story.jpg",
-    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #34321 云朵朋友剪贴簿海报: 一张充满奇趣的竖版海报，上方是蓝天中微笑的云朵，下方是九宫格手绘风格的云朵主题项目。\n- #34060 电影感哥特萝莉 3x3 动漫剧照: 生成一张九宫格电影感动漫联系表，展示一位身处玫瑰宫殿中的哥特萝莉女主角，适用于角色 PV 概念设计和视觉叙事。\n- #34011 Consistent 3x3 Multi-Angle Scene Sheet: Generates a photorealistic 3x3 grid showing the same reference subject and environment from mul…\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
+    "cover": "/images/2026-10-29-case-100343-brand-identity-grid.jpg",
+    "prompt": "模板：朋友圈九宫格叙事\n用途：用于朋友圈九宫格、生活方式记录、品牌活动回顾。\n视觉方向：Wechat / Grid / Story / Editorial / Poster / Realistic / Cinematic / Minimal / Studio / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「九张图的顺序、统一色调、每格主体和整体叙事节奏」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100343 3×3九宫格品牌全案识别系统展示板: [brand name], complete brand identity grid, 3x3 layout, nine tiles showing a full cohesive bran…\n- #34321 云朵朋友剪贴簿海报: 一张充满奇趣的竖版海报，上方是蓝天中微笑的云朵，下方是九宫格手绘风格的云朵主题项目。\n- #34060 电影感哥特萝莉 3x3 动漫剧照: 生成一张九宫格电影感动漫联系表，展示一位身处玫瑰宫殿中的哥特萝莉女主角，适用于角色 PV 概念设计和视觉叙事。\n\n使用建议：\n- 先锁定 九张图的顺序、统一色调、每格主体和整体叙事节奏。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免每格重复、拼图边距混乱和不可读的小字。",
     "useWhen": "用于朋友圈九宫格、生活方式记录、品牌活动回顾。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100343",
       "34321",
       "34060",
       "34011",
-      "33449",
-      "31301"
+      "33449"
     ]
   },
   {
@@ -1358,18 +1358,18 @@
       "Board"
     ],
     "description": "为建筑、室内或城市空间生成概念表现和材质板。",
-    "cover": "/images/2026-10-26-case-100339-miniature-macro-scene.jpg",
-    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Cinematic / Realistic / Editorial / Brand / Tech / Poster / Illustration\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100339 日常物件上的繁忙小人国微缩景观: Create a hyper-realistic macro photograph of a miniature surreal scene. The environment is domi…\n- #36757 Minimalist Editorial Café Poster from Photo: A prompt for GPT Image 2 that transforms a reference photograph of a café interior into a sophi…\n- #100323 旅行速写本风格地标建筑手绘演进: Create a stunning 4:5 vertical fine-art sketch illustration of [Structure Name] as if it is bei…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
+    "cover": "/images/2026-10-29-case-100342-arch-editorial-split.jpg",
+    "prompt": "模板：建筑空间概念板\n用途：用于室内设计、建筑外观、商业空间、城市规划概念图。\n视觉方向：Architecture / Interior / Board / Realistic / Poster / Illustration / Editorial / Cinematic / Minimal / Brand\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「空间功能、视角、尺度、材质、自然光和人流使用情境」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100342 实景×几何抽象对折：极简建筑展览海报: Create a premium minimalist architectural editorial poster based on the supplied landscape phot…\n- #100339 日常物件上的繁忙小人国微缩景观: Create a hyper-realistic macro photograph of a miniature surreal scene. The environment is domi…\n- #36757 Minimalist Editorial Café Poster from Photo: A prompt for GPT Image 2 that transforms a reference photograph of a café interior into a sophi…\n\n使用建议：\n- 先锁定 空间功能、视角、尺度、材质、自然光和人流使用情境。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免透视错误、材质混乱、家具尺度不合理和无入口空间。",
     "useWhen": "用于室内设计、建筑外观、商业空间、城市规划概念图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100342",
       "100339",
       "36757",
       "100323",
-      "100319",
-      "36119"
+      "100319"
     ]
   },
   {

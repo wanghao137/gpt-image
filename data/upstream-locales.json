@@ -55758,8 +55758,8 @@
   },
   "36952": {
     "en": {
-      "title": "Split-Screen Photo to Anime Transformation Prompt",
-      "description": "A prompt for GPT Image 2 that transforms an uploaded photograph into a split-screen image, with the left half remaining realistic and the right half reimagined as a cute anime illustration with hand-drawn doodles.",
+      "title": "Split-Screen Realistic and Anime Illustration",
+      "description": "A comprehensive prompt for creating a split-screen image where one half is a realistic photo and the other is an anime-style illustration with cute doodles.",
       "prompt": "Transform the uploaded photograph into a beautiful split-screen, half-realistic and half-anime illustration with a cute, playful, hand-drawn aesthetic.\n\nCOMPOSITION & FORMAT\nVertical 3:4 aspect ratio. Create one seamless-looking image divided vertically down the center by an irregular, torn white paper edge. The left half shows the original photograph in realistic photographic detail, while the right half reimagines the exact same photograph as a polished, high-quality anime-inspired digital illustration. Both halves must align perfectly, with the same subject, pose, facial direction, hairstyle, clothing, accessories, camera angle, and background placement. The torn-paper edge should look naturally ripped, with rough white fibers and an organic, imperfect shape.\n\nLEFT HALF — ORIGINAL PHOTOGRAPH\nPreserve the uploaded photo as faithfully as possible. Maintain the subject's original identity, facial features, skin tone, hairstyle, expression, clothing, accessories, pose, lighting, and surroundings. Keep realistic photographic textures, natural shadows, and authentic colors. Add a few delicate, hand-drawn doodles around the subject without covering important facial features.\n\nRIGHT HALF — ANIME ILLUSTRATION\nRecreate the same scene in a sophisticated Japanese anime-inspired illustration style blended with soft Korean webtoon aesthetics. Preserve the subject's recognizable identity and original appearance. Use clean, expressive linework, delicate facial details, softly rendered skin, subtle blush, beautifully illustrated hair strands, gentle highlights, smooth shading, and refined color gradients. Keep the original outfit and accessories recognizable. Translate the background into a softly illustrated version of the original environment, preserving its composition and atmosphere.\n\nCUTE HAND-DRAWN DOODLES\nDecorate the illustrated half with charming, colorful doodles drawn directly over the image:\n- Small pink and red hearts.\n- Yellow and golden stars, sparkles, and flower outlines.\n- Tiny white or pastel-colored cartoon cats and bunnies.\n- Blue paper airplanes, dotted flight paths, and playful symbols.\n- Hand-drawn curved lines, tiny crowns, cheerful accents, and whimsical decorative marks.\n\nUse a loose, sketchbook-inspired drawing style with slightly imperfect outlines, subtle sticker-like borders, and a harmonious pastel color palette of baby blue, blush pink, butter yellow, cream, and white. Arrange the doodles naturally around the subject, following the composition and leaving the face unobstructed.\n\nART DIRECTION\nCute, dreamy, youthful, romantic, playful, and aesthetically pleasing. Combine authentic photography with premium anime fan-art illustration and scrapbook-inspired doodle art. Use delicate details, soft natural lighting, balanced colors, and a clean, professionally finished appearance.\n\nIMPORTANT RULES\n1. Preserve the original person's identity and recognizable appearance.\n2. Keep the left half photographic"
     },
     "zh": {
@@ -55770,8 +55770,8 @@
   },
   "36953": {
     "en": {
-      "title": "Candid Subway Photo Prompt",
-      "description": "A prompt for generating a realistic candid photo of a woman on the subway using GPT-image-2.",
+      "title": "GPT Image Woman on Subway",
+      "description": "A simple prompt for generating a candid photo of a beautiful woman looking at her phone on a subway, highlighting realistic qualities.",
       "prompt": "A beautiful woman looking at her phone on the subway; a candid photo."
     },
     "zh": {
@@ -55782,9 +55782,9 @@
   },
   "36954": {
     "en": {
-      "title": "Honey Candle Dress Halloween Girl",
-      "description": "Generates a girl wearing a melting honey-colored candle dress with wax details and flame patterns for a sweet, fantasy Halloween theme.",
-      "prompt": "A girl wearing a dripping wax dress for Halloween. The outfit is a honey-colored off-shoulder mini dress. Three-dimensional details resembling white wax dripping from the shoulders and skirt edges are attached. The surface of the wax has a slight gloss, with small flame patterns scattered throughout.\nA thin black ribbon at the waist. No cape. No hat on the head. A small candle charm around the neck.\nColors: honey, white, light orange, night blue. Full body view at an angle where the wax drip details are visible. Quiet smile."
+      "title": "Candle Dress Halloween Girl Prompt",
+      "description": "A detailed prompt for generating an anime-style girl wearing a melting candle dress with honey-colored frills and lanterns, suitable for Halloween-themed AI art.",
+      "prompt": "A girl wearing a melting candle dress for Halloween. The outfit is a honey-colored off-shoulder mini dress. Three-dimensional details resembling dripping white wax are attached to the shoulders and skirt hem. The surface of the wax has a slight gloss, with small flame patterns scattered throughout.\nA thin black ribbon at the waist. No cape. No hat on head. A small candle charm around the neck.\nColors: honey, white, pale orange, night blue. Full body, angled view showing the wax drip details. Quiet smile."
     },
     "zh": {
       "title": "蜂蜜蜡烛裙万圣节女孩",
@@ -55886,6 +55886,78 @@
       "title": "昭和复古街头人像",
       "description": "生成一张充满怀旧感的 1980 年代风格胶片照片，画面中一位身着冬装的年轻女性站在日本繁华的街头。",
       "prompt": "一幅竖构图的中景人像，一位年轻的东亚女性站在熙熙攘攘的城市人行道上，画面呈现出 20 世纪 80 年代日本胶片摄影的纯正质感。她留着深色短发，一侧别着一枚小巧的金色发夹，头微微偏向镜头，露出自然柔和的微笑。肌肤保留了真实的纹理，鼻梁与双颊上隐约可见几粒雀斑。她身穿一件宽松的橄榄绿羊毛大衣，内搭格纹半裙，颈间围着一条厚实的棕米相间条纹针织围巾。斜挎包的细皮带从胸前穿过。背景是热闹的街景：路边停着自行车，街上跑着老式汽车，行人正渐渐走远，带有日文的店铺招牌在远处虚化。光线柔和温暖，带着模拟胶片特有的质感，颗粒感明显，色调怀旧动人。"
+    }
+  },
+  "37005": {
+    "en": {
+      "title": "Cinematic Night Market Swordswoman",
+      "description": "A detailed prompt for generating a photorealistic cinematic image of a young swordswoman in a lantern-lit night market, focusing on specific composition, lighting, and character details.",
+      "prompt": "Ultrawide 2.2:1, photorealistic cinematic, young swordswoman turning back over shoulder in lantern-lit night market, warm lantern glow vs cold blue night. One subject.\n\n【Composition】Three-quarter back view, left of center, face at 41% width, 38% height, 30% frame height. Right 55% background: lantern orbs receding into blur. Dark sword hilt at 24% width, low unraised. Camera shoulder height, telephoto, shallow DOF.\n\n【Character】Young woman, oval face, soft jaw, pointed chin, warm night light on skin, satin sheen. Dark brown eyes, smoky eyeshadow, defined lashes, straight strong brows. Lips muted dark red, closed, no smile. Expression: calm, aloof, quietly alert — like a skilled swordswoman assessing her surroundings. Body walking away, head turns back over shoulder, eyes meet viewer directly with clear deep gaze, brows level. Loose black strands naturally fall across forehead and cheek, wind-swept, not damp.\n\n【Hair/Costume】Very long black hair, half tied back half loose, natural flowing texture, strands blowing gently in night breeze, edges rimmed gold by lantern light. Plain white wandering swordsman's robe, wide sleeves, dark teal-black cross-collar inner layer, matte fine-woven cloth, white warmed to pale gold. No jewelry, no embroidery — understated elegance. Sword shows only plain dark hilt, short cord wrap.\n\n【Pose】Torso faces away toward street depth, shoulders three-quarter back, weight shifting forward mid-step. Only head and neck rotate back, chin level, face meets lens across shoulder. Arms unemphasized, sword low behind. Turn continuous through spine and neck.\n\n【Environment】Old-town night market: wooden shopfronts dim left, blurred signboard top center, strings of paper lanterns receding right into warm orange bokeh. Far street and lower right carry cold blue-grey shadow, wet stone sheen. No readable text. No other people.\n\n【Lighting】All light from lanterns. Large lantern group behind right blooms warm orbs, rims hair and shoulder gold. Nearer lantern throws diagonal warm patch across left cheek and jaw, rest of face in cool blue shadow — warm and cold divide face. Background left amber-brown, right blue-grey night. Palette: lantern amber #E8A04C, night blue #33455C, shadow brown #241A14, robe white #E9DCC8, hair black #14100E, lip red #8E4A42, skin highlight #D9A37E.\n\n【Rendering】Photorealistic cinematic, filmic grain-free: skin fine satin, hair natural flowing strands with specular edges, cloth matte weighty. Sharpness on eyes and face strands; lanterns and street dissolve into layered bokeh, air carries faint night haze.\n\nNegative: second person, drawn weapon, readable text, watermark, logo, anime, cartoon, oversaturated, plastic skin, extra limbs, centered, full-body, focused background."
+    },
+    "zh": {
+      "title": "电影感夜市女剑客",
+      "description": "用于生成写实电影风格图像的提示词，描绘了一位在灯笼映照下的夜市中年轻女剑客，重点在于具体的构图、光影和角色细节。",
+      "prompt": "超宽幅 2.2:1，照片级真实电影感，年轻女剑客在灯笼照亮的夜市中回头张望，温暖的灯笼光晕与冷调的蓝色夜色形成对比。单人主体。\n\n【构图】四分之三背影视角，位于画面中心偏左，面部处于宽度 41%、高度 38% 处，占画框高度 30%。右侧 55% 为背景：灯笼化作光球向远处虚化延伸。深色剑柄位于宽度 24% 处，低垂未举起。机位齐肩高，长焦镜头，浅景深。\n\n【人物】年轻女子，鹅蛋脸，下颌线条柔和，下巴微尖，肌肤沐浴在温暖夜色中，泛着绸缎般光泽。深棕色眼眸，烟熏眼影，睫毛根根分明，眉毛平直英挺。双唇呈暗哑深红色，自然闭合，不带笑意。神情：平静、疏离、暗自警觉——宛如一位身手不凡的女剑客正在打量四周。身体正向前走去，头部越过肩膀回望，目光直视镜头，眼神清澈深邃，双眉平展。几缕黑色碎发自然垂落在额头与脸颊，被风吹拂，并不潮湿。\n\n【发型/服饰】极长的黑发，半束半披，质感自然飘逸，发丝随夜风轻轻飘动，边缘被灯光勾勒出金色轮廓。素白游侠长袍，衣袖宽大，内搭深青黑色交领里衣，面料为哑光细织布，白色被暖光染成淡金。无首饰，无刺绣——低调内敛的雅致。长剑仅露出朴素的深色剑柄，缠着短绳。\n\n【姿态】躯干朝向街道深处，双肩呈四分之三背影角度，重心前移，正处于迈步之中。仅头部与颈部回转，下巴保持水平，面庞越过肩膀直面镜头。双臂不作强调，长剑低垂于身后。脊柱至颈部的扭转连贯流畅。\n\n【环境】古镇夜市：左侧木质店铺门面昏暗，顶部中央招牌模糊不清，成串的纸灯笼向右侧延伸，化作温暖的橙色光斑。远处街道与右下角笼罩在冷调蓝灰色阴影中，湿漉漉的石板泛着微光。无可辨识的文字。无其他行人。\n\n【光影】所有光线均来自灯笼。右后方的一大片灯笼绽放出温暖的光球，为头发和肩膀镀上金边。较近的灯笼在左脸颊与下颌投下一道斜向暖光，面部其余部分则隐于冷蓝色阴影中——冷暖色调将面庞一分为二。背景左侧呈琥珀棕色，右侧为蓝灰色夜空。配色：灯笼琥珀色 #E8A04C，夜色蓝 #33455C，阴影棕 #241A14，长袍白 #E9DCC8，发丝黑 #14100E，唇红 #8E4A42，皮肤高光 #D9A37E。\n\n【渲染】照片级真实电影感，无胶片颗粒的电影画质：肌肤细腻如缎，发丝自然飘逸且边缘带有高光反射，布料呈现哑光厚重质感。眼部与面部发丝清晰锐利；灯笼与街道融化为层次分明的散景光斑，空气中弥漫着淡淡的夜雾。\n\n反向提示词：第二个人物，武器出鞘，可辨识文字，水印，logo，动漫，卡通，过度饱和，塑料感肌肤，多余肢体，居中构图，全身像，背景清晰对焦。"
+    }
+  },
+  "37006": {
+    "en": {
+      "title": "Autumn Illustrated Sticker Transformation",
+      "description": "A detailed prompt for transforming an uploaded photo into a charming, hand-drawn autumn illustrated sticker using GPT Image 2.",
+      "prompt": "Transform the uploaded photo into a charming, hand-drawn AUTUMN ILLUSTRATED STICKER.\n\nPreserve the original subject: Accurately recreate the person, pet, or group, maintaining recognizable facial features, hairstyle, clothing, colors, pose, expression, and distinctive details.\n\nIllustration style: Completely redraw the subject as polished digital character art with soft hand-painted shading, clean organic outlines, expressive features, subtle textures, and warm autumn colors. Avoid photorealism and 3D rendering.\n\nSticker effect: Add a thick, smooth white die-cut border around the entire illustrated subject, with a subtle shadow for a realistic sticker effect.\n\nAutumn aesthetic: Incorporate tasteful seasonal details such as orange leaves, tiny pumpkins, cozy clothing, berries, acorns, or warm sparkles. Use burnt orange, terracotta, caramel, cream, and warm brown.\n\nBackground: Keep the original photographic background visible behind the sticker, gently softened if necessary.\n\nFinal result: A cozy, personalized, collectible autumn sticker with a clear contrast between the fully illustrated subject and the real photographic background. Do not simply apply a filter or outline to the original photo."
+    },
+    "zh": {
+      "title": "秋季插画贴纸转化",
+      "description": "使用 GPT Image 2 将上传的照片转化为迷人手绘秋季插画贴纸的详细提示词。",
+      "prompt": "将上传的照片转化为一张充满魅力的手绘风格秋季插画贴纸。\n\n保留原始主体：精准还原照片中的人物、宠物或群体，完整保留可辨识的面部特征、发型、服装、色彩、姿势、表情及标志性细节。\n\n插画风格：将主体完全重新绘制为精致的数字角色插画，采用柔和的手绘光影、流畅自然的轮廓线、富有表现力的五官、细腻的纹理以及温暖的秋日色调。避免照片级写实与 3D 渲染效果。\n\n贴纸效果：在整个插画主体外围添加厚实平滑的白色模切边框，并配以淡淡的阴影，营造逼真的贴纸质感。\n\n秋日氛围：巧妙融入应景的季节元素，例如橙色落叶、迷你南瓜、温暖舒适的衣物、浆果、橡果或暖色光斑。配色以焦橙色、陶土红、焦糖色、奶油白和暖棕色为主。\n\n背景处理：保留原始照片背景在贴纸后方可见，必要时可做轻微的柔化处理。\n\n最终效果：生成一张温馨、个性化且极具收藏感的秋季贴纸，让纯插画风格的主体与真实的照片背景形成鲜明对比。请勿仅对原图简单套用滤镜或描边。"
+    }
+  },
+  "37007": {
+    "en": {
+      "title": "Pumpkin Dress Halloween Prompt",
+      "description": "A prompt for generating a girl wearing a puffy pumpkin-shaped skirt dress in beige and honey colors with jack-o'-lantern embroidery, suitable for Halloween themes.",
+      "prompt": "A girl wearing a Halloween pumpkin skirt dress.\nThe outfit is an off-shoulder mini dress in natural beige color. The skirt is round and puffed in a pumpkin shape, with thin vertical grooves. The groove color is honey-colored. On the surface of the skirt, there is one small Jack-o'-Lantern face, embossed rather than embroidered. A thick orange ribbon at the waist.\nA short natural beige cape on the shoulders. No hat on the head. Colors are natural beige, honey, light orange, and night blue.\nFull body, front view where the pumpkin-shaped skirt is clearly visible. Happy smiling expression."
+    },
+    "zh": {
+      "title": "南瓜裙万圣节提示词",
+      "description": "用于生成身穿米色和蜂蜜色蓬松南瓜裙的女孩的提示词，裙子上绣有杰克南瓜灯图案，适合万圣节主题。",
+      "prompt": "一个穿着万圣节南瓜裙的女孩。\n服装是一件自然米色的露肩迷你连衣裙。裙摆呈圆形蓬松的南瓜造型，带有细密的竖向凹槽。凹槽为蜜糖色。裙子表面有一个小小的南瓜灯（Jack-o'-Lantern）图案，采用压花工艺而非刺绣。腰间系着一条宽厚的橙色丝带。\n肩上披着一件短款自然米色斗篷。头上没有戴帽子。整体配色为自然米色、蜜糖色、浅橙色和夜蓝色。\n全身正面视角，清晰展现南瓜形裙摆。表情开心，面带微笑。"
+    }
+  },
+  "37008": {
+    "en": {
+      "title": "Yellow Gingham Nurse Outfit Prompt",
+      "description": "A prompt for generating a cute pastel yellow and white gingham nurse outfit with Lolita-inspired details like puff sleeves, lace ruffles, and a matching cap.",
+      "prompt": "Cute pastel yellow and white gingham nurse outfit, sweet Lolita-inspired dress, puff sleeves, delicate white lace ruffles, frilled apron, fitted waist, fluffy layered skirt, oversized gingham bows, pearl buttons, matching yellow gingham nurse cap with white frills and tiny floral decorations, soft pastel colors, adorable elegant style, gentle smile, dynamic pose, detailed fabric textures, no red cross, no medical symbols, masterpiece, best quality."
+    },
+    "zh": {
+      "title": "黄色格子护士装提示词",
+      "description": "用于生成可爱淡黄色与白色格子图案护士装的提示词，包含泡泡袖、蕾丝褶边和配套帽子等洛丽塔风格细节。",
+      "prompt": "可爱柔和的淡黄白格纹护士装，甜美洛丽塔风格连衣裙，泡泡袖，精致白色蕾丝荷叶边，褶边围裙，收腰设计，蓬松多层裙摆，超大格纹蝴蝶结，珍珠纽扣，配套淡黄色格纹护士帽配白色褶边与小巧花朵装饰，柔和淡雅色调，可爱优雅风格，温柔微笑，动态姿势，细腻的面料纹理质感，无红十字标志，无医疗符号，杰作，最高画质。"
+    }
+  },
+  "37009": {
+    "en": {
+      "title": "Tactical Cat Interrogation Scene",
+      "description": "Generates a humorous yet realistic image of an armed tactical cat standing over a captured, bruised enemy cat.",
+      "prompt": "A hyper-realistic, high-resolution studio photograph of two anthropomorphic cats in a military-themed scene against a clean white background. The standing cat is an orange tabby wearing full modern tactical gear, including a camouflage helmet with goggles, a heavy plate carrier vest, and combat boots. It holds a black assault rifle with a scope in its right paw and stands triumphantly with its left boot resting on the back of a second cat lying on the ground. The defeated cat is a grey and white shorthair, bound tightly in thick rope, wearing a green military cap with a red star emblem, and sporting exaggerated bruised eyes and a swollen nose to look battered."
+    },
+    "zh": {
+      "title": "战术猫审讯场景",
+      "description": "生成一张幽默而逼真的图片，展示一只全副武装的战术猫站在一只被俘且遍体鳞伤的敌方猫上方。",
+      "prompt": "一张超写实、高分辨率的摄影棚照片，画面中是两只拟人化的猫，置身于军事主题场景，背景为干净的纯白色。站立的猫是一只橘色虎斑猫，身穿全套现代战术装备，包括带护目镜的迷彩头盔、厚重的防弹携板背心以及作战靴。它右爪握着一把带瞄准镜的黑色突击步枪，左脚战靴踩在躺在地上的第二只猫背上，姿态威风凛凛。被击败的猫是一只灰白相间的短毛猫，被粗绳紧紧捆绑，头戴一顶饰有红星徽章的绿色军帽，双眼淤青夸张、鼻子肿胀，看起来伤痕累累。"
+    }
+  },
+  "37011": {
+    "en": {
+      "title": "Personalized Palmistry Guide Infographic",
+      "description": "Generates a detailed, multi-column infographic analyzing hand features, palm lines, and fingerprints with personalized interpretations.",
+      "prompt": "Goal: Create a vertical infographic-style palmistry guide titled {argument name=\"title text\" default=\"你的个人指南\"}.\nCanvas: A clean, modern layout with a white background and black text, divided into three main columns. The style is minimalist and educational, resembling a high-end wellness or self-improvement app interface.\nLayout:\n- Left Column: Top section has the title \"你的个人指南\" in large bold characters, followed by the subtitle \"认识自己 · 专注成长 · 持续进化\". Below this is a realistic photo of an open right hand (palm facing forward). Further down are sections for \"你的手\" (Your Hand) listing details like dominant hand, element, shape, and finger traits; \"快速总结\" (Quick Summary); \"优势\" (Strengths) as a bulleted list; and \"关键关注点\" (Key Focus Points) as another bulleted list.\n- Center Column: Top section shows a detailed black-and-white fingerprint scan image labeled \"掌印图\" (Palm Print Image). Below that is a line-drawing diagram of a hand labeled \"主要掌纹图\" (Main Palm Lines Diagram), with numbered lines (1-5) corresponding to specific palm lines. Underneath is a bar chart section \"手型类型\" (Hand Type) showing percentages for Fire, Wind, Earth, and Water elements. At the bottom is a legend for \"掌丘\" (Mounts) explaining their meanings.\n- Right Column: Contains five distinct cards detailing specific palm lines: 1. 感情线 (Heart Line), 2. 智慧线 (Head Line), 3. 生命线 (Life Line), 4. 命运线 (Fate Line), and 5. 太阳线 (Sun Line). Each card includes a description and interpretation. Below these is a final advice box \"最终建议\" and a notes section \"备注\".\nVisual Style: Use thin black borders for cards. Icons should be simple line art (e.g., heart, brain, shield). Text should be crisp sans-serif Chinese characters. The fingerprint image should have high contrast with visible ridges.\nText Content: Ensure all Chinese labels match the provided image exactly, including headings like \"手相解读\", \"掌印图\", and the specific interpretations for each line."
+    },
+    "zh": {
+      "title": "个性化手相指南信息图",
+      "description": "生成详细的多栏信息图，分析手部特征、掌纹和指纹，并提供个性化解读。",
+      "prompt": "目标：创建一张竖版信息图风格的手相指南，标题为 {argument name=\"title text\" default=\"你的个人指南\"}。\n画布：采用干净、现代的布局，白底黑字，分为三个主列。整体风格极简且富有科普感，类似于高端健康或自我提升类 App 的界面。\n布局：\n- 左列：顶部区域以大号粗体字显示标题“你的个人指南”，下方紧跟副标题“认识自己 · 专注成长 · 持续进化”。其下是一张张开的右手（掌心朝前）写实照片。再往下依次为：“你的手”板块，列出惯用手、元素、手型及手指特征等细节；“快速总结”板块；以项目符号列表呈现的“优势”板块；以及同样以项目符号列表呈现的“关键关注点”板块。\n- 中列：顶部区域展示一张详细的黑白指纹扫描图像，标注为“掌印图”。其下是一幅手部线描示意图，标注为“主要掌纹图”，图中带有编号的线条（1-5）分别对应特定的掌纹。下方是“手型类型”柱状图板块，展示火、风、土、水四种元素的占比。底部是关于“掌丘”的图例，解释其各自含义。\n- 右列：包含五张独立的卡片，详细解读特定掌纹：1. 感情线，2. 智慧线，3. 生命线，4. 命运线，5. 太阳线。每张卡片均包含描述与解析。这些卡片下方是“最终建议”提示框和“备注”区域。\n视觉风格：卡片使用细黑边框。图标应为简约线条画（如心形、大脑、盾牌）。文字需采用清晰的无衬线中文字体。指纹图像应具备高对比度，纹路清晰可见。\n文本内容：确保所有中文标签与提供的图片完全一致，包括“手相解读”、“掌印图”等标题，以及各条掌纹的具体解析内容。"
     }
   }
 }
