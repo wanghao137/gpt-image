@@ -1,5 +1,30 @@
 [
   {
+    "id": "100343",
+    "title": "3×3九宫格品牌全案识别系统展示板",
+    "category": "品牌与标志",
+    "styles": [
+      "Editorial"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Poster",
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Studio"
+    ],
+    "imageUrl": "/uploads/2026-10-29-case-100343-brand-identity-grid.jpg",
+    "imageAlt": "3×3九宫格品牌全案识别系统展示板",
+    "prompt": "[brand name], complete brand identity grid, 3x3 layout, nine tiles showing a full cohesive brand system, light gray seamless background, soft diffused studio lighting, subtle shadows, clean modern minimal style, consistent color palette of [color1] [color2] [color3], high-end studio mockups, ultra-realistic, 8k, 1:1,\n\ntile 1 primary logo lockup on paper card,\ntile 2 secondary logo mark and monogram variations,\ntile 3 color palette swatches and typography specimen poster,\ntile 4 packaging mockup for [product 1],\ntile 5 hero product photo for [product 2],\ntile 6 set of three products for [product 3] in different sizes,\ntile 7 stationery mockups business card letterhead envelope,\ntile 8 social media post mockups and phone screen UI preview,\ntile 9 lifestyle scene featuring [product 1] with props matching the brand,\n\nno people, no readable real-world brand names, no watermark.",
+    "promptPreview": "[brand name], complete brand identity grid, 3x3 layout, nine tiles showing a full cohesive brand system, light gray seamless background, soft diffused studio lighting, subtle shadows, clean modern minimal style, consist…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-10-28T20:06:55.045Z"
+  },
+  {
     "id": "100342",
     "title": "实景×几何抽象对折：极简建筑展览海报",
     "category": "建筑与空间",
