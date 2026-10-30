@@ -1,5 +1,31 @@
 [
   {
+    "id": "100344",
+    "title": "卡通角色街头潮奢杂志封面设计",
+    "category": "海报与排版",
+    "styles": [
+      "Poster",
+      "Editorial"
+    ],
+    "scenes": [
+      "Social",
+      "Editorial"
+    ],
+    "tags": [
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Social"
+    ],
+    "imageUrl": "/uploads/2026-10-31-case-100344-cartoon-editorial-magazine-cover.jpg",
+    "imageAlt": "卡通角色街头潮奢杂志封面设计",
+    "prompt": "Tom and Jerry,\nluxury editorial magazine cover,\nstreetwear fashion icons,\npremium typography,\ncinematic photography,\nurban luxury aesthetic,\noversized title design,\nhigh fashion editorial,\ndramatic low angle perspective,\nblack red and cream color palette,\npremium poster design,\nvertical iPhone wallpaper,\nultra detailed,\ngraphic design masterpiece\n\nPink Panther,\nluxury editorial magazine cover,\npremium typography,\nsilent billionaire aesthetic,\ncinematic photography,\npink and black color palette,\nluxury fashion icon,\ndramatic night city background,\neditorial poster design,\nhigh fashion magazine cover,\npremium graphic design,\nvertical iPhone wallpaper,\nultra detailed",
+    "promptPreview": "Tom and Jerry, luxury editorial magazine cover, streetwear fashion icons, premium typography, cinematic photography, urban luxury aesthetic, oversized title design, high fashion editorial, dramatic low angle perspective…",
+    "source": "Community collected via @Melothemyth777",
+    "createdAt": "2026-10-30T20:03:29.882Z"
+  },
+  {
     "id": "100343",
     "title": "3×3九宫格品牌全案识别系统展示板",
     "category": "品牌与标志",
