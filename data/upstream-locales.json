@@ -55710,9 +55710,9 @@
   },
   "36915": {
     "en": {
-      "title": "Anime Adventurer Character Sheet",
-      "description": "A comprehensive 3D character turnaround sheet for a fantasy adventurer, displaying front, side, back, and headshot views.",
-      "prompt": "A high-quality 3D character design sheet featuring a young male adventurer in an anime-inspired style. The layout consists of four distinct views arranged horizontally against a clean, neutral light gray studio background. From left to right: the first view is labeled 'FRONT' showing the character standing with arms slightly out; the second is labeled 'RIGHT' showing a side profile; the third is labeled 'BACK' showing the rear view; and the fourth is a close-up bust shot labeled 'HEAD 3/4'. The character has messy dark blue-gray hair and large amber eyes. He wears a short teal-blue capelet with white crescent moon patterns on the sides and a central circular bronze clasp over a white collared shirt with rolled sleeves. A brown leather strap crosses his chest diagonally. He wears dark navy cargo pants with multiple pockets, a brown belt with a small leather pouch, fingerless dark gloves, and tall cream-colored boots with brown straps and buckles. The lighting is soft and even, highlighting the smooth textures of the clothing and skin."
+      "title": "Anime Character Turnaround Sheet",
+      "description": "A multi-angle character design sheet showing a young adventurer in a teal cape and cargo pants from front, side, back, and headshot views.",
+      "prompt": "A professional character turnaround sheet featuring a stylized 3D-rendered young male adventurer in an anime-inspired aesthetic. The layout displays the character from four distinct angles against a neutral light gray studio background: FRONT, RIGHT (side profile), BACK, and a close-up HEAD 3/4 view. The character has messy dark blue-gray hair with a prominent ahoge (cowlick) and large amber eyes. He wears a short teal-blue capelet with white crescent moon patterns fastened by a circular bronze clasp over a white collared shirt with rolled sleeves. His outfit includes dark navy cargo trousers with multiple pockets, a brown leather utility belt with pouches, fingerless dark gloves, and tall cream-colored armored boots with brown straps. The rendering style is clean and smooth, resembling high-quality game concept art or a Pixar-style model."
     },
     "zh": {
       "title": "动漫冒险者角色设定图",
@@ -55948,6 +55948,18 @@
       "prompt": "一张超写实、高分辨率的摄影棚照片，画面中是两只拟人化的猫，置身于军事主题场景，背景为干净的纯白色。站立的猫是一只橘色虎斑猫，身穿全套现代战术装备，包括带护目镜的迷彩头盔、厚重的防弹携板背心以及作战靴。它右爪握着一把带瞄准镜的黑色突击步枪，左脚战靴踩在躺在地上的第二只猫背上，姿态威风凛凛。被击败的猫是一只灰白相间的短毛猫，被粗绳紧紧捆绑，头戴一顶饰有红星徽章的绿色军帽，双眼淤青夸张、鼻子肿胀，看起来伤痕累累。"
     }
   },
+  "37010": {
+    "en": {
+      "title": "Cherry Blossom & Texture Asset Sheet",
+      "description": "A prompt to generate a categorized grid of watercolor cherry blossoms, sky patterns, paper textures, and shadow overlays for design projects.",
+      "prompt": "Generate a comprehensive asset sheet on a pure white background, organized into seven distinct numbered sections with faint gray headers. The style is high-resolution digital watercolor and texture art.\n\nSection 01 (Top Left): Four variations of pink cherry blossom branches labeled 'branch_01.png' through 'branch_04.png'. These should be delicate watercolor illustrations with dark brown stems and soft pink petals.\n\nSection 02 (Top Right): A collection of approximately 30 loose cherry blossom petals scattered randomly, labeled 'petals_transparent PNG'. Include a few full flowers at the bottom right of this cluster.\n\nSection 03 (Middle Left): Five square tiles of blue sky textures labeled 'sky_01.png' to 'sky_05.png'. These should feature white clouds against a blue background with varying degrees of halftone dot patterns or pixelated noise effects.\n\nSection 04 (Middle Right): Twelve small square texture swatches arranged in two rows of six. Labels include 'dither_01-03', 'ink_red_01-02', 'ink_black_01-02', 'grunge_01-02', and 'grain_01-03'. Visuals should range from black/white dithering patterns to red ink splatters and beige paper grain.\n\nSection 05 (Bottom Left): Four vertical rectangular strips of paper textures labeled 'paper_01.png' to 'paper_04.png'. Colors should be cream, light gray, dark charcoal, and off-white, showing fibrous details.\n\nSection 06 (Bottom Center): Three images of shadows cast on a surface. One large square showing leafy branch shadows ('shadow_branch.png'), one smaller square of dense foliage shadow ('shadow_leaf_01.png'), and one thin vertical strip of linear shadow ('line_01.png').\n\nSection 07 (Bottom Right): Six grayscale gradient masks labeled 'mask_diagonal.png', 'mask_soft_01.png', 'mask_soft_02.png', and 'gradient_fade.png'. These should show smooth transitions from black to white in various shapes (diagonal cuts, soft blobs, linear fades)."
+    },
+    "zh": {
+      "title": "樱花与纹理素材表",
+      "description": "一个用于生成分类网格的提示词，包含水彩樱花、天空图案、纸张纹理和阴影叠加层，适用于设计项目。",
+      "prompt": "在纯白背景上生成一张全面的素材表，整体划分为 7 个带编号的独立区域，标题使用浅灰色。风格为高分辨率数字水彩与肌理艺术。\n\nSection 01（左上）：四种形态的粉色樱花枝条，分别标注为 'branch_01.png' 至 'branch_04.png'。应为细腻的水彩插画，深褐色枝干搭配柔和的粉色花瓣。\n\nSection 02（右上）：约 30 片随机散落的樱花花瓣集合，标注为 'petals_transparent PNG'。在该组花瓣的右下角加入几朵完整的樱花。\n\nSection 03（中左）：五个正方形蓝天纹理图块，标注为 'sky_01.png' 至 'sky_05.png'。画面应为蓝色背景上的白云，并呈现不同程度的半调网点图案或像素化噪点效果。\n\nSection 04（中右）：十二个小型正方形纹理色卡，排列为两行、每行六个。标签包括 'dither_01-03'、'ink_red_01-02'、'ink_black_01-02'、'grunge_01-02' 和 'grain_01-03'。视觉效果应涵盖黑白抖动图案、红色墨迹飞溅以及米色纸张颗粒等。\n\nSection 05（左下）：四个竖长矩形纸张纹理条，标注为 'paper_01.png' 至 'paper_04.png'。颜色分别为奶油色、浅灰色、深炭色和米白色，需清晰展现纤维细节。\n\nSection 06（中下）：三张投射在平面上的阴影图像。一个大正方形展示枝叶阴影（'shadow_branch.png'），一个较小的正方形展示浓密树叶阴影（'shadow_leaf_01.png'），以及一个细长竖条展示线性阴影（'line_01.png'）。\n\nSection 07（右下）：六个灰度渐变蒙版，标注为 'mask_diagonal.png'、'mask_soft_01.png'、'mask_soft_02.png' 和 'gradient_fade.png'。应以不同形状（对角切割、柔和团块、线性淡出）呈现从黑到白的平滑过渡。"
+    }
+  },
   "37011": {
     "en": {
       "title": "Personalized Palmistry Guide Infographic",
@@ -56106,9 +56118,9 @@
   },
   "37087": {
     "en": {
-      "title": "Halloween Mushroom Princess Prompt",
-      "description": "A cute anime-style illustration prompt for a Halloween-themed character wearing a poisonous mushroom dress in a moonlit forest.",
-      "prompt": "A cute adult woman wearing a Halloween poisonous mushroom dress.\n\nOutfit is a red mini dress. Skirt is shaped like a large round poisonous mushroom cap with white polka dots scattered on it. Edge of the cap is slightly wavy, decorated with white lace frills and black ribbons.\n\nUpper body is a white collared bodice. Small black ribbon at chest. No cape. No hat on head. Small red poisonous mushroom pin in hair.\n\nBackground is Halloween night with shining full moon. Silhouette of old castle, glowing jack-o'-lanterns, cute ghosts floating in air, bats, fantastical forest lined with eerily glowing poisonous mushrooms.\n\nColors are red, white, black, light purple, night blue. Atmosphere mixing moonlight and warm pumpkin light, cute and slightly eerie Halloween vibe.\n\nFull body composition not cutting off from head to shoes. Standing pose seen from diagonal front where mushroom-shaped skirt appears as protagonist. Knees slightly bent, mischievous happy smile. Natural human anatomy, beautiful facial features, delicate eyes, high-definition shoujo manga style illustration."
+      "title": "Halloween Poison Mushroom Princess Prompt",
+      "description": "A comprehensive prompt for generating a cute adult female character in a poison mushroom dress for Halloween, compatible with ChatGPT Image 2.",
+      "prompt": "A cute adult female wearing a Halloween poison mushroom dress.\n\nThe costume is a red mini dress. The skirt is shaped like a large, round poison mushroom cap with white polka dots scattered across it. The edge of the cap is slightly wavy, decorated with white lace frills and black ribbons.\n\nThe upper body features a white collared bustier with a small black ribbon at the chest. No cape. No hat on the head. A small red poison mushroom pin in her hair.\n\nThe background is a Halloween night with a shining full moon. Silhouettes of an old castle, glowing jack-o'-lanterns, cute ghosts floating in the air, bats, and a fantastical forest lined with eerily glowing poison mushrooms.\n\nColors are red, white, black, light purple, and night blue. Moonlight mixes with the warm light of pumpkins, creating a cute yet slightly eerie Halloween atmosphere.\n\nFull body composition from head to shoes without cropping. Standing pose from a diagonal front angle where the poison mushroom-shaped skirt is the main focus. Knees slightly bent, with a mischievous and happy smile. Natural human anatomy, beautiful facial features, delicate eyes, high-definition shoujo manga style illustration."
     },
     "zh": {
       "title": "万圣节蘑菇公主提示词",
@@ -56138,6 +56150,114 @@
       "title": "雪中漫步的和服女子",
       "description": "用于生成怀旧电影感肖像的提示词，描绘一位身着和服与羊毛大衣的女子伫立在雪中的传统日本小巷。",
       "prompt": "一张竖构图的电影感全身镜头，画面中一位年轻的亚洲女性站在一条狭窄的积雪小巷里，两侧是传统的木质町屋（machiya）。场景设定在轻柔飘雪之时，营造出充满怀旧气息的昭和复古氛围。这位女性深色头发向后梳成低马尾，身穿一件印有米色菊花图案的红色和服，外搭一件厚实的棕色格纹羊毛羽织外套。她脚穿白色足袋袜与草履凉鞋。她的姿态若有所思；站在湿滑泥泞的鹅卵石小径上，向左上方凝望飘落的雪花，一只手轻触下巴，另一只手轻轻攥着外套的衣领。光线柔和漫射，呈现出典型冬日阴天的质感，整体色调以低饱和度的大地色系为主。画面带有胶片颗粒质感，边缘伴有轻微漏光效果，进一步烘托出浓郁的复古美学。"
+    }
+  },
+  "37111": {
+    "en": {
+      "title": "Casual Café Fashion Portrait Prompt",
+      "description": "A prompt for creating an ultra-realistic full-body fashion portrait of a woman in casual streetwear outside a café, suitable for GPT Image 2.",
+      "prompt": "Create an ultra-realistic, high-quality full-body fashion portrait of a beautiful young woman standing casually outside a modern café. She has long, dark, naturally wavy hair with soft curtain bangs, delicate facial features, natural makeup, and a gentle, subtle smile. She is wearing an oversized white sweatshirt featuring a blue butterfly graphic, loose-fitting wide-leg blue denim jeans with large decorative denim bows and pearl details on both knees, blue-and-white sneakers, a small cream shoulder bag, a delicate silver necklace, and a wristwatch. Her hands are casually placed in her front pockets, with a relaxed, natural pose and a slight head tilt.\nBackground: elegant modern café with black-framed glass windows, warm pendant lights, wooden benches, green plants, and subtle white flowers. Soft natural daylight, realistic skin texture, authentic denim fabric, accurate clothing details, balanced exposure, professional street-style fashion photography, 50mm lens, full-body composition, sharp focus, natural proportions, photorealistic, high resolution. Preserve the overall outfit, pose, and composition of the reference image."
+    },
+    "zh": {
+      "title": "休闲咖啡馆时尚人像提示词",
+      "description": "适用于 GPT Image 2 的提示词，用于创作一位身着休闲街头服饰、在咖啡馆外拍摄的超写实全身时尚人像。",
+      "prompt": "生成一张超写实、高品质的全身时尚人像：一位年轻貌美的女子随性地站在一家现代咖啡馆外。她留着一头深色长卷发，搭配柔和的法式八字刘海，五官精致，妆容清透自然，嘴角挂着温柔浅淡的微笑。她身穿一件印有蓝色蝴蝶图案的 Oversize 白色卫衣，搭配宽松的阔腿蓝色牛仔裤，双膝处饰有夸张的牛仔布蝴蝶结与珍珠细节；脚踩蓝白配色运动鞋，斜挎一只奶油色小包，佩戴精致的银色项链和腕表。双手随意插在前侧口袋中，姿态松弛自然，头部微微倾斜。\n\n背景：格调优雅的现代咖啡馆，配有黑色边框玻璃窗、暖光吊灯、木质长椅、绿植以及素雅的白花。柔和的自然日光，逼真的皮肤质感，真实的牛仔面料纹理，精准的服饰细节，曝光均衡，专业街头时尚摄影风格，50mm 镜头，全身构图，焦点清晰锐利，比例自然协调，照片级真实感，高分辨率。请保留参考图的整体穿搭、姿势与构图。"
+    }
+  },
+  "37112": {
+    "en": {
+      "title": "Autumn Check Style Outfit Prompt",
+      "description": "A prompt for generating an anime-style girl wearing a red and black gingham outfit with a denim jacket, optimized for ChatGPT Image 2.",
+      "prompt": "cute, red and black gingham short pants, black knit vest, denim jacket, cool autumn styling, stylish pose, detailed check, high quality, masterpiece"
+    },
+    "zh": {
+      "title": "秋季检查风格穿搭提示词",
+      "description": "用于生成动漫风格女孩的提示词，角色身穿红黑格纹服装搭配牛仔夹克，专为 ChatGPT Image 2 优化。",
+      "prompt": "可爱，红黑格纹短裤，黑色针织背心，牛仔外套，清爽秋季穿搭，时尚姿势，精细格纹，高质量，杰作"
+    }
+  },
+  "37113": {
+    "en": {
+      "title": "Retro Red and Black Outfit Prompt",
+      "description": "A prompt for generating a cute, feminine, slightly retro casual outfit with a red shirt and black stockings using ChatGPT Image 2.",
+      "prompt": "**OUTFIT:**\nA red shirt paired with black stockings.\nStyled with simple coordinating accessories.\nCute, feminine, slightly retro casual fashion aesthetic.\nRed and black color scheme with soft pink accents.\nNo hat.\nNo headwear.\nNo extra decorations."
+    },
+    "zh": {
+      "title": "复古红黑穿搭提示词",
+      "description": "使用 ChatGPT Image 2 生成可爱、女性化且略带复古风格的休闲穿搭提示词，包含红色衬衫和黑色长筒袜。",
+      "prompt": "**穿搭：**\n红色上衣搭配黑色丝袜。\n配以简约的呼应款配饰进行点缀。\n甜美、柔美，略带复古感的休闲时尚风格。\n红黑配色为主，辅以柔和的粉色点缀。\n不戴帽子。\n无任何头部装饰。\n无多余装饰物。"
+    }
+  },
+  "37114": {
+    "en": {
+      "title": "Halloween Bandage Corset Dress Prompt",
+      "description": "A detailed prompt for generating a girl in a Halloween-themed bandage corset dress using ChatGPT Image 2.",
+      "prompt": "A girl wearing a Halloween bandage corset dress.\nThe costume is a beige mini dress. Clean white bandages are wrapped around the torso like a corset in an orderly fashion. The color of the dress is visible through the gaps in the bandages, and the knot forms a ribbon at the waist. The same bandage wraps once around the arm as an accent. Face is visible.\nNo cape. No hat on head. Colors are beige, white, light purple, and night blue.\nFull body view from the front where the bandage corset is clearly visible. A slightly troubled but cute expression."
+    },
+    "zh": {
+      "title": "万圣节绷带紧身胸衣连衣裙提示词",
+      "description": "使用 ChatGPT Image 2 生成身着万圣节主题绷带紧身胸衣连衣裙的女孩的详细提示词。",
+      "prompt": "一个穿着万圣节绷带束腰连衣裙的女孩。\n这套服装是一条米色迷你裙。洁白的绷带像束腰一样整齐地缠绕在躯干上。透过绷带的缝隙可以看到裙子的颜色，打结处在腰间形成了一条丝带。同样的绷带在手臂上缠绕一圈作为点缀。面部清晰可见。\n没有披风。头上没有戴帽子。配色为米色、白色、浅紫色和夜蓝色。\n正面全身视角，绷带束腰清晰可见。表情略带苦恼，但十分可爱。"
+    }
+  },
+  "37115": {
+    "en": {
+      "title": "GPT Image 2 Night Street Photography Prompt",
+      "description": "A prompt for generating a realistic night street portrait of an East Asian woman using iPhone flash photography style, with wet streets and neon reflections.",
+      "prompt": "1:1 square composition, single independent frame, ultra-realistic Korean-style adult female night city street photography, real iPhone night direct flash photography, wet city streets, neon light reflections, cool and sweet lifestyle portrait style, real and natural, no obvious AI feel.\n\n[Character Face]\n\nA beautiful adult East Asian woman aged 23-25, refined small oval face, soft narrowed jawline, small round chin, clear cold-white skin, faint peach pink blush.\n\nBright and clear dark brown almond eyes, natural double eyelids, delicate lying silkworms, slender natural eyelashes, light pink-brown eyeshadow, soft slightly upturned eyeliner.\n\nSlender straight nose bridge, small nose tip, soft full rose pink moist lips.\n\nCorners of mouth slightly upturned, showing natural gentle closed-mouth smile, eyes looking directly at camera, expression sweet and relaxed.\n\nRetain real skin micro-texture and natural feature proportions.\n\n[Hairstyle - Core]\n\nExtremely dense and fluffy waist-length dark chestnut brown hair, with natural chocolate brown luster.\n\nTop of head fluffy, roots have real airiness, natural center part, thin irregular figure-eight bangs on forehead.\n\nSides of long hair draped naturally over shoulders and chest, with soft loose large waves.\n\nRight side hair especially voluminous, rich layers, few strands blown by night breeze.\n\nHair illuminated by frontal flash, showing delicate dark brown highlights, retaining real independent strands.\n\n[Clothing & Jewelry]\n\nWearing a pure white fitted short-sleeve T-shirt, simple round neckline, soft cotton elastic fabric, naturally fitting body contours.\n\nVery thin silver clavicle chain around neck, with small crystal pendant in center.\n\nSimple thin silver bracelet on one wrist.\n\nOverall outfit fresh, daily, simple.\n\n[Character Pose - Key]\n\nNaturally standing on zebra crossing of night city street, body facing camera, shoulders relaxed.\n\nHead slightly tilted, chin naturally tucked, looking gently at camera.\n\nLeft hand raised beside cheek, index finger and thumb naturally curved forming half-heart C-shape gesture, other fingers relaxed.\n\nOther hand gently holding a bunch of long hair on right chest, fingers naturally curved.\n\nHands staggered, pose natural and playful, like a casual photo taken by a friend on the street.\n\n[Background Environment]\n\nBusy Chinese city commercial street at night, just after rain.\n\nDark wet asphalt road, wide white zebra crossing extending into distance behind character.\n\nConvenience stores, restaurants, shops on both sides, with red, blue, white, yellow glowing signs.\n\nCars driving in distance, blurred headlights, streetlights, few pedestrians.\n\nWet asphalt reflects large amounts of red, blue, warm yellow neon lights, forming real irregular colorful reflections.\n\nBackground has urban night spatial depth, car lights slightly motion blurred, shop lights soft bokeh.\n\n[Lens & Lighting]\n\n1:1 square composition, equivalent 28-35mm phone main camera lens, eye-level shooting.\n\nCharacter centered, framing from small whitespace above head to waist, fully showing face, hands, long hair, and white T-shirt.\n\nUsing night phone direct flash or soft frontal LED fill light, face bright and clear, cold white skin contrasting sharply with dark night scene.\n\nFlash illuminating forehead, nose bridge, cheeks, long hair, and hands, producing real soft close-range fill light effect.\n\nBackground retains natural urban neon ambient light, wet street showing red-blue light reflections.\n\nCharacter sharp and clear, background with slight real motion blur and night digital noise.\n\nReal phone night shot texture, natural exposure, retaining skin texture, delicate hair strands, and environmental lighting/shadows.\n\n[Negative Prompt]\n\nAnime, illustration, 3D render, CG fake face, plastic skin, excessive smoothing, exaggerated influencer face, abnormally large eyes, overly pointed chin, misaligned features, wig, matted hair, stiff curls, extra fingers, deformed palms, wrong heart gesture, twisted wrists, extra arms, abnormal body proportions, T-shirt clipping, deformed zebra crossing, distorted vehicles, oversaturated neon lights, excessive background blur, strong HDR, over-sharpening, commercial studio texture, obvious AI generation traces, watermark, logo, collage."
+    },
+    "zh": {
+      "title": "GPT Image 2 夜景街头摄影提示词",
+      "description": "一个用于生成写实夜景街头人像的提示词，展现东亚女性形象，采用 iPhone 闪光灯摄影风格，包含湿润街道和霓虹灯反射效果。",
+      "prompt": "1:1 正方形构图，单幅独立画面，超写实韩系成年女性夜晚街头摄影，真实 iPhone 夜景直闪拍摄，湿润的城市街道，霓虹灯倒影，清冷甜美生活感人像风格，真实自然，无明显 AI 感。\n\n[人物面部]\n\n23-25 岁东亚成年美女，精致小巧的鹅蛋脸，下颌线柔和收窄，下巴圆润小巧，皮肤清透冷白，透着淡淡的蜜桃粉腮红。\n\n明亮清澈的深棕色杏仁眼，天然双眼皮，精致的卧蚕，纤长自然的睫毛，浅粉棕色眼影，眼线柔和微挑。\n\n鼻梁纤细挺直，鼻头小巧，双唇饱满柔软、呈玫瑰粉色且水润。\n\n嘴角微微上扬，呈现自然温柔的闭嘴微笑，双眼直视镜头，神态甜美放松。\n\n保留真实的皮肤微肌理与自然五官比例。\n\n[发型 - 核心]\n\n极其浓密蓬松的及腰深栗棕色长发，带有自然的巧克力棕光泽。\n\n头顶蓬松，发根有真实的空气感，自然中分，额头前是轻薄不规则的八字刘海。\n\n两侧长发自然垂落于肩部和胸前，带有柔和松散的大波浪卷度。\n\n右侧头发尤为丰盈，层次丰富，几缕发丝被夜风吹起。\n\n头发在正面闪光灯照射下，呈现出细腻的深棕色高光，保留真实的根根分明感。\n\n[服装与首饰]\n\n身穿纯白色修身短袖 T 恤，简约圆领，柔软的棉质弹力面料，自然贴合身体曲线。\n\n颈部佩戴极细的银色锁骨链，中间点缀一颗小水晶吊坠。\n\n一侧手腕戴着简约的细银手镯。\n\n整体穿搭清新、日常、简约。\n\n[人物姿态 - 关键]\n\n自然站立在夜晚城市街道的斑马线上，身体正对镜头，双肩放松。\n\n头部微侧，下巴自然微收，温柔地注视镜头。\n\n左手抬起放在脸颊旁，食指与拇指自然弯曲比出半个心形的 C 字手势，其余手指放松。\n\n另一只手轻轻拢着右胸前的长发，手指自然弯曲。\n\n双手错落有致，姿态自然俏皮，就像朋友在街头随手抓拍的照片。\n\n[背景环境]\n\n夜晚繁华的中国城市商业街，雨后初歇。\n\n深色湿润的柏油路面，宽阔的白色斑马线从人物身后向远处延伸。\n\n街道两旁是便利店、餐厅和商铺，亮着红、蓝、白、黄色的发光招牌。\n\n远处有车辆驶过，车灯模糊，路灯亮起，零星几个行人。\n\n湿润的柏油路倒映出大量红、蓝、暖黄色的霓虹灯光，形成真实不规则的彩色光斑。\n\n背景具有都市夜景的空间纵深感，车灯带有轻微动态模糊，店铺灯光呈现柔和的光斑虚化。\n\n[镜头与光影]\n\n1:1 正方形构图，等效 28-35mm 手机主摄镜头，平视角度拍摄。\n\n人物居中，取景范围从头顶留白处到腰部，完整展现面部、双手、长发和白色 T 恤。\n\n采用夜晚手机直闪或柔和的正面 LED 补光，面部明亮清晰，冷白皮与暗黑夜景形成强烈对比。\n\n闪光灯照亮额头、鼻梁、脸颊、长发和双手，产生真实柔和的近距离补光效果。\n\n背景保留自然的城市霓虹环境光，湿润的街道泛着红蓝光影。\n\n人物锐利清晰，背景带有轻微的真实动态模糊和夜景数码噪点。\n\n真实的手机夜景质感，曝光自然，保留皮肤纹理、细腻的发丝以及环境光影。\n\n[反向提示词]\n\n动漫，插画，3D 渲染，CG 假脸，塑料皮肤，过度磨皮，夸张网红脸，眼睛过大，下巴过尖，五官错位，假发，头发结块，僵硬卷发，多余手指，手掌畸形，错误比心手势，手腕扭曲，多余手臂，身体比例异常，T 恤穿模，斑马线变形，车辆扭曲，霓虹灯过饱和，背景过度虚化，强 HDR，过度锐化，商业影棚质感，明显 AI 生成痕迹，水印，logo，拼贴画。"
+    }
+  },
+  "37116": {
+    "en": {
+      "title": "Woman at Boat Race Venue",
+      "description": "A realistic portrait of a fashionable woman holding a ticket at a boat race track.",
+      "prompt": "A photorealistic medium shot of a beautiful young Japanese woman standing at a boat race venue. She has long, wavy brown hair with bangs and is wearing a stylish grey-blue wrap dress that features a pleated skirt and a tie belt at the waist. She wears black knee-high leather boots and carries a small black quilted handbag with a gold chain strap on her left shoulder. She is smiling gently at the camera while holding up a white ticket in her right hand that reads 'BOAT RACE' and some Japanese text. Her left arm rests casually on a metal railing. The background shows a sunny outdoor scene with a large digital screen displaying 'BOAT RACE' and race results, water with speedboats racing in the distance, and blurred spectators in the stands. A blue sign on the railing to her left reads 'A-3'."
+    },
+    "zh": {
+      "title": "赛艇比赛场地中的女性",
+      "description": "一位时尚女性手持门票站在赛艇比赛场地的逼真肖像。",
+      "prompt": "一张照片级真实的中景图像，画面中一位美丽的日本年轻女子站在赛艇比赛场地。她留着带刘海的棕色长波浪卷发，身穿一件时尚的灰蓝色裹身裙，裙摆带有褶皱设计，腰间系着一条绑带。她脚踩黑色及膝皮靴，左肩挎着一个带金色链条肩带的黑色菱格纹小手袋。她右手举着一张白色门票，上面写着“BOAT RACE”和一些日文，同时对着镜头温柔微笑。她的左臂随意地搭在金属栏杆上。背景是阳光明媚的户外场景，一块大屏幕上显示着“BOAT RACE”和比赛成绩，远处的水面上有赛艇正在竞速，看台上的观众则呈现虚化效果。她左侧的栏杆上有一块蓝色标牌，上面写着“A-3”。"
+    }
+  },
+  "37117": {
+    "en": {
+      "title": "Halloween Scythe Girl",
+      "description": "An anime-style illustration of a girl holding a scythe in front of a haunted castle and full moon, surrounded by jack-o'-lanterns.",
+      "prompt": "A full-body anime illustration of a beautiful young woman with long, flowing white hair that transitions into teal tips. She has pale skin and striking blue eyes. She is wearing an oversized black hoodie with a distressed hem over a white collared shirt, paired with thigh-high black stockings and chunky white sneakers. In her right hand, she holds a massive, ornate scythe with a curved blade featuring intricate gothic designs. The background depicts a spooky Halloween scene: a large, glowing full moon dominates the sky behind her, silhouetted against a dark, gothic castle or cathedral with lit windows. Several carved jack-o'-lantern pumpkins are scattered on the ground in the foreground, casting an orange glow. Bats fly in the distance. The overall atmosphere is eerie yet stylish, with high contrast between the cool moonlight and warm pumpkin light."
+    },
+    "zh": {
+      "title": "万圣节镰刀少女",
+      "description": "一幅动漫风格的插画，描绘了一位手持镰刀的少女站在闹鬼城堡和满月之前，周围环绕着南瓜灯。",
+      "prompt": "一幅全身动漫插画，画中是一位美丽的年轻女子，一头飘逸的白色长发，发尾渐变为青绿色。她肌肤白皙，湛蓝的双眸格外引人注目。她身穿一件下摆做旧处理的黑色超大号连帽衫，内搭白色翻领衬衫，下身搭配黑色过膝长袜和厚底白色运动鞋。右手握着一把巨大的华丽镰刀，弯曲的刀刃上雕刻着繁复精致的哥特式纹样。背景是一幅阴森的万圣节场景：一轮硕大的发光满月高悬在她身后的夜空中，月光映衬出一座漆黑的哥特式城堡或大教堂的剪影，建筑内的窗户透出点点光亮。前景的地面上散落着几个雕好的南瓜灯，散发着橙色的光芒。远处有几只蝙蝠在飞舞。整体氛围诡异却不失格调，清冷的月光与温暖的南瓜灯光形成了强烈的对比。"
+    }
+  },
+  "37118": {
+    "en": {
+      "title": "Showa Retro Pink Kitchen Portrait",
+      "description": "Generates a nostalgic 1980s-style portrait of a girl in a red gingham dress inside a vintage pink kitchen.",
+      "prompt": "A vertical 3:4 portrait photograph in a nostalgic Showa-era retro aesthetic, featuring a young East Asian woman standing in the center of a vintage pink kitchen. She has short dark hair with bangs and wears a thin red headband. Her expression is neutral and slightly melancholic, looking directly at the camera. She is wearing a red-and-white gingham (checkered) sundress with spaghetti straps, a white lace trim along the square neckline, and two horizontal tiers of white lace detailing on the skirt. The dress falls to her mid-calves. She wears white ankle socks and stands on a checkered floor with alternating beige and reddish-brown tiles.\n\nThe background is a cluttered, warm-toned kitchen dominated by faded pink cabinetry. To the left, there is a vintage stove with a cream-colored kettle and a pot with floral patterns; hanging above are a red checkered cloth and a decorative plate. To the right, on the counter, sits a strawberry shortcake on a white pedestal stand and a glass bowl filled with red apples. A pink-framed mirror reflects part of the room. The lighting is soft and diffuse, characteristic of indoor flash photography from the 1980s, creating a grainy film texture with slightly washed-out colors and high nostalgia."
+    },
+    "zh": {
+      "title": "昭和复古粉色厨房人像",
+      "description": "生成一张充满怀旧感的 1980 年代风格人像，描绘了一位身穿红色格子连衣裙的女孩站在复古粉色厨房中。",
+      "prompt": "一张 3:4 竖构图人像照片，充满昭和复古怀旧美学。画面中央站着一位年轻的东亚女性，身处一间老式粉色厨房中。她留着带刘海的深色短发，头戴一条细红色发带。神情平静，略带忧郁，直视镜头。她身穿一件红白格纹细吊带背心裙，方领处饰有白色蕾丝花边，裙摆有两层横向白色蕾丝细节，裙长及小腿中部。脚穿白色短袜，站在米色与红棕色交替的格子地砖上。\n\n背景是一间色调温暖、物品略显杂乱的厨房，褪色的粉色橱柜占据主导。左侧是一台老式炉灶，上面放着奶油色水壶和一只花卉图案的锅；上方悬挂着一块红格纹布和一个装饰盘。右侧台面上摆着一个白色高脚托盘盛放的草莓蛋糕，以及一个装满红苹果的透明玻璃碗。一面粉色边框镜子映出房间的一角。光线柔和漫射，带有 20 世纪 80 年代室内闪光灯摄影的典型特征，呈现出胶片颗粒质感，色彩略微泛白褪色，怀旧氛围浓郁。"
+    }
+  },
+  "37119": {
+    "en": {
+      "title": "Giant Robot Delivering Disaster Relief",
+      "description": "A giant industrial robot unloading supplies for disaster relief alongside police officers.",
+      "prompt": "A photorealistic, vertical shot of a massive, bipedal heavy-duty robot standing in an outdoor urban plaza. The robot is constructed from complex industrial machinery, featuring exposed gears, hydraulic pistons, and segmented armor plating in white and dark grey. It has a head unit with multiple camera lenses and red warning lights on its shoulders. The text \"警視庁 MPD\" (Metropolitan Police Department) is printed on the chest plates and arm segments. The robot's large mechanical hands are holding a wooden pallet stacked with cardboard boxes labeled \"災害支援物資\" (Disaster Relief Supplies). Beside the robot is a flatbed truck loaded with cases of bottled water. Three police officers wearing dark blue uniforms with \"警視庁 MPD\" on their backs and helmets are present: one officer stands near the truck bed directing operations, while two others stand on the ground in the foreground. In the background, there is a large concrete building with Japanese signage reading \"区立総合体育館\" (Ward General Gymnasium), along with white tents also marked \"災害支援\" (Disaster Support). Stacks of green pipes or barriers are visible in the bottom right corner."
+    },
+    "zh": {
+      "title": "巨型机器人执行救灾任务",
+      "description": "一台大型工业机器人正在与警察一起卸载救灾物资。",
+      "prompt": "一张照片级写实的竖构图照片，画面中一台巨大的双足重型机器人伫立在户外城市广场上。机器人由复杂的工业机械结构打造而成，裸露的齿轮、液压活塞以及白深灰相间的分段式装甲板清晰可见。它的头部单元装有多个摄像头镜头，肩部配有红色警示灯。胸甲与手臂部件上印有“警視庁 MPD”（东京警视厅）字样。机器人硕大的机械双手正托举着一个木质托盘，上面堆叠着标有“災害支援物資”（灾害救援物资）字样的纸箱。机器人身旁停着一辆平板卡车，车上满载着一箱箱瓶装水。现场有三名警察，他们头戴头盔，身穿深蓝色制服，背后印有“警視庁 MPD”标识：一名警员站在卡车车厢旁指挥作业，另外两名则站在前景处的地面上。背景中是一栋大型混凝土建筑，带有日文标牌“区立総合体育館”（区立综合体育馆），旁边还搭有几顶同样标有“災害支援”（灾害支援）字样的白色帐篷。画面右下角可以看到成堆的绿色管道或隔离栏。"
     }
   }
 }
