@@ -55048,6 +55048,18 @@
       "prompt": "古风女性角色，竖版 9:16，超写实摄影，85mm 人像镜头，8K 超高清。照片级真实人像：一位 20 岁的东亚年轻女子，化着中国唐代古风妆容，胸部以上的半身特写，展现面部、颈部、肩部及上半身，相机与眼睛平齐，头部向右倾斜 6 度，下巴微抬，透着一股不服输的倔强。\n\n[眼部] 杏仁眼——标准的杏眼形状，眼尾自然拉长，内眼角圆润。上眼睑微微绷紧，下眼睑紧实，目光锐利，直视镜头，带着少女特有的倔强。浓密纤长的根根睫毛清晰自然，捕捉到来自上方的轮廓光。眼神中透着娇嗔的怒意——不是空洞地凝视，而是与观者产生互动，仿佛在抗议某种不公，又带着一丝期待，像是在等对方道歉。\n\n[骨相结构] 面部与下颌线从颧骨到下巴过渡流畅，明暗交界柔和清晰。眼窝、鼻梁两侧和下唇下方保留自然的微弱阴影，塑造出立体的骨相结构，边缘不生硬。双唇明显前撅，下唇微微上抬，嘴角向下撇，下巴抬起，形成一副倔强的神情。皮肤质感自然，鼻翼和脸颊可见细腻毛孔，细微的绒毛在轮廓光下若隐若现，因强忍情绪，颧骨处泛起一抹红晕，额头和鼻尖带有自然的皮脂光泽。\n\n[身形与服饰] 身材高挑纤细、体态曼妙，双肩削瘦，手臂修长，姿态优雅。身穿中国传统汉服——一套浅黄色襦裙，交领上衣采用浅黄色真丝缎面，绣有白色花卉图案。衣襟在胸前交叉，形成优雅的 V 字领口，凸显精致的锁骨与柔美的肩线。上身剪裁得体，工艺考究，丝绸面料自然垂坠，褶皱灵动飘逸，腰间系着白色丝带，打成装饰性蝴蝶结。多层半透明白纱从肩部垂落，在光线映照下营造出空灵飘逸的动态感。丝绸面料随身体姿态呈现自然褶皱，尽显女性的柔美优雅与青春活力。\n\n[姿势] 直立站姿的半身像，重心自然落在左侧，双臂交叉抱于胸前（防御姿态），双手搭在对侧大臂上，手指微微用力，宽大的衣袖自然下垂，受力侧的肩膀放松但略带紧绷，头部微向右倾，下巴抬起。整个姿势既有年轻女孩赌气时的倔强与恼怒，又惹人怜爱。\n\n[配饰与细节] 乌黑秀发梳成双环髻，几缕细碎散发垂落两侧，右侧插着一支金琥珀发簪，珍珠流苏垂坠而下。额头点着金色花钿，眼影为淡金色，棕色眼线细长（眼尾自然拉长），珊瑚粉色口红（哑光质地），脸颊扫着自然腮红（暗示并非真的动怒），双唇紧撅（明显突出），眉头微蹙（增添几分怒意）。\n\n[光影] 左上方射入的黄金时刻侧光（色温 3500K）精准勾勒出面部、颈部和手臂的曲线，在颧骨和鼻梁处留下温暖的高光。头顶的发丝轮廓光营造出光晕效果。自然的光线衰减增强了画面纵深感，丝绸面料呈现方向性反光，曲面处高光明亮，层叠的褶皱间阴影深邃，半透明的薄纱层散发出空灵的光泽。皮肤质感极其逼真，毛孔清晰可见，带有轻微瑕疵，毫无塑料感。背景为虚化的中国传统建筑或园林景致，光斑柔和，暖色调与人物光影相呼应。宽高比 9:16，高分辨率，专业摄影风格。"
     }
   },
+  "36690": {
+    "en": {
+      "title": "Warhammer Scene: Rylanor vs Fulgrim",
+      "description": "An AI-generated image depicting Ancient Rylanor facing Fulgrim beneath Istvaan III, created with GPT Image 2.",
+      "prompt": "Ancient Rylanor, the Ancient of Rites of the Emperor's Children, makes his final stand deep beneath the burned world of Istvaan III. He is facing Fulgrim, the Daemon Primarch of Slaanesh.\nHe stands defiant, battered and half-buried in the ruins of a subterranean vault, his surviving honourable soul burning with hatred for the Traitors. Around him lie the bones of his long-dead loyalist brothers."
+    },
+    "zh": {
+      "title": "Warhammer 场景：Rylanor 对决 Fulgrim",
+      "description": "一张由 GPT Image 2 生成的 AI 图像，描绘了古代 Rylanor 在 Istvaan III 之下与 Fulgrim 对峙的场景。",
+      "prompt": "古老的莱兰诺——帝皇之子军团的仪典古战士，在伊斯特凡 III 号那颗焦土世界的地底深处，迎来了他的最后一战。他面对的，正是色孽的恶魔原体福格瑞姆。\n\n他遍体鳞伤，半个身躯被掩埋在地下墓穴的废墟之中，却依然傲然挺立；残存的高洁灵魂里，燃烧着对叛徒的刻骨仇恨。在他四周，散落着早已逝去的忠诚派兄弟们的累累白骨。"
+    }
+  },
   "36691": {
     "en": {
       "title": "Monochrome Elegant Autumn Outfit",
@@ -56214,9 +56226,9 @@
   },
   "37116": {
     "en": {
-      "title": "Woman at Boat Race Venue",
-      "description": "A realistic portrait of a fashionable woman holding a ticket at a boat race track.",
-      "prompt": "A photorealistic medium shot of a beautiful young Japanese woman standing at a boat race venue. She has long, wavy brown hair with bangs and is wearing a stylish grey-blue wrap dress that features a pleated skirt and a tie belt at the waist. She wears black knee-high leather boots and carries a small black quilted handbag with a gold chain strap on her left shoulder. She is smiling gently at the camera while holding up a white ticket in her right hand that reads 'BOAT RACE' and some Japanese text. Her left arm rests casually on a metal railing. The background shows a sunny outdoor scene with a large digital screen displaying 'BOAT RACE' and race results, water with speedboats racing in the distance, and blurred spectators in the stands. A blue sign on the railing to her left reads 'A-3'."
+      "title": "Woman holding ticket at boat race",
+      "description": "A realistic image of a fashionable woman holding a race ticket at a busy boat racing venue.",
+      "prompt": "A photorealistic medium shot of a young East Asian woman standing at an outdoor boat race venue. She has long, wavy brown hair with bangs and is wearing a stylish blue-grey wrap dress with a pleated skirt and a tie belt. She holds up a small white ticket in her right hand that reads \"BOAT RACE\" and Japanese text. Her left arm rests on a metal railing. She wears black knee-high leather boots and carries a small black quilted handbag with a chain strap. In the background, there is a large digital scoreboard displaying \"BOAT RACE\" and race information, along with several motorboats racing on the water. The setting is bright and sunny, capturing the atmosphere of a lively day at the races."
     },
     "zh": {
       "title": "赛艇比赛场地中的女性",
@@ -56258,6 +56270,90 @@
       "title": "巨型机器人执行救灾任务",
       "description": "一台大型工业机器人正在与警察一起卸载救灾物资。",
       "prompt": "一张照片级写实的竖构图照片，画面中一台巨大的双足重型机器人伫立在户外城市广场上。机器人由复杂的工业机械结构打造而成，裸露的齿轮、液压活塞以及白深灰相间的分段式装甲板清晰可见。它的头部单元装有多个摄像头镜头，肩部配有红色警示灯。胸甲与手臂部件上印有“警視庁 MPD”（东京警视厅）字样。机器人硕大的机械双手正托举着一个木质托盘，上面堆叠着标有“災害支援物資”（灾害救援物资）字样的纸箱。机器人身旁停着一辆平板卡车，车上满载着一箱箱瓶装水。现场有三名警察，他们头戴头盔，身穿深蓝色制服，背后印有“警視庁 MPD”标识：一名警员站在卡车车厢旁指挥作业，另外两名则站在前景处的地面上。背景中是一栋大型混凝土建筑，带有日文标牌“区立総合体育館”（区立综合体育馆），旁边还搭有几顶同样标有“災害支援”（灾害支援）字样的白色帐篷。画面右下角可以看到成堆的绿色管道或隔离栏。"
+    }
+  },
+  "37161": {
+    "en": {
+      "title": "Olive Green Waxed Canvas Roll-Top Backpack",
+      "description": "Generates a realistic product shot of an olive green waxed canvas backpack with leather accents and brass hardware in a minimalist studio setting.",
+      "prompt": "A high-resolution product photograph of a dark olive green waxed canvas roll-top backpack. The bag features two vertical tan leather straps with square brass buckles on the front, and a horizontal zippered pocket below them with a brass zipper pull. A matching fabric grab handle is visible at the top center. The backpack sits upright on a light beige stone surface against a plain, textured cream-colored wall background. Soft, diffused daylight illuminates the scene from the left, casting gentle shadows to the right."
+    },
+    "zh": {
+      "title": "橄榄绿蜡帆布卷顶背包",
+      "description": "生成一张逼真的产品照片，展示一款带有皮革装饰和黄铜配件的橄榄绿蜡帆布背包，置于极简主义工作室环境中。",
+      "prompt": "一张高分辨率产品照片，展示了一款深橄榄绿色蜡帆布卷口双肩包。背包正面饰有两条垂直的棕褐色皮革绑带，搭配方形黄铜扣，下方设有一个横向拉链口袋，配有黄铜拉链头。顶部中央可见同材质的织物提手。背包直立放置于浅米色石材台面上，背景为素雅的奶油色纹理墙面。柔和的漫射自然光从左侧照亮整个画面，在右侧投下淡淡的阴影。"
+    }
+  },
+  "37162": {
+    "en": {
+      "title": "Retro American Cartoon Style Image Transformation",
+      "description": "A prompt for transforming an uploaded photo into a full-body illustration in the style of 1960s-1980s retro American cartoons, preserving the subject's identity and composition while applying rubber hose proportions and vintage animation aesthetics.",
+      "prompt": "Transform the exact uploaded image into a full body illustration designed in a 1960s–1980s retro American cartoon style. Preserve the exact subject, facial identity, hairstyle, clothing, accessories, colors, proportions, pose, body language, facial expression, camera angle, framing, composition, perspective, lighting, and every visible detail from the original image. Do not redesign, reinterpret, simplify, replace, or invent any elements. The uploaded image must remain instantly recognizable, changing only the artistic style.\n\nThe character should feature exaggerated rubber hose proportions, expressive body language, a slightly oversized head, simplified anatomy, elastic limbs, large classic oval cartoon eyes with simple black pupils, thin expressive eyebrows, rounded hands, clean geometric shapes, and a playful vintage personality while preserving the exact likeness, expression, and silhouette of the original subject.\n\nThe illustration features thick bold black outlines, flat solid colors, minimal cel-style shading, subtle vintage film grain texture, slightly desaturated tones like old animation cels, smooth hand-drawn 2D linework, simple color blocking, soft retro print texture, and a classic mid-century American animation aesthetic.\n\nPreserve the original background exactly as shown in the uploaded image unless otherwise specified.\n\nKeep the original composition, framing, perspective, and camera angle exactly the same. Full body should remain visible if it is visible in the original image. High resolution, clean illustration, no realism, no 3D rendering, no anime, no Pixar, no Disney, no modern cartoon style, only authentic 1960s–1980s American retro animation aesthetics."
+    },
+    "zh": {
+      "title": "复古美式卡通风格图像转换",
+      "description": "将上传的照片转换为 1960-1980 年代复古美式卡通风格全身插画的提示词，在保留人物身份和构图的同时，应用橡皮管动画比例和复古动画美学。",
+      "prompt": "将上传的图片原封不动地转化为全身插画，采用 20 世纪 60 至 80 年代美国复古卡通风格。必须完整保留原图中的主体、面部特征、发型、服装、配饰、色彩、比例、姿势、肢体语言、表情、拍摄角度、取景、构图、透视、光影以及所有可见细节。不得重新设计、主观演绎、简化、替换或凭空添加任何元素。上传的图片必须保持一眼可辨，仅改变艺术风格。\n\n角色应采用夸张的“橡皮管”（rubber hose）比例、富有表现力的肢体语言、略微偏大的头部、简化的身体结构、柔韧有弹性的四肢、带有简单黑色瞳孔的经典大椭圆卡通眼、纤细灵动的眉毛、圆润的双手和简洁的几何造型，并透出俏皮的复古气质；同时必须精准还原原图人物的样貌、神态与轮廓剪影。\n\n插画需具备粗重的黑色轮廓线、平涂纯色、极简的赛璐珞风格阴影、淡淡的复古胶片颗粒质感、类似老式动画赛璐珞片的轻微褪色色调、流畅的手绘 2D 线条、简单的色块处理、柔和的复古印刷肌理，整体呈现经典的 20 世纪中叶美国动画美学。\n\n除非另有说明，否则请完全按照上传图片中的原样保留背景。\n\n严格保持原有的构图、取景、透视与镜头角度不变。若原图中为全身像，则插画中也必须呈现完整的全身。高分辨率，画面干净利落；拒绝写实风、3D 渲染、日系动漫风、Pixar 风、Disney 风及现代卡通风，只保留纯正的 20 世纪 60 至 80 年代美国复古动画美学。"
+    }
+  },
+  "37163": {
+    "en": {
+      "title": "Whimsical Scrapbook Colored Pencil Illustration",
+      "description": "A prompt to transform an uploaded photograph into a cozy, whimsical hand-drawn colored pencil and crayon scrapbook illustration, preserving the original subjects and composition while adding decorative borders and vintage textures.",
+      "prompt": "Transform the uploaded photograph into a beautiful, cozy, whimsical HAND-DRAWN COLORED PENCIL & CRAYON SCRAPBOOK ILLUSTRATION.\n\nIMPORTANT — PRESERVE THE ORIGINAL PHOTO:\n\nFirst, carefully analyze the uploaded photograph. Identify the actual subjects, people, facial features, hairstyles, clothing, poses, expressions, accessories, objects, background and surroundings.\n\nRecreate the same photograph as a charming illustrated artwork. Preserve the original composition, recognizable facial characteristics, clothing details, body positions and interactions. Do not randomly replace or invent the main subjects.\n\nART STYLE:\n- Authentic hand-drawn colored pencil and wax crayon illustration.\n- Visible pencil strokes, grainy textures and imperfect sketch lines.\n- Soft watercolor-like coloring mixed with rich colored pencil shading.\n- Delicate cross-hatching and layered hand-drawn details.\n- Slightly rough, nostalgic children's storybook illustration aesthetic.\n- Warm, dreamy, cozy and whimsical atmosphere.\n- Cream-colored textured paper background.\n- Soft lighting with warm highlights and gentle shadows.\n- Rich yet slightly faded vintage colors.\n\nSCRAPBOOK DECORATION:\n\nSurround the main illustration with a playful handmade scrapbook border featuring:\n- Pink and red glittery heart stickers.\n- Small colorful gemstones and pearl beads.\n- Golden stars and crystal decorations.\n- Tiny hand-drawn flowers and butterflies.\n- Cute doodles, smiley faces and little stars.\n- Small decorative leaves and seasonal elements.\n- Colorful hand-drawn outlines and playful symbols.\n\nMake the decorations look like real physical stickers and tiny embellishments placed around the edges of the artwork.\n\nCOMPOSITION:\n\nKeep the main subject as the central focus. Recreate the original environment using detailed colored pencil textures. Add decorative scrapbook elements mainly around the outer borders without covering important parts of the photograph.\n\nThe artwork should feel like a page from a beautifully decorated personal diary or a nostalgic illustrated memory journal.\n\nFINAL AESTHETIC:\n\nExtremely detailed, adorable, cozy, nostalgic, artistic, soft vintage scrapbook aesthetic, handmade illustration, visible crayon grain, colored pencil texture, delicate imperfections, warm pastel tones, charming decorative embellishments, premium illustrated journal page.\n\nIMPORTANT: The result must look like a completely hand-drawn illustration, NOT a photograph with a cartoon filter. Avoid photorealism, 3D rendering, plastic textures and overly smooth digital painting."
+    },
+    "zh": {
+      "title": "异想天开的剪贴簿彩色铅笔插图",
+      "description": "此提示可将上传的照片转化为温馨、异想天开的手绘彩色铅笔和蜡笔剪贴簿插图，在保留原始主体和构图的同时，添加装饰性边框和复古纹理。",
+      "prompt": "将上传的照片转化为一幅温馨可爱、充满奇思妙想的手绘彩色铅笔与蜡笔拼贴画插画。\n\n重要提示 —— 保留原照片内容：\n\n首先，请仔细分析上传的照片。准确识别画面中的主体、人物、面部特征、发型、服装、姿势、表情、配饰、物品以及背景环境。\n\n将这张照片重新创作成一幅迷人的插画作品。请保留原有的构图、可辨识的面部特征、服装细节、身体姿态及人物互动关系。切勿随意替换或凭空捏造主要拍摄对象。\n\n艺术风格：\n- 纯正的手绘彩色铅笔与蜡笔插画风格。\n- 清晰可见的铅笔笔触、颗粒质感以及略带随性的手绘线条。\n- 柔和的水彩般上色效果，搭配浓郁的彩铅阴影。\n- 细腻的交叉排线与层层叠加的手绘细节。\n- 略带粗糙感、充满怀旧气息的儿童绘本插画美学。\n- 温暖、梦幻、惬意且充满童趣的氛围。\n- 奶油色纹理纸张背景。\n- 柔和的光线，带有温暖的亮部与轻柔的阴影。\n- 浓郁却略带褪色感的复古色调。\n\n拼贴装饰：\n\n在主插画四周点缀俏皮的手工拼贴画边框，包含以下元素：\n- 粉色与红色的闪粉爱心贴纸。\n- 小巧的彩色宝石与珍珠串珠。\n- 金色星星与水晶装饰。\n- 精致的手绘小花与蝴蝶。\n- 可爱的涂鸦、笑脸和小星星。\n- 小巧的装饰叶片与应季元素。\n- 多彩的手绘轮廓线与俏皮的符号。\n\n让这些装饰看起来就像真实贴在画作边缘的实体贴纸和微小饰物。\n\n构图：\n\n保持主体位于视觉中心。运用细腻的彩铅质感还原原始场景。装饰性拼贴元素主要分布在画面外缘，切勿遮挡照片中的重要部分。\n\n整幅作品应呈现出精美个人日记本的一页，或是怀旧图文回忆录般的视觉效果。\n\n最终美学效果：\n\n极致细腻、可爱温馨、怀旧文艺、柔和复古的拼贴画美学，纯手工插画质感，清晰可见的蜡笔颗粒与彩铅肌理，自然的手绘瑕疵美，温暖的柔和色调，迷人的装饰点缀，高品质的插画日记页面。\n\n重要提示：最终效果必须呈现为纯手绘插画，而非套用卡通滤镜的照片。请避免照片级写实、3D 渲染、塑料质感以及过度平滑的数字绘画效果。"
+    }
+  },
+  "37164": {
+    "en": {
+      "title": "Halloween Robot at Tokyo Gym",
+      "description": "A giant industrial police robot decorated with Halloween costumes and garlands stands outside a Japanese gymnasium during a festival.",
+      "prompt": "A photorealistic, vertical full-body shot of a massive, bipedal humanoid robot standing outdoors in front of a modern Japanese municipal sports hall. The robot is constructed from heavy-duty industrial machinery, featuring segmented white and black armor plating, exposed hydraulic pistons, and complex mechanical joints. Its head is a rectangular sensor array with multiple camera lenses and glowing red emergency lights on the shoulders. The robot is decorated for Halloween: it wears a flowing orange cape patterned with black bats and jack-o'-lanterns, and its body is draped with garlands of purple tinsel, small plastic pumpkins, and triangular bunting flags. Several chest plates are labeled with the text \"警視庁\" (Metropolitan Police Department) and \"MPD\".\n\nIn the foreground, two police officers wearing dark blue uniforms, tactical vests, and helmets stand with their backs to the viewer; their vests also bear the text \"警視庁 MPD\". To the right, a crowd of civilians includes a woman taking a photo with her smartphone and a child dressed in an orange witch costume with a pointed hat. The background features a large concrete building with glass windows and prominent signage reading \"区立総合体育館\" (Ward General Gymnasium). A tall vertical banner hangs on the right side of the building, displaying a cartoon pumpkin and the text \"ハロウィン スポーツ フェスティバル\" (Halloween Sports Festival). The scene is lit by bright, natural daylight under a clear blue sky."
+    },
+    "zh": {
+      "title": "东京健身房外的万圣节机器人",
+      "description": "一个巨大的工业警用机器人装饰着万圣节服装和花环，矗立在节日期间的日本体育馆外。",
+      "prompt": "一张照片级写实的竖版全身照，画面中是一台巨大的双足人形机器人，伫立在户外一座现代日本区立体育馆前。机器人由重型工业机械构造而成，配有黑白相间的分块装甲板、裸露的液压活塞以及复杂的机械关节。它的头部是一个矩形传感器阵列，带有多个摄像头镜头，肩部则装有发着红光的应急灯。机器人为万圣节做了精心装扮：身披一件飘逸的橙色斗篷，上面印满黑蝙蝠与南瓜灯的图案；机体上缠绕着紫色亮丝花环，点缀着小塑料南瓜和三角彩旗。胸前的几块装甲板上标有“警視庁”（东京都警察总部）和“MPD”字样。\n\n前景中，两名身穿深蓝色制服、战术背心和头盔的警察背对镜头站立，他们的背心上同样印有“警視庁 MPD”字样。右侧的人群里有几位市民，其中一名女性正用智能手机拍照，还有一个孩子穿着橙色女巫服、戴着尖顶帽。背景是一座带玻璃窗的大型混凝土建筑，醒目的标牌上写着“区立総合体育館”（区立综合体育馆）。建筑右侧悬挂着一幅高大的竖幅海报，上面画着卡通南瓜，并写有“ハロウィン スポーツ フェスティバル”（万圣节运动节）字样。整个场景沐浴在晴朗蓝天下的明亮自然日光之中。"
+    }
+  },
+  "37165": {
+    "en": {
+      "title": "Anime Bride in Ruffled Wedding Gown",
+      "description": "Generates a full-body anime-style portrait of an elegant bride wearing an elaborate ruffled wedding dress with floral details, suitable for character design or romantic illustration projects.",
+      "prompt": "A full-body anime-style illustration of a beautiful bride standing against a clean white background. She has dark brown hair styled in an elegant updo with loose bangs framing her face, adorned with a delicate floral headpiece and long dangling earrings. Her eyes are large and expressive with subtle makeup, and she wears a soft, confident expression. The wedding dress is highly detailed: a strapless sweetheart neckline bodice with intricate lace-up corset detailing and floral appliqués along the edges. Voluminous off-the-shoulder sleeves cascade into dramatic ruffled layers that flow down the sides of the gown. A high slit reveals one toned leg, decorated with trailing floral embellishments running down the skirt. The train spreads wide at the bottom with multiple tiers of flowing fabric. She wears pointed-toe heels with small bows at the ankles. A sheer veil drapes from behind her head over the shoulders and back. The art style features crisp linework, smooth cel-shading, and a refined color palette dominated by whites, creams, and warm skin tones."
+    },
+    "zh": {
+      "title": "身着荷叶边婚纱的动漫新娘",
+      "description": "生成一位优雅新娘的全身动漫风格肖像，她身穿带有花卉细节的精致荷叶边婚纱，适用于角色设计或浪漫插画项目。",
+      "prompt": "一幅全身动漫风格插画，描绘了一位美丽的新娘站在纯白背景前。她留着深棕色头发，梳成优雅的发髻，几缕松散的刘海轻拂脸庞，头上点缀着精致的花朵头饰，耳畔垂着长长的耳坠。她的双眼大而灵动，妆容淡雅，神情柔和又自信。婚纱细节极为丰富：抹胸心形领口上衣带有繁复的系带束腰设计，边缘装饰着立体花卉贴花。丰盈的落肩袖自然垂下，化作极具张力的层叠荷叶边，顺着裙身两侧倾泻而下。高开叉设计展露出她线条优美的一条腿，裙摆上蔓延着拖尾般的花卉装饰。长长的裙裾在底部铺展开来，由多层轻盈飘逸的面料堆叠而成。她脚踩尖头高跟鞋，脚踝处系着小巧的蝴蝶结。一层薄透的头纱从脑后垂落，轻轻披覆在双肩与背部。画风线条利落、赛璐璐上色平滑流畅，配色精致典雅，以白色、米色和温暖的肤色为主调。"
+    }
+  },
+  "37166": {
+    "en": {
+      "title": "Retro Halloween Vampire Girl",
+      "description": "A prompt for generating a nostalgic, Showa-era style photo of a girl in a vampire costume celebrating Halloween.",
+      "prompt": "A retro-style photograph of a young Asian woman with short, messy dark hair sitting in a vintage floral armchair. She is wearing a beige chunky knit sweater over a plaid skirt, paired with slouchy white socks and brown loafers. A black velvet vampire cape with red satin lining is draped over her shoulders, tied at the neck with a ribbon. Her hands are raised in a playful claw gesture, and she has small fangs visible. The background features Halloween decorations including orange jack-o'-lanterns and black bat cutouts on the wall, along with an old CRT television set to the left. The image has a nostalgic Showa-era aesthetic with warm lighting and film grain."
+    },
+    "zh": {
+      "title": "复古万圣节吸血鬼少女",
+      "description": "生成一张怀旧昭和风格照片的提示词，展示一位身着吸血鬼服装庆祝万圣节的少女。",
+      "prompt": "一张复古风格的照片，画面中是一位留着凌乱深色短发的年轻亚洲女性，她坐在一把复古碎花扶手椅上。她身穿米色粗棒针织毛衣搭配格纹半身裙，脚上是松垮的白袜和棕色乐福鞋。肩上披着一件红缎内衬的黑色天鹅绒吸血鬼斗篷，颈间用丝带系着。她双手举起，摆出俏皮的爪状姿势，隐约可见两颗小尖牙。背景是万圣节装饰，包括橙色的南瓜灯、墙上的黑色蝙蝠剪纸，左侧还有一台老式 CRT 电视机。整张照片散发着昭和时代的怀旧气息，光线温暖柔和，带有胶片颗粒质感。"
+    }
+  },
+  "37167": {
+    "en": {
+      "title": "Retro Showa Halloween Portrait",
+      "description": "A nostalgic, film-grain style photograph of a girl in a DIY paper pumpkin costume posing in a vintage Japanese alleyway at night.",
+      "prompt": "A vertical, medium-shot portrait of a young Asian woman with short dark hair and bangs, wearing a homemade Halloween costume consisting of an orange paper pumpkin hat and a matching jagged orange paper collar tied at the neck over a black long-sleeved dress. She is leaning slightly forward, making a peace sign with her right hand near her cheek, while holding a small brown paper bag decorated with a jack-o'-lantern and black cat in her left hand. The background is a narrow, dimly lit retro Japanese alleyway (yokocho) at night, featuring wooden storefronts, glowing lanterns, and blurred figures of other people walking away. On the left, there are hanging paper decorations including a jack-o'-lantern and a white ghost. On the right, a vertical banner reads 'おもちや' (Omo-cha). The image has a strong Showa-era retro aesthetic, characterized by warm, faded colors, visible film grain, scratches, dust spots, and soft focus typical of vintage instant photography."
+    },
+    "zh": {
+      "title": "复古昭和万圣节人像",
+      "description": "一张充满怀旧感的胶片颗粒风格照片，女孩身穿自制纸南瓜服装，在夜晚的日式复古小巷中摆姿势。",
+      "prompt": "一张竖版中景人像照片，画面中是一位留着黑色短发和齐刘海的年轻亚洲女性。她身穿自制的万圣节服装：头戴一顶橙色纸南瓜帽，颈部系着与之相配的锯齿状橙色纸领饰，内搭一件黑色长袖连衣裙。她身体微微前倾，右手在脸颊旁比出“V”字手势，左手则提着一个棕色小纸袋，袋子上装饰着南瓜灯和黑猫图案。背景是夜晚一条狭窄昏暗的日式复古小巷（横丁），两侧是木质门面的店铺、亮着暖光的灯笼，以及远处正渐渐走远、身影模糊的路人。画面左侧悬挂着纸质装饰物，包括一个南瓜灯和一个白色幽灵。右侧的竖幅招牌上写着“おもちや”（Omo-cha）。整张照片带有浓郁的昭和时代复古美学风格，色调温暖而略带褪色感，并呈现出老式即时成像摄影特有的明显胶片颗粒、划痕、灰尘斑点以及柔和的对焦效果。"
     }
   }
 }
