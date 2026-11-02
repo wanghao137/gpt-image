@@ -1,5 +1,31 @@
 [
   {
+    "id": "100349",
+    "title": "收藏级公仔十二人队列纵深行进3D渲染",
+    "category": "角色与人物",
+    "styles": [
+      "Character",
+      "3D"
+    ],
+    "scenes": [
+      "Commerce"
+    ],
+    "tags": [
+      "Illustration",
+      "Realistic",
+      "3D Render",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-11-03-case-100349-vinyl-toy-procession.jpg",
+    "imageAlt": "收藏级公仔十二人队列纵深行进3D渲染",
+    "prompt": "A detailed, collectible-style 3D render of a linear procession of twelve identical figures, viewed in a dynamic diagonal 3/4 perspective down the line.\n\nThe figures are arranged on a dark, gradient studio floor with a progressively shallower depth of field, making the furthest characters less detailed.\nSpecific Pose Sequence:\n\nThe procession must follow a distinct sequence of poses along the line:\nThe first and closest figure stands with arms at their sides.\n\nThe second figure stands with arms crossed over their chest.\n\nThe third figure stands with one hand raised in a salute or wave.\n\nThe subsequent receding figures doing different poses.\nLighting and Atmosphere:\n\nThe scene features dramatic, atmospheric backlighting from a powerful source behind the furthest characters, creating a bright halo and deep rim-lighting, combined with a strong, texturing haze or fog. Dramatic, focused front-side lighting illuminates the features of the nearest character. The background fades to complete shadow.\nFixed Elements:\n\nThe overall style is a high-end, textured, 3D vinyl toy aesthetic.\nCamera:\n\nLow-to-medium camera angle looking down the diagonal line.\nCamera & Framing Refinement (CRITICAL):\n\nShot with a close-range 28–35mm lens to introduce natural perspective compression without distortion.\n\nThe camera is positioned slightly below chest level of the first figure and very close to it, creating strong foreground dominance.\nThe first figure occupies approximately 65–75% of the frame height and must be tightly cropped at knee level. The feet of the first figure must NOT be visible.\n\nThe head of the first figure sits very close to the top edge of the frame with minimal breathing room. The figure should feel slightly too large for the frame, as if it cannot fully fit inside.\nSubsequent figures progressively reveal more of their full bodies as they recede into depth.\nThe diagonal line of figures must start large in the foreground (left side of frame) and recede tightly into the background (right side), with each figure overlapping slightly with the next.\n\nThe camera is not centered to the line. It is offset to the left, looking across the figures, not directly along them.\nSpacing between figures compresses progressively toward the background, enhancing depth and scale illusion.\n\nNo wide empty gaps between characters. The line must feel dense and continuous.\n2D to 3D Translation (ONLY if input is 2D artwork):\n\nIf the uploaded reference is 2D (illustration, anime, flat graphic, cel-shaded), convert it into a fully realized 3D cinematic form while preserving exact identity fidelity.\n• Maintain exact head shape, eye design, spacing, and proportions\n\n• Preserve original stylization, do NOT add realism that alters design language\n\n• Translate linework into subtle surface geometry or shading transitions\n\n• Keep original colors, expressed through physically believable materials\n\n• Convert flat shading into controlled cinematic light falloff\nThe result must feel physically real, not redesigned.\nar 1:1",
+    "promptPreview": "A detailed, collectible-style 3D render of a linear procession of twelve identical figures, viewed in a dynamic diagonal 3/4 perspective down the line. The figures are arranged on a dark, gradient studio floor with a pr…",
+    "source": "Community collected via @edizkan_",
+    "createdAt": "2026-11-02T20:03:54.583Z"
+  },
+  {
     "id": "100348",
     "title": "展览级中文文字隐喻概念海报",
     "category": "海报与排版",
