@@ -56382,8 +56382,8 @@
   },
   "37208": {
     "en": {
-      "title": "Watercolor Anime Fashion Illustration Prompt",
-      "description": "Transforms a photo into a cute hand-drawn watercolor anime-style fashion illustration while preserving the subject's features.",
+      "title": "Watercolor Anime Fashion Illustration from Photo",
+      "description": "Transforms an uploaded photo into a cute, hand-drawn watercolor anime-style fashion illustration. Preserves the subject's identity and outfit while adding sketch outlines, pastel tones, and doodle elements on a white background.",
       "prompt": "Transform the uploaded photograph into a cute, hand-drawn watercolor anime-inspired fashion illustration.\n\nIMPORTANT – PRESERVE THE ORIGINAL PHOTO:\nCarefully analyze the uploaded image and recreate the actual person, preserving their recognizable facial features, hairstyle, hair color, skin tone, body proportions, pose, outfit, accessories, and overall appearance. Do not randomly change their clothing or styling.\n\nART STYLE:\n- Cute Japanese fashion illustration meets soft anime aesthetic.\n- Hand-painted watercolor and colored pencil texture.\n- Delicate, slightly imperfect dark-brown sketch outlines.\n- Soft watercolor washes with visible paper texture.\n- Beautifully detailed hair with flowing, layered strands.\n- Simplified cute facial features, closed or gently expressive eyes.\n- Subtle rosy cheeks and a tiny natural smile.\n- Soft shading with warm, cozy pastel tones.\n- Oversized yet natural fashion proportions.\n- Detailed clothing folds, stitching, patterns and textures.\n\nDECORATIVE ELEMENTS:\nAdd cute hand-drawn doodles around the character, such as red outlined hearts, yellow stars, tiny sparkles, and playful accent lines. Keep them balanced and naturally distributed.\n\nBACKGROUND & COMPOSITION:\n- Pure clean white background.\n- Full-body character illustration.\n- Character positioned in the center.\n- Plenty of white negative space.\n- Vertical 2:3 composition.\n- No background scenery or unnecessary objects.\n\nFINAL AESTHETIC:\nA charming Pinterest-style Korean/Japanese fashion sticker illustration, resembling traditional watercolor sketchbook artwork. Soft, cozy, adorable, aesthetic, expressive and beautifully hand-crafted.\n\nAVOID: Photorealism, 3D rendering, glossy digital painting, overly sharp vector outlines, excessive details, distorted anatomy, extra fingers, text, watermarks or logos."
     },
     "zh": {
@@ -56418,8 +56418,8 @@
   },
   "37211": {
     "en": {
-      "title": "Autumn Street Date Outfit",
-      "description": "Prompt for generating a cute and elegant anime-style girl in autumn street fashion with camel jacket and wine-red skirt.",
+      "title": "Autumn Street Fashion Anime Prompt",
+      "description": "A prompt for generating an anime-style image of a girl in camel jacket and wine-red skirt on an autumn street.",
       "prompt": "cute and elegant, gentle smile, wavy hair. \nAutumn street background. \n\nShe wears a camel short jacket with soft shearling collar over a Bordeaux knit sweater, matching wine-red pleated skirt, black ankle boots. \nCute and warm date coordinate. Magazine editorial, detailed textures, warm sunlight"
     },
     "zh": {
@@ -56450,6 +56450,126 @@
       "title": "神社前的昭和复古人像",
       "description": "一张充满怀旧感的胶片颗粒人像，描绘了一位身穿碎花连衣裙的年轻女子伫立于日本神社前，营造出昭和时代特有的忧郁氛围。",
       "prompt": "一幅东亚年轻女性的竖版人像，她留着深色齐刘海短发波波头，站在户外一座传统日本神社前。她身穿一件灰蓝色复古风碎花中长连衣裙，配有彼得潘领、短袖和纽扣式上衣设计。她的神情忧郁而疏离，目光微微偏离镜头，双手轻轻交握于腰前。背景是朱红色的神社建筑（鸟居与塔顶）和石灯笼，呈现出虚化的失焦效果。她脚下的地面可见人行横道的白色斑马线。整幅画面带有浓郁的昭和时代复古美学风格，以温暖褪色的胶片色调为特征，颗粒感明显，边缘有漏光效果，并带有老式即时摄影特有的划痕质感。"
+    }
+  },
+  "37235": {
+    "en": {
+      "title": "Ultra-realistic Fashion Photography Prompt",
+      "description": "A prompt for generating an ultra-realistic full-body fashion photograph of a woman in traditional attire within a luxury studio setting.",
+      "prompt": "Ultra-realistic full-body fashion photography of a beautiful young woman with long, silky black hair, soft face-framing bangs, a delicate pink floral hair clip, natural makeup, and a gentle smile. She is wearing a luxurious black Pakistani shalwar kameez with elegant champagne-gold floral embroidery on the neckline, sleeves, and hem, paired with matching wide-leg trousers and a sheer black dupatta decorated with delicate golden embroidery. She stands gracefully with her hands gently clasped in front, head slightly tilted, looking directly at the camera. Warm beige luxury studio interior, white and yellow roses in a glass vase, decorative hat and black handbag on a golden stand, soft natural daylight, realistic skin texture, detailed fabric, professional clothing brand photoshoot, natural body proportions, sharp focus, photorealistic, high resolution, full-body vertical composition."
+    },
+    "zh": {
+      "title": "超写实时尚摄影提示词",
+      "description": "用于生成一位身着传统服饰的女性在奢华影棚环境中的全身超写实时尚照片的提示词。",
+      "prompt": "超写实全身时尚摄影，画面中是一位美丽的年轻女性，拥有一头柔顺的黑色长发、修饰脸型的柔和刘海，佩戴精致的粉色花朵发夹，妆容自然，面带温柔微笑。她身穿奢华的黑色巴基斯坦 Shalwar Kameez 传统服饰，领口、袖口与下摆点缀着优雅的香槟金花卉刺绣，搭配同色系阔腿裤，以及饰有精致金色刺绣的黑色透明 Dupatta 披肩。她姿态优雅地站立，双手在身前轻轻交握，头部微侧，直视镜头。背景为暖米色调的奢华摄影棚内景，玻璃花瓶中插着白玫瑰与黄玫瑰，金色置物架上摆放着装饰礼帽与黑色手提包。柔和的自然日光，逼真的皮肤质感，细腻的面料纹理，专业服装品牌大片拍摄，身体比例自然，焦点清晰锐利，照片级真实感，高分辨率，全身竖版构图。"
+    }
+  },
+  "37236": {
+    "en": {
+      "title": "Vintage Christmas Storybook Illustration Prompt",
+      "description": "A prompt to transform a reference image into a vintage, hand-drawn Christmas illustration with a cozy retro storybook aesthetic.",
+      "prompt": "Transform the uploaded reference image into a beautiful vintage Christmas-themed hand-drawn illustration with a cozy retro storybook aesthetic. Preserve the original image’s exact composition, camera angle, framing, subject identity, facial features, hairstyle, pose, clothing, proportions, background elements, and object placement. Do not change or rearrange anything.\n\nUse a nostalgic 2D illustrated style inspired by vintage Christmas greeting cards, traditional colored-pencil drawings, and textured children’s storybooks. Create visible hand-drawn pencil strokes, rough crayon shading, delicate sketch outlines, subtle watercolor textures, and a beautiful grainy recycled-paper texture.\n\nUse a warm festive color palette featuring deep forest green, warm chocolate brown, muted mustard yellow, burnt orange, cream, beige, dusty red, and soft golden tones. Add a charming handmade appearance with slightly imperfect outlines, soft blush on the cheeks, expressive eyes, and gentle shading.\n\nMaintain all Christmas elements, including decorated Christmas trees, golden stars, sparkling lights, wrapped presents, winter scenery, cozy clothing, and festive decorations wherever they appear in the reference. Create a warm, nostalgic holiday atmosphere with a charming vintage illustration finish.\n\nOverall aesthetic: Retro Christmas storybook illustration, vintage paper texture, hand-drawn colored-pencil art, nostalgic holiday postcard, cozy winter atmosphere, whimsical 2D artwork, detailed pencil strokes, warm earthy colors, soft imperfect edges, high-quality artistic finish.\n\nAspect ratio: 9:16 vertical."
+    },
+    "zh": {
+      "title": "复古圣诞绘本插画提示词",
+      "description": "一个用于将参考图像转换为复古手绘圣诞插画的提示词，营造温馨怀旧的绘本美学风格。",
+      "prompt": "将上传的参考图转化为精美的复古圣诞主题手绘插画，呈现温馨怀旧的童话绘本美学。请严格保留原图的构图、镜头角度、取景范围、人物身份、面部特征、发型、姿势、服装、比例、背景元素及物品摆放位置，切勿改动或重新排列任何细节。\n\n采用怀旧 2D 插画风格，灵感源自复古圣诞贺卡、传统彩色铅笔画与带有肌理感的儿童绘本。画面需呈现清晰可见的手绘铅笔笔触、粗粝的蜡笔涂色、细腻的素描线条、淡雅的水彩质感，以及迷人的再生纸颗粒纹理。\n\n使用温暖的节日配色方案，包括深森林绿、暖巧克力棕、柔和芥末黄、焦橙色、奶油白、米色、灰红色和柔金色调。通过略带拙趣的不规则轮廓线、脸颊上淡淡的红晕、灵动传神的双眼以及轻柔的明暗过渡，营造出迷人的手工绘制感。\n\n完整保留参考图中出现的所有圣诞元素，包括装饰好的圣诞树、金色星星、闪烁的彩灯、包装精美的礼物、冬日雪景、保暖的冬装以及各类节日装饰。最终呈现出温暖怀旧的节日氛围与精致的复古插画效果。\n\n整体美学：复古圣诞绘本插画、旧纸张肌理、手绘彩铅艺术、怀旧节日明信片、温馨冬日氛围、充满奇思妙想的 2D 画作、细腻铅笔笔触、温暖大地色系、柔和不规则边缘、高品质艺术质感。\n\n宽高比：9:16 竖版。"
+    }
+  },
+  "37237": {
+    "en": {
+      "title": "Realistic Evening Promenade Portrait with Specific Outfit",
+      "description": "A prompt for generating a photorealistic portrait using an uploaded photo as the base. It strictly preserves facial features while applying specific clothing (black jumpsuit, beige trench jacket) and setting (evening promenade).",
+      "prompt": "Using my uploaded photo, create an extremely realistic atmospheric photograph on an evening promenade. Preserve my face strictly 1:1; do not change the facial features, shape of the eyes, nose, lips, face oval, or individual appearance. 100% likeness.\n\nClothing: a black fitted jumpsuit with long sleeves and a high, fully covered neckline. Over it, a short beige trench jacket with wide lapels, decorative shoulder epaulettes, a belt with a buckle, and straps on the cuffs."
+    },
+    "zh": {
+      "title": "特定着装下的写实傍晚散步人像",
+      "description": "一个用于生成写实人像的提示词，以上传的照片为基底。在严格保留面部特征的同时，应用特定的服装（黑色连体裤、米色风衣外套）和场景（傍晚散步）。",
+      "prompt": "使用我上传的照片，生成一张极具真实氛围感的傍晚海滨步道写真。请严格 1:1 保留我的面部，不要改变五官、眼型、鼻型、唇形、脸型轮廓或个人外貌特征，确保 100% 还原本人样貌。\n\n服装：黑色修身长袖连体衣，高领设计，颈部完全包裹。外搭一件米色短款风衣外套，配有宽大翻领、装饰性肩章、带扣腰带以及袖口束带。"
+    }
+  },
+  "37240": {
+    "en": {
+      "title": "Elegant White Fashion Portrait with Fedora",
+      "description": "A detailed prompt for a high-resolution close-up portrait of a woman wearing a white fedora, silk blouse, and feather bolero. Focuses on soft golden lighting and photorealistic fashion aesthetics.",
+      "prompt": "A high-resolution, close-up portrait of a woman with long, dark, wavy hair and warm brown eyes, wearing a stylish white wide-brim fedora hat with a satin band. She is dressed in an elegant white silk blouse featuring a bow tie collar under a fluffy white feather bolero jacket. The lighting is soft and golden, catching the highlights in her hair and casting a gentle glow on her face, against a clean, neutral-toned background. Photorealistic, high-end fashion photography style."
+    },
+    "zh": {
+      "title": "优雅白色时尚人像与软呢帽",
+      "description": "这是一份详细的高分辨率女性特写人像提示词，画面中女子佩戴白色软呢帽，身着丝绸衬衫和羽毛短外套。重点在于柔和的金色光线与逼真的时尚美学效果。",
+      "prompt": "一张高分辨率的女性特写肖像：她留着深色长波浪卷发，拥有一双温暖的棕色眼眸，头戴一顶配有缎带的时尚白色宽檐礼帽。她身穿一件优雅的白色丝绸衬衫，领口系着蝴蝶结，外搭一件蓬松的白色羽毛短款外套。光线柔和而温暖，泛着金色的光泽，勾勒出秀发的高光，并在她的脸庞上洒下温柔的光晕；背景干净简洁，色调中性。整体呈现照片级真实质感，尽显高端时尚摄影风格。"
+    }
+  },
+  "37241": {
+    "en": {
+      "title": "GPT Image Futuristic Dress City Portrait",
+      "description": "A prompt for generating a hyper-realistic portrait of an East Asian woman wearing a futuristic haute couture dress against a modern city street background, emphasizing fashion magazine quality.",
+      "prompt": "Subject: An adult East Asian woman, young and beautiful, with flowing long hair, delicate facial features, and exquisite makeup. Standing naturally, body slightly turned, facing the camera, with an elegant and charming posture.\nClothing Design: Wearing a highly futuristic haute couture gown, randomly paired with vibrant high-end color schemes, metallic satin, transparent tulle, three-dimensional organza, crystals, pearls, gemstone embroidery, asymmetric shoulders, three-dimensional flowers, layered skirts, and luxurious shawls. Asymmetric shoulders and multi-layered flowing skirts. The dress features an elegant irregular high slit design, showcasing slender leg lines. Overall gorgeous, elegant, and avant-garde.\nBackground Scene: Everyday modern city street scene, glass curtain wall commercial buildings, fashion shops, urban sidewalks, roadside greenery, and distant pedestrians. Naturally integrated into the real urban environment, presenting a visual contrast between high fashion and daily street scenes.\nComposition & Photography: Vertical full-body composition, subject centered, fully framed from head to shoes, dress skirt completely presented. Natural daylight, soft light and shadow, background moderately blurred, subject clear and prominent.\nPhotography Style: Hyper-realistic live-action photography, cinematic lighting, realistic and delicate skin texture, refined clothing texture, vivid and saturated colors, 8K HD quality, fashion magazine editorial effect."
+    },
+    "zh": {
+      "title": "GPT Image 未来感礼服都市人像",
+      "description": "一个用于生成超写实肖像的提示词，画面中一位东亚女性身着未来感高级定制礼服，背景为现代城市街道，强调时尚杂志级别的质感。",
+      "prompt": "主体：一位年轻的东亚成年女性，容貌姣好，长发飘逸，五官精致，妆容细腻。站姿自然舒展，身体微侧，面朝镜头，姿态优雅迷人。\n服装设计：身着极具未来感的高定礼服，大胆混搭明艳的高级配色，融合金属缎面、透明薄纱、立体欧根纱、水晶、珍珠与宝石刺绣等元素，搭配不对称肩部设计、立体花朵装饰、层叠裙摆及奢华披肩。不对称单肩剪裁配合多层垂坠流动的裙摆。裙身采用优雅的不规则高开叉设计，尽显修长腿部线条。整体造型华丽、典雅且前卫。\n背景场景：日常现代都市街景，玻璃幕墙商业楼宇、时尚店铺、城市人行道、路边绿植以及远处的行人。人物自然融入真实的城市环境之中，呈现出高级时装与日常街头之间的视觉张力。\n构图与摄影：竖版全身构图，人物居中，从头到脚完整入镜，礼服裙摆全貌清晰呈现。自然日光照明，光影柔和，背景适度虚化，主体清晰突出。\n摄影风格：超写实真人摄影，电影级布光，皮肤质感真实细腻，服装材质纹理考究，色彩鲜活饱满，8K 高清画质，时尚杂志大片效果。"
+    }
+  },
+  "37242": {
+    "en": {
+      "title": "Anime Autumn Date Outfit Prompt",
+      "description": "A prompt for generating an anime-style illustration of a cute young woman wearing a red coat and cream knit dress under autumn trees.",
+      "prompt": "cute young woman, natural makeup, wavy hair, standing under beautiful autumn trees.\n\nShe wears a bright red structured short coat with a defined waist over a cream soft knit dress with subtle lace details, black pointed boots, and carries a small beige handbag.\n\nBold yet cute 2026 autumn date look.\n\nBeautiful anime illustration, delicate linework, soft coloring, detailed fabric textures, elegant fashion styling, warm autumn lighting, harmonious colors, charming atmosphere, stylish composition, masterpiece, best quality"
+    },
+    "zh": {
+      "title": "动漫秋日约会穿搭提示词",
+      "description": "用于生成动漫风格插画的提示词，描绘一位身穿红色外套和奶油色针织连衣裙的可爱年轻女性，置身于秋日树下的场景中。",
+      "prompt": "可爱年轻女性，自然妆容，波浪卷发，伫立在美丽的秋日树下。\n\n她身穿一件亮红色收腰短款廓形外套，内搭奶油色柔软针织连衣裙，裙身点缀精致蕾丝细节，脚踩黑色尖头靴，手提米色小手袋。\n\n大胆又可爱的 2026 秋季约会穿搭。\n\n精美动漫插画，细腻线条，柔和上色，面料纹理细节丰富，优雅时尚造型，温暖秋日光线，色彩和谐，氛围迷人，构图时尚，杰作，最高画质"
+    }
+  },
+  "37243": {
+    "en": {
+      "title": "GPT Image Korean Style Portrait",
+      "description": "Detailed prompt for generating a realistic Korean-style indoor portrait of a young woman.",
+      "prompt": "[Overall Style]\n9:16 vertical, single independent scene, ultra-realistic Korean-style adult female indoor lifestyle photo, cool and gentle airy feeling, low-saturation cream pink and cold blue-gray tones, soft natural window light, slight film soft focus, real camera photography texture.\n\n[Facial Features]\nA beautiful adult East Asian woman aged 23-25, exquisite small oval face, soft smooth jawline, small rounded chin, clear cold white porcelain skin, faint peach pink blush.\nBright clear dark gray-brown almond eyes, natural double eyelids, delicate aegyo-sal, slender natural eyelashes, light pink-brown eyeshadow, softly lifted eyeliner.\nSlender straight nose bridge, small nose tip, soft full rose bean paste pink moist lips.\nLips naturally closed, expression gentle and cool, with slight laziness, eyes quietly looking directly at the lens, preserving real skin micro-texture.\n\n[Hair]\nThick fluffy jet-black waist-length long hair, natural deep black tea color gloss, top of head has real airy feel.\nNatural center part, forehead has light irregular figure-eight broken bangs, a few fine hairs lightly brushing across forehead and cheeks.\nLong hair naturally draped over shoulders and chest, overall smooth, ends have loose large arc curls, preserving real individual strands and natural fluffiness.\n\n[Clothing & Jewelry]\nWearing light cherry blossom pink thin strap fitted short top, soft cotton fabric, simple shallow round neck.\nOuter layer cream white loose knit cardigan, front naturally open, sleeves loosely falling to upper arms, revealing natural shoulder neck and collarbone.\nWearing small silver hoop earrings and delicate silver thin bracelet.\n\n[Pose]\nPerson sitting at bedroom window vanity table, body slightly turned towards camera, shoulders naturally relaxed.\nHead gently tilted, chin slightly tucked, eyes looking directly at camera.\nBoth hands naturally raised to chest, one hand lightly holding long hair in front of shoulder, other hand gently arranging hair ends.\nPosture gentle and relaxed, hand structures accurate, movements natural.\n\n[Background Environment]\nModern simple light gray-white bedroom, bright large window on left side of frame, windowsill holds a bouquet of light pink and cream white flowers.\nRight side of frame is white vanity table, surface holds makeup brushes, powder cake, skincare products and some cosmetics.\nLarge circular mirror hangs above vanity, faintly reflecting person's back and jet-black long hair.\nBackground has real life atmosphere, overall clean, soft, natural.\n\n[Lens & Lighting]\n9:16 vertical, equivalent 35-50mm lens, eye-level shot, person centered, half-body composition from head to waist area.\nSoft cold white natural window light enters from left side of frame, face bright and clear, skin appears naturally cold white.\nHair has delicate dark brown reflections, window edge and light background slightly highlight blooming.\nOverall low contrast cold blue-gray color grading, soft shadows, slight film grain and natural optical soft focus.\nPreserve real skin texture, fine hair strands, natural fabric wrinkles and real spatial perspective, avoid excessive smoothing and obvious AI generation traces.\n\n[Negative Prompts]\nAnime, illustration, 3D rendering, CG fake face, plastic skin, excessive smoothing, exaggerated influencer face, abnormally large eyes, overly sharp chin, facial feature misalignment, wig, matted hair, deformed fingers, extra fingers, incorrect hand structure, abnormal body proportions, clothing clipping errors, deformed reflection in mirror, incorrect mirror reflection, cosmetics blending, severe overexposure, strong HDR, excessive sharpening, commercial studio lighting, obvious AI feel, text, watermark, LOGO, collage."
+    },
+    "zh": {
+      "title": "GPT Image 韩式人像",
+      "description": "生成年轻女性写实韩式室内人像的详细提示词。",
+      "prompt": "[整体风格]\n9:16 竖版，单一独立场景，超写实韩式成年女性室内生活照，清冷温柔的空气感，低饱和奶油粉与冷蓝灰色调，柔和自然窗光，轻微胶片柔焦，真实相机摄影质感。\n\n[面部特征]\n一位 23-25 岁的漂亮东亚成年女性，精致小巧的鹅蛋脸，下颌线柔和流畅，下巴圆润小巧，清透冷白瓷肌，泛着淡淡的蜜桃粉腮红。\n明亮清澈的深灰棕色杏眼，自然双眼皮，精致的卧蚕，纤长自然的睫毛，浅粉棕色眼影，眼线微微上挑。\n鼻梁纤细挺直，鼻头小巧，双唇饱满柔软，呈玫瑰豆沙粉色且水润有光泽。\n双唇自然闭合，神情温柔清冷，带着一丝慵懒感，目光安静地直视镜头，保留真实的皮肤微纹理。\n\n[发型发丝]\n浓密蓬松的乌黑及腰长发，呈现自然的深红茶色光泽，头顶具有真实的空气感。\n自然中分，额头前是轻薄不规则的八字碎刘海，几缕细碎发丝轻轻拂过额头与脸颊。\n长发自然垂落于肩头与胸前，整体顺滑，发尾带有松散的大弧度卷曲，保留真实的根根分明发丝与自然蓬松感。\n\n[服装与饰品]\n身穿浅樱花粉色细吊带修身短款上衣，柔软棉质面料，简约浅圆领设计。\n外搭一件奶油白色宽松针织开衫，前襟自然敞开，衣袖松垮滑落至上臂处，露出自然的肩颈线条与锁骨。\n佩戴小巧银色圈形耳环与精致的银色细手链。\n\n[姿势动作]\n人物坐在卧室窗边的梳妆台前，身体微微转向镜头，双肩自然放松。\n头部轻柔倾斜，下巴微收，双眼直视镜头。\n双手自然抬至胸前，一只手轻轻拢住肩前的长发，另一只手温柔地整理着发尾。\n姿态温柔松弛，手部结构准确，动作自然流畅。\n\n[背景环境]\n现代简约的浅灰白色卧室，画面左侧是明亮的大窗户，窗台上摆放着一束浅粉色与奶油白色的鲜花。\n画面右侧为白色梳妆台，台面上放着化妆刷、粉饼、护肤品及部分化妆品。\n梳妆台上方挂着一面大圆镜，隐约映照出人物的背影与乌黑的长发。\n背景充满真实的生活气息，整体干净、柔和、自然。\n\n[镜头与光影]\n9:16 竖版，等效 35-50mm 镜头，平视视角拍摄，人物居中，采用从头部到腰部的半身构图。\n柔和的冷白自然窗光从画面左侧照入，面部明亮清晰，肌肤呈现自然的冷白质感。\n头发带有细腻的深棕色反光，窗框边缘与浅色背景处有轻微的泛光溢出效果。\n整体采用低对比度的冷蓝灰调色，阴影柔和，带有轻微胶片颗粒感与自然的光学柔焦效果。\n保留真实的皮肤纹理、细碎发丝、自然的衣物褶皱以及真实的空间透视，避免过度磨皮与明显的 AI 生成痕迹。\n\n[负面提示词]\n动漫，插画，3D 渲染，CG 假脸，塑料感皮肤，过度磨皮，夸张网红脸，眼睛异常偏大，下巴过尖，五官错位，假发套，头发结块毛躁，手指畸形，多指，手部结构错误，身体比例失调，衣物穿模，镜中倒影变形，镜面反射错误，化妆品糊成一团，严重过曝，强 HDR，过度锐化，商业影棚打光，明显 AI 感，文字，水印，LOGO，拼贴画。"
+    }
+  },
+  "37244": {
+    "en": {
+      "title": "Cyberpunk Year 2099 Portrait",
+      "description": "A detailed prompt for GPT Image 2 to create a hyper-realistic cinematic portrait of a man in a futuristic cyberpunk city.",
+      "prompt": "Create an ultra-photorealistic cinematic portrait of a mysterious young man from the year 2099, standing in a futuristic cyberpunk city at night during heavy rain.\n\n**Character appearance:** A young adult man with messy, voluminous dark brown hair, subtle light stubble, realistic skin texture, a defined jawline, and round black eyeglasses. His eyes glow with an intense electric-blue light, with delicate blue cybernetic circuits embedded along his right temple and cheek. His expression is calm, serious, intelligent, and mysterious. Preserve natural human facial proportions and realistic facial details.\n\n**Outfit:** He wears a premium black futuristic trench coat with a tall structured collar, layered over a black high-neck technical outfit. The coat has intricate waterproof fabric textures, metallic fasteners, subtle electric-blue illuminated strips along the shoulders and lapels, and tiny water droplets covering the surface. His clothing looks practical, expensive, and technologically advanced without appearing like a full robot.\n\n**Environment:** A breathtaking futuristic megacity in the year 2099, with enormous glass skyscrapers, glowing cyan architectural lines, holographic billboards, floating digital advertisements, and flying vehicles suspended between buildings. A large luminous circular time portal glows behind the character on the right side of the frame. On the left, a futuristic holographic display features the number “2099” and the words “THE FUTURE IS NOW.” Wet streets reflect blue neon lights, while distant pedestrians carrying umbrellas move through the rainy atmosphere.\n\n**Lighting and atmosphere:** Deep cinematic blue and cyan color grading, subtle violet highlights, realistic reflections on wet surfaces, volumetric fog, atmospheric perspective, dramatic rim lighting around the character's hair and shoulders, and soft light reflecting from his glasses. Rain falls naturally across the scene, with individual droplets visible on his face, hair, and coat.\n\n**Composition and camera:** Vertical 9:16 portrait, medium close-up framing from the chest upward, character positioned in the center, slightly angled head, direct intense gaze toward the camera, shallow depth of field, 50mm lens, f/1.8 aperture, sharp facial focus, softly blurred futuristic background, cinematic perspective.\n\n**Visual quality:** Hyperrealistic human anatomy, natural facial asymmetry, detailed individual hair strands, realistic skin pores, physically accurate rain and reflections, high dynamic range, professional science-fiction cinematography, premium movie-poster aesthetic, sophisticated production design, extremely detailed textures, dramatic yet believable lighting, 8K-style detail.\n\n**Negative prompt:** cartoon, anime, illustration, plastic skin, artificial face, exaggerated muscles, oversized eyes, deformed glasses, asymmetrical pupils, distorted anatomy, extra fingers, duplicate people in foreground, blurry face, low resolut"
+    },
+    "zh": {
+      "title": "赛博朋克 2099 年肖像",
+      "description": "为 GPT Image 2 设计的详细提示词，用于创作一位身处未来赛博朋克都市中的男性超写实电影感肖像。",
+      "prompt": "生成一张超写实电影级人像，描绘一位来自 2099 年的神秘青年男子，他伫立在雨夜中的未来赛博朋克城市里。\n\n**人物外貌：** 一名年轻成年男性，深棕色头发蓬松凌乱，带有淡淡的浅色胡茬，皮肤纹理真实自然，下颌线轮廓分明，佩戴黑色圆框眼镜。他的双眼散发着强烈的电蓝色光芒，右侧太阳穴与脸颊处嵌有精细的蓝色机械电路纹路。神情平静、严肃、睿智且充满神秘感。保持自然的人类面部比例与逼真的面部细节。\n\n**服装造型：** 身穿一件高级黑色未来感风衣，配有挺括的高立领，内搭黑色高领机能服。风衣面料呈现复杂的防水纹理与金属扣件，肩部和翻领处点缀着隐约发光的电蓝色灯带，表面布满细密的水珠。整体着装兼具实用性、昂贵质感与前沿科技感，但不会显得像全身机械改造人。\n\n**环境背景：** 令人震撼的 2099 年未来超级都市，巨型玻璃摩天大楼林立，青蓝色的建筑线条闪烁发光，全息广告牌与悬浮数字广告交错，飞行器穿梭悬停于楼宇之间。画面右侧的人物身后，一个巨大的发光圆形时空传送门正散发着光芒。左侧的全息显示屏上浮现出数字“2099”以及“THE FUTURE IS NOW”字样。湿漉漉的街道倒映着蓝色霓虹灯光，远处撑着伞的行人在雨中穿行。\n\n**光影与氛围：** 深邃的电影级蓝青色调，辅以微妙的紫色高光；湿润表面呈现逼真反射，搭配体积雾与大气透视效果；人物发丝与肩部边缘勾勒出极具戏剧性的轮廓光，眼镜片上泛着柔和的反光。雨水自然地洒落整个场景，面部、头发和外套上清晰可见颗颗分明的水珠。\n\n**构图与镜头：** 9:16 竖版人像，胸部以上的中近景构图，人物居中，头部微微偏转，目光直视镜头、眼神锐利；浅景深，50mm 镜头，f/1.8 光圈，面部对焦锐利，未来感背景呈现柔和虚化，电影级透视视角。\n\n**视觉品质：** 超写实人体结构，自然的面部不对称特征，根根分明的发丝细节，真实的皮肤毛孔，符合物理规律的雨水与反射效果，高动态范围（HDR），专业科幻电影摄影质感，高端电影海报美学，精致的场景美术设计，极致细腻的材质纹理，富有戏剧张力又真实可信的光影，8K 级细节表现。\n\n**反向提示词：** cartoon, anime, illustration, plastic skin, artificial face, exaggerated muscles, oversized eyes, deformed glasses, asymmetrical pupils, distorted anatomy, extra fingers, duplicate people in foreground, blurry face, low resolut"
+    }
+  },
+  "37245": {
+    "en": {
+      "title": "Retro Japanese Tennis Girl",
+      "description": "Generates a nostalgic, film-style portrait of a young woman serving in tennis, evoking a vintage Japanese aesthetic.",
+      "prompt": "A vertical, full-body shot of a young woman playing tennis on an outdoor clay court under a clear blue sky. She is captured mid-serve, with her right arm extended high above her head releasing a yellow tennis ball, and her left hand holding a vintage wooden tennis racket back behind her shoulder. She wears a white pleated tennis skirt, a white short-sleeved polo shirt, white crew socks, and white sneakers. Her dark hair is tied in a ponytail, and she wears a white cap with a red brim. The image has a distinct retro aesthetic, resembling a scanned film photograph from the Showa era (1970s-80s Japan), characterized by warm color tones, slight grain, soft focus, and light leaks or scratches along the edges. In the background, there is a green chain-link fence, trees, and a utility pole."
+    },
+    "zh": {
+      "title": "复古日系网球少女",
+      "description": "生成一张充满怀旧感的胶片风格肖像，描绘一位正在发球的年轻女子，展现复古日式美学。",
+      "prompt": "一张竖版全身照，画面中一位年轻女子正在晴朗蓝天下的室外红土网球场上打网球。她正处于发球的瞬间：右臂高高举过头顶，刚刚抛出一颗黄色网球；左手则将一把复古木质网球拍向后引至肩后。她身穿白色百褶网球裙、白色短袖 Polo 衫，搭配白色中筒袜和白色运动鞋。深色头发扎成马尾，头戴一顶红色帽檐的白色棒球帽。整张图片带有鲜明的复古美学风格，宛如一张扫描自日本昭和时代（20 世纪 70 至 80 年代）的胶片照片，呈现出温暖的色调、轻微的颗粒感、柔和的对焦，以及边缘处的漏光或划痕效果。背景中可见一道绿色铁丝网围栏、树木和一根电线杆。"
+    }
+  },
+  "37246": {
+    "en": {
+      "title": "GPT Image Living Room Portrait",
+      "description": "Prompt for a realistic portrait of a woman in a modern living room setting.",
+      "prompt": "[Overall Style]\n1:1 square composition, single independent scene, ultra-realistic Korean-style adult female indoor portrait photography, cool and gentle temperament, cream white modern living room, soft natural fill light, low-saturation gray-blue tones, real camera texture, slight natural soft focus.\n\n[Facial Features]\nA beautiful adult East Asian woman aged 23-25, exquisite small oval face, soft smooth jawline, small rounded chin, clear cold white porcelain skin, light peach pink blush.\nBright clear dark brown almond eyes, natural double eyelids, delicate aegyo-sal, slender curled eyelashes, softly lifted eyeliner, slender straight nose bridge.\nSoft full rose bean paste pink moist lips, lips naturally slightly parted, corners of mouth slightly upturned, eyes gently looking directly at camera, preserving delicate real skin texture.\n\n[Hair - Core]\nExtremely thick smooth jet-black waist-length long hair, natural deep black tea color gloss, top of head fluffy, side-parted hairstyle, roots have real airy feel.\nLong hair mainly smooth straight, ends have slight natural arc, draped over shoulders and chest on both sides.\nFew fine broken strands hanging naturally on forehead, above right ear (viewer's right) wears delicate silver crystal flower hair clip, hair naturally gathered behind ear.\nReal individual strands, soft gloss, avoid wig texture.\n\n[Clothing & Jewelry]\nWearing light ice gray-blue off-shoulder fuzzy knit sweater, soft fluffy mohair material, delicate knit texture, loose asymmetric neckline naturally slipping down, exposing right shoulder (viewer's right) and collarbone.\nLong sleeve design, cuffs loose and soft, with natural wrinkles.\nWearing white pearl stud earrings and delicate silver crystal thin bracelet.\n\n[Pose]\nPerson sitting on cream white sofa, body slightly turned towards camera, upper body naturally leaning forward.\nHead gently tilted to left side of frame (viewer's left), chin slightly tucked.\nLeft hand (viewer's left) lightly supporting chin, fingers naturally curved; other hand raised beside shoulder, lightly holding a bundle of jet-black long hair.\nShoulders relaxed, posture natural and elegant, gaze cool and gentle.\n\n[Background & Lighting]\nModern simple cream white living room, behind is soft beige fabric sofa, light beige walls, upper right corner has soft warm yellow lamp light.\nSoft cold white frontal fill light illuminates face, skin appears clear cold white, background retains warm soft ambient light.\nEquivalent 50mm portrait lens, close-range half-body composition, person centered, face clear, background slightly naturally blurred.\nReal photography exposure, fine hair strands, clear eyes, soft skin texture, slight natural grain, no obvious AI generation feel.\n\n[Negative Prompts]\nAnime, illustration, 3D rendering, CG fake face, plastic skin, excessive smoothing, exaggerated large eyes, sharp chin, facial feature misalignment, wig, matted hair, stiff strands, extra fingers, palm deformity, shoulder dislocation, abnormal body proportions, incorrect off-shoulder structure, clothing clipping errors, excessive sharpening, strong HDR, severe overexposure, obvious AI feel, text, watermark, LOGO, collage."
+    },
+    "zh": {
+      "title": "GPT Image 客厅人像",
+      "description": "用于生成现代客厅环境中女性写实人像的提示词。",
+      "prompt": "[整体风格]\n1:1 正方形构图，单一独立场景，超写实韩式成年女性室内人像摄影，清冷温柔气质，奶油白现代客厅，柔和自然补光，低饱和灰蓝色调，真实相机质感，轻微自然柔焦。\n\n[面部特征]\n一位 23-25 岁的绝美东亚成年女性，精致小巧的鹅蛋脸，下颌线柔和流畅，下巴圆润小巧，清透冷白瓷肌，浅桃粉色腮红。\n明亮清澈的深棕色杏眼，自然双眼皮，精致的卧蚕，纤长卷翘的睫毛，微微上挑的眼线，鼻梁纤细挺直。\n饱满柔软的玫瑰豆沙粉水润双唇，嘴唇自然微张，嘴角微微上扬，眼神温柔直视镜头，保留细腻真实的皮肤纹理。\n\n[发型 - 核心]\n极浓密顺滑的乌黑及腰长发，呈现自然的深黑茶色光泽，头顶蓬松，侧分发型，发根具有真实的空气感。\n长发以顺直为主，发尾带有轻微的自然弧度，披散在双肩与胸前两侧。\n额前有几缕细碎发丝自然垂落，右耳（画面右侧）上方佩戴精致的银色水晶花朵发夹，头发自然别在耳后。\n发丝根根分明，光泽柔和，避免假发质感。\n\n[服装与配饰]\n身穿浅冰灰蓝色一字肩毛绒针织衫，柔软蓬松的马海毛材质，细腻的针织纹理，宽松的不对称领口自然滑落，露出右肩（画面右侧）与锁骨。\n长袖设计，袖口宽松柔软，带有自然褶皱。\n佩戴白色珍珠耳钉与精致的银色水晶细手链。\n\n[姿势]\n人物坐在奶油白沙发上，身体微微转向镜头，上半身自然前倾。\n头部轻轻偏向画面左侧（观众视角左侧），下巴微收。\n左手（画面左侧）轻托下巴，手指自然弯曲；另一只手抬至肩旁，轻轻握住一束乌黑长发。\n双肩放松，姿态自然优雅，目光清冷而温柔。\n\n[背景与光影]\n现代简约的奶油白客厅，身后是柔软的米色布艺沙发，浅米色墙面，右上角有柔和的暖黄色灯光。\n柔和的冷白正面补光照亮面部，肌肤呈现清透的冷白色，背景保留温暖柔和的环境光。\n等效 50mm 人像镜头，近距离半身构图，人物居中，面部清晰，背景轻微自然虚化。\n真实摄影曝光，发丝细腻，眼神清澈，肤质柔和，带有轻微自然颗粒感，无明显 AI 生成痕迹。\n\n[负面提示词]\n动漫，插画，3D 渲染，CG 假脸，塑料皮肤，过度磨皮，夸张大眼，尖锐下巴，五官错位，假发，头发结块，发丝僵硬，多余手指，手掌畸形，肩膀脱臼，身体比例失调，一字肩结构错误，衣物穿模，过度锐化，强 HDR，严重过曝，明显 AI 感，文字，水印，LOGO，拼贴画。"
     }
   }
 }
