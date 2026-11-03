@@ -56298,8 +56298,8 @@
   },
   "37163": {
     "en": {
-      "title": "Whimsical Scrapbook Colored Pencil Illustration",
-      "description": "A prompt to transform an uploaded photograph into a cozy, whimsical hand-drawn colored pencil and crayon scrapbook illustration, preserving the original subjects and composition while adding decorative borders and vintage textures.",
+      "title": "GPT Image 2 Hand-Drawn Scrapbook Illustration Prompt",
+      "description": "A detailed prompt for GPT Image 2 to transform an uploaded photograph into a cozy, whimsical hand-drawn colored pencil and crayon scrapbook illustration, preserving original features while adding decorative borders.",
       "prompt": "Transform the uploaded photograph into a beautiful, cozy, whimsical HAND-DRAWN COLORED PENCIL & CRAYON SCRAPBOOK ILLUSTRATION.\n\nIMPORTANT — PRESERVE THE ORIGINAL PHOTO:\n\nFirst, carefully analyze the uploaded photograph. Identify the actual subjects, people, facial features, hairstyles, clothing, poses, expressions, accessories, objects, background and surroundings.\n\nRecreate the same photograph as a charming illustrated artwork. Preserve the original composition, recognizable facial characteristics, clothing details, body positions and interactions. Do not randomly replace or invent the main subjects.\n\nART STYLE:\n- Authentic hand-drawn colored pencil and wax crayon illustration.\n- Visible pencil strokes, grainy textures and imperfect sketch lines.\n- Soft watercolor-like coloring mixed with rich colored pencil shading.\n- Delicate cross-hatching and layered hand-drawn details.\n- Slightly rough, nostalgic children's storybook illustration aesthetic.\n- Warm, dreamy, cozy and whimsical atmosphere.\n- Cream-colored textured paper background.\n- Soft lighting with warm highlights and gentle shadows.\n- Rich yet slightly faded vintage colors.\n\nSCRAPBOOK DECORATION:\n\nSurround the main illustration with a playful handmade scrapbook border featuring:\n- Pink and red glittery heart stickers.\n- Small colorful gemstones and pearl beads.\n- Golden stars and crystal decorations.\n- Tiny hand-drawn flowers and butterflies.\n- Cute doodles, smiley faces and little stars.\n- Small decorative leaves and seasonal elements.\n- Colorful hand-drawn outlines and playful symbols.\n\nMake the decorations look like real physical stickers and tiny embellishments placed around the edges of the artwork.\n\nCOMPOSITION:\n\nKeep the main subject as the central focus. Recreate the original environment using detailed colored pencil textures. Add decorative scrapbook elements mainly around the outer borders without covering important parts of the photograph.\n\nThe artwork should feel like a page from a beautifully decorated personal diary or a nostalgic illustrated memory journal.\n\nFINAL AESTHETIC:\n\nExtremely detailed, adorable, cozy, nostalgic, artistic, soft vintage scrapbook aesthetic, handmade illustration, visible crayon grain, colored pencil texture, delicate imperfections, warm pastel tones, charming decorative embellishments, premium illustrated journal page.\n\nIMPORTANT: The result must look like a completely hand-drawn illustration, NOT a photograph with a cartoon filter. Avoid photorealism, 3D rendering, plastic textures and overly smooth digital painting."
     },
     "zh": {
@@ -56354,6 +56354,102 @@
       "title": "复古昭和万圣节人像",
       "description": "一张充满怀旧感的胶片颗粒风格照片，女孩身穿自制纸南瓜服装，在夜晚的日式复古小巷中摆姿势。",
       "prompt": "一张竖版中景人像照片，画面中是一位留着黑色短发和齐刘海的年轻亚洲女性。她身穿自制的万圣节服装：头戴一顶橙色纸南瓜帽，颈部系着与之相配的锯齿状橙色纸领饰，内搭一件黑色长袖连衣裙。她身体微微前倾，右手在脸颊旁比出“V”字手势，左手则提着一个棕色小纸袋，袋子上装饰着南瓜灯和黑猫图案。背景是夜晚一条狭窄昏暗的日式复古小巷（横丁），两侧是木质门面的店铺、亮着暖光的灯笼，以及远处正渐渐走远、身影模糊的路人。画面左侧悬挂着纸质装饰物，包括一个南瓜灯和一个白色幽灵。右侧的竖幅招牌上写着“おもちや”（Omo-cha）。整张照片带有浓郁的昭和时代复古美学风格，色调温暖而略带褪色感，并呈现出老式即时成像摄影特有的明显胶片颗粒、划痕、灰尘斑点以及柔和的对焦效果。"
+    }
+  },
+  "37206": {
+    "en": {
+      "title": "Hyper-realistic Contact Sheet Prompt",
+      "description": "Generates a 3x3 grid of hyper-realistic photos featuring a specific person from an uploaded reference, with varied poses and Mediterranean lighting.",
+      "prompt": "Create a hyper-realistic 3×3 photographic contact sheet featuring this woman from the uploaded face reference, preserving her exact facial identity, skin tone, hairstyle, and natural proportions in every frame.\n\nSet all nine photographs beneath an intensely azure sky dotted with dramatic white clouds. She wears a textured ivory henley shirt with the top buttons open, dark indigo jeans, and a delicate silver chain. Bright Mediterranean sunlight creates crisp shadows and luminous skin.\n\nEach of the nine panels captures a distinct pose and camera perspective: a confident wide-legged stance with hands behind his head; a foreshortened palm reaching toward the lens; an OK hand gesture framing one eye; a relaxed smile with chin resting on both hands; a mysterious half-face covered by her hand; a low-angle walking shot; a windblown candid laugh; a close-up with direct eye contact; and a seated pose looking away into the distance.\n\nAlternate 35mm full-body compositions with intimate 85mm portraits. Authentic skin pores, individual hair strands, realistic denim texture, natural hands, accurate anatomy, subtle film grain, luxury fashion editorial, exceptional photographic realism. Perfectly aligned 3×3 grid, nine distinct photographs, no borders between panels, no text, no watermarks, 4:5 overall canvas."
+    },
+    "zh": {
+      "title": "超写实联系表提示词",
+      "description": "基于上传的参考图片，生成包含特定人物的 3x3 超写实照片网格，呈现多样化姿势与地中海风格光影。",
+      "prompt": "创建一张超写实的 3×3 摄影小样（contact sheet），主角为上传的面部参考图中的这位女性。每一格画面都必须精准还原她的面部特征、肤色、发型与自然身体比例。\n\n将全部九张照片置于湛蓝的天空下，点缀着极具张力的白云。她身穿一件质感细腻的象牙白亨利领衬衫，顶部纽扣敞开，搭配深靛蓝色牛仔裤与一条精致的银项链。明媚的地中海阳光勾勒出利落的阴影，让肌肤更显通透光泽。\n\n九个画格分别捕捉不同的姿态与镜头视角：自信的双手抱头分腿站立；向镜头伸出的透视缩短手掌；用 OK 手势框住一只眼睛；双手托腮的轻松微笑；单手半遮面的神秘感；低角度行走抓拍；风吹发丝的随性大笑；直视镜头的特写；以及侧身远眺的坐姿。\n\n交替使用 35mm 全身构图与 85mm 亲密人像特写。真实可见的皮肤毛孔、根根分明的发丝、逼真的牛仔布纹理、自然的手部细节、准确的人体结构、细腻的胶片颗粒感，呈现奢华时尚大片质感与极致的摄影写实效果。完美对齐的 3×3 网格，九张风格各异的照片，画格之间无边框，无文字，无水印，整体画幅比例为 4:5。"
+    }
+  },
+  "37207": {
+    "en": {
+      "title": "Anime Editorial Poster Prompt",
+      "description": "Transforms a photo into a two-panel poster combining photorealism and anime style with typography elements.",
+      "prompt": "Transform the reference photograph into a premium, stylized anime-inspired editorial poster while preserving the subject’s exact facial features, hairstyle, pose, sunglasses, pearl earrings, and red puffer jacket.\n\nCreate a stunning two-panel vertical composition:\n\nTop Panel: Photorealistic portrait of the woman against a clear blue sky, warm golden-hour sunlight, natural wind blowing through her hair, vibrant orange-tinted sunglasses, realistic skin texture, cinematic photography.\n\nBottom Panel: Reimagine the exact same woman as a highly detailed anime-meets-comic-book illustration. Preserve her facial identity, expression, hairstyle, outfit, accessories, and pose. Use dramatic orange rim lighting, expressive fine linework, rich colors, and premium graphic-novel shading.\n\nPoster Design:\n\n* Dark charcoal background with vibrant orange accents.\n* Large bold italic typography reading “URBAN GLOW”.\n* Smaller subtitle: “CITY VIBES IN COLOR”.\n* Dynamic diagonal orange graphics and geometric elements.\n* Modern streetwear editorial aesthetic.\n* High contrast, premium magazine cover design.\n\nImportant: Keep the illustrated face closely matched to the original photograph. Do not change the person’s identity, facial proportions, or distinctive features. Ultra-detailed, 4K, professional poster design, vertical 3:4 composition."
+    },
+    "zh": {
+      "title": "动漫编辑海报提示词",
+      "description": "将照片转化为融合写实风格、动漫风格与排版元素的双联海报。",
+      "prompt": "将参考照片转化为一张高端、风格化的动漫风时尚海报，同时精准保留人物的面部特征、发型、姿势、太阳镜、珍珠耳环以及红色羽绒服。\n\n打造令人惊艳的双联垂直构图：\n\n上幅画面：以湛蓝天空为背景的女性超写实肖像，沐浴在温暖的黄金时刻阳光下，自然微风吹拂发丝，佩戴鲜艳的橙色镜片太阳镜，皮肤纹理真实细腻，呈现电影级摄影质感。\n\n下幅画面：将同一位女性重新演绎为细节丰富的动漫与漫画融合插画。完整保留她的面部特征、表情、发型、穿搭、配饰及姿势。运用极具张力的橙色轮廓光、富有表现力的精细线条、浓郁色彩以及高端图像小说级别的阴影处理。\n\n海报设计：\n\n* 深炭灰色背景搭配亮眼的橙色点缀。\n* 大号粗斜体文字“URBAN GLOW”。\n* 小号副标题：“CITY VIBES IN COLOR”。\n* 动感十足的橙色对角线图形与几何元素。\n* 现代街头潮牌时尚大片美学。\n* 高对比度，高端杂志封面级设计。\n\n重要提示：插画中的面部需与原照片高度一致。切勿改变人物身份、面部比例或标志性特征。超精细画质，4K 分辨率，专业海报设计，3:4 垂直构图。"
+    }
+  },
+  "37208": {
+    "en": {
+      "title": "Watercolor Anime Fashion Illustration Prompt",
+      "description": "Transforms a photo into a cute hand-drawn watercolor anime-style fashion illustration while preserving the subject's features.",
+      "prompt": "Transform the uploaded photograph into a cute, hand-drawn watercolor anime-inspired fashion illustration.\n\nIMPORTANT – PRESERVE THE ORIGINAL PHOTO:\nCarefully analyze the uploaded image and recreate the actual person, preserving their recognizable facial features, hairstyle, hair color, skin tone, body proportions, pose, outfit, accessories, and overall appearance. Do not randomly change their clothing or styling.\n\nART STYLE:\n- Cute Japanese fashion illustration meets soft anime aesthetic.\n- Hand-painted watercolor and colored pencil texture.\n- Delicate, slightly imperfect dark-brown sketch outlines.\n- Soft watercolor washes with visible paper texture.\n- Beautifully detailed hair with flowing, layered strands.\n- Simplified cute facial features, closed or gently expressive eyes.\n- Subtle rosy cheeks and a tiny natural smile.\n- Soft shading with warm, cozy pastel tones.\n- Oversized yet natural fashion proportions.\n- Detailed clothing folds, stitching, patterns and textures.\n\nDECORATIVE ELEMENTS:\nAdd cute hand-drawn doodles around the character, such as red outlined hearts, yellow stars, tiny sparkles, and playful accent lines. Keep them balanced and naturally distributed.\n\nBACKGROUND & COMPOSITION:\n- Pure clean white background.\n- Full-body character illustration.\n- Character positioned in the center.\n- Plenty of white negative space.\n- Vertical 2:3 composition.\n- No background scenery or unnecessary objects.\n\nFINAL AESTHETIC:\nA charming Pinterest-style Korean/Japanese fashion sticker illustration, resembling traditional watercolor sketchbook artwork. Soft, cozy, adorable, aesthetic, expressive and beautifully hand-crafted.\n\nAVOID: Photorealism, 3D rendering, glossy digital painting, overly sharp vector outlines, excessive details, distorted anatomy, extra fingers, text, watermarks or logos."
+    },
+    "zh": {
+      "title": "水彩动漫时尚插画提示词",
+      "description": "将照片转化为可爱的手绘水彩动漫风格时尚插画，同时保留人物特征。",
+      "prompt": "将上传的照片转化为可爱、手绘水彩风格的日系动漫时尚插画。\n\n重要提示 —— 保留原照片特征：\n请仔细分析上传的图片，真实还原人物本身，完整保留其可辨识的面部特征、发型、发色、肤色、身材比例、姿势、穿搭、配饰及整体外观。切勿随意更改人物的服装或造型。\n\n艺术风格：\n- 日系甜美时尚插画与柔和动漫美学的完美融合。\n- 手绘水彩与彩色铅笔质感。\n- 精致且略带随性笔触的深棕色素描轮廓线。\n- 柔和的水彩晕染效果，透出清晰的纸张纹理。\n- 细节丰富的秀发，发丝飘逸、层次分明。\n- 简化的可爱五官，双眼微闭或流露温柔神态。\n- 淡淡的粉嫩腮红与自然甜美的浅笑。\n- 采用温暖治愈的柔和色调进行细腻 shading（明暗过渡）。\n- 略带夸张却不失自然的时尚人物比例。\n- 精细刻画衣物褶皱、缝线、图案与面料质感。\n\n装饰元素：\n在人物周围添加可爱的手绘涂鸦，例如红色描边爱心、黄色星星、细碎闪光以及俏皮的点缀线条。注意保持视觉平衡，分布自然错落。\n\n背景与构图：\n- 纯净的白色背景。\n- 全身人物插画。\n- 人物居中放置。\n- 预留充足的白色留白空间。\n- 2:3 竖版构图。\n- 不添加任何背景场景或多余物件。\n\n最终视觉效果：\n一张充满魅力的 Pinterest 风日韩系时尚贴纸插画，宛如传统水彩速写本中的手绘作品。整体氛围柔和、治愈、可爱、唯美、富有表现力，尽显手工绘制的精致感。\n\n避免：照片级写实、3D 渲染、高光数字绘画、过于锐利的矢量轮廓线、过度堆砌细节、人体结构变形、多出的手指、文字、水印或 logo。"
+    }
+  },
+  "37209": {
+    "en": {
+      "title": "Giant Police Robot vs Mechanical Gorilla",
+      "description": "A photorealistic image of a giant white police robot battling a massive mechanical gorilla in a Japanese harbor setting.",
+      "prompt": "A cinematic, photorealistic action scene depicting a giant police robot fighting a giant mechanical gorilla at a Japanese port. The police robot on the left is white and black with red siren lights on its shoulders and head, featuring the text \"警視庁\" and \"MPD\" on its chest plates and arms. It has a complex sensor array for a head. The enemy on the right is a massive, dark grey, heavily armored robotic gorilla with glowing red eyes and an open, roaring mouth. The two robots are locked in combat; the gorilla's fist is smashing into the police robot's shoulder, creating sparks and flying debris. In the foreground bottom-left, there is a Japanese police car (black and white) with \"警視庁 MPD\" written on the side and flashing red lights. In the foreground bottom-right, a police officer wearing a helmet and tactical vest with \"警視庁 MPD\" on the back is seen from behind, holding a radio or camera. The background features a busy industrial harbor with shipping containers, cranes, and a large suspension bridge under a bright blue sky with scattered clouds."
+    },
+    "zh": {
+      "title": "巨型警用机器人对决机械大猩猩",
+      "description": "一张逼真的图片，展示了一个巨大的白色警用机器人在日本港口与一只庞大的机械大猩猩激战。",
+      "prompt": "一段电影感十足的超写实动作场景：一台巨型警用机器人正在日本港口与一只巨大的机械猩猩展开激战。左侧的警用机器人采用黑白配色，肩部和头部装有红色警示灯，胸甲和手臂上印有“警視庁”和“MPD”字样，头部由一套复杂的传感器阵列构成。右侧的敌人是一只体型庞大、身披深灰色重型装甲的机械猩猩，双眼泛着红光，正张开血盆大口发出怒吼。两台机器人正激烈缠斗；猩猩的重拳狠狠砸在警用机器人的肩膀上，瞬间火花四溅、碎片横飞。画面左下方的前景中停着一辆黑白涂装的日本警车，车身侧面写着“警視庁 MPD”，车顶红灯闪烁。右下方的前景里，一名头戴头盔、身穿战术背心的警察以背影示人，背心背面印有“警視庁 MPD”，他手中正举着对讲机或相机。背景是一座繁忙的工业港口，集装箱与起重机错落分布，一座大型悬索桥横跨其间，头顶是湛蓝的天空与朵朵白云。"
+    }
+  },
+  "37210": {
+    "en": {
+      "title": "Legendary Weapon Acquisition Scene",
+      "description": "Prompt for generating an anime illustration where a character acquires a legendary everyday object as equipment, maintaining facial features and creating a humorous contrast between mundane item and grand ceremony.",
+      "prompt": "Please depict the moment when the character in the attached image acquires a legendary piece of equipment that determines the fate of the world.\n\nMaintain facial features, hairstyle, basic color scheme, and the character's identity.\n\nThe true nature of the legendary equipment should be newly devised from everyday objects not intended for combat. Do not specify concrete candidates. Do not limit it only to items suitable for the character.\n\nConsider the object's identity, why it is treated as legendary, where it was stored, and the ritual for acquisition separately, and combine them into one scene.\n\nKeep the object in a form where its daily use is recognizable. Do not hide its identity with luxurious decorations or replace it with the shape of a normal sword.\n\nUse authentic and solemn staging for the moment of acquisition. Surrounding people and environment should appear to believe it is truly important.\n\nThe character should also treat the object seriously, creating humor through the contrast between the casual object and the grand ceremony.\n\nDo not use text explanations; focus on the character's hands and the legendary equipment. Do not obscure faces or object outlines with lighting effects; create an anime illustration where coolness and absurdity coexist."
+    },
+    "zh": {
+      "title": "传奇武器获取场景",
+      "description": "生成动漫插画的提示词：角色将一件传奇的日常物品作为装备获取，保持面部特征不变，并在平凡物品与宏大仪式之间营造幽默反差。",
+      "prompt": "请描绘附图中角色获得决定世界命运的传说级装备的那一刻。\n\n保留角色的面部特征、发型、基础配色以及身份设定。\n\n这件传说级装备的真面目，必须是从原本并非用于战斗的日常物品中全新构思出来的。不要指定具体的候选物品，也不要局限于适合该角色的物件。\n\n请分别构思该物品的真实身份、它为何被视为传说、存放地点以及获取仪式，并将这些元素融合到同一个场景中。\n\n让物品保持能一眼认出日常用途的形态。不要用华丽的装饰掩盖它的本来面目，也不要把它改成普通宝剑的形状。\n\n获取瞬间的场景调度要庄重且充满仪式感。周围的人物和环境都要表现出深信此事至关重要的样子。\n\n角色也要以极其严肃的态度对待这件物品，通过随意日常的物品与宏大仪式之间的反差来营造幽默感。\n\n不要使用文字说明；将视觉焦点集中在角色的双手和传说级装备上。不要用光效遮挡面部或物品轮廓；创作一幅帅气与荒诞并存的动漫插画。"
+    }
+  },
+  "37211": {
+    "en": {
+      "title": "Autumn Street Date Outfit",
+      "description": "Prompt for generating a cute and elegant anime-style girl in autumn street fashion with camel jacket and wine-red skirt.",
+      "prompt": "cute and elegant, gentle smile, wavy hair. \nAutumn street background. \n\nShe wears a camel short jacket with soft shearling collar over a Bordeaux knit sweater, matching wine-red pleated skirt, black ankle boots. \nCute and warm date coordinate. Magazine editorial, detailed textures, warm sunlight"
+    },
+    "zh": {
+      "title": "秋日街头约会穿搭",
+      "description": "生成可爱优雅动漫风格女孩的提示词，展现秋季街头时尚，搭配驼色夹克和酒红色裙子。",
+      "prompt": "可爱优雅，温柔浅笑，微卷长发。\n秋日街景背景。\n\n她身穿驼色短款外套，搭配柔软的羊羔毛领，内搭酒红色针织毛衣与同色系酒红百褶裙，脚踩黑色短靴。\n甜美又温暖的约会穿搭。杂志大片风格，细节质感丰富，暖阳倾洒"
+    }
+  },
+  "37212": {
+    "en": {
+      "title": "Two Women in Hanfu Walking Through Misty Palace Hall",
+      "description": "Generates a cinematic image of two women in traditional Chinese attire walking through a grand, atmospheric palace interior with dramatic lighting and fog effects.",
+      "prompt": "A cinematic, high-angle wide shot of two women wearing elaborate traditional Chinese Hanfu dresses walking through a vast, dimly lit palace hall. The scene is filled with atmospheric haze and soft, warm candlelight reflections on the polished dark stone floor. The woman on the left wears a flowing gown in shades of deep red and cream with long trailing sleeves, her hair styled in an intricate updo with gold ornaments. The woman on the right wears a similar style dress in lighter peach and beige tones, also with ornate hair accessories. In the background, tall pillars and hanging lanterns fade into the misty distance, creating a sense of depth and mystery. The lighting is moody and ethereal, highlighting the texture of the silk fabrics and the reflective surface of the floor."
+    },
+    "zh": {
+      "title": "两位身着汉服的女子漫步于雾气缭绕的宫殿大厅",
+      "description": "生成一张电影感图像，展示两位身着中国传统服饰的女子在宏伟、充满氛围感的宫殿内部漫步，画面具有戏剧性光影和雾气效果。",
+      "prompt": "电影感高角度广角镜头，两名身着华丽中国传统汉服的女子正穿行于一座宏大而光线昏暗的宫殿大殿之中。画面中弥漫着朦胧的雾气，柔和温暖的烛光倒映在深色抛光石质地面上。左侧女子身穿深红与米白相间的飘逸长裙，长袖拖地，秀发挽成精致的发髻，点缀着金色头饰。右侧女子的裙装款式相近，色调为更浅的桃粉与米色，同样佩戴着华美的发饰。背景中，高耸的立柱与悬挂的灯笼渐渐隐入迷蒙的远方，营造出深邃而神秘的空间感。整体光影氛围浓郁、空灵缥缈，细腻勾勒出丝绸面料的质感与地面的如镜倒影。"
+    }
+  },
+  "37213": {
+    "en": {
+      "title": "Showa Retro Portrait at Shrine",
+      "description": "A nostalgic, film-grain portrait of a young woman in a floral dress standing before a Japanese shrine, evoking a melancholic Showa-era atmosphere.",
+      "prompt": "A vertical portrait of a young East Asian woman with short, dark bob hair and bangs, standing outdoors in front of a traditional Japanese shrine. She wears a vintage-style, grey-blue midi dress with a small floral print, featuring a Peter Pan collar, short sleeves, and a button-down bodice. Her expression is melancholic and distant, looking slightly off-camera with her hands clasped gently in front of her waist. The background shows vermilion-orange shrine architecture (torii gates and pagoda roofs) and stone lanterns, rendered out of focus. The ground beneath her features the white stripes of a pedestrian crosswalk. The image has a strong Showa-era retro aesthetic, characterized by warm, faded film tones, visible grain, light leaks along the edges, and scratches typical of old instant photography."
+    },
+    "zh": {
+      "title": "神社前的昭和复古人像",
+      "description": "一张充满怀旧感的胶片颗粒人像，描绘了一位身穿碎花连衣裙的年轻女子伫立于日本神社前，营造出昭和时代特有的忧郁氛围。",
+      "prompt": "一幅东亚年轻女性的竖版人像，她留着深色齐刘海短发波波头，站在户外一座传统日本神社前。她身穿一件灰蓝色复古风碎花中长连衣裙，配有彼得潘领、短袖和纽扣式上衣设计。她的神情忧郁而疏离，目光微微偏离镜头，双手轻轻交握于腰前。背景是朱红色的神社建筑（鸟居与塔顶）和石灯笼，呈现出虚化的失焦效果。她脚下的地面可见人行横道的白色斑马线。整幅画面带有浓郁的昭和时代复古美学风格，以温暖褪色的胶片色调为特征，颗粒感明显，边缘有漏光效果，并带有老式即时摄影特有的划痕质感。"
     }
   }
 }
