@@ -56691,5 +56691,17 @@
       "description": "生成一张复古风格的照片，画面中一位年轻女性坐在草地上沉思，营造出怀旧的昭和时代氛围。",
       "prompt": "一张充满怀旧气息的复古风格照片，画面中一位年轻女子坐在绿意盎然的田野里。她留着带刘海的深色短发波波头，低头垂眸，神情若有所思，透着一丝忧郁。她身穿一件黑色长袖上衣，深 V 领口点缀着荷叶边。背景是一片辽阔的高草丛或庄稼地，一直延伸到晴空下的远山。整张照片散发着浓郁的复古美感，带有昭和时代老式胶片摄影特有的颗粒感、暖色调、划痕与尘点。"
     }
+  },
+  "37338": {
+    "en": {
+      "title": "OOTD Fashion Collage Editorial Prompt",
+      "description": "A detailed prompt for GPT Image 2 to transform an uploaded photo into a stylish 'Outfit of the Day' editorial fashion collage. It features a split composition with a full-body model shot on top and a creative flat-lay moodboard on a ceramic plate below, utilizing Korean magazine aesthetics and vintage typography.",
+      "prompt": "Transform the uploaded photo into a stylish OUTFIT OF THE DAY editorial fashion collage in a vertical 3:4 composition.\n\nTOP SECTION (50%):\nCreate a full-body, high-end fashion editorial photograph of the person wearing the exact outfit from the reference image. Preserve their facial identity, hairstyle, clothing, colors, accessories, shoes, and natural proportions. Use a clean, warm ivory studio background, soft natural lighting, and a relaxed fashion-model pose.\n\nBOTTOM SECTION (50%):\nCreate a creative flat-lay fashion moodboard arranged on a large elegant ceramic plate. Display individual outfit components as realistic paper-cutout stickers with subtle white borders and soft shadows, including:\n- A cutout portrait of the person.\n- Top, trousers or skirt.\n- Shoes and socks.\n- Hat, bag, jewelry and accessories.\n- Any additional objects visible or relevant to the outfit.\n\nArrange everything aesthetically inside the plate, as if presenting a complete outfit recipe.\n\nDESIGN & DETAILS:\nAdd elegant vintage-inspired typography reading \"{argument name=\"caption\" default=\"OUTFIT OF THE DAY\"}\" above the plate. Use a pastel striped background, oversized silver fork and spoon on either side, tiny hand-drawn sparkles and playful doodles.\n\nVISUAL STYLE:\nPremium Korean fashion magazine aesthetic, Pinterest-inspired editorial design, warm cream tones, pastel colors, realistic product photography, scrapbook collage, paper-cutout sticker effect, soft shadows, playful composition and refined vintage styling.\n\nIMPORTANT: Automatically identify the clothing and accessories in the uploaded photo. Do not invent a different outfit or change the person's identity. Every item in the flat lay must correspond to the actual outfit or its visible accessories.\n\nUltra-detailed, polished graphic design, balanced composition, 3:4 vertical poster."
+    },
+    "zh": {
+      "title": "OOTD 时尚拼贴编辑风提示词",
+      "description": "为 GPT Image 2 设计的详细提示词，可将上传的照片转换为时尚的“今日穿搭”（OOTD）编辑风拼贴画。采用上下分割构图：上方为全身模特展示，下方为置于陶瓷盘上的创意平铺情绪板，整体呈现韩系杂志美学与复古排版风格。",
+      "prompt": "将上传的照片转化为一张时尚的 OUTFIT OF THE DAY（今日穿搭）编辑风时尚拼贴画，采用 3:4 竖版构图。\n\n上半部分（50%）：\n生成一张人物全身高端时尚大片，穿着与参考图中完全一致的服装。保留人物的面部特征、发型、服饰、色彩、配饰、鞋履及自然身材比例。使用干净温暖的象牙白摄影棚背景、柔和的自然光线，以及轻松自然的模特姿态。\n\n下半部分（50%）：\n在一个精致的大号陶瓷盘上，创作一幅充满创意的平铺时尚情绪板（moodboard）。将各个穿搭单品以逼真的纸质剪贴贴纸形式呈现，带有细微的白边和柔和阴影，包括：\n- 人物的剪贴肖像。\n- 上衣、裤子或裙子。\n- 鞋子和袜子。\n- 帽子、包包、珠宝及配饰。\n- 画面中可见或与穿搭相关的其他物品。\n\n将所有元素在盘中进行美学排布，仿佛在展示一份完整的穿搭配方。\n\n设计与细节：\n在盘子上方添加优雅的复古风字体，内容为“{argument name=\"caption\" default=\"OUTFIT OF THE DAY\"}”。使用马卡龙条纹背景，盘子两侧放置超大号的银色刀叉，并点缀小巧的手绘闪光和俏皮的涂鸦。\n\n视觉风格：\n韩国高端时尚杂志美学，Pinterest 风格的编辑设计，温暖的奶油色调，柔和的马卡龙色系，逼真的产品摄影，手账拼贴风，纸质剪贴贴纸效果，柔和阴影，俏皮灵动的构图与精致的复古格调。\n\n重要提示：自动识别上传照片中的服装与配饰。请勿凭空捏造不同的穿搭，也不要改变人物身份。平铺图中的每一件物品都必须与实际穿搭或其可见配饰一一对应。\n\n超精细质感，精致的平面设计，均衡的构图，3:4 竖版海报。"
+    }
   }
 }
