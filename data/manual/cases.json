@@ -1,5 +1,31 @@
 [
   {
+    "id": "100356",
+    "title": "复古地图公路驰骋微缩电影感旅行海报",
+    "category": "历史与古典",
+    "styles": [
+      "Cinematic",
+      "Realistic"
+    ],
+    "scenes": [
+      "Editorial"
+    ],
+    "tags": [
+      "Illustration",
+      "Poster",
+      "Realistic",
+      "Editorial",
+      "Cinematic",
+      "Minimal"
+    ],
+    "imageUrl": "/uploads/2026-11-08-case-100356-vintage-map-diorama.jpg",
+    "imageAlt": "复古地图公路驰骋微缩电影感旅行海报",
+    "prompt": "Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a realistic [Vehicle Name] driving along a winding elevated road that emerges naturally from a printed vintage-style city map. The road should curve dramatically toward the background skyline and landmarks of [City Name], while the vehicle remains the clear focal point in the foreground.\n\nBlend the real city seamlessly with the illustrated map surface so the road appears integrated into the map itself. Include recognizable local landmarks, waterways, architecture, vegetation, and atmosphere associated with [City Name], but keep the composition clean and uncluttered.\n\nShow large bold typography of “[City Name]” printed directly on the map in the foreground. Use warm golden-hour lighting, shallow depth of field, realistic textures, cinematic shadows, aerial perspective, and photorealistic detail. The overall aesthetic should feel like a premium Instagram travel poster mixed with a miniature diorama.\n\nAspect ratio 1:1.",
+    "promptPreview": "Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a realistic [Vehicle Name] driving along a winding elevated road that emerges naturally from a printed vintage-style city map…",
+    "source": "Community collected via @SimplyAnnisa",
+    "createdAt": "2026-11-07T20:06:51.903Z"
+  },
+  {
     "id": "100355",
     "title": "三页极简高端美食杂志跨版排版",
     "category": "文档与出版",
