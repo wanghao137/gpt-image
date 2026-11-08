@@ -1111,18 +1111,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/images/2026-11-08-case-100355-food-magazine-spread.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / Minimal / Education / Commerce / Architecture\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100355 三页极简高端美食杂志跨版排版: A sleek, modern 3-page editorial food magazine spread shown as three vertical panels side-by-si…\n- #37369 经典咖啡馆约会穿搭提示词: 用于生成优雅海军蓝缎面连衣裙搭配珍珠配饰的详细时尚提示词，呈现经典咖啡馆约会美学风格。\n- #37300 复古昭和咖啡馆人像: 生成一张充满怀旧感的胶片颗粒风格人像，展现一位女性在复古日式咖啡馆中享用咖啡和糕点的场景。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/images/2026-11-09-case-100358-inflated-plastic-logo.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / 3D Render / Minimal / Studio / Brand / Education\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100358 品牌标志充气塑料质感3D渲染: Create a hyper-realistic 3D render of the [Logo], crafted as an inflated plastic emblem, preser…\n- #100355 三页极简高端美食杂志跨版排版: A sleek, modern 3-page editorial food magazine spread shown as three vertical panels side-by-si…\n- #37369 经典咖啡馆约会穿搭提示词: 用于生成优雅海军蓝缎面连衣裙搭配珍珠配饰的详细时尚提示词，呈现经典咖啡馆约会美学风格。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "100358",
       "100355",
       "37369",
       "37300",
-      "37111",
-      "36880"
+      "37111"
     ]
   },
   {
