@@ -1,5 +1,30 @@
 [
   {
+    "id": "100358",
+    "title": "品牌标志充气塑料质感3D渲染",
+    "category": "品牌与标志",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Brand"
+    ],
+    "tags": [
+      "Editorial",
+      "Realistic",
+      "3D Render",
+      "Minimal",
+      "Studio",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-11-09-case-100358-inflated-plastic-logo.jpg",
+    "imageAlt": "品牌标志充气塑料质感3D渲染",
+    "prompt": "Create a hyper-realistic 3D render of the [Logo], crafted as an inflated plastic emblem, preserving the exact original logo silhouette, proportions, negative space, and structural identity, thick air-filled form, soft rounded edges, smooth pressure-inflated surface, glossy synthetic finish, subtle translucent plastic quality, realistic welded seams, gentle surface tension, crisp reflections, clean highlights, premium modern object design, centered front-facing composition, isolated on a pure white seamless studio background, minimal composition, soft diffused studio lighting, subtle contact shadow beneath the form, sharp macro focus, ultra detailed, photorealistic, luxury product render, 8k, 1:1, no watermark, no extra text, no extra objects",
+    "promptPreview": "Create a hyper-realistic 3D render of the [Logo], crafted as an inflated plastic emblem, preserving the exact original logo silhouette, proportions, negative space, and structural identity, thick air-filled form, soft r…",
+    "source": "Community collected via @azed_ai",
+    "createdAt": "2026-11-08T20:03:31.346Z"
+  },
+  {
     "id": "100357",
     "title": "特斯拉能源生态超高端科技信息图海报",
     "category": "图表与信息图",
