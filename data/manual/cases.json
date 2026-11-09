@@ -1,5 +1,29 @@
 [
   {
+    "id": "100359",
+    "title": "现代豪宅昼夜双景建筑摄影",
+    "category": "建筑与空间",
+    "styles": [
+      "Realistic"
+    ],
+    "scenes": [
+      "Architecture"
+    ],
+    "tags": [
+      "Realistic",
+      "Cinematic",
+      "Minimal",
+      "Architecture",
+      "Brand"
+    ],
+    "imageUrl": "/uploads/2026-11-10-case-luxury-mansion-arch.jpg",
+    "imageAlt": "现代豪宅昼夜双景建筑摄影",
+    "prompt": "Ultra realistic luxury mansion at night, black stone and dark wood exterior, dramatic cinematic lighting, glowing interior lights through large glass walls, reflecting infinity pool, modern minimalist architecture, wet driveway reflections, moody atmosphere, luxury sports car silhouette, ultra detailed textures, photorealistic, HDR, 8k quality, luxury real estate photography, centered composition, square format, 1080x1080.\n\nVariant 2 (daylight): Ultra realistic modern luxury mansion, grand architectural design, large floor-to-ceiling glass windows, white marble facade, warm golden sunlight, landscaped garden, infinity pool, luxury driveway with a premium sports car, cinematic composition, highly detailed textures, realistic reflections, HDR photography, 8k quality, luxury lifestyle aesthetic, vibrant colors, professional real estate photography, centered composition, square format, 1080x1080.",
+    "promptPreview": "Ultra realistic luxury mansion at night, black stone and dark wood exterior, dramatic cinematic lighting, glowing interior lights through large glass walls, reflecting infinity pool, modern minimalist architecture, wet …",
+    "source": "Community collected via @Zyra_AI1",
+    "createdAt": "2026-11-09T20:05:12.719Z"
+  },
+  {
     "id": "100358",
     "title": "品牌标志充气塑料质感3D渲染",
     "category": "品牌与标志",
