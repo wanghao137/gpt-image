@@ -1,5 +1,32 @@
 [
   {
+    "id": "100360",
+    "title": "黑金质感巨型竖排文字男性肖像海报",
+    "category": "摄影与写实",
+    "styles": [
+      "Realistic",
+      "Editorial"
+    ],
+    "scenes": [
+      "Portrait",
+      "Social"
+    ],
+    "tags": [
+      "Realistic",
+      "Poster",
+      "Editorial",
+      "Cinematic",
+      "Studio",
+      "Portrait"
+    ],
+    "imageUrl": "/uploads/2026-11-11-case-100360-black-gold-typography-portrait.jpg",
+    "imageAlt": "黑金质感巨型竖排文字男性肖像海报",
+    "prompt": "ultra realistic cinematic portrait poster of a confident man using the attached face image as reference, centered headshot with shoulders visible and a calm powerful expression. Use dramatic studio lighting with a soft key light and subtle rim lighting for depth and contrast. The background should be dark matte black or charcoal with a luxury cinematic feel. Place very large tall condensed vertical typography behind the subject in the same stretched style as the reference image, partially hidden by the subject, with the text placeholder “[INSERT TITLE TEXT HERE]”. The typography should be metallic gold with a subtle foil shine. Dress the subject in a refined masculine outfit such as a black tailored suit or elegant modern sherwani. Style the image as a classy luxury editorial poster with deep black and gold tones, ultra realistic skin detail, shallow depth of field, cinematic color grading, and high resolution professional photography",
+    "promptPreview": "ultra realistic cinematic portrait poster of a confident man using the attached face image as reference, centered headshot with shoulders visible and a calm powerful expression. Use dramatic studio lighting with a soft …",
+    "source": "Community collected via @shushant_l",
+    "createdAt": "2026-11-10T20:06:48.799Z"
+  },
+  {
     "id": "100359",
     "title": "现代豪宅昼夜双景建筑摄影",
     "category": "建筑与空间",
