@@ -1,5 +1,31 @@
 [
   {
+    "id": "100361",
+    "title": "极简清新健康备餐周计划海报",
+    "category": "海报与排版",
+    "styles": [
+      "Minimal",
+      "Poster"
+    ],
+    "scenes": [
+      "Commerce",
+      "Social"
+    ],
+    "tags": [
+      "Poster",
+      "Minimal",
+      "Social",
+      "Commerce",
+      "Editorial"
+    ],
+    "imageUrl": "/uploads/2026-11-11-case-100361-meal-prep-weekly-poster.jpg",
+    "imageAlt": "极简清新健康备餐周计划海报",
+    "prompt": "Design a minimalist healthy meal prep poster for [MEAL PLAN], with clean containers, colorful balanced ingredients, calorie/macros panel, weekly layout, soft pastel background, bright natural light, wellness brand typography, crisp shadows, modern Instagram design.",
+    "promptPreview": "Design a minimalist healthy meal prep poster for [MEAL PLAN], with clean containers, colorful balanced ingredients, calorie/macros panel, weekly layout, soft pastel background, bright natural light, wellness brand typog…",
+    "source": "Community collected via @Dheepanratnam",
+    "createdAt": "2026-11-10T20:06:53.416Z"
+  },
+  {
     "id": "100360",
     "title": "黑金质感巨型竖排文字男性肖像海报",
     "category": "摄影与写实",
