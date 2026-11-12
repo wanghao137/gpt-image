@@ -1196,17 +1196,17 @@
     ],
     "description": "生成身份清晰、光线统一、适合社媒展示的人像写真。",
     "cover": "/images/cases/templatederived-portrait-photo-series.jpg",
-    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37453 穿奶油色开衫的动漫女孩: 逆向工程提示词：描绘一位身穿舒适针织开衫的动漫风格少女，背景为晴朗天空。\n- #37452 海浪裙装动漫少女: 生成一幅高质量动漫风格的女性肖像，她身着优雅的波浪灵感连衣裙，背景为荷兰海岸风光。\n- #37451 昭和复古人像: 生成一张充满怀旧感的胶片颗粒风格人像，展现年轻女性在复古日本街头的场景。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
+    "prompt": "模板：人像写真组图\n用途：用于个人写真、头像、穿搭、街拍和胶片感人像。\n视觉方向：Portrait / Photo / Series\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「人物身份、机位、光线、妆发、动作、服装和真实皮肤质感」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37467 Elegant Woman Portrait Illustration: A prompt for generating an artistic hand-drawn portrait of a woman in a yellow jumpsuit surroun…\n- #37453 穿奶油色开衫的动漫女孩: 逆向工程提示词：描绘一位身穿舒适针织开衫的动漫风格少女，背景为晴朗天空。\n- #37452 海浪裙装动漫少女: 生成一幅高质量动漫风格的女性肖像，她身着优雅的波浪灵感连衣裙，背景为荷兰海岸风光。\n\n使用建议：\n- 先锁定 人物身份、机位、光线、妆发、动作、服装和真实皮肤质感。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免过度磨皮、假脸、手部畸形和影棚感过强。",
     "useWhen": "用于个人写真、头像、穿搭、街拍和胶片感人像。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37467",
       "37453",
       "37452",
       "37451",
-      "37450",
-      "37448"
+      "37450"
     ]
   },
   {
@@ -1219,18 +1219,18 @@
       "Poster"
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
-    "cover": "/images/2026-11-08-case-100356-vintage-map-diorama.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100356 复古地图公路驰骋微缩电影感旅行海报: Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a…\n- #36884 GPT Image 字体排版旅行海报提示词: 用于生成高端字体排版旅行海报的结构化 GPT Image 提示词。采用模板方法，用户可替换主标题、风景场景和配色方案等特定元素（如 PEAK/MIST/TIDE/DUNE），同时保持统一的编…\n- #36883 车内电影感公路旅行人像: 生成一位女性在行驶中的汽车内放松的超写实人像，具有动态模糊背景和温暖的阳光。\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "cover": "/images/cases/templatederived-travel-city-poster.jpg",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37468 Premium Artistic Travel Poster Prompt: A detailed prompt for creating a split-composition travel poster that blends a photorealistic l…\n- #100356 复古地图公路驰骋微缩电影感旅行海报: Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a…\n- #36884 GPT Image 字体排版旅行海报提示词: 用于生成高端字体排版旅行海报的结构化 GPT Image 提示词。采用模板方法，用户可替换主标题、风景场景和配色方案等特定元素（如 PEAK/MIST/TIDE/DUNE），同时保持统一的编…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37468",
       "100356",
       "36884",
       "36883",
-      "36881",
-      "36840"
+      "36881"
     ]
   },
   {
@@ -1460,17 +1460,17 @@
     ],
     "description": "生成有故事感和氛围感的动漫风格场景插画。",
     "cover": "/images/cases/templatederived-anime-scene-illustration.jpg",
-    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / 3D Render / Minimal / Editorial / Brand / Watercolor / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37449 水彩与彩铅儿童绘本插画模板: 一款可复用的提示词模板，用于通过 GPT Image 生成水彩和彩铅风格的儿童绘本插画，包含特定的纹理、构图及角色约束。\n- #37384 GPT Image 2 蜡笔粉彩插画: 将参考照片转化为可爱、怀旧儿童绘本风格的粉彩蜡笔插画的提示词。\n- #37368 水彩插画对比海报: 将上传的照片转换为上下分屏海报：上方保留原图，下方生成手绘水彩插画，并搭配装饰性涂鸦与手写风格字体。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
+    "prompt": "模板：动漫场景插画\n用途：用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。\n视觉方向：Anime / Scene / Illustration / Realistic / 3D Render / Minimal / Editorial / Brand / Watercolor / Tech\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色风格统一、场景氛围、光影情绪、日式/韩式美学细节」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37467 Elegant Woman Portrait Illustration: A prompt for generating an artistic hand-drawn portrait of a woman in a yellow jumpsuit surroun…\n- #37449 水彩与彩铅儿童绘本插画模板: 一款可复用的提示词模板，用于通过 GPT Image 生成水彩和彩铅风格的儿童绘本插画，包含特定的纹理、构图及角色约束。\n- #37384 GPT Image 2 蜡笔粉彩插画: 将参考照片转化为可爱、怀旧儿童绘本风格的粉彩蜡笔插画的提示词。\n\n使用建议：\n- 先锁定 角色风格统一、场景氛围、光影情绪、日式/韩式美学细节。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免角色比例失调、风格混杂和背景与主体抢戏。",
     "useWhen": "用于动漫风格社媒内容、VTuber 背景、二次元场景和故事配图。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37467",
       "37449",
       "37384",
       "37368",
-      "100354",
-      "37338"
+      "100354"
     ]
   },
   {
