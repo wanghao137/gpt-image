@@ -56859,5 +56859,41 @@
       "description": "逆向工程提示词：描绘一位身穿舒适针织开衫的动漫风格少女，背景为晴朗天空。",
       "prompt": "一幅高分辨率的动漫风格年轻女性肖像。她留着及肩的淡紫灰色微卷长发，左侧系着一只小巧的白色丝带。双眼大而灵动，呈现琥珀色至蓝色的渐变效果，面带温柔和煦的微笑。她的右手轻轻抬起靠近脸颊，指尖轻触发丝。身穿一件厚实的米白色绞花针织开衫，内搭鼠尾草绿色的小纽扣荷叶边衬衫，画面底部可见深藏青色百褶裙。锁骨处佩戴着一条细银项链，缀有星形吊坠。背景是柔焦处理的湛蓝天空，点缀着散落的圆形光斑，营造出阳光明媚的氛围。光线柔和自然，凸显出针织衣物的纹理质感与发丝的通透感。竖版构图，半身像。"
     }
+  },
+  "37479": {
+    "en": {
+      "title": "Fantasy Desert Cafe with Hobbits and Wizard",
+      "description": "A prompt for generating a fantasy scene featuring travelers in a desert cafe under the Milky Way, specifically mentioning GPT Image 2.",
+      "prompt": "Starry Desert and the Secret Ring\n\nOn a night when the Milky Way shines over the desert,\nthree travelers arrived at the Crash Cafe.\n\nAn old wizard in a gray robe\nand two young hobbits.\n\nThey seem to be on a long journey\nto a distant land.\n\nThe travelers take a breather with warm coffee,\nbut the cat manager seems concerned about something.\n\nAt the young man's chest, a golden chain faintly glows,\nhiding a mysterious secret beneath it.\n\nEven for these travelers carrying the fate of the world,\na peaceful time flows just for tonight ⭐\n\nGPT Image2, 5k"
+    },
+    "zh": {
+      "title": "霍比特人与巫师齐聚的奇幻沙漠咖啡馆",
+      "description": "用于生成奇幻场景的提示词，描绘了银河下的沙漠咖啡馆中的旅行者，特别提及 GPT Image 2。",
+      "prompt": "星夜沙漠与神秘戒指\n\n银河倾泻于沙漠之上的那个夜晚，\n三位旅人来到了 Crash Cafe。\n\n一位身披灰袍的老巫师，\n还有两个年轻的霍比特人。\n\n他们似乎正踏上一段漫长的旅途，\n奔赴遥远的国度。\n\n旅人们喝着热咖啡稍作歇息，\n猫咪店长却似乎心事重重。\n\n年轻人的胸前，一条金链隐隐泛着微光，\n底下藏着一个神秘的秘密。\n\n即便是这些背负着世界命运的旅人，\n也唯有今夜，时光静好 ⭐\n\nGPT Image2，5k"
+    }
+  },
+  "37480": {
+    "en": {
+      "title": "Minimalist White Appliance Poster Prompt",
+      "description": "A prompt for creating minimalist informational visuals with large negative space, clean typography, and subtle textures, specifically applied to a white kitchen appliance anniversary poster.",
+      "prompt": "Generate a minimalist informational visual around any subject object: Establish first impression with large-area high-brightness clean background field, retaining only subtle paper-like or soft-mist shallow textures, letting airiness and quietness become part of the subject. Do not fill visual focus completely; split theme content into clear upper information layer and lower physical anchor: Upper section uses upright, slender, scholarly Chinese typography to organize main title, sub-info, and tiny explanatory notes, with spacious letter spacing and restrained line height, centered main title forming solemn pause, dates/notes/symbol lines assisting reading with precise horizontal order; Lower section places a concise primary form derived from semantic transformation of theme, small volume, clean edges, realistic details but not over-decorated, like quiet physical evidence falling into blank space. Maintain wide breathing area between subject and text, letting whitespace carry premium feel, distance, and ritual sense rather than indicating missing content. Extract colors from subject's material, emotion, and cultural semantics: Background occupies largest area keeping bright and clear, subject color as low-saturation gentle support, text and structural lines using clear but not heavy dark information layer, accent colors appearing minimally in key details or visual nodes; Overall maintain clear quietness, high brightness, low noise, clean color scale, and soft contrast, avoiding turbidity, aging effects, smokiness, and dull gray-yellow. Final effect should resemble precisely designed exhibition announcement or product commemorative visual, first glance reading order and whitespace, second glance seeing subject entity and tiny info, texture restrained, bright, natural, credible.\n\n——————\nCreate a white small appliance 30th anniversary exhibition poster, continuing fresh whitespace information bulletin temperament, using ivory white background field, misty silver-gray text, and one pale cyan detail to form light-cold relationship; Primary form is a white kitchen small appliance quietly placed at bottom center, upper title enlarged centrally with date horizontal line as visual pause, suitable for brand exhibition entrance and social media preview; Aspect ratio vertical 3:4."
+    },
+    "zh": {
+      "title": "极简白色家电海报提示词",
+      "description": "用于创建极简主义信息视觉效果的提示词，特点是大面积留白、简洁排版和微妙纹理，特别适用于白色厨房电器周年纪念海报。",
+      "prompt": "围绕任意主体对象，生成极简信息视觉：以大面积高亮净底建立第一印象，仅保留微弱的纸感或柔雾浅肌理，让空气感与静谧成为主体的一部分。不要填满视觉重心；将主题内容拆分为清晰的上层信息与下层实体锚点：上半部以端正、纤细、书卷气的中文字体编排主标题、副信息与极小字注释，字距疏朗、行高克制，居中的主标题形成庄重的停顿，日期/备注/符号线条以精准的水平秩序辅助阅读；下半部放置由主题语义转化而来的简洁主形体，体量小巧、边缘干净、细节写实但不加修饰，如同落入留白中的安静物证。主体与文字之间保持宽阔的呼吸区，让留白承载高级感、距离感与仪式感，而非暗示内容缺失。色彩从主体的材质、情绪与文化语义中提取：背景占据最大面积并保持明亮清澈，主体色作为低饱和的温柔支撑，文字与结构线使用清晰而不沉重的深色信息层，点缀色仅在关键细节或视觉节点微量出现；整体维持清静、高亮、低噪、色阶干净、对比柔和，避免浑浊、做旧、烟熏与灰黄沉闷。最终效果应如一张经过精密设计的展览公告或产品纪念视觉，一眼看阅读顺序与留白，二眼看主体实体与微小信息，质感克制、明亮、自然、可信。\n\n——————\n制作一张白色小家电 30 周年展览海报，延续清爽留白的信息公告气质，以象牙白为底色、雾银灰文字与一处淡青色细节构成轻冷关系；主形体为一台白色厨房小家电静置于底部居中，上方标题放大居中并以日期横线作为视觉停顿，适用于品牌展场入口与社交媒体预览；比例竖版 3:4。"
+    }
+  },
+  "37481": {
+    "en": {
+      "title": "Anthropomorphic Wolf Character Reference Sheet",
+      "description": "A detailed character design sheet featuring a muscular female anthro wolf in multiple poses, expressions, and outfit turnarounds.",
+      "prompt": "Goal: Create a professional character reference sheet for an anthropomorphic wolf.\nCanvas: Horizontal layout with a clean, off-white background.\nLayout: Left section features a large, dynamic pose of the character. Center section displays three full-body turnaround views (front, side, and back). Right section contains a vertical column of three expression headshots, followed by a row of five color swatches, and two small detail close-ups (paw pads and fur texture).\nSubject details: The character is a muscular female anthro wolf with short grey fur, lighter tan markings on the face and belly, and bright blue eyes. She wears a beige cropped tank top, brown cargo pants with a utility belt, fingerless gloves, and heavy combat boots. A red bandana is tied around her neck. Her tail is bushy with a white tip.\nVisual style: Modern furry art style with crisp line art, cel-shaded coloring, and soft ambient shadows. High-resolution digital illustration.\nConstraints: Ensure consistent proportions across all views. No text or labels."
+    },
+    "zh": {
+      "title": "拟人化狼角色参考表",
+      "description": "一份详细的角色设计表，展示了一位肌肉发达的女性拟人化狼的多种姿势、表情及服装三视图。",
+      "prompt": "目标：为拟人化狼角色创建一张专业的角色设定参考图。\n画布：横向构图，背景采用干净的米白色。\n布局：左侧区域展示角色的大幅动态姿势；中间区域呈现三个全身转面视图（正面、侧面和背面）；右侧区域纵向排列三张表情头像特写，下方为一排五个色卡，以及两张细节局部放大图（肉垫与毛发纹理）。\n主体细节：角色是一位肌肉发达的雌性拟人狼，灰色短毛，面部和腹部带有浅棕褐色斑纹，眼睛呈亮蓝色。她身穿米色短款背心、棕色工装裤并搭配多功能腰带，佩戴露指手套和厚重的作战靴。脖子上系着一条红色方巾。尾巴蓬松，尾尖为白色。\n视觉风格：现代 Furry 艺术风格，线条利落清晰，赛璐璐上色，辅以柔和的环境阴影。高分辨率数字插画。\n约束条件：确保所有视图中角色比例保持一致。不包含任何文字或标注。"
+    }
   }
 }

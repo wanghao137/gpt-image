@@ -1147,18 +1147,18 @@
       "Promo"
     ],
     "description": "把门店活动、套餐卖点和价格信息组织成可投放海报。",
-    "cover": "/images/2026-11-09-case-100358-inflated-plastic-logo.jpg",
-    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / 3D Render / Minimal / Studio / Brand / Education\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #100358 品牌标志充气塑料质感3D渲染: Create a hyper-realistic 3D render of the [Logo], crafted as an inflated plastic emblem, preser…\n- #100355 三页极简高端美食杂志跨版排版: A sleek, modern 3-page editorial food magazine spread shown as three vertical panels side-by-si…\n- #37369 经典咖啡馆约会穿搭提示词: 用于生成优雅海军蓝缎面连衣裙搭配珍珠配饰的详细时尚提示词，呈现经典咖啡馆约会美学风格。\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
+    "cover": "/images/cases/templatederived-merchant-promo-poster.jpg",
+    "prompt": "模板：本地商家促销海报\n用途：用于餐饮、美业、教培、门店开业和团购促销。\n视觉方向：Poster / Local / Promo / Editorial / Realistic / 3D Render / Minimal / Studio / Brand / Education\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「门店品类、核心套餐、促销标题、价格露出、线下物料比例」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37479 霍比特人与巫师齐聚的奇幻沙漠咖啡馆: 用于生成奇幻场景的提示词，描绘了银河下的沙漠咖啡馆中的旅行者，特别提及 GPT Image 2。\n- #100358 品牌标志充气塑料质感3D渲染: Create a hyper-realistic 3D render of the [Logo], crafted as an inflated plastic emblem, preser…\n- #100355 三页极简高端美食杂志跨版排版: A sleek, modern 3-page editorial food magazine spread shown as three vertical panels side-by-si…\n\n使用建议：\n- 先锁定 门店品类、核心套餐、促销标题、价格露出、线下物料比例。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 控制文字数量，避免无关道具抢占商品或服务主体。",
     "useWhen": "用于餐饮、美业、教培、门店开业和团购促销。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37479",
       "100358",
       "100355",
       "37369",
-      "37300",
-      "37111"
+      "37300"
     ]
   },
   {
@@ -1220,17 +1220,17 @@
     ],
     "description": "把城市地标、路线氛围和旅行标题组织成视觉海报。",
     "cover": "/images/cases/templatederived-travel-city-poster.jpg",
-    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37468 Premium Artistic Travel Poster Prompt: A detailed prompt for creating a split-composition travel poster that blends a photorealistic l…\n- #100356 复古地图公路驰骋微缩电影感旅行海报: Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a…\n- #36884 GPT Image 字体排版旅行海报提示词: 用于生成高端字体排版旅行海报的结构化 GPT Image 提示词。采用模板方法，用户可替换主标题、风景场景和配色方案等特定元素（如 PEAK/MIST/TIDE/DUNE），同时保持统一的编…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
+    "prompt": "模板：城市旅行招贴\n用途：用于旅行城市海报、文旅宣传、打卡地图和路线封面。\n视觉方向：Travel / City / Poster / Illustration / Realistic / Editorial / Cinematic / Minimal\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「城市地标、季节、旅行情绪、标题排版、地图或路线线索」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37479 霍比特人与巫师齐聚的奇幻沙漠咖啡馆: 用于生成奇幻场景的提示词，描绘了银河下的沙漠咖啡馆中的旅行者，特别提及 GPT Image 2。\n- #37468 Premium Artistic Travel Poster from Photo: A prompt for creating a premium artistic travel poster by combining a photorealistic landscape …\n- #100356 复古地图公路驰骋微缩电影感旅行海报: Create a highly detailed cinematic miniature tilt-shift travel scene of [City Name] featuring a…\n\n使用建议：\n- 先锁定 城市地标、季节、旅行情绪、标题排版、地图或路线线索。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免地标错置、国家城市混淆和廉价旅游传单风。",
     "useWhen": "用于旅行城市海报、文旅宣传、打卡地图和路线封面。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37479",
       "37468",
       "100356",
       "36884",
-      "36883",
-      "36881"
+      "36883"
     ]
   },
   {
@@ -1364,17 +1364,17 @@
     ],
     "description": "把角色概念转化为可用的游戏资产：三视图、卡牌或设定表。",
     "cover": "/images/cases/templatederived-game-character-sheet.jpg",
-    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37164 东京健身房外的万圣节机器人: 一个巨大的工业警用机器人装饰着万圣节服装和花环，矗立在节日期间的日本体育馆外。\n- #37050 六款杂志封面: 角色设定图展示了一位动漫少女作为六种不同类型日本杂志的封面模特。\n- #37010 樱花与纹理素材表: 一个用于生成分类网格的提示词，包含水彩樱花、天空图案、纸张纹理和阴影叠加层，适用于设计项目。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
+    "prompt": "模板：游戏角色设定表\n用途：用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。\n视觉方向：Game / Character / Sheet\n\n请基于以下结构生成一条可直接用于 GPT Image 2.5 的图片 Prompt：\n- 主体：[明确要生成的主体，并贴合「角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架」]\n- 场景：[使用环境、受众、平台和传播语境]\n- 构图：[画面比例、镜头距离、主体位置、层级和留白]\n- 风格：[材质、光线、色彩、字体、渲染或摄影语言]\n- 约束：[必须出现/不能出现的元素、文字准确性、品牌限制]\n\n参考案例信号：\n- #37481 拟人化狼角色参考表: 一份详细的角色设计表，展示了一位肌肉发达的女性拟人化狼的多种姿势、表情及服装三视图。\n- #37164 东京健身房外的万圣节机器人: 一个巨大的工业警用机器人装饰着万圣节服装和花环，矗立在节日期间的日本体育馆外。\n- #37050 六款杂志封面: 角色设定图展示了一位动漫少女作为六种不同类型日本杂志的封面模特。\n\n使用建议：\n- 先锁定 角色身份、三视图角度、装备细节、风格统一性和卡牌 UI 框架。\n- 再替换主体、品牌、场景和比例，保持信息层级清楚。\n\n防坑指南：\n- 避免多角色混搭、角度不一致和 UI 元素遮挡角色主体。",
     "useWhen": "用于游戏角色设定、抽卡卡牌、机甲设计和像素/JRPG 素材。",
     "sourceType": "derived-case",
     "sourceLabel": "基于合并案例库自动派生",
     "sourceUrl": "/data/cases.json",
     "derivedFrom": [
+      "37481",
       "37164",
       "37050",
       "37010",
-      "36915",
-      "36726"
+      "36915"
     ]
   },
   {
