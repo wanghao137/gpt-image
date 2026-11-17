@@ -57015,5 +57015,77 @@
       "description": "基于上传的参考图片，创建一个混合媒介时尚照片的提示词，展示真人与手绘火柴人之间的互动。",
       "prompt": "以用户上传的人像照片作为唯一的人物参考，创作一张充满趣味与创意的混合媒介时尚摄影作品，将“真实摄影”与“2D 手绘涂鸦”巧妙结合。\n\n[人物还原度]\n精准保留上传照片中人物的五官特征、比例、脸型、发型、发色、肤色、年龄感及个人气质，确保生成角色与原图具有极高的身份一致性。优先保留原图中的服装款式、颜色及穿搭细节；切勿随意更改人物的外貌或穿衣风格。\n\n[创意互动]\n画面的核心在于真人与黑色手绘火柴人之间的趣味互动。\n人物位于画面中心偏右的位置，正自然且富有动感地朝右前方行走，身体微微前倾，一腿迈出、另一腿向后伸展。人物回头看向身后的手绘小人，展现出开怀大笑、俏皮惊讶或略带无奈等生动表情，营造出极具故事感的抓拍瞬间。\n画面左侧是一个用粗黑线条绘制的可爱简笔火柴人，圆脑袋、简单的五官、纤细的四肢，表情十分逗趣。\n火柴人正用力拽着真人的衣摆、袖口或包包，身体后仰、双腿弯曲，摆出拼命想拦住对方离开的滑稽姿势。请根据人物实际的服装和配饰，自动选择最自然的互动接触点。\n强调真实的互动效果：火柴人的手要准确抓住真实的衣物或配饰，拉扯处需呈现出面料自然的拉伸、变形、褶皱与紧绷感。2D 手绘线条在接触点要与真实摄影主体精准衔接，营造出一种画中角色真正参与到人物动作中的视觉错觉。\n\n[涂鸦风格]\n采用极简、可爱又幽默的黑色马克笔手绘涂鸦风格。线条带有手绘特有的轻微自然不规则感，粗细适中、呈现扁平化效果，不添加 3D 阴影、复杂纹理或写实材质。\n在人物与火柴人周围点缀几个手绘感叹号、汗滴、动态线、爱心或俏皮符号，以增强情绪互动感。涂鸦元素需自然融入构图，不可遮挡人物面部。\n\n[场景与构图]\n极简的浅灰/白色摄影棚，无缝纯色背景，地面带有柔和写实的接触阴影。\n采用 3:4 竖版全身构图。真人集中在画面右侧，手绘小人位于左侧，通过拉扯动作形成清晰的视觉连接。人物与小人均需完整入镜，双脚清晰可见，主体周围留有适当的留白，整体画面干净利落、简洁且富有设计感。\n\n[摄影与质感]\n专业商业时尚摄影风格，柔和均匀的影棚漫射光，真实自然的皮肤质感，清晰的发丝细节，逼真的衣物纤维与褶皱，动作自然生动，色彩明亮柔和。\n真人部分呈现高分辨率的超写实效果，而手绘部分则保持纯粹的 2D 黑色涂鸦质感，让两种视觉语言形成鲜明却又和谐的对比。\n整体氛围轻松、俏皮、可爱且幽默，具备创意社交媒体时尚大片的视觉吸引力。\n无文字、无水印、无复杂背景、无多余的卡通角色。"
     }
+  },
+  "37518": {
+    "en": {
+      "title": "Retro Photo: Woman on Horseback",
+      "description": "Generates a nostalgic, film-grain style photograph of a young woman riding a horse in a scenic countryside setting.",
+      "prompt": "A vintage-style photograph of a young East Asian woman sitting on a brown horse in a rural landscape. She has dark hair pulled back into a ponytail and is looking down with a focused expression, holding the leather reins. She wears a long-sleeved blouse with a small floral pattern, a knee-length plaid skirt, white socks, and brown leather ankle boots. The horse is saddled with a Western-style leather saddle and bridle. In the background, there is a wooden fence, green grassy hills, scattered trees, and distant mountains under a clear blue sky. The image has a retro aesthetic with visible film grain, scratches, dust spots, and a light leak along the left edge."
+    },
+    "zh": {
+      "title": "复古照片：骑马的女子",
+      "description": "生成一张充满怀旧感的胶片颗粒风格照片，画面中一位年轻女子在风景如画的乡村骑马。",
+      "prompt": "一张复古风格的照片，画面中一位年轻的东亚女性骑在一匹棕色马背上，置身于乡村风景之中。她深色的头发扎成马尾，神情专注地低头看着手中握着的皮质缰绳。她身穿一件小碎花长袖衬衫，搭配及膝格纹裙、白色短袜和棕色皮质短靴。马匹配备了西部风格的皮质马鞍和马笼头。背景中可见木质栅栏、绿意盎然的山丘、零星散布的树木，以及湛蓝晴空下的远山。整张图片充满复古美感，带有明显的胶片颗粒感、划痕、灰尘斑点，左侧边缘还有一处漏光效果。"
+    }
+  },
+  "37519": {
+    "en": {
+      "title": "GPT Image 2 Prompt: Transform Photo into 3D Toy Couple",
+      "description": "A detailed prompt to convert uploaded reference photos of a couple into ultra-detailed 3D collectible vinyl figurines in a café setting, preserving facial features while applying a stylized toy aesthetic.",
+      "prompt": "Transform the people in the uploaded reference photo into an ultra-detailed 3D collectible toy couple scene at a stylish outdoor café. Preserve their recognizable facial features while recreating them as premium glossy vinyl figurines with polished plastic finishes, slightly exaggerated proportions, expressive faces, and realistic toy-like details.\n\nThe female character has dark brown hair styled in an elegant braided updo, black sunglasses, delicate gold hoop earrings, layered gold necklaces, and a white puff-sleeve blouse. She rests her chin gently on one hand while gazing affectionately at her partner with a soft smile.\n\nThe male character has thick, voluminous curly dark hair, neatly groomed facial hair, black sunglasses, and a crisp white button-down shirt with rolled-up sleeves. He wears a silver wristwatch and casually holds a small white ceramic coffee cup near his lips.\n\nBoth characters are seated closely together at a polished wooden café table. Include miniature white coffee cups, matching saucers, and elegant silver teaspoons.\n\nEnvironment: A charming upscale European outdoor café with warm beige stone architecture, tall glass windows, lush green trees, blue patio umbrellas, wooden furniture, and softly blurred café guests in the background. Warm afternoon sunlight creates beautiful reflections and soft shadows.\n\nVisual Style: Premium designer vinyl toys, glossy 3D figurines, adorable yet sophisticated character design, smooth sculpted surfaces, detailed hairstyles, realistic miniature accessories, high-end collectible toy photography, cinematic depth of field, warm golden color grading, ultra-realistic 3D rendering.\n\nComposition: Vertical 4:5 portrait framing, eye-level front-facing camera, both characters prominently occupying the foreground, natural relaxed poses, intimate café atmosphere.\n\nRender Quality: Ultra-detailed 3D modeling, realistic glossy reflections, ray-traced lighting, ambient occlusion, global illumination, physically based materials, cinematic shadows, professional product photography, 8K-quality finish.\n\nImportant: Maintain the couple's identity and distinctive facial characteristics from the reference photo. Both people must look like beautifully crafted physical collectible toys, not ordinary human photographs. No text, no watermark, no extra foreground characters."
+    },
+    "zh": {
+      "title": "GPT Image 2 提示词：将照片转换为 3D 玩具情侣",
+      "description": "详细提示词，可将上传的情侣参考照片转换为咖啡馆场景中的超精细 3D 收藏级乙烯基手办，在保留面部特征的同时应用风格化的玩具美学。",
+      "prompt": "将上传参考照片中的人物转化为超精细的 3D 收藏级潮玩情侣场景，背景设定在一家格调十足的户外咖啡馆。保留他们极具辨识度的面部特征，将其重塑为高端亮面乙烯基（vinyl）手办，呈现抛光塑料质感、略微夸张的比例、生动传神的表情以及逼真的玩具细节。\n\n女性角色留着深棕色头发，梳成优雅的法式编发盘发，佩戴黑色墨镜、精致的金色圈形耳环和叠戴金项链，身穿白色泡泡袖衬衫。她单手轻轻托腮，面带温柔笑意，深情注视着身旁的伴侣。\n\n男性角色拥有一头浓密蓬松的深色卷发，胡须修剪得干净利落，戴着黑色墨镜，身穿清爽的白色纽扣衬衫，袖口随意卷起。他腕上佩戴银色手表，正随性地将一只白色小瓷咖啡杯举至唇边。\n\n两位角色亲密地并排坐在一张打磨光滑的木质咖啡桌旁。桌上摆放着迷你白色咖啡杯、配套杯碟以及精致的银色茶匙。\n\n环境：一家迷人的欧洲高档户外咖啡馆，拥有温暖的米色石材建筑、高大的玻璃窗、葱郁的绿树、蓝色庭院遮阳伞和木质家具，背景中的咖啡馆客人呈柔和虚化效果。温暖的午后阳光折射出漂亮的光影与柔和的阴影。\n\n视觉风格：高端设计师乙烯基潮玩、亮面 3D 手办、可爱又不失精致的角色设计、光滑细腻的雕塑表面、细节丰富的发型、逼真的微缩配饰、高端收藏级潮玩摄影、电影感景深、温暖的金黄色调、超写实 3D 渲染。\n\n构图：4:5 竖版人像画幅，平视正面机位，两位角色醒目地占据前景，姿态自然放松，营造温馨亲昵的咖啡馆氛围。\n\n渲染质量：超精细 3D 建模、逼真的光泽反射、光线追踪照明、环境光遮蔽、全局光照、基于物理的材质、电影级阴影、专业产品摄影、8K 级画质。\n\n重要提示：务必保留参考照片中这对情侣的身份特征与独特面容。两人必须呈现出精美实体收藏级潮玩的质感，而非普通的人像照片。无文字、无水印、前景中无多余人物。"
+    }
+  },
+  "37520": {
+    "en": {
+      "title": "Vertical Poster Collage of Woman in Sunglasses",
+      "description": "A prompt for generating a vertical poster collage featuring four black-and-white cinematic portraits of the same woman in different poses, with a full-color cutout foreground. Ideal for fashion editorials or magazine-style layouts.",
+      "prompt": "Vertical poster collage design, beige background, four stacked horizontal rounded rectangles containing black and white cinematic portraits of the same young woman wearing sunglasses in different stylish poses. Foreground features a full-color high-quality cutout of the woman on the left side, wearing a pink mauve fitted shirt, black pants, sunglasses, confident cool pose, modern fashion editorial style, soft studio lighting, ultra realistic, premium magazine aesthetic, depth and shadow effects, clean minimal layout, 2:3 aspect ratio."
+    },
+    "zh": {
+      "title": "戴墨镜女性竖版海报拼贴",
+      "description": "用于生成竖版海报拼贴的提示词，包含同一位女性的四张黑白电影感人像（不同姿势），并搭配全彩前景剪影。适用于时尚编辑或杂志风格排版。",
+      "prompt": "竖版海报拼贴设计，米色背景，四个横向圆角矩形上下堆叠排列，内含同一位年轻女性佩戴墨镜的黑白电影感人像，姿态各异、时尚有型。前景左侧为该女性的全彩高清抠图，她身穿粉紫色修身衬衫与黑色长裤，佩戴墨镜，姿态自信酷炫；整体呈现现代时尚大片风格，柔和的影棚布光，超写实画质，高端杂志质感，兼具景深与光影层次效果，排版干净极简，2:3 画幅比例。"
+    }
+  },
+  "37521": {
+    "en": {
+      "title": "Robot Police Unit",
+      "description": "A realistic photo of a giant bipedal robot with tank treads for feet and head, standing in a police maintenance yard while officers observe it.",
+      "prompt": "A hyper-realistic, high-resolution photograph of a massive bipedal robot standing in the middle of an industrial maintenance yard. The robot is constructed from heavy-duty black and white mechanical parts, resembling a complex assembly of gears, pistons, and armored plating. It has a humanoid shape but with a tank-like tread system on its head and feet. Red warning lights are visible on its shoulders and chest. The robot's chest plate bears the text \"警視庁 MPD\" (Metropolitan Police Department). In the foreground, two police officers wearing dark blue uniforms and white helmets stand observing the robot; one officer holds a tablet. Their uniforms also display \"警視庁 MPD\". Behind them are silver equipment cases labeled \"MPD\" and orange traffic cones. The background features a large grey industrial building with open bays numbered \"02\", \"03\", and \"04\". The building signage reads \"警視庁 MPD\" on the left and \"整備場 MAINTENANCE YARD\" on the right. Several other workers in safety vests and hard hats are visible in the distance near a white truck. The lighting is bright daylight with clear blue skies, casting sharp shadows on the concrete ground."
+    },
+    "zh": {
+      "title": "机器人士兵",
+      "description": "一张逼真的照片，展示了一个巨大的双足机器人，其脚部和头部装有坦克履带，正站在警察维护场中，警员们在旁观察。",
+      "prompt": "一张超写实的高分辨率照片，画面中一台巨大的双足机器人矗立在工业维修场中央。机器人由厚重的黑白机械部件构成，宛如齿轮、活塞与装甲板精密咬合而成的复杂装置。它呈人形轮廓，但头部和双脚却配备了类似坦克的履带系统。双肩与胸口处可见醒目的红色警示灯。胸甲上印有“警視庁 MPD”（东京都警视厅）字样。前景中，两名身穿深蓝色制服、头戴白色头盔的警察正驻足观察这台机器人；其中一人手持平板电脑。他们的制服上同样标有“警視庁 MPD”。二人身后摆放着印有“MPD”标识的银色设备箱以及橙色交通锥。背景是一栋灰色的大型工业建筑，敞开的库门上分别标有“02”、“03”和“04”编号。建筑左侧的标牌写着“警視庁 MPD”，右侧则写着“整備場 MAINTENANCE YARD”。远处一辆白色卡车旁，还能看到几名身穿反光背心、头戴安全帽的工作人员。明亮的日光倾洒而下，湛蓝的天空万里无云，在混凝土地面上投下轮廓分明的阴影。"
+    }
+  },
+  "37522": {
+    "en": {
+      "title": "Anime Family Dinner Poster",
+      "description": "Reverse-engineered prompt for an anime-style poster featuring a father and two children eating curry at a cozy table, titled 'Dragon's Child'.",
+      "prompt": "A vertical anime-style poster illustration depicting a warm, cozy family dinner scene. At the top center, large blue brush-stroke Japanese calligraphy reads \"龍の子\" (Child of the Dragon). Below this title, smaller text reads \"第8話 カレーの日\" (Episode 8: Curry Day).\n\nThe scene features three characters sitting around a low wooden table in a sunlit room with large windows showing autumn foliage outside.\n\n1. **Center/Back:** A young man with messy black hair and dark eyes, wearing a black zip-up hoodie over a grey t-shirt. He is smiling gently while holding a spoonful of curry rice.\n2. **Left:** A young girl with long orange hair styled in two braids, wearing a white collared shirt. She has large amber eyes and an excited, happy expression as she eats curry from a bowl.\n3. **Right:** A young boy with spiky light blue hair and blue eyes, wearing a white t-shirt. He is looking forward with a cheerful smile, also holding a spoonful of curry.\n\nOn the round wooden table in the foreground, there are several white bowls filled with yellow-orange curry and white rice. To the left, a silver pot sits on a woven trivet, containing more curry. The lighting is soft and golden, suggesting late afternoon or early evening. The background includes bookshelves on the left and potted plants near the windows. The overall style is high-quality digital anime art with vibrant colors and detailed shading."
+    },
+    "zh": {
+      "title": "动漫家庭晚餐海报",
+      "description": "逆向工程提示词，用于生成一张动漫风格的海报，画面中父亲和两个孩子正在温馨的餐桌旁吃咖喱，标题为“龙之子”。",
+      "prompt": "一幅竖版动漫风格的海报插画，描绘了温馨惬意的家庭晚餐场景。画面顶部正中央是蓝色的日式毛笔书法大字“龍の子”（龙之子）。标题下方是小字“第8話 カレーの日”（第 8 话：咖喱之日）。\n\n画面中有三位角色围坐在一张矮木桌旁，房间阳光充沛，宽大的窗户外可见秋日的红叶美景。\n\n1. **中后方：** 一位黑发散乱、深色眼眸的年轻男子，身穿黑色拉链连帽衫，内搭灰色 T 恤。他面带温柔的微笑，手里举着一勺咖喱饭。\n2. **左侧：** 一位留着橙色长发、扎着两条麻花辫的少女，身穿白色翻领衬衫。她有一双琥珀色的大眼睛，正开心地吃着碗里的咖喱，神情兴奋又满足。\n3. **右侧：** 一位浅蓝色刺猬头、蓝眼睛的少年，身穿白色 T 恤。他同样举着一勺咖喱，带着开朗的笑容望向前方。\n\n前景的圆木桌上摆着几个白碗，盛满黄橙色的咖喱和白米饭。左侧放着一个银色锅子，底下垫着编织隔热垫，锅里还装着更多咖喱。光线柔和金黄，透出午后或傍晚的氛围。背景左侧有书架，窗边摆放着盆栽。整体为高品质数字动漫画风，色彩明快，光影细节丰富。"
+    }
+  },
+  "37523": {
+    "en": {
+      "title": "Seaside Phone Box Manga Page",
+      "description": "A three-panel retro manga page featuring a girl discovering a magical phone booth on a beach that allows calls to the past in exchange for memories.",
+      "prompt": "Goal: Create a vertical manga-style comic page consisting of three panels depicting a melancholic scene at a seaside telephone box.\n\nCanvas: Vertical aspect ratio (approx. 2:3), white background with black panel borders. The art style should be retro Japanese manga, utilizing screentone patterns for shading and texture, with a muted color palette of beige, dusty blue, and sepia tones.\n\nLayout & Panels:\n1. Top Panel (Wide): A scenic shot of a sandy beach at sunset. In the center stands an old-fashioned wooden telephone booth. To the right, a young girl in a dark sailor school uniform stands with her back to the viewer, looking toward the sea. The sun is setting on the horizon, casting a reflection on the water. A speech bubble from the girl reads: \"こんな電話ボックスあったっけ\" (Did there used to be a phone box like this?).\n\n2. Bottom Left Panel (Close-up): A profile close-up of the same girl facing right. She has short, messy dark hair and large eyes filled with tears. Her expression is one of longing or sadness. She holds a small pink seashell tightly in her hand near her chest. A speech bubble reads: \"記憶が消えるのか…\" (Will my memory disappear...?).\n\n3. Bottom Right Panel (Interior/Detail): An interior view of the wooden telephone booth. A vintage black rotary dial telephone sits on a shelf below a pinned notice board. The notice board contains handwritten Japanese text explaining the rules of the phone. The text reads: \"ここからは過去に電話ができます。通話の代償はひとつの記憶。※お相手との記憶からいただきます\" (From here you can call the past. The cost of the call is one memory. *Taken from memories shared with the other party.).\n\nVisual Style: Use distinct halftone dot patterns for shadows and sky textures. The lines should be delicate but expressive. The atmosphere is quiet, nostalgic, and slightly supernatural."
+    },
+    "zh": {
+      "title": "海边电话亭漫画页面",
+      "description": "一幅三格复古风格漫画，描绘了一名女孩在海滩上发现一座神奇电话亭的故事。这座电话亭允许人们通过交换记忆来拨打过去的电话。",
+      "prompt": "目标：创作一张竖版漫画风格页面，包含三个分镜，描绘海边电话亭旁充满忧郁氛围的场景。\n\n画布：竖版比例（约 2:3），白色背景搭配黑色分镜边框。画风采用复古日式漫画风格，运用网点纸表现阴影与质感，整体色调柔和，以米色、灰蓝色和棕褐色为主。\n\n布局与分镜：\n1. 上方分镜（宽幅）：夕阳下沙滩的全景镜头。画面中央矗立着一座老式木制电话亭。右侧，一名身穿深色水手校服的少女背对观者而立，眺望着大海。太阳正从地平线落下，在水面投下倒影。少女的对话气泡中写着：“こんな電話ボックスあったっけ”（以前有这样一个电话亭吗？）。\n\n2. 左下方分镜（特写）：同一位少女面朝右侧的侧脸特写。她留着凌乱的深色短发，大大的眼睛里噙满泪水，神情中透着眷恋与哀伤。她将一枚粉色小贝壳紧紧攥在胸前。对话气泡中写着：“記憶が消えるのか…”（记忆会消失吗……？）。\n\n3. 右下方分镜（内部/细节）：木制电话亭的内部视角。一台复古的黑色拨盘电话放在置物板上，上方钉着一块告示板。告示板上用日文手写着电话的使用规则，内容为：“ここからは過去に電話ができます。通話の代償はひとつの記憶。※お相手との記憶からいただきます”（从这里可以打给过去。通话的代价是一段记忆。※将从你与对方的共同记忆中收取。）。\n\n视觉风格：使用清晰分明的半调网点图案来表现阴影与天空纹理。线条细腻且富有表现力。整体氛围静谧、怀旧，并带有一丝超自然的神秘感。"
+    }
   }
 }
