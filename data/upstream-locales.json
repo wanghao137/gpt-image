@@ -57255,5 +57255,29 @@
       "description": "一张超写实的图片，展示了一台巨大的警察机甲在雨夜的东京指挥交通。",
       "prompt": "一幅电影感十足的超写实夜景画面：一台巨大的双足警用机器人伫立在东京一处被雨水打湿的十字路口中央。机器人由重型工业机械部件拼装而成，关节呈暗色金属质感，白色装甲板上印有“MPD”与“警視庁”（东京都警视厅）标识，分布于胸部和肩部。它的头部为长方形传感器，形似车顶警示灯条，双肩处闪烁着红光。右臂高高举起，做出威严的“停止”手势；左手则握着一根发着橙光的交通指挥棒。前景中，一名身穿深色雨衣、头戴头盔的人类警察背对镜头站立，手中同样举着一根发光的指挥棒。画面右侧立着一块金属路障指示牌，上面写着“交通規制”（交通管制）。背景是虚化的城市摩天大楼、街灯，以及一块标示新宿与四谷方向的蓝色路牌。密集的雨丝划破夜空，与警车的红色闪光一同倒映在湿漉漉的柏油路面上。"
     }
+  },
+  "37621": {
+    "en": {
+      "title": "Six-Panel Portrait Grid of Young Woman",
+      "description": "A collage of six studio portraits showing a young woman with long brown hair posing in various casual expressions against a grey background.",
+      "prompt": "A grid of six portrait photographs featuring a young East Asian woman with long, wavy dark brown hair and wispy bangs. She wears a simple black spaghetti-strap top and a delicate silver necklace with a small pendant. The background is a plain, cool-toned grey wall, suggesting an indoor studio setting with soft, diffused lighting that creates gentle shadows on her face. \n\nTop Left: She rests her chin in both hands, palms facing inward, looking slightly to her left with a neutral expression.\nTop Center: She holds up a peace sign near her right eye, winking with that same eye, lips slightly parted.\nTop Right: Her eyes are closed, head tilted slightly down, one hand raised to touch the top of her hair.\nBottom Left: She rests her cheek against her right hand, fingers lightly touching her temple, looking off to the side with a pensive gaze.\nBottom Center: A candid shot of her smiling broadly, showing teeth, looking off-camera to her right.\nBottom Right: She looks directly at the camera with a soft, subtle smile, one hand gently brushing back the hair behind her ear."
+    },
+    "zh": {
+      "title": "年轻女性六格人像拼贴",
+      "description": "由六张影棚肖像组成的拼贴图，展示了一位留着棕色长发的年轻女性在灰色背景前的多种休闲表情。",
+      "prompt": "六张竖版人像照片以网格形式排列，画面中是一位年轻的东亚女性，留着深棕色的长波浪卷发和轻盈的刘海。她身穿一件简约的黑色细吊带背心，佩戴着一条精致的银质项链，吊坠小巧。背景是一面素净的冷灰色墙壁，暗示拍摄地为室内摄影棚；柔和的漫射光在她的脸上投下淡淡的阴影。\n\n左上：她双手托腮，掌心朝内，神情淡然，目光微微偏向左侧。\n中上：她在右眼旁比出剪刀手，同时眨着这只眼睛，双唇微启。\n右上：她双眼轻闭，头微微低垂，一只手抬起轻抚发顶。\n左下：她将脸颊靠在右手上，指尖轻触太阳穴，目光望向一旁，若有所思。\n中下：一张自然抓拍的照片，她笑容灿烂、露出牙齿，看向镜头右侧的画面之外。\n右下：她直视镜头，嘴角挂着温柔浅淡的微笑，一只手轻轻将耳后的头发向后拢去。"
+    }
+  },
+  "37622": {
+    "en": {
+      "title": "Steampunk Artificer Portrait",
+      "description": "Generates a cinematic steampunk illustration of a female artificer with mechanical limbs working on clockwork devices in a warmly lit workshop.",
+      "prompt": "A highly detailed, cinematic steampunk portrait of a beautiful woman with dark hair styled in an elegant updo, seated at a cluttered wooden workbench. She has intricate gold mechanical prosthetic arms and delicate golden filigree facial markings on her cheek. She is focused intently on assembling a complex brass clockwork mechanism with tiny tools. To her right sits a polished metallic automaton head with exposed gears and lenses. The background is a dimly lit workshop filled with hanging blueprints, copper pipes, and glowing vintage oil lamps casting warm amber light. On the left wall, a chalkboard displays the Latin text \"INVENIMUS AUT FACIMUS\" in large letters and \"DEFICIMUS\" below it in green. The image is framed by an ornate Art Deco border featuring geometric patterns and a winged emblem at the bottom center. The color palette is dominated by rich browns, antique golds, deep blacks, and muted greens."
+    },
+    "zh": {
+      "title": "蒸汽朋克工匠肖像",
+      "description": "生成一幅电影质感的蒸汽朋克插画，描绘了一位拥有机械义肢的女性工匠在温暖灯光的工作室中修理发条装置的场景。",
+      "prompt": "一幅细节丰富、极具电影质感的蒸汽朋克风格肖像画：一位黑发盘成优雅发髻的美丽女子，正坐在堆满杂物的木质工作台前。她装配着精密的金色机械义肢手臂，脸颊上绘有精致的金色花丝纹饰。她全神贯注，正用微型工具组装一套复杂的黄铜发条装置。在她右侧，摆放着一颗抛光金属自动人偶头颅，齿轮与镜片清晰外露。背景是一间光线昏暗的工作室，墙上挂满蓝图，铜管纵横交错，复古油灯散发着温暖的琥珀色光芒。左侧墙壁的黑板上用大字写着拉丁文“INVENIMUS AUT FACIMUS”，下方则是绿色的“DEFICIMUS”。画面四周环绕着华丽的装饰艺术（Art Deco）边框，饰有几何图案，底部中央点缀着一枚带翼徽章。整体色调以浓郁的棕色、复古金色、深邃的黑色与柔和的绿色为主。"
+    }
   }
 }
