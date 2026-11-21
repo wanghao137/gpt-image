@@ -57279,5 +57279,65 @@
       "description": "生成一幅电影质感的蒸汽朋克插画，描绘了一位拥有机械义肢的女性工匠在温暖灯光的工作室中修理发条装置的场景。",
       "prompt": "一幅细节丰富、极具电影质感的蒸汽朋克风格肖像画：一位黑发盘成优雅发髻的美丽女子，正坐在堆满杂物的木质工作台前。她装配着精密的金色机械义肢手臂，脸颊上绘有精致的金色花丝纹饰。她全神贯注，正用微型工具组装一套复杂的黄铜发条装置。在她右侧，摆放着一颗抛光金属自动人偶头颅，齿轮与镜片清晰外露。背景是一间光线昏暗的工作室，墙上挂满蓝图，铜管纵横交错，复古油灯散发着温暖的琥珀色光芒。左侧墙壁的黑板上用大字写着拉丁文“INVENIMUS AUT FACIMUS”，下方则是绿色的“DEFICIMUS”。画面四周环绕着华丽的装饰艺术（Art Deco）边框，饰有几何图案，底部中央点缀着一枚带翼徽章。整体色调以浓郁的棕色、复古金色、深邃的黑色与柔和的绿色为主。"
     }
+  },
+  "37660": {
+    "en": {
+      "title": "Marble Sculpture Avatar Prompt",
+      "description": "A prompt for GPT Image 2 to transform an uploaded photo into a hyper-realistic marble sculpture avatar in classical Greco-Roman statue style with museum lighting.",
+      "prompt": "Turn the uploaded photo into a hyper-realistic marble sculpture avatar in classical Greco-Roman statue style. Precisely chiseled facial features with subtle imperfections, visible stone veins, and natural marble grain texture. Smooth yet slightly weathered surface, realistic sculpting marks, and refined anatomy. Soft museum-style directional lighting casting gentle shadows to enhance depth and contours. Neutral gallery background with shallow depth of field, elegant fine-art atmosphere, timeless aesthetic, ultra-high resolution, cinematic realism, 1: 1 aspect ratio, premium statue portrait quality."
+    },
+    "zh": {
+      "title": "大理石雕塑头像提示词",
+      "description": "用于 GPT Image 2 的提示词，可将上传的照片转换为具有博物馆灯光效果的超写实古典希腊罗马风格大理石雕塑头像。",
+      "prompt": "将上传的照片转化为超写实的古典希腊罗马风格大理石雕塑头像。面部轮廓精雕细琢，保留细微的瑕疵、清晰可见的石纹以及天然的大理石肌理。表面光滑却略带岁月风化的痕迹，呈现逼真的雕刻刀触与精准的人体结构。柔和的博物馆级定向光投下细腻阴影，凸显立体感与轮廓层次。中性画廊背景搭配浅景深效果，营造优雅的艺术氛围与隽永美感，超高分辨率，电影级写实质感，1:1 画幅比例，顶级雕像肖像品质。"
+    }
+  },
+  "37661": {
+    "en": {
+      "title": "Royal Blue Evening Gown Portrait Prompt",
+      "description": "A photorealistic editorial portrait prompt for GPT Image 2 featuring a glamorous woman in a royal blue beaded gown against a city backdrop with concrete transit structures.",
+      "prompt": "Glamorous woman with long, wavy dark brown hair and bold red lipstick posing outdoors against a modern concrete elevated transit structure and city street, wearing a fitted royal blue and teal beaded evening gown with a sweetheart neckline, draped waist, and hanging bead fringe, left hand raised near her hair, subtle blue drop earrings and a delicate bracelet, natural daylight, shallow depth of field, medium shot, photorealistic editorial portrait."
+    },
+    "zh": {
+      "title": "宝蓝色晚礼服人像提示词",
+      "description": "适用于 GPT Image 2 的逼真编辑风格人像提示词，展示一位身着宝蓝色珠饰礼服的魅力女性，背景为带有混凝土交通设施的城市景观。",
+      "prompt": "一位魅力四射的女性，留着深棕色长波浪卷发，涂着明艳的红唇，在现代混凝土高架轨道交通建筑与城市街道的户外背景下摆出造型。她身穿一件修身的宝蓝色与青绿色珠饰晚礼服，心形领口、垂褶腰身设计，下摆缀有垂坠的珠串流苏。左手轻抬至发丝旁，佩戴着低调的蓝色水滴形耳坠和精致手链。自然日光照明，浅景深，中景构图，照片级逼真的时尚编辑风格人像。"
+    }
+  },
+  "37662": {
+    "en": {
+      "title": "GTA VI Style Loading Screen Poster Prompt",
+      "description": "A detailed prompt for GPT Image 2 that transforms an uploaded reference photo into a Grand Theft Auto VI-inspired loading screen poster. It specifies scene elements like neon-lit Miami streets, character poses, and graphic design components such as the GTA logo and loading bar.",
+      "prompt": "Transform the uploaded reference photo into a stunning Grand Theft Auto VI-inspired loading screen poster in a vertical 3:4 aspect ratio.\n\nMAIN CONCEPT:\nCreate a visually striking cinematic scene inspired by the world of GTA VI and the vibrant Miami lifestyle. Use the person from the uploaded photo as the main character, preserving their recognizable facial features, hairstyle, skin tone and overall identity.\n\nSCENE & ENVIRONMENT:\nPlace the character in an exciting urban environment inspired by Vice City. The setting can feature neon-lit Miami streets, luxury shopping districts, underground parking garages, waterfront promenades, rooftop locations, nightclubs, beaches or palm-tree-lined roads. Include realistic environmental details such as luxury sports cars, modern architecture, glowing streetlights, glass storefronts and distant skyscrapers.\n\nCHARACTER & POSE:\nGive the character a natural, confident and stylish pose. Depending on the environment, they can be walking through the city, sitting on a sports car, leaning against a railing, checking their smartphone, standing near a waterfront or casually hanging out. Dress them in fashionable streetwear, oversized T-shirts, baggy jeans, sneakers, jackets, caps or other contemporary outfits that complement the scene.\n\nVISUAL STYLE:\nAuthentic GTA VI promotional artwork aesthetic, highly detailed semi-realistic digital illustration, sophisticated comic-book rendering, realistic anatomy, sharp facial details, bold outlines, cinematic composition, dramatic lighting and beautifully rendered textures.\n\nUse a signature GTA-inspired color palette featuring vibrant neon pink, magenta, purple, orange, golden yellow and deep blue. Add atmospheric sunset lighting, colorful reflections, dramatic shadows and rich visual contrast.\n\nGRAPHIC DESIGN ELEMENTS:\n- A large Grand Theft Auto VI logo positioned naturally in the upper-left or upper-right corner.\n- Bold italic white \"Loading...\" typography near the bottom-left corner.\n- A horizontal loading progress bar directly beneath it, with a bright pink partially filled progress indicator.\n- Clean, professional video-game loading screen composition.\n\nFINAL QUALITY:\nMake the result look like an official-quality next-generation open-world video game loading screen. Maintain consistent GTA VI-inspired art direction, immersive storytelling, excellent character proportions, detailed backgrounds, beautiful lighting and professional poster design.\n\nUltra-detailed, 4K quality, vertical 3:4 composition."
+    },
+    "zh": {
+      "title": "GTA VI 风格加载界面海报提示词",
+      "description": "为 GPT Image 2 设计的详细提示词，可将上传的参考照片转换为《侠盗猎车手 VI》风格的加载界面海报。该提示词明确了场景元素（如霓虹灯照亮的迈阿密街道、角色姿势）以及图形设计组件（如 GTA 标志和加载进度条）。",
+      "prompt": "将上传的参考照片转化为一张惊艳的 Grand Theft Auto VI 风格加载界面海报，采用 3:4 竖版比例。\n\n核心概念：\n打造极具视觉冲击力的电影感画面，灵感源自 GTA VI 的世界观与活力四射的迈阿密风情。以上传照片中的人物作为主角，完整保留其辨识度极高的面部特征、发型、肤色及整体形象。\n\n场景与环境：\n将角色置于以 Vice City 为灵感的动感都市场景中。背景可以是霓虹闪烁的迈阿密街头、奢华购物区、地下停车场、滨海步道、天台、夜店、海滩或棕榈树夹道的公路。加入逼真的环境细节，例如豪华跑车、现代建筑、璀璨路灯、玻璃橱窗以及远处的摩天大楼。\n\n角色与姿态：\n赋予角色自然、自信且时髦的姿态。根据场景设定，可以是在城市中漫步、坐在跑车上、倚靠栏杆、低头看手机、伫立水畔或随性地闲逛。为其搭配潮流街头服饰，如 Oversize T恤、宽松牛仔裤、运动鞋、夹克、棒球帽等契合场景的现代穿搭。\n\n视觉风格：\n纯正的 GTA VI 宣传美术风格，高精细度的半写实数字插画，精致的漫画渲染质感，真实的人体结构，锐利的面部细节，粗犷有力的轮廓线，电影级构图，戏剧性光影以及细腻的材质表现。\n\n采用标志性的 GTA 配色方案，融入亮眼的霓虹粉、洋红、紫色、橙色、金黄与深蓝。叠加氛围感十足的落日余晖、斑斓的光影反射、强烈的明暗对比与丰富的视觉层次。\n\n平面设计元素：\n- 醒目的 Grand Theft Auto VI Logo，自然地放置在左上角或右上角。\n- 左下角附近使用粗斜体白色 \"Loading...\" 字样。\n- 文字正下方放置一条水平加载进度条，带有亮粉色的部分填充进度指示。\n- 干净利落、专业感十足的游戏加载界面排版。\n\n最终品质：\n让成品呈现出次世代开放世界大作官方级别的加载界面质感。保持统一的 GTA VI 美术风格、沉浸式的故事氛围、出色的角色比例、丰富的背景细节、绝美的光影效果以及专业的海报设计水准。\n\n超精细细节，4K 画质，3:4 竖版构图。"
+    }
+  },
+  "37663": {
+    "en": {
+      "title": "Elegant East Asian Woman Fashion Portrait",
+      "description": "A professional portrait photography prompt for GPT Image 2 featuring an elegant East Asian woman in a mustard-yellow crocheted hat and floral blouse against a black background.",
+      "prompt": "Professional portrait photography, 9:16 vertical composition, a stunning elegant East Asian woman, upper body shot against a deep black solid background.\n\nShe has long, voluminous wavy black hair flowing beautifully in soft wind, warm golden rim lighting glowing along her hair and shoulders. She wears a bright mustard-yellow crocheted bucket hat with an elegant large satin bow on the left side. Large polished gold double-hoop drop earrings.\n\nShe wears a silky cream-white blouse with vibrant vintage floral pattern — blooming orange and golden poppies, soft blue leaves and stems, puffed elbow-length sleeves. Paired with high-waisted soft yellow trousers or skirt. Her right hand gently touches the brim of her hat, graceful pose, warm confident gaze looking directly at the viewer, subtle soft smile.\n\nSoft studio lighting, warm golden tones, high-end fashion aesthetic, sharp focus on face, ultra-detailed, photorealistic, 8K resolution, vibrant yet elegant colors, cinematic quality, polished skin texture, refined and timeless elegance."
+    },
+    "zh": {
+      "title": "优雅的东亚女性时尚人像",
+      "description": "适用于 GPT Image 2 的专业人像摄影提示词，展示一位身着芥末黄钩针帽和花卉衬衫的优雅东亚女性，背景为黑色。",
+      "prompt": "专业人像摄影，9:16 竖构图，一位惊艳优雅的东亚女性，上半身特写，背景为纯黑底色。\n\n她拥有一头浓密的黑色长卷发，在微风中轻盈飘逸，温暖的金色轮廓光勾勒出她的发丝与肩线。头戴一顶亮芥末黄色的钩织渔夫帽，左侧点缀着一个优雅的大号缎面蝴蝶结。耳畔佩戴着抛光金色双环大吊坠耳环。\n\n身穿一件丝滑的奶油白衬衫，印有明艳的复古花卉图案——盛开的橙色与金色虞美人，搭配柔和的蓝绿色枝叶，泡泡袖长及手肘。下搭高腰柔黄色长裤或半裙。右手轻触帽檐，姿态优雅，目光温暖自信地直视镜头，嘴角带着若有似无的浅笑。\n\n柔和影棚布光，温暖金色调，高端时尚美学，面部精准对焦，超精细细节，照片级真实感，8K 分辨率，色彩明艳而不失雅致，电影级质感，肌肤细腻光滑，尽显精致隽永的优雅气质。"
+    }
+  },
+  "37667": {
+    "en": {
+      "title": "Gritty Midnight Convenience Store Magazine Cover",
+      "description": "A cyberpunk-inspired magazine cover design featuring a young woman in a convenience store, surrounded by bold Japanese typography, neon green and pink accents, and distressed halftone textures.",
+      "prompt": "Goal: Create a gritty, high-contrast magazine cover design for {argument name=\"magazine title\" default=\"深夜便利店 (Midnight Mart)\"}.\n\nCanvas: Vertical portrait format with an off-white, textured paper background featuring heavy halftone dot patterns and distressed edges.\n\nLayout & Typography:\n1. Top Header: Large, bold, black Japanese calligraphy-style text \"深夜便利店\" spanning the top width. Small sans-serif text in corners: \"VOL.07 CITY CULTURE MAGAZINE\" (top left) and \"2024 WINTER ISSUE\" (top right).\n2. Left Column: Bold black sans-serif text stacked vertically: \"24H / OPEN / CITY / LIGHTS /\". Below this, a vertical strip of a convenience store shelf photo overlaid with bright neon green ink splashes.\n3. Right Column: Vertical Japanese text \"シティー・ナイト・マート\" along the edge. A stylized black-and-white illustration of a soda can. A checklist of items in Japanese (Coffee, Drink, Snack, Tobacco, Daily Goods). A neon green highlight box containing handwritten-style Japanese text \"都市の不眠時間\".\n4. Bottom Section: Massive, bold black sans-serif text \"MIDNIGHT MART\" spanning the bottom width. To the right, a small barcode and a line-art illustration of a convenience store exterior with pink accents.\n\nSubject Details:\nCenter Image: A realistic photograph of a young Asian woman with short, messy dark hair, wearing a grey hoodie under a dark denim jacket, with headphones around her neck. She has a neutral, slightly melancholic expression, looking directly at the camera. She is standing inside a brightly lit convenience store, leaning against a glass door or window frame. The background shows blurred store shelves and neon lights.\n\nVisual Style:\n- Cyberpunk/Streetwear aesthetic mixed with retro print textures.\n- Color Palette: Black, white/off-white, hot pink, and neon lime green.\n- Effects: Halftone dots, ink splatters, torn paper edges, and high-contrast grain.\n- Textures: Distressed grunge overlays on the typography and background.\n\nConstraints:\n- Ensure the central photo is framed by the graphic elements without obscuring the face.\n- Maintain the specific color coding: Pink for highlights/shadows, Green for accents/splashes.\n- Use authentic-looking Japanese typography for the main title."
+    },
+    "zh": {
+      "title": "gritty 午夜便利店杂志封面",
+      "description": "一款赛博朋克风格的杂志封面设计，画面中一位年轻女性身处便利店，周围环绕着醒目的日文排版、霓虹绿与粉色点缀，以及做旧半色调纹理。",
+      "prompt": "目标：为 {argument name=\"magazine title\" default=\"深夜便利店 (Midnight Mart)\"} 设计一款粗粝、高对比度的杂志封面。\n\n画布：竖版人像构图，采用米白色纹理纸张背景，搭配浓重的半调网点图案与做旧破损边缘。\n\n排版与字体：\n1. 顶部页眉：粗大的黑色日式书法风格文字“深夜便利店”横跨顶部。角落处点缀小号无衬线字体：“VOL.07 CITY CULTURE MAGAZINE”（左上角）与“2024 WINTER ISSUE”（右上角）。\n2. 左栏：粗黑无衬线字体纵向排列堆叠：“24H / OPEN / CITY / LIGHTS /”。下方是一条便利店货架的竖向照片，其上叠加亮霓虹绿色的泼墨效果。\n3. 右栏：沿边缘纵向排列日文“シティー・ナイト・マート”。一幅风格化的黑白汽水罐插画。一份日文商品清单（咖啡、饮料、零食、烟草、日用品）。一个霓虹绿色的高亮框，内含手写风格的日文“都市の不眠時間”。\n4. 底部区域：巨大的粗黑无衬线字体“MIDNIGHT MART”横跨底部。右侧配有一个小条形码，以及一幅带粉色点缀的便利店外观线稿插画。\n\n主体细节：\n中心图像：一张写实照片，画面中是一位年轻的亚洲女性，留着凌乱的深色短发，灰色连帽卫衣外搭深色牛仔夹克，脖子上挂着耳机。她神情淡然，略带忧郁，直视镜头。她站在灯火通明的便利店内，倚靠着玻璃门或窗框。背景是虚化的店铺货架与霓虹灯光。\n\n视觉风格：\n- 赛博朋克/街头潮流感，融合复古印刷纹理。\n- 配色方案：黑色、白色/米白色、亮粉色与霓虹青柠绿。\n- 特效：半调网点、泼墨飞溅、撕裂纸边与高对比度颗粒感。\n- 纹理：在字体与背景上叠加做旧的 Grunge 肌理。\n\n限制条件：\n- 确保中心照片被图形元素环绕衬托，且不可遮挡人物面部。\n- 严格遵守色彩规范：粉色用于高光/阴影，绿色用于点缀/泼墨。\n- 主标题须使用地道的日式字体排版。"
+    }
   }
 }
