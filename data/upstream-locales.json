@@ -57339,5 +57339,29 @@
       "description": "一款赛博朋克风格的杂志封面设计，画面中一位年轻女性身处便利店，周围环绕着醒目的日文排版、霓虹绿与粉色点缀，以及做旧半色调纹理。",
       "prompt": "目标：为 {argument name=\"magazine title\" default=\"深夜便利店 (Midnight Mart)\"} 设计一款粗粝、高对比度的杂志封面。\n\n画布：竖版人像构图，采用米白色纹理纸张背景，搭配浓重的半调网点图案与做旧破损边缘。\n\n排版与字体：\n1. 顶部页眉：粗大的黑色日式书法风格文字“深夜便利店”横跨顶部。角落处点缀小号无衬线字体：“VOL.07 CITY CULTURE MAGAZINE”（左上角）与“2024 WINTER ISSUE”（右上角）。\n2. 左栏：粗黑无衬线字体纵向排列堆叠：“24H / OPEN / CITY / LIGHTS /”。下方是一条便利店货架的竖向照片，其上叠加亮霓虹绿色的泼墨效果。\n3. 右栏：沿边缘纵向排列日文“シティー・ナイト・マート”。一幅风格化的黑白汽水罐插画。一份日文商品清单（咖啡、饮料、零食、烟草、日用品）。一个霓虹绿色的高亮框，内含手写风格的日文“都市の不眠時間”。\n4. 底部区域：巨大的粗黑无衬线字体“MIDNIGHT MART”横跨底部。右侧配有一个小条形码，以及一幅带粉色点缀的便利店外观线稿插画。\n\n主体细节：\n中心图像：一张写实照片，画面中是一位年轻的亚洲女性，留着凌乱的深色短发，灰色连帽卫衣外搭深色牛仔夹克，脖子上挂着耳机。她神情淡然，略带忧郁，直视镜头。她站在灯火通明的便利店内，倚靠着玻璃门或窗框。背景是虚化的店铺货架与霓虹灯光。\n\n视觉风格：\n- 赛博朋克/街头潮流感，融合复古印刷纹理。\n- 配色方案：黑色、白色/米白色、亮粉色与霓虹青柠绿。\n- 特效：半调网点、泼墨飞溅、撕裂纸边与高对比度颗粒感。\n- 纹理：在字体与背景上叠加做旧的 Grunge 肌理。\n\n限制条件：\n- 确保中心照片被图形元素环绕衬托，且不可遮挡人物面部。\n- 严格遵守色彩规范：粉色用于高光/阴影，绿色用于点缀/泼墨。\n- 主标题须使用地道的日式字体排版。"
     }
+  },
+  "37685": {
+    "en": {
+      "title": "Showa Retro Floral Dress Portrait",
+      "description": "Generates a photorealistic image of a woman in a vintage floral dress within a serene Japanese garden setting, capturing a nostalgic Showa-era mood.",
+      "prompt": "A photorealistic portrait of a young woman with a gentle, nostalgic Showa-era aesthetic. She has dark hair styled in a single loose side braid and wears a vintage-inspired cream-colored midi dress featuring a delicate purple floral print, short sleeves, a Peter Pan collar, and a button-down bodice. She stands in a lush Japanese garden, reaching up to lightly touch the branches of a green maple tree overhead. The lighting is soft and dappled, creating a warm, film-like grain that evokes a retro 1970s atmosphere."
+    },
+    "zh": {
+      "title": "昭和复古花卉连衣裙人像",
+      "description": "生成一张写实风格的女性照片，她身着复古花卉连衣裙，置身于宁静的日式庭院中，捕捉充满怀旧感的昭和时代氛围。",
+      "prompt": "一张照片级逼真的年轻女性肖像，散发着温柔怀旧的昭和时代美学气息。她留着一头深色秀发，松松地编成一条侧边麻花辫；身穿一袭复古风奶油色中长连衣裙，裙上点缀着精致的紫色碎花图案，短袖设计搭配彼得潘领与纽扣门襟。她伫立在一座葱郁的日式庭院中，抬手轻触头顶青枫的枝叶。光线柔和斑驳，为画面覆上一层温暖的胶片颗粒感，仿佛将人带回 20 世纪 70 年代的复古时光。"
+    }
+  },
+  "37686": {
+    "en": {
+      "title": "Royal Blue Sweater Portrait Prompt",
+      "description": "A detailed prompt for generating two variations of a woman in a royal blue sweater with and without a mask, maintaining facial consistency from a reference image.",
+      "prompt": "Create two separate pictures of the same beautiful young woman from the reference image, maintaining her exact facial features, beautiful green eyes, natural skin tone, and long brown wavy hair styled in a voluminous half-up hairstyle with a royal blue ribbon bow. In the first picture, she is wearing a beautiful oversized royal blue knitted sweater with no black clothing, sitting in an elegant relaxed pose with one knee slightly raised and her cheek resting gently on her hand, with her full face clearly visible, soft natural makeup, rosy cheeks, and glossy pink lips. In the second picture, keep exactly the same girl, facial features, hairstyle, blue ribbon bow, and royal blue sweater, but add a matching royal blue knitted face mask covering her nose and mouth, with one hand gently holding the mask near her cheek while her beautiful eyes remain clearly visible. Both pictures should have a soft charcoal grey studio background, cinematic lighting, realistic skin texture, detailed knitted fabric, professional fashion photography, ultra-realistic 8K quality, vertical 9:16 aspect ratio, no black clothing, no text, and no watermark."
+    },
+    "zh": {
+      "title": "宝蓝色毛衣女性肖像提示词",
+      "description": "一个详细的提示词，用于生成穿着宝蓝色毛衣的女性的两个变体（戴面具和不戴面具），并保持与参考图像的面部一致性。",
+      "prompt": "根据参考图，生成两张同一位美丽年轻女性的独立图片，需精准还原她的面部特征、迷人的绿色眼眸、自然肤色，以及用宝蓝色丝带蝴蝶结扎起的蓬松半扎长棕色波浪卷发。第一张图片中，她身穿一件漂亮的宝蓝色宽松针织毛衣（不含任何黑色衣物），以优雅放松的姿态坐着，单膝微曲，脸颊轻托于手上；全脸清晰可见，妆容柔和自然，双颊红润，嘴唇呈光泽粉色。第二张图片中，人物、五官、发型、蓝色丝带蝴蝶结及宝蓝色毛衣均与第一张完全一致，但需增加一个同色系的宝蓝色针织口罩遮住口鼻，一只手在脸颊旁轻轻扶着口罩，同时确保她美丽的双眼依然清晰可见。两张图片均需采用柔和的炭灰色摄影棚背景、电影级光影、逼真的皮肤纹理、细腻的针织面料质感，呈现专业时尚摄影风格与超写实的 8K 画质；采用 9:16 竖版比例，不含黑色衣物、文字及水印。"
+    }
   }
 }
