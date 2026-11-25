@@ -1,0 +1,18 @@
+# Cloudflare Worker: taostudioai.com 静态站 + 3 个 API
+# 部署: cd cf-worker && CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=c9bfec... npx wrangler deploy
+name = "taostudioai"
+main = "index.js"
+compatibility_date = "2026-11-01"
+# 三个 API 复用 src/server/*.mjs 的核心逻辑，它们用 node:crypto / node:buffer / node:path
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[[r2_buckets]]
+binding = "SITE"
+bucket_name = "taostudio-site"
+
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "taostudio-cases-assets"
