@@ -1,13 +1,10 @@
 name: Deploy GitHub Pages
 
-# GH Pages is kept as a fallback mirror only. The live site is on Vercel
-# (auto-deploys on push to main). Daily upstream data sync lives in
-# `sync.yml`; after it pushes a data commit, it explicitly dispatches this
-# workflow because GITHUB_TOKEN-created pushes do not trigger other workflows.
+# GH Pages mirror of the OLD React app (retired 2026-11-25: taostudioai.com
+# now serves 桃子AI画廊 + /lab from Cloudflare). Kept only as a manual
+# fallback snapshot, so it no longer runs on push.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

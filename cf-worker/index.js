@@ -1,24 +1,30 @@
 /**
  * taostudioai.com on Cloudflare Workers + R2.
  *
- * WHY WORKER (not Pages): the SSG build emits ~42k files (18,401 case pages +
- * 18,401 prompt JSONs + 7.4k images + data shards). Cloudflare Pages caps a
- * deployment at 20,000 files, so Pages cannot host this site at all. R2 has no
- * file-count limit; this Worker is the router in front of it.
+ * WHAT SERVES WHAT (2026-11-25 restructure)
+ *   taostudioai.com  = 桃子AI画廊 (the static gallery that used to live at
+ *                      cases.taostudioai.com) + /lab (the 4K lab, regenerated
+ *                      with the gallery shell from lab-data/).
+ *   cases.taostudioai.com / www.taostudioai.com -> 301 to the apex.
+ *   The old React app (18,401 /case pages, /category, /templates, /admin and
+ *   the B2-backed /images/cases/*) is retired: those paths answer 410 Gone.
+ *   Its data is NOT deleted — the R2 buckets/objects and the B2 bucket are
+ *   untouched, so the change is reversible.
  *
- * RESPONSIBILITIES
- *   1. Serve static objects from R2 (SITE bucket), with Vercel-equivalent
- *      clean-URL behaviour: /x -> x, x/index.html, x.html.
- *   2. /data/prompts/* lives in the ASSETS bucket (prompts/ prefix).
- *   3. /api/analytics/{collect,summary} and /api/hermes/content — the three
- *      Vercel functions, re-implemented as Workers handlers over the same
- *      core modules (src/server/*.mjs) so behaviour and security are identical.
- *   4. Cache-Control + security headers, mirroring the old vercel.json.
+ * WHY WORKER (not Pages): the gallery build emits ~25k files (12.5k work
+ * pages + 1.8k lab pages + data shards); Cloudflare Pages caps a deployment at
+ * 20,000 files. R2 has no file-count limit; this Worker is the router.
  *
- * Vercel handler shim note: the existing functions expect (req, res) with
- * req.body/req.query/req.headers. We build that shim rather than forking the
- * core logic, and pass `env` explicitly (Pages/Workers have no process.env
- * populated by default).
+ * R2 layout (bucket taostudio-gallery, produced by tools/sync_site_v2_r2.mjs):
+ *   index.html, p/<id>/index.html, c/<cat>/index.html, lab/, lab/<slug>/,
+ *   data/<build_id>/*, data/lab/<build_id>/*, brand/, favicon*, sitemap.xml
+ *   lab-images/** lives in the ASSETS bucket (taostudio-cases-assets) so the
+ *   edge can serve the 480/1600 rungs without a Worker hop when requested via
+ *   https://assets-cases.taostudioai.com/lab-images/...
+ *
+ * APIs: /api/translate (BigModel glm-4-flash, key in TRANSLATE_API_KEY),
+ * plus the legacy /api/analytics/* and /api/hermes/content handlers kept for
+ * the agent pipeline.
  */
 import {
   authorizeAnalyticsSummaryRequest,
@@ -32,103 +38,12 @@ import {
   isAuthorizedHermesRequest,
 } from "../src/server/hermes-content-core.mjs";
 
-const HTML_CACHE = "public, max-age=0, must-revalidate";
+const APEX = "taostudioai.com";
+const REDIRECT_HOSTS = new Set(["cases.taostudioai.com", "www.taostudioai.com"]);
 
-/* ------------------------------------------------------------------ */
-/* Case images: private B2 bucket behind a signing proxy               */
-/* (faithful port of api/img-case.js — the bucket stays private)        */
-/* ------------------------------------------------------------------ */
-const B2_BUCKET = "taostudio-img";
-const B2_REGION = "us-east-005";
-const B2_HOST = `s3.${B2_REGION}.backblazeb2.com`;
-const ALLOWED_KEY = /^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/;
-const TEXT = new TextEncoder();
-
-async function sha256Hex(data) {
-  const buf = await crypto.subtle.digest("SHA-256", typeof data === "string" ? TEXT.encode(data) : data);
-  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
-}
-
-async function hmac256(key, data) {
-  const keyBytes = typeof key === "string" ? TEXT.encode(key) : new Uint8Array(key);
-  const cryptoKey = await crypto.subtle.importKey("raw", keyBytes, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  return crypto.subtle.sign("HMAC", cryptoKey, typeof data === "string" ? TEXT.encode(data) : data);
-}
-
-/** SigV4 query-presigned GET URL for one object (60s expiry). */
-async function presignB2Get(objectKey, env, expires = 60) {
-  const amzDate = new Date().toISOString().replace(/[:-]|\.\d{3}/g, "");
-  const dateStamp = amzDate.slice(0, 8);
-  const scope = `${dateStamp}/${B2_REGION}/s3/aws4_request`;
-  const params = new URLSearchParams({
-    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
-    "X-Amz-Credential": `${env.B2_STORE_KEY_ID}/${scope}`,
-    "X-Amz-Date": amzDate,
-    "X-Amz-Expires": String(expires),
-    "X-Amz-SignedHeaders": "host",
-  });
-  const canonicalRequest = [
-    "GET",
-    `/${B2_BUCKET}/${objectKey}`,
-    params.toString(),
-    `host:${B2_HOST}\n`,
-    "host",
-    "UNSIGNED-PAYLOAD",
-  ].join("\n");
-  const stringToSign = ["AWS4-HMAC-SHA256", amzDate, scope, await sha256Hex(canonicalRequest)].join("\n");
-  const kDate = await hmac256(`AWS4${env.B2_STORE_APP_KEY}`, dateStamp);
-  const kRegion = await hmac256(kDate, B2_REGION);
-  const kService = await hmac256(kRegion, "s3");
-  const kSigning = await hmac256(kService, "aws4_request");
-  const signature = [...new Uint8Array(await hmac256(kSigning, stringToSign))]
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-  params.set("X-Amz-Signature", signature);
-  return `https://${B2_HOST}/${B2_BUCKET}/${objectKey}?${params.toString()}`;
-}
-
-async function serveCaseImage(request, env, ctx) {
-  const url = new URL(request.url);
-  const key = url.pathname.slice("/images/cases/".length);
-  if (!ALLOWED_KEY.test(key)) {
-    return new Response("bad key", { status: 400, headers: { "Cache-Control": "no-store" } });
-  }
-  if (!env.B2_STORE_KEY_ID || !env.B2_STORE_APP_KEY) {
-    return new Response("store credentials not configured", { status: 503, headers: { "Cache-Control": "no-store" } });
-  }
-
-  // Edge cache: B2 is the origin, each object should be fetched once per POP.
-  const cache = caches.default;
-  const cacheKey = new Request(url.toString(), { method: "GET" });
-  const cached = await cache.match(cacheKey);
-  if (cached) {
-    return request.method === "HEAD" ? new Response(null, { status: 200, headers: cached.headers }) : cached;
-  }
-
-  const fetchObject = async (objectKey) =>
-    fetch(await presignB2Get(objectKey, env), { cf: { cacheTtl: 0 } });
-
-  let upstream = await fetchObject(`cases/${key}`);
-  // Byte-identical duplicate 1280 rungs are trimmed from the bucket
-  // (scripts/trim-duplicate-1280.mjs) — serve the 960 bytes instead.
-  if (upstream.status === 404) {
-    const m = key.match(/^(.+)-1280\.webp$/);
-    if (m) upstream = await fetchObject(`cases/${m[1]}-960.webp`);
-  }
-  if (!upstream.ok || !upstream.body) {
-    return new Response(null, { status: upstream.status === 404 ? 404 : 502, headers: { "Cache-Control": "no-store" } });
-  }
-
-  const headers = new Headers({
-    "Content-Type": upstream.headers.get("content-type") || "application/octet-stream",
-    "Cache-Control": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=2592000",
-    "Access-Control-Allow-Origin": "*",
-    "Cross-Origin-Resource-Policy": "cross-origin",
-  });
-  const response = new Response(request.method === "HEAD" ? null : upstream.body, { status: 200, headers });
-  if (request.method === "GET") ctx.waitUntil(cache.put(cacheKey, response.clone()));
-  return response;
-}
+const HTML_CACHE = "public, max-age=300, stale-while-revalidate=86400";
+const IMMUTABLE = "public, max-age=31536000, immutable";
+const NO_STORE = "no-store";
 
 const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
@@ -137,35 +52,19 @@ const SECURITY_HEADERS = {
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
 };
 
-/** Same table as the old vercel.json `headers` block. */
+/** Mirrors the gallery's old vercel.json `headers` block. */
 function cacheControlFor(path) {
-  if (path.startsWith("/assets/") || path.startsWith("/fonts/")) {
-    return "public, max-age=31536000, immutable";
-  }
-  if (path.startsWith("/images/") || path.startsWith("/uploads/") || path.startsWith("/lab-images/")) {
-    return "public, max-age=86400, s-maxage=86400, stale-while-revalidate=2592000";
-  }
-  if (path.startsWith("/data/prompts/")) {
-    return "public, max-age=86400";
-  }
-  if (/^\/data\/cases-[^/]*\.json$/.test(path) || path === "/data/filter-options.json") {
-    return "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
-  }
-  if (path === "/sitemap.xml" || path === "/robots.txt" || path === "/favicon.svg") {
-    return path === "/favicon.svg" ? "public, max-age=86400" : "public, max-age=600, s-maxage=3600";
-  }
-  if (path === "/admin" || path === "/admin.html" || path.startsWith("/admin/")) {
-    return "no-store";
-  }
+  if (path === "/sw.js") return "public, max-age=0, must-revalidate";
+  if (path === "/offline.html") return "public, max-age=300, stale-while-revalidate=86400";
+  if (path.startsWith("/data/")) return IMMUTABLE;
+  if (path.startsWith("/images/") || path.startsWith("/lab-images/") || path.startsWith("/uploads/")) return IMMUTABLE;
+  if (path === "/sitemap.xml" || path === "/robots.txt") return "public, max-age=600, s-maxage=3600";
   return HTML_CACHE;
 }
 
 function withHeaders(path, extra = {}) {
   const headers = new Headers(SECURITY_HEADERS);
   headers.set("Cache-Control", cacheControlFor(path));
-  if (path === "/admin" || path === "/admin.html" || path.startsWith("/admin/")) {
-    headers.set("X-Robots-Tag", "noindex, nofollow");
-  }
   for (const [k, v] of Object.entries(extra)) headers.set(k, v);
   return headers;
 }
@@ -207,20 +106,33 @@ async function tryKeys(bucket, keys) {
 async function serveStatic(request, env, url) {
   const path = url.pathname;
 
-  // Prompt data lives in the assets bucket (kept out of the site bucket).
-  if (path.startsWith("/data/prompts/")) {
-    const rest = path.slice("/data/prompts/".length);
-    const hit = await tryKeys(env.ASSETS, [`prompts/${rest}`]);
+  // lab 的 480/1600 图层在 assets 桶（同 key 路径），与图库图片共用一个桶。
+  if (path.startsWith("/lab-images/") || path.startsWith("/uploads/")) {
+    const hit = await tryKeys(env.ASSETS, [path.slice(1)]);
     if (hit) return objectToResponse(hit.obj, path, request);
     return notFound(env, path, request);
   }
 
-  // lab-images/ and uploads/ were uploaded to the assets bucket (same key path),
-  // so /images-cases traffic and these never share a bucket.
-  if (path.startsWith("/lab-images/") || path.startsWith("/uploads/")) {
-    const hit = await tryKeys(env.ASSETS, [path.slice(1), `${path.slice(1)}index.html`]);
-    if (hit) return objectToResponse(hit.obj, path, request);
-    return notFound(env, path, request);
+  // 4K 原图（taostudio-lab 桶，1,770 个 lab/.../*.webp）。走同源是为了让
+  // 《下载 4K 原图》按钮能用 <a download> / fetch+blob（跨域时会被浏览器忽略）。
+  if (path.startsWith("/lab-orig/")) {
+    const key = path.slice("/lab-orig/".length);
+    if (!/^lab\/[A-Za-z0-9/_.-]+\.(webp|png|jpg|jpeg)$/.test(key) || key.includes("..")) {
+      return new Response("bad key", { status: 400, headers: { "Cache-Control": NO_STORE } });
+    }
+    const obj = await env.LAB.get(key);
+    if (!obj) return notFound(env, path, request);
+    const headers = withHeaders(path, {
+      ETag: obj.httpEtag,
+      "Last-Modified": obj.uploaded.toUTCString(),
+      "Content-Type": obj.httpMetadata?.contentType || "image/webp",
+      "Cache-Control": IMMUTABLE,
+      "Content-Disposition": `attachment; filename="${key.split("/").pop()}"`,
+    });
+    const inm = request.headers.get("if-none-match");
+    if (inm && INM_MATCH(inm, obj.httpEtag)) return new Response(null, { status: 304, headers });
+    if (request.method === "HEAD") return new Response(null, { status: 200, headers });
+    return new Response(obj.body, { status: 200, headers });
   }
 
   const key = path.replace(/^\/+/, "");
@@ -231,33 +143,132 @@ async function serveStatic(request, env, url) {
 
   const hit = await tryKeys(env.SITE, keys);
   if (hit) return objectToResponse(hit.obj, path, request);
-
-  // SPArity: unknown case slugs fall back to the client shell, like the
-  // old vercel.json rewrite /case/:slug* -> /spa.
-  if (path.startsWith("/case/")) {
-    const spa = await env.SITE.get("spa/index.html");
-    if (spa) {
-      const headers = withHeaders(path, { ETag: spa.httpEtag, Vary: "Accept-Encoding" });
-      headers.set("Content-Type", "text/html; charset=utf-8");
-      if (request.method === "HEAD") return new Response(null, { status: 200, headers });
-      return new Response(spa.body, { status: 200, headers });
-    }
-  }
   return notFound(env, path, request);
 }
 
 async function notFound(env, path, request) {
   const page = await env.SITE.get("404.html");
   const headers = withHeaders(path, {});
-  headers.set("Cache-Control", "no-store");
+  headers.set("Cache-Control", NO_STORE);
   if (!page) return new Response("Not Found", { status: 404, headers });
   headers.set("Content-Type", "text/html; charset=utf-8");
   if (request.method === "HEAD") return new Response(null, { status: 404, headers });
   return new Response(page.body, { status: 404, headers });
 }
 
+/** 410 Gone:内容已永久移除（旧的案例库 / 模板 / 后台），比 404 更快去索引。 */
+function gone(path) {
+  const safe = path.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const body = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>内容已下线｜桃子AI画廊</title><meta name="robots" content="noindex,follow"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fbfaf7;color:#211b16;font:15px/1.7 system-ui,-apple-system,"Noto Sans SC",sans-serif}main{max-width:34em;padding:32px 24px;text-align:center}a{color:#7a2d19}code{background:rgba(33,27,22,.06);padding:1px 5px;border-radius:5px;word-break:break-all}</style></head><body><main><h1 style="font-size:22px;margin:0 0 10px">这个页面已经下线</h1><p>旧站的内容已整体迁移：现在是 <b>桃子AI画廊</b>（作品）和 <b>4K 实验室</b>（原图+提示词）。</p><p><code>${safe}</code></p><p><a href="/">回画廊首页</a> · <a href="/lab/">去 4K 实验室</a></p></main></body></html>`;
+  return new Response(body, {
+    status: 410,
+    headers: {
+      ...SECURITY_HEADERS,
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+      "X-Robots-Tag": "noindex, follow",
+    },
+  });
+}
+
 /* ------------------------------------------------------------------ */
-/* API: adapters around the Vercel-style handlers                      */
+/* /api/translate — on-demand prompt translation (was tools/vercel_api) */
+/* ------------------------------------------------------------------ */
+const SYSTEM_PROMPTS = {
+  en2zh:
+    "你是专业的 AI 绘画提示词翻译。把用户给出的英文提示词忠实翻译成简体中文。" +
+    "要求：保留原有分段、换行和列表结构；规格参数（如 3:4、16:9、--ar）与人名等专有名词保留原文；" +
+    "引号内要绘制进画面的文字一并翻译；不要解释、不要添加任何注释，只输出译文。",
+  zh2en:
+    "你是专业的 AI 绘画提示词翻译。把用户给出的中文提示词忠实翻译成英文。" +
+    "要求：保留原有分段、换行和列表结构；规格参数（如 3:4、16:9、--ar）与人名等专有名词保留原文；" +
+    "译文应是自然、可直接用于图像生成模型的英文提示词；不要解释、不要添加任何注释，只输出译文。",
+};
+
+function isMostlyCJK(text) {
+  const sample = [...String(text || "")].filter((c) => !/\s/.test(c));
+  if (!sample.length) return false;
+  let cjk = 0;
+  for (const c of sample) {
+    const cp = c.codePointAt(0);
+    if ((cp >= 0x4e00 && cp <= 0x9fff) || (cp >= 0x3400 && cp <= 0x4dbf)) cjk++;
+  }
+  return cjk / sample.length > 0.3;
+}
+
+const json = (status, payload, extra = {}) =>
+  new Response(JSON.stringify(payload), {
+    status,
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": NO_STORE, ...extra },
+  });
+
+async function apiTranslate(request, env) {
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { Allow: "POST, OPTIONS" } });
+  if (request.method !== "POST") return json(405, { error: "method not allowed" }, { Allow: "POST, OPTIONS" });
+
+  const origin = request.headers.get("origin") || "";
+  if (origin) {
+    let originHost = "";
+    try {
+      originHost = new URL(origin).host;
+    } catch {
+      originHost = "";
+    }
+    const ok =
+      originHost === new URL(request.url).host ||
+      /(^|\.)taostudioai\.com$/.test(originHost) ||
+      /^(127\.0\.0\.1|localhost)(:\d+)?$/.test(originHost);
+    if (!ok) return json(403, { error: "forbidden origin" });
+  }
+
+  let body = {};
+  try {
+    body = await request.json();
+  } catch {
+    return json(400, { error: "bad json" });
+  }
+  const text = body?.text;
+  const id = body?.id;
+  if (typeof text !== "string" || !text.trim() || text.length > 4096) return json(400, { error: "bad text" });
+  if (typeof id !== "undefined" && (typeof id !== "string" || !/^[\w-]{1,120}$/.test(id))) {
+    return json(400, { error: "bad id" });
+  }
+  const apiKey = env.TRANSLATE_API_KEY;
+  if (!apiKey) return json(503, { error: "translation not configured" });
+
+  const direction = /[\u3040-\u30ff]/.test(text) ? "en2zh" : isMostlyCJK(text) ? "zh2en" : "en2zh";
+  const model = env.TRANSLATE_MODEL || "glm-4-flash";
+  let translated = "";
+  for (let attempt = 0; attempt < 2 && !translated; attempt++) {
+    try {
+      const resp = await fetch("https://open.bigmodel.cn/api/paas/v4/chat/completions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model,
+          temperature: 0.2,
+          messages: [
+            { role: "system", content: SYSTEM_PROMPTS[direction] },
+            { role: "user", content: text },
+          ],
+        }),
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        translated = (data.choices?.[0]?.message?.content || "").trim();
+      } else if (resp.status === 429) {
+        await new Promise((r) => setTimeout(r, 1500));
+      }
+    } catch {
+      // retry once
+    }
+  }
+  if (!translated) return json(502, { error: "translate failed" });
+  return json(200, { t: translated, dir: direction, id: id || null, model });
+}
+
+/* ------------------------------------------------------------------ */
+/* API adapters around the Vercel-style handlers (analytics / hermes)  */
 /* ------------------------------------------------------------------ */
 
 async function buildReq(request) {
@@ -268,8 +279,7 @@ async function buildReq(request) {
     const ip = request.headers.get("cf-connecting-ip");
     if (ip) headers["x-real-ip"] = ip;
   }
-  const body =
-    request.method === "GET" || request.method === "HEAD" ? undefined : await request.text();
+  const body = request.method === "GET" || request.method === "HEAD" ? undefined : await request.text();
   return {
     method: request.method,
     headers,
@@ -303,7 +313,7 @@ function makeRes() {
 function sendJson(res, status, payload) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", NO_STORE);
   res.setHeader("X-Robots-Tag", "noindex, nofollow");
   res.end(JSON.stringify(payload));
 }
@@ -312,8 +322,10 @@ async function apiCollect(request, env) {
   const req = await buildReq(request);
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: { Allow: "POST, OPTIONS" } });
   if (req.method !== "POST") {
-    const headers = new Headers({ Allow: "POST, OPTIONS", "Content-Type": "application/json" });
-    return new Response(JSON.stringify({ ok: false, error: { code: "METHOD_NOT_ALLOWED" } }), { status: 405, headers });
+    return new Response(JSON.stringify({ ok: false, error: { code: "METHOD_NOT_ALLOWED" } }), {
+      status: 405,
+      headers: { Allow: "POST, OPTIONS", "Content-Type": "application/json" },
+    });
   }
   let body = {};
   try {
@@ -328,22 +340,28 @@ async function apiCollect(request, env) {
     const result = await handleCollectPageView({ body, headers: req.headers, env, fetchImpl: fetch });
     return new Response(JSON.stringify(result), {
       status: 202,
-      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
+      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": NO_STORE },
     });
-  } catch (error) {
+  } catch {
     // Collect must never break a page view: swallow and answer 202.
     return new Response(JSON.stringify({ ok: false, error: { code: "COLLECT_FAILED" } }), {
       status: 202,
-      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
+      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": NO_STORE },
     });
   }
 }
 
 async function apiSummary(request, env) {
   const req = await buildReq(request);
-  const headers = new Headers({ "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" });
+  const headers = new Headers({
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": NO_STORE,
+    "X-Robots-Tag": "noindex, nofollow",
+  });
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: new Headers({ Allow: "GET, OPTIONS" }) });
-  if (req.method !== "GET") return new Response(JSON.stringify({ ok: false, error: { code: "METHOD_NOT_ALLOWED" } }), { status: 405, headers });
+  if (req.method !== "GET") {
+    return new Response(JSON.stringify({ ok: false, error: { code: "METHOD_NOT_ALLOWED" } }), { status: 405, headers });
+  }
   try {
     const auth = authorizeAnalyticsSummaryRequest({ headers: req.headers, env });
     if (auth && auth.ok === false) {
@@ -408,24 +426,46 @@ async function apiHermes(request, env) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    const host = url.hostname;
     const path = url.pathname;
 
+    // One canonical origin: cases./www. -> apex (path + query preserved).
+    if (REDIRECT_HOSTS.has(host)) {
+      return new Response(null, {
+        status: 301,
+        headers: { Location: `https://${APEX}${path}${url.search}`, "Cache-Control": "public, max-age=3600" },
+      });
+    }
+
+    if (path === "/api/translate") return apiTranslate(request, env);
     if (path === "/api/analytics/collect") return apiCollect(request, env);
     if (path === "/api/analytics/summary") return apiSummary(request, env);
     if (path === "/api/hermes/content") return apiHermes(request, env);
-    if (path.startsWith("/api/")) {
-      return new Response(JSON.stringify({ ok: false, error: { code: "NOT_FOUND" } }), {
-        status: 404,
-        headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
-      });
+    if (path.startsWith("/api/")) return json(404, { ok: false, error: { code: "NOT_FOUND" } });
+
+    // Retired surface of the old React app: keep the URLs honest (410), only
+    // /cases (a listing) is worth redirecting to the new home.
+    if (path === "/cases" || path === "/cases/") {
+      return new Response(null, { status: 301, headers: { Location: "/", "Cache-Control": "public, max-age=3600" } });
+    }
+    if (
+      path.startsWith("/case/") ||
+      path === "/case" ||
+      path.startsWith("/category/") ||
+      path.startsWith("/templates") ||
+      path.startsWith("/template/") ||
+      path.startsWith("/admin") ||
+      path.startsWith("/images/cases/") ||
+      path === "/about" ||
+      path === "/sitemap-page"
+    ) {
+      if (request.method === "HEAD") return new Response(null, { status: 410, headers: { "X-Robots-Tag": "noindex, follow" } });
+      return gone(path);
     }
 
     if (request.method !== "GET" && request.method !== "HEAD") {
       return new Response("Method Not Allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
     }
-
-    // Case images live in the private B2 bucket; everything else is in R2.
-    if (path.startsWith("/images/cases/")) return serveCaseImage(request, env, ctx);
 
     return serveStatic(request, env, url);
   },

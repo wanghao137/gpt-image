@@ -1,9 +1,13 @@
-# Cloudflare Worker: taostudioai.com 静态站 + 3 个 API
+# Cloudflare Worker: taostudioai.com 静态站 + API
 # 部署: cd cf-worker && CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=c9bfec... npx wrangler deploy
+#
+# 2026-11-25: 站点换成 桃子AI画廊（原 cases.taostudioai.com）+ /lab 4K 实验室，
+# 源站在 R2 桶 taostudio-gallery（由 tao-image-gallery 仓库的 CI 增量同步）。
+# 旧的 taostudio-site 桶保留不动，回滚只需把 SITE 指回去。
 name = "taostudioai"
 main = "index.js"
 compatibility_date = "2026-11-01"
-# 三个 API 复用 src/server/*.mjs 的核心逻辑，它们用 node:crypto / node:buffer / node:path
+# API 复用 src/server/*.mjs 的核心逻辑，它们用 node:crypto / node:buffer / node:path
 compatibility_flags = ["nodejs_compat"]
 
 [observability]
@@ -11,8 +15,13 @@ enabled = true
 
 [[r2_buckets]]
 binding = "SITE"
-bucket_name = "taostudio-site"
+bucket_name = "taostudio-gallery"
 
 [[r2_buckets]]
 binding = "ASSETS"
 bucket_name = "taostudio-cases-assets"
+
+# 4K 原图（1,770 个 lab/.../*.webp），Worker 以 /lab-orig/* 同源提供下载
+[[r2_buckets]]
+binding = "LAB"
+bucket_name = "taostudio-lab"

@@ -1,42 +1,27 @@
-name: Deploy Cloudflare
+name: Deploy Worker (taostudioai.com)
 
-# Replaces "push to main -> Vercel builds" while the Vercel Hobby team is
-# paused for edgeRequest overage (blocked 2026-11-24, unpause 2026-12-24).
-# Live stack: Cloudflare Worker `taostudioai` + R2 origin, case images still
-# proxied from the private B2 bucket. See cf-worker/index.js for the routing
-# rules and scripts/deploy-cloudflare.mjs for the incremental R2 sync.
+# 2026-11-25 结构：
+#   taostudioai.com = 桃子AI画廊 + /lab（站点源站 = R2 桶 taostudio-gallery，
+#   由 tao-image-gallery 仓库的 Deploy Gallery / MeiGen 采集流水线增量同步）
+#   本仓库只负责 Worker 本身：路由、旧路径 410、/api/translate 等。
 #
-# Deploy shape:
-#   1. full SSG build (same chain Vercel used: scripts/vercel-build.mjs)
-#   2. incremental dist -> R2 (MD5/ETag diff, so steady-state uploads are ~0)
-#   3. wrangler deploy (idempotent; ~10s)
-#
-# Required repository secrets:
-#   R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY
-#   CLOUDFLARE_API_TOKEN   (Workers Scripts:Edit on the account)
-#   CLOUDFLARE_ACCOUNT_ID
-#   B2_STORE_KEY_ID / B2_STORE_APP_KEY  (build-time image pipeline; already set for sync.yml)
-#
-# Worker runtime secrets (B2_STORE_*, KV_REST_API_*, HERMES_*) are set once via
-#   cd cf-worker && npx wrangler secret put <NAME>
-# and are NOT touched by this workflow.
+# 需要的 repository secrets（已配置）：CLOUDFLARE_API_TOKEN、CLOUDFLARE_ACCOUNT_ID
+#   token 需要 Workers Scripts:Edit；R2 绑定在 wrangler.toml 里声明。
 
 on:
   push:
     branches: [main]
+    paths:
+      - "cf-worker/**"
+      - "src/server/**"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  # Serialize deploys; never cancel a run mid-upload (R2 would be left half-updated).
-  group: deploy-cloudflare
+  group: deploy-worker
   cancel-in-progress: false
-
-env:
-  R2_SITE_BUCKET: taostudio-site
-  R2_ASSETS_BUCKET: taostudio-cases-assets
 
 jobs:
   deploy:
@@ -49,31 +34,6 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build (SSG + postbuild)
-        env:
-          VITE_ADMIN_PASSWORD_HASH: ${{ vars.VITE_ADMIN_PASSWORD_HASH }}
-          VITE_ADMIN_REPO_OWNER: ${{ github.repository_owner }}
-          VITE_ADMIN_REPO_NAME: ${{ github.event.repository.name }}
-          VITE_ADMIN_REPO_BRANCH: ${{ github.ref_name }}
-          B2_STORE_KEY_ID: ${{ secrets.B2_STORE_KEY_ID }}
-          B2_STORE_APP_KEY: ${{ secrets.B2_STORE_APP_KEY }}
-          B2_STORE_BUCKET: taostudio-img
-          B2_STORE_REGION: us-east-005
-        run: npm run vercel-build
-
-      - name: Sync dist to R2 (incremental)
-        env:
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        # --prune removes objects that the build no longer produces, but the
-        # script refuses when the artifact count looks truncated.
-        run: node scripts/deploy-cloudflare.mjs --prune
 
       - name: Deploy Worker
         env:
@@ -85,9 +45,21 @@ jobs:
         run: |
           set -e
           fail=0
-          for p in / /cases /lab /sitemap.xml /robots.txt /data/cases-home.json /images/cases/case100003-1280.webp; do
-            code=$(curl -s -o /dev/null -m 30 -w "%{http_code}" "https://taostudioai.com$p" || echo 000)
-            echo "$p -> $code"
-            [ "$code" = "200" ] || fail=1
-          done
-          if [ "$fail" = "1" ]; then echo "smoke test failed"; exit 1; fi
+          check() { # path expected
+            code=$(curl -s -o /dev/null -m 30 -w "%{http_code}" "https://taostudioai.com$1" || echo 000)
+            echo "$1 -> $code (want $2)"
+            [ "$code" = "$2" ] || fail=1
+          }
+          check / 200
+          check /lab/ 200
+          check /sitemap.xml 200
+          # 旧应用已下线：/case/* 必须 410，/cases 必须 301
+          check /case/anything 410
+          code=$(curl -s -o /dev/null -m 30 -w "%{http_code}" "https://taostudioai.com/cases" || echo 000)
+          echo "/cases -> $code (want 301)"
+          [ "$code" = "301" ] || fail=1
+          # cases 子域收口到主域
+          loc=$(curl -s -o /dev/null -m 30 -w "%{http_code} %{redirect_url}" "https://cases.taostudioai.com/" || echo "000 ")
+          echo "cases -> $loc"
+          case "$loc" in 301*https://taostudioai.com/*) : ;; *) fail=1 ;; esac
+          [ "$fail" = "0" ] || { echo "smoke test failed"; exit 1; }
